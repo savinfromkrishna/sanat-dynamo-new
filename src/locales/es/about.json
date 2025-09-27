@@ -1,0 +1,221 @@
+{
+  "about": {
+    "title": "Acerca de Nosotros - MITOLYN | Suplementos de Salud Premium",
+    "description": "Conoce la misión de MITOLYN de proporcionar suplementos naturales premium para una salud y bienestar óptimos. Descubre nuestra historia, valores y compromiso con la calidad.",
+    "hero": {
+      "badge": "Acerca de MITOLYN",
+      "title": "Transformando Vidas a Través de",
+      "titleHighlight": "Bienestar Premium",
+      "description": "En MITOLYN, creemos que la salud óptima es la base de una vida plena. Nuestra misión es proporcionar suplementos naturales premium respaldados por la ciencia que empoderen a las personas para alcanzar sus objetivos de bienestar."
+    },
+    "story": {
+      "title": "Nuestra Historia",
+      "content": [
+        "Fundada con una pasión por el bienestar natural, MITOLYN surgió del entendimiento de que los estilos de vida modernos a menudo nos dejan agotados de nutrientes esenciales y energía. Nuestros fundadores, un equipo de entusiastas de la salud y expertos en nutrición, reconocieron la necesidad de suplementos premium que pudieran cerrar esta brecha.",
+        "Tras años de investigación y desarrollo, creamos formulaciones que combinan la sabiduría antigua con la ciencia moderna. Cada producto MITOLYN está cuidadosamente diseñado para apoyar los procesos naturales de tu cuerpo, ayudándote a lograr un manejo de peso sostenible y una vitalidad mejorada.",
+        "Hoy en día, miles de clientes satisfechos confían en MITOLYN como su aliado en su viaje de bienestar, experimentando resultados transformadores que van más allá de la simple pérdida de peso."
+      ]
+    },
+    "values": {
+      "title": "Nuestros Valores Fundamentales",
+      "description": "Estos principios guían todo lo que hacemos, desde el desarrollo de productos hasta el servicio al cliente.",
+      "items": [
+        {
+          "title": "Excelencia Natural",
+          "description": "Obtenemos solo los mejores ingredientes naturales, asegurando pureza y potencia en cada cápsula.",
+          "icon": "Leaf"
+        },
+        {
+          "title": "Seguridad Primero",
+          "description": "Todos nuestros productos se someten a pruebas rigurosas y se fabrican en instalaciones registradas por la FDA.",
+          "icon": "Shield"
+        },
+        {
+          "title": "Respaldo Científico",
+          "description": "Cada formulación está basada en investigaciones revisadas por pares y ciencia nutricional probada.",
+          "icon": "Award"
+        },
+        {
+          "title": "Centrado en el Cliente",
+          "description": "Tu éxito es nuestro éxito. Estamos comprometidos a apoyar tu viaje de bienestar.",
+          "icon": "Users"
+        },
+        {
+          "title": "Transparencia",
+          "description": "Creemos en una comunicación honesta sobre ingredientes, beneficios y expectativas realistas.",
+          "icon": "Heart"
+        },
+        {
+          "title": "Aseguramiento de Calidad",
+          "description": "Desde la obtención hasta el empaque, mantenemos los más altos estándares de control de calidad.",
+          "icon": "CheckCircle"
+        }
+      ]
+    },
+    "certifications": {
+      "title": "Calidad en la que Puedes Confiar",
+      "description": "Nuestro compromiso con la excelencia se refleja en nuestras certificaciones y estándares de fabricación.",
+      "items": [
+        {
+          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422484/fda-approved_jrawwr.webp",
+          "alt": "Registrado por la FDA",
+          "label": "Registrado por la FDA"
+        },
+        {
+          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/gmp-certified_z81hqh.webp",
+          "alt": "Certificado GMP",
+          "label": "Certificado GMP"
+        },
+        {
+          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422491/natural_dpkfxs.webp",
+          "alt": "100% Natural",
+          "label": "100% Natural"
+        },
+        {
+          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/made-in-usa_go4j19.webp",
+          "alt": "Hecho en EE.UU.",
+          "label": "Hecho en EE.UU."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Preguntas Frecuentes",
+      "description": "Respuestas a las preguntas más comunes sobre MITOLYN y nuestros suplementos.",
+      "items": [
+        {
+          "question": "¿Son seguros los suplementos de MITOLYN?",
+          "answer": "Sí. Nuestros productos se fabrican en instalaciones registradas por la FDA y certificadas por GMP, y se someten a pruebas de calidad rigurosas. Siempre consulta a tu proveedor de atención médica si tienes condiciones médicas específicas."
+        },
+        {
+          "question": "¿Cuánto tiempo tarda en verse resultados?",
+          "answer": "Muchos clientes reportan sentirse más enérgicos dentro de 1 a 2 semanas. Los resultados visibles varían según el individuo, pero la mayoría ve cambios notables dentro de 4 a 8 semanas con un uso constante y un estilo de vida saludable."
+        },
+        {
+          "question": "¿Son naturales los ingredientes?",
+          "answer": "Priorizamos ingredientes naturales de primera calidad, y cada formulación está respaldada por la ciencia nutricional para garantizar pureza y eficacia."
+        },
+        {
+          "question": "¿Realizan envíos internacionales?",
+          "answer": "Sí, atendemos a clientes en todo el mundo. La disponibilidad y los tiempos de envío pueden variar según la región."
+        }
+      ]
+    }
+  },
+  "reviews": {
+    "title": "Reseñas de Clientes - MITOLYN | Resultados Reales y Testimonios",
+    "description": "Lee reseñas auténticas y historias de éxito de usuarios de MITOLYN. Descubre cómo nuestros suplementos premium han transformado vidas.",
+    "hero": {
+      "badge": "Reseñas de Clientes",
+      "title": "Lo Que Dicen Nuestros Clientes",
+      "description": "Resultados reales de personas reales"
+    },
+    "stats": [
+      {
+        "icon": "Users",
+        "value": "50,000+",
+        "label": "Clientes Satisfechos"
+      },
+      {
+        "icon": "Star",
+        "value": "4.8/5",
+        "label": "Calificación Promedio"
+      },
+      {
+        "icon": "TrendingUp",
+        "value": "92%",
+        "label": "Tasa de Éxito"
+      },
+      {
+        "icon": "Award",
+        "value": "15,000+",
+        "label": "Reseñas de 5 Estrellas"
+      }
+    ],
+    "categories": {
+      "title": "Explora Reseñas por Categoría",
+      "description": "El mismo tema confiable que en la página de inicio. Cambia de categoría para ver testimonios relevantes.",
+      "tabs": [
+        {
+          "value": "weight-loss",
+          "label": "Suplementos para la Pérdida de Peso"
+        },
+        {
+          "value": "energy",
+          "label": "Suplementos de Energía"
+        },
+        {
+          "value": "wellness",
+          "label": "Productos de Bienestar"
+        }
+      ]
+    },
+    "cta": {
+      "title": "¿Listo para Comenzar Tu Transformación?",
+      "description": "Únete a miles de clientes satisfechos que han alcanzado sus objetivos de pérdida de peso con MITOLYN.",
+      "button": "Comprar Ahora",
+      "url": "https://mitolyn-official.com/best-value"
+    },
+    "reviews": [
+      {
+        "name": "Sarah Johnson",
+        "location": "Mumbai, India",
+        "rating": 5,
+        "date": "2 semanas atrás",
+        "title": "¡Resultados Increíbles en Solo 30 Días!",
+        "content": "He probado innumerables suplementos para la pérdida de peso, pero MITOLYN es diferente. En 30 días, perdí 8 kg y me siento más enérgica que nunca. ¡Los ingredientes naturales hacen toda la diferencia!",
+        "verified": true,
+        "product": "Paquete de Mejor Valor MITOLYN"
+      },
+      {
+        "name": "Rajesh Kumar",
+        "location": "Delhi, India",
+        "rating": 5,
+        "date": "1 mes atrás",
+        "title": "Experiencia que Cambia la Vida",
+        "content": "Después de luchar con el peso durante años, MITOLYN me ayudó a perder 15 kg en 3 meses. Mi confianza ha regresado, y me siento más saludable que en décadas. ¡Altamente recomendado!",
+        "verified": true,
+        "product": "Paquete Popular MITOLYN"
+      },
+      {
+        "name": "Priya Sharma",
+        "location": "Bangalore, India",
+        "rating": 5,
+        "date": "3 semanas atrás",
+        "title": "Natural y Efectivo",
+        "content": "Lo que amo de MITOLYN es que es completamente natural. Sin efectos secundarios, solo una pérdida de peso constante y mayor energía. ¡Perdí 6 kg en mi primer mes!",
+        "verified": true,
+        "product": "Paquete Básico MITOLYN"
+      },
+      {
+        "name": "Amit Patel",
+        "location": "Ahmedabad, India",
+        "rating": 4,
+        "date": "2 meses atrás",
+        "title": "Progreso Constante",
+        "content": "MITOLYN ha sido un cambio de juego en mi viaje de pérdida de peso. Los resultados son graduales pero consistentes. He perdido 12 kg en 4 meses y me siento fantástico.",
+        "verified": true,
+        "product": "Paquete de Mejor Valor MITOLYN"
+      },
+      {
+        "name": "Neha Gupta",
+        "location": "Pune, India",
+        "rating": 5,
+        "date": "1 semana atrás",
+        "title": "Superó las Expectativas",
+        "content": "Al principio era escéptica, pero MITOLYN superó mis expectativas. No solo perdí peso, sino que mi salud general mejoró significativamente. ¡Gracias MITOLYN!",
+        "verified": true,
+        "product": "Paquete Popular MITOLYN"
+      },
+      {
+        "name": "Vikram Singh",
+        "location": "Jaipur, India",
+        "rating": 5,
+        "date": "5 días atrás",
+        "title": "Perfecto para Profesionales Ocupados",
+        "content": "Como profesional ocupado, necesitaba algo que funcionara sin interrumpir mi rutina. MITOLYN encajó perfectamente en mi estilo de vida y me ayudó a perder 10 kg sin esfuerzo.",
+        "verified": true,
+        "product": "Paquete Básico MITOLYN"
+      }
+    ]
+  }
+}

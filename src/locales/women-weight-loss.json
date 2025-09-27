@@ -1,0 +1,80 @@
+{
+  "womenWeightLoss": {
+    "title": "Best Weight Loss Supplements for Women",
+    "description": "Support metabolism, balance energy, and control cravings. These women-focused options are gentle, effective, and designed to help you feel confident and consistent.",
+    "productsSection": {
+      "title": "Top Picks for Women",
+      "products": [
+        {
+          "id": 2,
+          "name": "MITOLYN - Best Value",
+          "price": "$39",
+          "originalPrice": "$1182",
+          "total": "$234",
+          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422492/mitolyn-offer_azyjj3.png",
+          "supply": "180 Days Supply",
+          "link": "https://mitolyn-official.com/best-value",
+          "badge": "BEST VALUE - 6 BOTTLES",
+          "badgeColor": "bg-gradient-to-r from-red-500 to-red-600",
+          "shipping": "* Free Shipping",
+          "rating": 4.9,
+          "reviews": 5632,
+          "premiumPrice": "₹2,424 for Premium Member",
+          "discount": "16% off"
+        },
+        {
+          "id": 1,
+          "name": "MITOLYN - Basic Package",
+          "price": "$49",
+          "originalPrice": "$197",
+          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
+          "supply": "30 Days Supply",
+          "link": "https://mitolyn-official.com/basic-package",
+          "badge": "BASIC - 1 BOTTLE",
+          "badgeColor": "bg-gradient-to-r from-teal-500 to-teal-600",
+          "shipping": "+ Small Shipping Fee",
+          "rating": 4.8,
+          "reviews": 2847,
+          "premiumPrice": "₹2,424 for Premium Member",
+          "discount": "16% off"
+        },
+        {
+          "id": 3,
+          "name": "MITOLYN - Popular",
+          "price": "$59",
+          "originalPrice": "$591",
+          "total": "$177",
+          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
+          "supply": "90 Days Supply",
+          "link": "https://mitolyn-official.com/popular",
+          "badge": "POPULAR - 3 BOTTLES",
+          "badgeColor": "bg-gradient-to-r from-teal-600 to-teal-700",
+          "shipping": "+ Small Shipping Fee",
+          "rating": 4.7,
+          "reviews": 3921,
+          "premiumPrice": "₹2,424 for Premium Member",
+          "discount": "16% off"
+        }
+      ]
+    },
+    "trustBadges": {
+      "items": [
+        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/made-in-usa_go4j19.webp", "alt": "Made in USA" },
+        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422484/fda-approved_jrawwr.webp", "alt": "FDA Registered Facility" },
+        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422491/natural_dpkfxs.webp", "alt": "100% Natural" }
+      ]
+    },
+    "benefits": {
+      "title": "Why Women Choose These",
+      "items": [
+        "Supports metabolism and stable daily energy",
+        "Helps control cravings and late-night snacking",
+        "Gentle, non-jittery support for visible progress"
+      ]
+    },
+    "common": {
+      "buyNow": "Buy Now",
+      "premiumMemberSuffix": "for Premium Member"
+    }
+  }
+}

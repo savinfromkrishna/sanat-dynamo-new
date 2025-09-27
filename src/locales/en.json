@@ -1,0 +1,112 @@
+{
+  "seo": {
+    "title": "Mitolyn Official | Natural Weight Loss Supplements",
+    "description": "Discover Mitolyn's natural weight loss supplements designed to help you achieve your health and fitness goals effectively.",
+    "keywords": "weight loss, supplements, Mitolyn, natural health, fitness, wellness"
+  },
+  "categories": {
+    "weightLoss": "Weight Loss",
+    "energy": "Energy",
+    "wellness": "Wellness",
+    "bundles": "Bundles"
+  },
+  "nav": {
+    "home": "Home",
+    "products": "Products",
+    "reviews": "Reviews",
+    "about": "About"
+  },
+  "products": {
+    "weight-loss": [
+      {
+        "id": "basic",
+        "slug":"metolyn-1",
+        "name": "MITOLYN Basic Package",
+        "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
+        "price": "₹2,499",
+        "originalPrice": "₹2,999",
+        "discount": "16% off",
+        "duration": "30 Days Supply",
+        "badge": null,
+        "url": "https://mitolyn-official.com/basic-package"
+      },
+      {
+        "id": "popular",
+        "slug":"metolyn-1",
+        "name": "MITOLYN Popular Package",
+        "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
+        "price": "₹4,449",
+        "originalPrice": "₹5,999",
+        "discount": "25% off",
+        "duration": "90 Days Supply",
+        "badge": { "text": "Most Popular", "color": "orange" },
+        "url": "https://mitolyn-official.com/popular"
+      },
+      {
+        "id": "best-value",
+        "slug":"metolyn-1",
+        "name": "MITOLYN Best Value Package",
+        "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
+        "price": "₹6,899",
+        "originalPrice": "₹7,999",
+        "discount": "14% off",
+        "duration": "180 Days Supply",
+        "badge": { "text": "Best Value", "color": "emerald" },
+        "url": "https://mitolyn-official.com/best-value"
+      }
+    ],
+    "energy": [
+      {
+        "id": "power-boost",
+        "slug":"metolyn-1",
+        "name": "ENERGYMAX Power Boost",
+        "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
+        "price": "₹1,899",
+        "originalPrice": "₹2,299",
+        "discount": "17% off",
+        "duration": "30 Days Supply",
+        "badge": { "text": "Natural Energy", "color": "blue" },
+        "url": "https://mitolyn-official.com/energy-boost"
+      },
+      {
+        "id": "endurance",
+        "slug":"metolyn-1",
+        "name": "ENERGYMAX Endurance Pack",
+        "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
+        "price": "₹5,499",
+        "originalPrice": "₹6,999",
+        "discount": "21% off",
+        "duration": "90 Days Supply",
+        "badge": { "text": "Long-lasting", "color": "blue" },
+        "url": "https://mitolyn-official.com/endurance-pack"
+      },
+      {
+        "id": "ultimate",
+        "slug":"metolyn-1",
+        "name": "ENERGYMAX Ultimate Bundle",
+        "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
+        "price": "₹8,999",
+        "originalPrice": "₹11,999",
+        "discount": "25% off",
+        "duration": "180 Days Supply",
+        "badge": { "text": "Premium", "color": "blue" },
+        "url": "https://mitolyn-official.com/ultimate-bundle"
+      }
+    ],
+    "wellness": [],
+    "bundles": []
+  },
+  "footer": {
+    "description": "Transform your health with Mitolyn - the natural weight loss supplement that works.",
+    "quickLinks": "Quick Links",
+    "customerService": "Customer Service",
+    "legal": "Legal",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "refundPolicy": "Refund Policy",
+    "contactUs": "Contact Us",
+    "faq": "FAQ",
+    "shipping": "Shipping Info",
+    "allRightsReserved": "All rights reserved."
+  }
+}

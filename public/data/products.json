@@ -1,0 +1,18 @@
+{
+  "products": [
+    {
+      "id": "mitolyn-1",
+      "category": "energy-supplements",
+      "name": "Mitolyn Energy Complex",
+      "price": 59,
+      "compareAt": 79,
+      "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
+      "thumbnail": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
+      "badges": ["Best Seller", "Vegan"],
+      "rating": 4.7,
+      "reviewsCount": 128,
+      "shortDescription": "Advanced cellular support for clean, sustained energy.",
+      "bullets": ["Supports mitochondrial function", "No jitters, no crash", "Research-backed ingredients"]
+    }
+  ]
+}

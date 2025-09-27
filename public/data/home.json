@@ -1,0 +1,29 @@
+{
+  "hero": {
+    "title": "Elevate your energy",
+    "subtitle": "Clinically-inspired supplements to power your day.",
+    "ctaText": "Get Started",
+    "ctaHref": "/energy-supplements",
+    "image": "/placeholder.svg?height=640&width=960"
+  },
+  "highlights": [
+    {
+      "title": "Made in USA",
+      "icon": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/made-in-usa_go4j19.webp",
+      "text": "Quality ingredients and rigorous standards."
+    },
+    { "title": "GMP Certified", "icon": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/gmp-certified_z81hqh.webp", "text": "Manufactured in certified facilities." },
+    { "title": "Natural", "icon": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422491/natural_dpkfxs.webp", "text": "Thoughtful formulas and clean profiles." }
+  ],
+  "sections": [
+    {
+      "id": "benefits",
+      "title": "Why choose our supplements?",
+      "items": [
+        { "title": "Sustained Energy", "text": "Steady focus without the crash." },
+        { "title": "Cellular Support", "text": "Targeted mitochondrial nutrition." },
+        { "title": "Transparent Labels", "text": "No proprietary blends—ever." }
+      ]
+    }
+  ]
+}

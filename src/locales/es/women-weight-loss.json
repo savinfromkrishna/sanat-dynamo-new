@@ -1,0 +1,80 @@
+{
+  "womenWeightLoss": {
+    "title": "Mejores Suplementos para la Pérdida de Peso para Mujeres",
+    "description": "Apoya el metabolismo, equilibra la energía y controla los antojos. Estas opciones enfocadas en mujeres son suaves, efectivas y diseñadas para ayudarte a sentirte segura y consistente.",
+    "productsSection": {
+      "title": "Mejores Opciones para Mujeres",
+      "products": [
+        {
+          "id": 2,
+          "name": "MITOLYN - Mejor Valor",
+          "price": "$39",
+          "originalPrice": "$1182",
+          "total": "$234",
+          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422492/mitolyn-offer_azyjj3.png",
+          "supply": "Suministro para 180 Días",
+          "link": "https://mitolyn-official.com/best-value",
+          "badge": "MEJOR VALOR - 6 BOTELLAS",
+          "badgeColor": "bg-gradient-to-r from-red-500 to-red-600",
+          "shipping": "* Envío Gratis",
+          "rating": 4.9,
+          "reviews": 5632,
+          "premiumPrice": "₹2,424 para Miembros Premium",
+          "discount": "16% de descuento"
+        },
+        {
+          "id": 1,
+          "name": "MITOLYN - Paquete Básico",
+          "price": "$49",
+          "originalPrice": "$197",
+          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
+          "supply": "Suministro para 30 Días",
+          "link": "https://mitolyn-official.com/basic-package",
+          "badge": "BÁSICO - 1 BOTELLA",
+          "badgeColor": "bg-gradient-to-r from-teal-500 to-teal-600",
+          "shipping": "+ Pequeña tarifa de envío",
+          "rating": 4.8,
+          "reviews": 2847,
+          "premiumPrice": "₹2,424 para Miembros Premium",
+          "discount": "16% de descuento"
+        },
+        {
+          "id": 3,
+          "name": "MITOLYN - Popular",
+          "price": "$59",
+          "originalPrice": "$591",
+          "total": "$177",
+          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
+          "supply": "Suministro para 90 Días",
+          "link": "https://mitolyn-official.com/popular",
+          "badge": "POPULAR - 3 BOTELLAS",
+          "badgeColor": "bg-gradient-to-r from-teal-600 to-teal-700",
+          "shipping": "+ Pequeña tarifa de envío",
+          "rating": 4.7,
+          "reviews": 3921,
+          "premiumPrice": "₹2,424 para Miembros Premium",
+          "discount": "16% de descuento"
+        }
+      ]
+    },
+    "trustBadges": {
+      "items": [
+        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/made-in-usa_go4j19.webp", "alt": "Hecho en EE.UU." },
+        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422484/fda-approved_jrawwr.webp", "alt": "Instalación Registrada en la FDA" },
+        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422491/natural_dpkfxs.webp", "alt": "100% Natural" }
+      ]
+    },
+    "benefits": {
+      "title": "Por Qué las Mujeres Escogen Estos",
+      "items": [
+        "Apoya el metabolismo y la energía diaria estable",
+        "Ayuda a controlar los antojos y los refrigerios nocturnos",
+        "Apoyo suave y sin nerviosismo para un progreso visible"
+      ]
+    },
+    "common": {
+      "buyNow": "Comprar Ahora",
+      "premiumMemberSuffix": "para Miembros Premium"
+    }
+  }
+}

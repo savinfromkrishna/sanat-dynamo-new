@@ -1,0 +1,221 @@
+{
+  "about": {
+    "title": "About Us - MITOLYN | Premium Health Supplements",
+    "description": "Learn about MITOLYN's mission to provide premium natural supplements for optimal health and wellness. Discover our story, values, and commitment to quality.",
+    "hero": {
+      "badge": "About MITOLYN",
+      "title": "Transforming Lives Through",
+      "titleHighlight": "Premium Wellness",
+      "description": "At MITOLYN, we believe that optimal health is the foundation of a fulfilling life. Our mission is to provide scientifically-backed, premium natural supplements that empower individuals to achieve their wellness goals."
+    },
+    "story": {
+      "title": "Our Story",
+      "content": [
+        "Founded with a passion for natural wellness, MITOLYN emerged from the understanding that modern lifestyles often leave us depleted of essential nutrients and energy. Our founders, a team of health enthusiasts and nutrition experts, recognized the need for premium supplements that could bridge this gap.",
+        "After years of research and development, we created formulations that combine ancient wisdom with modern science. Each MITOLYN product is carefully crafted to support your body's natural processes, helping you achieve sustainable weight management and enhanced vitality.",
+        "Today, thousands of satisfied customers trust MITOLYN as their partner in their wellness journey, experiencing transformative results that go beyond just weight loss."
+      ]
+    },
+    "values": {
+      "title": "Our Core Values",
+      "description": "These principles guide everything we do, from product development to customer service.",
+      "items": [
+        {
+          "title": "Natural Excellence",
+          "description": "We source only the finest natural ingredients, ensuring purity and potency in every capsule.",
+          "icon": "Leaf"
+        },
+        {
+          "title": "Safety First",
+          "description": "All our products undergo rigorous testing and are manufactured in FDA-registered facilities.",
+          "icon": "Shield"
+        },
+        {
+          "title": "Scientific Backing",
+          "description": "Every formulation is based on peer-reviewed research and proven nutritional science.",
+          "icon": "Award"
+        },
+        {
+          "title": "Customer-Centric",
+          "description": "Your success is our success. We're committed to supporting your wellness journey.",
+          "icon": "Users"
+        },
+        {
+          "title": "Transparency",
+          "description": "We believe in honest communication about ingredients, benefits, and realistic expectations.",
+          "icon": "Heart"
+        },
+        {
+          "title": "Quality Assurance",
+          "description": "From sourcing to packaging, we maintain the highest standards of quality control.",
+          "icon": "CheckCircle"
+        }
+      ]
+    },
+    "certifications": {
+      "title": "Quality You Can Trust",
+      "description": "Our commitment to excellence is reflected in our certifications and manufacturing standards.",
+      "items": [
+        {
+          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422484/fda-approved_jrawwr.webp",
+          "alt": "FDA Registered",
+          "label": "FDA Registered"
+        },
+        {
+          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/gmp-certified_z81hqh.webp",
+          "alt": "GMP Certified",
+          "label": "GMP Certified"
+        },
+        {
+          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422491/natural_dpkfxs.webp",
+          "alt": "100% Natural",
+          "label": "100% Natural"
+        },
+        {
+          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/made-in-usa_go4j19.webp",
+          "alt": "Made in USA",
+          "label": "Made in USA"
+        }
+      ]
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "description": "Answers to the most common questions about MITOLYN and our supplements.",
+      "items": [
+        {
+          "question": "Are MITOLYN supplements safe?",
+          "answer": "Yes. Our products are manufactured in FDA-registered, GMP-certified facilities and undergo rigorous quality testing. Always consult your healthcare provider if you have specific medical conditions."
+        },
+        {
+          "question": "How long does it take to see results?",
+          "answer": "Many customers report feeling more energetic within 1–2 weeks. Visible results vary by individual, but most see noticeable changes within 4–8 weeks of consistent use and a healthy lifestyle."
+        },
+        {
+          "question": "Are the ingredients natural?",
+          "answer": "We prioritize premium, naturally derived ingredients, and every formulation is backed by nutritional science for purity and efficacy."
+        },
+        {
+          "question": "Do you ship internationally?",
+          "answer": "Yes, we serve customers worldwide. Availability and shipping times may vary by region."
+        }
+      ]
+    }
+  },
+  "reviews": {
+    "title": "Customer Reviews - MITOLYN | Real Results & Testimonials",
+    "description": "Read authentic customer reviews and success stories from MITOLYN users. Discover how our premium supplements have transformed lives.",
+    "hero": {
+      "badge": "Customer Reviews",
+      "title": "What Our Customers Say",
+      "description": "Real results from real people"
+    },
+    "stats": [
+      {
+        "icon": "Users",
+        "value": "50,000+",
+        "label": "Happy Customers"
+      },
+      {
+        "icon": "Star",
+        "value": "4.8/5",
+        "label": "Average Rating"
+      },
+      {
+        "icon": "TrendingUp",
+        "value": "92%",
+        "label": "Success Rate"
+      },
+      {
+        "icon": "Award",
+        "value": "15,000+",
+        "label": "5-Star Reviews"
+      }
+    ],
+    "categories": {
+      "title": "Browse Reviews by Category",
+      "description": "Same trusted theme as the homepage. Switch categories to see relevant testimonials.",
+      "tabs": [
+        {
+          "value": "weight-loss",
+          "label": "Weight Loss Supplements"
+        },
+        {
+          "value": "energy",
+          "label": "Energy Supplements"
+        },
+        {
+          "value": "wellness",
+          "label": "Wellness Products"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to Start Your Transformation?",
+      "description": "Join thousands of satisfied customers who have achieved their weight loss goals with MITOLYN.",
+      "button": "Shop Now",
+      "url": "https://mitolyn-official.com/best-value"
+    },
+    "reviews": [
+      {
+        "name": "Sarah Johnson",
+        "location": "Mumbai, India",
+        "rating": 5,
+        "date": "2 weeks ago",
+        "title": "Amazing Results in Just 30 Days!",
+        "content": "I've tried countless weight loss supplements, but MITOLYN is different. Within 30 days, I lost 8 kg and feel more energetic than ever. The natural ingredients make all the difference!",
+        "verified": true,
+        "product": "MITOLYN Best Value Package"
+      },
+      {
+        "name": "Rajesh Kumar",
+        "location": "Delhi, India",
+        "rating": 5,
+        "date": "1 month ago",
+        "title": "Life-Changing Experience",
+        "content": "After struggling with weight for years, MITOLYN helped me lose 15 kg in 3 months. My confidence is back, and I feel healthier than I have in decades. Highly recommend!",
+        "verified": true,
+        "product": "MITOLYN Popular Package"
+      },
+      {
+        "name": "Priya Sharma",
+        "location": "Bangalore, India",
+        "rating": 5,
+        "date": "3 weeks ago",
+        "title": "Natural and Effective",
+        "content": "What I love about MITOLYN is that it's completely natural. No side effects, just steady weight loss and increased energy. Lost 6 kg in my first month!",
+        "verified": true,
+        "product": "MITOLYN Basic Package"
+      },
+      {
+        "name": "Amit Patel",
+        "location": "Ahmedabad, India",
+        "rating": 4,
+        "date": "2 months ago",
+        "title": "Steady Progress",
+        "content": "MITOLYN has been a game-changer for my weight loss journey. The results are gradual but consistent. I've lost 12 kg over 4 months and feel fantastic.",
+        "verified": true,
+        "product": "MITOLYN Best Value Package"
+      },
+      {
+        "name": "Neha Gupta",
+        "location": "Pune, India",
+        "rating": 5,
+        "date": "1 week ago",
+        "title": "Exceeded Expectations",
+        "content": "I was skeptical at first, but MITOLYN delivered beyond my expectations. Not only did I lose weight, but my overall health improved significantly. Thank you MITOLYN!",
+        "verified": true,
+        "product": "MITOLYN Popular Package"
+      },
+      {
+        "name": "Vikram Singh",
+        "location": "Jaipur, India",
+        "rating": 5,
+        "date": "5 days ago",
+        "title": "Perfect for Busy Professionals",
+        "content": "As a busy professional, I needed something that worked without disrupting my routine. MITOLYN fit perfectly into my lifestyle and helped me lose 10 kg effortlessly.",
+        "verified": true,
+        "product": "MITOLYN Basic Package"
+      }
+    ]
+  }
+}

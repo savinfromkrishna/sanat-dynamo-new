@@ -1,0 +1,131 @@
+{
+  "products": {
+    "metolyn-1": {
+      "slug": "metolyn-1",
+      "name": "Mitolyn – 1 Botella",
+      "subtitle": "Paquete Básico",
+      "price": 49,
+      "originalPrice": 197,
+      "perBottleSuffix": "/Por Botella",
+      "supply": "Suministro de 30 Días",
+      "rating": 4.9,
+      "reviews": 2847,
+      "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
+      "gallery": [
+        "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
+        "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
+        "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422492/mitolyn-offer_azyjj3.png"
+      ],
+      "badges": [
+        { "text": "Básico", "color": "bg-blue-500" },
+        { "text": "Garantía de 90 Días", "color": "bg-emerald-600" },
+        { "text": "Instalación Registrada por la FDA", "color": "bg-gray-900" }
+      ],
+      "affiliateUrl": "https://mitolyn-official.com/paquete-basico",
+      "benefits": [
+        "Apoya el metabolismo para una quema de grasa constante",
+        "Ayuda a controlar el apetito y reducir los antojos",
+        "Aumenta la energía diaria sin nerviosismo",
+        "Respaldado por miles de reseñas positivas"
+      ],
+      "ingredients": [
+        { "name": "Compuestos que apoyan las mitocondrias", "note": "Apunta a la energía celular" },
+        { "name": "Botánicos naturales", "note": "Sin OGM, sin estimulantes" },
+        { "name": "Complejo antioxidante", "note": "Ayuda a reducir el estrés oxidativo" }
+      ],
+      "howToUse": [
+        "Toma 1 cápsula diaria con un vaso de agua",
+        "Mejor tomarlo por la mañana con comida",
+        "Mantente hidratado durante todo el día"
+      ],
+      "bonuses": [
+        { "title": "Detox de Inicio de 1 Día (Digital)", "image": "/images/bonus-detox.jpeg" },
+        { "title": "Renueva Tu Cuerpo (Digital)", "image": "/images/bonus-renew.jpeg" }
+      ],
+      "trust": [
+        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422484/fda-approved_jrawwr.webp", "alt": "Instalación Registrada por la FDA" },
+        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/gmp-certified_z81hqh.webp", "alt": "Certificado GMP" },
+        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/made-in-usa_go4j19.webp", "alt": "Hecho en EE.UU." },
+        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422491/natural_dpkfxs.webp", "alt": "100% Natural" }
+      ],
+      "faqs": [
+        {
+          "q": "¿Cuándo veré resultados?",
+          "a": "La mayoría de los usuarios notan una mejora en la energía y un mejor control del apetito dentro de 1-2 semanas, con cambios visibles generalmente en 4-8 semanas."
+        },
+        {
+          "q": "¿Es seguro y natural?",
+          "a": "Mitolyn se produce en una instalación registrada por la FDA y certificada por GMP, y utiliza ingredientes sin OGM. Siempre consulta a tu médico si tienes alguna condición."
+        },
+        {
+          "q": "¿Necesito hacer dieta para obtener resultados?",
+          "a": "Una dieta equilibrada y actividad ligera mejoran los resultados, pero la fórmula está diseñada para apoyar el progreso sin medidas extremas."
+        },
+        {
+          "q": "¿Hay una garantía de devolución de dinero?",
+          "a": "Sí. Cada pedido está cubierto por una garantía de devolución de dinero de 90 días."
+        }
+      ],
+      "seo": {
+        "title": "Mitolyn – 1 Botella | Paquete Básico | Oficial",
+        "description": "Compra Mitolyn 1 Botella – Paquete Básico. Apoyo natural para la pérdida de peso que impulsa el metabolismo y la energía. Instalación registrada por la FDA. Garantía de 90 días.",
+        "keywords": [
+          "Mitolyn",
+          "Mitolyn 1 botella",
+          "Mitolyn paquete básico",
+          "suplemento para pérdida de peso",
+          "apoyo al metabolismo"
+        ]
+      },
+      "productReviews": [
+        {
+          "id": 1,
+          "name": "Sarah M.",
+          "location": "California, EE.UU.",
+          "rating": 5,
+          "text": "Después de solo unas semanas, sentí un gran aumento de energía y finalmente comencé a perder peso persistente. Mitolyn se siente natural y efectivo.",
+          "verified": true
+        },
+        {
+          "id": 2,
+          "name": "James R.",
+          "location": "Texas, EE.UU.",
+          "rating": 5,
+          "text": "He probado muchos suplementos; Mitolyn es el primero que realmente ayudó con la pérdida de grasa sin nerviosismo. También me siento más alerta mentalmente.",
+          "verified": true
+        },
+        {
+          "id": 3,
+          "name": "Linda P.",
+          "location": "Florida, EE.UU.",
+          "rating": 5,
+          "text": "Escéptica al principio, pero ya he perdido peso notable en 2 meses. Energía arriba, antojos abajo. Muy recomendable.",
+          "verified": true
+        }
+      ]
+    }
+  },
+  "common": {
+    "productNotFound": "Producto No Encontrado",
+    "mainImage": "imagen principal",
+    "viewImage": "Ver imagen",
+    "thumbnail": "Miniatura",
+    "reviews": "reseñas",
+    "youSave": "Ahorras",
+    "orderNow": "Ordenar Ahora",
+    "moneyBackGuarantee": "Garantía de Devolución de 90 Días",
+    "shipsFromUSA": "Enviado desde EE.UU.",
+    "ingredients": "Ingredientes",
+    "howToUse": "Cómo Usar",
+    "freeBonuses": "Bonos Gratis Incluidos",
+    "faqs": "Preguntas Frecuentes",
+    "whyWeightLossSupplements": "¿Por Qué Considerar Suplementos para la Pérdida de Peso?",
+    "whyWeightLossBenefits": [
+      "Apoya el metabolismo y los niveles de energía",
+      "Controla el apetito y reduce los antojos",
+      "Mejora la quema de grasa para resultados visibles",
+      "Complementa una dieta saludable y actividad física"
+    ],
+    "whyWeightLossDescription": "Fórmulas naturales como Mitolyn están diseñadas para apoyar tus objetivos, no para reemplazar una alimentación nutritiva y ejercicio."
+  }
+}

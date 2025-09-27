@@ -1,0 +1,131 @@
+{
+  "products": {
+    "metolyn-1": {
+      "slug": "metolyn-1",
+      "name": "Mitolyn – 1 Bottle",
+      "subtitle": "Basic Package",
+      "price": 49,
+      "originalPrice": 197,
+      "perBottleSuffix": "/Per Bottle",
+      "supply": "30 Days Supply",
+      "rating": 4.9,
+      "reviews": 2847,
+      "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
+      "gallery": [
+        "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
+        "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
+        "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422492/mitolyn-offer_azyjj3.png"
+      ],
+      "badges": [
+        { "text": "Basic", "color": "bg-blue-500" },
+        { "text": "90-Day Guarantee", "color": "bg-emerald-600" },
+        { "text": "FDA Registered Facility", "color": "bg-gray-900" }
+      ],
+      "affiliateUrl": "https://mitolyn-official.com/basic-package",
+      "benefits": [
+        "Supports metabolism for steady fat-burning",
+        "Helps control appetite and reduce cravings",
+        "Boosts daily energy without jitters",
+        "Backed by thousands of positive reviews"
+      ],
+      "ingredients": [
+        { "name": "Mitochondria-supporting compounds", "note": "Targets cellular energy" },
+        { "name": "Natural botanicals", "note": "Non-GMO, stimulant-free" },
+        { "name": "Antioxidant complex", "note": "Helps reduce oxidative stress" }
+      ],
+      "howToUse": [
+        "Take 1 capsule daily with a glass of water",
+        "Best taken in the morning with food",
+        "Stay hydrated throughout the day"
+      ],
+      "bonuses": [
+        { "title": "1-Day Kickstart Detox (Digital)", "image": "/images/bonus-detox.jpeg" },
+        { "title": "Renew You (Digital)", "image": "/images/bonus-renew.jpeg" }
+      ],
+      "trust": [
+        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422484/fda-approved_jrawwr.webp", "alt": "FDA Registered Facility" },
+        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/gmp-certified_z81hqh.webp", "alt": "GMP Certified" },
+        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/made-in-usa_go4j19.webp", "alt": "Made in USA" },
+        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422491/natural_dpkfxs.webp", "alt": "100% Natural" }
+      ],
+      "faqs": [
+        {
+          "q": "How soon will I see results?",
+          "a": "Most users notice improved energy and better appetite control within 1–2 weeks, with visible changes typically over 4–8 weeks."
+        },
+        {
+          "q": "Is it safe and natural?",
+          "a": "Mitolyn is produced in an FDA-registered, GMP-certified facility and uses non-GMO ingredients. Always consult your physician if you have a condition."
+        },
+        {
+          "q": "Do I need to diet to get results?",
+          "a": "A balanced diet and light activity enhance results, but the formula is designed to support progress without extreme measures."
+        },
+        {
+          "q": "Is there a money-back guarantee?",
+          "a": "Yes. Every order is covered by a 90-day money-back guarantee."
+        }
+      ],
+      "seo": {
+        "title": "Mitolyn – 1 Bottle | Basic Package | Official",
+        "description": "Buy Mitolyn 1 Bottle – Basic Package. Natural weight loss support that boosts metabolism & energy. FDA-registered facility. 90-day guarantee.",
+        "keywords": [
+          "Mitolyn",
+          "Mitolyn 1 bottle",
+          "Mitolyn basic package",
+          "weight loss supplement",
+          "metabolism support"
+        ]
+      },
+      "productReviews": [
+        {
+          "id": 1,
+          "name": "Sarah M.",
+          "location": "California, USA",
+          "rating": 5,
+          "text": "After just a few weeks, I felt a huge boost in energy and finally started losing stubborn weight. Mitolyn feels natural and effective.",
+          "verified": true
+        },
+        {
+          "id": 2,
+          "name": "James R.",
+          "location": "Texas, USA",
+          "rating": 5,
+          "text": "I’ve tried many supplements; Mitolyn is the first that actually helped with fat loss without jitters. I also feel sharper mentally.",
+          "verified": true
+        },
+        {
+          "id": 3,
+          "name": "Linda P.",
+          "location": "Florida, USA",
+          "rating": 5,
+          "text": "Skeptical at first, but I’ve already lost noticeable weight over 2 months. Energy up, cravings down. Highly recommend.",
+          "verified": true
+        }
+      ]
+    }
+  },
+  "common": {
+    "productNotFound": "Product Not Found",
+    "mainImage": "main image",
+    "viewImage": "View image",
+    "thumbnail": "Thumbnail",
+    "reviews": "reviews",
+    "youSave": "You save",
+    "orderNow": "Order Now",
+    "moneyBackGuarantee": "90-Day Money-Back Guarantee",
+    "shipsFromUSA": "Ships from USA",
+    "ingredients": "Ingredients",
+    "howToUse": "How to Use",
+    "freeBonuses": "Free Bonuses Included",
+    "faqs": "Frequently Asked Questions",
+    "whyWeightLossSupplements": "Why Consider Weight Loss Supplements?",
+    "whyWeightLossBenefits": [
+      "Support metabolism and energy levels",
+      "Control appetite and reduce cravings",
+      "Enhance fat-burning for visible results",
+      "Complement healthy diet and activity"
+    ],
+    "whyWeightLossDescription": "Natural formulas like Mitolyn are designed to support your goals, not replace nutritious eating and exercise."
+  }
+}

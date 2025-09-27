@@ -1,0 +1,130 @@
+{
+  "weightLoss": {
+    "title": "Suplementos para la Pérdida de Peso - MITOLYN | Soluciones Naturales",
+    "description": "Descubre los suplementos naturales premium de MITOLYN diseñados para apoyar el metabolismo, controlar el apetito y mejorar la quema de grasa para resultados sostenibles.",
+    "productsSection": {
+      "title": "Mejores Suplementos Naturales para la Pérdida de Peso",
+      "description": "Muchas personas prefieren fórmulas naturales que utilizan ingredientes de origen vegetal o herbal. Los mejores suplementos naturales para la pérdida de peso suelen estar libres de estimulantes agresivos y se centran en apoyar los procesos naturales de quema de grasa del cuerpo.",
+      "products": [
+        {
+          "id": 1,
+          "name": "MITOLYN - Paquete Básico",
+          "price": "$49",
+          "originalPrice": "$197",
+          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
+          "supply": "Suministro para 30 Días",
+          "link": "https://mitolyn-official.com/basic-package",
+          "badge": "BÁSICO - 1 BOTELLA",
+          "badgeColor": "bg-gradient-to-r from-teal-500 to-teal-600",
+          "shipping": "+ Pequeña tarifa de envío",
+          "rating": 4.8,
+          "reviews": 2847,
+          "premiumPrice": "₹2,424 para Miembros Premium",
+          "discount": "16% de descuento"
+        },
+        {
+          "id": 2,
+          "name": "MITOLYN - Mejor Valor",
+          "price": "$39",
+          "originalPrice": "$1182",
+          "total": "$234",
+          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422492/mitolyn-offer_azyjj3.png",
+          "supply": "Suministro para 180 Días",
+          "link": "https://mitolyn-official.com/best-value",
+          "badge": "MEJOR VALOR - 6 BOTELLAS",
+          "badgeColor": "bg-gradient-to-r from-red-500 to-red-600",
+          "shipping": "* Envío Gratis",
+          "popular": true,
+          "rating": 4.9,
+          "reviews": 5632,
+          "premiumPrice": "₹2,424 para Miembros Premium",
+          "discount": "16% de descuento"
+        },
+        {
+          "id": 3,
+          "name": "MITOLYN - Popular",
+          "price": "$59",
+          "originalPrice": "$591",
+          "total": "$177",
+          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
+          "supply": "Suministro para 90 Días",
+          "link": "https://mitolyn-official.com/popular",
+          "badge": "POPULAR - 3 BOTELLAS",
+          "badgeColor": "bg-gradient-to-r from-teal-600 to-teal-700",
+          "shipping": "+ Pequeña tarifa de envío",
+          "rating": 4.7,
+          "reviews": 3921,
+          "premiumPrice": "₹2,424 para Miembros Premium",
+          "discount": "16% de descuento"
+        }
+      ]
+    },
+    "trustBadges": {
+      "items": [
+        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/made-in-usa_go4j19.webp", "alt": "Hecho en EE.UU." },
+        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422484/fda-approved_jrawwr.webp", "alt": "Instalación Registrada en la FDA" },
+        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422491/natural_dpkfxs.webp", "alt": "100% Natural" }
+      ]
+    },
+    "genderSpecific": {
+      "women": {
+        "title": "Mejores Suplementos para la Pérdida de Peso para Mujeres",
+        "description": "Las mujeres a menudo enfrentan desafíos únicos con las hormonas, los antojos y el metabolismo. Los mejores suplementos para la pérdida de peso femenina están diseñados para:",
+        "items": [
+          "Equilibrar la energía durante todo el día",
+          "Apoyar la pérdida de grasa sin dietas extremas",
+          "Enfocarse en áreas difíciles como el abdomen y las caderas"
+        ],
+        "footer": "Si buscas suplementos para la pérdida de peso para mujeres que realmente funcionen, encontrarás opciones cuidadosamente revisadas en esta página, incluyendo Mitolyn."
+      },
+      "men": {
+        "title": "Mejores Suplementos para la Pérdida de Peso para Hombres",
+        "description": "Los hombres generalmente buscan perder grasa mientras mantienen músculo y fuerza. Los mejores suplementos para la pérdida de peso para hombres se centran en:",
+        "items": [
+          "Aumentar el metabolismo",
+          "Incrementar la energía y la resistencia",
+          "Apoyar la preservación del músculo magro"
+        ]
+      }
+    },
+    "faqs": {
+      "title": "Preguntas Frecuentes Sobre Suplementos para la Pérdida de Peso",
+      "items": [
+        {
+          "question": "¿Realmente funcionan los suplementos para la pérdida de peso?",
+          "answer": "Sí, los mejores suplementos para la pérdida de peso pueden apoyar la pérdida de grasa cuando se combinan con una dieta equilibrada y ejercicio regular. Funcionan al aumentar el metabolismo, controlar el apetito y apoyar los procesos naturales de quema de grasa del cuerpo."
+        },
+        {
+          "question": "¿Son más seguros los suplementos naturales?",
+          "answer": "Los mejores suplementos naturales para la pérdida de peso suelen ser más seguros, ya que dependen de ingredientes de origen vegetal y evitan químicos sintéticos agresivos. Las fórmulas naturales tienden a tener menos efectos secundarios y funcionan de manera más suave con el cuerpo."
+        },
+        {
+          "question": "¿Cuáles son los mejores suplementos para la pérdida de peso para mujeres?",
+          "answer": "Las opciones que controlan los antojos, apoyan el metabolismo y equilibran la energía son ideales. Muchas mujeres encuentran éxito con el suplemento Mitolyn, que está específicamente formulado para abordar las necesidades metabólicas únicas de las mujeres."
+        },
+        {
+          "question": "¿Cuáles son los mejores suplementos para la pérdida de peso para hombres?",
+          "answer": "Los mejores suplementos para la pérdida de peso para hombres se centran en la quema de grasa mientras apoyan la energía, la resistencia y la salud muscular. Los hombres suelen beneficiarse de suplementos que aumentan el metabolismo y preservan la masa muscular magra durante la pérdida de peso."
+        },
+        {
+          "question": "¿Cuánto tiempo tarda en verse resultados?",
+          "answer": "La mayoría de las personas notan una mejora en la energía y el control del apetito dentro de las primeras 1-2 semanas, con una pérdida de grasa visible que generalmente ocurre en 4-8 semanas cuando se combina con una dieta adecuada y ejercicio."
+        }
+      ]
+    },
+    "benefits": {
+      "title": "¿Por Qué Considerar Suplementos para la Pérdida de Peso?",
+      "items": [
+        "Apoyar el metabolismo y los niveles de energía",
+        "Controlar el apetito y reducir los antojos",
+        "Mejorar la quema de grasa para resultados visibles",
+        "Ayudar a hombres y mujeres a alcanzar el éxito a largo plazo"
+      ],
+      "footer": "Estos suplementos para la pérdida de peso para mujeres que realmente funcionan y los mejores suplementos para la pérdida de peso para hombres están diseñados para complementar la dieta y el ejercicio, no para reemplazarlos."
+    },
+    "common": {
+      "buyNow": "Comprar Ahora",
+      "premiumMemberSuffix": "para Miembros Premium"
+    }
+  }
+}

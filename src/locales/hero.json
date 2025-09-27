@@ -1,0 +1,216 @@
+{
+  "hero": {
+    "title": "Transform Your Health with",
+    "description": "Discover the power of Mitolyn's natural supplements to boost energy, support weight loss, and enhance overall wellness.",
+    "guarantee": "60-Day Money-Back Guarantee",
+    "fdaRegistered": "FDA Registered Facility",
+    "freeShipping": "Free Shipping Worldwide",
+    "slides": [
+      {
+        "category": "Weight Loss Supplements",
+        "name": "MITOLYN Basic Package",
+        "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
+        "supply": "30 Days Supply",
+        "rating": 4.9,
+        "reviews": 2847,
+        "learnMoreUrl": "https://mitolyn-official.com/learn-more",
+        "buyUrl": "https://mitolyn-official.com/basic-package",
+        "isNew": true
+      },
+      {
+        "category": "Weight Loss Supplements",
+        "name": "MITOLYN Best Value Package",
+        "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422492/mitolyn-offer_azyjj3.png",
+        "supply": "180 Days Supply",
+        "rating": 4.9,
+        "reviews": 5632,
+        "learnMoreUrl": "https://mitolyn-official.com/learn-more",
+        "buyUrl": "https://mitolyn-official.com/best-value",
+        "isNew": true
+      },
+      {
+        "category": "Energy Supplements",
+        "name": "ENERGYMAX Power Boost",
+        "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
+        "supply": "30 Days Supply",
+        "rating": 4.6,
+        "reviews": 1847,
+        "learnMoreUrl": "https://mitolyn-official.com/energy-boost-info",
+        "buyUrl": "https://mitolyn-official.com/energy-boost",
+        "isNew": true
+      },
+      {
+        "category": "Energy Supplements",
+        "name": "ENERGYMAX Endurance Pack",
+        "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
+        "supply": "90 Days Supply",
+        "rating": 4.8,
+        "reviews": 2934,
+        "learnMoreUrl": "https://mitolyn-official.com/endurance-info",
+        "buyUrl": "https://mitolyn-official.com/endurance-pack",
+        "isNew": true
+      }
+    ]
+  },
+  "categories": {
+    "weightLoss": "Weight Loss Supplements",
+    "energy": "Energy Supplements",
+    "weightLossDescription": "Premium natural supplements scientifically formulated for optimal weight loss results",
+    "energyDescription": "Natural energy boosters and performance enhancers for active lifestyle and daily vitality",
+    "products": [
+      {
+        "category": "Weight Loss Supplements",
+        "items": [
+          {
+            "name": "MITOLYN Basic Package",
+            "price": "₹2,499",
+            "originalPrice": "₹2,999",
+            "discount": "16% off",
+            "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
+            "supply": "30 Days Supply",
+            "link": "https://mitolyn-official.com/basic-package",
+            "rating": 4.8,
+            "reviews": 2847,
+            "premiumPrice": "₹2,424",
+            "id": 1,
+            "slug":"metolyn-1"
+          },
+          {
+            "name": "MITOLYN Best Value Package",
+            "price": "₹6,899",
+            "originalPrice": "₹8,099",
+            "discount": "14% off",
+            "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422492/mitolyn-offer_azyjj3.png",
+            "supply": "180 Days Supply",
+            "link": "https://mitolyn-official.com/best-value",
+            "rating": 4.9,
+            "reviews": 5632,
+            "premiumPrice": "₹6,692",
+            "id": 2,
+            "slug":"metolyn-3"
+          },
+          {
+            "name": "MITOLYN Popular Package",
+            "price": "₹4,449",
+            "originalPrice": "₹5,999",
+            "discount": "25% off",
+            "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
+            "supply": "90 Days Supply",
+            "link": "https://mitolyn-official.com/popular",
+            "rating": 4.7,
+            "reviews": 3921,
+            "premiumPrice": "₹4,336",
+            "id": 3,
+            "slug":"metolyn-2"
+          }
+        ]
+      },
+      {
+        "category": "Energy Supplements",
+        "items": [
+          {
+            "name": "ENERGYMAX Power Boost",
+            "price": "₹1,899",
+            "originalPrice": "₹2,299",
+            "discount": "17% off",
+            "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
+            "supply": "30 Days Supply",
+            "link": "https://mitolyn-official.com/energy-boost",
+            "rating": 4.6,
+            "reviews": 1847,
+            "premiumPrice": "₹1,799",
+            "id": 4,
+            "slug":"energymax-1"
+          },
+          {
+            "name": "ENERGYMAX Endurance Pack",
+            "price": "₹5,499",
+            "originalPrice": "₹6,999",
+            "discount": "21% off",
+            "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
+            "supply": "90 Days Supply",
+            "link": "https://mitolyn-official.com/endurance-pack",
+            "rating": 4.8,
+            "reviews": 2934,
+            "premiumPrice": "₹5,299",
+            "id": 5,
+            "slug":"energymax-2"
+          },
+          {
+            "name": "ENERGYMAX Ultimate Bundle",
+            "price": "₹8,999",
+            "originalPrice": "₹11,999",
+            "discount": "25% off",
+            "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422492/mitolyn-offer_azyjj3.png",
+            "supply": "180 Days Supply",
+            "link": "https://mitolyn-official.com/ultimate-bundle",
+            "rating": 4.9,
+            "reviews": 4521,
+            "premiumPrice": "₹8,699",
+            "id": 6,
+            "slug":"energymax-3"
+          }
+        ]
+      }
+    ]
+  },
+  "trust": {
+    "title": "Trusted Quality",
+    "description": "Our products are crafted with the highest standards to ensure safety and efficacy.",
+    "badges": [
+      {
+        "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/made-in-usa_go4j19.webp",
+        "alt": "Made in USA"
+      },
+      {
+        "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422484/fda-approved_jrawwr.webp",
+        "alt": "FDA Registered Facility"
+      },
+      {
+        "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/gmp-certified_z81hqh.webp",
+        "alt": "GMP Certified"
+      },
+      {
+        "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422491/natural_dpkfxs.webp",
+        "alt": "100% Natural"
+      }
+    ]
+  },
+  "reviews": {
+    "title": "What Our Customers Say",
+    "subtitle": "Real stories from real people who transformed their lives with Mitolyn.",
+    "verifiedBuyer": "Verified Buyer",
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Sarah M.",
+        "location": "California, USA",
+        "rating": 5,
+        "text": "After just a few weeks of taking Mitolyn, I noticed a huge boost in my daily energy. I feel lighter, more focused, and the stubborn weight finally started coming off. Highly recommend this supplement!",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "James R.",
+        "location": "Texas, USA",
+        "rating": 5,
+        "text": "I've tried countless supplements for weight loss, but nothing worked until Mitolyn. Not only did it help with fat loss, but I also feel sharper mentally. A real game-changer.",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Linda P.",
+        "location": "Florida, USA",
+        "rating": 5,
+        "text": "I was skeptical at first, but Mitolyn has exceeded my expectations. More energy, better mood, and I've already lost 12 pounds in 2 months. The best part—it feels natural.",
+        "verified": true
+      }
+    ]
+  },
+  "common": {
+    "buyNow": "Buy Now",
+    "learnMore": "Learn More",
+    "addToCart": "Add to Cart",
+    "premiumMemberSuffix": "for Premium Members"
+  }
+}

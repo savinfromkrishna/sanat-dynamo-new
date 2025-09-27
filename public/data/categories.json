@@ -1,0 +1,29 @@
+{
+  "categories": [
+    {
+      "slug": "energy-supplements",
+      "title": "Energy Supplements",
+      "description": "Formulas designed for sustained energy and focus.",
+      "hero": {
+        "heading": "Clean, Sustained Energy",
+        "subheading": "Support your mitochondria for steady, focused days.",
+        "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
+        "imageAlt": "Energy supplement bottle"
+      },
+      "listHeading": "Best Energy Picks",
+      "trustBadges": [
+        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/made-in-usa_go4j19.webp", "alt": "Made in USA" },
+        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/gmp-certified_z81hqh.webp", "alt": "GMP Certified" },
+        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422491/natural_dpkfxs.webp", "alt": "100% Natural" }
+      ],
+      "whyConsider": {
+        "heading": "Why consider our energy line?",
+        "bullets": [
+          { "title": "Steady focus", "description": "No jitters, no crash." },
+          { "title": "Cellular support", "description": "Mitochondrial-first approach." },
+          { "title": "Transparent formulas", "description": "No proprietary blends." }
+        ]
+      }
+    }
+  ]
+}
