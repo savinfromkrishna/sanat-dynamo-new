@@ -1,3 +1,4 @@
+//home
 import { CategoriesSection } from "@/components/home/CategoriesSection"
 import { HomeHeroCarousel } from "@/components/home/homecarouse"
 import { ReviewsSection } from "@/components/home/ReviewsSection"
