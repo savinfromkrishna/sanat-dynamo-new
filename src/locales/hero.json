@@ -14,6 +14,7 @@
         "rating": 4.9,
         "reviews": 2847,
         "learnMoreUrl": "https://mitolyn-official.com/learn-more",
+        "buyNow": "Buy Now",
         "buyUrl": "https://mitolyn-official.com/basic-package",
         "isNew": true
       },
@@ -25,31 +26,12 @@
         "rating": 4.9,
         "reviews": 5632,
         "learnMoreUrl": "https://mitolyn-official.com/learn-more",
+        "buyNow": "Buy Now",
         "buyUrl": "https://mitolyn-official.com/best-value",
         "isNew": true
-      },
-      {
-        "category": "Energy Supplements",
-        "name": "ENERGYMAX Power Boost",
-        "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
-        "supply": "30 Days Supply",
-        "rating": 4.6,
-        "reviews": 1847,
-        "learnMoreUrl": "https://mitolyn-official.com/energy-boost-info",
-        "buyUrl": "https://mitolyn-official.com/energy-boost",
-        "isNew": true
-      },
-      {
-        "category": "Energy Supplements",
-        "name": "ENERGYMAX Endurance Pack",
-        "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
-        "supply": "90 Days Supply",
-        "rating": 4.8,
-        "reviews": 2934,
-        "learnMoreUrl": "https://mitolyn-official.com/endurance-info",
-        "buyUrl": "https://mitolyn-official.com/endurance-pack",
-        "isNew": true
       }
+     
+     
     ]
   },
   "categories": {
@@ -69,11 +51,12 @@
             "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
             "supply": "30 Days Supply",
             "link": "https://mitolyn-official.com/basic-package",
+            "buyNow": "Buy Now",
             "rating": 4.8,
             "reviews": 2847,
             "premiumPrice": "₹2,424",
             "id": 1,
-            "slug":"metolyn-1"
+            "slug": "metolyn-1"
           },
           {
             "name": "MITOLYN Best Value Package",
@@ -83,11 +66,12 @@
             "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422492/mitolyn-offer_azyjj3.png",
             "supply": "180 Days Supply",
             "link": "https://mitolyn-official.com/best-value",
+            "buyNow": "Buy Now",
             "rating": 4.9,
             "reviews": 5632,
             "premiumPrice": "₹6,692",
             "id": 2,
-            "slug":"metolyn-3"
+            "slug": "metolyn-3"
           },
           {
             "name": "MITOLYN Popular Package",
@@ -97,58 +81,12 @@
             "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
             "supply": "90 Days Supply",
             "link": "https://mitolyn-official.com/popular",
+            "buyNow": "Buy Now",
             "rating": 4.7,
             "reviews": 3921,
             "premiumPrice": "₹4,336",
             "id": 3,
-            "slug":"metolyn-2"
-          }
-        ]
-      },
-      {
-        "category": "Energy Supplements",
-        "items": [
-          {
-            "name": "ENERGYMAX Power Boost",
-            "price": "₹1,899",
-            "originalPrice": "₹2,299",
-            "discount": "17% off",
-            "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
-            "supply": "30 Days Supply",
-            "link": "https://mitolyn-official.com/energy-boost",
-            "rating": 4.6,
-            "reviews": 1847,
-            "premiumPrice": "₹1,799",
-            "id": 4,
-            "slug":"energymax-1"
-          },
-          {
-            "name": "ENERGYMAX Endurance Pack",
-            "price": "₹5,499",
-            "originalPrice": "₹6,999",
-            "discount": "21% off",
-            "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
-            "supply": "90 Days Supply",
-            "link": "https://mitolyn-official.com/endurance-pack",
-            "rating": 4.8,
-            "reviews": 2934,
-            "premiumPrice": "₹5,299",
-            "id": 5,
-            "slug":"energymax-2"
-          },
-          {
-            "name": "ENERGYMAX Ultimate Bundle",
-            "price": "₹8,999",
-            "originalPrice": "₹11,999",
-            "discount": "25% off",
-            "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422492/mitolyn-offer_azyjj3.png",
-            "supply": "180 Days Supply",
-            "link": "https://mitolyn-official.com/ultimate-bundle",
-            "rating": 4.9,
-            "reviews": 4521,
-            "premiumPrice": "₹8,699",
-            "id": 6,
-            "slug":"energymax-3"
+            "slug": "metolyn-2"
           }
         ]
       }

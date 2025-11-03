@@ -81,7 +81,7 @@ export function HomeHeroCarousel({ translations }: { translations: any }) {
                           className="text-base px-6"
                           onClick={() => window.open(slide.buyUrl, "_blank")}
                         >
-                          {buyNowText}
+                          {slide.buyNow}
                         </Button>
                         <Button
                           variant="outline"

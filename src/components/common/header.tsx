@@ -67,19 +67,19 @@ const Header = ({ country, locale, translations }: HeaderProps) => {
               </div>
             </div>
 
-            <Link
+            {/* <Link
               href={`/${country}/${locale}/energy-supplements`}
               className="text-gray-700 hover:text-emerald-600 font-medium"
             >
               {t.categories.energy}
-            </Link>
+            </Link> */}
 
-            <Link
+            {/* <Link
               href={`/${country}/${locale}#categories`}
               className="text-gray-700 hover:text-emerald-600 font-medium"
             >
               {t.categories.wellness}
-            </Link>
+            </Link> */}
 
             <Link
               href={`/${country}/${locale}/reviews`}
@@ -98,13 +98,12 @@ const Header = ({ country, locale, translations }: HeaderProps) => {
           {/* Right section */}
           <div className="flex items-center space-x-4">
             <LanguageSwitcher />
-            <Button variant="ghost" size="icon" className="hidden sm:flex text-gray-700 hover:text-emerald-600">
+            <Button variant="ghost" className="hidden sm:flex text-gray-700 hover:text-emerald-600">
               <Search className="h-5 w-5" />
             </Button>
 
             <Button
               variant="ghost"
-              size="icon"
               className="md:hidden text-gray-700 hover:text-emerald-600"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
@@ -154,20 +153,20 @@ const Header = ({ country, locale, translations }: HeaderProps) => {
                 </Link>
               </div>
 
-              <Link
+              {/* <Link
                 href={`/${country}/${locale}/energy-supplements`}
                 className="block text-gray-700 hover:text-emerald-600 font-medium py-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {t.categories.energy}
-              </Link>
-              <Link
+              </Link> */}
+              {/* <Link
                 href={`/${country}/${locale}#categories`}
                 className="block text-gray-700 hover:text-emerald-600 font-medium py-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {t.categories.wellness}
-              </Link>
+              </Link> */}
 
               <Link
                 href={`/${country}/${locale}/reviews`}

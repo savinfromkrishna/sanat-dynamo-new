@@ -14,6 +14,7 @@
         "rating": 4.9,
         "reviews": 2847,
         "learnMoreUrl": "https://mitolyn-official.com/learn-more",
+        "buyNow": "Comprar Ahora",
         "buyUrl": "https://mitolyn-official.com/basic-package",
         "isNew": true
       },
@@ -25,6 +26,7 @@
         "rating": 4.9,
         "reviews": 5632,
         "learnMoreUrl": "https://mitolyn-official.com/learn-more",
+        "buyNow": "Comprar Ahora",
         "buyUrl": "https://mitolyn-official.com/best-value",
         "isNew": true
       },
@@ -36,6 +38,7 @@
         "rating": 4.6,
         "reviews": 1847,
         "learnMoreUrl": "https://mitolyn-official.com/energy-boost-info",
+        "buyNow": "Comprar Ahora",
         "buyUrl": "https://mitolyn-official.com/energy-boost",
         "isNew": true
       },
@@ -47,6 +50,7 @@
         "rating": 4.8,
         "reviews": 2934,
         "learnMoreUrl": "https://mitolyn-official.com/endurance-info",
+        "buyNow": "Comprar Ahora",
         "buyUrl": "https://mitolyn-official.com/endurance-pack",
         "isNew": true
       }
@@ -69,11 +73,12 @@
             "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
             "supply": "Suministro para 30 Días",
             "link": "https://mitolyn-official.com/basic-package",
+            "buyNow": "Comprar Ahora",
             "rating": 4.8,
             "reviews": 2847,
             "premiumPrice": "₹2,424",
             "id": 1,
-            "slug":"metolyn-1"
+            "slug": "metolyn-1"
           },
           {
             "name": "Paquete de Mejor Valor MITOLYN",
@@ -83,11 +88,12 @@
             "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422492/mitolyn-offer_azyjj3.png",
             "supply": "Suministro para 180 Días",
             "link": "https://mitolyn-official.com/best-value",
+            "buyNow": "Comprar Ahora",
             "rating": 4.9,
             "reviews": 5632,
             "premiumPrice": "₹6,692",
             "id": 2,
-            "slug":"metolyn-3"
+            "slug": "metolyn-3"
           },
           {
             "name": "Paquete Popular MITOLYN",
@@ -97,11 +103,12 @@
             "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
             "supply": "Suministro para 90 Días",
             "link": "https://mitolyn-official.com/popular",
+            "buyNow": "Comprar Ahora",
             "rating": 4.7,
             "reviews": 3921,
             "premiumPrice": "₹4,336",
             "id": 3,
-            "slug":"metolyn-2"
+            "slug": "metolyn-2"
           }
         ]
       },
@@ -116,11 +123,12 @@
             "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
             "supply": "Suministro para 30 Días",
             "link": "https://mitolyn-official.com/energy-boost",
+            "buyNow": "Comprar Ahora",
             "rating": 4.6,
             "reviews": 1847,
             "premiumPrice": "₹1,799",
             "id": 4,
-            "slug":"energymax-1"
+            "slug": "energymax-1"
           },
           {
             "name": "ENERGYMAX Paquete de Resistencia",
@@ -130,11 +138,12 @@
             "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
             "supply": "Suministro para 90 Días",
             "link": "https://mitolyn-official.com/endurance-pack",
+            "buyNow": "Comprar Ahora",
             "rating": 4.8,
             "reviews": 2934,
             "premiumPrice": "₹5,299",
             "id": 5,
-            "slug":"energymax-2"
+            "slug": "energymax-2"
           },
           {
             "name": "ENERGYMAX Paquete Ultimate",
@@ -144,11 +153,12 @@
             "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422492/mitolyn-offer_azyjj3.png",
             "supply": "Suministro para 180 Días",
             "link": "https://mitolyn-official.com/ultimate-bundle",
+            "buyNow": "Comprar Ahora",
             "rating": 4.9,
             "reviews": 4521,
             "premiumPrice": "₹8,699",
             "id": 6,
-            "slug":"energymax-3"
+            "slug": "energymax-3"
           }
         ]
       }
@@ -159,19 +169,19 @@
     "description": "Nuestros productos están elaborados con los más altos estándares para garantizar seguridad y eficacia.",
     "badges": [
       {
-        "image": "/made-in-usa.webp",
+        "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/made-in-usa_go4j19.webp",
         "alt": "Hecho en EE.UU."
       },
       {
-        "image": "/fda-approved.webp",
+        "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422484/fda-approved_jrawwr.webp",
         "alt": "Instalación Registrada en la FDA"
       },
       {
-        "image": "/gmp-certified.webp",
+        "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/gmp-certified_z81hqh.webp",
         "alt": "Certificado GMP"
       },
       {
-        "image": "/natural.webp",
+        "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422491/natural_dpkfxs.webp",
         "alt": "100% Natural"
       }
     ]

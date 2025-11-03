@@ -7,7 +7,7 @@ import { getTranslation } from "@/lib/i18n"
 
 export default async function HomePage({ params }: { params: { locale: string } }) {
   const translations = getTranslation(params.locale as "en" | "es")
-  console.log("Translations:", translations) 
+  console.log("Akash Translations:", translations) 
   
   return (
     <div>

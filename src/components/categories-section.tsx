@@ -58,54 +58,54 @@ const categories = [
       },
     ],
   },
-  {
-    icon: Heart,
-    title: "Energy Supplements",
-    description: "Natural energy boosters and performance enhancers for active lifestyle and daily vitality",
-    count: "3 Products",
-    slug: "energy-supplements",
-    products: [
-      {
-        name: "ENERGYMAX Power Boost",
-        price: "₹1,899",
-        originalPrice: "₹2,299",
-        discount: "17% off",
-        image: "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
-        supply: "30 Days Supply",
-        link: "https://mitolyn-official.com/energy-boost",
-        rating: 4.6,
-        reviews: 1847,
-        premiumPrice: "₹1,799",
-        id: 4,
-      },
-      {
-        name: "ENERGYMAX Endurance Pack",
-        price: "₹5,499",
-        originalPrice: "₹6,999",
-        discount: "21% off",
-        image: "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
-        supply: "90 Days Supply",
-        link: "https://mitolyn-official.com/endurance-pack",
-        rating: 4.8,
-        reviews: 2934,
-        premiumPrice: "₹5,299",
-        id: 5,
-      },
-      {
-        name: "ENERGYMAX Ultimate Bundle",
-        price: "₹8,999",
-        originalPrice: "₹11,999",
-        discount: "25% off",
-        image: "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422492/mitolyn-offer_azyjj3.png",
-        supply: "180 Days Supply",
-        link: "https://mitolyn-official.com/ultimate-bundle",
-        rating: 4.9,
-        reviews: 4521,
-        premiumPrice: "₹8,699",
-        id: 6,
-      },
-    ],
-  },
+  // {
+  //   icon: Heart,
+  //   title: "Energy Supplements",
+  //   description: "Natural energy boosters and performance enhancers for active lifestyle and daily vitality",
+  //   count: "3 Products",
+  //   slug: "energy-supplements",
+  //   products: [
+  //     {
+  //       name: "ENERGYMAX Power Boost",
+  //       price: "₹1,899",
+  //       originalPrice: "₹2,299",
+  //       discount: "17% off",
+  //       image: "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
+  //       supply: "30 Days Supply",
+  //       link: "https://mitolyn-official.com/energy-boost",
+  //       rating: 4.6,
+  //       reviews: 1847,
+  //       premiumPrice: "₹1,799",
+  //       id: 4,
+  //     },
+  //     {
+  //       name: "ENERGYMAX Endurance Pack",
+  //       price: "₹5,499",
+  //       originalPrice: "₹6,999",
+  //       discount: "21% off",
+  //       image: "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
+  //       supply: "90 Days Supply",
+  //       link: "https://mitolyn-official.com/endurance-pack",
+  //       rating: 4.8,
+  //       reviews: 2934,
+  //       premiumPrice: "₹5,299",
+  //       id: 5,
+  //     },
+  //     {
+  //       name: "ENERGYMAX Ultimate Bundle",
+  //       price: "₹8,999",
+  //       originalPrice: "₹11,999",
+  //       discount: "25% off",
+  //       image: "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422492/mitolyn-offer_azyjj3.png",
+  //       supply: "180 Days Supply",
+  //       link: "https://mitolyn-official.com/ultimate-bundle",
+  //       rating: 4.9,
+  //       reviews: 4521,
+  //       premiumPrice: "₹8,699",
+  //       id: 6,
+  //     },
+  //   ],
+  // },
 ]
 
 export function CategoriesSection({ showAddToCart = true }: { showAddToCart?: boolean }) {
@@ -178,7 +178,6 @@ export function CategoriesSection({ showAddToCart = true }: { showAddToCart?: bo
               <div className="relative max-w-6xl mx-auto">
                 <Button
                   variant="outline"
-                  size="icon"
                   className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg md:hidden"
                   onClick={scrollPrev}
                 >
@@ -186,7 +185,6 @@ export function CategoriesSection({ showAddToCart = true }: { showAddToCart?: bo
                 </Button>
                 <Button
                   variant="outline"
-                  size="icon"
                   className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg md:hidden"
                   onClick={scrollNext}
                 >
@@ -210,11 +208,10 @@ export function CategoriesSection({ showAddToCart = true }: { showAddToCart?: bo
                               className="absolute top-3 right-3 z-10 p-2 rounded-full bg-white/90 hover:bg-white transition-colors duration-200 shadow-sm"
                             >
                               <Heart
-                                className={`w-4 h-4 ${
-                                  favorites.includes(product.id)
+                                className={`w-4 h-4 ${favorites.includes(product.id)
                                     ? "text-red-500 fill-current"
                                     : "text-gray-400 hover:text-red-400"
-                                }`}
+                                  }`}
                               />
                             </button>
 

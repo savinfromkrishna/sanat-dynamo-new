@@ -48,7 +48,7 @@ export async function generateMetadata({ params }: { params: {
 export default async function WeightLossSupplementsPage({ params }: { params: { country: string; locale: Locale } }) {
   const translations = getTranslation(params.locale)
   const t = translations.weightLoss
-
+  console.log("Translations for Weight Loss Supplements Page:", t)
   return (
     <main className="min-h-screen bg-white">
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
@@ -57,7 +57,6 @@ export default async function WeightLossSupplementsPage({ params }: { params: { 
           <p className="text-center text-gray-600 mb-16 max-w-4xl mx-auto text-xl leading-relaxed">
             {t.productsSection.description}
           </p>
-
           <ProductCards
             products={t.productsSection.products.map((p: any) => ({
               ...p,

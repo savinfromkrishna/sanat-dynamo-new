@@ -55,15 +55,14 @@ export function CategoriesSection({ translations, showAddToCart = true, locale }
               <div className="relative max-w-6xl mx-auto">
                 <Button
                   variant="outline"
-                  size="icon"
                   className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg md:hidden"
                   onClick={scrollPrev}
                 >
                   <ChevronLeft className="h-4 w-4" />
+                  
                 </Button>
                 <Button
                   variant="outline"
-                  size="icon"
                   className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg md:hidden"
                   onClick={scrollNext}
                 >
@@ -161,7 +160,7 @@ export function CategoriesSection({ translations, showAddToCart = true, locale }
                                   window.open(product.link, "_blank")
                                 }}
                               >
-                                {t.common.buyNow}
+                                {product.buyNow}
                               </Button>
                             </div>
                           </CardContent>

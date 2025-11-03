@@ -15,7 +15,7 @@ export default function CategoryReviewsSection({ category, translations }: { cat
   )
 
   return (
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div className="grid p-10 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {reviews.map((review: any) => (
         <Card key={review.name} className="relative overflow-hidden hover:shadow-lg transition-all duration-300">
           <CardContent className="p-6">
