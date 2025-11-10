@@ -86,7 +86,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} className={`${spaceGrotesk.variable} ${dmSans.variable}`}>
-      <body className="min-h-screen flex flex-col">
+      <body data-hydrated="true" className="min-h-screen flex flex-col">
         <Header country={country} locale={locale} translations={translations} />
         <main className="flex-grow">
           <TranslationProvider locale={locale}>{children}</TranslationProvider>

@@ -1,0 +1,79 @@
+{
+  "title": "Everything You Need to Know About MITOLYN",
+  "summary": "MITOLYN is a science-backed mitochondrial health supplement trusted by 50,000+ users. Boost energy, fight fatigue, and age better — naturally.",
+  "knowMore": "Know More",
+  "knowLess": "Show Less",
+  "sections": [
+    {
+      "type": "text",
+      "heading": "How MITOLYN Works",
+      "content": "MITOLYN targets your cells' powerhouses — the mitochondria. By enhancing mitochondrial efficiency, it helps your body produce clean, sustainable energy without crashes.",
+      "link": { "text": "Read the science", "href": "/science" }
+    },
+    {
+      "type": "list",
+      "heading": "Key Ingredients",
+      "content": "MITOLYN contains clinically studied compounds like:",
+      "items": [
+        "PQQ (Pyrroloquinoline Quinone) – promotes new mitochondria",
+        "CoQ10 – supports energy production",
+        "Alpha-Lipoic Acid – powerful antioxidant",
+        "Acetyl-L-Carnitine – improves mental clarity",
+        "Magnesium – essential for ATP synthesis"
+      ],
+      "link": { "text": "View full ingredient list", "href": "/ingredients" }
+    },
+    {
+      "type": "stat",
+      "heading": "Proven Results",
+      "stats": [
+        { "value": "93%", "label": "Reported more energy" },
+        { "value": "87%", "label": "Felt sharper focus" },
+        { "value": "4.8/5", "label": "Average rating" }
+      ]
+    },
+    {
+      "type": "table",
+      "heading": "Compare MITOLYN vs Others",
+      "table": {
+        "headers": ["Feature", "MITOLYN", "Brand X", "Brand Y"],
+        "rows": [
+          ["Mitochondrial Support", "Yes", "No", "Partial"],
+          ["Clinically Studied", "Yes", "No", "No"],
+          ["No Fillers", "Yes", "No", "Yes"],
+          ["30-Day Guarantee", "Yes", "Yes", "No"]
+        ]
+      }
+    },
+    {
+      "type": "quote",
+      "quote": "I used to crash every afternoon. After 2 weeks on MITOLYN, I have steady energy all day. Game changer!",
+      "author": "Sarah K., 42, Teacher",
+      "rating": 5
+    },
+    {
+      "type": "faq",
+      "heading": "Frequently Asked Questions",
+      "faqs": [
+        {
+          "q": "How soon will I feel results?",
+          "a": "Most users report more energy within 7–14 days. Full benefits in 30 days."
+        },
+        {
+          "q": "Is MITOLYN safe?",
+          "a": "Yes. All ingredients are GRAS, third-party tested, and made in FDA-registered facilities."
+        },
+        {
+          "q": "Can I take it with coffee?",
+          "a": "Absolutely. MITOLYN works with or without caffeine."
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "heading": "Ready to Feel Energized?",
+      "content": "Join 50,000+ happy customers. Try MITOLYN risk-free for 30 days.",
+      "button": { "text": "Shop Now", "href": "/shop" }
+    }
+  ]
+}

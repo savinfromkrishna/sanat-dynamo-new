@@ -12,9 +12,7 @@
   },
   "nav": {
     "home": "Home",
-    "products": "Products",
-    "reviews": "Reviews",
-    "about": "About"
+    "products": "Products"
   },
   "products": {
     "weight-loss": [

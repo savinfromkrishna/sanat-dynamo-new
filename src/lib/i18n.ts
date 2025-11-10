@@ -18,6 +18,10 @@ import enWomenWeightLoss from "@/locales/women-weight-loss.json";
 import esWomenWeightLoss from "@/locales/es/women-weight-loss.json";
 import enProducts from "@/locales/product.json";
 import esProducts from "@/locales/es/product.json";
+import enKnowMore from "@/locales/know-more.json";
+import esKnowMore from "@/locales/es/know-more.json";
+import enproductKnowMore from "@/locales/product-know-more.json";
+import esproductKnowMore from "@/locales/es/product-know-more.json";
 export function getTranslation(locale: Locale): Translations {
   const mainTranslations = locale === "es" ? esMain : enMain;
   const heroTranslations = locale === "es" ? esHero : enHero;
@@ -26,13 +30,17 @@ export function getTranslation(locale: Locale): Translations {
   const weightLossTranslations = locale === "es" ? esWeightLoss : enWeightLoss;
   const womenWeightLossTranslations = locale === "es" ? esWomenWeightLoss : enWomenWeightLoss;
   const productTranslations = locale === "es" ? esProducts : enProducts;
+  const knowMore = locale === "es" ? esKnowMore : enKnowMore
+  const productKnowMore = locale === "es" ? esproductKnowMore : enproductKnowMore
   const merged = {
     ...mainTranslations,
     ...heroTranslations,
     ...aboutTranslations,
     ...weightLossTranslations,
     ...womenWeightLossTranslations,
-    ...productTranslations
+    ...productTranslations,
+    knowMore,
+    productKnowMore
   };
   console.log("Merged translations:", merged);
   return merged;

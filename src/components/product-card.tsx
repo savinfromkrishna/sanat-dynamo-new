@@ -5,6 +5,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Heart, Star } from "lucide-react";
 import CTAButton from "./cta-button";
 import Link from "next/link";
+import useEmblaCarousel from "embla-carousel-react";
+import { useCallback } from "react";
 
 interface Product {
   id: string;
@@ -18,7 +20,6 @@ interface Product {
   premiumPrice: string;
   supply: string;
   link: string;
-  // Remove slug from the interface since it’s not in the data
 }
 
 interface ProductCardsProps {
@@ -26,68 +27,164 @@ interface ProductCardsProps {
   buyNowLabel: string;
 }
 
-export default function ProductCards({ products, buyNowLabel }: ProductCardsProps) {
-  return (
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {products.map((product) => (
-        <Link href={product.link} key={product.id}>
-          <Card className="group bg-white rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-200 overflow-hidden w-full max-w-xs mx-auto">
-            <div className="relative">
-              <button
-                onClick={() => {}}
-                className="absolute top-3 right-3 z-10 p-2 rounded-full bg-white/90 hover:bg-white transition-colors duration-200 shadow-sm"
-              >
-                <Heart className="w-4 h-4 text-gray-400 hover:text-red-400" />
-              </button>
+function chunkIntoSlides(products: Product[]) {
+  const slides: Product[][] = [];
+  for (let i = 0; i < products.length; i += 6) {
+    slides.push(products.slice(i, i + 6));
+  }
+  return slides;
+}
 
-              <div className="h-40 p-3 flex items-center justify-center bg-gray-50">
-                <Image
-                  src={product.image || "/placeholder.svg"}
-                  alt={product.name}
-                  width={120}
-                  height={140}
-                  className="object-contain max-h-full"
-                />
-              </div>
+function ProductCard({ product, buyNowLabel }: { product: Product; buyNowLabel: string }) {
+  return (
+    <div className="w-full h-full"> {/* Wrapper to prevent Link from breaking layout */}
+      <Card className="group bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-200 border border-gray-200 overflow-hidden w-full h-full flex flex-col">
+        {/* Image + Heart */}
+        <div className="relative">
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              // Add your wishlist logic here later
+            }}
+            className="absolute top-2 right-2 z-10 p-1.5 rounded-full bg-white/90 hover:bg-white transition-colors shadow-sm"
+          >
+            <Heart className="w-4 h-4 text-gray-500 hover:text-red-500 transition-colors" />
+          </button>
+
+          <div className="h-36 p-3 flex items-center justify-center bg-gray-50">
+            <Image
+              src={product.image || "/placeholder.svg"}
+              alt={product.name}
+              width={100}
+              height={110}
+              className="object-contain max-h-full"
+            />
+          </div>
+        </div>
+
+        {/* Content */}
+        <CardContent className="p-3 flex-1 flex flex-col">
+          {/* Rating */}
+          <div className="flex items-center gap-2 mb-2">
+            <div className="flex items-center gap-1 bg-teal-50 px-2 py-1 rounded text-sm">
+              <span className="font-bold text-teal-700">{product.rating}</span>
+              <Star className="w-3 h-3 text-teal-500 fill-current" />
+            </div>
+            <span className="text-xs text-gray-600">{product.reviews.toLocaleString()} reviews</span>
+          </div>
+
+          {/* Name */}
+          <h3 className="font-semibold text-gray-900 text-sm line-clamp-2 mb-2 leading-tight">
+            {product.name}
+          </h3>
+
+          {/* Pricing */}
+          <div className="flex-1">
+            <div className="flex items-center gap-2 mb-1">
+              <span className="text-base font-bold text-gray-900">{product.price}</span>
+              <span className="text-xs text-gray-500 line-through">{product.originalPrice}</span>
+              <span className="text-xs font-medium text-green-600 bg-green-50 px-2 py-0.5 rounded">
+                {product.discount}
+              </span>
             </div>
 
-            <CardContent className="p-3 h-60 flex flex-col">
-              <div className="flex items-center gap-2 mb-2">
-                <div className="flex items-center gap-1 bg-teal-50 px-2 py-1 rounded-md">
-                  <span className="text-sm font-semibold text-teal-700">{product.rating}</span>
-                  <Star className="w-3 h-3 text-teal-500 fill-current" />
-                </div>
-                <span className="text-xs text-gray-600">{product.reviews.toLocaleString()} reviews</span>
-              </div>
+            <div className="flex items-center gap-1 text-xs text-orange-600 mb-1">
+              <Star className="w-3 h-3 text-orange-500 fill-current" />
+              <span className="font-medium">{product.premiumPrice}</span>
+            </div>
 
-              <h3 className="text-sm font-semibold text-gray-900 mb-2 leading-tight h-10 flex items-start">
-                {product.name}
-              </h3>
+            <div className="text-xs text-gray-600 font-medium">{product.supply}</div>
+          </div>
 
-              <div className="mb-3 flex-1">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-lg font-bold text-gray-900">{product.price}</span>
-                  <span className="text-sm text-gray-500 line-through">{product.originalPrice}</span>
-                  <span className="text-xs font-medium text-green-600 bg-green-50 px-2 py-1 rounded">
-                    {product.discount}
-                  </span>
-                </div>
-
-                <div className="flex items-center gap-1 text-xs text-orange-600 mb-2">
-                  <Star className="w-3 h-3 text-orange-500 fill-current" />
-                  <span className="font-medium">{product.premiumPrice}</span>
-                </div>
-
-                <div className="text-xs text-gray-600 font-medium">{product.supply}</div>
-              </div>
-
-              <div className="space-y-1.5 mt-auto">
-                <CTAButton url={product.link} label={buyNowLabel} />
-              </div>
-            </CardContent>
-          </Card>
-        </Link>
-      ))}
+          {/* CTA Button – FULLY WORKING */}
+          <div className="mt-3">
+            <CTAButton
+              url={product.link}
+              label={buyNowLabel}
+              onClick={(e) => {
+                e.stopPropagation(); // Prevent card click
+                // Optional: Add analytics
+              }}
+            />
+          </div>
+        </CardContent>
+      </Card>
     </div>
+  );
+}
+
+export default function ProductCards({ products, buyNowLabel }: ProductCardsProps) {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: false,
+    align: "start",
+    containScroll: "trimSnaps",
+    slidesToScroll: 1,
+  });
+
+  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
+
+  const slides = chunkIntoSlides(products);
+
+  return (
+    <section className="relative max-w-7xl mx-auto px-4 py-6">
+      {/* Carousel Viewport */}
+      <div className="overflow-hidden" ref={emblaRef}>
+        <div className="flex">
+          {slides.map((slide, slideIdx) => (
+            <div
+              key={slideIdx}
+              className="flex-shrink-0 w-full grid grid-cols-1 sm:grid-cols-3 gap-4 px-1 min-w-0"
+            >
+              {/* Top Row */}
+              <div className="col-span-full grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {slide.slice(0, 3).map((p) => (
+                  <Link href={p.link} key={p.id} className="block h-full">
+                    <ProductCard product={p} buyNowLabel={buyNowLabel} />
+                  </Link>
+                ))}
+              </div>
+
+              {/* Bottom Row */}
+              <div className="col-span-full grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
+                {slide.slice(3, 6).map((p) => (
+                  <Link href={p.link} key={p.id} className="block h-full">
+                    <ProductCard product={p} buyNowLabel={buyNowLabel} />
+                  </Link>
+                ))}
+              </div>
+
+              {/* Fill empty */}
+              {slide.length < 6 &&
+                Array.from({ length: 6 - slide.length }).map((_, i) => (
+                  <div key={`empty-${i}`} className="hidden sm:block" />
+                ))}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Navigation Arrows */}
+      <button
+        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 w-9 h-9 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-gray-50 transition z-10"
+        onClick={scrollPrev}
+        aria-label="Previous"
+      >
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      <button
+        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-3 w-9 h-9 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-gray-50 transition z-10"
+        onClick={scrollNext}
+        aria-label="Next"
+      >
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </section>
   );
 }

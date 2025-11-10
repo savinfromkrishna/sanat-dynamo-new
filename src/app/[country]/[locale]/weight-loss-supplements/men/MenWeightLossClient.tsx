@@ -8,6 +8,9 @@ import { CheckCircle } from "lucide-react"
 import { ReviewsSection } from "@/components/reviews-section"
 import { usePathname } from "next/navigation"
 import { getCurrentLocale, getTranslation } from "@/lib/i18n"
+import { ProductsSection } from "@/components/products-section"
+import ProductCards from "@/components/product-card"
+import { KnowMoreSection } from "@/components/KnowMoreSection"
 
 export default function MenWeightLossClient() {
   const pathname = usePathname()
@@ -33,8 +36,8 @@ export default function MenWeightLossClient() {
             {t.weightLoss.productsSection.title}
           </h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {t.weightLoss.productsSection.products.map((product: any) => (
+          {/* <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {c.map((product: any) => (
               <Card
                 key={product.id}
                 className="group bg-white rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-200 overflow-hidden"
@@ -84,7 +87,14 @@ export default function MenWeightLossClient() {
                 </CardContent>
               </Card>
             ))}
-          </div>
+          </div> */}
+          <ProductCards
+            products={[
+              ...(t.weightLoss.productsSection?.products || []),
+               // if you have this key
+            ].map(p => ({ ...p, id: String(p.id) }))}
+            buyNowLabel={t.weightLoss.common.buyNow}
+          />
         </div>
       </section>
 
@@ -93,6 +103,7 @@ export default function MenWeightLossClient() {
           <h2 className="text-2xl font-bold text-center mb-8">
             {t.weightLoss.genderSpecific.men.title}
           </h2>
+          <ProductsSection />
           <div className="grid md:grid-cols-3 gap-6">
             {t.weightLoss.genderSpecific.men.items.map((benefit: string, i: number) => (
               <div key={i} className="flex items-start gap-3 bg-white border rounded-lg p-5">

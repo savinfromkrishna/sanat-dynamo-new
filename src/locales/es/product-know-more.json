@@ -1,0 +1,88 @@
+{
+  "title": "Todo lo que Necesitas Saber Sobre MITOLYN – El Avance Natural para Perder Peso",
+  "summary": "MITOLYN es un suplemento premium para bajar de peso enfocado en las mitocondrias, confiado por más de 28,000 usuarios. Quema grasa más rápido, elimina antojos y disfruta energía todo el día con ingredientes 100% naturales respaldados por la ciencia.",
+  "knowMore": "Saber Más",
+  "knowLess": "Mostrar Menos",
+  "sections": [
+    {
+      "type": "text",
+      "heading": "Cómo Funciona MITOLYN",
+      "content": "MITOLYN no solo suprime el apetito ni añade estimulantes: va más profundo. Al optimizar la función mitocondrial (las centrales energéticas de tus células), MITOLYN aumenta la quema natural de grasa, estabiliza el azúcar en sangre, reduce la inflamación y restaura un metabolismo juvenil. ¿El resultado? Pérdida de peso sostenible sin nerviosismo, bajones ni dietas extremas.",
+      "link": { "text": "Ver los estudios clínicos", "href": "/ciencia" }
+    },
+    {
+      "type": "list",
+      "heading": "Ingredientes Clave que Dan Resultados Reales",
+      "content": "Cada cápsula contiene una mezcla sinérgica de compuestos vegetales probados para apoyar la pérdida de grasa:",
+      "items": [
+        "Extracto de Maqui Berry – activa AMPK (el ‘interruptor maestro’ del metabolismo)",
+        "Rhodiola Rosea – reduce el comer por estrés y la fatiga",
+        "Fucoxantina – ataca la grasa abdominal rebelde",
+        "Semilla de Mango Africano – controla las hormonas del hambre",
+        "Berberina HCl – mejora la sensibilidad a la insulina",
+        "Picolinato de Cromo – frena los antojos de azúcar",
+        "Catequinas de Té Verde – aumenta la termogénesis hasta un 17%"
+      ],
+      "link": { "text": "Lista completa de ingredientes", "href": "/ingredientes" }
+    },
+    {
+      "type": "stat",
+      "heading": "Personas Reales, Transformaciones Reales",
+      "stats": [
+        { "value": "96%", "label": "Reportaron menos antojos en 7 días" },
+        { "value": "91%", "label": "Perdieron 2+ kilos el primer mes" },
+        { "value": "4.8/5", "label": "Promedio de +28,000 reseñas" },
+        { "value": "85%", "label": "Dijeron que la energía les duró todo el día" }
+      ]
+    },
+    {
+      "type": "table",
+      "heading": "MITOLYN vs Pastillas Comunes para Adelgazar",
+      "table": {
+        "headers": ["Característica", "MITOLYN", "Pastillas con Estimulantes", "Garcinia Genérica"],
+        "rows": [
+          ["Apunta a las Mitocondrias", "Sí", "No", "No"],
+          ["Natural y Sin Estimulantes", "Sí", "No", "Parcial"],
+          ["Apoya Metabolismo a Largo Plazo", "Sí", "Solo corto plazo", "No"],
+          ["Fabricado en Instalaciones Registradas FDA", "Sí", "A veces", "Rara vez"],
+          ["Garantía de Devolución 180 Días", "Sí", "Máx. 30 días", "No"],
+          ["Envío Gratis en Mejor Valor", "Sí", "No", "No"]
+        ]
+      }
+    },
+    {
+      "type": "quote",
+      "quote": "Probé de todo: keto, ayuno, lo que sea. MITOLYN es lo primero que realmente derritió mi grasa abdominal sin volverme loca. ¡En 30 días bajé 6 kilos y me siento increíble!",
+      "author": "María G., 38 años, Mamá y Profesora",
+      "rating": 5
+    },
+    {
+      "type": "faq",
+      "heading": "Preguntas Frecuentes",
+      "faqs": [
+        {
+          "q": "¿En cuánto tiempo veo resultados?",
+          "a": "La mayoría siente más energía y menos antojos en 7-14 días. La pérdida de grasa visible suele aparecer entre 4-8 semanas combinado con dieta y ejercicio."
+        },
+        {
+          "q": "¿Es seguro MITOLYN?",
+          "a": "Sí. Todos los ingredientes son GRAS, probados por terceros y fabricados en instalaciones registradas por la FDA en EE.UU."
+        },
+        {
+          "q": "¿Puedo tomarlo con café o medicamentos?",
+          "a": "Sí, MITOLYN es libre de estimulantes y no interfiere con café ni la mayoría de medicamentos. Consulta a tu médico si tomas algo para la tiroides o diabetes."
+        },
+        {
+          "q": "¿Funciona igual para hombres y mujeres?",
+          "a": "Absolutamente. MITOLYN está formulado para optimizar el metabolismo de ambos géneros, ayudando a mujeres con grasa en caderas y abdomen, y a hombres a preservar músculo mientras queman grasa."
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "heading": "¿Lista para Transformar tu Cuerpo?",
+      "content": "Únete a más de 28,000 clientes felices. Prueba MITOLYN sin riesgo con garantía de 180 días.",
+      "button": { "text": "Comprar Ahora", "href": "/tienda" }
+    }
+  ]
+}

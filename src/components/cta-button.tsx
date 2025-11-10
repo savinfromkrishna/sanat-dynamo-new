@@ -1,14 +1,21 @@
-"use client"
+// components/cta-button.tsx
+import Link from "next/link";
 
-import { Button } from "@/components/ui/button"
+interface CTAButtonProps {
+  url: string;
+  label: string;
+  onClick?: (e: React.MouseEvent) => void;
+}
 
-export default function CTAButton({ url, label }: { url: string; label: string }) {
+export default function CTAButton({ url, label, onClick }: CTAButtonProps) {
   return (
-    <Button
-      onClick={() => window.open(url, "_blank")}
-      className="bg-white text-emerald-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
-    >
-      {label}
-    </Button>
-  )
+    <Link href={url} passHref legacyBehavior>
+      <a
+        onClick={onClick}
+        className="block w-full text-center bg-orange-500 hover:bg-orange-600 text-white font-medium text-sm py-2 px-3 rounded-md transition-colors"
+      >
+        {label}
+      </a>
+    </Link>
+  );
 }

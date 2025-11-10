@@ -20,7 +20,7 @@
           "rating": 4.8,
           "reviews": 2847,
           "premiumPrice": "₹2,424 para Miembros Premium",
-          "discount": "16% de descuento"
+          "discount": "75% de descuento"
         },
         {
           "id": 2,
@@ -37,8 +37,8 @@
           "popular": true,
           "rating": 4.9,
           "reviews": 5632,
-          "premiumPrice": "₹2,424 para Miembros Premium",
-          "discount": "16% de descuento"
+          "premiumPrice": "₹2,199 para Miembros Premium",
+          "discount": "80% de descuento"
         },
         {
           "id": 3,
@@ -54,8 +54,93 @@
           "shipping": "+ Pequeña tarifa de envío",
           "rating": 4.7,
           "reviews": 3921,
-          "premiumPrice": "₹2,424 para Miembros Premium",
-          "discount": "16% de descuento"
+          "premiumPrice": "₹1,899 para Miembros Premium",
+          "discount": "70% de descuento"
+        },
+        {
+          "id": 4,
+          "name": "MITOLYN - Paquete Inicial",
+          "price": "$69",
+          "originalPrice": "$138",
+          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
+          "supply": "Suministro para 15 Días",
+          "link": "https://mitolyn-official.com/starter-package",
+          "badge": "INICIAL - 1 BOTELLA",
+          "badgeColor": "bg-gradient-to-r from-amber-500 to-amber-600",
+          "shipping": "+ Pequeña tarifa de envío",
+          "rating": 4.6,
+          "reviews": 1289,
+          "premiumPrice": "₹1,299 para Miembros Premium",
+          "discount": "50% de descuento"
+        },
+        {
+          "id": 5,
+          "name": "MITOLYN - Pack Transformación",
+          "price": "$45",
+          "originalPrice": "$885",
+          "total": "$225",
+          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422492/mitolyn-offer_azyjj3.png",
+          "supply": "Suministro para 150 Días",
+          "link": "https://mitolyn-official.com/transform-package",
+          "badge": "TRANSFORMACIÓN - 5 BOTELLAS",
+          "badgeColor": "bg-gradient-to-r from-purple-500 to-purple-600",
+          "shipping": "* Envío Gratis",
+          "rating": 4.8,
+          "reviews": 4123,
+          "premiumPrice": "₹2,099 para Miembros Premium",
+          "discount": "75% de descuento"
+        },
+        {
+          "id": 6,
+          "name": "MITOLYN - Duo Energía",
+          "price": "$64",
+          "originalPrice": "$394",
+          "total": "$128",
+          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
+          "supply": "Suministro para 60 Días",
+          "link": "https://mitolyn-official.com/duo-package",
+          "badge": "DUO - 2 BOTELLAS",
+          "badgeColor": "bg-gradient-to-r from-green-500 to-green-600",
+          "shipping": "+ Pequeña tarifa de envío",
+          "rating": 4.7,
+          "reviews": 2356,
+          "premiumPrice": "₹1,699 para Miembros Premium",
+          "discount": "67% de descuento"
+        },
+        {
+          "id": 7,
+          "name": "MITOLYN - Pack Anual Plus",
+          "price": "$33",
+          "originalPrice": "$1416",
+          "total": "$396",
+          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422492/mitolyn-offer_azyjj3.png",
+          "supply": "Suministro para 360 Días",
+          "link": "https://mitolyn-official.com/annual-plus",
+          "badge": "ANUAL PLUS - 12 BOTELLAS",
+          "badgeColor": "bg-gradient-to-r from-indigo-600 to-indigo-700",
+          "shipping": "* Envío Gratis + 2 Botellas Gratis",
+          "popular": true,
+          "rating": 5.0,
+          "reviews": 8921,
+          "premiumPrice": "₹1,999 para Miembros Premium",
+          "discount": "85% de descuento"
+        },
+        {
+          "id": 8,
+          "name": "MITOLYN - Pack Familiar",
+          "price": "$52",
+          "originalPrice": "$708",
+          "total": "$208",
+          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
+          "supply": "Suministro para 120 Días",
+          "link": "https://mitolyn-official.com/family-package",
+          "badge": "FAMILIAR - 4 BOTELLAS",
+          "badgeColor": "bg-gradient-to-r from-orange-500 to-orange-600",
+          "shipping": "* Envío Gratis",
+          "rating": 4.8,
+          "reviews": 3198,
+          "premiumPrice": "₹1,799 para Miembros Premium",
+          "discount": "71% de descuento"
         }
       ]
     },

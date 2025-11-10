@@ -1,0 +1,88 @@
+{
+  "title": "Everything You Need to Know About MITOLYN – The Natural Weight Loss Breakthrough",
+  "summary": "MITOLYN is a premium mitochondrial-targeted weight loss supplement trusted by over 28,000 users. Burn fat faster, crush cravings, and unlock all-day energy with 100% natural, science-backed ingredients.",
+  "knowMore": "Know More",
+  "knowLess": "Show Less",
+  "sections": [
+    {
+      "type": "text",
+      "heading": "How MITOLYN Works",
+      "content": "MITOLYN doesn’t just suppress appetite or add stimulants – it goes deeper. By optimizing mitochondrial function (your cells’ energy factories), MITOLYN increases natural fat-burning, stabilizes blood sugar, reduces inflammation, and restores youthful metabolism. The result? Sustainable weight loss without jitters, crashes, or extreme dieting.",
+      "link": { "text": "See the clinical studies", "href": "/science" }
+    },
+    {
+      "type": "list",
+      "heading": "Key Ingredients That Deliver Real Results",
+      "content": "Every capsule contains a synergistic blend of plant-based compounds proven to support fat loss:",
+      "items": [
+        "Maqui Berry Extract – activates AMPK (the ‘metabolic master switch’)",
+        "Rhodiola Rosea – reduces stress-eating and fatigue",
+        "Fucoxanthin – targets stubborn belly fat",
+        "African Mango Seed – controls hunger hormones",
+        "Berberine HCl – improves insulin sensitivity",
+        "Chromium Picolinate – curbs sugar cravings",
+        "Green Tea Catechins – boosts thermogenesis by up to 17%"
+      ],
+      "link": { "text": "Full ingredient breakdown", "href": "/ingredients" }
+    },
+    {
+      "type": "stat",
+      "heading": "Real People, Real Transformations",
+      "stats": [
+        { "value": "96%", "label": "Reported less cravings within 7 days" },
+        { "value": "91%", "label": "Lost 5+ lbs in first month" },
+        { "value": "4.8/5", "label": "Average from 28,000+ reviews" },
+        { "value": "85%", "label": "Said energy lasted all day" }
+      ]
+    },
+    {
+      "type": "table",
+      "heading": "MITOLYN vs Typical Weight Loss Pills",
+      "table": {
+        "headers": ["Feature", "MITOLYN", "Stimulant Pills", "Generic Garcinia"],
+        "rows": [
+          ["Targets Mitochondria", "Yes", "No", "No"],
+          ["Natural & Stimulant-Free", "Yes", "No", "Partial"],
+          ["Supports Long-Term Metabolism", "Yes", "Short-term only", "No"],
+          ["Made in FDA-Registered Facility", "Yes", "Sometimes", "Rarely"],
+          ["180-Day Money-Back Guarantee", "Yes", "30 days max", "No"],
+          ["Free Shipping on Best Value", "Yes", "No", "No"]
+        ]
+      }
+    },
+    {
+      "type": "quote",
+      "quote": "I’ve tried everything – keto, fasting, you name it. MITOLYN is the first thing that actually melted my belly fat without driving me crazy. Down 13 lbs in 30 days and I feel amazing!",
+      "author": "Sarah G., 38, Mom & Teacher",
+      "rating": 5
+    },
+    {
+      "type": "faq",
+      "heading": "Frequently Asked Questions",
+      "faqs": [
+        {
+          "q": "How soon will I see results?",
+          "a": "Most feel more energy and fewer cravings in 7-14 days. Visible fat loss usually appears in 4-8 weeks when combined with diet and exercise."
+        },
+        {
+          "q": "Is MITOLYN safe?",
+          "a": "Yes. All ingredients are GRAS, third-party tested, and manufactured in FDA-registered U.S. facilities."
+        },
+        {
+          "q": "Can I take it with coffee or medications?",
+          "a": "Yes, MITOLYN is stimulant-free and doesn’t interfere with coffee or most medications. Check with your doctor if you take thyroid or diabetes meds."
+        },
+        {
+          "q": "Does it work the same for men and women?",
+          "a": "Absolutely. MITOLYN is formulated to optimize metabolism for both genders – helping women target hips & belly fat and men preserve muscle while burning fat."
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "heading": "Ready to Transform Your Body?",
+      "content": "Join over 28,000 happy customers. Try MITOLYN risk-free with our 180-day guarantee.",
+      "button": { "text": "Shop Now", "href": "/shop" }
+    }
+  ]
+}

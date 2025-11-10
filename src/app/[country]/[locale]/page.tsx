@@ -3,6 +3,7 @@ import { CategoriesSection } from "@/components/home/CategoriesSection"
 import { HomeHeroCarousel } from "@/components/home/homecarouse"
 import { ReviewsSection } from "@/components/home/ReviewsSection"
 import { TrustSection } from "@/components/home/TrustSection"
+import { KnowMoreSection } from "@/components/KnowMoreSection"
 import { getTranslation } from "@/lib/i18n"
 
 export default async function HomePage({ params }: { params: { locale: string } }) {
@@ -15,6 +16,7 @@ export default async function HomePage({ params }: { params: { locale: string } 
       <CategoriesSection translations={translations} locale={params.locale} />
       <TrustSection translations={translations} />
       <ReviewsSection translations={translations} />
+      <KnowMoreSection translations={translations} />
     </div>
   )
 }

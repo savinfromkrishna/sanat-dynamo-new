@@ -12,9 +12,7 @@
   },
   "nav": {
     "home": "Inicio",
-    "products": "Productos",
-    "reviews": "Reseñas",
-    "about": "Acerca de"
+    "products": "Productos"
   },
   "products": {
     "weight-loss": [

@@ -11,10 +11,13 @@ import {
 import CategoryReviewsSection from "@/components/category-reviews-section"
 import { getTranslation, type Locale } from "@/lib/i18n"
 import ProductCards from "@/components/product-card"
+import { KnowMoreSection } from "@/components/KnowMoreSection"
 
-export async function generateMetadata({ params }: { params: {
-  country: any; locale: Locale
-} }): Promise<Metadata> {
+export async function generateMetadata({ params }: {
+  params: {
+    country: any; locale: Locale
+  }
+}): Promise<Metadata> {
   const translations = getTranslation(params.locale)
   return {
     title: translations.weightLoss.title,
@@ -48,7 +51,11 @@ export async function generateMetadata({ params }: { params: {
 export default async function WeightLossSupplementsPage({ params }: { params: { country: string; locale: Locale } }) {
   const translations = getTranslation(params.locale)
   const t = translations.weightLoss
+  console.log("translations:", translations)
   console.log("Translations for Weight Loss Supplements Page:", t)
+  console.log("womensProductsSection:", translations.
+womenWeightLoss
+)
   return (
     <main className="min-h-screen bg-white">
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
@@ -58,10 +65,10 @@ export default async function WeightLossSupplementsPage({ params }: { params: { 
             {t.productsSection.description}
           </p>
           <ProductCards
-            products={t.productsSection.products.map((p: any) => ({
-              ...p,
-              id: String(p.id),
-            }))}
+            products={[
+              ...(t.productsSection?.products || []),
+              ...(translations.womenWeightLoss.productsSection.products || []), 
+            ].map(p => ({ ...p, id: String(p.id) }))}
             buyNowLabel={t.common.buyNow}
           />
         </div>
@@ -157,6 +164,8 @@ export default async function WeightLossSupplementsPage({ params }: { params: { 
       </section>
 
       <CategoryReviewsSection category="weight-loss-supplements" translations={translations} />
+            <KnowMoreSection translations={translations} />
+      
     </main>
   )
 }
