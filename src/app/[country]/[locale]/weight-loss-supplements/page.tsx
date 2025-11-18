@@ -11,7 +11,7 @@ import {
 import CategoryReviewsSection from "@/components/category-reviews-section"
 import { getTranslation, type Locale } from "@/lib/i18n"
 import ProductCards from "@/components/product-card"
-import { KnowMoreSection } from "@/components/KnowMoreSection"
+import { ProductknowMoreSection } from "@/components/productKnowMore"
 
 export async function generateMetadata({ params }: {
   params: {
@@ -54,8 +54,8 @@ export default async function WeightLossSupplementsPage({ params }: { params: { 
   console.log("translations:", translations)
   console.log("Translations for Weight Loss Supplements Page:", t)
   console.log("womensProductsSection:", translations.
-womenWeightLoss
-)
+    womenWeightLoss
+  )
   return (
     <main className="min-h-screen bg-white">
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
@@ -67,17 +67,34 @@ womenWeightLoss
           <ProductCards
             products={[
               ...(t.productsSection?.products || []),
-              ...(translations.womenWeightLoss.productsSection.products || []), 
+              ...(translations.womenWeightLoss.productsSection.products || []),
             ].map(p => ({ ...p, id: String(p.id) }))}
             buyNowLabel={t.common.buyNow}
           />
         </div>
       </section>
-
+      <section className="py-12">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl lg:text-3xl font-sans font-bold text-center mb-8">{t.benefits.title}</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {t.benefits.items.map((benefit: string, index: number) => (
+              <Card key={index} className="text-center p-6">
+                <CardContent className="p-0">
+                  <CheckCircle className="h-8 w-8 text-emerald-500 mx-auto mb-3" />
+                  <p className="text-sm text-muted-foreground">{benefit}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          <p className="text-center text-muted-foreground mt-6 max-w-3xl mx-auto">{t.benefits.footer}</p>
+        </div>
+      </section>
       <section className="py-8 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl lg:text-3xl font-sans font-bold text-center mb-8">Certified Quality You Can Trust</h2>
           <div className="flex justify-center items-center gap-8 flex-wrap">
             {t.trustBadges.items.map((badge: any, index: number) => (
+
               <Image
                 key={index}
                 src={badge.image || "/placeholder.svg"}
@@ -123,7 +140,7 @@ womenWeightLoss
           </div>
         </div>
       </section>
-
+      <CategoryReviewsSection category="weight-loss-supplements" translations={translations} />
       <section className="py-12 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl lg:text-3xl font-sans font-bold text-center mb-8">{t.faqs.title}</h2>
@@ -146,26 +163,10 @@ womenWeightLoss
         </div>
       </section>
 
-      <section className="py-12">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl lg:text-3xl font-sans font-bold text-center mb-8">{t.benefits.title}</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {t.benefits.items.map((benefit: string, index: number) => (
-              <Card key={index} className="text-center p-6">
-                <CardContent className="p-0">
-                  <CheckCircle className="h-8 w-8 text-emerald-500 mx-auto mb-3" />
-                  <p className="text-sm text-muted-foreground">{benefit}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          <p className="text-center text-muted-foreground mt-6 max-w-3xl mx-auto">{t.benefits.footer}</p>
-        </div>
-      </section>
 
-      <CategoryReviewsSection category="weight-loss-supplements" translations={translations} />
-            <KnowMoreSection translations={translations} />
-      
+
+      <ProductknowMoreSection translations={translations} />
+
     </main>
   )
 }

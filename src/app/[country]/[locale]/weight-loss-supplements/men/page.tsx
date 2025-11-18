@@ -1,7 +1,7 @@
 // src/app/in/[locale]/page.tsx
 import type { Metadata } from "next"
 import MenWeightLossClient from "./MenWeightLossClient"
-import { getCurrentLocale, getTranslation } from "@/lib/i18n"
+import { getTranslation } from "@/lib/i18n"
 
 export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
   const locale = params.locale as "en" | "es"

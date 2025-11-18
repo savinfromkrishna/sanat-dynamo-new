@@ -6,7 +6,11 @@ export type ProductReview = {
   text: string
   verified?: boolean
 }
-
+export type ProductBadge = {
+  text: string;
+  color: string;
+  title?: string;        // Now supports hover tooltip or accessibility title
+};
 export type ProductDetail = {
   slug: string
   name: string
@@ -19,7 +23,7 @@ export type ProductDetail = {
   reviews: number
   image: string
   gallery: string[]
-  badges: { text: string; color: string }[]
+  badges: ProductBadge[]
   affiliateUrl: string
   benefits: string[]
   ingredients: { name: string; note?: string }[]

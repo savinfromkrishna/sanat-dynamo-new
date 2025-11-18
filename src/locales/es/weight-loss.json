@@ -145,6 +145,7 @@
       ]
     },
     "trustBadges": {
+      "title": "Calidad certificada en la que puede confiar",
       "items": [
         { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/made-in-usa_go4j19.webp", "alt": "Hecho en EE.UU." },
         { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422484/fda-approved_jrawwr.webp", "alt": "Instalación Registrada en la FDA" },
