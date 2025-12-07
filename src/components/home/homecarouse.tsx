@@ -5,20 +5,24 @@ import Autoplay from "embla-carousel-autoplay"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Star, Shield, Award, Truck } from "lucide-react"
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
 
 export function HomeHeroCarousel({ translations }: { translations: any }) {
   const t = translations
-  console.log("Hero translations:", t.hero);
-  console.log("Common translations:", t.common); // Debug the common section
 
   // Fallback values for button text
-  const buyNowText = t.common?.buyNow || "Buy Now";
-  const learnMoreText = t.common?.learnMore || "Learn More";
+  const buyNowText = t.common?.buyNow || "Buy Now"
+  const learnMoreText = t.common?.learnMore || "Learn More"
 
   return (
     <section className="relative py-6 lg:py-10 bg-gradient-to-br from-background to-muted">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-2 sm:px-4 lg:px-6">
         <div className="relative">
           <Carousel
             className="w-full"
@@ -34,7 +38,7 @@ export function HomeHeroCarousel({ translations }: { translations: any }) {
             <CarouselContent>
               {t.hero.slides.map((slide: any, idx: number) => (
                 <CarouselItem key={idx}>
-                  <div className="grid lg:grid-cols-2 gap-6 items-center">
+                  <div className="grid lg:grid-cols-2 gap-6 px-4 items-center">
                     <div className="space-y-4">
                       <div className="space-y-2">
                         <div className="flex items-center gap-2">
@@ -46,8 +50,11 @@ export function HomeHeroCarousel({ translations }: { translations: any }) {
                         <h1 className="text-3xl lg:text-5xl font-sans font-bold text-foreground leading-tight text-balance">
                           {t.hero.title} <span className="text-primary">MITOLYN</span>
                         </h1>
-                        <p className="text-sm lg:text-base text-muted-foreground max-w-xl">{t.hero.description}</p>
+                        <p className="text-sm lg:text-base text-muted-foreground max-w-xl">
+                          {t.hero.description}
+                        </p>
                       </div>
+
                       <div className="flex flex-wrap items-center gap-4">
                         <div className="flex items-center gap-2">
                           <div className="flex text-yellow-400">
@@ -59,6 +66,7 @@ export function HomeHeroCarousel({ translations }: { translations: any }) {
                             {slide.rating.toFixed(1)}/5 ({slide.reviews.toLocaleString()})
                           </span>
                         </div>
+
                         <div className="hidden sm:flex items-center gap-3 text-xs lg:text-sm text-muted-foreground">
                           <div className="flex items-center gap-2">
                             <Shield className="h-4 w-4 text-primary" />
@@ -74,7 +82,9 @@ export function HomeHeroCarousel({ translations }: { translations: any }) {
                           </div>
                         </div>
                       </div>
+
                       <div className="text-sm text-muted-foreground">{slide.supply}</div>
+
                       <div className="flex flex-col sm:flex-row gap-3">
                         <Button
                           size="default"
@@ -93,6 +103,7 @@ export function HomeHeroCarousel({ translations }: { translations: any }) {
                         </Button>
                       </div>
                     </div>
+
                     <div className="relative">
                       <div className="relative z-10 h-[320px] sm:h-[360px] md:h-[420px] lg:h-[500px]">
                         <Image
@@ -110,8 +121,30 @@ export function HomeHeroCarousel({ translations }: { translations: any }) {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="-left-4 md:-left-8 bg-white/90 hover:bg-white shadow-sm" />
-            <CarouselNext className="-right-4 md:-right-8 bg-white/90 hover:bg-white shadow-sm" />
+
+            {/* Visible Left & Right Arrows – work on mobile & desktop */}
+            <CarouselPrevious
+              className=" -translate-y-1/2 
+                         size-12 md:size-14 
+                         bg-white/95 hover:bg-white 
+                         border border-border 
+                         shadow-lg 
+                         text-foreground 
+                         opacity-100 
+                         hover:scale-110 
+                         transition-all"
+            />
+            <CarouselNext
+              className="-translate-y-1/2 
+                         size-12 md:size-14 
+                         bg-white/95 hover:bg-white 
+                         border border-border 
+                         shadow-lg 
+                         text-foreground 
+                         opacity-100 
+                         hover:scale-110 
+                         transition-all"
+            />
           </Carousel>
         </div>
       </div>

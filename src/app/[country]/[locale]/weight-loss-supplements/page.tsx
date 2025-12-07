@@ -12,6 +12,55 @@ import CategoryReviewsSection from "@/components/category-reviews-section"
 import { getTranslation, type Locale } from "@/lib/i18n"
 import ProductCards from "@/components/product-card"
 import { ProductknowMoreSection } from "@/components/productKnowMore"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+
+function ProductToggleSection({
+  translations,
+  buyNowLabel,
+}: {
+  translations: any
+  buyNowLabel: string
+}) {
+  "use client"
+  const t = translations.weightLoss
+  const womenProducts = translations.womenWeightLoss?.productsSection?.products || []
+  const menProducts = t.productsSection?.products || []
+
+  return (
+    <Tabs defaultValue="men" className="w-full">
+      {/* This makes the tab list full-width and pushes tabs to the right */}
+      <TabsList className="grid w-full justify-end bg-transparent border-none shadow-none p-0">
+        <div className="grid w-48 grid-cols-2 bg-gradient-to-r from-gray-50 to-gray-100 rounded-full p-2 shadow-sm border border-gray-200">
+          <TabsTrigger
+            value="men"
+            className="data-[state=active]:bg-white data-[state=active]:text-gray-900 data-[state=active]:shadow-md rounded-full p-1 text-sm font-medium transition-all duration-200 hover:bg-white/80"
+          >
+            For Men
+          </TabsTrigger>
+          <TabsTrigger
+            value="women"
+            className="data-[state=active]:bg-white data-[state=active]:text-gray-900 data-[state=active]:shadow-md rounded-full p-1 text-sm font-medium transition-all duration-200 hover:bg-white/80"
+          >
+            For Women
+          </TabsTrigger>
+        </div>
+      </TabsList>
+
+      <TabsContent value="men" className="mt-6">
+        <ProductCards
+          products={menProducts.map((p: any) => ({ ...p, id: String(p.id) }))}
+          buyNowLabel={buyNowLabel}
+        />
+      </TabsContent>
+      <TabsContent value="women" className="mt-6">
+        <ProductCards
+          products={womenProducts.map((p: any) => ({ ...p, id: String(p.id) }))}
+          buyNowLabel={buyNowLabel}
+        />
+      </TabsContent>
+    </Tabs>
+  )
+}
 
 export async function generateMetadata({ params }: {
   params: {
@@ -64,11 +113,8 @@ export default async function WeightLossSupplementsPage({ params }: { params: { 
           <p className="text-center text-gray-600 mb-16 max-w-4xl mx-auto text-xl leading-relaxed">
             {t.productsSection.description}
           </p>
-          <ProductCards
-            products={[
-              ...(t.productsSection?.products || []),
-              ...(translations.womenWeightLoss.productsSection.products || []),
-            ].map(p => ({ ...p, id: String(p.id) }))}
+          <ProductToggleSection
+            translations={translations}
             buyNowLabel={t.common.buyNow}
           />
         </div>
@@ -124,7 +170,6 @@ export default async function WeightLossSupplementsPage({ params }: { params: { 
               </ul>
               <p className="text-sm text-muted-foreground">{t.genderSpecific.women.footer}</p>
             </div>
-
             <div id="men">
               <h2 className="text-2xl font-sans font-bold mb-4">{t.genderSpecific.men.title}</h2>
               <p className="text-muted-foreground mb-4">{t.genderSpecific.men.description}</p>
@@ -162,11 +207,7 @@ export default async function WeightLossSupplementsPage({ params }: { params: { 
           </div>
         </div>
       </section>
-
-
-
       <ProductknowMoreSection translations={translations} />
-
     </main>
   )
 }
