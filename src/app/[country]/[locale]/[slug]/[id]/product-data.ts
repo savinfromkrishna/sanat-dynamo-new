@@ -12,7 +12,7 @@ export type ProductBadge = {
   title?: string;        // Now supports hover tooltip or accessibility title
 };
 export type ProductDetail = {
-  slug: string
+  id: string
   name: string
   subtitle: string
   price: number

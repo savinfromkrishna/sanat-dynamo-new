@@ -6,12 +6,13 @@
   },
   "categories": {
     "weightLoss": "Weight Loss",
-    "energy": "Energy",
+    "dentalHealth": "Dental Health",
     "wellness": "Wellness",
     "bundles": "Bundles"
   },
   "nav": {
     "home": "Home",
+    "dentalHealth": "Dental Health",
     "products": "Products"
   },
   "products": {

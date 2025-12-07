@@ -1,4 +1,4 @@
-import type { ProductDetail } from "@/app/[country]/[locale]/weight-loss-supplements/[slug]/product-data";
+import type { ProductDetail } from "@/app/[country]/[locale]/[slug]/[id]/product-data";
 
 export type Locale = "en" | "es";
 

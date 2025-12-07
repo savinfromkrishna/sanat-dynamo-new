@@ -1,131 +1,370 @@
 {
-  "products": {
-    "metolyn-1": {
-      "slug": "metolyn-1",
-      "name": "Mitolyn – 1 Bottle",
-      "subtitle": "Basic Package",
-      "price": 49,
-      "originalPrice": 197,
-      "perBottleSuffix": "/Per Bottle",
-      "supply": "30 Days Supply",
-      "rating": 4.9,
-      "reviews": 2847,
-      "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
-      "gallery": [
-        "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
-        "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
-        "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422492/mitolyn-offer_azyjj3.png"
-      ],
-      "badges": [
-        { "text": "Basic", "color": "bg-blue-500" },
-        { "text": "90-Day Guarantee", "color": "bg-emerald-600" },
-        { "text": "FDA Registered Facility", "color": "bg-gray-900" }
-      ],
-      "affiliateUrl": "https://mitolyn-official.com/basic-package",
-      "benefits": [
-        "Supports metabolism for steady fat-burning",
-        "Helps control appetite and reduce cravings",
-        "Boosts daily energy without jitters",
-        "Backed by thousands of positive reviews"
-      ],
-      "ingredients": [
-        { "name": "Mitochondria-supporting compounds", "note": "Targets cellular energy" },
-        { "name": "Natural botanicals", "note": "Non-GMO, stimulant-free" },
-        { "name": "Antioxidant complex", "note": "Helps reduce oxidative stress" }
-      ],
-      "howToUse": [
-        "Take 1 capsule daily with a glass of water",
-        "Best taken in the morning with food",
-        "Stay hydrated throughout the day"
-      ],
-      "bonuses": [
-        { "title": "1-Day Kickstart Detox (Digital)", "image": "/images/bonus-detox.jpeg" },
-        { "title": "Renew You (Digital)", "image": "/images/bonus-renew.jpeg" }
-      ],
-      "trust": [
-        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422484/fda-approved_jrawwr.webp", "alt": "FDA Registered Facility" },
-        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/gmp-certified_z81hqh.webp", "alt": "GMP Certified" },
-        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/made-in-usa_go4j19.webp", "alt": "Made in USA" },
-        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422491/natural_dpkfxs.webp", "alt": "100% Natural" }
-      ],
-      "faqs": [
-        {
-          "q": "How soon will I see results?",
-          "a": "Most users notice improved energy and better appetite control within 1–2 weeks, with visible changes typically over 4–8 weeks."
-        },
-        {
-          "q": "Is it safe and natural?",
-          "a": "Mitolyn is produced in an FDA-registered, GMP-certified facility and uses non-GMO ingredients. Always consult your physician if you have a condition."
-        },
-        {
-          "q": "Do I need to diet to get results?",
-          "a": "A balanced diet and light activity enhance results, but the formula is designed to support progress without extreme measures."
-        },
-        {
-          "q": "Is there a money-back guarantee?",
-          "a": "Yes. Every order is covered by a 90-day money-back guarantee."
-        }
-      ],
-      "seo": {
-        "title": "Mitolyn – 1 Bottle | Basic Package | Official",
-        "description": "Buy Mitolyn 1 Bottle – Basic Package. Natural weight loss support that boosts metabolism & energy. FDA-registered facility. 90-day guarantee.",
-        "keywords": [
-          "Mitolyn",
-          "Mitolyn 1 bottle",
-          "Mitolyn basic package",
-          "weight loss supplement",
-          "metabolism support"
-        ]
-      },
-      "productReviews": [
-        {
-          "id": 1,
-          "name": "Sarah M.",
-          "location": "California, USA",
-          "rating": 5,
-          "text": "After just a few weeks, I felt a huge boost in energy and finally started losing stubborn weight. Mitolyn feels natural and effective.",
-          "verified": true
-        },
-        {
-          "id": 2,
-          "name": "James R.",
-          "location": "Texas, USA",
-          "rating": 5,
-          "text": "I’ve tried many supplements; Mitolyn is the first that actually helped with fat loss without jitters. I also feel sharper mentally.",
-          "verified": true
-        },
-        {
-          "id": 3,
-          "name": "Linda P.",
-          "location": "Florida, USA",
-          "rating": 5,
-          "text": "Skeptical at first, but I’ve already lost noticeable weight over 2 months. Energy up, cravings down. Highly recommend.",
-          "verified": true
-        }
-      ]
-    }
-  },
-  "common": {
-    "productNotFound": "Product Not Found",
-    "mainImage": "main image",
-    "viewImage": "View image",
-    "thumbnail": "Thumbnail",
-    "reviews": "reviews",
-    "youSave": "You save",
-    "orderNow": "Order Now",
-    "moneyBackGuarantee": "90-Day Money-Back Guarantee",
-    "shipsFromUSA": "Ships from USA",
-    "ingredients": "Ingredients",
-    "howToUse": "How to Use",
-    "freeBonuses": "Free Bonuses Included",
-    "faqs": "Frequently Asked Questions",
-    "whyWeightLossSupplements": "Why Consider Weight Loss Supplements?",
-    "whyWeightLossBenefits": [
-      "Support metabolism and energy levels",
-      "Control appetite and reduce cravings",
-      "Enhance fat-burning for visible results",
-      "Complement healthy diet and activity"
-    ],
-    "whyWeightLossDescription": "Natural formulas like Mitolyn are designed to support your goals, not replace nutritious eating and exercise."
-  }
+"products": {
+"metolyn-1": {
+"id": "metolyn-1",
+"name": "Mitolyn – 1 Bottle",
+"subtitle": "Basic Package",
+"price": 49,
+"originalPrice": 197,
+"perBottleSuffix": "/Per Bottle",
+"supply": "30 Days Supply",
+"rating": 4.9,
+"reviews": 2847,
+"image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
+"gallery": [
+"https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
+"https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
+"https://res.cloudinary.com/ddywjrr08/image/upload/v1758422492/mitolyn-offer_azyjj3.png"
+],
+"badges": [
+{ "text": "Basic", "color": "bg-blue-500" },
+{ "text": "90-Day Guarantee", "color": "bg-emerald-600" },
+{ "text": "FDA Registered Facility", "color": "bg-gray-900" }
+],
+"affiliateUrl": "https://mitolyn-official.com/basic-package",
+"description": "If you’re feeling low on energy, struggling to lose stubborn weight, or dealing with daily fatigue, your mitochondria might be the root cause. These tiny powerhouses inside your cells are responsible for energy production and metabolism. Mitolyn is a revolutionary formula designed to restore mitochondrial health, improve fat burning, and boost overall vitality. Backed by positive Mitolyn reviews and trusted by thousands, this powerful Mitolyn supplement offers a natural way to reclaim your energy, focus, and confidence.",
+"whyChoose": [
+"Scientifically formulated to support mitochondrial health",
+"Promotes natural Mitolyn weight loss benefits",
+"Enhances focus, memory, and mental clarity",
+"Improves cellular energy and metabolism",
+"Backed by a 90-day money-back guarantee from the Mitolyn official website"
+],
+"whatIs": "Mitolyn supplement is a premium health formula that targets mitochondrial dysfunction, a hidden factor behind fatigue, stubborn weight gain, and slow metabolism. By optimizing how your cells produce energy, Mitolyn helps restore balance in your body, making it easier to stay active, shed extra pounds, and enjoy mental sharpness.",
+"howItWorks": [
+"Reactivating mitochondrial function – supporting better cellular energy production.",
+"Boosting metabolism – aiding in fat breakdown and natural weight management.",
+"Improving blood flow & nutrient delivery – helping your cells perform at their best.",
+"Supporting brain function – reducing mental fatigue and enhancing focus."
+],
+"benefits": [
+"Increases natural energy and stamina",
+"Supports healthy and sustainable Mitolyn weight loss",
+"Enhances focus, memory, and brain health",
+"Promotes youthful vitality and cellular renewal",
+"Reduces fatigue and idgishness",
+"100% natural, safe, and non-habit forming"
+],
+"ingredients": [
+{ "name": "Coenzyme Q10 (CoQ10)", "note": "Boosts mitochondrial energy and reduces fatigue" },
+{ "name": "Resveratrol", "note": "Supports anti-aging and cellular repair" },
+{ "name": "Green Tea Extract", "note": "Promotes fat burning and metabolism" },
+{ "name": "Alpha Lipoic Acid", "note": "A powerful antioxidant that improves energy efficiency" },
+{ "name": "Other supportive nutrients", "note": "Designed to enhance weight loss and energy naturally" }
+],
+"howToUse": [
+"Take 1 capsule daily with a glass of water",
+"Best taken in the morning with food",
+"Stay hydrated throughout the day"
+],
+"bonuses": [
+{ "title": "1-Day Kickstart Detox (Digital)", "image": "/images/bonus-detox.jpeg" },
+{ "title": "Renew You (Digital)", "image": "/images/bonus-renew.jpeg" }
+],
+"trust": [
+{ "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422484/fda-approved_jrawwr.webp", "alt": "FDA Registered Facility" },
+{ "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/gmp-certified_z81hqh.webp", "alt": "GMP Certified" },
+{ "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/made-in-usa_go4j19.webp", "alt": "Made in USA" },
+{ "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422491/natural_dpkfxs.webp", "alt": "100% Natural" }
+],
+"pros": [
+"Stimulant-free formula that supports steady energy, focus, and metabolism.",
+"Targets mitochondrial health—addresses the root of low energy and slow fat burn.",
+"Backed by many positive Mitolyn reviews from real users.",
+"Manufactured in FDA-registered, GMP-certified facilities.",
+"90-day money-back guarantee via the Mitolyn official site.",
+"Frequent Mitolyn sale bundles and discounts make multi-month use more affordable."
+],
+"cons": [
+"Results vary; best outcomes typically require 6–8 weeks of consistent use.",
+"Premium price compared to generic vitamins.",
+"Sold only online (primarily through the Mitolyn official website).",
+"Evidence is mostly ingredient-level; limited product-specific clinical trials.",
+"Not advised for those who are pregnant/nursing or with certain conditions without medical guidance."
+],
+"faqs": [
+{
+"q": "What is Mitolyn used for?",
+"a": "Mitolyn is designed to improve mitochondrial function, boost energy, enhance focus, and support natural weight loss."
+},
+{
+"q": "Where can I buy Mitolyn?",
+"a": "The safest place to order is through the Mitolyn official website, which provides genuine bottles and a 90-day money-back guarantee."
+},
+{
+"q": "How long does it take to see results?",
+"a": "Most users notice improvements in energy and focus within 2–4 weeks, while Mitolyn weight loss benefits may take 6–8 weeks with consistent use."
+},
+{
+"q": "Is Mitolyn safe to use?",
+"a": "Yes, Mitolyn is made with natural ingredients and is considered safe. However, if you’re under medication, consult your doctor before use."
+},
+{
+"q": "Does Mitolyn really work for weight loss?",
+"a": "Yes, by improving mitochondrial efficiency, Mitolyn helps your body burn fat more effectively, making weight management easier."
+},
+{
+"q": "Is there a refund policy?",
+"a": "Yes, every order from the Mitolyn official site comes with a 90-day money-back guarantee."
+},
+{
+"q": "Are there any Mitolyn sale offers available?",
+"a": "Yes, the Mitolyn official website often provides discounts, bulk deals, and free shipping offers."
+}
+],
+"seo": {
+"title": "Mitolyn Supplement – Reviews, Benefits & Weight Loss",
+"description": "how the Mitolyn supplement supports weight loss, boosts energy, and enhances metabolism. Read Mitolyn reviews and claim the official sale.",
+"keywords": [
+"mitolyn",
+"mitolyn supplement",
+"mitolyn reviews",
+"mitolyn weight loss",
+"mitolyn sale",
+"mitolyn official"
+]
+},
+"productReviews": [
+{
+"id": 1,
+"name": "Sarah M.",
+"location": "California, USA",
+"rating": 5,
+"text": "After just a few weeks of taking Mitolyn, I noticed a huge boost in my daily energy. I feel lighter, more focused, and the stubborn weight finally started coming off. Highly recommend this supplement!",
+"verified": true
+},
+{
+"id": 2,
+"name": "James R.",
+"location": "Texas, USA",
+"rating": 5,
+"text": "I’ve tried countless supplements for weight loss, but nothing worked until Mitolyn. Not only did it help with fat loss, but I also feel sharper mentally. A real game-changer.",
+"verified": true
+},
+{
+"id": 3,
+"name": "Linda P.",
+"location": "Florida, USA",
+"rating": 5,
+"text": "I was skeptical at first, but Mitolyn has exceeded my expectations. More energy, better mood, and I’ve already lost 12 pounds in 2 months. The best part—it feels natural.",
+"verified": true
+}
+]
+},
+"prodentim-1": {
+"id": "prodentim-1",
+"name": "ProDentim – 1 Bottle",
+"subtitle": "Basic Package",
+"price": 69,
+"originalPrice": 99,
+"perBottleSuffix": "/Per Bottle",
+"supply": "30 Days Supply",
+"rating": 4.9,
+"reviews": 2847,
+"image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/prodentim-main-1.png",
+"gallery": [
+"https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/prodentim-main-1.png",
+"https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/prodentim-3-bottles-315833.webp",
+"https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/prodentim-6-bottles-317878.webp"
+],
+"badges": [
+{ "text": "Basic", "color": "bg-blue-500" },
+{ "text": "60-Day Guarantee", "color": "bg-emerald-600" },
+{ "text": "FDA Registered Facility", "color": "bg-gray-900" }
+],
+"affiliateUrl": "https://prodentim-official.com/basic-package",
+"description": "If you're searching for a natural way to improve gum health, fresh breath, enamel strength, and overall dental hygiene, ProDentim is the leading formula trusted worldwide. Unlike ordinary dental products that focus only on surface cleaning, ProDentim probiotic works from inside your mouth, targeting the root cause of dental problems — the imbalance of good and bad oral bacteria. This page contains everything you need to know before you buy ProDentim, check ProDentim reviews, or visit the ProDentim official website.",
+"whyChoose": [
+"Highest probiotic strength with 3.5 billion CFU",
+"Scientifically backed strains for oral health",
+"Natural fresh breath formula",
+"Dentist-approved ingredients",
+"Backed by thousands of positive reviews and a 60-day money-back guarantee"
+],
+"whatIs": "ProDentim is a unique oral probiotic formula designed to create a healthier environment in your mouth. It contains 3.5 billion CFU of clinically proven probiotics, making it one of the best dental probiotics available today. It helps support: Gum strength, Teeth whitening, Fresh breath, Plaque control, Enamel protection, Oral microbiome balance. This makes it the perfect dental supplement ProDentim users rely on for long-term dental care.",
+"howItWorks": [
+"Restores balance of good bacteria in your mouth to fight harmful strains.",
+"Supports gum health by reducing inflammation and preventing infection.",
+"Promotes natural teeth cleaning and whitening by reducing plaque and stains.",
+"Eliminates bad breath from the source with odor-fighting probiotics.",
+"Strengthens enamel through remineralization and mineral support."
+],
+"benefits": [
+"Strengthens Teeth & Protects Enamel",
+"Improves Gum Health",
+"Eliminates Bad Breath Naturally",
+"Promotes Natural Teeth Cleaning",
+"Balances the Oral Microbiome",
+"100% natural, safe, and non-GMO"
+],
+"ingredients": [
+{ "name": "Lactobacillus Paracasei", "note": "Supports gum health" },
+{ "name": "Lactobacillus Reuteri", "note": "Reduces plaque & harmful bacteria" },
+{ "name": "Lactobacillus Salivarius", "note": "Freshens breath & supports inflammation response" },
+{ "name": "Spearmint & Peppermint", "note": "Fresh breath & antibacterial support" },
+{ "name": "Inulin fiber", "note": "Food for good bacteria" },
+{ "name": "Malic Acid", "note": "Promotes natural teeth whitening" },
+{ "name": "Tricalcium Phosphate", "note": "Enamel strengthening mineral" }
+],
+"howToUse": [
+"Take one soft chewable tablet daily, preferably in the morning.",
+"Let it dissolve in your mouth for better probiotic absorption.",
+"Do not swallow whole; allow full dissolution."
+],
+"bonuses": [
+{ "title": "Hollywood White Teeth At Home (Digital)", "image": "/images/bonus-teeth-whitening.jpeg" },
+{ "title": "Breathe Easy (Digital)", "image": "/images/bonus-breathe-easy.jpeg" }
+],
+"trust": [
+{ "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422484/fda-approved_jrawwr.webp", "alt": "FDA Registered Facility" },
+{ "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/gmp-certified_z81hqh.webp", "alt": "GMP Certified" },
+{ "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/made-in-usa_go4j19.webp", "alt": "Made in USA" },
+{ "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422491/natural_dpkfxs.webp", "alt": "100% Natural" }
+],
+"pros": [
+"Highest CFU count for effective oral microbiome balance.",
+"Clinically proven strains target gum health, breath, and enamel.",
+"Natural ingredients with no harsh chemicals or GMOs.",
+"Positive ProDentim reviews from thousands of verified users.",
+"Manufactured in FDA-registered, GMP-certified facilities.",
+"60-day money-back guarantee via the ProDentim official website.",
+"Chewable format for easy daily use and better absorption."
+],
+"cons": [
+"Results may vary; optimal benefits seen after 2-3 months of use.",
+"Only available online through the official ProDentim website.",
+"Premium pricing compared to standard mouthwashes.",
+"Not suitable for children under 18 without consultation.",
+"Limited availability during high-demand periods."
+],
+"faqs": [
+{
+"q": "What is ProDentim?",
+"a": "ProDentim is an advanced oral health probiotic supplement containing 3.5 billion CFU of beneficial bacteria. It helps improve gum health, strengthen enamel, reduce plaque, and freshen breath naturally."
+},
+{
+"q": "How does ProDentim work?",
+"a": "ProDentim restores the balance of good bacteria in your mouth. These probiotics help fight harmful bacteria, support healthier gums, protect enamel, and promote long-lasting fresh breath. This is why it’s considered one of the best probiotics for teeth and gums."
+},
+{
+"q": "Is ProDentim safe to use?",
+"a": "Yes. ProDentim is made with natural ingredients, GMO-free, free from chemicals, and manufactured in an FDA-registered, GMP-certified facility. It is safe for daily use."
+},
+{
+"q": "How do I take ProDentim?",
+"a": "Take one chewable tablet daily in the morning. Allow it to dissolve in your mouth to maximize absorption of probiotics."
+},
+{
+"q": "Where can I buy ProDentim?",
+"a": "You should only buy ProDentim from the official website to avoid fake or unauthorized products. Search for “ProDentim buy”, “ProDentim order”, or visit the official link."
+},
+{
+"q": "Does ProDentim really help with gum problems?",
+"a": "Yes. The probiotic strains in ProDentim—such as L. paracasei and L. reuteri—are clinically shown to support gum health, reduce inflammation, and prevent harmful bacteria growth."
+},
+{
+"q": "Can ProDentim help with bad breath?",
+"a": "Absolutely. ProDentim contains beneficial bacteria that fight odor-causing microbes. Users report noticeably fresher breath within a few days."
+},
+{
+"q": "Does ProDentim whiten teeth?",
+"a": "While ProDentim is not a bleaching product, the probiotics help balance oral pH, reduce stains, and support natural teeth whitening over time."
+},
+{
+"q": "Are there any side effects?",
+"a": "ProDentim has no reported side effects. Since it is natural and probiotic-based, most users tolerate it well."
+},
+{
+"q": "How long will it take to see results?",
+"a": "Most users notice fresher breath within 3–5 days and improved gum/teeth health within 2–4 weeks. Best results come from 2–3 months of consistent use."
+},
+{
+"q": "Is ProDentim the best oral probiotic?",
+"a": "Yes. ProDentim is widely ranked among the best dental probiotics and best oral probiotics due to its high CFU count, powerful strains, and real customer results."
+},
+{
+"q": "Can I take ProDentim with other supplements?",
+"a": "Yes. ProDentim is safe to combine with other supplements or medications, but you may consult your healthcare provider if you have medical concerns."
+},
+{
+"q": "Is there a money-back guarantee?",
+"a": "Yes, the ProDentim official website offers a 100% satisfaction, money-back guarantee, ensuring your purchase is risk-free."
+},
+{
+"q": "Who should use ProDentim?",
+"a": "Anyone with: Gum sensitivity, Bad breath, Plaque buildup, Weak enamel, Frequent dental issues, Dry mouth, Desire for better oral hygiene, Looking for top-rated oral health probiotics."
+},
+{
+"q": "Is ProDentim suitable for adults of all ages?",
+"a": "Yes. ProDentim is designed for adults of all ages who want to improve their oral and dental health naturally."
+}
+],
+"seo": {
+"title": "ProDentim – Best Oral Probiotic for Teeth & Gums | Official",
+"description": "Buy ProDentim from the official website. #1 oral probiotic for teeth, gums, fresh breath & enamel health. Read ProDentim reviews & order today.",
+"keywords": [
+"prodentim",
+"prodentim buy",
+"prodentim order",
+"prodentim reviews",
+"prodentim official website",
+"prodentim probiotic",
+"dental supplement prodentim",
+"dental care prodentim",
+"best probiotics for teeth and gums",
+"best dental probiotics",
+"best oral probiotics"
+]
+},
+"productReviews": [
+{
+"id": 1,
+"name": "Anjalina S.",
+"location": "New York, USA",
+"rating": 5,
+"text": "I started using ProDentim about three weeks ago, and the results are amazing. My gums feel healthier, bleeding has stopped, and my breath stays fresh all day. I’ve tried many dental supplements, but this is the only one that actually worked. Highly recommended!",
+"verified": true
+},
+{
+"id": 2,
+"name": "Rick Smith.",
+"location": "Los Angeles, USA",
+"rating": 5,
+"text": "ProDentim has completely changed my dental routine. I noticed a big reduction in plaque and sensitivity within the first month. My dentist even asked what I was using! This probiotic is definitely worth the money.",
+"verified": true
+},
+{
+"id": 3,
+"name": "Sofia V.",
+"location": "Miami, USA",
+"rating": 5,
+"text": "I bought ProDentim after reading so many good reviews, and I’m glad I did. My teeth look cleaner, my breath is fresher, and my gums feel stronger than ever. I just ordered another 3-bottle pack. Love this product!",
+"verified": true
+}
+]
+}
+},
+"common": {
+"productNotFound": "Product Not Found",
+"mainImage": "main image",
+"viewImage": "View image",
+"thumbnail": "Thumbnail",
+"reviews": "reviews",
+"youSave": "You save",
+"orderNow": "Order Now",
+"moneyBackGuarantee": "60-Day Money-Back Guarantee",
+"shipsFromUSA": "Ships from USA",
+"ingredients": "Ingredients",
+"howToUse": "How to Use",
+"freeBonuses": "Free Bonuses Included",
+"faqs": "Frequently Asked Questions",
+"whyWeightLossSupplements": "Why Consider Weight Loss Supplements?",
+"whyWeightLossBenefits": [
+"Support metabolism and energy levels",
+"Control appetite and reduce cravings",
+"Enhance fat-burning for visible results",
+"Complement healthy diet and activity"
+],
+"whyWeightLossDescription": "Natural formulas like Mitolyn are designed to support your goals, not replace nutritious eating and exercise."
+}
 }

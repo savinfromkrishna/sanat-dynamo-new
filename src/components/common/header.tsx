@@ -16,12 +16,6 @@ type HeaderProps = {
 const Header = ({ country, locale, translations }: HeaderProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const t = translations
-
-
-
-
-
-
   return (
     <header className="sticky top-0 z-50 w-full bg-white border-b border-gray-200 shadow-sm">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -44,28 +38,17 @@ const Header = ({ country, locale, translations }: HeaderProps) => {
               {t.nav.home}
             </Link>
 
-            <div className="relative group">
-              <Link
-                href={`/${country}/${locale}/weight-loss-supplements`}
-                className="text-gray-700 hover:text-emerald-600 font-medium"
-              >
-                {t.categories.weightLoss}
-              </Link>
-              <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-150 absolute top-full left-0 mt-2 w-52 bg-white border border-gray-200 rounded-lg shadow-xl p-2">
-                <Link
-                  href={`/${country}/${locale}/weight-loss-supplements/men`}
-                  className="block px-3 py-2 rounded-md hover:bg-emerald-50 text-gray-700 hover:text-emerald-700 text-sm"
-                >
-                  {t.categories.forMen || "For Men"}
-                </Link>
-                <Link
-                  href={`/${country}/${locale}/weight-loss-supplements/women`}
-                  className="block px-3 py-2 rounded-md hover:bg-emerald-50 text-gray-700 hover:text-emerald-700 text-sm"
-                >
-                  {t.categories.forWomen || "For Women"}
-                </Link>
-              </div>
-            </div>
+            <Link
+              href={`/${country}/${locale}/weight-loss-supplements`}
+              className="text-gray-700 hover:text-emerald-600 font-medium"
+            >
+              {t.categories.weightLoss}
+            </Link> <Link
+              href={`/${country}/${locale}/dental-health-supplements`}
+              className="text-gray-700 hover:text-emerald-600 font-medium"
+            >
+              {t.nav.dentalHealth}
+            </Link>
 
             {/* <Link
               href={`/${country}/${locale}/energy-supplements`}

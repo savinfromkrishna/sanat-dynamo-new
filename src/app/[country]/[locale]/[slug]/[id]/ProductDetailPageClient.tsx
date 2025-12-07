@@ -1,24 +1,81 @@
 "use client"
 import Image from "next/image"
+import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { 
+  Breadcrumb, 
+  BreadcrumbItem, 
+  BreadcrumbLink, 
+  BreadcrumbList, 
+  BreadcrumbSeparator 
+} from "@/components/ui/breadcrumb"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { CheckCircle, Star, ShieldCheck, Truck, Leaf, Sparkles, Quote } from "lucide-react"
+import { CheckCircle, Star, ShieldCheck, Truck, Leaf, Sparkles, Quote, Home } from "lucide-react"
+
+
+import ProductCards from "@/components/product-card"
+
 import type { ProductDetail } from "./product-data"
 import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, Key } from "react"
 
-export default function ProductDetailPageClient({ product, translations, locale }: { product: ProductDetail; translations: any; locale: string }) {
+export default function ProductDetailPageClient({ 
+  product, 
+  translations, 
+  locale, 
+  categoryKey,
+  slug,
+  relatedProducts = [] // ← This is the only new prop
+}: { 
+  product: ProductDetail; 
+  translations: any; 
+  locale: string; 
+  categoryKey: string;
+  slug: string;
+  relatedProducts?: any[]; // All other products in the same category
+}) {
   if (!product) {
     return null
   }
 
   const t = translations
+  const categoryT = t[categoryKey] || {}
+  const common = t.common || {}
   const savings = Math.max(product.originalPrice - product.price, 0)
 
   return (
     <div className="min-h-screen bg-white">
       <main className="py-10">
+        {/* Beautiful Breadcrumb */}
+        <section className="container mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/" className="flex items-center gap-1 hover:text-primary transition-colors">
+                    <Home className="h-4 w-4" />
+                    <span>Home</span>
+                  </Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href={`/${slug}`} className="hover:text-primary transition-colors">
+                    {categoryT.title || slug.replace(/-/g, ' ').toUpperCase()}
+                  </Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator className="mx-2" />
+              <BreadcrumbItem>
+                <BreadcrumbLink aria-current="page" className="font-medium text-foreground">
+                  {product.name}
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </section>
+
         {/* Hero / Summary */}
         <section className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8">
@@ -53,6 +110,7 @@ export default function ProductDetailPageClient({ product, translations, locale 
                 </div>
               </CardContent>
             </Card>
+
             {/* Purchase Panel */}
             <div>
               <div className="flex flex-wrap gap-2 mb-4">
@@ -104,6 +162,7 @@ export default function ProductDetailPageClient({ product, translations, locale 
                   {t.common.shipsFromUSA}
                 </div>
               </div>
+
               {/* Trust row */}
               <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4">
                 {product.trust.map((b, i) => (
@@ -121,6 +180,7 @@ export default function ProductDetailPageClient({ product, translations, locale 
             </div>
           </div>
         </section>
+
         {/* Benefits */}
         <section className="mt-12 container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-6">
@@ -134,6 +194,7 @@ export default function ProductDetailPageClient({ product, translations, locale 
             ))}
           </div>
         </section>
+
         {/* Ingredients + How to Use */}
         <section className="mt-12 container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8">
@@ -169,6 +230,7 @@ export default function ProductDetailPageClient({ product, translations, locale 
             </Card>
           </div>
         </section>
+
         {/* Bonuses */}
         {product.bonuses && product.bonuses.length > 0 && (
           <section className="mt-12 container mx-auto px-4 sm:px-6 lg:px-8">
@@ -195,6 +257,7 @@ export default function ProductDetailPageClient({ product, translations, locale 
             </div>
           </section>
         )}
+
         {/* FAQs */}
         <section className="mt-12 container mx-auto px-4 sm:px-6 lg:px-8">
           <Card>
@@ -211,13 +274,16 @@ export default function ProductDetailPageClient({ product, translations, locale 
             </CardContent>
           </Card>
         </section>
-        {/* Why Consider Weight Loss Supplements? */}
+
+        {/* Why Consider Category Supplements? */}
         <section className="mt-12 container mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl lg:text-3xl font-sans font-bold text-center mb-8">
-            {t.common.whyWeightLossSupplements}
+            {categoryT.benefits?.title || "Why Consider These Supplements?"}
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {t.common.whyWeightLossBenefits.map((benefit: string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<string | number | bigint | boolean | ReactPortal | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined> | null | undefined, index: Key | null | undefined) => (
+            {(categoryT.benefits?.items || t.common.whyWeightLossBenefits || []).map((
+              benefit: any, index: Key
+            ) => (
               <Card key={index} className="text-center p-6">
                 <CardContent className="p-0">
                   <CheckCircle className="h-8 w-8 text-emerald-500 mx-auto mb-3" />
@@ -226,19 +292,39 @@ export default function ProductDetailPageClient({ product, translations, locale 
               </Card>
             ))}
           </div>
-          <p className="text-center text-muted-foreground mt-6 max-w-3xl mx-auto">
-            {t.common.whyWeightLossDescription}
-          </p>
         </section>
+
+        {/* NEW: Related Products Section – Uses your existing ProductCards */}
+        {relatedProducts.length > 0 && (
+          <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-12">
+                <h2 className="text-4xl font-bold text-gray-900">
+                  {common.relatedProductsTitle || "You May Also Like"}
+                </h2>
+                <p className="mt-4 text-xl text-gray-600 max-w-2xl mx-auto">
+                  {common.relatedProductsSubtitle || "Other premium supplements from the same category"}
+                </p>
+              </div>
+
+              {/* Reusing your existing ProductCards component – no changes needed */}
+              <ProductCards
+                products={relatedProducts}
+                buyNowLabel={common.buyNow || "Buy Now"}
+              />
+            </div>
+          </section>
+        )}
+
         {/* Product Reviews */}
         <section id="reviews" className="py-16 bg-muted/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl lg:text-4xl font-sans font-bold text-foreground mb-4">
-                {t.weightLoss.reviews?.title || "What Our Customers Say"}
+                {categoryT.reviews?.title || "What Our Customers Say"}
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                {t.weightLoss.reviews?.subtitle || "Real feedback from customers who’ve transformed their lives with these supplements."}
+                {categoryT.reviews?.subtitle || "Real feedback from customers who’ve transformed their lives with these supplements."}
               </p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -256,7 +342,7 @@ export default function ProductDetailPageClient({ product, translations, locale 
                       </div>
                       {review.verified && (
                         <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded">
-                          {t.weightLoss.reviews?.verifiedBuyer || "Verified Buyer"}
+                          {categoryT.reviews?.verifiedBuyer || "Verified Buyer"}
                         </span>
                       )}
                     </div>

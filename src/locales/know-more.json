@@ -1,79 +1,160 @@
 {
-  "title": "Everything You Need to Know About MITOLYN",
-  "summary": "MITOLYN is a science-backed mitochondrial health supplement trusted by 50,000+ users. Boost energy, fight fatigue, and age better — naturally.",
-  "knowMore": "Know More",
-  "knowLess": "Show Less",
-  "sections": [
-    {
-      "type": "text",
-      "heading": "How MITOLYN Works",
-      "content": "MITOLYN targets your cells' powerhouses — the mitochondria. By enhancing mitochondrial efficiency, it helps your body produce clean, sustainable energy without crashes.",
-      "link": { "text": "Read the science", "href": "/science" }
-    },
-    {
-      "type": "list",
-      "heading": "Key Ingredients",
-      "content": "MITOLYN contains clinically studied compounds like:",
-      "items": [
-        "PQQ (Pyrroloquinoline Quinone) – promotes new mitochondria",
-        "CoQ10 – supports energy production",
-        "Alpha-Lipoic Acid – powerful antioxidant",
-        "Acetyl-L-Carnitine – improves mental clarity",
-        "Magnesium – essential for ATP synthesis"
-      ],
-      "link": { "text": "View full ingredient list", "href": "/ingredients" }
-    },
-    {
-      "type": "stat",
-      "heading": "Proven Results",
-      "stats": [
-        { "value": "93%", "label": "Reported more energy" },
-        { "value": "87%", "label": "Felt sharper focus" },
-        { "value": "4.8/5", "label": "Average rating" }
-      ]
-    },
-    {
-      "type": "table",
-      "heading": "Compare MITOLYN vs Others",
-      "table": {
-        "headers": ["Feature", "MITOLYN", "Brand X", "Brand Y"],
-        "rows": [
-          ["Mitochondrial Support", "Yes", "No", "Partial"],
-          ["Clinically Studied", "Yes", "No", "No"],
-          ["No Fillers", "Yes", "No", "Yes"],
-          ["30-Day Guarantee", "Yes", "Yes", "No"]
+  "weightLoss": {
+    "title": "Everything You Need to Know About MITOLYN",
+    "summary": "MITOLYN is a science-backed weight loss supplement trusted by 50,000+ users. Boost metabolism, curb cravings, and lose fat — naturally.",
+    "knowMore": "Know More",
+    "knowLess": "Show Less",
+    "sections": [
+      {
+        "type": "text",
+        "heading": "How MITOLYN Works",
+        "content": "MITOLYN targets your metabolism at the cellular level to enhance fat-burning efficiency. By optimizing nutrient absorption and appetite control, it helps your body shed pounds without harsh stimulants or crashes.",
+        "link": { "text": "Read the science", "href": "/science" }
+      },
+      {
+        "type": "list",
+        "heading": "Key Ingredients",
+        "content": "MITOLYN contains clinically studied compounds like:",
+        "items": [
+          "Green Tea Extract – boosts thermogenesis for fat loss",
+          "Garcinia Cambogia – suppresses appetite naturally",
+          "Caffeine Anhydrous – increases energy expenditure",
+          "Glucomannan – promotes fullness and fiber intake",
+          "Chromium Picolinate – stabilizes blood sugar levels"
+        ],
+        "link": { "text": "View full ingredient list", "href": "/ingredients" }
+      },
+      {
+        "type": "stat",
+        "heading": "Proven Results",
+        "stats": [
+          { "value": "92%", "label": "Reported reduced cravings" },
+          { "value": "85%", "label": "Lost 10+ lbs in 30 days" },
+          { "value": "4.8/5", "label": "Average rating" }
         ]
-      }
-    },
-    {
-      "type": "quote",
-      "quote": "I used to crash every afternoon. After 2 weeks on MITOLYN, I have steady energy all day. Game changer!",
-      "author": "Sarah K., 42, Teacher",
-      "rating": 5
-    },
-    {
-      "type": "faq",
-      "heading": "Frequently Asked Questions",
-      "faqs": [
-        {
-          "q": "How soon will I feel results?",
-          "a": "Most users report more energy within 7–14 days. Full benefits in 30 days."
-        },
-        {
-          "q": "Is MITOLYN safe?",
-          "a": "Yes. All ingredients are GRAS, third-party tested, and made in FDA-registered facilities."
-        },
-        {
-          "q": "Can I take it with coffee?",
-          "a": "Absolutely. MITOLYN works with or without caffeine."
+      },
+      {
+        "type": "table",
+        "heading": "Compare MITOLYN vs Others",
+        "table": {
+          "headers": ["Feature", "MITOLYN", "Brand X", "Brand Y"],
+          "rows": [
+            ["Metabolism Boost", "Yes", "Partial", "No"],
+            ["Clinically Studied", "Yes", "No", "Partial"],
+            ["No Stimulants", "Yes", "No", "Yes"],
+            ["60-Day Guarantee", "Yes", "30-Day", "No"]
+          ]
         }
-      ]
-    },
-    {
-      "type": "cta",
-      "heading": "Ready to Feel Energized?",
-      "content": "Join 50,000+ happy customers. Try MITOLYN risk-free for 30 days.",
-      "button": { "text": "Shop Now", "href": "/shop" }
-    }
-  ]
+      },
+      {
+        "type": "quote",
+        "quote": "I struggled with cravings for years. MITOLYN helped me finally lose 15 lbs without feeling deprived. Incredible!",
+        "author": "Alex R., 35, Office Worker",
+        "rating": 5
+      },
+      {
+        "type": "faq",
+        "heading": "Frequently Asked Questions",
+        "faqs": [
+          {
+            "q": "How soon will I see weight loss?",
+            "a": "Most users notice reduced appetite in 3–7 days. Visible results in 2–4 weeks."
+          },
+          {
+            "q": "Is MITOLYN safe for daily use?",
+            "a": "Yes. Natural ingredients, third-party tested, and made in FDA-registered facilities."
+          },
+          {
+            "q": "Does it work without diet changes?",
+            "a": "It enhances results, but pairs best with balanced eating and light exercise."
+          }
+        ]
+      },
+      {
+        "type": "cta",
+        "heading": "Ready to Transform Your Body?",
+        "content": "Join 50,000+ satisfied customers. Try MITOLYN risk-free for 60 days.",
+        "button": { "text": "Shop Now", "href": "/shop" }
+      }
+    ]
+  },
+  "oralProbiotics": {
+    "title": "Everything You Need to Know About PRODENTIM",
+    "summary": "PRODENTIM is a science-backed oral probiotic trusted by 50,000+ users. Restore mouth microbiome, whiten teeth, and fight gum issues — naturally.",
+    "knowMore": "Know More",
+    "knowLess": "Show Less",
+    "sections": [
+      {
+        "type": "text",
+        "heading": "How PRODENTIM Works",
+        "content": "PRODENTIM rebalances your oral microbiome with beneficial bacteria. It crowds out harmful strains to reduce plaque, strengthen enamel, and promote healthier gums without antibiotics or harsh chemicals.",
+        "link": { "text": "Read the science", "href": "/science" }
+      },
+      {
+        "type": "list",
+        "heading": "Key Ingredients",
+        "content": "PRODENTIM features clinically studied strains like:",
+        "items": [
+          "Streptococcus salivarius K12 – fights bad breath and plaque",
+          "Lactobacillus reuteri – supports gum repair",
+          "Lactobacillus paracasei – enhances enamel strength",
+          "Bifidobacterium lactis – reduces inflammation",
+          "Inulin – prebiotic for bacterial growth"
+        ],
+        "link": { "text": "View full ingredient list", "href": "/ingredients" }
+      },
+      {
+        "type": "stat",
+        "heading": "Proven Results",
+        "stats": [
+          { "value": "91%", "label": "Reported fresher breath" },
+          { "value": "88%", "label": "Saw whiter teeth" },
+          { "value": "4.9/5", "label": "Average rating" }
+        ]
+      },
+      {
+        "type": "table",
+        "heading": "Compare PRODENTIM vs Others",
+        "table": {
+          "headers": ["Feature", "PRODENTIM", "Brand X", "Brand Y"],
+          "rows": [
+            ["Oral Microbiome Balance", "Yes", "No", "Partial"],
+            ["Clinically Studied Strains", "Yes", "Partial", "No"],
+            ["Chewable Format", "Yes", "No", "Yes"],
+            ["60-Day Guarantee", "Yes", "30-Day", "No"]
+          ]
+        }
+      },
+      {
+        "type": "quote",
+        "quote": "My gums used to bleed every brush. After a month with PRODENTIM, they're healthy and my smile is brighter!",
+        "author": "Maria L., 38, Nurse",
+        "rating": 5
+      },
+      {
+        "type": "faq",
+        "heading": "Frequently Asked Questions",
+        "faqs": [
+          {
+            "q": "How soon will I notice improvements?",
+            "a": "Many see fresher breath in 1 week. Full oral health benefits in 2–4 weeks."
+          },
+          {
+            "q": "Is PRODENTIM safe for sensitive mouths?",
+            "a": "Yes. Sugar-free, non-GMO, and produced in FDA-registered facilities."
+          },
+          {
+            "q": "Does it replace regular brushing?",
+            "a": "No, it complements your routine for better long-term results."
+          }
+        ]
+      },
+      {
+        "type": "cta",
+        "heading": "Ready for a Healthier Smile?",
+        "content": "Join 50,000+ happy users. Try PRODENTIM risk-free for 60 days.",
+        "button": { "text": "Shop Now", "href": "/shop" }
+      }
+    ]
+  }
 }

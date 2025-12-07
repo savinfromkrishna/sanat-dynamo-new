@@ -13,23 +13,32 @@ import { getTranslation, type Locale } from "@/lib/i18n"
 import ProductCards from "@/components/product-card"
 import { ProductknowMoreSection } from "@/components/productKnowMore"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { notFound } from "next/navigation"
+
+function getCategoryKey(slug: string): string | null {
+  const map: Record<string, string> = {
+    "weight-loss-supplements": "weightLoss",
+    "belly-fat-supplements": "bellyFat",
+    "dental-health-supplements": "oralProbiotics",
+    // Add more mappings as needed for future categories
+  }
+  return map[slug] || null
+}
 
 function ProductToggleSection({
-  translations,
+  t,
   buyNowLabel,
 }: {
-  translations: any
+  t: any
   buyNowLabel: string
 }) {
   "use client"
-  const t = translations.weightLoss
-  const womenProducts = translations.womenWeightLoss?.productsSection?.products || []
-  const menProducts = t.productsSection?.products || []
+  const products = t.productsSection?.products || []
 
   return (
     <Tabs defaultValue="men" className="w-full">
       {/* This makes the tab list full-width and pushes tabs to the right */}
-      <TabsList className="grid w-full justify-end bg-transparent border-none shadow-none p-0">
+      {/* <TabsList className="grid w-full justify-end bg-transparent border-none shadow-none p-0">
         <div className="grid w-48 grid-cols-2 bg-gradient-to-r from-gray-50 to-gray-100 rounded-full p-2 shadow-sm border border-gray-200">
           <TabsTrigger
             value="men"
@@ -44,17 +53,17 @@ function ProductToggleSection({
             For Women
           </TabsTrigger>
         </div>
-      </TabsList>
+      </TabsList> */}
 
       <TabsContent value="men" className="mt-6">
         <ProductCards
-          products={menProducts.map((p: any) => ({ ...p, id: String(p.id) }))}
+          products={products.map((p: any) => ({ ...p, id: String(p.id) }))}
           buyNowLabel={buyNowLabel}
         />
       </TabsContent>
       <TabsContent value="women" className="mt-6">
         <ProductCards
-          products={womenProducts.map((p: any) => ({ ...p, id: String(p.id) }))}
+          products={products.map((p: any) => ({ ...p, id: String(p.id) }))}
           buyNowLabel={buyNowLabel}
         />
       </TabsContent>
@@ -62,49 +71,71 @@ function ProductToggleSection({
   )
 }
 
-export async function generateMetadata({ params }: {
-  params: {
-    country: any; locale: Locale
-  }
+export async function generateMetadata({
+  params,
+}: {
+  params: { country: string; locale: Locale; slug: string }
 }): Promise<Metadata> {
   const translations = getTranslation(params.locale)
+  const categoryKey = getCategoryKey(params.slug)
+  if (!categoryKey) {
+    return {
+      title: "Page Not Found",
+    }
+  }
+  const t = translations[categoryKey]
   return {
-    title: translations.weightLoss.title,
-    description: translations.weightLoss.description,
+    title: t.seo.title,
+    description: t.seo.description,
     metadataBase: new URL("https://mitolyn-official.com"),
     alternates: {
-      canonical: `/${params.country}/${params.locale}/weight-loss-supplements`,
+      canonical: `/${params.country}/${params.locale}/${params.slug}`,
       languages: {
-        "en-US": `/${params.country}/en/weight-loss-supplements`,
-        "es-ES": `/${params.country}/es/weight-loss-supplements`,
+        "en-US": `/${params.country}/en/${params.slug}`,
+        "es-ES": `/${params.country}/es/${params.slug}`,
       },
     },
     openGraph: {
-      title: translations.weightLoss.title,
-      description: translations.weightLoss.description,
-      url: `https://mitolyn-official.com/${params.country}/${params.locale}/weight-loss-supplements`,
+      title: t.seo.title,
+      description: t.seo.description,
+      url: `https://mitolyn-official.com/${params.country}/${params.locale}/${params.slug}`,
       siteName: "Mitolyn Official",
-      images: [{ url: "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp", width: 1200, height: 630, alt: translations.weightLoss.title }],
+      images: [
+        {
+          url: t.productsSection?.products?.[0]?.image || "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
+          width: 1200,
+          height: 630,
+          alt: t.seo.title,
+        },
+      ],
       locale: params.locale === "es" ? "es_ES" : "en_US",
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
-      title: translations.weightLoss.title,
-      description: translations.weightLoss.description,
-      images: ["https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp"],
+      title: t.seo.title,
+      description: t.seo.description,
+      images: [t.productsSection?.products?.[0]?.image || "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp"],
     },
   }
 }
 
-export default async function WeightLossSupplementsPage({ params }: { params: { country: string; locale: Locale } }) {
+export default async function SupplementsPage({
+  params,
+}: {
+  params: { country: string; locale: Locale; slug: string }
+}) {
+  
   const translations = getTranslation(params.locale)
-  const t = translations.weightLoss
+  const categoryKey = getCategoryKey(params.slug)
+  if (!categoryKey) {
+    notFound()
+  }
+  const t = translations[categoryKey]
+  const knowMoreData = translations.knowMore?.[categoryKey] || {}
   console.log("translations:", translations)
-  console.log("Translations for Weight Loss Supplements Page:", t)
-  console.log("womensProductsSection:", translations.
-    womenWeightLoss
-  )
+  console.log(`Translations for ${params.slug} Page:`, t)
+
   return (
     <main className="min-h-screen bg-white">
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
@@ -114,7 +145,7 @@ export default async function WeightLossSupplementsPage({ params }: { params: { 
             {t.productsSection.description}
           </p>
           <ProductToggleSection
-            translations={translations}
+            t={t}
             buyNowLabel={t.common.buyNow}
           />
         </div>
@@ -137,10 +168,9 @@ export default async function WeightLossSupplementsPage({ params }: { params: { 
       </section>
       <section className="py-8 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl lg:text-3xl font-sans font-bold text-center mb-8">Certified Quality You Can Trust</h2>
+          <h2 className="text-2xl lg:text-3xl font-sans font-bold text-center mb-8">{t.trustBadges.title}</h2>
           <div className="flex justify-center items-center gap-8 flex-wrap">
             {t.trustBadges.items.map((badge: any, index: number) => (
-
               <Image
                 key={index}
                 src={badge.image || "/placeholder.svg"}
@@ -185,7 +215,7 @@ export default async function WeightLossSupplementsPage({ params }: { params: { 
           </div>
         </div>
       </section>
-      <CategoryReviewsSection category="weight-loss-supplements" translations={translations} />
+      <CategoryReviewsSection category={params.slug} translations={translations} />
       <section className="py-12 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl lg:text-3xl font-sans font-bold text-center mb-8">{t.faqs.title}</h2>
@@ -207,15 +237,19 @@ export default async function WeightLossSupplementsPage({ params }: { params: { 
           </div>
         </div>
       </section>
-      <ProductknowMoreSection translations={translations} />
+      <ProductknowMoreSection translations={{ productKnowMore: knowMoreData }} />
     </main>
   )
 }
 
 export async function generateStaticParams() {
   return [
-    { country: "us", locale: "en" },
-    { country: "us", locale: "es" },
-    // Add more country-locale combinations as needed
+    { country: "in", locale: "en", slug: "weight-loss-supplements" },
+    { country: "in", locale: "en", slug: "dental-health-supplements" },
+    { country: "us", locale: "en", slug: "weight-loss-supplements" },
+    { country: "us", locale: "en", slug: "dental-health-supplements" },
+    { country: "us", locale: "es", slug: "weight-loss-supplements" },
+    { country: "us", locale: "es", slug: "dental-health-supplements" },
+    // Add more country-locale-slug combinations as needed for future categories
   ]
 }

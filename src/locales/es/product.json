@@ -1,7 +1,7 @@
 {
   "products": {
     "metolyn-1": {
-      "slug": "metolyn-1",
+      "id": "metolyn-1",
       "name": "Mitolyn – 1 Botella",
       "subtitle": "Paquete Básico",
       "price": 49,
@@ -17,21 +17,64 @@
         "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422492/mitolyn-offer_azyjj3.png"
       ],
       "badges": [
-        { "text": "Básico", "color": "bg-blue-500" },
-        { "text": "Garantía de 90 Días", "color": "bg-emerald-600" },
-        { "text": "Instalación Registrada por la FDA", "color": "bg-gray-900" }
+        {
+          "text": "Básico",
+          "color": "bg-blue-500"
+        },
+        {
+          "text": "Garantía de 90 Días",
+          "color": "bg-emerald-600"
+        },
+        {
+          "text": "Instalación Registrada por la FDA",
+          "color": "bg-gray-900"
+        }
       ],
       "affiliateUrl": "https://mitolyn-official.com/paquete-basico",
+      "description": "Si te sientes con baja energía, luchas por perder peso persistente o lidias con fatiga diaria, tus mitocondrias podrían ser la causa raíz. Estas pequeñas centrales de energía dentro de tus células son responsables de la producción de energía y el metabolismo. Mitolyn es una fórmula revolucionaria diseñada para restaurar la salud mitocondrial, mejorar la quema de grasa y aumentar la vitalidad general. Respaldado por reseñas positivas de Mitolyn y confiado por miles, este poderoso suplemento Mitolyn ofrece una manera natural de recuperar tu energía, enfoque y confianza.",
+      "whyChoose": [
+        "Formulado científicamente para apoyar la salud mitocondrial",
+        "Promueve beneficios naturales de pérdida de peso con Mitolyn",
+        "Mejora el enfoque, la memoria y la claridad mental",
+        "Mejora la energía celular y el metabolismo",
+        "Respaldado por una garantía de devolución de 90 días del sitio web oficial de Mitolyn"
+      ],
+      "whatIs": "El suplemento Mitolyn es una fórmula de salud premium que apunta a la disfunción mitocondrial, un factor oculto detrás de la fatiga, el aumento de peso persistente y el metabolismo lento. Al optimizar cómo tus células producen energía, Mitolyn ayuda a restaurar el equilibrio en tu cuerpo, haciendo más fácil mantenerte activo, deshacerte de libras extra y disfrutar de agudeza mental.",
+      "howItWorks": [
+        "Reactivando la función mitocondrial – apoyando una mejor producción de energía celular.",
+        "Aumentando el metabolismo – ayudando en la descomposición de grasa y el manejo natural del peso.",
+        "Mejorando el flujo sanguíneo y la entrega de nutrientes – ayudando a que tus células rindan al máximo.",
+        "Apoyando la función cerebral – reduciendo la fatiga mental y mejorando el enfoque."
+      ],
       "benefits": [
-        "Apoya el metabolismo para una quema de grasa constante",
-        "Ayuda a controlar el apetito y reducir los antojos",
-        "Aumenta la energía diaria sin nerviosismo",
-        "Respaldado por miles de reseñas positivas"
+        "Aumenta la energía natural y la resistencia",
+        "Apoya una pérdida de peso saludable y sostenible con Mitolyn",
+        "Mejora el enfoque, la memoria y la salud cerebral",
+        "Promueve vitalidad juvenil y renovación celular",
+        "Reduce la fatiga y la lentitud",
+        "100% natural, seguro y no adictivo"
       ],
       "ingredients": [
-        { "name": "Compuestos que apoyan las mitocondrias", "note": "Apunta a la energía celular" },
-        { "name": "Botánicos naturales", "note": "Sin OGM, sin estimulantes" },
-        { "name": "Complejo antioxidante", "note": "Ayuda a reducir el estrés oxidativo" }
+        {
+          "name": "Coenzima Q10 (CoQ10)",
+          "note": "Aumenta la energía mitocondrial y reduce la fatiga"
+        },
+        {
+          "name": "Resveratrol",
+          "note": "Apoya el anti-envejecimiento y la reparación celular"
+        },
+        {
+          "name": "Extracto de Té Verde",
+          "note": "Promueve la quema de grasa y el metabolismo"
+        },
+        {
+          "name": "Ácido Alfa Lipoico",
+          "note": "Un antioxidante poderoso que mejora la eficiencia energética"
+        },
+        {
+          "name": "Otros nutrientes de apoyo",
+          "note": "Diseñados para mejorar la pérdida de peso y la energía de manera natural"
+        }
       ],
       "howToUse": [
         "Toma 1 cápsula diaria con un vaso de agua",
@@ -39,42 +82,88 @@
         "Mantente hidratado durante todo el día"
       ],
       "bonuses": [
-        { "title": "Detox de Inicio de 1 Día (Digital)", "image": "/images/bonus-detox.jpeg" },
-        { "title": "Renueva Tu Cuerpo (Digital)", "image": "/images/bonus-renew.jpeg" }
+        {
+          "title": "Detox de Inicio de 1 Día (Digital)",
+          "image": "/images/bonus-detox.jpeg"
+        },
+        {
+          "title": "Renueva Tu Cuerpo (Digital)",
+          "image": "/images/bonus-renew.jpeg"
+        }
       ],
       "trust": [
-        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422484/fda-approved_jrawwr.webp", "alt": "Instalación Registrada por la FDA" },
-        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/gmp-certified_z81hqh.webp", "alt": "Certificado GMP" },
-        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/made-in-usa_go4j19.webp", "alt": "Hecho en EE.UU." },
-        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422491/natural_dpkfxs.webp", "alt": "100% Natural" }
+        {
+          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422484/fda-approved_jrawwr.webp",
+          "alt": "Instalación Registrada por la FDA"
+        },
+        {
+          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/gmp-certified_z81hqh.webp",
+          "alt": "Certificado GMP"
+        },
+        {
+          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/made-in-usa_go4j19.webp",
+          "alt": "Hecho en EE.UU."
+        },
+        {
+          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422491/natural_dpkfxs.webp",
+          "alt": "100% Natural"
+        }
+      ],
+      "pros": [
+        "Fórmula sin estimulantes que apoya energía constante, enfoque y metabolismo.",
+        "Apunta a la salud mitocondrial—aborda la raíz de la baja energía y la quema lenta de grasa.",
+        "Respaldado por muchas reseñas positivas de Mitolyn de usuarios reales.",
+        "Fabricado en instalaciones registradas por la FDA y certificadas por GMP.",
+        "Garantía de devolución de 90 días a través del sitio oficial de Mitolyn.",
+        "Paquetes de oferta frecuentes de Mitolyn y descuentos hacen que el uso multi-mes sea más asequible."
+      ],
+      "cons": [
+        "Los resultados varían; los mejores resultados típicamente requieren 6–8 semanas de uso consistente.",
+        "Precio premium comparado con vitaminas genéricas.",
+        "Vendido solo en línea (principalmente a través del sitio web oficial de Mitolyn).",
+        "La evidencia es mayormente a nivel de ingredientes; ensayos clínicos específicos del producto limitados.",
+        "No recomendado para embarazadas/lactantes o con ciertas condiciones sin guía médica."
       ],
       "faqs": [
         {
-          "q": "¿Cuándo veré resultados?",
-          "a": "La mayoría de los usuarios notan una mejora en la energía y un mejor control del apetito dentro de 1-2 semanas, con cambios visibles generalmente en 4-8 semanas."
+          "q": "¿Para qué se usa Mitolyn?",
+          "a": "Mitolyn está diseñado para mejorar la función mitocondrial, aumentar la energía, mejorar el enfoque y apoyar la pérdida de peso natural."
         },
         {
-          "q": "¿Es seguro y natural?",
-          "a": "Mitolyn se produce en una instalación registrada por la FDA y certificada por GMP, y utiliza ingredientes sin OGM. Siempre consulta a tu médico si tienes alguna condición."
+          "q": "¿Dónde puedo comprar Mitolyn?",
+          "a": "El lugar más seguro para ordenar es a través del sitio web oficial de Mitolyn, que proporciona botellas genuinas y una garantía de devolución de 90 días."
         },
         {
-          "q": "¿Necesito hacer dieta para obtener resultados?",
-          "a": "Una dieta equilibrada y actividad ligera mejoran los resultados, pero la fórmula está diseñada para apoyar el progreso sin medidas extremas."
+          "q": "¿Cuánto tiempo toma ver resultados?",
+          "a": "La mayoría de los usuarios notan mejoras en energía y enfoque dentro de 2–4 semanas, mientras que los beneficios de pérdida de peso de Mitolyn pueden tomar 6–8 semanas con uso consistente."
         },
         {
-          "q": "¿Hay una garantía de devolución de dinero?",
-          "a": "Sí. Cada pedido está cubierto por una garantía de devolución de dinero de 90 días."
+          "q": "¿Es seguro usar Mitolyn?",
+          "a": "Sí, Mitolyn está hecho con ingredientes naturales y se considera seguro. Sin embargo, si estás bajo medicación, consulta a tu médico antes de usarlo."
+        },
+        {
+          "q": "¿Realmente funciona Mitolyn para la pérdida de peso?",
+          "a": "Sí, al mejorar la eficiencia mitocondrial, Mitolyn ayuda a tu cuerpo a quemar grasa más efectivamente, haciendo el manejo del peso más fácil."
+        },
+        {
+          "q": "¿Hay una política de reembolso?",
+          "a": "Sí, cada pedido del sitio oficial de Mitolyn viene con una garantía de devolución de 90 días."
+        },
+        {
+          "q": "¿Hay ofertas de venta de Mitolyn disponibles?",
+          "a": "Sí, el sitio web oficial de Mitolyn a menudo proporciona descuentos, ofertas en bulk y envíos gratis."
         }
       ],
       "seo": {
-        "title": "Mitolyn – 1 Botella | Paquete Básico | Oficial",
-        "description": "Compra Mitolyn 1 Botella – Paquete Básico. Apoyo natural para la pérdida de peso que impulsa el metabolismo y la energía. Instalación registrada por la FDA. Garantía de 90 días.",
+        "title": "Suplemento Mitolyn – Reseñas, Beneficios y Pérdida de Peso",
+        "description": "cómo el suplemento Mitolyn apoya la pérdida de peso, aumenta la energía y mejora el metabolismo. Lee reseñas de Mitolyn y reclama la oferta oficial.",
         "keywords": [
-          "Mitolyn",
-          "Mitolyn 1 botella",
-          "Mitolyn paquete básico",
-          "suplemento para pérdida de peso",
-          "apoyo al metabolismo"
+          "mitolyn",
+          "suplemento mitolyn",
+          "reseñas mitolyn",
+          "mitolyn pérdida de peso",
+          "mitolyn oferta",
+          "mitolyn oficial"
         ]
       },
       "productReviews": [
@@ -83,7 +172,7 @@
           "name": "Sarah M.",
           "location": "California, EE.UU.",
           "rating": 5,
-          "text": "Después de solo unas semanas, sentí un gran aumento de energía y finalmente comencé a perder peso persistente. Mitolyn se siente natural y efectivo.",
+          "text": "Después de solo unas semanas tomando Mitolyn, noté un gran aumento en mi energía diaria. Me siento más ligera, más enfocada y el peso persistente finalmente comenzó a desaparecer. ¡Altamente recomendado este suplemento!",
           "verified": true
         },
         {
@@ -91,7 +180,7 @@
           "name": "James R.",
           "location": "Texas, EE.UU.",
           "rating": 5,
-          "text": "He probado muchos suplementos; Mitolyn es el primero que realmente ayudó con la pérdida de grasa sin nerviosismo. También me siento más alerta mentalmente.",
+          "text": "He probado innumerables suplementos para la pérdida de peso, pero nada funcionó hasta Mitolyn. No solo ayudó con la pérdida de grasa, sino que también me siento más agudo mentalmente. Un verdadero cambio de juego.",
           "verified": true
         },
         {
@@ -99,7 +188,7 @@
           "name": "Linda P.",
           "location": "Florida, EE.UU.",
           "rating": 5,
-          "text": "Escéptica al principio, pero ya he perdido peso notable en 2 meses. Energía arriba, antojos abajo. Muy recomendable.",
+          "text": "Estaba escéptica al principio, pero Mitolyn ha superado mis expectativas. Más energía, mejor humor y ya he perdido 12 libras en 2 meses. Lo mejor—se siente natural.",
           "verified": true
         }
       ]
