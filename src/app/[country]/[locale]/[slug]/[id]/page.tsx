@@ -8,7 +8,6 @@ function getCategoryKey(slug: string): string | null {
   const map: Record<string, string> = {
     "weight-loss-supplements": "weightLoss",
     "dental-health-supplements": "oralProbiotics",
-    // Add more mappings as needed for future categories
   }
   return map[slug] || null
 }
@@ -16,17 +15,20 @@ function getCategoryKey(slug: string): string | null {
 const productMap: Record<string, string[]> = {
   "weight-loss-supplements": ["metolyn-1"],
   "dental-health-supplements": ["prodentim-1"],
-  // Add more mappings as needed for future categories
 }
 
-export async function generateMetadata({ params }: { params: {
-  country: string; 
-  locale: Locale;
-  slug: string;
-  id: string;
-} }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: {
+    country: string
+    locale: Locale
+    slug: string
+    id: string
+  }
+}): Promise<Metadata> {
   const { locale, slug, id, country } = params
-  
+
   const translations = getTranslation(locale)
   const categoryKey = getCategoryKey(slug)
   if (!categoryKey) {
@@ -35,7 +37,7 @@ export async function generateMetadata({ params }: { params: {
     }
   }
   const product = translations.products?.[id] as ProductDetail | undefined
-  
+
   if (!product) {
     return {
       title: translations.common.productNotFound,
@@ -72,14 +74,18 @@ export async function generateMetadata({ params }: { params: {
   }
 }
 
-export default async function ProductPage({ params }: { params: { 
-  country: string; 
-  locale: Locale; 
-  slug: string;
-  id: string 
-}}) {
+export default async function ProductPage({
+  params,
+}: {
+  params: {
+    country: string
+    locale: Locale
+    slug: string
+    id: string
+  }
+}) {
   const { locale, slug, id } = params
-  
+
   const translations = getTranslation(locale)
   const categoryKey = getCategoryKey(slug)
   if (!categoryKey) {
@@ -97,22 +103,24 @@ export default async function ProductPage({ params }: { params: {
     .filter((p: any) => String(p.id) !== id)
     .map((p: any) => ({ ...p, id: String(p.id) }))
 
-  return <ProductDetailPageClient 
-    product={product} 
-    translations={translations} 
-    locale={locale} 
-    categoryKey={categoryKey}
-    slug={slug}
-    relatedProducts={relatedProducts}
-  />
+  return (
+    <ProductDetailPageClient
+      product={product}
+      translations={translations}
+      locale={locale}
+      categoryKey={categoryKey}
+      slug={slug}
+      relatedProducts={relatedProducts}
+    />
+  )
 }
 
 export async function generateStaticParams() {
-  const locales: Locale[] = ["en", "es"];
-  const countries = ["us", "in", "ca"];
-  
-  const paramsArray: any[] = [];
-  
+  const locales: Locale[] = ["en", "es"]
+  const countries = ["us", "in", "ca"]
+
+  const paramsArray: any[] = []
+
   for (const country of countries) {
     for (const locale of locales) {
       for (const slug in productMap) {
@@ -121,12 +129,12 @@ export async function generateStaticParams() {
             country,
             locale,
             slug,
-            id
-          });
+            id,
+          })
         }
       }
     }
   }
 
-  return paramsArray;
+  return paramsArray
 }

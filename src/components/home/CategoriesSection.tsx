@@ -2,170 +2,261 @@
 
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Heart, Star, ShoppingCart, ChevronLeft, ChevronRight } from "lucide-react"
+import { Heart, Star, ChevronLeft, ChevronRight } from "lucide-react"
 import Image from "next/image"
 import { useState, useCallback } from "react"
 import useEmblaCarousel from "embla-carousel-react"
 import Link from "next/link"
 
-export function CategoriesSection({ translations, showAddToCart = true, locale }: { translations: any; showAddToCart?: boolean; locale: any }) {
-  const t = translations
-  console.log(t);
-  
-  const [favorites, setFavorites] = useState<number[]>([])
-  const [emblaRef1, emblaApi1] = useEmblaCarousel({
-    align: "start",
-    containScroll: "trimSnaps",
-    breakpoints: { "(min-width: 768px)": { active: false } },
-  })
-  const [emblaRef2, emblaApi2] = useEmblaCarousel({
-    align: "start",
-    containScroll: "trimSnaps",
-    breakpoints: { "(min-width: 768px)": { active: false } },
-  })
+type CategoryType = {
+  category: string
+  items: any[]
+}
 
-  const scrollPrev1 = useCallback(() => emblaApi1 && emblaApi1.scrollPrev(), [emblaApi1])
-  const scrollNext1 = useCallback(() => emblaApi1 && emblaApi1.scrollNext(), [emblaApi1])
-  const scrollPrev2 = useCallback(() => emblaApi2 && emblaApi2.scrollPrev(), [emblaApi2])
-  const scrollNext2 = useCallback(() => emblaApi2 && emblaApi2.scrollNext(), [emblaApi2])
+type CategoriesSectionProps = {
+  translations: any // Full JSON data
+  locale: string
+  country: string
+  categoryFilter?: "weightLoss" | "energy" | "oralProbiotics" | "bellyFat" | null
+}
+
+export function CategoriesSection({
+  translations,
+  locale,
+  country,
+  categoryFilter = null,
+}: CategoriesSectionProps) {
+  const t = translations
+  const [favorites, setFavorites] = useState<number[]>([])
+
+  // Mapping: filter key → actual category name
+  const filterToCategoryName: Record<
+    NonNullable<CategoriesSectionProps["categoryFilter"]>,
+    string
+  > = {
+    weightLoss: "Weight Loss Supplements",
+    energy: "Energy Supplements",
+    oralProbiotics: "Oral Health Supplements",
+    bellyFat: "Belly Fat Supplements",
+  }
+
+  // Mapping: category name → translation key (used in t.categories)
+  const categoryToTranslationKey: Record<string, string> = {
+    "Weight Loss Supplements": "weightLoss",
+    "Energy Supplements": "energy",
+    "Oral Health Supplements": "oralProbiotics",
+    "Belly Fat Supplements": "bellyFat",
+  }
+
+  // Mapping: filter key → URL slug
+  const filterToSlug: Record<
+    NonNullable<CategoriesSectionProps["categoryFilter"]>,
+    string
+  > = {
+    weightLoss: "weight-loss-supplements",
+    energy: "energy-supplements",
+    oralProbiotics: "dental-health-supplements",
+    bellyFat: "belly-fat-supplements",
+  }
+
+  // Start with all products
+  let visibleCategories: CategoryType[] = t.categories?.products || []
+
+  // If filtering by category, narrow it down
+  if (categoryFilter && filterToCategoryName[categoryFilter]) {
+    const targetCategory = filterToCategoryName[categoryFilter]
+    visibleCategories = visibleCategories.filter(
+      (cat: CategoryType) => cat.category === targetCategory
+    )
+  }
+
+  // Create one Embla carousel per visible category
+  const emblaConfigs = visibleCategories.map(() =>
+    useEmblaCarousel({
+      align: "start",
+      containScroll: "trimSnaps",
+      breakpoints: { "(min-width: 768px)": { active: false } },
+    })
+  )
 
   const toggleFavorite = (productId: number) => {
-    setFavorites((prev) => (prev.includes(productId) ? prev.filter((id) => id !== productId) : [...prev, productId]))
+    setFavorites((prev) =>
+      prev.includes(productId)
+        ? prev.filter((id) => id !== productId)
+        : [...prev, productId]
+    )
   }
 
   return (
     <section id="products" className="py-16 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {t.categories.products.map((category: any, categoryIndex: number) => {
-          const emblaRef = categoryIndex === 0 ? emblaRef1 : emblaRef2
-          const scrollPrev = categoryIndex === 0 ? scrollPrev1 : scrollPrev2
-          const scrollNext = categoryIndex === 0 ? scrollNext1 : scrollNext2
+        {visibleCategories.map((category: CategoryType, categoryIndex: number) => {
+          const [emblaRef, emblaApi] = emblaConfigs[categoryIndex]
+
+          const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi])
+          const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi])
+
+          // Get the correct translation key for this category
+          const translationKey =
+            categoryToTranslationKey[category.category] || "weightLoss"
+
+          // Fetch title and description directly from t.categories
+          const title = t.categories?.[translationKey] || category.category
+          const description =
+            t.categories?.[`${translationKey}Description`] ||
+            "Discover premium natural supplements designed to support your wellness goals."
+
+          // Determine the slug for product links
+          const currentCategorySlug = categoryFilter
+            ? filterToSlug[categoryFilter]
+            : filterToSlug[
+                Object.entries(filterToCategoryName).find(
+                  ([_, name]) => name === category.category
+                )?.[0] as keyof typeof filterToSlug
+              ] || "weight-loss-supplements"
 
           return (
-            <div key={category.category} className={categoryIndex > 0 ? "mt-16" : ""}>
+            <div
+              key={category.category}
+              className={categoryIndex > 0 ? "mt-16" : ""}
+            >
+              {/* Category Title & Description */}
               <div className="text-center mb-12">
-                <h2 className="text-2xl font-medium text-gray-800 mb-2">
-                  {t.categories[category.category === "Weight Loss Supplements" ? "weightLoss" : "energy"]}
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                  {title}
                 </h2>
-                <p className="text-gray-600 max-w-2xl mx-auto">
-                  {t.categories[category.category === "Weight Loss Supplements" ? "weightLossDescription" : "energyDescription"]}
+                <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                  {description}
                 </p>
               </div>
 
-              <div className="relative max-w-6xl mx-auto">
+              {/* Carousel */}
+              <div className="relative max-w-7xl mx-auto">
+                {/* Mobile Prev/Next Buttons */}
                 <Button
                   variant="outline"
-                  className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg md:hidden"
+                  size="icon"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg md:hidden"
                   onClick={scrollPrev}
                 >
-                  <ChevronLeft className="h-4 w-4" />
-                  
+                  <ChevronLeft className="h-5 w-5" />
                 </Button>
                 <Button
                   variant="outline"
-                  className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg md:hidden"
+                  size="icon"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg md:hidden"
                   onClick={scrollNext}
                 >
-                  <ChevronRight className="h-4 w-4" />
+                  <ChevronRight className="h-5 w-5" />
                 </Button>
 
                 <div className="overflow-hidden" ref={emblaRef}>
-                  <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6">
+                  <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {category.items.map((product: any) => (
-                      <div key={product.id} className="flex-[0_0_280px] md:flex-none mr-4 md:mr-0">
-                      <Link href={`${locale}/weight-loss-supplements/${product?.slug}`}>
-                        <Card
-                          className="group bg-white rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-200 overflow-hidden w-full max-w-xs mx-auto cursor-pointer h-full"
+                      <div
+                        key={product.id || product.slug}
+                        className="flex-[0_0_290px] md:flex-none pr-4 md:pr-0"
+                      >
+                        <Link
+                          href={`/${country}/${locale}/${product.categorySlug || currentCategorySlug}/${product.slug}`}
                         >
-                          <div className="relative">
-                            <button
-                              onClick={(e) => {
-                                e.stopPropagation()
-                                toggleFavorite(product.id)
-                              }}
-                              className="absolute top-3 right-3 z-10 p-2 rounded-full bg-white/90 hover:bg-white transition-colors duration-200 shadow-sm"
-                            >
-                              <Heart
-                                className={`w-4 h-4 ${
-                                  favorites.includes(product.id)
-                                    ? "text-red-500 fill-current"
-                                    : "text-gray-400 hover:text-red-400"
-                                }`}
-                              />
-                            </button>
+                          <Card className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden h-full border border-gray-100">
+                            <div className="relative">
+                              {/* Favorite Heart */}
+                              <button
+                                type="button"
+                                onClick={(e) => {
+                                  e.preventDefault()
+                                  e.stopPropagation()
+                                  toggleFavorite(product.id || product.slug)
+                                }}
+                                className="absolute top-4 right-4 z-10 p-2.5 rounded-full bg-white/90 hover:bg-white shadow-md transition"
+                              >
+                                <Heart
+                                  className={`w-5 h-5 transition-colors ${
+                                    favorites.includes(product.id || product.slug)
+                                      ? "text-red-500 fill-red-500"
+                                      : "text-gray-600"
+                                  }`}
+                                />
+                              </button>
 
-                            <div className="h-40 p-3 flex items-center justify-center bg-gray-50">
-                              <Image
-                                src={product.image || "/placeholder.svg"}
-                                alt={product.name}
-                                width={120}
-                                height={140}
-                                className="object-contain max-h-full"
-                              />
-                            </div>
-                          </div>
-
-                          <CardContent className="p-3 h-60 flex flex-col">
-                            <div className="flex items-center gap-2 mb-2">
-                              <div className="flex items-center gap-1 bg-teal-50 px-2 py-1 rounded-md">
-                                <span className="text-sm font-semibold text-teal-700">{product.rating}</span>
-                                <Star className="w-3 h-3 text-teal-500 fill-current" />
+                              {/* Product Image */}
+                              <div className="h-48 bg-gradient-to-b from-gray-50 to-gray-100 flex items-center justify-center p-6">
+                                <Image
+                                  src={product.image || "/placeholder.svg"}
+                                  alt={product.name}
+                                  width={160}
+                                  height={180}
+                                  className="object-contain max-h-full drop-shadow-md"
+                                />
                               </div>
-                              <span className="text-xs text-gray-600">{product.reviews.toLocaleString()} reviews</span>
                             </div>
 
-                            <h3 className="text-sm font-semibold text-gray-900 mb-2 leading-tight h-10 flex items-start">
-                              {product.name}
-                            </h3>
-
-                            <div className="mb-3 flex-1">
-                              <div className="flex items-center gap-2 mb-2">
-                                <span className="text-lg font-bold text-gray-900">{product.price}</span>
-                                <span className="text-sm text-gray-500 line-through">{product.originalPrice}</span>
-                                <span className="text-xs font-medium text-green-600 bg-green-50 px-2 py-1 rounded">
-                                  {product.discount}
+                            <CardContent className="p-5 flex flex-col flex-grow">
+                              {/* Rating & Reviews */}
+                              <div className="flex items-center gap-3 mb-3">
+                                <div className="flex items-center gap-1 bg-teal-50 px-3 py-1.5 rounded-lg">
+                                  <Star className="w-4 h-4 text-teal-600 fill-current" />
+                                  <span className="text-sm font-bold text-teal-800">
+                                    {product.rating}
+                                  </span>
+                                </div>
+                                <span className="text-sm text-gray-600">
+                                  {product.reviews?.toLocaleString()} reviews
                                 </span>
                               </div>
 
-                              <div className="flex items-center gap-1 text-xs text-orange-600 mb-2">
-                                <Star className="w-3 h-3 text-orange-500 fill-current" />
-                                <span className="font-medium">
-                                  {product.premiumPrice} {t.common.premiumMemberSuffix}
-                                </span>
-                              </div>
+                              {/* Product Name */}
+                              <h3 className="font-semibold text-gray-900 mb-4 line-clamp-2">
+                                {product.name}
+                              </h3>
 
-                              <div className="text-xs text-gray-600 font-medium">{product.supply}</div>
-                            </div>
+                              {/* Pricing & CTA */}
+                              <div className="mt-auto space-y-3">
+                                <div className="flex items-center gap-3">
+                                  <span className="text-2xl font-bold text-gray-900">
+                                    {product.price}
+                                  </span>
+                                  {product.originalPrice && (
+                                    <span className="text-sm text-gray-500 line-through">
+                                      {product.originalPrice}
+                                    </span>
+                                  )}
+                                  {product.discount && (
+                                    <span className="text-sm font-bold text-green-600 bg-green-50 px-3 py-1 rounded-full">
+                                      {product.discount}
+                                    </span>
+                                  )}
+                                </div>
 
-                            <div className="space-y-1.5 mt-auto">
-                              {/* {showAddToCart && (
+                                {product.premiumPrice && (
+                                  <p className="text-sm text-orange-600 font-medium">
+                                    <Star className="w-4 h-4 inline fill-current" />{" "}
+                                    {product.premiumPrice}{" "}
+                                    {t.common?.premiumMemberSuffix || "for Premium Members"}
+                                  </p>
+                                )}
+
+                                <p className="text-sm text-gray-600">
+                                  {product.supply}
+                                </p>
+
                                 <Button
-                                  variant="outline"
-                                  size="sm"
-                                  className="w-full h-8 border-orange-200 text-orange-600 hover:bg-orange-50 hover:border-orange-300 bg-transparent text-sm font-medium"
+                                  size="lg"
+                                  className="w-full mt-4 bg-orange-500 hover:bg-orange-600 text-white font-bold"
                                   onClick={(e) => {
+                                    e.preventDefault()
                                     e.stopPropagation()
                                     window.open(product.link, "_blank")
                                   }}
                                 >
-                                  <ShoppingCart className="w-4 h-4 mr-2" />
-                                  {t.common.addToCart}
+                                  {product.buyNow || t.common?.buyNow || "Buy Now"}
                                 </Button>
-                              )} */}
-                              <Button
-                                size="sm"
-                                className="w-full h-8 bg-orange-500 hover:bg-orange-600 text-white font-semibold text-sm"
-                                onClick={(e) => {
-                                  e.stopPropagation()
-                                  window.open(product.link, "_blank")
-                                }}
-                              >
-                                {product.buyNow}
-                              </Button>
-                            </div>
-                          </CardContent>
-                        </Card>
-                      </Link>
+                              </div>
+                            </CardContent>
+                          </Card>
+                        </Link>
                       </div>
                     ))}
                   </div>

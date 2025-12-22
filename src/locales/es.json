@@ -1,25 +1,26 @@
 {
   "seo": {
-    "title": "Mitolyn Oficial | Suplementos Naturales para la Pérdida de Peso",
-    "description": "Descubre los suplementos naturales de Mitolyn diseñados para ayudarte a alcanzar tus objetivos de salud y bienestar de manera efectiva.",
+    "title": "Mitolyn Oficial | Suplementos Naturales para Pérdida de Peso",
+    "description": "Descubre los suplementos naturales de Mitolyn diseñados para ayudarte a lograr tus objetivos de salud y fitness de manera efectiva.",
     "keywords": "pérdida de peso, suplementos, Mitolyn, salud natural, fitness, bienestar"
   },
   "categories": {
     "weightLoss": "Pérdida de Peso",
-    "dentalHealth": "Dental Health",
+    "dentalHealth": "Salud Dental",
     "wellness": "Bienestar",
     "bundles": "Paquetes"
   },
   "nav": {
     "home": "Inicio",
+    "dentalHealth": "Salud Dental",
     "products": "Productos"
   },
   "products": {
     "weight-loss": [
       {
         "id": "basic",
-        "slug": "metolyn-1",
-        "name": "Paquete Básico MITOLYN",
+        "slug":"metolyn-1",
+        "name": "Paquete Básico de MITOLYN",
         "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
         "price": "₹2,499",
         "originalPrice": "₹2,999",
@@ -30,79 +31,64 @@
       },
       {
         "id": "popular",
-        "slug": "metolyn-1",
-        "name": "Paquete Popular MITOLYN",
+        "slug":"metolyn-1",
+        "name": "Paquete Popular de MITOLYN",
         "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
         "price": "₹4,449",
         "originalPrice": "₹5,999",
         "discount": "25% de descuento",
         "duration": "Suministro para 90 Días",
-        "badge": {
-          "text": "Más Popular",
-          "color": "orange"
-        },
+        "badge": { "text": "Más Popular", "color": "orange" },
         "url": "https://mitolyn-official.com/popular"
       },
       {
         "id": "best-value",
-        "slug": "metolyn-1",
-        "name": "Paquete de Mejor Valor MITOLYN",
+        "slug":"metolyn-1",
+        "name": "Paquete de Mejor Valor de MITOLYN",
         "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
         "price": "₹6,899",
         "originalPrice": "₹7,999",
         "discount": "14% de descuento",
         "duration": "Suministro para 180 Días",
-        "badge": {
-          "text": "Mejor Valor",
-          "color": "emerald"
-        },
+        "badge": { "text": "Mejor Valor", "color": "emerald" },
         "url": "https://mitolyn-official.com/best-value"
       }
     ],
     "energy": [
       {
         "id": "power-boost",
-        "slug": "metolyn-1",
-        "name": "ENERGYMAX Impulso de Energía",
+        "slug":"metolyn-1",
+        "name": "Potenciador de Energía ENERGYMAX",
         "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
         "price": "₹1,899",
         "originalPrice": "₹2,299",
         "discount": "17% de descuento",
         "duration": "Suministro para 30 Días",
-        "badge": {
-          "text": "Energía Natural",
-          "color": "blue"
-        },
+        "badge": { "text": "Energía Natural", "color": "blue" },
         "url": "https://mitolyn-official.com/energy-boost"
       },
       {
         "id": "endurance",
-        "slug": "metolyn-1",
-        "name": "ENERGYMAX Paquete de Resistencia",
+        "slug":"metolyn-1",
+        "name": "Paquete de Resistencia ENERGYMAX",
         "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
         "price": "₹5,499",
         "originalPrice": "₹6,999",
         "discount": "21% de descuento",
         "duration": "Suministro para 90 Días",
-        "badge": {
-          "text": "De Larga Duración",
-          "color": "blue"
-        },
+        "badge": { "text": "De Larga Duración", "color": "blue" },
         "url": "https://mitolyn-official.com/endurance-pack"
       },
       {
         "id": "ultimate",
-        "slug": "metolyn-1",
-        "name": "ENERGYMAX Paquete Ultimate",
+        "slug":"metolyn-1",
+        "name": "Paquete Definitivo ENERGYMAX",
         "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
         "price": "₹8,999",
         "originalPrice": "₹11,999",
         "discount": "25% de descuento",
         "duration": "Suministro para 180 Días",
-        "badge": {
-          "text": "Premium",
-          "color": "blue"
-        },
+        "badge": { "text": "Premium", "color": "blue" },
         "url": "https://mitolyn-official.com/ultimate-bundle"
       }
     ],
@@ -110,7 +96,7 @@
     "bundles": []
   },
   "footer": {
-    "description": "Transforma tu salud con Mitolyn - el suplemento natural para la pérdida de peso que funciona.",
+    "description": "Transforma tu salud con Mitolyn: el suplemento natural para pérdida de peso que funciona.",
     "quickLinks": "Enlaces Rápidos",
     "customerService": "Servicio al Cliente",
     "legal": "Legal",

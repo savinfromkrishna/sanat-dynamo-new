@@ -1,19 +1,18 @@
 "use client"
 
 import Image from "next/image"
+import Link from "next/link"
 import Autoplay from "embla-carousel-autoplay"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Star, Shield, Award, Truck } from "lucide-react"
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel"
+import { Star, ArrowRight } from "lucide-react"
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 
-export function HomeHeroCarousel({ translations }: { translations: any }) {
+export function HomeHeroCarousel({
+  translations,
+  locale,
+  country,
+}: { translations: any; locale: string; country: string }) {
   const t = translations
 
   // Fallback values for button text
@@ -21,130 +20,102 @@ export function HomeHeroCarousel({ translations }: { translations: any }) {
   const learnMoreText = t.common?.learnMore || "Learn More"
 
   return (
-    <section className="relative py-6 lg:py-10 bg-gradient-to-br from-background to-muted">
-      <div className="container mx-auto px-2 sm:px-4 lg:px-6">
+    <section className="relative bg-background">
+      <div className="container mx-auto ">
         <div className="relative">
           <Carousel
             className="w-full"
             plugins={[
               Autoplay({
-                delay: 4500,
+                delay: 5000,
                 stopOnInteraction: false,
                 stopOnMouseEnter: true,
               }),
             ]}
             opts={{ loop: true }}
           >
-            <CarouselContent>
+            <CarouselContent className="-ml-4">
               {t.hero.slides.map((slide: any, idx: number) => (
-                <CarouselItem key={idx}>
-                  <div className="grid lg:grid-cols-2 gap-6 px-4 items-center">
-                    <div className="space-y-4">
-                      <div className="space-y-2">
+                <CarouselItem key={idx} className="pl-4">
+                  <div className="border bg-card overflow-hidden shadow-sm">
+                    <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 p-8 lg:p-12 items-center">
+                      {/* Content Section */}
+                      <div className="space-y-6">
+                        {/* Badges */}
                         <div className="flex items-center gap-2">
-                          <Badge className="bg-yellow-400 text-black font-bold uppercase tracking-wider">
-                            {slide.isNew ? "#NEW" : ""}
+                          {slide.isNew && (
+                            <Badge className="bg-primary text-primary-foreground font-semibold">NEW</Badge>
+                          )}
+                          <Badge variant="secondary" className="font-medium">
+                            {slide.category}
                           </Badge>
-                          <Badge className="bg-accent text-accent-foreground">{slide.category}</Badge>
                         </div>
-                        <h1 className="text-3xl lg:text-5xl font-sans font-bold text-foreground leading-tight text-balance">
-                          {t.hero.title} <span className="text-primary">MITOLYN</span>
-                        </h1>
-                        <p className="text-sm lg:text-base text-muted-foreground max-w-xl">
-                          {t.hero.description}
-                        </p>
-                      </div>
 
-                      <div className="flex flex-wrap items-center gap-4">
+                        {/* Title & Description */}
+                        <div className="space-y-3">
+                          <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight">
+                            {slide.name}
+                          </h1>
+                          <p className="text-lg text-muted-foreground leading-relaxed">{t.hero.description}</p>
+                        </div>
+
+                        {/* Rating */}
                         <div className="flex items-center gap-2">
-                          <div className="flex text-yellow-400">
+                          <div className="flex text-yellow-500">
                             {[...Array(5)].map((_, i) => (
-                              <Star key={i} className="h-4 w-4 fill-current" />
+                              <Star key={i} className="h-5 w-5 fill-current" />
                             ))}
                           </div>
-                          <span className="text-sm text-muted-foreground">
-                            {slide.rating.toFixed(1)}/5 ({slide.reviews.toLocaleString()})
+                          <span className="text-sm font-medium text-foreground">
+                            {slide.rating.toFixed(1)} ({slide.reviews.toLocaleString()} reviews)
                           </span>
                         </div>
 
-                        <div className="hidden sm:flex items-center gap-3 text-xs lg:text-sm text-muted-foreground">
-                          <div className="flex items-center gap-2">
-                            <Shield className="h-4 w-4 text-primary" />
-                            {t.hero.guarantee}
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <Award className="h-4 w-4 text-primary" />
-                            {t.hero.fdaRegistered}
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <Truck className="h-4 w-4 text-primary" />
-                            {t.hero.freeShipping}
-                          </div>
+                        {/* Trust Indicators */}
+                        <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
+                          <span>✓ {t.hero.guarantee}</span>
+                          <span>✓ {t.hero.fdaRegistered}</span>
+                          <span>✓ {t.hero.freeShipping}</span>
+                        </div>
+
+                        {/* Action Buttons */}
+                        <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                          <Link href={`/${locale}/${country}/${slide.categorySlug}`}>
+                            <Button
+                              size="lg"
+                              className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground"
+                            >
+                              {buyNowText}
+                            </Button>
+                          </Link>
+                          <Link href={`/${locale}/${country}/${slide.categorySlug}/${slide.slug}`}>
+                            <Button variant="outline" size="lg" className="w-full sm:w-auto bg-transparent">
+                              {learnMoreText}
+                              <ArrowRight className="ml-2 h-4 w-4" />
+                            </Button>
+                          </Link>
                         </div>
                       </div>
 
-                      <div className="text-sm text-muted-foreground">{slide.supply}</div>
-
-                      <div className="flex flex-col sm:flex-row gap-3">
-                        <Button
-                          size="default"
-                          className="text-base px-6"
-                          onClick={() => window.open(slide.buyUrl, "_blank")}
-                        >
-                          {slide.buyNow}
-                        </Button>
-                        <Button
-                          variant="outline"
-                          size="default"
-                          className="text-base px-6 bg-transparent"
-                          onClick={() => window.open(slide.learnMoreUrl, "_blank")}
-                        >
-                          {learnMoreText}
-                        </Button>
-                      </div>
-                    </div>
-
-                    <div className="relative">
-                      <div className="relative z-10 h-[320px] sm:h-[360px] md:h-[420px] lg:h-[500px]">
+                      {/* Product Image */}
+                      <div className="relative h-[350px] lg:h-[450px]">
                         <Image
                           src={slide.image || "/placeholder.svg"}
                           alt={slide.name}
                           fill
-                          sizes="(min-width: 1024px) 520px, 100vw"
-                          className="object-contain w-full h-full"
+                          sizes="(min-width: 1024px) 50vw, 100vw"
+                          className="object-contain"
                           priority={idx === 0}
                         />
                       </div>
-                      <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10 rounded-full blur-3xl" />
                     </div>
                   </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
 
-            {/* Visible Left & Right Arrows – work on mobile & desktop */}
-            <CarouselPrevious
-              className=" -translate-y-1/2 
-                         size-12 md:size-14 
-                         bg-white/95 hover:bg-white 
-                         border border-border 
-                         shadow-lg 
-                         text-foreground 
-                         opacity-100 
-                         hover:scale-110 
-                         transition-all"
-            />
-            <CarouselNext
-              className="-translate-y-1/2 
-                         size-12 md:size-14 
-                         bg-white/95 hover:bg-white 
-                         border border-border 
-                         shadow-lg 
-                         text-foreground 
-                         opacity-100 
-                         hover:scale-110 
-                         transition-all"
-            />
+            <CarouselPrevious className="left-4 lg:left-8" />
+            <CarouselNext className="right-4 lg:right-8" />
           </Carousel>
         </div>
       </div>

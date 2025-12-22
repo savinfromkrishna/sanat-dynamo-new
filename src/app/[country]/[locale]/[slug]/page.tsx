@@ -14,9 +14,12 @@ import ProductCards from "@/components/product-card"
 import { ProductknowMoreSection } from "@/components/productKnowMore"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { notFound } from "next/navigation"
+import { CategoriesSection } from "@/components/home/CategoriesSection"
 
-function getCategoryKey(slug: string): string | null {
-  const map: Record<string, string> = {
+type CategoryKey = "weightLoss" | "bellyFat" | "oralProbiotics"
+
+function getCategoryKey(slug: string): CategoryKey | null {
+  const map: Record<string, CategoryKey> = {
     "weight-loss-supplements": "weightLoss",
     "belly-fat-supplements": "bellyFat",
     "dental-health-supplements": "oralProbiotics",
@@ -37,23 +40,6 @@ function ProductToggleSection({
 
   return (
     <Tabs defaultValue="men" className="w-full">
-      {/* This makes the tab list full-width and pushes tabs to the right */}
-      {/* <TabsList className="grid w-full justify-end bg-transparent border-none shadow-none p-0">
-        <div className="grid w-48 grid-cols-2 bg-gradient-to-r from-gray-50 to-gray-100 rounded-full p-2 shadow-sm border border-gray-200">
-          <TabsTrigger
-            value="men"
-            className="data-[state=active]:bg-white data-[state=active]:text-gray-900 data-[state=active]:shadow-md rounded-full p-1 text-sm font-medium transition-all duration-200 hover:bg-white/80"
-          >
-            For Men
-          </TabsTrigger>
-          <TabsTrigger
-            value="women"
-            className="data-[state=active]:bg-white data-[state=active]:text-gray-900 data-[state=active]:shadow-md rounded-full p-1 text-sm font-medium transition-all duration-200 hover:bg-white/80"
-          >
-            For Women
-          </TabsTrigger>
-        </div>
-      </TabsList> */}
 
       <TabsContent value="men" className="mt-6">
         <ProductCards
@@ -78,6 +64,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const translations = getTranslation(params.locale)
   const categoryKey = getCategoryKey(params.slug)
+  console.log("categoryKey:", categoryKey)
   if (!categoryKey) {
     return {
       title: "Page Not Found",
@@ -125,9 +112,10 @@ export default async function SupplementsPage({
 }: {
   params: { country: string; locale: Locale; slug: string }
 }) {
-  
+
   const translations = getTranslation(params.locale)
   const categoryKey = getCategoryKey(params.slug)
+  console.log("categoryKey:", categoryKey)
   if (!categoryKey) {
     notFound()
   }
@@ -140,14 +128,17 @@ export default async function SupplementsPage({
     <main className="min-h-screen bg-white">
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center mb-8 text-gray-900">{t.productsSection.title}</h2>
+          {/* <h2 className="text-4xl font-bold text-center mb-8 text-gray-900">{t.productsSection.title}</h2>
           <p className="text-center text-gray-600 mb-16 max-w-4xl mx-auto text-xl leading-relaxed">
             {t.productsSection.description}
-          </p>
-          <ProductToggleSection
-            t={t}
-            buyNowLabel={t.common.buyNow}
-          />
+          </p> */}
+          {/* Example: Place it after your hero section */}
+          <CategoriesSection
+            translations={translations}
+            locale={params.locale}
+            showAddToCart={true}
+            categoryFilter={categoryKey}
+            country={params.country} />
         </div>
       </section>
       <section className="py-12">

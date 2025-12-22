@@ -35,7 +35,6 @@ export function getTranslation(locale: Locale): Translations {
   const merged = {
     ...mainTranslations,
     ...heroTranslations,
-    ...aboutTranslations,
     ...weightLossTranslations,
     ...womenWeightLossTranslations,
     ...productTranslations,

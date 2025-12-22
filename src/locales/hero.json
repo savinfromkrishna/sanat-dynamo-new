@@ -1,13 +1,14 @@
 {
   "hero": {
     "title": "Transform Your Health with",
-    "description": "Discover the power of Mitolyn's natural supplements to boost energy, support weight loss, and enhance overall wellness.",
+    "description": "Discover the power of natural supplements to boost energy, support weight loss, enhance oral health, and overall wellness.",
     "guarantee": "60-Day Money-Back Guarantee",
     "fdaRegistered": "FDA Registered Facility",
     "freeShipping": "Free Shipping Worldwide",
     "slides": [
       {
         "category": "Weight Loss Supplements",
+        "categorySlug": "weight-loss-supplements",
         "name": "MITOLYN Basic Package",
         "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
         "supply": "30 Days Supply",
@@ -16,29 +17,61 @@
         "learnMoreUrl": "https://mitolyn-official.com/learn-more",
         "buyNow": "Buy Now",
         "buyUrl": "https://mitolyn-official.com/basic-package",
-        "isNew": true
+        "isNew": true,
+        "slug": "metolyn-1" 
+
       },
       {
         "category": "Weight Loss Supplements",
-        "name": "MITOLYN Best Value Package",
-        "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422492/mitolyn-offer_azyjj3.png",
-        "supply": "180 Days Supply",
+        "categorySlug": "weight-loss-supplements",
+        "name": "Sleep Lean Basic Package",
+        "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1766323389/sleep-lean-supplement_naj8ag.png",
+        "supply": "30 Days Supply",
         "rating": 4.9,
-        "reviews": 5632,
-        "learnMoreUrl": "https://mitolyn-official.com/learn-more",
+        "reviews": 2847,
+        "learnMoreUrl": "https://sleeplean-official.com/learn-more",
         "buyNow": "Buy Now",
-        "buyUrl": "https://mitolyn-official.com/best-value",
-        "isNew": true
+        "buyUrl": "https://sleeplean-official.com/basic-package",
+        "isNew": true,
+        "slug": "sleeplean-1"
+      },
+      {
+        "category": "Weight Loss Supplements",
+        "categorySlug": "weight-loss-supplements",
+        "name": "BellyFlush Basic Package",
+        "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1766323113/bellyflush/BellyFlush-Bottle-Graphic-500px-1_lihmwp.png",
+        "supply": "30 Days Supply",
+        "rating": 4.9,
+        "reviews": 2847,
+        "learnMoreUrl": "https://bellyflush-official.com/learn-more",
+        "buyNow": "Buy Now",
+        "buyUrl": "https://bellyflush-official.com/basic-package",
+        "isNew": true,
+        "slug": "bellyflush-1"
+      },
+      {
+        "category": "Oral Health Supplements",
+        "categorySlug": "dental-health-supplements",
+        "name": "PRODENTIM Basic Package",
+        "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1765645308/ravish/ProDentim-main-1--1-_gnicns.png",
+        "supply": "30 Days Supply",
+        "rating": 4.8,
+        "reviews": 95000,
+        "learnMoreUrl": "https://prodentim-official.com/learn-more",
+        "buyNow": "Buy Now",
+        "buyUrl": "https://prodentim-official.com/basic-package",
+        "isNew": true,
+        "slug": "prodentim-1"
       }
-     
-     
     ]
   },
   "categories": {
     "weightLoss": "Weight Loss Supplements",
     "energy": "Energy Supplements",
+    "oralProbiotics": "Oral Health Supplements",
     "weightLossDescription": "Premium natural supplements scientifically formulated for optimal weight loss results",
     "energyDescription": "Natural energy boosters and performance enhancers for active lifestyle and daily vitality",
+    "oralProbioticsDescription": "Premium natural oral probiotics scientifically formulated for optimal teeth and gums health, reducing plaque, improving hygiene, and supporting natural whitening",
     "products": [
       {
         "category": "Weight Loss Supplements",
@@ -59,34 +92,54 @@
             "slug": "metolyn-1"
           },
           {
-            "name": "MITOLYN Best Value Package",
-            "price": "₹6,899",
-            "originalPrice": "₹8,099",
-            "discount": "14% off",
-            "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422492/mitolyn-offer_azyjj3.png",
-            "supply": "180 Days Supply",
-            "link": "https://mitolyn-official.com/best-value",
+            "name": "Sleep Lean Basic Package",
+            "price": "₹2,499",
+            "originalPrice": "₹2,999",
+            "discount": "16% off",
+            "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1766323389/sleep-lean-supplement_naj8ag.png",
+            "supply": "30 Days Supply",
+            "link": "https://sleeplean-official.com/basic-package",
             "buyNow": "Buy Now",
             "rating": 4.9,
-            "reviews": 5632,
-            "premiumPrice": "₹6,692",
-            "id": 2,
-            "slug": "metolyn-3"
+            "reviews": 2847,
+            "premiumPrice": "₹2,424",
+            "id": 7,
+            "slug": "sleeplean-1"
           },
           {
-            "name": "MITOLYN Popular Package",
-            "price": "₹4,449",
-            "originalPrice": "₹5,999",
-            "discount": "25% off",
-            "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
-            "supply": "90 Days Supply",
-            "link": "https://mitolyn-official.com/popular",
+            "name": "BellyFlush Basic Package",
+            "price": "₹2,499",
+            "originalPrice": "₹2,999",
+            "discount": "16% off",
+            "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1766323113/bellyflush/BellyFlush-Bottle-Graphic-500px-1_lihmwp.png",
+            "supply": "30 Days Supply",
+            "link": "https://bellyflush-official.com/basic-package",
             "buyNow": "Buy Now",
-            "rating": 4.7,
-            "reviews": 3921,
-            "premiumPrice": "₹4,336",
-            "id": 3,
-            "slug": "metolyn-2"
+            "rating": 4.9,
+            "reviews": 2847,
+            "premiumPrice": "₹2,424",
+            "id": 10,
+            "slug": "bellyflush-1"
+          }
+        ]
+      },
+      {
+        "category": "Oral Health Supplements",
+        "items": [
+          {
+            "name": "PRODENTIM Basic Package",
+            "price": "₹2,499",
+            "originalPrice": "₹2,999",
+            "discount": "16% off",
+            "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1765645308/ravish/ProDentim-main-1--1-_gnicns.png",
+            "supply": "30 Days Supply",
+            "link": "https://prodentim-official.com/basic-package",
+            "buyNow": "Buy Now",
+            "rating": 4.8,
+            "reviews": 95000,
+            "premiumPrice": "₹2,424",
+            "id": 4,
+            "slug": "prodentim-1"
           }
         ]
       }
@@ -116,7 +169,7 @@
   },
   "reviews": {
     "title": "What Our Customers Say",
-    "subtitle": "Real stories from real people who transformed their lives with Mitolyn.",
+    "subtitle": "Real stories from real people who transformed their lives with our supplements.",
     "verifiedBuyer": "Verified Buyer",
     "reviews": [
       {
@@ -141,6 +194,78 @@
         "location": "Florida, USA",
         "rating": 5,
         "text": "I was skeptical at first, but Mitolyn has exceeded my expectations. More energy, better mood, and I've already lost 12 pounds in 2 months. The best part—it feels natural.",
+        "verified": true
+      },
+      {
+        "id": 4,
+        "name": "Anjalina S.",
+        "location": "California, USA",
+        "rating": 5,
+        "text": "I started using ProDentim about three weeks ago, and the results are amazing. My gums feel healthier, bleeding has stopped, and my breath stays fresh all day. I’ve tried many dental supplements, but this is the only one that actually worked. Highly recommended!",
+        "verified": true
+      },
+      {
+        "id": 5,
+        "name": "Rick Smith",
+        "location": "Texas, USA",
+        "rating": 5,
+        "text": "ProDentim has completely changed my dental routine. I noticed a big reduction in plaque and sensitivity within the first month. My dentist even asked what I was using! This probiotic is definitely worth the money.",
+        "verified": true
+      },
+      {
+        "id": 6,
+        "name": "Sofia V.",
+        "location": "Florida, USA",
+        "rating": 5,
+        "text": "I bought ProDentim after reading so many good reviews, and I’m glad I did. My teeth look cleaner, my breath is fresher, and my gums feel stronger than ever. I just ordered another 3-bottle pack. Love this product!",
+        "verified": true
+      },
+      {
+        "id": 7,
+        "name": "Rahul S.",
+        "location": "Mumbai, India",
+        "rating": 5,
+        "text": "I started using Sleep Lean because my sleep cycle was completely disturbed. Within a few days, I was sleeping deeper and waking up refreshed. After a few weeks, I noticed reduced cravings and gradual weight loss. It feels like a clean, natural sleep supplement.",
+        "verified": true
+      },
+      {
+        "id": 8,
+        "name": "Emily R.",
+        "location": "Austin, Texas, USA",
+        "rating": 5,
+        "text": "Sleep Lean helped me fall asleep faster without making me feel drowsy in the morning. My stress levels went down, and I slowly started losing weight without changing much in my routine. I like that it’s non-habit forming and gentle.",
+        "verified": true
+      },
+      {
+        "id": 9,
+        "name": "David M.",
+        "location": "London, UK",
+        "rating": 5,
+        "text": "I’ve tried multiple sleep supplements before, but Sleep Lean worked better for me. My sleep quality improved significantly, and I stopped late-night snacking. Over time, I noticed steady fat loss. Definitely one of the better weight loss supplements I’ve used.",
+        "verified": true
+      },
+      {
+        "id": 10,
+        "name": "Sarah M.",
+        "location": "California, USA",
+        "rating": 5,
+        "text": "After a week of using BellyFlush, my bloating was almost gone. My stomach feels lighter and digestion is much better.",
+        "verified": true
+      },
+      {
+        "id": 11,
+        "name": "Daniel R.",
+        "location": "Texas, USA",
+        "rating": 5,
+        "text": "I’ve tried many gut cleanse products, but BellyFlush worked gently without cramps. I feel more comfortable daily.",
+        "verified": true
+      },
+      {
+        "id": 12,
+        "name": "Anita K.",
+        "location": "New York, USA",
+        "rating": 4,
+        "text": "Great supplement for digestion. I noticed less gas and better regularity within a few days.",
         "verified": true
       }
     ]

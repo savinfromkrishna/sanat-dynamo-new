@@ -1,17 +1,4 @@
-export type ProductReview = {
-  id: number
-  name: string
-  location: string
-  rating: number
-  text: string
-  verified?: boolean
-}
-export type ProductBadge = {
-  text: string;
-  color: string;
-  title?: string;        // Now supports hover tooltip or accessibility title
-};
-export type ProductDetail = {
+export interface ProductDetail {
   id: string
   name: string
   subtitle: string
@@ -23,14 +10,31 @@ export type ProductDetail = {
   reviews: number
   image: string
   gallery: string[]
-  badges: ProductBadge[]
+  badges: Array<{ text: string; color: string }>
   affiliateUrl: string
+  description: string
+  whyChoose: string[]
+  whatIs: string
+  howItWorks: string[]
   benefits: string[]
-  ingredients: { name: string; note?: string }[]
+  ingredients: Array<{ name: string; note: string }>
   howToUse: string[]
-  bonuses?: { title: string; image: string }[]
-  trust: { image: string; alt: string }[]
-  faqs: { q: string; a: string }[]
-  seo: { title: string; description: string; keywords: string[] }
-  productReviews?: ProductReview[]
+  bonuses?: Array<{ title: string; image: string }>
+  trust: Array<{ image: string; alt: string }>
+  pros: string[]
+  cons: string[]
+  faqs: Array<{ q: string; a: string }>
+  seo: {
+    title: string
+    description: string
+    keywords?: string[]
+  }
+  productReviews: Array<{
+    id: number
+    name: string
+    location: string
+    rating: number
+    text: string
+    verified: boolean
+  }>
 }

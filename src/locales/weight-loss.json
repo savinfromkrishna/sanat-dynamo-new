@@ -17,149 +17,67 @@
       "description": "Many people prefer natural formulas that use plant-based or herbal ingredients. The best natural weight loss supplements are typically free from harsh stimulants and focus on supporting your body’s own fat-burning processes.",
       "products": [
         {
-          "id": 1,
-          "name": "MITOLYN - Basic Package",
-          "price": "$49",
-          "originalPrice": "$197",
+          "name": "MITOLYN Basic Package",
+          "price": "₹2,499",
+          "originalPrice": "₹2,999",
+          "discount": "16% off",
           "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
-          "supply": "30-Day Supply",
+          "supply": "30 Days Supply",
           "link": "https://mitolyn-official.com/basic-package",
-          "badge": "BASIC - 1 BOTTLE",
-          "badgeColor": "bg-gradient-to-r from-teal-500 to-teal-600",
-          "shipping": "+ Small Shipping Fee",
+          "buyNow": "Buy Now",
           "rating": 4.8,
           "reviews": 2847,
-          "premiumPrice": "$29 for Premium Members",
-          "discount": "75% OFF"
+          "premiumPrice": "₹2,424",
+          "id": 1,
+          "slug": "metolyn-1"
         },
         {
-          "id": 2,
-          "name": "MITOLYN - Best Value",
-          "price": "$39",
-          "originalPrice": "$1182",
-          "total": "$234",
-          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422492/mitolyn-offer_azyjj3.png",
-          "supply": "180-Day Supply",
-          "link": "https://mitolyn-official.com/best-value",
-          "badge": "BEST VALUE - 6 BOTTLES",
-          "badgeColor": "bg-gradient-to-r from-red-500 to-red-600",
-          "shipping": "* Free Shipping",
-          "popular": true,
+          "name": "Sleep Lean Basic Package",
+          "price": "₹2,499",
+          "originalPrice": "₹2,999",
+          "discount": "16% off",
+          "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1766323389/sleep-lean-supplement_naj8ag.png",
+          "supply": "30 Days Supply",
+          "link": "https://sleeplean-official.com/basic-package",
+          "buyNow": "Buy Now",
           "rating": 4.9,
-          "reviews": 5632,
-          "premiumPrice": "$26 for Premium Members",
-          "discount": "80% OFF"
-        },
-        {
-          "id": 3,
-          "name": "MITOLYN - Popular",
-          "price": "$59",
-          "originalPrice": "$591",
-          "total": "$177",
-          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
-          "supply": "90-Day Supply",
-          "link": "https://mitolyn-official.com/popular",
-          "badge": "POPULAR - 3 BOTTLES",
-          "badgeColor": "bg-gradient-to-r from-teal-600 to-teal-700",
-          "shipping": "+ Small Shipping Fee",
-          "rating": 4.7,
-          "reviews": 3921,
-          "premiumPrice": "$22 for Premium Members",
-          "discount": "70% OFF"
-        },
-        {
-          "id": 4,
-          "name": "MITOLYN - Starter Package",
-          "price": "$69",
-          "originalPrice": "$138",
-          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
-          "supply": "15-Day Supply",
-          "link": "https://mitolyn-official.com/starter-package",
-          "badge": "STARTER - 1 BOTTLE",
-          "badgeColor": "bg-gradient-to-r from-amber-500 to-amber-600",
-          "shipping": "+ Small Shipping Fee",
-          "rating": 4.6,
-          "reviews": 1289,
-          "premiumPrice": "$15 for Premium Members",
-          "discount": "50% OFF"
-        },
-        {
-          "id": 5,
-          "name": "MITOLYN - Transformation Pack",
-          "price": "$45",
-          "originalPrice": "$885",
-          "total": "$225",
-          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422492/mitolyn-offer_azyjj3.png",
-          "supply": "150-Day Supply",
-          "link": "https://mitolyn-official.com/transform-package",
-          "badge": "TRANSFORMATION - 5 BOTTLES",
-          "badgeColor": "bg-gradient-to-r from-purple-500 to-purple-600",
-          "shipping": "* Free Shipping",
-          "rating": 4.8,
-          "reviews": 4123,
-          "premiumPrice": "$25 for Premium Members",
-          "discount": "75% OFF"
-        },
-        {
-          "id": 6,
-          "name": "MITOLYN - Energy Duo",
-          "price": "$64",
-          "originalPrice": "$394",
-          "total": "$128",
-          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
-          "supply": "60-Day Supply",
-          "link": "https://mitolyn-official.com/duo-package",
-          "badge": "DUO - 2 BOTTLES",
-          "badgeColor": "bg-gradient-to-r from-green-500 to-green-600",
-          "shipping": "+ Small Shipping Fee",
-          "rating": 4.7,
-          "reviews": 2356,
-          "premiumPrice": "$20 for Premium Members",
-          "discount": "67% OFF"
-        },
-        {
+          "reviews": 2847,
+          "premiumPrice": "₹2,424",
           "id": 7,
-          "name": "MITOLYN - Annual Plus Pack",
-          "price": "$33",
-          "originalPrice": "$1416",
-          "total": "$396",
-          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422492/mitolyn-offer_azyjj3.png",
-          "supply": "360-Day Supply",
-          "link": "https://mitolyn-official.com/annual-plus",
-          "badge": "ANNUAL PLUS - 12 BOTTLES",
-          "badgeColor": "bg-gradient-to-r from-indigo-600 to-indigo-700",
-          "shipping": "* Free Shipping + 2 Bottles Free",
-          "popular": true,
-          "rating": 5.0,
-          "reviews": 8921,
-          "premiumPrice": "$23 for Premium Members",
-          "discount": "85% OFF"
+          "slug": "sleeplean-1"
         },
         {
-          "id": 8,
-          "name": "MITOLYN - Family Pack",
-          "price": "$52",
-          "originalPrice": "$708",
-          "total": "$208",
-          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
-          "supply": "120-Day Supply",
-          "link": "https://mitolyn-official.com/family-package",
-          "badge": "FAMILY - 4 BOTTLES",
-          "badgeColor": "bg-gradient-to-r from-orange-500 to-orange-600",
-          "shipping": "* Free Shipping",
-          "rating": 4.8,
-          "reviews": 3198,
-          "premiumPrice": "$21 for Premium Members",
-          "discount": "71% OFF"
+          "name": "BellyFlush Basic Package",
+          "price": "₹2,499",
+          "originalPrice": "₹2,999",
+          "discount": "16% off",
+          "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1766323113/bellyflush/BellyFlush-Bottle-Graphic-500px-1_lihmwp.png",
+          "supply": "30 Days Supply",
+          "link": "https://bellyflush-official.com/basic-package",
+          "buyNow": "Buy Now",
+          "rating": 4.9,
+          "reviews": 2847,
+          "premiumPrice": "₹2,424",
+          "id": 10,
+          "slug": "bellyflush-1"
         }
       ]
     },
     "trustBadges": {
       "title": "Certified Quality You Can Trust",
       "items": [
-        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/made-in-usa_go4j19.webp", "alt": "Made in USA" },
-        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422484/fda-approved_jrawwr.webp", "alt": "FDA-Registered Facility" },
-        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422491/natural_dpkfxs.webp", "alt": "100% Natural" }
+        {
+          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/made-in-usa_go4j19.webp",
+          "alt": "Made in USA"
+        },
+        {
+          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422484/fda-approved_jrawwr.webp",
+          "alt": "FDA-Registered Facility"
+        },
+        {
+          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422491/natural_dpkfxs.webp",
+          "alt": "100% Natural"
+        }
       ]
     },
     "genderSpecific": {
@@ -263,7 +181,7 @@
           "name": "PRODENTIM - Basic Package",
           "price": "$69",
           "originalPrice": "$99",
-          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/prodentim-main-1.png",
+          "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1765645308/ravish/ProDentim-main-1--1-_gnicns.png",
           "supply": "30-Day Supply",
           "link": "https://prodentim-official.com/basic-package",
           "badge": "BASIC - 1 BOTTLE",
@@ -280,7 +198,7 @@
           "price": "$59",
           "originalPrice": "$198",
           "total": "$118",
-          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/prodentim-2-bottles-313832.webp",
+          "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1765645307/ravish/prodentim-929x793_seuqca.png",
           "supply": "60-Day Supply",
           "link": "https://prodentim-official.com/duo-package",
           "badge": "DUO - 2 BOTTLES",
@@ -297,7 +215,7 @@
           "price": "$59",
           "originalPrice": "$297",
           "total": "$177",
-          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/prodentim-3-bottles-315833.webp",
+          "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1765645311/ravish/prodentim-official-website-993x720_s4yrzn.webp",
           "supply": "90-Day Supply",
           "link": "https://prodentim-official.com/popular",
           "badge": "POPULAR - 3 BOTTLES",
@@ -308,33 +226,24 @@
           "reviews": 3921,
           "premiumPrice": "$45 for Premium Members",
           "discount": "40% OFF"
-        },
-        {
-          "id": 4,
-          "name": "PRODENTIM - Best Value",
-          "price": "$49",
-          "originalPrice": "$594",
-          "total": "$294",
-          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/prodentim-6-bottles-317878.webp",
-          "supply": "180-Day Supply",
-          "link": "https://prodentim-official.com/best-value",
-          "badge": "BEST VALUE - 6 BOTTLES",
-          "badgeColor": "bg-gradient-to-r from-red-500 to-red-600",
-          "shipping": "* Free Shipping + Free eBooks",
-          "popular": true,
-          "rating": 4.9,
-          "reviews": 5632,
-          "premiumPrice": "$39 for Premium Members",
-          "discount": "51% OFF"
         }
       ]
     },
     "trustBadges": {
       "title": "Certified Quality You Can Trust",
       "items": [
-        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/made-in-usa_go4j19.webp", "alt": "Made in USA" },
-        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422484/fda-approved_jrawwr.webp", "alt": "FDA-Registered Facility" },
-        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422491/natural_dpkfxs.webp", "alt": "100% Natural" }
+        {
+          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/made-in-usa_go4j19.webp",
+          "alt": "Made in USA"
+        },
+        {
+          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422484/fda-approved_jrawwr.webp",
+          "alt": "FDA-Registered Facility"
+        },
+        {
+          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422491/natural_dpkfxs.webp",
+          "alt": "100% Natural"
+        }
       ]
     },
     "genderSpecific": {

@@ -1,14 +1,15 @@
 {
   "hero": {
-    "title": "Transforma Tu Salud con",
-    "description": "Descubre el poder de los suplementos naturales de Mitolyn para aumentar la energía, apoyar la pérdida de peso y mejorar el bienestar general.",
-    "guarantee": "Garantía de Devolución de 60 Días",
-    "fdaRegistered": "Instalación Registrada en la FDA",
-    "freeShipping": "Envío Gratis a Todo el Mundo",
+    "title": "Transforma Tu Salud Con",
+    "description": "Descubre el poder de los suplementos naturales para aumentar la energía, apoyar la pérdida de peso, mejorar la salud oral y el bienestar general.",
+    "guarantee": "Garantía de Devolución de Dinero de 60 Días",
+    "fdaRegistered": "Instalación Registrada por la FDA",
+    "freeShipping": "Envío Gratuito a Todo el Mundo",
     "slides": [
       {
-        "category": "Suplementos para la Pérdida de Peso",
-        "name": "Paquete Básico MITOLYN",
+        "category": "Suplementos para Pérdida de Peso",
+        "categorySlug": "weightLoss",
+        "name": "Paquete Básico de MITOLYN",
         "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
         "supply": "Suministro para 30 Días",
         "rating": 4.9,
@@ -19,54 +20,72 @@
         "isNew": true
       },
       {
-        "category": "Suplementos para la Pérdida de Peso",
-        "name": "Paquete de Mejor Valor MITOLYN",
-        "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422492/mitolyn-offer_azyjj3.png",
+        "category": "Suplementos para Pérdida de Peso",
+        "categorySlug": "weightLoss",
+        "name": "Paquete Básico de Sleep Lean",
+        "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1766323389/sleep-lean-supplement_naj8ag.png",
+        "supply": "Suministro para 30 Días",
+        "rating": 4.9,
+        "reviews": 2847,
+        "learnMoreUrl": "https://sleeplean-official.com/learn-more",
+        "buyNow": "Comprar Ahora",
+        "buyUrl": "https://sleeplean-official.com/basic-package",
+        "isNew": true
+      },
+      {
+        "category": "Suplementos para Pérdida de Peso",
+        "categorySlug": "weightLoss",
+        "name": "Paquete Básico de BellyFlush",
+        "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1766323113/bellyflush/BellyFlush-Bottle-Graphic-500px-1_lihmwp.png",
+        "supply": "Suministro para 30 Días",
+        "rating": 4.9,
+        "reviews": 2847,
+        "learnMoreUrl": "https://bellyflush-official.com/learn-more",
+        "buyNow": "Comprar Ahora",
+        "buyUrl": "https://bellyflush-official.com/basic-package",
+        "isNew": true
+      },
+      {
+        "category": "Suplementos para Salud Oral",
+        "categorySlug": "oralProbiotics",
+        "name": "Paquete Básico de PRODENTIM",
+        "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1765645308/ravish/ProDentim-main-1--1-_gnicns.png",
+        "supply": "Suministro para 30 Días",
+        "rating": 4.8,
+        "reviews": 95000,
+        "learnMoreUrl": "https://prodentim-official.com/learn-more",
+        "buyNow": "Comprar Ahora",
+        "buyUrl": "https://prodentim-official.com/basic-package",
+        "isNew": true
+      },
+      {
+        "category": "Suplementos para Salud Oral",
+        "categorySlug": "oralProbiotics",
+        "name": "Paquete de Mejor Valor de PRODENTIM",
+        "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1765645307/ravish/prodentim-929x793_seuqca.png",
         "supply": "Suministro para 180 Días",
         "rating": 4.9,
-        "reviews": 5632,
-        "learnMoreUrl": "https://mitolyn-official.com/learn-more",
+        "reviews": 95000,
+        "learnMoreUrl": "https://prodentim-official.com/learn-more",
         "buyNow": "Comprar Ahora",
-        "buyUrl": "https://mitolyn-official.com/best-value",
-        "isNew": true
-      },
-      {
-        "category": "Suplementos de Energía",
-        "name": "ENERGYMAX Impulso de Energía",
-        "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
-        "supply": "Suministro para 30 Días",
-        "rating": 4.6,
-        "reviews": 1847,
-        "learnMoreUrl": "https://mitolyn-official.com/energy-boost-info",
-        "buyNow": "Comprar Ahora",
-        "buyUrl": "https://mitolyn-official.com/energy-boost",
-        "isNew": true
-      },
-      {
-        "category": "Suplementos de Energía",
-        "name": "ENERGYMAX Paquete de Resistencia",
-        "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
-        "supply": "Suministro para 90 Días",
-        "rating": 4.8,
-        "reviews": 2934,
-        "learnMoreUrl": "https://mitolyn-official.com/endurance-info",
-        "buyNow": "Comprar Ahora",
-        "buyUrl": "https://mitolyn-official.com/endurance-pack",
+        "buyUrl": "https://prodentim-official.com/best-value",
         "isNew": true
       }
     ]
   },
   "categories": {
-    "weightLoss": "Suplementos para la Pérdida de Peso",
-    "energy": "Suplementos de Energía",
-    "weightLossDescription": "Suplementos naturales premium científicamente formulados para obtener resultados óptimos en la pérdida de peso",
-    "energyDescription": "Aumentadores de energía naturales y potenciadores del rendimiento para un estilo de vida activo y vitalidad diaria",
+    "weightLoss": "Suplementos para Pérdida de Peso",
+    "energy": "Suplementos para Energía",
+    "oralProbiotics": "Suplementos para Salud Oral",
+    "weightLossDescription": "Suplementos naturales premium formulados científicamente para resultados óptimos de pérdida de peso",
+    "energyDescription": "Potenciadores naturales de energía y mejoradores de rendimiento para un estilo de vida activo y vitalidad diaria",
+    "oralProbioticsDescription": "Probióticos orales naturales premium formulados científicamente para una salud óptima de dientes y encías, reduciendo la placa, mejorando la higiene y apoyando el blanqueamiento natural",
     "products": [
       {
-        "category": "Suplementos para la Pérdida de Peso",
+        "category": "Suplementos para Pérdida de Peso",
         "items": [
           {
-            "name": "Paquete Básico MITOLYN",
+            "name": "Paquete Básico de MITOLYN",
             "price": "₹2,499",
             "originalPrice": "₹2,999",
             "discount": "16% de descuento",
@@ -81,84 +100,54 @@
             "slug": "metolyn-1"
           },
           {
-            "name": "Paquete de Mejor Valor MITOLYN",
-            "price": "₹6,899",
-            "originalPrice": "₹8,099",
-            "discount": "14% de descuento",
-            "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422492/mitolyn-offer_azyjj3.png",
-            "supply": "Suministro para 180 Días",
-            "link": "https://mitolyn-official.com/best-value",
+            "name": "Paquete Básico de Sleep Lean",
+            "price": "₹2,499",
+            "originalPrice": "₹2,999",
+            "discount": "16% de descuento",
+            "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1766323389/sleep-lean-supplement_naj8ag.png",
+            "supply": "Suministro para 30 Días",
+            "link": "https://sleeplean-official.com/basic-package",
             "buyNow": "Comprar Ahora",
             "rating": 4.9,
-            "reviews": 5632,
-            "premiumPrice": "₹6,692",
-            "id": 2,
-            "slug": "metolyn-3"
+            "reviews": 2847,
+            "premiumPrice": "₹2,424",
+            "id": 7,
+            "slug": "sleeplean-1"
           },
           {
-            "name": "Paquete Popular MITOLYN",
-            "price": "₹4,449",
-            "originalPrice": "₹5,999",
-            "discount": "25% de descuento",
-            "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
-            "supply": "Suministro para 90 Días",
-            "link": "https://mitolyn-official.com/popular",
+            "name": "Paquete Básico de BellyFlush",
+            "price": "₹2,499",
+            "originalPrice": "₹2,999",
+            "discount": "16% de descuento",
+            "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1766323113/bellyflush/BellyFlush-Bottle-Graphic-500px-1_lihmwp.png",
+            "supply": "Suministro para 30 Días",
+            "link": "https://bellyflush-official.com/basic-package",
             "buyNow": "Comprar Ahora",
-            "rating": 4.7,
-            "reviews": 3921,
-            "premiumPrice": "₹4,336",
-            "id": 3,
-            "slug": "metolyn-2"
+            "rating": 4.9,
+            "reviews": 2847,
+            "premiumPrice": "₹2,424",
+            "id": 10,
+            "slug": "bellyflush-1"
           }
         ]
       },
       {
-        "category": "Suplementos de Energía",
+        "category": "Suplementos para Salud Oral",
         "items": [
           {
-            "name": "ENERGYMAX Impulso de Energía",
-            "price": "₹1,899",
-            "originalPrice": "₹2,299",
-            "discount": "17% de descuento",
-            "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
+            "name": "Paquete Básico de PRODENTIM",
+            "price": "₹2,499",
+            "originalPrice": "₹2,999",
+            "discount": "16% de descuento",
+            "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1765645308/ravish/ProDentim-main-1--1-_gnicns.png",
             "supply": "Suministro para 30 Días",
-            "link": "https://mitolyn-official.com/energy-boost",
-            "buyNow": "Comprar Ahora",
-            "rating": 4.6,
-            "reviews": 1847,
-            "premiumPrice": "₹1,799",
-            "id": 4,
-            "slug": "energymax-1"
-          },
-          {
-            "name": "ENERGYMAX Paquete de Resistencia",
-            "price": "₹5,499",
-            "originalPrice": "₹6,999",
-            "discount": "21% de descuento",
-            "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
-            "supply": "Suministro para 90 Días",
-            "link": "https://mitolyn-official.com/endurance-pack",
+            "link": "https://prodentim-official.com/basic-package",
             "buyNow": "Comprar Ahora",
             "rating": 4.8,
-            "reviews": 2934,
-            "premiumPrice": "₹5,299",
-            "id": 5,
-            "slug": "energymax-2"
-          },
-          {
-            "name": "ENERGYMAX Paquete Ultimate",
-            "price": "₹8,999",
-            "originalPrice": "₹11,999",
-            "discount": "25% de descuento",
-            "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422492/mitolyn-offer_azyjj3.png",
-            "supply": "Suministro para 180 Días",
-            "link": "https://mitolyn-official.com/ultimate-bundle",
-            "buyNow": "Comprar Ahora",
-            "rating": 4.9,
-            "reviews": 4521,
-            "premiumPrice": "₹8,699",
-            "id": 6,
-            "slug": "energymax-3"
+            "reviews": 95000,
+            "premiumPrice": "₹2,424",
+            "id": 4,
+            "slug": "prodentim-1"
           }
         ]
       }
@@ -166,7 +155,7 @@
   },
   "trust": {
     "title": "Calidad Confiable",
-    "description": "Nuestros productos están elaborados con los más altos estándares para garantizar seguridad y eficacia.",
+    "description": "Nuestros productos están elaborados con los estándares más altos para garantizar seguridad y eficacia.",
     "badges": [
       {
         "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/made-in-usa_go4j19.webp",
@@ -174,7 +163,7 @@
       },
       {
         "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422484/fda-approved_jrawwr.webp",
-        "alt": "Instalación Registrada en la FDA"
+        "alt": "Instalación Registrada por la FDA"
       },
       {
         "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/gmp-certified_z81hqh.webp",
@@ -188,7 +177,7 @@
   },
   "reviews": {
     "title": "Lo Que Dicen Nuestros Clientes",
-    "subtitle": "Historias reales de personas reales que transformaron sus vidas con Mitolyn.",
+    "subtitle": "Historias reales de personas reales que transformaron sus vidas con nuestros suplementos.",
     "verifiedBuyer": "Comprador Verificado",
     "reviews": [
       {
@@ -196,7 +185,7 @@
         "name": "Sarah M.",
         "location": "California, EE.UU.",
         "rating": 5,
-        "text": "Después de solo unas semanas tomando Mitolyn, noté un gran aumento en mi energía diaria. Me siento más ligera, más enfocada, y el peso persistente finalmente comenzó a desaparecer. ¡Altamente recomendado!",
+        "text": "Después de solo unas semanas tomando Mitolyn, noté un gran aumento en mi energía diaria. Me siento más ligera, más enfocada y el peso obstinado finalmente empezó a desaparecer. ¡Altamente recomendado este suplemento!",
         "verified": true
       },
       {
@@ -204,7 +193,7 @@
         "name": "James R.",
         "location": "Texas, EE.UU.",
         "rating": 5,
-        "text": "He probado innumerables suplementos para la pérdida de peso, pero nada funcionó hasta Mitolyn. No solo ayudó con la pérdida de grasa, sino que también me siento más agudo mentalmente. Un verdadero cambio de juego.",
+        "text": "He probado innumerables suplementos para pérdida de peso, pero nada funcionó hasta Mitolyn. No solo ayudó con la pérdida de grasa, sino que también me siento más agudo mentalmente. Un verdadero cambio de juego.",
         "verified": true
       },
       {
@@ -212,14 +201,86 @@
         "name": "Linda P.",
         "location": "Florida, EE.UU.",
         "rating": 5,
-        "text": "Al principio era escéptica, pero Mitolyn superó mis expectativas. Más energía, mejor estado de ánimo, y ya he perdido 5 kilos en 2 meses. Lo mejor: se siente natural.",
+        "text": "Al principio era escéptica, pero Mitolyn ha superado mis expectativas. Más energía, mejor humor y ya he perdido 12 libras en 2 meses. Lo mejor — se siente natural.",
+        "verified": true
+      },
+      {
+        "id": 4,
+        "name": "Anjalina S.",
+        "location": "California, EE.UU.",
+        "rating": 5,
+        "text": "Empecé a usar ProDentim hace unas tres semanas, y los resultados son increíbles. Mis encías se sienten más saludables, el sangrado se detuvo y mi aliento se mantiene fresco todo el día. He probado muchos suplementos dentales, pero este es el único que realmente funcionó. ¡Altamente recomendado!",
+        "verified": true
+      },
+      {
+        "id": 5,
+        "name": "Rick Smith",
+        "location": "Texas, EE.UU.",
+        "rating": 5,
+        "text": "ProDentim ha cambiado completamente mi rutina dental. Noté una gran reducción en placa y sensibilidad en el primer mes. ¡Mi dentista incluso me preguntó qué estaba usando! Este probiótico definitivamente vale la pena.",
+        "verified": true
+      },
+      {
+        "id": 6,
+        "name": "Sofia V.",
+        "location": "Florida, EE.UU.",
+        "rating": 5,
+        "text": "Compré ProDentim después de leer tantas buenas reseñas, y me alegra haberlo hecho. Mis dientes se ven más limpios, mi aliento es más fresco y mis encías se sienten más fuertes que nunca. Acabo de ordenar otro paquete de 3 botellas. ¡Amo este producto!",
+        "verified": true
+      },
+      {
+        "id": 7,
+        "name": "Rahul S.",
+        "location": "Mumbai, India",
+        "rating": 5,
+        "text": "Empecé a usar Sleep Lean porque mi ciclo de sueño estaba completamente alterado. En unos días, estaba durmiendo más profundo y despertando renovado. Después de unas semanas, noté antojos reducidos y pérdida de peso gradual. Se siente como un suplemento de sueño limpio y natural.",
+        "verified": true
+      },
+      {
+        "id": 8,
+        "name": "Emily R.",
+        "location": "Austin, Texas, EE.UU.",
+        "rating": 5,
+        "text": "Sleep Lean me ayudó a conciliar el sueño más rápido sin hacerme sentir somnolienta por la mañana. Mis niveles de estrés bajaron, y lentamente empecé a perder peso sin cambiar mucho en mi rutina. Me gusta que no sea adictivo y sea suave.",
+        "verified": true
+      },
+      {
+        "id": 9,
+        "name": "David M.",
+        "location": "Londres, Reino Unido",
+        "rating": 5,
+        "text": "He probado múltiples suplementos para dormir antes, pero Sleep Lean funcionó mejor para mí. La calidad de mi sueño mejoró significativamente, y dejé de picar por la noche. Con el tiempo, noté pérdida de grasa constante. Definitivamente uno de los mejores suplementos para pérdida de peso que he usado.",
+        "verified": true
+      },
+      {
+        "id": 10,
+        "name": "Sarah M.",
+        "location": "California, EE.UU.",
+        "rating": 5,
+        "text": "Después de una semana usando BellyFlush, mi hinchazón casi desapareció. Mi estómago se siente más ligero y la digestión es mucho mejor.",
+        "verified": true
+      },
+      {
+        "id": 11,
+        "name": "Daniel R.",
+        "location": "Texas, EE.UU.",
+        "rating": 5,
+        "text": "He probado muchos productos de limpieza intestinal, pero BellyFlush funcionó suavemente sin calambres. Me siento más cómodo diariamente.",
+        "verified": true
+      },
+      {
+        "id": 12,
+        "name": "Anita K.",
+        "location": "Nueva York, EE.UU.",
+        "rating": 4,
+        "text": "Gran suplemento para la digestión. Noté menos gases y mejor regularidad en unos días.",
         "verified": true
       }
     ]
   },
   "common": {
     "buyNow": "Comprar Ahora",
-    "learnMore": "Saber Más",
+    "learnMore": "Aprender Más",
     "addToCart": "Añadir al Carrito",
     "premiumMemberSuffix": "para Miembros Premium"
   }
