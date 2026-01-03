@@ -136,7 +136,6 @@ export default async function SupplementsPage({
           <CategoriesSection
             translations={translations}
             locale={params.locale}
-            showAddToCart={true}
             categoryFilter={categoryKey}
             country={params.country} />
         </div>
