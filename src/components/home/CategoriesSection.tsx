@@ -135,7 +135,6 @@ export function CategoriesSection({
                 {/* Mobile Prev/Next Buttons */}
                 <Button
                   variant="outline"
-                  size="icon"
                   className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg md:hidden"
                   onClick={scrollPrev}
                 >
@@ -143,7 +142,6 @@ export function CategoriesSection({
                 </Button>
                 <Button
                   variant="outline"
-                  size="icon"
                   className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg md:hidden"
                   onClick={scrollNext}
                 >
