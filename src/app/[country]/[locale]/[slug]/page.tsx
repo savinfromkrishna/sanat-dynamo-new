@@ -60,10 +60,11 @@ function ProductToggleSection({
 export async function generateMetadata({
   params,
 }: {
-  params: { country: string; locale: Locale; slug: string }
+  params: Promise<{ country: string; locale: Locale; slug: string }>
 }): Promise<Metadata> {
-  const translations = getTranslation(params.locale)
-  const categoryKey = getCategoryKey(params.slug)
+  const { locale, slug, country } = await params
+  const translations = getTranslation(locale)
+  const categoryKey = getCategoryKey(slug)
   console.log("categoryKey:", categoryKey)
   if (!categoryKey) {
     return {
@@ -76,16 +77,16 @@ export async function generateMetadata({
     description: t.seo.description,
     metadataBase: new URL("https://mitolyn-official.com"),
     alternates: {
-      canonical: `/${params.country}/${params.locale}/${params.slug}`,
+      canonical: `/${country}/${locale}/${slug}`,
       languages: {
-        "en-US": `/${params.country}/en/${params.slug}`,
-        "es-ES": `/${params.country}/es/${params.slug}`,
+        "en-US": `/${country}/en/${slug}`,
+        "es-ES": `/${country}/es/${slug}`,
       },
     },
     openGraph: {
       title: t.seo.title,
       description: t.seo.description,
-      url: `https://mitolyn-official.com/${params.country}/${params.locale}/${params.slug}`,
+      url: `https://mitolyn-official.com/${country}/${locale}/${slug}`,
       siteName: "Mitolyn Official",
       images: [
         {
@@ -95,7 +96,7 @@ export async function generateMetadata({
           alt: t.seo.title,
         },
       ],
-      locale: params.locale === "es" ? "es_ES" : "en_US",
+      locale: locale === "es" ? "es_ES" : "en_US",
       type: "website",
     },
     twitter: {
@@ -110,11 +111,11 @@ export async function generateMetadata({
 export default async function SupplementsPage({
   params,
 }: {
-  params: { country: string; locale: Locale; slug: string }
+  params: Promise<{ country: string; locale: Locale; slug: string }>
 }) {
-
-  const translations = getTranslation(params.locale)
-  const categoryKey = getCategoryKey(params.slug)
+  const { locale, slug, country } = await params
+  const translations = getTranslation(locale)
+  const categoryKey = getCategoryKey(slug)
   console.log("categoryKey:", categoryKey)
   if (!categoryKey) {
     notFound()
@@ -122,7 +123,7 @@ export default async function SupplementsPage({
   const t = translations[categoryKey]
   const knowMoreData = translations.knowMore?.[categoryKey] || {}
   console.log("translations:", translations)
-  console.log(`Translations for ${params.slug} Page:`, t)
+  console.log(`Translations for ${slug} Page:`, t)
 
   return (
     <main className="min-h-screen bg-white">
@@ -135,9 +136,9 @@ export default async function SupplementsPage({
           {/* Example: Place it after your hero section */}
           <CategoriesSection
             translations={translations}
-            locale={params.locale}
+            locale={locale}
             categoryFilter={categoryKey}
-            country={params.country} />
+            country={country} />
         </div>
       </section>
       <section className="py-12">
@@ -205,7 +206,7 @@ export default async function SupplementsPage({
           </div>
         </div>
       </section>
-      <CategoryReviewsSection category={params.slug} translations={translations} />
+      <CategoryReviewsSection category={slug} translations={translations} />
       <section className="py-12 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl lg:text-3xl font-sans font-bold text-center mb-8">{t.faqs.title}</h2>

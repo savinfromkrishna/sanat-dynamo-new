@@ -20,14 +20,14 @@ const productMap: Record<string, string[]> = {
 export async function generateMetadata({
   params,
 }: {
-  params: {
+  params: Promise<{
     country: string
     locale: Locale
     slug: string
     id: string
-  }
+  }>
 }): Promise<Metadata> {
-  const { locale, slug, id, country } = params
+  const { locale, slug, id, country } = await params
 
   const translations = getTranslation(locale)
   const categoryKey = getCategoryKey(slug)
@@ -77,14 +77,14 @@ export async function generateMetadata({
 export default async function ProductPage({
   params,
 }: {
-  params: {
+  params: Promise<{
     country: string
     locale: Locale
     slug: string
     id: string
-  }
+  }>
 }) {
-  const { locale, slug, id } = params
+  const { locale, slug, id } = await params
 
   const translations = getTranslation(locale)
   const categoryKey = getCategoryKey(slug)

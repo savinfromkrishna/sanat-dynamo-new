@@ -80,7 +80,7 @@ export function HomeHeroCarousel({
 
                         {/* Action Buttons */}
                         <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                          <Link href={`/${locale}/${country}/${slide.categorySlug}`}>
+                          <Link href={`/${country}/${locale}/${slide.categorySlug}`}>
                             <Button
                               size="lg"
                               className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground"
@@ -88,7 +88,7 @@ export function HomeHeroCarousel({
                               {buyNowText}
                             </Button>
                           </Link>
-                          <Link href={`/${locale}/${country}/${slide.categorySlug}/${slide.slug}`}>
+                          <Link href={`/${country}/${locale}/${slide.categorySlug}/${slide.slug}`}>
                             <Button variant="outline" size="lg" className="w-full sm:w-auto bg-transparent">
                               {learnMoreText}
                               <ArrowRight className="ml-2 h-4 w-4" />

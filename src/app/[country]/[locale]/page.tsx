@@ -1,18 +1,18 @@
-//home
+// home
 import { CategoriesSection } from "@/components/home/CategoriesSection"
 import { HomeHeroCarousel } from "@/components/home/homecarouse"
 import { ReviewsSection } from "@/components/home/ReviewsSection"
 import { TrustSection } from "@/components/home/TrustSection"
-import { KnowMoreSection } from "@/components/KnowMoreSection"
 import { getTranslation } from "@/lib/i18n"
 import { ProductknowMoreSection } from "@/components/productKnowMore" // Import to use the same component for consistency
 
-export default async function HomePage({ params }: { params: { locale: string,country:string } }) {
-  const translations = getTranslation(params.locale as "en" | "es")
+export default async function HomePage({ params }: { params: Promise<{ locale: string; country: string }> }) {
+  const { locale, country } = await params
+  const translations = getTranslation(locale as "en" | "es")
   console.log("Akash Translations:", translations) 
   
   // Compute combined knowMoreData for home page, with Spanish support
-  const isSpanish = params.locale === "es"
+  const isSpanish = locale === "es"
   const combinedKnowMoreData = isSpanish ? {
     title: "Todo lo que necesitas saber sobre nuestros suplementos premium",
     summary: "Explora MITOLYN para una pérdida de peso revolucionaria y PRODENTIM para una salud oral óptima – soluciones respaldadas por la ciencia, confiadas por más de 100,000 usuarios en todo el mundo para impulsar el metabolismo, restaurar el microbioma de tu boca y mejorar el bienestar general de forma natural.",
@@ -195,8 +195,8 @@ export default async function HomePage({ params }: { params: { locale: string,co
 
   return (
     <div>
-      <HomeHeroCarousel translations={translations} locale={params.locale} country={params.country} />
-      <CategoriesSection translations={translations} locale={params.locale} country={params.country} />
+      <HomeHeroCarousel translations={translations} locale={locale} country={country} />
+      <CategoriesSection translations={translations} locale={locale} country={country} />
       <TrustSection translations={translations} />
       <ReviewsSection translations={translations} />
       {/* Use ProductknowMoreSection for consistency, passing combined data */}
