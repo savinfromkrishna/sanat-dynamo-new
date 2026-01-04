@@ -29,7 +29,8 @@
           "reviews": 2847,
           "premiumPrice": "₹2,424",
           "id": 1,
-          "slug": "metolyn-1"
+          "slug": "metolyn-1",
+          "categorySlug": "weight-loss-supplements"
         },
         {
           "name": "Sleep Lean Basic Package",
@@ -44,7 +45,8 @@
           "reviews": 2847,
           "premiumPrice": "₹2,424",
           "id": 7,
-          "slug": "sleeplean-1"
+          "slug": "sleeplean-1",
+          "categorySlug": "weight-loss-supplements"
         },
         {
           "name": "BellyFlush Basic Package",
@@ -59,7 +61,8 @@
           "reviews": 2847,
           "premiumPrice": "₹2,424",
           "id": 10,
-          "slug": "bellyflush-1"
+          "slug": "bellyflush-1",
+          "categorySlug": "weight-loss-supplements"
         }
       ]
     },
@@ -190,7 +193,9 @@
           "rating": 4.8,
           "reviews": 2847,
           "premiumPrice": "$49 for Premium Members",
-          "discount": "30% OFF"
+          "discount": "30% OFF",
+          "slug": "prodentim-1",
+          "categorySlug": "dental-health-supplements"
         },
         {
           "id": 2,
@@ -207,7 +212,9 @@
           "rating": 4.7,
           "reviews": 2356,
           "premiumPrice": "$45 for Premium Members",
-          "discount": "40% OFF"
+          "discount": "40% OFF",
+          "slug": "prodentim-2",
+          "categorySlug": "dental-health-supplements"
         },
         {
           "id": 3,
@@ -225,7 +232,9 @@
           "rating": 4.9,
           "reviews": 3921,
           "premiumPrice": "$45 for Premium Members",
-          "discount": "40% OFF"
+          "discount": "40% OFF",
+          "slug": "prodentim-3",
+          "categorySlug": "dental-health-supplements"
         }
       ]
     },

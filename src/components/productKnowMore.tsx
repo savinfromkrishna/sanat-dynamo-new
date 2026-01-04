@@ -199,7 +199,7 @@ export function ProductknowMoreSection({ translations }: { translations: any }) 
                   )}
 
                   {/* CTA */}
-                  {section.type === "cta" && (
+                  {/* {section.type === "cta" && (
                     <div className="text-center bg-primary/5 rounded-xl p-8">
                       <h3 className="text-2xl font-bold mb-3">{section.heading}</h3>
                       <p className="text-muted-foreground mb-6">{section.content}</p>
@@ -212,7 +212,7 @@ export function ProductknowMoreSection({ translations }: { translations: any }) 
                         </a>
                       )}
                     </div>
-                  )}
+                  )} */}
                 </div>
               ))}
             </div>

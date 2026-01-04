@@ -1,6 +1,6 @@
 {
   "hero": {
-    "title": "Transforma Tu Salud Con",
+    "title": "Transforma Tu Salud con",
     "description": "Descubre el poder de los suplementos naturales para aumentar la energía, apoyar la pérdida de peso, mejorar la salud oral y el bienestar general.",
     "guarantee": "Garantía de Devolución de Dinero de 60 Días",
     "fdaRegistered": "Instalación Registrada por la FDA",
@@ -8,8 +8,8 @@
     "slides": [
       {
         "category": "Suplementos para Pérdida de Peso",
-        "categorySlug": "weightLoss",
-        "name": "Paquete Básico de MITOLYN",
+        "categorySlug": "weight-loss-supplements",
+        "name": "Paquete Básico MITOLYN",
         "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
         "supply": "Suministro para 30 Días",
         "rating": 4.9,
@@ -17,12 +17,13 @@
         "learnMoreUrl": "https://mitolyn-official.com/learn-more",
         "buyNow": "Comprar Ahora",
         "buyUrl": "https://mitolyn-official.com/basic-package",
-        "isNew": true
+        "isNew": true,
+        "slug": "metolyn-1"
       },
       {
         "category": "Suplementos para Pérdida de Peso",
-        "categorySlug": "weightLoss",
-        "name": "Paquete Básico de Sleep Lean",
+        "categorySlug": "weight-loss-supplements",
+        "name": "Paquete Básico Sleep Lean",
         "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1766323389/sleep-lean-supplement_naj8ag.png",
         "supply": "Suministro para 30 Días",
         "rating": 4.9,
@@ -30,12 +31,13 @@
         "learnMoreUrl": "https://sleeplean-official.com/learn-more",
         "buyNow": "Comprar Ahora",
         "buyUrl": "https://sleeplean-official.com/basic-package",
-        "isNew": true
+        "isNew": true,
+        "slug": "sleeplean-1"
       },
       {
         "category": "Suplementos para Pérdida de Peso",
-        "categorySlug": "weightLoss",
-        "name": "Paquete Básico de BellyFlush",
+        "categorySlug": "weight-loss-supplements",
+        "name": "Paquete Básico BellyFlush",
         "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1766323113/bellyflush/BellyFlush-Bottle-Graphic-500px-1_lihmwp.png",
         "supply": "Suministro para 30 Días",
         "rating": 4.9,
@@ -43,12 +45,13 @@
         "learnMoreUrl": "https://bellyflush-official.com/learn-more",
         "buyNow": "Comprar Ahora",
         "buyUrl": "https://bellyflush-official.com/basic-package",
-        "isNew": true
+        "isNew": true,
+        "slug": "bellyflush-1"
       },
       {
         "category": "Suplementos para Salud Oral",
-        "categorySlug": "oralProbiotics",
-        "name": "Paquete Básico de PRODENTIM",
+        "categorySlug": "dental-health-supplements",
+        "name": "Paquete Básico PRODENTIM",
         "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1765645308/ravish/ProDentim-main-1--1-_gnicns.png",
         "supply": "Suministro para 30 Días",
         "rating": 4.8,
@@ -56,36 +59,24 @@
         "learnMoreUrl": "https://prodentim-official.com/learn-more",
         "buyNow": "Comprar Ahora",
         "buyUrl": "https://prodentim-official.com/basic-package",
-        "isNew": true
-      },
-      {
-        "category": "Suplementos para Salud Oral",
-        "categorySlug": "oralProbiotics",
-        "name": "Paquete de Mejor Valor de PRODENTIM",
-        "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1765645307/ravish/prodentim-929x793_seuqca.png",
-        "supply": "Suministro para 180 Días",
-        "rating": 4.9,
-        "reviews": 95000,
-        "learnMoreUrl": "https://prodentim-official.com/learn-more",
-        "buyNow": "Comprar Ahora",
-        "buyUrl": "https://prodentim-official.com/best-value",
-        "isNew": true
+        "isNew": true,
+        "slug": "prodentim-1"
       }
     ]
   },
   "categories": {
     "weightLoss": "Suplementos para Pérdida de Peso",
-    "energy": "Suplementos para Energía",
+    "energy": "Suplementos Energéticos",
     "oralProbiotics": "Suplementos para Salud Oral",
-    "weightLossDescription": "Suplementos naturales premium formulados científicamente para resultados óptimos de pérdida de peso",
-    "energyDescription": "Potenciadores naturales de energía y mejoradores de rendimiento para un estilo de vida activo y vitalidad diaria",
+    "weightLossDescription": "Suplementos naturales premium formulados científicamente para resultados óptimos en pérdida de peso",
+    "energyDescription": "Potenciadores naturales de energía y mejora del rendimiento para un estilo de vida activo y vitalidad diaria",
     "oralProbioticsDescription": "Probióticos orales naturales premium formulados científicamente para una salud óptima de dientes y encías, reduciendo la placa, mejorando la higiene y apoyando el blanqueamiento natural",
     "products": [
       {
         "category": "Suplementos para Pérdida de Peso",
         "items": [
           {
-            "name": "Paquete Básico de MITOLYN",
+            "name": "Paquete Básico MITOLYN",
             "price": "₹2,499",
             "originalPrice": "₹2,999",
             "discount": "16% de descuento",
@@ -100,7 +91,7 @@
             "slug": "metolyn-1"
           },
           {
-            "name": "Paquete Básico de Sleep Lean",
+            "name": "Paquete Básico Sleep Lean",
             "price": "₹2,499",
             "originalPrice": "₹2,999",
             "discount": "16% de descuento",
@@ -115,7 +106,7 @@
             "slug": "sleeplean-1"
           },
           {
-            "name": "Paquete Básico de BellyFlush",
+            "name": "Paquete Básico BellyFlush",
             "price": "₹2,499",
             "originalPrice": "₹2,999",
             "discount": "16% de descuento",
@@ -135,7 +126,7 @@
         "category": "Suplementos para Salud Oral",
         "items": [
           {
-            "name": "Paquete Básico de PRODENTIM",
+            "name": "Paquete Básico PRODENTIM",
             "price": "₹2,499",
             "originalPrice": "₹2,999",
             "discount": "16% de descuento",
@@ -154,8 +145,8 @@
     ]
   },
   "trust": {
-    "title": "Calidad Confiable",
-    "description": "Nuestros productos están elaborados con los estándares más altos para garantizar seguridad y eficacia.",
+    "title": "Calidad de Confianza",
+    "description": "Nuestros productos están elaborados con los más altos estándares para garantizar seguridad y eficacia.",
     "badges": [
       {
         "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/made-in-usa_go4j19.webp",
@@ -176,7 +167,7 @@
     ]
   },
   "reviews": {
-    "title": "Lo Que Dicen Nuestros Clientes",
+    "title": "Lo que Dicen Nuestros Clientes",
     "subtitle": "Historias reales de personas reales que transformaron sus vidas con nuestros suplementos.",
     "verifiedBuyer": "Comprador Verificado",
     "reviews": [
@@ -185,7 +176,7 @@
         "name": "Sarah M.",
         "location": "California, EE.UU.",
         "rating": 5,
-        "text": "Después de solo unas semanas tomando Mitolyn, noté un gran aumento en mi energía diaria. Me siento más ligera, más enfocada y el peso obstinado finalmente empezó a desaparecer. ¡Altamente recomendado este suplemento!",
+        "text": "Después de solo unas semanas tomando Mitolyn, noté un gran aumento en mi energía diaria. Me siento más ligera, más concentrada y el peso obstinado finalmente empezó a bajar. ¡Altamente recomendado este suplemento!",
         "verified": true
       },
       {
@@ -193,7 +184,7 @@
         "name": "James R.",
         "location": "Texas, EE.UU.",
         "rating": 5,
-        "text": "He probado innumerables suplementos para pérdida de peso, pero nada funcionó hasta Mitolyn. No solo ayudó con la pérdida de grasa, sino que también me siento más agudo mentalmente. Un verdadero cambio de juego.",
+        "text": "He probado innumerables suplementos para perder peso, pero nada funcionó hasta Mitolyn. No solo ayudó con la pérdida de grasa, sino que también me siento más agudo mentalmente. Un verdadero cambio de juego.",
         "verified": true
       },
       {
@@ -201,7 +192,7 @@
         "name": "Linda P.",
         "location": "Florida, EE.UU.",
         "rating": 5,
-        "text": "Al principio era escéptica, pero Mitolyn ha superado mis expectativas. Más energía, mejor humor y ya he perdido 12 libras en 2 meses. Lo mejor — se siente natural.",
+        "text": "Al principio era escéptica, pero Mitolyn ha superado mis expectativas. Más energía, mejor humor y ya he perdido 12 libras en 2 meses. Lo mejor: se siente natural.",
         "verified": true
       },
       {
@@ -209,7 +200,7 @@
         "name": "Anjalina S.",
         "location": "California, EE.UU.",
         "rating": 5,
-        "text": "Empecé a usar ProDentim hace unas tres semanas, y los resultados son increíbles. Mis encías se sienten más saludables, el sangrado se detuvo y mi aliento se mantiene fresco todo el día. He probado muchos suplementos dentales, pero este es el único que realmente funcionó. ¡Altamente recomendado!",
+        "text": "Empecé a usar ProDentim hace unas tres semanas y los resultados son increíbles. Mis encías se sienten más saludables, el sangrado ha parado y mi aliento permanece fresco todo el día. He probado muchos suplementos dentales, pero este es el único que realmente funcionó. ¡Altamente recomendado!",
         "verified": true
       },
       {
@@ -217,7 +208,7 @@
         "name": "Rick Smith",
         "location": "Texas, EE.UU.",
         "rating": 5,
-        "text": "ProDentim ha cambiado completamente mi rutina dental. Noté una gran reducción en placa y sensibilidad en el primer mes. ¡Mi dentista incluso me preguntó qué estaba usando! Este probiótico definitivamente vale la pena.",
+        "text": "ProDentim ha cambiado completamente mi rutina dental. Noté una gran reducción en la placa y la sensibilidad en el primer mes. ¡Mi dentista incluso me preguntó qué estaba usando! Este probiótico definitivamente vale la pena.",
         "verified": true
       },
       {
@@ -225,7 +216,7 @@
         "name": "Sofia V.",
         "location": "Florida, EE.UU.",
         "rating": 5,
-        "text": "Compré ProDentim después de leer tantas buenas reseñas, y me alegra haberlo hecho. Mis dientes se ven más limpios, mi aliento es más fresco y mis encías se sienten más fuertes que nunca. Acabo de ordenar otro paquete de 3 botellas. ¡Amo este producto!",
+        "text": "Compré ProDentim después de leer tantas buenas reseñas, y me alegro de haberlo hecho. Mis dientes se ven más limpios, mi aliento es más fresco y mis encías se sienten más fuertes que nunca. Acabo de pedir otro paquete de 3 botellas. ¡Me encanta este producto!",
         "verified": true
       },
       {
@@ -233,7 +224,7 @@
         "name": "Rahul S.",
         "location": "Mumbai, India",
         "rating": 5,
-        "text": "Empecé a usar Sleep Lean porque mi ciclo de sueño estaba completamente alterado. En unos días, estaba durmiendo más profundo y despertando renovado. Después de unas semanas, noté antojos reducidos y pérdida de peso gradual. Se siente como un suplemento de sueño limpio y natural.",
+        "text": "Empecé a usar Sleep Lean porque mi ciclo de sueño estaba completamente alterado. En pocos días, dormía más profundo y me despertaba renovado. Después de unas semanas, noté menos antojos y una pérdida de peso gradual. Se siente como un suplemento natural y limpio para el sueño.",
         "verified": true
       },
       {
@@ -241,7 +232,7 @@
         "name": "Emily R.",
         "location": "Austin, Texas, EE.UU.",
         "rating": 5,
-        "text": "Sleep Lean me ayudó a conciliar el sueño más rápido sin hacerme sentir somnolienta por la mañana. Mis niveles de estrés bajaron, y lentamente empecé a perder peso sin cambiar mucho en mi rutina. Me gusta que no sea adictivo y sea suave.",
+        "text": "Sleep Lean me ayudó a conciliar el sueño más rápido sin hacerme sentir somnolienta por la mañana. Mis niveles de estrés bajaron y lentamente empecé a perder peso sin cambiar mucho mi rutina. Me gusta que no crea hábito y sea suave.",
         "verified": true
       },
       {
@@ -249,7 +240,7 @@
         "name": "David M.",
         "location": "Londres, Reino Unido",
         "rating": 5,
-        "text": "He probado múltiples suplementos para dormir antes, pero Sleep Lean funcionó mejor para mí. La calidad de mi sueño mejoró significativamente, y dejé de picar por la noche. Con el tiempo, noté pérdida de grasa constante. Definitivamente uno de los mejores suplementos para pérdida de peso que he usado.",
+        "text": "He probado varios suplementos para dormir antes, pero Sleep Lean funcionó mejor para mí. La calidad de mi sueño mejoró significativamente y dejé de picar a medianoche. Con el tiempo, noté una pérdida de grasa constante. Definitivamente uno de los mejores suplementos para perder peso que he usado.",
         "verified": true
       },
       {
@@ -265,7 +256,7 @@
         "name": "Daniel R.",
         "location": "Texas, EE.UU.",
         "rating": 5,
-        "text": "He probado muchos productos de limpieza intestinal, pero BellyFlush funcionó suavemente sin calambres. Me siento más cómodo diariamente.",
+        "text": "He probado muchos productos para limpiar el intestino, pero BellyFlush actuó suavemente sin calambres. Me siento más cómodo a diario.",
         "verified": true
       },
       {
@@ -273,14 +264,14 @@
         "name": "Anita K.",
         "location": "Nueva York, EE.UU.",
         "rating": 4,
-        "text": "Gran suplemento para la digestión. Noté menos gases y mejor regularidad en unos días.",
+        "text": "Gran suplemento para la digestión. Noté menos gases y mejor regularidad en pocos días.",
         "verified": true
       }
     ]
   },
   "common": {
     "buyNow": "Comprar Ahora",
-    "learnMore": "Aprender Más",
+    "learnMore": "Saber Más",
     "addToCart": "Añadir al Carrito",
     "premiumMemberSuffix": "para Miembros Premium"
   }

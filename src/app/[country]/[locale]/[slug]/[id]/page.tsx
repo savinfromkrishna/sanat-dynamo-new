@@ -98,11 +98,12 @@ export default async function ProductPage({
   }
 
   const categoryTranslations = translations[categoryKey]
+  console.log("categoryTranslations:", translations)
   const categoryProducts = categoryTranslations.productsSection?.products || []
   const relatedProducts = categoryProducts
     .filter((p: any) => String(p.id) !== id)
     .map((p: any) => ({ ...p, id: String(p.id) }))
-
+  console.log("relatedProducts:", relatedProducts)
   return (
     <ProductDetailPageClient
       product={product}

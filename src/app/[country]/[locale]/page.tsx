@@ -9,8 +9,8 @@ import { ProductknowMoreSection } from "@/components/productKnowMore" // Import 
 export default async function HomePage({ params }: { params: Promise<{ locale: string; country: string }> }) {
   const { locale, country } = await params
   const translations = getTranslation(locale as "en" | "es")
-  console.log("Akash Translations:", translations) 
-  
+  console.log("Akash Translations:", translations)
+
   // Compute combined knowMoreData for home page, with Spanish support
   const isSpanish = locale === "es"
   const combinedKnowMoreData = isSpanish ? {
@@ -188,7 +188,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         "type": "cta",
         "heading": "Ready to Elevate Your Wellness?",
         "content": "Join over 100,000 satisfied customers. Try MITOLYN and PRODENTIM risk-free for 60 days and transform your body and smile.",
-        "button": { "text": "Shop All Supplements", "href": "/shop" }
+        "button": { "text": "Shop All Supplements", "href": "/weight-loss-supplements" }
       }
     ]
   }
@@ -199,7 +199,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <CategoriesSection translations={translations} locale={locale} country={country} />
       <TrustSection translations={translations} />
       <ReviewsSection translations={translations} />
-      {/* Use ProductknowMoreSection for consistency, passing combined data */}
       <ProductknowMoreSection translations={{ productKnowMore: combinedKnowMoreData }} />
     </div>
   )

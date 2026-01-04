@@ -16,51 +16,54 @@
       "title": "Mejores Suplementos Naturales para Pérdida de Peso",
       "description": "Muchas personas prefieren fórmulas naturales que usan ingredientes a base de plantas o herbales. Los mejores suplementos naturales para pérdida de peso suelen estar libres de estimulantes fuertes y se centran en apoyar los procesos naturales de quema de grasa de tu cuerpo.",
       "products": [
-         {
-            "name": "Paquete Básico de MITOLYN",
-            "price": "₹2,499",
-            "originalPrice": "₹2,999",
-            "discount": "16% de descuento",
-            "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
-            "supply": "Suministro para 30 Días",
-            "link": "https://mitolyn-official.com/basic-package",
-            "buyNow": "Comprar Ahora",
-            "rating": 4.8,
-            "reviews": 2847,
-            "premiumPrice": "₹2,424",
-            "id": 1,
-            "slug": "metolyn-1"
-          },
-          {
-            "name": "Paquete Básico de Sleep Lean",
-            "price": "₹2,499",
-            "originalPrice": "₹2,999",
-            "discount": "16% de descuento",
-            "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1766323389/sleep-lean-supplement_naj8ag.png",
-            "supply": "Suministro para 30 Días",
-            "link": "https://sleeplean-official.com/basic-package",
-            "buyNow": "Comprar Ahora",
-            "rating": 4.9,
-            "reviews": 2847,
-            "premiumPrice": "₹2,424",
-            "id": 7,
-            "slug": "sleeplean-1"
-          },
-          {
-            "name": "Paquete Básico de BellyFlush",
-            "price": "₹2,499",
-            "originalPrice": "₹2,999",
-            "discount": "16% de descuento",
-            "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1766323113/bellyflush/BellyFlush-Bottle-Graphic-500px-1_lihmwp.png",
-            "supply": "Suministro para 30 Días",
-            "link": "https://bellyflush-official.com/basic-package",
-            "buyNow": "Comprar Ahora",
-            "rating": 4.9,
-            "reviews": 2847,
-            "premiumPrice": "₹2,424",
-            "id": 10,
-            "slug": "bellyflush-1"
-          }
+        {
+          "name": "Paquete Básico de MITOLYN",
+          "price": "₹2,499",
+          "originalPrice": "₹2,999",
+          "discount": "16% de descuento",
+          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
+          "supply": "Suministro para 30 Días",
+          "link": "https://mitolyn-official.com/basic-package",
+          "buyNow": "Comprar Ahora",
+          "rating": 4.8,
+          "reviews": 2847,
+          "premiumPrice": "₹2,424",
+          "id": 1,
+          "slug": "metolyn-1",
+          "categorySlug": "weight-loss-supplements"
+        },
+        {
+          "name": "Paquete Básico de Sleep Lean",
+          "price": "₹2,499",
+          "originalPrice": "₹2,999",
+          "discount": "16% de descuento",
+          "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1766323389/sleep-lean-supplement_naj8ag.png",
+          "supply": "Suministro para 30 Días",
+          "link": "https://sleeplean-official.com/basic-package",
+          "buyNow": "Comprar Ahora",
+          "rating": 4.9,
+          "reviews": 2847,
+          "premiumPrice": "₹2,424",
+          "id": 7,
+          "slug": "sleeplean-1",
+          "categorySlug": "weight-loss-supplements"
+        },
+        {
+          "name": "Paquete Básico de BellyFlush",
+          "price": "₹2,499",
+          "originalPrice": "₹2,999",
+          "discount": "16% de descuento",
+          "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1766323113/bellyflush/BellyFlush-Bottle-Graphic-500px-1_lihmwp.png",
+          "supply": "Suministro para 30 Días",
+          "link": "https://bellyflush-official.com/basic-package",
+          "buyNow": "Comprar Ahora",
+          "rating": 4.9,
+          "reviews": 2847,
+          "premiumPrice": "₹2,424",
+          "id": 10,
+          "slug": "bellyflush-1",
+          "categorySlug": "weight-loss-supplements"
+        }
       ]
     },
     "trustBadges": {
@@ -181,7 +184,9 @@
           "rating": 4.8,
           "reviews": 2847,
           "premiumPrice": "$49 para Miembros Premium",
-          "discount": "30% OFF"
+          "discount": "30% OFF",
+          "slug": "prodentim-1",
+          "categorySlug": "dental-health-supplements"
         },
         {
           "id": 2,
@@ -198,7 +203,9 @@
           "rating": 4.7,
           "reviews": 2356,
           "premiumPrice": "$45 para Miembros Premium",
-          "discount": "40% OFF"
+          "discount": "40% OFF",
+          "slug": "prodentim-2",
+          "categorySlug": "dental-health-supplements"
         },
         {
           "id": 3,
@@ -206,7 +213,7 @@
           "price": "$59",
           "originalPrice": "$297",
           "total": "$177",
-          "image":"https://res.cloudinary.com/dpqnfjpdw/image/upload/v1765645311/ravish/prodentim-official-website-993x720_s4yrzn.webp",
+          "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1765645311/ravish/prodentim-official-website-993x720_s4yrzn.webp",
           "supply": "Suministro para 90 Días",
           "link": "https://prodentim-official.com/popular",
           "badge": "POPULAR - 3 BOTELLAS",
@@ -216,7 +223,9 @@
           "rating": 4.9,
           "reviews": 3921,
           "premiumPrice": "$45 para Miembros Premium",
-          "discount": "40% OFF"
+          "discount": "40% OFF",
+          "slug": "prodentim-3",
+          "categorySlug": "dental-health-supplements"
         }
       ]
     },

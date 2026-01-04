@@ -5,7 +5,7 @@ import Link from "next/link"
 import Autoplay from "embla-carousel-autoplay"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Star, ArrowRight } from "lucide-react"
+import { Star, ArrowLeft, ArrowRight } from "lucide-react"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 
 export function HomeHeroCarousel({
@@ -114,8 +114,12 @@ export function HomeHeroCarousel({
               ))}
             </CarouselContent>
 
-            <CarouselPrevious className="left-4 lg:left-8" />
-            <CarouselNext className="right-4 lg:right-8" />
+            <CarouselPrevious className="left-4 lg:left-8">
+              <ArrowLeft className="h-4 w-4" />
+            </CarouselPrevious>
+            <CarouselNext className="right-4 lg:right-8">
+              <ArrowRight className="h-4 w-4" />
+            </CarouselNext>
           </Carousel>
         </div>
       </div>
