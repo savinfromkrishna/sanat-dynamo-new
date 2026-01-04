@@ -84,7 +84,7 @@ export default async function ProductPage({
     id: string
   }>
 }) {
-  const { locale, slug, id } = await params
+  const { locale,country, slug, id } = await params
 
   const translations = getTranslation(locale)
   const categoryKey = getCategoryKey(slug)
@@ -109,6 +109,7 @@ export default async function ProductPage({
       product={product}
       translations={translations}
       locale={locale}
+      country={country}
       categoryKey={categoryKey}
       slug={slug}
       relatedProducts={relatedProducts}

@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import {
   Star,
   Check,
@@ -31,6 +32,7 @@ interface ProductDetailPageClientProps {
   product: ProductDetail
   translations: any
   locale: Locale
+  country: string
   categoryKey: string
   slug: string
   relatedProducts: any[]
@@ -41,6 +43,7 @@ export default function ProductDetailPageClient({
   translations,
   locale,
   categoryKey,
+  country,
   slug,
   relatedProducts,
 }: ProductDetailPageClientProps) {
@@ -134,11 +137,9 @@ export default function ProductDetailPageClient({
 
                 {/* Action Buttons */}
                 <div className="grid grid-cols-2 gap-2 mt-3">
-                  <Button variant="outline" className="w-full bg-transparent" asChild>
-                    <a href={product.affiliateUrl} target="_blank" rel="noopener noreferrer">
-                      <ShoppingCart className="mr-2 w-4 h-4" />
-                      Add to Cart
-                    </a>
+                  <Button variant="outline" className="w-full">
+                    <ShoppingCart className="mr-2 h-4 w-4" />
+                    Add to Cart
                   </Button>
                   <Button className="w-full bg-amber-500 hover:bg-amber-600 text-white" asChild>
                     <a href={product.affiliateUrl} target="_blank" rel="noopener noreferrer">
@@ -598,33 +599,39 @@ export default function ProductDetailPageClient({
               {relatedProducts.map((relatedProduct) => (
                 <Card key={relatedProduct.id} className="group hover:shadow-xl transition-all hover:scale-[1.02]">
                   <CardContent className="p-0">
-                    <div className="relative aspect-square bg-gradient-to-br from-accent/10 to-accent/5 rounded-t-lg overflow-hidden">
-                      <Image
-                        src={relatedProduct.image || "/placeholder.svg"}
-                        alt={relatedProduct.name}
-                        fill
-                        className="object-contain p-6 transition-transform duration-700 group-hover:scale-110"
-                      />
-                    </div>
-                    <div className="p-5">
-                      <h3 className="font-bold text-base md:text-lg mb-2 text-balance">{relatedProduct.name}</h3>
-                      <div className="flex items-center gap-1 mb-3">
-                        {[...Array(5)].map((_, i) => (
-                          <Star
-                            key={i}
-                            className={`w-4 h-4 ${i < Math.floor(relatedProduct.rating) ? "fill-amber-400 text-amber-400" : "text-gray-300"}`}
-                          />
-                        ))}
-                        <span className="ml-1 text-sm font-semibold">{relatedProduct.rating}</span>
+                    <Link href={`/${country}/${locale}/${categoryKey}/${relatedProduct.slug}`}>
+                      <div className="relative aspect-square bg-gradient-to-br from-accent/10 to-accent/5 rounded-t-lg overflow-hidden">
+                        <Image
+                          src={relatedProduct.image || "/placeholder.svg"}
+                          alt={relatedProduct.name}
+                          fill
+                          className="object-contain p-6 transition-transform duration-700 group-hover:scale-110"
+                        />
                       </div>
-                      <div className="flex items-baseline gap-2 mb-4">
-                        <span className="text-xl md:text-2xl font-bold text-primary">${relatedProduct.price}</span>
-                        <span className="text-sm text-muted-foreground line-through">
-                          ${relatedProduct.originalPrice}
-                        </span>
+                      <div className="p-5">
+                        <h3 className="font-bold text-base md:text-lg mb-2 text-balance">{relatedProduct.name}</h3>
+                        <div className="flex items-center gap-1 mb-3">
+                          {[...Array(5)].map((_, i) => (
+                            <Star
+                              key={i}
+                              className={`w-4 h-4 ${i < Math.floor(relatedProduct.rating) ? "fill-amber-400 text-amber-400" : "text-gray-300"}`}
+                            />
+                          ))}
+                          <span className="ml-1 text-sm font-semibold">{relatedProduct.rating}</span>
+                        </div>
+                        <div className="flex items-baseline gap-2 mb-4">
+                          <span className="text-xl md:text-2xl font-bold text-primary">${relatedProduct.price}</span>
+                          <span className="text-sm text-muted-foreground line-through">
+                            ${relatedProduct.originalPrice}
+                          </span>
+                        </div>
                       </div>
+                    </Link>
+                    <div className="px-5 pb-5">
                       <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white" asChild>
-                        <a href={`/${country}/${locale}/${slug}/${relatedProduct.slug}`}>View Product</a>
+                        <Link href={`/${country}/${locale}/${categoryKey}/${relatedProduct.slug}`}>
+                          View Product
+                        </Link>
                       </Button>
                     </div>
                   </CardContent>
@@ -917,7 +924,7 @@ export default function ProductDetailPageClient({
             "@type": "Product",
             name: product.name,
             description: product.description,
-            image: product.image,
+            image: product.gallery[0] || "/placeholder.svg",
             offers: {
               "@type": "Offer",
               price: product.price,
