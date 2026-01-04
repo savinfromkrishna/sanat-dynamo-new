@@ -18,7 +18,7 @@
         "buyNow": "Comprar Ahora",
         "buyUrl": "https://mitolyn-official.com/basic-package",
         "isNew": true,
-        "slug": "metolyn-1"
+        "slug": "metolyn"
       },
       {
         "category": "Suplementos para Pérdida de Peso",
@@ -32,7 +32,7 @@
         "buyNow": "Comprar Ahora",
         "buyUrl": "https://sleeplean-official.com/basic-package",
         "isNew": true,
-        "slug": "sleeplean-1"
+        "slug": "sleep-lean"
       },
       {
         "category": "Suplementos para Pérdida de Peso",
@@ -46,7 +46,7 @@
         "buyNow": "Comprar Ahora",
         "buyUrl": "https://bellyflush-official.com/basic-package",
         "isNew": true,
-        "slug": "bellyflush-1"
+        "slug": "bellyflush"
       },
       {
         "category": "Suplementos para Salud Oral",
@@ -60,7 +60,7 @@
         "buyNow": "Comprar Ahora",
         "buyUrl": "https://prodentim-official.com/basic-package",
         "isNew": true,
-        "slug": "prodentim-1"
+        "slug": "prodentim"
       }
     ]
   },
@@ -88,7 +88,7 @@
             "reviews": 2847,
             "premiumPrice": "₹2,424",
             "id": 1,
-            "slug": "metolyn-1"
+            "slug": "metolyn"
           },
           {
             "name": "Paquete Básico Sleep Lean",
@@ -103,7 +103,7 @@
             "reviews": 2847,
             "premiumPrice": "₹2,424",
             "id": 7,
-            "slug": "sleeplean-1"
+            "slug": "sleep-lean"
           },
           {
             "name": "Paquete Básico BellyFlush",
@@ -118,7 +118,7 @@
             "reviews": 2847,
             "premiumPrice": "₹2,424",
             "id": 10,
-            "slug": "bellyflush-1"
+            "slug": "bellyflush"
           }
         ]
       },
@@ -138,7 +138,7 @@
             "reviews": 95000,
             "premiumPrice": "₹2,424",
             "id": 4,
-            "slug": "prodentim-1"
+            "slug": "prodentim"
           }
         ]
       }

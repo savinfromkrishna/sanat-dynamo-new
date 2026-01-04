@@ -36,20 +36,26 @@ interface ProductDetailPageClientProps {
   categoryKey: string
   slug: string
   relatedProducts: any[]
+  id?: string;
 }
 
 export default function ProductDetailPageClient({
   product,
-  translations,
   locale,
   categoryKey,
   country,
   slug,
   relatedProducts,
+  id
 }: ProductDetailPageClientProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [selectedTab, setSelectedTab] = useState<"benefits" | "ingredients" | "howToUse">("benefits")
   const [isKnowMoreExpanded, setIsKnowMoreExpanded] = useState(false)
+  console.log("my slug", slug)
+  const filteredRelatedProducts = relatedProducts.filter(
+    (relatedProduct) => relatedProduct.slug !== id
+  )
+  console.log("my id", filteredRelatedProducts)
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % product.gallery.length)
@@ -119,9 +125,8 @@ export default function ProductDetailPageClient({
                       <button
                         key={idx}
                         onClick={() => setCurrentImageIndex(idx)}
-                        className={`relative flex-shrink-0 w-14 h-14 md:w-16 md:h-16 rounded-md overflow-hidden border-2 transition-all ${
-                          idx === currentImageIndex ? "border-primary" : "border-border hover:border-primary/50"
-                        }`}
+                        className={`relative flex-shrink-0 w-14 h-14 md:w-16 md:h-16 rounded-md overflow-hidden border-2 transition-all ${idx === currentImageIndex ? "border-primary" : "border-border hover:border-primary/50"
+                          }`}
                       >
                         <Image
                           src={img || "/placeholder.svg"}
@@ -137,10 +142,10 @@ export default function ProductDetailPageClient({
 
                 {/* Action Buttons */}
                 <div className="grid grid-cols-2 gap-2 mt-3">
-                  <Button variant="outline" className="w-full">
+                  {/* <Button variant="outline" className="w-full">
                     <ShoppingCart className="mr-2 h-4 w-4" />
                     Add to Cart
-                  </Button>
+                  </Button> */}
                   <Button className="w-full bg-amber-500 hover:bg-amber-600 text-white" asChild>
                     <a href={product.affiliateUrl} target="_blank" rel="noopener noreferrer">
                       Buy Now
@@ -588,18 +593,18 @@ export default function ProductDetailPageClient({
         </div>
       </div>
 
-      {/* Related Products */}
-      {relatedProducts.length > 0 && (
+      {filteredRelatedProducts.length > 0 && (
         <div className="py-12 md:py-16">
           <div className="container mx-auto px-4">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8 md:mb-12 text-center text-balance">
               You May Also Like
             </h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
-              {relatedProducts.map((relatedProduct) => (
+              {filteredRelatedProducts.map((relatedProduct) => (
                 <Card key={relatedProduct.id} className="group hover:shadow-xl transition-all hover:scale-[1.02]">
                   <CardContent className="p-0">
-                    <Link href={`/${country}/${locale}/${categoryKey}/${relatedProduct.slug}`}>
+                    <Link href={`/${country}/${locale}/${relatedProduct?.
+                      categorySlug}/${relatedProduct.slug}`}>
                       <div className="relative aspect-square bg-gradient-to-br from-accent/10 to-accent/5 rounded-t-lg overflow-hidden">
                         <Image
                           src={relatedProduct.image || "/placeholder.svg"}
@@ -667,9 +672,8 @@ export default function ProductDetailPageClient({
 
           <div
             id="know-more-content"
-            className={`mt-12 overflow-hidden transition-all duration-500 ease-in-out ${
-              isKnowMoreExpanded ? "max-h-[10000px] opacity-100" : "max-h-0 opacity-0"
-            }`}
+            className={`mt-12 overflow-hidden transition-all duration-500 ease-in-out ${isKnowMoreExpanded ? "max-h-[10000px] opacity-100" : "max-h-0 opacity-0"
+              }`}
           >
             <div className="max-w-4xl mx-auto space-y-12 md:space-y-16">
               {/* Science & Mechanism */}

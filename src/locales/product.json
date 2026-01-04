@@ -1,8 +1,8 @@
 {
     "products": {
-        "metolyn-1": {
-            "id": "metolyn-1",
-            "name": "Mitolyn – 1 Bottle",
+        "metolyn": {
+            "id": "metolyn",
+            "name": "Mitolyn",
             "subtitle": "Basic Package",
             "price": 49,
             "originalPrice": 197,
@@ -193,9 +193,9 @@
                 }
             ]
         },
-        "prodentim-1": {
-            "id": "prodentim-1",
-            "name": "ProDentim – 1 Bottle",
+        "prodentim": {
+            "id": "prodentim",
+            "name": "ProDentim",
             "subtitle": "Basic Package",
             "price": 69,
             "originalPrice": 99,
@@ -434,9 +434,9 @@
                 }
             ]
         },
-        "sleeplean-1": {
-            "id": "sleeplean-1",
-            "name": "Sleep Lean – 1 Bottle",
+        "sleep-lean": {
+            "id": "sleep-lean",
+            "name": "Sleep Lean ",
             "subtitle": "Basic Package",
             "price": 49,
             "originalPrice": 197,
@@ -639,9 +639,9 @@
                 }
             ]
         },
-        "bellyflush-1": {
-            "id": "bellyflush-1",
-            "name": "BellyFlush – 1 Bottle",
+        "bellyflush": {
+            "id": "bellyflush",
+            "name": "BellyFlush ",
             "subtitle": "Basic Package",
             "price": 59,
             "originalPrice": 149,

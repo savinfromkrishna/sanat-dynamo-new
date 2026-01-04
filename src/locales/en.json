@@ -19,7 +19,7 @@
     "weight-loss": [
       {
         "id": "basic",
-        "slug":"metolyn-1",
+        "slug":"metolyn",
         "name": "MITOLYN Basic Package",
         "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
         "price": "₹2,499",
@@ -31,7 +31,7 @@
       },
       {
         "id": "popular",
-        "slug":"metolyn-1",
+        "slug":"metolyn",
         "name": "MITOLYN Popular Package",
         "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
         "price": "₹4,449",
@@ -43,7 +43,7 @@
       },
       {
         "id": "best-value",
-        "slug":"metolyn-1",
+        "slug":"metolyn",
         "name": "MITOLYN Best Value Package",
         "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
         "price": "₹6,899",
@@ -57,7 +57,7 @@
     "energy": [
       {
         "id": "power-boost",
-        "slug":"metolyn-1",
+        "slug":"metolyn",
         "name": "ENERGYMAX Power Boost",
         "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
         "price": "₹1,899",
@@ -69,7 +69,7 @@
       },
       {
         "id": "endurance",
-        "slug":"metolyn-1",
+        "slug":"metolyn",
         "name": "ENERGYMAX Endurance Pack",
         "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
         "price": "₹5,499",
@@ -81,7 +81,7 @@
       },
       {
         "id": "ultimate",
-        "slug":"metolyn-1",
+        "slug":"metolyn",
         "name": "ENERGYMAX Ultimate Bundle",
         "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
         "price": "₹8,999",

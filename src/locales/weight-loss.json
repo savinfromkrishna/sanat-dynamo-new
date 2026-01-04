@@ -29,7 +29,7 @@
           "reviews": 2847,
           "premiumPrice": "₹2,424",
           "id": 1,
-          "slug": "metolyn-1",
+          "slug": "metolyn",
           "categorySlug": "weight-loss-supplements"
         },
         {
@@ -45,7 +45,7 @@
           "reviews": 2847,
           "premiumPrice": "₹2,424",
           "id": 7,
-          "slug": "sleeplean-1",
+          "slug": "sleep-lean",
           "categorySlug": "weight-loss-supplements"
         },
         {
@@ -61,7 +61,7 @@
           "reviews": 2847,
           "premiumPrice": "₹2,424",
           "id": 10,
-          "slug": "bellyflush-1",
+          "slug": "bellyflush",
           "categorySlug": "weight-loss-supplements"
         }
       ]
@@ -194,7 +194,7 @@
           "reviews": 2847,
           "premiumPrice": "$49 for Premium Members",
           "discount": "30% OFF",
-          "slug": "prodentim-1",
+          "slug": "prodentim",
           "categorySlug": "dental-health-supplements"
         },
         {

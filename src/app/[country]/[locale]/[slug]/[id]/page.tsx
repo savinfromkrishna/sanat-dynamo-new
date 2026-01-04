@@ -13,8 +13,8 @@ function getCategoryKey(slug: string): string | null {
 }
 
 const productMap: Record<string, string[]> = {
-  "weight-loss-supplements": ["metolyn-1"],
-  "dental-health-supplements": ["prodentim-1"],
+  "weight-loss-supplements": ["metolyn"],
+  "dental-health-supplements": ["prodentim"],
 }
 
 export async function generateMetadata({
@@ -112,6 +112,7 @@ export default async function ProductPage({
       country={country}
       categoryKey={categoryKey}
       slug={slug}
+      id={id}
       relatedProducts={relatedProducts}
     />
   )
