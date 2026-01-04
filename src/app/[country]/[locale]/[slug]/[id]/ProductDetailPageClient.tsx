@@ -624,7 +624,7 @@ export default function ProductDetailPageClient({
                         </span>
                       </div>
                       <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white" asChild>
-                        <a href={`/${locale}/${slug}/${relatedProduct.slug}`}>View Product</a>
+                        <a href={`/${country}/${locale}/${slug}/${relatedProduct.slug}`}>View Product</a>
                       </Button>
                     </div>
                   </CardContent>
