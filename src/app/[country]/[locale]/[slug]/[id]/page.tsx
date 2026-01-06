@@ -48,7 +48,7 @@ export async function generateMetadata({
     title: product.seo.title,
     description: product.seo.description,
     keywords: product.seo.keywords?.join(", "),
-    metadataBase: new URL("https://mitolyn-official.com"),
+    metadataBase: new URL("https://supplelogic.com"),
     alternates: {
       canonical: `/${country}/${locale}/${slug}/${product.id}`,
       languages: {
@@ -59,7 +59,7 @@ export async function generateMetadata({
     openGraph: {
       title: product.seo.title,
       description: product.seo.description,
-      url: `https://mitolyn-official.com/${country}/${locale}/${slug}/${product.id}`,
+      url: `https://supplelogic.com/${country}/${locale}/${slug}/${product.id}`,
       siteName: "Mitolyn Official",
       images: [{ url: product.image, width: 1200, height: 630, alt: product.name }],
       locale: locale === "es" ? "es_ES" : "en_US",

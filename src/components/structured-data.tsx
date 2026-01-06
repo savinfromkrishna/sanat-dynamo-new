@@ -13,19 +13,19 @@ export function StructuredData() {
     "@graph": [
       {
         "@type": "WebSite",
-        "@id": "https://mitolyn-official.com/#website",
-        url: "https://mitolyn-official.com/",
+        "@id": "https://supplelogic.com/#website",
+        url: "https://supplelogic.com/",
         name: "Mitolyn Official",
         description: t.seo.description,
         publisher: {
-          "@id": "https://mitolyn-official.com/#organization",
+          "@id": "https://supplelogic.com/#organization",
         },
         potentialAction: [
           {
             "@type": "SearchAction",
             target: {
               "@type": "EntryPoint",
-              urlTemplate: "https://mitolyn-official.com/search?q={search_term_string}",
+              urlTemplate: "https://supplelogic.com/search?q={search_term_string}",
             },
             "query-input": "required name=search_term_string",
           },
@@ -34,21 +34,21 @@ export function StructuredData() {
       },
       {
         "@type": "Organization",
-        "@id": "https://mitolyn-official.com/#organization",
+        "@id": "https://supplelogic.com/#organization",
         name: "Mitolyn Official",
-        url: "https://mitolyn-official.com/",
+        url: "https://supplelogic.com/",
         logo: {
           "@type": "ImageObject",
           inLanguage: locale === "es" ? "es-ES" : "en-US",
-          "@id": "https://mitolyn-official.com/#/schema/logo/image/",
-          url: "https://mitolyn-official.comhttps://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
-          contentUrl: "https://mitolyn-official.comhttps://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
+          "@id": "https://supplelogic.com/#/schema/logo/image/",
+          url: "https://supplelogic.comhttps://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
+          contentUrl: "https://supplelogic.comhttps://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
           width: 512,
           height: 512,
           caption: "Mitolyn Official",
         },
         image: {
-          "@id": "https://mitolyn-official.com/#/schema/logo/image/",
+          "@id": "https://supplelogic.com/#/schema/logo/image/",
         },
         sameAs: [
           "https://facebook.com/mitolynofficial",
@@ -74,36 +74,36 @@ export function StructuredData() {
       },
       {
         "@type": "Product",
-        "@id": "https://mitolyn-official.com/#product",
+        "@id": "https://supplelogic.com/#product",
         name: "Mitolyn Weight Loss Supplement",
         description: t.seo.description,
         image: [
-          "https://mitolyn-official.comhttps://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
-          "https://mitolyn-official.comhttps://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
-          "https://mitolyn-official.comhttps://res.cloudinary.com/ddywjrr08/image/upload/v1758422492/mitolyn-offer_azyjj3.png",
+          "https://supplelogic.comhttps://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
+          "https://supplelogic.comhttps://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
+          "https://supplelogic.comhttps://res.cloudinary.com/ddywjrr08/image/upload/v1758422492/mitolyn-offer_azyjj3.png",
         ],
         brand: {
           "@type": "Brand",
           name: "Mitolyn",
-          logo: "https://mitolyn-official.comhttps://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
+          logo: "https://supplelogic.comhttps://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
         },
         manufacturer: {
-          "@id": "https://mitolyn-official.com/#organization",
+          "@id": "https://supplelogic.com/#organization",
         },
         category: "Health & Wellness > Weight Loss > Dietary Supplements",
         additionalType: "https://schema.org/DietarySupplement",
         offers: [
           {
             "@type": "Offer",
-            "@id": "https://mitolyn-official.com/#offer-basic",
-            url: "https://mitolyn-official.com/basic-package",
+            "@id": "https://supplelogic.com/#offer-basic",
+            url: "https://supplelogic.com/basic-package",
             priceCurrency: "USD",
             price: "69",
             priceValidUntil: "2025-12-31",
             availability: "https://schema.org/InStock",
             itemCondition: "https://schema.org/NewCondition",
             seller: {
-              "@id": "https://mitolyn-official.com/#organization",
+              "@id": "https://supplelogic.com/#organization",
             },
             shippingDetails: {
               "@type": "OfferShippingDetails",
@@ -139,28 +139,28 @@ export function StructuredData() {
           },
           {
             "@type": "Offer",
-            "@id": "https://mitolyn-official.com/#offer-popular",
-            url: "https://mitolyn-official.com/popular",
+            "@id": "https://supplelogic.com/#offer-popular",
+            url: "https://supplelogic.com/popular",
             priceCurrency: "USD",
             price: "177",
             priceValidUntil: "2025-12-31",
             availability: "https://schema.org/InStock",
             itemCondition: "https://schema.org/NewCondition",
             seller: {
-              "@id": "https://mitolyn-official.com/#organization",
+              "@id": "https://supplelogic.com/#organization",
             },
           },
           {
             "@type": "Offer",
-            "@id": "https://mitolyn-official.com/#offer-best-value",
-            url: "https://mitolyn-official.com/best-value",
+            "@id": "https://supplelogic.com/#offer-best-value",
+            url: "https://supplelogic.com/best-value",
             priceCurrency: "USD",
             price: "294",
             priceValidUntil: "2025-12-31",
             availability: "https://schema.org/InStock",
             itemCondition: "https://schema.org/NewCondition",
             seller: {
-              "@id": "https://mitolyn-official.com/#organization",
+              "@id": "https://supplelogic.com/#organization",
             },
           },
         ],
@@ -174,7 +174,7 @@ export function StructuredData() {
         review: [
           {
             "@type": "Review",
-            "@id": "https://mitolyn-official.com/#review-1",
+            "@id": "https://supplelogic.com/#review-1",
             reviewRating: {
               "@type": "Rating",
               ratingValue: "5",
@@ -192,7 +192,7 @@ export function StructuredData() {
           },
           {
             "@type": "Review",
-            "@id": "https://mitolyn-official.com/#review-2",
+            "@id": "https://supplelogic.com/#review-2",
             reviewRating: {
               "@type": "Rating",
               ratingValue: "5",
@@ -210,7 +210,7 @@ export function StructuredData() {
           },
           {
             "@type": "Review",
-            "@id": "https://mitolyn-official.com/#review-3",
+            "@id": "https://supplelogic.com/#review-3",
             reviewRating: {
               "@type": "Rating",
               ratingValue: "4",
@@ -247,7 +247,7 @@ export function StructuredData() {
       },
       {
         "@type": "FAQPage",
-        "@id": "https://mitolyn-official.com/#faq",
+        "@id": "https://supplelogic.com/#faq",
         mainEntity: [
           {
             "@type": "Question",

@@ -75,7 +75,7 @@ export async function generateMetadata({
   return {
     title: t.seo.title,
     description: t.seo.description,
-    metadataBase: new URL("https://mitolyn-official.com"),
+    metadataBase: new URL("https://supplelogic.com"),
     alternates: {
       canonical: `/${country}/${locale}/${slug}`,
       languages: {
@@ -86,7 +86,7 @@ export async function generateMetadata({
     openGraph: {
       title: t.seo.title,
       description: t.seo.description,
-      url: `https://mitolyn-official.com/${country}/${locale}/${slug}`,
+      url: `https://supplelogic.com/${country}/${locale}/${slug}`,
       siteName: "Mitolyn Official",
       images: [
         {

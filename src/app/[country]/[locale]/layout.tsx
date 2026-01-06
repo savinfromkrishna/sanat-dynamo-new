@@ -7,6 +7,11 @@ import { getTranslation, type Locale } from "@/lib/i18n";
 import Header from "@/components/common/header";
 import Footer from "@/components/common/footer";
 import { TranslationProvider } from "@/context/TranslationContext";
+import { validCountryISOs } from "@/middleware";
+
+// Define supported countries and languages (adjust based on your actual list from "@/i18n" or elsewhere)
+const supportedCountries = validCountryISOs; // Example: Add all your valid country codes here, lowercase
+const supportedLanguages: Locale[] = ["en", "es"];
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -28,7 +33,20 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { country, locale: rawLocale } = await params;
   const locale = rawLocale as Locale;
-  const t = getTranslation(locale);
+  const t = await getTranslation(locale); // Ensure getTranslation is async if needed
+
+  // Generate the full set of hreflang alternates for all country-language combinations
+  const langMap: Record<string, string> = {};
+  for (const lang of supportedLanguages) {
+    for (const cty of supportedCountries) {
+      const region = cty.toUpperCase();
+      const hrefLang = `${lang}-${region}`;
+      const url = `/${cty}/${lang}`;
+      langMap[hrefLang] = url;
+    }
+  }
+  // Optionally add x-default (e.g., point to a default like /us/en)
+  langMap["x-default"] = "/us/en"; // Adjust to your preferred default
 
   return {
     title: {
@@ -37,18 +55,15 @@ export async function generateMetadata({
     },
     description: t.seo.description,
     keywords: t.seo.keywords,
-    metadataBase: new URL("https://mitolyn-official.com"),
+    metadataBase: new URL("https://supplelogic.com"),
     alternates: {
       canonical: `/${country}/${locale}`,
-      languages: {
-        "en-US": `/${country}/en`,
-        "es-ES": `/${country}/es`,
-      },
+      languages: langMap,
     },
     openGraph: {
       title: t.seo.title,
       description: t.seo.description,
-      url: `https://mitolyn-official.com/${country}/${locale}`,
+      url: `https://supplelogic.com/${country}/${locale}`,
       siteName: "Mitolyn Official",
       images: [
         {
@@ -58,7 +73,7 @@ export async function generateMetadata({
           alt: t.seo.title,
         },
       ],
-      locale: locale === "es" ? "es_ES" : "en_US",
+      locale: `${locale}_${country.toUpperCase()}`,
       type: "website",
     },
     twitter: {
@@ -69,6 +84,11 @@ export async function generateMetadata({
         "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
       ],
     },
+    // Additional SEO-related metadata (optional enhancements)
+    robots: "index, follow", // Controls search engine crawling
+    viewport: "width=device-width, initial-scale=1", // Mobile responsiveness
+    // You can add more like verification for Google Search Console if needed
+    // verification: { google: "your-google-site-verification-code" },
   };
 }
 
@@ -82,7 +102,7 @@ export default async function LocaleLayout({
 }) {
   const { country, locale: rawLocale } = await params;
   const locale = rawLocale as Locale;
-  const translations = getTranslation(locale);
+  const translations = await getTranslation(locale); // Ensure async if needed
 
   return (
     <html lang={locale} className={`${spaceGrotesk.variable} ${dmSans.variable}`}>

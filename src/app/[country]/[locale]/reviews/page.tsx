@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: { locale: Locale } 
   return {
     title: translations.reviews.title,
     description: translations.reviews.description,
-    metadataBase: new URL("https://mitolyn-official.com"),
+    metadataBase: new URL("https://supplelogic.com"),
     alternates: {
       canonical: `/${params.locale}/reviews`,
       languages: {
@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: { params: { locale: Locale } 
     openGraph: {
       title: translations.reviews.title,
       description: translations.reviews.description,
-      url: `https://mitolyn-official.com/${params.locale}/reviews`,
+      url: `https://supplelogic.com/${params.locale}/reviews`,
       siteName: "Mitolyn Official",
       images: [{ url: "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp", width: 1200, height: 630, alt: translations.reviews.title }],
       locale: params.locale === "es" ? "es_ES" : "en_US",

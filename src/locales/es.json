@@ -27,7 +27,7 @@
         "discount": "16% de descuento",
         "duration": "Suministro para 30 Días",
         "badge": null,
-        "url": "https://mitolyn-official.com/basic-package"
+        "url": "https://supplelogic.com/basic-package"
       },
       {
         "id": "popular",
@@ -39,7 +39,7 @@
         "discount": "25% de descuento",
         "duration": "Suministro para 90 Días",
         "badge": { "text": "Más Popular", "color": "orange" },
-        "url": "https://mitolyn-official.com/popular"
+        "url": "https://supplelogic.com/popular"
       },
       {
         "id": "best-value",
@@ -51,7 +51,7 @@
         "discount": "14% de descuento",
         "duration": "Suministro para 180 Días",
         "badge": { "text": "Mejor Valor", "color": "emerald" },
-        "url": "https://mitolyn-official.com/best-value"
+        "url": "https://supplelogic.com/best-value"
       }
     ],
     "energy": [
@@ -65,7 +65,7 @@
         "discount": "17% de descuento",
         "duration": "Suministro para 30 Días",
         "badge": { "text": "Energía Natural", "color": "blue" },
-        "url": "https://mitolyn-official.com/energy-boost"
+        "url": "https://supplelogic.com/energy-boost"
       },
       {
         "id": "endurance",
@@ -77,7 +77,7 @@
         "discount": "21% de descuento",
         "duration": "Suministro para 90 Días",
         "badge": { "text": "De Larga Duración", "color": "blue" },
-        "url": "https://mitolyn-official.com/endurance-pack"
+        "url": "https://supplelogic.com/endurance-pack"
       },
       {
         "id": "ultimate",
@@ -89,7 +89,7 @@
         "discount": "25% de descuento",
         "duration": "Suministro para 180 Días",
         "badge": { "text": "Premium", "color": "blue" },
-        "url": "https://mitolyn-official.com/ultimate-bundle"
+        "url": "https://supplelogic.com/ultimate-bundle"
       }
     ],
     "wellness": [],

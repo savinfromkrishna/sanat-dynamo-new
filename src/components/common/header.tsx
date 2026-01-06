@@ -6,6 +6,7 @@ import Link from "next/link"
 import { Search, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import LanguageSwitcher from "./LanguageSwitcher"
+import Logo from "../Logo/logo"
 
 type HeaderProps = {
   country: string
@@ -23,9 +24,7 @@ const Header = ({ country, locale, translations }: HeaderProps) => {
           {/* Logo */}
           <div className="flex items-center">
             <Link href={`/${country}/${locale}`} className="cursor-pointer">
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent hover:opacity-80 transition-opacity">
-                MITOLYN
-              </h1>
+              <Logo />
             </Link>
           </div>
 
