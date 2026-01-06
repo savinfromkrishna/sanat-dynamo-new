@@ -24,7 +24,7 @@ const Logo: React.FC<LogoProps> = ({ className = "h-10", showText = true }) => {
       </div>
       
       {showText && (
-        <div className="flex flex-col leading-[1.1] tracking-tight">
+        <div className="flex flex-col -ml-4 -mt-1 leading-[1.1] tracking-tight">
           <span className="text-2xl font-light text-slate-800 tracking-tighter">
             Supple<span className="font-semibold text-slate-950">Logic</span>
           </span>
