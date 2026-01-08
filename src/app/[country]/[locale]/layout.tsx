@@ -111,7 +111,7 @@ export default async function LocaleLayout({
         <main className="flex-grow">
           <TranslationProvider locale={locale}>{children}</TranslationProvider>
         </main>
-        <Footer translations={translations} />
+        <Footer country={country} locale={locale} translations={translations} />
       </body>
     </html>
   );
