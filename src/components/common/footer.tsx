@@ -110,7 +110,7 @@ export function Footer({ translations, country, locale }: FooterProps) {
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-gray-600">
-            © {new Date().getFullYear()} Mitolyn. {t.footer.allRightsReserved}
+            © {new Date().getFullYear()} SuppleLogic. {t.footer.allRightsReserved}
           </p>
           <div className="flex gap-6 text-sm">
             <Link href={`${basePath}/terms`} className="text-gray-600 hover:text-emerald-600 transition-colors">
