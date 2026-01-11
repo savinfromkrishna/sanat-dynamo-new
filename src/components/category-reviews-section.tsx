@@ -1,143 +1,208 @@
-// components/category-reviews-section.tsx
+
 "use client"
 
-import { useEffect, useState } from "react"
+import React, { useEffect, useState, useCallback } from "react"
 import useEmblaCarousel from "embla-carousel-react"
 import Autoplay from "embla-carousel-autoplay"
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent } from "./ui/card"
 import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react"
 
 /* --------------------------------------------------------------- */
-/* 1. Review type                                                  */
+/* Review Interface                                                */
 /* --------------------------------------------------------------- */
 interface Review {
   name: string
-  rating: number
-  verified?: boolean
-  content: string
   location: string
-  product: string
+  rating: number
+  date?: string
+  title?: string
+  content: string
+  verified?: boolean
+  product?: string
 }
 
 /* --------------------------------------------------------------- */
-/* 2. Component                                                    */
+/* Map slug → translation key & product names for filtering       */
 /* --------------------------------------------------------------- */
-export default function CategoryReviewsSection({ category, translations }: { category: string; translations: any }) {
-  const t = translations?.reviews || {}
+const categoryConfig: Record<string, {
+  translationKey: string
+  allowedProducts: string[]
+}> = {
+  "weight-loss-supplements": {
+    translationKey: "weightLoss",
+    allowedProducts: [
+      "MITOLYN Basic Package",
+      "MITOLYN Popular Package",
+      "MITOLYN Best Value Package",
+      "Sleep Lean Basic Package",
+      "BellyFlush Basic Package",
+    ]
+  },
+  "dental-health-supplements": {
+    translationKey: "weightLoss", // In the user's JSON, both are under weightLoss.reviews
+    allowedProducts: [
+      "PRODENTIM - Basic Package",
+      "PRODENTIM - Duo Package",
+      "PRODENTIM - Popular",
+    ]
+  },
+}
 
-  /* ----------------------------------------------------------------- */
-  /* Filter reviews by category                                        */
-  /* ----------------------------------------------------------------- */
-  const filteredReviews: Review[] = (t.reviews || []).filter((review: any) =>
-    category === "weight-loss-supplements"
-      ? ["MITOLYN Basic Package", "MITOLYN Popular Package", "MITOLYN Best Value Package"].includes(review.product)
-      : category === "energy-supplements"
-      ? ["ENERGYMAX Power Boost", "ENERGYMAX Endurance Pack", "ENERGYMAX Ultimate Bundle"].includes(review.product)
-      : false
-  )
+/* --------------------------------------------------------------- */
+/* Main Component                                                  */
+/* --------------------------------------------------------------- */
+export default function CategoryReviewsSection({
+  category,
+  translations,
+}: {
+  category: string
+  translations: any
+}) {
+  const config = categoryConfig[category]
 
-  /* ----------------------------------------------------------------- */
-  /* Guard – no reviews → fallback UI                                 */
-  /* ----------------------------------------------------------------- */
-  if (filteredReviews.length === 0) {
+  if (!config) {
     return (
-      <section id="reviews" className="py-16 bg-muted/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-muted-foreground">
-            No se encontraron reseñas para esta categoría.
-          </p>
+      <section id="reviews" className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4 text-center text-gray-500">
+          No reviews section configured for this category yet.
         </div>
       </section>
     )
   }
 
-  /* ----------------------------------------------------------------- */
-  /* Embla Carousel setup                                               */
-  /* ----------------------------------------------------------------- */
-  const autoplayOptions = { delay: 6000, stopOnInteraction: true }
+  // Get reviews from correct place in translations
+  const categoryReviews = translations?.[config.translationKey]?.reviews
+
+  if (!categoryReviews?.items || !Array.isArray(categoryReviews.items)) {
+    return (
+      <section id="reviews" className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4 text-center text-gray-500">
+          No customer reviews available.
+        </div>
+      </section>
+    )
+  }
+
+  // Filter reviews by allowed products to ensure correct category items are shown
+  const filteredReviews: Review[] = categoryReviews.items.filter((review: Review) =>
+    !review.product || config.allowedProducts.includes(review.product)
+  )
+
+  if (filteredReviews.length === 0) {
+    return null
+  }
+
+  // ── Carousel setup ──────────────────────────────────────────────
   const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: true, align: "center" },
-    [Autoplay(autoplayOptions)]
+    { 
+      loop: true, 
+      align: "start", 
+      skipSnaps: false,
+      containScroll: "trimSnaps" 
+    },
+    [Autoplay({ delay: 5000, stopOnInteraction: true })]
   )
 
   const [selectedIndex, setSelectedIndex] = useState(0)
+  const [scrollSnaps, setScrollSnaps] = useState<number[]>([])
 
-  const scrollPrev = () => emblaApi?.scrollPrev()
-  const scrollNext = () => emblaApi?.scrollNext()
+  // Fix: Define scrollPrev function for carousel navigation
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev()
+  }, [emblaApi])
 
-  const onSelect = () => {
+  // Fix: Define scrollNext function for carousel navigation
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext()
+  }, [emblaApi])
+
+  const onSelect = useCallback(() => {
     if (!emblaApi) return
     setSelectedIndex(emblaApi.selectedScrollSnap())
-  }
+  }, [emblaApi])
 
   useEffect(() => {
     if (!emblaApi) return
-    onSelect()
+    setScrollSnaps(emblaApi.scrollSnapList())
     emblaApi.on("select", onSelect)
+    emblaApi.on("reInit", onSelect)
+    onSelect()
     return () => {
-      // ensure cleanup returns void
       emblaApi.off("select", onSelect)
+      emblaApi.off("reInit", onSelect)
     }
-  }, [emblaApi])
+  }, [emblaApi, onSelect])
 
-  /* ----------------------------------------------------------------- */
-  /* Render                                                             */
-  /* ----------------------------------------------------------------- */
   return (
-    <section id="reviews" className="py-16 bg-muted/30">
+    <section id="reviews" className="py-16 md:py-24 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Title + description */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-sans font-bold text-foreground mb-4">
-            {t.title || "Reseñas de Clientes"}
+        {/* Header */}
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4 text-gray-900 capitalize">
+            {category.replace(/-/g, ' ')} Reviews
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {t.description || `Descubre lo que dicen los clientes sobre ${category === "weight-loss-supplements" ? "MITOLYN" : "ENERGYMAX"}.`}
+          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+            {categoryReviews.description}
           </p>
         </div>
 
-        {/* Embla Carousel */}
-        <div className="relative">
-          <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex">
+        {/* Carousel Container */}
+        <div className="relative max-w-7xl mx-auto">
+          <div className="overflow-hidden cursor-grab active:cursor-grabbing" ref={emblaRef}>
+            <div className="flex -ml-4">
               {filteredReviews.map((review, index) => (
                 <div
-                  key={`${review.name}-${review.product}-${index}`}
-                  className="flex-none w-full px-4 md:px-0"
+                  key={`${review.name}-${index}`}
+                  className="flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0 pl-4"
                 >
-                  <Card className="relative overflow-hidden hover:shadow-lg transition-all duration-300 max-w-2xl mx-auto">
-                    <CardContent className="p-6">
-                      {/* Quote icon */}
-                      <div className="absolute top-4 right-4 text-primary/20">
-                        <Quote className="h-8 w-8" />
-                      </div>
+                  <Card className="h-full border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 bg-white">
+                    <CardContent className="p-6 md:p-8 relative h-full flex flex-col">
+                      <Quote className="absolute top-6 right-6 h-12 w-12 text-blue-500/5 pointer-events-none" />
 
-                      {/* Rating + verified */}
-                      <div className="flex items-center gap-2 mb-4">
-                        <div className="flex text-yellow-400">
-                          {[...Array(review.rating)].map((_, i) => (
-                            <Star key={i} className="h-4 w-4 fill-current" />
+                      {/* Stars + Verified */}
+                      <div className="flex flex-wrap items-center gap-3 mb-6">
+                        <div className="flex">
+                          {[...Array(5)].map((_, i) => (
+                            <Star
+                              key={i}
+                              className={`h-4 w-4 ${
+                                i < Math.floor(review.rating)
+                                  ? "fill-yellow-400 text-yellow-400"
+                                  : "text-gray-200"
+                              }`}
+                            />
                           ))}
                         </div>
                         {review.verified && (
-                          <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded">
-                            {t.verifiedBuyer || "Comprador Verificado"}
+                          <span className="text-[10px] uppercase tracking-widest font-bold bg-green-50 text-green-700 border border-green-100 px-2.5 py-1 rounded">
+                            Verified
                           </span>
                         )}
                       </div>
 
-                      {/* Review text */}
-                      <p className="text-muted-foreground mb-4 leading-relaxed">
-                        "{review.content}"
-                      </p>
-
-                      {/* Author */}
-                      <div className="border-t pt-4">
-                        <p className="font-sans font-semibold text-foreground">
-                          {review.name}
+                      {/* Review content */}
+                      <div className="flex-grow">
+                        {review.title && (
+                          <h3 className="text-lg font-bold mb-3 text-gray-900 line-clamp-2">
+                            {review.title}
+                          </h3>
+                        )}
+                        <p className="text-gray-600 leading-relaxed mb-6 text-sm md:text-base">
+                          "{review.content}"
                         </p>
-                        <p className="text-sm text-muted-foreground">{review.location}</p>
-                        <p className="text-sm text-muted-foreground">{review.product}</p>
+                      </div>
+
+                      {/* Author info */}
+                      <div className="mt-auto pt-6 border-t border-gray-50 flex items-center justify-between">
+                        <div>
+                          <p className="font-bold text-gray-900 text-sm">{review.name}</p>
+                          <p className="text-[11px] text-gray-400 mt-0.5">{review.location}</p>
+                        </div>
+                        <div className="text-right">
+                           <p className="text-[10px] font-medium text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full inline-block">
+                             {review.date}
+                           </p>
+                        </div>
                       </div>
                     </CardContent>
                   </Card>
@@ -146,34 +211,37 @@ export default function CategoryReviewsSection({ category, translations }: { cat
             </div>
           </div>
 
-          {/* Navigation arrows */}
-          <button
-            onClick={scrollPrev}
-            className="absolute left-2 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background rounded-full p-2 shadow-md transition-colors"
-            aria-label="Previous review"
-          >
-            <ChevronLeft className="h-5 w-5" />
- 
+          {/* Navigation Buttons */}
+          <div className="hidden md:block">
+            <button
+              onClick={scrollPrev}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 lg:-translate-x-10 bg-white hover:bg-blue-600 hover:text-white text-gray-400 shadow-xl rounded-full p-4 transition-all z-10 border border-gray-100 active:scale-95"
+              aria-label="Previous"
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </button>
 
-          </button>
-          <button
-            onClick={scrollNext}
-            className="absolute right-2 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background rounded-full p-2 shadow-md transition-colors"
-            aria-label="Next review"
-          >
-            <ChevronRight className="h-5 w-5" />
-          </button>
+            <button
+              onClick={scrollNext}
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 lg:translate-x-10 bg-white hover:bg-blue-600 hover:text-white text-gray-400 shadow-xl rounded-full p-4 transition-all z-10 border border-gray-100 active:scale-95"
+              aria-label="Next"
+            >
+              <ChevronRight className="h-6 w-6" />
+            </button>
+          </div>
 
-          {/* Dots indicator */}
-          <div className="flex justify-center gap-2 mt-6">
-            {filteredReviews.map((_, idx) => (
+          {/* Pagination Dots */}
+          <div className="flex justify-center gap-2 mt-12">
+            {scrollSnaps.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => emblaApi?.scrollTo(idx)}
-                className={`h-2 w-2 rounded-full transition-colors ${
-                  idx === selectedIndex ? "bg-primary" : "bg-muted"
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  idx === selectedIndex
+                    ? "bg-blue-600 w-8"
+                    : "bg-gray-200 w-3 hover:bg-gray-300"
                 }`}
-                aria-label={`Go to review ${idx + 1}`}
+                aria-label={`Go to slide ${idx + 1}`}
               />
             ))}
           </div>

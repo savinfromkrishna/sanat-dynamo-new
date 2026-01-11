@@ -1,55 +1,58 @@
 {
   "weightLoss": {
-    "title": "Everything You Need to Know About MITOLYN",
-    "summary": "MITOLYN is a science-backed weight loss supplement trusted by 50,000+ users. Boost metabolism, curb cravings, and lose fat — naturally.",
+    "title": "Everything You Need to Know About for Weight Loss",
+    "summary": "Stimulant-free mitochondrial support supplements are a top science-backed choice in 2026. Trusted by thousands, they optimize cellular energy production, boost natural metabolism, enhance fat burning, restore daily energy, and promote sustainable weight loss — all without jitters, crashes, or harsh chemicals.",
     "knowMore": "Know More",
     "knowLess": "Show Less",
     "sections": [
       {
         "type": "text",
-        "heading": "How MITOLYN Works",
-        "content": "MITOLYN targets your metabolism at the cellular level to enhance fat-burning efficiency. By optimizing nutrient absorption and appetite control, it helps your body shed pounds without harsh stimulants or crashes.",
+        "heading": "How It Works",
+        "content": "These formulas target mitochondrial function — the powerhouses of your cells — to improve energy production (ATP) and metabolic efficiency. By supporting mitochondrial health, biogenesis (new mitochondria formation), and protection from oxidative stress, they help convert stored fat into usable energy, reduce fatigue, and promote natural fat burning. Results build gradually, often starting with better all-day energy and focus before visible weight loss over weeks to months.",
         "link": { "text": "Read the science", "href": "/science" }
       },
       {
         "type": "list",
         "heading": "Key Ingredients",
-        "content": "MITOLYN contains clinically studied compounds like:",
+        "content": "Top formulas feature natural, plant-based compounds focused on mitochondrial support, including:",
         "items": [
-          "Green Tea Extract – boosts thermogenesis for fat loss",
-          "Garcinia Cambogia – suppresses appetite naturally",
-          "Caffeine Anhydrous – increases energy expenditure",
-          "Glucomannan – promotes fullness and fiber intake",
-          "Chromium Picolinate – stabilizes blood sugar levels"
+          "Maqui Berry – rich in antioxidants to combat oxidative stress and support cellular health",
+          "Rhodiola Rosea – an adaptogen that helps manage stress, reduce fatigue, and enhance metabolic resilience",
+          "PQQ (Pyrroloquinoline Quinone) – promotes mitochondrial biogenesis for better energy production",
+          "Astaxanthin (from Haematococcus) – powerful antioxidant that protects cells and supports fat oxidation",
+          "Amla (Indian Gooseberry) – supports digestion, reduces inflammation, and aids overall metabolic health",
+          "CoQ10 or similar – supports electron transport and cellular energy",
+          "Schisandra Berry – adaptogen for energy, focus, and hormonal balance"
         ],
-        "link": { "text": "View full ingredient list", "href": "/ingredients" }
+        "link": { "text": "View full ingredient list & research", "href": "/ingredients" }
       },
       {
         "type": "stat",
-        "heading": "Proven Results",
+        "heading": "Proven Results (2026 Reviews)",
         "stats": [
-          { "value": "92%", "label": "Reported reduced cravings" },
-          { "value": "85%", "label": "Lost 10+ lbs in 30 days" },
-          { "value": "4.8/5", "label": "Average rating" }
+          { "value": "Thousands", "label": "Satisfied users reporting better energy & weight support" },
+          { "value": "4.8-4.9/5", "label": "Average user rating across platforms" },
+          { "value": "Gradual", "label": "Energy boost in 1-4 weeks, sustainable weight support over 3-6 months" }
         ]
       },
       {
         "type": "table",
-        "heading": "Compare MITOLYN vs Others",
+        "heading": "Compare vs Others",
         "table": {
-          "headers": ["Feature", "MITOLYN", "Brand X", "Brand Y"],
+          "headers": ["Feature", "Mitochondrial Support Formulas", "Typical Stimulant Burners", "Generic Metabolism Pills"],
           "rows": [
-            ["Metabolism Boost", "Yes", "Partial", "No"],
-            ["Clinically Studied", "Yes", "No", "Partial"],
-            ["No Stimulants", "Yes", "No", "Yes"],
-            ["60-Day Guarantee", "Yes", "30-Day", "No"]
+            ["Primary Mechanism", "Mitochondrial Optimization", "Stimulant-driven", "Varies / generic"],
+            ["Stimulant-Free", "Yes", "No", "Varies"],
+            ["Crash / Jitters Risk", "None", "High", "Medium"],
+            ["Sustainable Energy & Fat Support", "Yes", "Short-term", "Limited"],
+            ["90-Day Guarantee (often available)", "Yes", "30-Day or less", "Varies"]
           ]
         }
       },
       {
         "type": "quote",
-        "quote": "I struggled with cravings for years. MITOLYN helped me finally lose 15 lbs without feeling deprived. Incredible!",
-        "author": "Alex R., 35, Office Worker",
+        "quote": "After years of constant tiredness and stubborn weight, this approach gave me steady stamina first — then the pounds started coming off naturally. No jitters, just real, lasting change!",
+        "author": "User review compilation, 2026",
         "rating": 5
       },
       {
@@ -57,24 +60,28 @@
         "heading": "Frequently Asked Questions",
         "faqs": [
           {
-            "q": "How soon will I see weight loss?",
-            "a": "Most users notice reduced appetite in 3–7 days. Visible results in 2–4 weeks."
+            "q": "How soon will I see results?",
+            "a": "Many notice improved energy, focus, and reduced fatigue in 1-4 weeks. Visible metabolic improvements and sustainable weight support often appear in 4-12 weeks, with best results after 3-6 months of consistent use."
           },
           {
-            "q": "Is MITOLYN safe for daily use?",
-            "a": "Yes. Natural ingredients, third-party tested, and made in FDA-registered facilities."
+            "q": "Is this safe for daily use?",
+            "a": "Yes — these use natural, plant-based ingredients, are manufactured in GMP-certified facilities, and are stimulant-free. Always consult a doctor if you have health conditions or take medications."
           },
           {
-            "q": "Does it work without diet changes?",
-            "a": "It enhances results, but pairs best with balanced eating and light exercise."
+            "q": "Does it work without diet or exercise changes?",
+            "a": "It enhances your body's natural processes for better results, but pairs best with balanced nutrition, hydration, and light activity for sustainable weight management."
+          },
+          {
+            "q": "Where should I buy in 2026?",
+            "a": "Choose reputable official sites or trusted retailers to ensure authenticity, quality, and any available guarantees. Avoid unverified third-party sellers."
           }
         ]
       },
       {
         "type": "cta",
-        "heading": "Ready to Transform Your Body?",
-        "content": "Join 50,000+ satisfied customers. Try MITOLYN risk-free for 60 days.",
-        "button": { "text": "Shop Now", "href": "/shop" }
+        "heading": "Ready to Boost Your Metabolism Naturally?",
+        "content": "Join thousands experiencing better energy and sustainable weight support in 2026. Explore stimulant-free mitochondrial options today (check official sites for current details).",
+        "button": { "text": "Learn More", "href": "/shop" }
       }
     ]
   },

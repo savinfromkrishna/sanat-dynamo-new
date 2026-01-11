@@ -1,23 +1,23 @@
 {
   "weightLoss": {
     "seo": {
-      "title": "Mejores Suplementos para Pérdida de Peso para Hombres y Mujeres",
-      "description": "Descubre los mejores suplementos para pérdida de peso para hombres y mujeres en 2025. Explora opciones naturales, seguras y efectivas para la pérdida de grasa, energía y confianza.",
+      "title": "Mejores Suplementos para la Pérdida de Peso para Hombres y Mujeres",
+      "description": "Descubre los mejores suplementos para la pérdida de peso para hombres y mujeres en 2025. Explora opciones naturales, seguras y efectivas para la pérdida de grasa, energía y confianza.",
       "keywords": [
-        "mejores suplementos para pérdida de peso",
-        "mejores suplementos naturales para pérdida de peso",
-        "mejores suplementos para pérdida de peso femeninos",
-        "mejores suplementos para pérdida de peso para hombres"
+        "mejores suplementos para la pérdida de peso",
+        "mejores suplementos naturales para la pérdida de peso",
+        "mejores suplementos para la pérdida de peso para mujeres",
+        "mejores suplementos para la pérdida de peso para hombres"
       ]
     },
-    "title": "Mejores Suplementos para Pérdida de Peso",
-    "intro": "Encontrar los mejores suplementos para pérdida de peso puede ser abrumador, especialmente con tantas opciones en el mercado. La verdad es que no todos los productos son iguales, y los que entregan resultados suelen ser aquellos respaldados por la ciencia y experiencias reales de clientes. Ya sea que busques los mejores suplementos naturales para pérdida de peso, los mejores suplementos femeninos para pérdida de peso o los mejores suplementos para hombres, esta guía te ayudará a explorar las opciones más confiables disponibles hoy. En esta página, destacamos elecciones seguras y efectivas, incluyendo el popular suplemento Mitolyn, para apoyar tu viaje de pérdida de peso.",
+    "title": "Mejores Suplementos para la Pérdida de Peso",
+    "intro": "Encontrar los mejores suplementos para la pérdida de peso puede ser abrumador, especialmente con tantas opciones en el mercado. La verdad es que no todos los productos son iguales, y los que dan resultados suelen ser aquellos respaldados por la ciencia y experiencias reales de clientes. Ya sea que estés buscando los mejores suplementos naturales para la pérdida de peso, los mejores suplementos para la pérdida de peso para mujeres o los mejores suplementos para la pérdida de peso para hombres, esta guía te ayudará a explorar las opciones más confiables disponibles hoy. En esta página, destacamos opciones seguras y efectivas, incluyendo el popular suplemento Mitolyn, para apoyar tu viaje de pérdida de peso.",
     "productsSection": {
-      "title": "Mejores Suplementos Naturales para Pérdida de Peso",
-      "description": "Muchas personas prefieren fórmulas naturales que usan ingredientes a base de plantas o herbales. Los mejores suplementos naturales para pérdida de peso suelen estar libres de estimulantes fuertes y se centran en apoyar los procesos naturales de quema de grasa de tu cuerpo.",
+      "title": "Mejores Suplementos Naturales para la Pérdida de Peso",
+      "description": "Muchas personas prefieren fórmulas naturales que usan ingredientes a base de plantas o herbales. Los mejores suplementos naturales para la pérdida de peso suelen estar libres de estimulantes fuertes y se centran en apoyar los procesos naturales de quema de grasa del cuerpo.",
       "products": [
         {
-          "name": "Paquete Básico de MITOLYN",
+          "name": "MITOLYN Paquete Básico",
           "price": "₹2,499",
           "originalPrice": "₹2,999",
           "discount": "16% de descuento",
@@ -33,7 +33,7 @@
           "categorySlug": "weight-loss-supplements"
         },
         {
-          "name": "Paquete Básico de Sleep Lean",
+          "name": "Sleep Lean Paquete Básico",
           "price": "₹2,499",
           "originalPrice": "₹2,999",
           "discount": "16% de descuento",
@@ -49,7 +49,7 @@
           "categorySlug": "weight-loss-supplements"
         },
         {
-          "name": "Paquete Básico de BellyFlush",
+          "name": "BellyFlush Paquete Básico",
           "price": "₹2,499",
           "originalPrice": "₹2,999",
           "discount": "16% de descuento",
@@ -69,252 +69,498 @@
     "trustBadges": {
       "title": "Calidad Certificada en la que Puedes Confiar",
       "items": [
-        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/made-in-usa_go4j19.webp", "alt": "Hecho en USA" },
-        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422484/fda-approved_jrawwr.webp", "alt": "Instalación Registrada en la FDA" },
-        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422491/natural_dpkfxs.webp", "alt": "100% Natural" }
+        {
+          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/made-in-usa_go4j19.webp",
+          "alt": "Hecho en EE.UU."
+        },
+        {
+          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422484/fda-approved_jrawwr.webp",
+          "alt": "Instalación Registrada por la FDA"
+        },
+        {
+          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422491/natural_dpkfxs.webp",
+          "alt": "100% Natural"
+        }
       ]
     },
     "genderSpecific": {
       "women": {
-        "title": "Mejores Suplementos para Pérdida de Peso para Mujeres",
-        "description": "Las mujeres a menudo enfrentan desafíos únicos con hormonas, antojos y metabolismo. Los mejores suplementos femeninos para pérdida de peso están diseñados para:",
+        "title": "Mejores Suplementos para la Pérdida de Peso para Mujeres",
+        "description": "Las mujeres a menudo enfrentan desafíos únicos con hormonas, antojos y metabolismo. Los mejores suplementos para la pérdida de peso para mujeres están diseñados para:",
         "items": [
           "Equilibrar la energía durante todo el día.",
           "Apoyar la pérdida de grasa sin dietas extremas.",
-          "Apuntar a áreas terca como el vientre y las caderas."
+          "Dirigirse a áreas stubborn como el vientre y las caderas."
         ],
-        "footer": "Si buscas suplementos para pérdida de peso para mujeres que realmente funcionen, encontrarás opciones revisadas cuidadosamente en esta página, incluyendo Mitolyn."
+        "footer": "Si estás buscando suplementos para la pérdida de peso para mujeres que realmente funcionen, encontrarás opciones cuidadosamente revisadas en esta página, incluyendo Mitolyn."
       },
       "men": {
-        "title": "Mejores Suplementos para Pérdida de Peso para Hombres",
-        "description": "Los hombres suelen apuntar a la pérdida de grasa mientras mantienen músculo y fuerza. Los mejores suplementos para hombres se centran en:",
+        "title": "Mejores Suplementos para la Pérdida de Peso para Hombres",
+        "description": "Los hombres suelen buscar la pérdida de grasa mientras mantienen el músculo y la fuerza. Los mejores suplementos para la pérdida de peso para hombres y los mejores suplementos para la pérdida de peso para hombres se centran en:",
         "items": [
           "Aumentar el metabolismo.",
-          "Incrementar la energía y la resistencia.",
-          "Apoyar la preservación de músculo magro."
+          "Aumentar la energía y la resistencia.",
+          "Apoyar la preservación del músculo magro."
         ]
       }
     },
     "selectionProcess": {
       "title": "Cómo Seleccionamos los Mejores Suplementos",
       "items": [
-        "Ingredientes: seguros, naturales y efectivos.",
-        "Retroalimentación de clientes: lo que dicen los usuarios reales.",
-        "Valor: precios justos y políticas de reembolso.",
-        "Confianza en la empresa: sitios web oficiales, transparencia y soporte."
+        "Ingredientes – seguros, naturales y efectivos.",
+        "Comentarios de clientes – lo que dicen los usuarios reales.",
+        "Valor – precios justos y políticas de reembolso.",
+        "Confianza en la empresa – sitios web oficiales, transparencia y soporte."
       ]
     },
     "faqs": {
-      "title": "Preguntas Frecuentes Sobre Suplementos para Pérdida de Peso",
+      "title": "Preguntas Frecuentes Sobre Suplementos para la Pérdida de Peso",
       "items": [
         {
-          "question": "¿Realmente funcionan los suplementos para pérdida de peso?",
-          "answer": "Sí, los mejores suplementos para pérdida de peso pueden apoyar la pérdida de grasa cuando se combinan con una dieta equilibrada y ejercicio regular."
+          "question": "¿Los suplementos para la pérdida de peso realmente funcionan?",
+          "answer": "Sí, los mejores suplementos para la pérdida de peso pueden apoyar la pérdida de grasa cuando se combinan con una dieta equilibrada y ejercicio regular."
         },
         {
           "question": "¿Son más seguros los suplementos naturales?",
-          "answer": "Los mejores suplementos naturales para pérdida de peso suelen ser más seguros, ya que dependen de ingredientes a base de plantas."
+          "answer": "Los mejores suplementos naturales para la pérdida de peso suelen ser más seguros, ya que dependen de ingredientes a base de plantas."
         },
         {
-          "question": "¿Cuáles son los mejores suplementos para pérdida de peso para mujeres?",
+          "question": "¿Cuáles son los mejores suplementos para la pérdida de peso para mujeres?",
           "answer": "Opciones que controlan los antojos, apoyan el metabolismo y equilibran la energía son ideales. Muchas mujeres encuentran éxito con el suplemento Mitolyn."
         },
         {
-          "question": "¿Cuáles son los mejores suplementos para pérdida de peso para hombres?",
-          "answer": "Los mejores suplementos para hombres se centran en la quema de grasa mientras apoyan la energía, la resistencia y la salud muscular."
+          "question": "¿Cuáles son los mejores suplementos para la pérdida de peso para hombres?",
+          "answer": "Los mejores suplementos para la pérdida de peso para hombres se centran en la quema de grasa mientras apoyan la energía, la resistencia y la salud muscular."
         },
         {
           "question": "¿Cuánto tiempo antes de ver resultados?",
-          "answer": "La mayoría de las personas notan energía mejorada y control de apetito en semanas, con pérdida de grasa visible con el tiempo."
+          "answer": "La mayoría de las personas notan una mejora en la energía y el control del apetito en semanas, con una pérdida de grasa visible con el tiempo."
         }
       ]
     },
     "benefits": {
-      "title": "¿Por Qué Considerar Suplementos para Pérdida de Peso?",
+      "title": "¿Por Qué Considerar Suplementos para la Pérdida de Peso?",
       "items": [
-        "Apoyan el metabolismo y los niveles de energía.",
-        "Controlan el apetito y reducen los antojos.",
-        "Mejoran la quema de grasa para resultados visibles.",
-        "Ayudan a hombres y mujeres a lograr éxito a largo plazo."
+        "Apoyar el metabolismo y los niveles de energía.",
+        "Controlar el apetito y reducir los antojos.",
+        "Mejorar la quema de grasa para resultados visibles.",
+        "Ayudar a hombres y mujeres a lograr el éxito a largo plazo."
       ],
-      "footer": "Estos suplementos para pérdida de peso para mujeres que realmente funcionan y los mejores suplementos para hombres están diseñados para complementar la dieta y el ejercicio, no para reemplazarlos."
+      "footer": "Estos suplementos para la pérdida de peso para mujeres que realmente funcionan y los mejores suplementos para la pérdida de peso para hombres están diseñados para complementar la dieta y el ejercicio, no reemplazarlos."
     },
     "finalThoughts": {
-      "text": "Elegir el suplemento adecuado depende de tu estilo de vida, tipo de cuerpo y objetivos. Ya sea que busques los mejores suplementos femeninos para pérdida de peso, los mejores suplementos para hombres o simplemente los mejores suplementos naturales para pérdida de peso, esta página te guiará hacia opciones confiables. Suplementos como Mitolyn ofrecen beneficios respaldados por la ciencia y reseñas positivas, lo que los hace dignos de consideración en tu viaje hacia una mejor salud y confianza."
+      "text": "Elegir el suplemento adecuado depende de tu estilo de vida, tipo de cuerpo y objetivos. Ya sea que estés buscando los mejores suplementos para la pérdida de peso para mujeres, los mejores suplementos para la pérdida de peso para hombres o simplemente los mejores suplementos naturales para la pérdida de peso, esta página te guiará hacia opciones confiables. Suplementos como Mitolyn ofrecen beneficios respaldados por la ciencia y reseñas positivas, lo que los hace dignos de considerar en tu viaje hacia una mejor salud y confianza."
     },
     "common": {
       "buyNow": "Comprar Ahora",
       "premiumMemberSuffix": "para Miembros Premium"
-    }
-  },
-  "oralProbiotics": {
-    "seo": {
-      "title": "Mejores Probióticos para Dientes y Encías | Suplementos Naturales para Salud Oral",
-      "description": "Descubre los mejores probióticos para dientes y encías. Mejora la salud de las encías, blanquea los dientes, reduce la placa y potencia la higiene oral de forma natural con guías y reseñas expertas.",
-      "keywords": [
-        "mejores probióticos para dientes y encías",
-        "mejores probióticos orales",
-        "mejores probióticos dentales",
-        "probióticos para dientes y encías",
-        "suplementos para dientes",
-        "suplementos para salud dental",
-        "suplementos para salud de encías",
-        "probióticos para enfermedad de encías",
-        "probióticos para caries",
-        "probióticos para reparación de dientes"
-      ]
     },
-    "title": "Mejores Probióticos para Dientes y Encías – Mejora Tu Salud Dental de Forma Natural",
-    "intro": "Mantener dientes fuertes, encías saludables y aliento fresco va mucho más allá de cepillarse y usar hilo dental. La investigación moderna prueba que el verdadero fundamento de la salud oral radica en tu microbioma bucal: el equilibrio de bacterias buenas y dañinas. Si las bacterias dañinas dominan, puedes experimentar sangrado de encías, acumulación de placa, mal aliento, sensibilidad o caries. ¿La buena noticia? La solución es simple, natural y respaldada científicamente: probióticos orales. Bienvenido a tu recurso confiable para descubrir los mejores probióticos para dientes y encías, los suplementos de salud oral más efectivos y soluciones respaldadas por evidencia para mejorar naturalmente tu higiene dental. ⭐ Por Qué Importan los Probióticos Orales para la Salud Dental Los probióticos orales son bacterias beneficiosas que trabajan dentro de tu boca para restaurar el equilibrio bacteriano. Mientras que los probióticos intestinales mejoran la digestión, los probióticos de salud oral apuntan específicamente a: Salud de encías Formación de placa Mal aliento Fuerza del esmalte de los dientes Blanqueamiento de dientes Caries Inflamación Si has probado innumerables pastas dentales, enjuagues bucales o limpiezas dentales costosas y aún luchas con problemas dentales, los probióticos pueden ser el eslabón perdido.",
-    "productsSection": {
-      "title": "¿Cuáles Son los Mejores Probióticos para Dientes y Encías?",
-      "description": "No todos los probióticos están diseñados para tu boca. Cepas específicas como Streptococcus salivarius K12 y M18 están probadas para: Reducir el mal aliento Fortalecer el esmalte Reducir la placa Apoyar la reparación de encías Combatir bacterias causantes de caries Otras cepas poderosas incluyen: Lactobacillus reuteri Lactobacillus paracasei Bifidobacterium lactis Estas cepas son esenciales al elegir los mejores probióticos dentales u orales para dientes. 🌿 Una Solución Natural para Dientes, Encías e Higiene Oral Si estás cansado de tratamientos dentales costosos o enjuagues bucales fuertes, los probióticos ofrecen un enfoque suave pero poderoso y natural para la salud dental. Perfectos para personas que lidian con: Mal aliento Sangrado de encías Acumulación de placa Dientes sensibles Dientes amarillos y manchas Infecciones de encías Esmalte débil Cualquiera puede beneficiarse de los probióticos, especialmente adultos que buscan mantener una higiene oral fuerte.",
-      "products": [
-        {
-          "id": 1,
-          "name": "PRODENTIM - Paquete Básico",
-          "price": "$69",
-          "originalPrice": "$99",
-          "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1765645308/ravish/ProDentim-main-1--1-_gnicns.png",
-          "supply": "Suministro para 30 Días",
-          "link": "https://prodentim-official.com/basic-package",
-          "badge": "BÁSICO - 1 BOTELLA",
-          "badgeColor": "bg-gradient-to-r from-teal-500 to-teal-600",
-          "shipping": "* Envío Gratuito",
-          "rating": 4.8,
-          "reviews": 2847,
-          "premiumPrice": "$49 para Miembros Premium",
-          "discount": "30% OFF",
-          "slug": "prodentim",
-          "categorySlug": "dental-health-supplements"
-        },
-        {
-          "id": 2,
-          "name": "PRODENTIM - Paquete Dúo",
-          "price": "$59",
-          "originalPrice": "$198",
-          "total": "$118",
-          "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1765645307/ravish/prodentim-929x793_seuqca.png",
-          "supply": "Suministro para 60 Días",
-          "link": "https://prodentim-official.com/duo-package",
-          "badge": "DÚO - 2 BOTELLAS",
-          "badgeColor": "bg-gradient-to-r from-green-500 to-green-600",
-          "shipping": "* Envío Gratuito",
-          "rating": 4.7,
-          "reviews": 2356,
-          "premiumPrice": "$45 para Miembros Premium",
-          "discount": "40% OFF",
-          "slug": "prodentim-2",
-          "categorySlug": "dental-health-supplements"
-        },
-        {
-          "id": 3,
-          "name": "PRODENTIM - Popular",
-          "price": "$59",
-          "originalPrice": "$297",
-          "total": "$177",
-          "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1765645311/ravish/prodentim-official-website-993x720_s4yrzn.webp",
-          "supply": "Suministro para 90 Días",
-          "link": "https://prodentim-official.com/popular",
-          "badge": "POPULAR - 3 BOTELLAS",
-          "badgeColor": "bg-gradient-to-r from-teal-600 to-teal-700",
-          "shipping": "* Envío Gratuito + eBooks Gratis",
-          "popular": true,
-          "rating": 4.9,
-          "reviews": 3921,
-          "premiumPrice": "$45 para Miembros Premium",
-          "discount": "40% OFF",
-          "slug": "prodentim-3",
-          "categorySlug": "dental-health-supplements"
-        }
-      ]
-    },
-    "trustBadges": {
-      "title": "Calidad Certificada en la que Puedes Confiar",
-      "items": [
-        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/made-in-usa_go4j19.webp", "alt": "Hecho en USA" },
-        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422484/fda-approved_jrawwr.webp", "alt": "Instalación Registrada en la FDA" },
-        { "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422491/natural_dpkfxs.webp", "alt": "100% Natural" }
-      ]
-    },
-    "genderSpecific": {
-      "women": {
-        "title": "Mejores Probióticos Orales para Mujeres",
-        "description": "Las mujeres pueden experimentar desafíos únicos de salud oral debido a cambios hormonales que afectan la sensibilidad de las encías. Los mejores probióticos orales para mujeres están diseñados para:",
-        "items": [
-          "Apoyar la salud de las encías durante cambios hormonales.",
-          "Reducir la placa y la inflamación de forma natural.",
-          "Promover la higiene oral general y aliento fresco."
-        ],
-        "footer": "Para mujeres que buscan probióticos efectivos para dientes y encías, explora nuestras opciones revisadas adaptadas para el bienestar dental natural."
-      },
-      "men": {
-        "title": "Mejores Probióticos Orales para Hombres",
-        "description": "Los hombres a menudo enfrentan mayores riesgos de enfermedad de encías por factores de estilo de vida. Los mejores probióticos orales para hombres se centran en:",
-        "items": [
-          "Fortalecer el esmalte y reducir las caries.",
-          "Combatir el mal aliento y la acumulación de placa.",
-          "Mejorar la reparación dental y la salud a largo plazo."
+    "oralProbiotics": {
+      "seo": {
+        "title": "Mejores Probióticos para Dientes y Encías | Suplementos Naturales para la Salud Oral",
+        "description": "Descubre los mejores probióticos para dientes y encías. Mejora la salud de las encías, blanquea los dientes, reduce la placa y potencia la higiene oral de forma natural con guías expertas y reseñas.",
+        "keywords": [
+          "mejores probióticos para dientes y encías",
+          "mejores probióticos orales",
+          "mejores probióticos dentales",
+          "probióticos para dientes y encías",
+          "suplementos para dientes",
+          "suplementos para la salud dental",
+          "suplementos para la salud de las encías",
+          "probióticos para enfermedades de las encías",
+          "probióticos para caries",
+          "probióticos para reparación de dientes"
         ]
+      },
+      "title": "Mejores Probióticos para Dientes y Encías – Mejora Tu Salud Dental de Forma Natural",
+      "intro": "Mantener dientes fuertes, encías saludables y aliento fresco va mucho más allá del cepillado y el uso de hilo dental. La investigación moderna demuestra que la base verdadera de la salud oral radica en el microbioma de tu boca — el equilibrio entre bacterias buenas y dañinas. Si las bacterias dañinas dominan, puedes experimentar sangrado de encías, acumulación de placa, mal aliento, sensibilidad o caries. ¿La buena noticia? La solución es simple, natural y respaldada por la ciencia: probióticos orales. Bienvenido a tu recurso confiable para descubrir los mejores probióticos para dientes y encías, los suplementos más efectivos para la salud oral y soluciones respaldadas por evidencia para mejorar naturalmente tu higiene dental. ⭐ Por Qué Importan los Probióticos Orales para la Salud Dental Los probióticos orales son bacterias beneficiosas que trabajan dentro de tu boca para restaurar el equilibrio bacteriano. Mientras que los probióticos intestinales mejoran la digestión, los probióticos para la salud oral se dirigen específicamente a: Salud de las encías Formación de placa Mal aliento Fuerza del esmalte dental Blanqueamiento de dientes Caries Inflamación Si has probado innumerables pastas dentales, enjuagues bucales o limpiezas dentales costosas y aún luchas con problemas dentales — los probióticos pueden ser el eslabón perdido.",
+      "productsSection": {
+        "title": "¿Cuáles Son los Mejores Probióticos para Dientes y Encías?",
+        "description": "No todos los probióticos están diseñados para tu boca. Cepas específicas como Streptococcus salivarius K12 y M18 han demostrado: Reducir el mal aliento Fortalecer el esmalte Reducir la placa Apoyar la reparación de encías Combatir bacterias causantes de caries Otras cepas poderosas incluyen: Lactobacillus reuteri Lactobacillus paracasei Bifidobacterium lactis Estas cepas son esenciales al elegir los mejores probióticos dentales o probióticos orales para dientes. 🌿 Una Solución Natural para Dientes, Encías e Higiene Oral Si estás cansado de tratamientos dentales costosos o enjuagues bucales fuertes, los probióticos ofrecen un enfoque suave pero poderoso y natural para la salud dental. Trabajan con tu cuerpo, no en contra. Perfecto para personas que lidian con: Mal aliento Encías sangrantes Acumulación de placa Dientes sensibles Dientes amarillos y manchas Infecciones de encías Esmalte débil Cualquiera puede beneficiarse de los probióticos — especialmente adultos que buscan mantener una fuerte higiene oral.",
+        "products": [
+          {
+            "id": 1,
+            "name": "PRODENTIM - Paquete Básico",
+            "price": "$69",
+            "originalPrice": "$99",
+            "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1765645308/ravish/ProDentim-main-1--1-_gnicns.png",
+            "supply": "Suministro para 30 Días",
+            "link": "https://prodentim-official.com/basic-package",
+            "badge": "BÁSICO - 1 BOTELLA",
+            "badgeColor": "bg-gradient-to-r from-teal-500 to-teal-600",
+            "shipping": "* Envío Gratuito",
+            "rating": 4.8,
+            "reviews": 2847,
+            "premiumPrice": "$49 para Miembros Premium",
+            "discount": "30% DE DESCUENTO",
+            "slug": "prodentim",
+            "categorySlug": "dental-health-supplements"
+          },
+          {
+            "id": 2,
+            "name": "PRODENTIM - Paquete Dúo",
+            "price": "$59",
+            "originalPrice": "$198",
+            "total": "$118",
+            "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1765645307/ravish/prodentim-929x793_seuqca.png",
+            "supply": "Suministro para 60 Días",
+            "link": "https://prodentim-official.com/duo-package",
+            "badge": "DÚO - 2 BOTELLAS",
+            "badgeColor": "bg-gradient-to-r from-green-500 to-green-600",
+            "shipping": "* Envío Gratuito",
+            "rating": 4.7,
+            "reviews": 2356,
+            "premiumPrice": "$45 para Miembros Premium",
+            "discount": "40% DE DESCUENTO",
+            "slug": "prodentim-2",
+            "categorySlug": "dental-health-supplements"
+          },
+          {
+            "id": 3,
+            "name": "PRODENTIM - Popular",
+            "price": "$59",
+            "originalPrice": "$297",
+            "total": "$177",
+            "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1765645311/ravish/prodentim-official-website-993x720_s4yrzn.webp",
+            "supply": "Suministro para 90 Días",
+            "link": "https://prodentim-official.com/popular",
+            "badge": "POPULAR - 3 BOTELLAS",
+            "badgeColor": "bg-gradient-to-r from-teal-600 to-teal-700",
+            "shipping": "* Envío Gratuito + eBooks Gratuitos",
+            "popular": true,
+            "rating": 4.9,
+            "reviews": 3921,
+            "premiumPrice": "$45 para Miembros Premium",
+            "discount": "40% DE DESCUENTO",
+            "slug": "prodentim-3",
+            "categorySlug": "dental-health-supplements"
+          }
+        ]
+      },
+      "trustBadges": {
+        "title": "Calidad Certificada en la que Puedes Confiar",
+        "items": [
+          {
+            "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/made-in-usa_go4j19.webp",
+            "alt": "Hecho en EE.UU."
+          },
+          {
+            "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422484/fda-approved_jrawwr.webp",
+            "alt": "Instalación Registrada por la FDA"
+          },
+          {
+            "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422491/natural_dpkfxs.webp",
+            "alt": "100% Natural"
+          }
+        ]
+      },
+      "genderSpecific": {
+        "women": {
+          "title": "Mejores Probióticos Orales para Mujeres",
+          "description": "Las mujeres pueden experimentar desafíos únicos en la salud oral debido a cambios hormonales que afectan la sensibilidad de las encías. Los mejores probióticos orales para mujeres están diseñados para:",
+          "items": [
+            "Apoyar la salud de las encías durante cambios hormonales.",
+            "Reducir la placa y la inflamación de forma natural.",
+            "Promover la higiene oral general y aliento fresco."
+          ],
+          "footer": "Para mujeres que buscan probióticos efectivos para dientes y encías, explora nuestras opciones revisadas adaptadas para el bienestar dental natural."
+        },
+        "men": {
+          "title": "Mejores Probióticos Orales para Hombres",
+          "description": "Los hombres a menudo enfrentan mayores riesgos de enfermedades de las encías por factores de estilo de vida. Los mejores probióticos orales para hombres se centran en:",
+          "items": [
+            "Fortalecer el esmalte y reducir las caries.",
+            "Combatir el mal aliento y la acumulación de placa.",
+            "Mejorar la reparación dental y la salud a largo plazo."
+          ]
+        }
+      },
+      "selectionProcess": {
+        "title": "Cómo Elegir el Mejor Suplemento de Probióticos Orales",
+        "items": [
+          "Cepas probadas clínicamente (K12 & M18) – Estas dos cepas son las mejores opciones respaldadas por la investigación.",
+          "Formato masticable o pastilla – Los probióticos deben permanecer en la boca para funcionar; las cápsulas a menudo fallan.",
+          "Fórmula sin azúcar – El azúcar alimenta bacterias dañinas.",
+          "Fabricación certificada GMP – Asegura seguridad, pureza y potencia.",
+          "Vitaminas/minerales añadidos – Vitamina D, calcio y zinc apoyan dientes y encías más fuertes."
+        ]
+      },
+      "faqs": {
+        "title": "Preguntas Frecuentes Sobre Probióticos Orales",
+        "items": [
+          {
+            "question": "¿Son buenos los probióticos para dientes y encías?",
+            "answer": "Sí. Reducen bacterias dañinas, fortalecen las encías y apoyan el esmalte."
+          },
+          {
+            "question": "¿Pueden los probióticos blanquear los dientes?",
+            "answer": "Indirectamente, sí — al eliminar bacterias que causan amarilleo y manchas."
+          },
+          {
+            "question": "¿Cuánto tiempo tardan en funcionar los probióticos orales?",
+            "answer": "La mayoría de los usuarios ven resultados en 2–4 semanas."
+          },
+          {
+            "question": "¿Los probióticos orales reemplazan el cepillado?",
+            "answer": "No. Mejoran el cepillado y el uso de hilo dental, no los reemplazan."
+          },
+          {
+            "question": "¿Quién debería tomar probióticos orales?",
+            "answer": "Cualquiera que lidie con placa, problemas de encías, mal aliento, esmalte débil o dientes amarillos."
+          },
+          {
+            "question": "¿Cómo usar probióticos orales para mejores resultados?",
+            "answer": "Toma 1–2 pastillas diarias después del cepillado. Deja que se disuelva lentamente — no mastiques. Evita comer o beber durante 30 minutos. Úsalos durante 4–8 semanas para mejores resultados."
+          }
+        ]
+      },
+      "benefits": {
+        "title": "Beneficios de Usar los Mejores Probióticos para Dientes y Encías",
+        "items": [
+          "Reparación y Fortalecimiento de Encías – Reduce la inflamación, el sangrado y la sensibilidad.",
+          "Blanqueamiento Natural de Dientes – Elimina bacterias dañinas que causan manchas.",
+          "Apoyo para Aliento Fresco – Equilibra las bacterias que causan mal olor.",
+          "Mejora de la Salud del Esmalte – Apoya la remineralización y fortalece el esmalte.",
+          "Higiene Dental a Largo Plazo – Reduce la formación de placa y bacterias dañinas.",
+          "Apoya el Bienestar Dental en Adultos – Especialmente útil si experimentas problemas dentales recurrentes."
+        ],
+        "footer": "Por Qué Importan los Probióticos Orales para la Salud Dental: Los probióticos orales son bacterias beneficiosas que trabajan dentro de tu boca para restaurar el equilibrio bacteriano. Mientras que los probióticos intestinales mejoran la digestión, los probióticos para la salud oral se dirigen específicamente a la salud de las encías, formación de placa, mal aliento, fuerza del esmalte dental, blanqueamiento de dientes, caries e inflamación. Si has probado innumerables pastas dentales, enjuagues bucales o limpiezas dentales costosas y aún luchas con problemas dentales — los probióticos pueden ser el eslabón perdido. 🔍 Cómo los Probióticos Mejoran Tu Salud de Dientes y Encías ✔ 1. Combaten la Placa y las Caries Los probióticos bloquean bacterias dañinas como Streptococcus mutans, la principal causa de caries. ✔ 2. Fortalecen las Encías Reducen la inflamación de las encías, apoyan la curación y mejoran la adherencia de las encías. ✔ 3. Refrescan el Aliento de Forma Natural El mal aliento a menudo es causado por bacterias productoras de azufre. Los probióticos las reemplazan con cepas que combaten el olor. ✔ 4. Apoyan la Reparación de Dientes y la Salud del Esmalte Ciertas cepas mejoran la absorción de minerales, ayudando al proceso de reparación del esmalte. ✔ 5. Blanquean los Dientes con el Tiempo Al reducir bacterias que causan manchas, los probióticos promueven un esmalte más limpio y brillante. ✔ 6. Mejoran la Higiene Dental General Mejoran el ecosistema de tu boca, creando una defensa natural contra problemas dentales."
+      },
+      "finalThoughts": {
+        "text": "💎 Tu Viaje hacia una Mejor Salud Dental Comienza Aquí Ya sea que estés buscando solucionar problemas de encías, blanquear tus dientes de forma natural, eliminar el mal aliento o fortalecer tu esmalte, los probióticos orales ofrecen una forma poderosa y natural de restaurar la salud dental. Este sitio web es tu destino único para: Guías expertas Recomendaciones basadas en investigación Reseñas honestas de suplementos Consejos de higiene dental Soluciones naturales Una sonrisa más saludable comienza hoy."
+      },
+      "common": {
+        "buyNow": "Comprar Ahora",
+        "premiumMemberSuffix": "para Miembros Premium"
       }
     },
-    "selectionProcess": {
-      "title": "Cómo Elegir el Mejor Suplemento Probiótico Oral",
+    "reviews": {
+      "title": "Reseñas Reales de Clientes",
+      "description": "Ve lo que dicen las personas reales sobre nuestros mejores suplementos para la pérdida de peso",
+      "stats": [
+        {
+          "icon": "Users",
+          "value": "50,000+",
+          "label": "Clientes Felices"
+        },
+        {
+          "icon": "Star",
+          "value": "4.8/5",
+          "label": "Calificación Promedio"
+        },
+        {
+          "icon": "TrendingUp",
+          "value": "92%",
+          "label": "Tasa de Éxito"
+        },
+        {
+          "icon": "Award",
+          "value": "15,000+",
+          "label": "Reseñas de 5 Estrellas"
+        }
+      ],
       "items": [
-        "Cepas probadas clínicamente (K12 y M18): Estas dos cepas son las elecciones principales respaldadas por investigación.",
-        "Formato masticable o pastilla: Los probióticos deben permanecer en la boca para funcionar; las cápsulas a menudo fallan.",
-        "Fórmula sin azúcar: El azúcar alimenta bacterias dañinas.",
-        "Fabricación certificada GMP: Asegura seguridad, pureza y potencia.",
-        "Vitaminas/minerales añadidos: La vitamina D, calcio y zinc apoyan dientes y encías más fuertes."
-      ]
-    },
-    "faqs": {
-      "title": "Preguntas Frecuentes Sobre Probióticos Orales",
-      "items": [
         {
-          "question": "¿Son buenos los probióticos para dientes y encías?",
-          "answer": "Sí. Reducen bacterias dañinas, fortalecen las encías y apoyan el esmalte."
+          "name": "Sarah Johnson",
+          "location": "Mumbai, India",
+          "rating": 5,
+          "date": "hace 2 semanas",
+          "title": "¡Resultados Increíbles en Solo 30 Días!",
+          "content": "He probado innumerables suplementos para la pérdida de peso, pero MITOLYN es diferente. En 30 días, perdí 8 kg y me siento más energética que nunca. ¡Los ingredientes naturales hacen toda la diferencia!",
+          "verified": true,
+          "product": "MITOLYN Paquete de Mejor Valor"
         },
         {
-          "question": "¿Pueden los probióticos blanquear los dientes?",
-          "answer": "Indirectamente, sí: eliminando bacterias que causan amarilleo y manchas."
+          "name": "Rajesh Kumar",
+          "location": "Delhi, India",
+          "rating": 5,
+          "date": "hace 1 mes",
+          "title": "Experiencia que Cambia la Vida",
+          "content": "Después de luchar con el peso durante años, MITOLYN me ayudó a perder 15 kg en 3 meses. Mi confianza ha vuelto, y me siento más saludable que en décadas. ¡Altamente recomendado!",
+          "verified": true,
+          "product": "MITOLYN Paquete Popular"
         },
         {
-          "question": "¿Cuánto tardan los probióticos orales en funcionar?",
-          "answer": "La mayoría de los usuarios ven resultados en 2–4 semanas."
+          "name": "Priya Sharma",
+          "location": "Bangalore, India",
+          "rating": 5,
+          "date": "hace 3 semanas",
+          "title": "Natural y Efectivo",
+          "content": "Lo que amo de MITOLYN es que es completamente natural. Sin efectos secundarios, solo pérdida de peso constante y mayor energía. ¡Perdí 6 kg en mi primer mes!",
+          "verified": true,
+          "product": "MITOLYN Paquete Básico"
         },
         {
-          "question": "¿Reemplazan los probióticos orales al cepillado?",
-          "answer": "No. Mejoran el cepillado y el uso de hilo dental, no los reemplazan."
+          "name": "Amit Patel",
+          "location": "Ahmedabad, India",
+          "rating": 4,
+          "date": "hace 2 meses",
+          "title": "Progreso Constante",
+          "content": "MITOLYN ha sido un cambio de juego en mi viaje de pérdida de peso. Los resultados son graduales pero consistentes. He perdido 12 kg en 4 meses y me siento fantástico.",
+          "verified": true,
+          "product": "MITOLYN Paquete de Mejor Valor"
         },
         {
-          "question": "¿Quién debería tomar probióticos orales?",
-          "answer": "Cualquiera que lidie con placa, problemas de encías, mal aliento, esmalte débil o dientes amarillos."
+          "name": "Neha Gupta",
+          "location": "Pune, India",
+          "rating": 5,
+          "date": "hace 1 semana",
+          "title": "Superó las Expectativas",
+          "content": "Estaba escéptica al principio, pero MITOLYN cumplió más allá de mis expectativas. No solo perdí peso, sino que mi salud general mejoró significativamente. ¡Gracias MITOLYN!",
+          "verified": true,
+          "product": "MITOLYN Paquete Popular"
         },
         {
-          "question": "¿Cómo usar probióticos orales para mejores resultados?",
-          "answer": "Toma 1–2 pastillas diariamente después de cepillarte. Deja que se disuelva lentamente; no mastiques. Evita comer o beber por 30 minutos. Usa por 4–8 semanas para mejores resultados."
+          "name": "Rahul S.",
+          "location": "Mumbai, India",
+          "rating": 5,
+          "date": "hace 2 semanas",
+          "title": "Mejor Sueño y Pérdida de Peso",
+          "content": "Comencé a usar Sleep Lean porque mi ciclo de sueño estaba completamente alterado. En pocos días, dormía más profundamente y me despertaba refrescado. Después de unas semanas, noté reducción de antojos y pérdida de peso gradual. Se siente como un suplemento de sueño limpio y natural.",
+          "verified": true,
+          "product": "Sleep Lean Paquete Básico"
+        },
+        {
+          "name": "Emily R.",
+          "location": "Austin, Texas, USA",
+          "rating": 5,
+          "date": "hace 1 mes",
+          "title": "Suave y Efectivo",
+          "content": "Sleep Lean me ayudó a conciliar el sueño más rápido sin hacerme sentir somnolienta por la mañana. Mis niveles de estrés bajaron, y lentamente comencé a perder peso sin cambiar mucho en mi rutina. Me gusta que no cree hábito y sea suave.",
+          "verified": true,
+          "product": "Sleep Lean Paquete Básico"
+        },
+        {
+          "name": "David M.",
+          "location": "London, UK",
+          "rating": 5,
+          "date": "hace 3 semanas",
+          "title": "Calidad de Sueño Mejorada",
+          "content": "He probado múltiples suplementos para el sueño antes, pero Sleep Lean funcionó mejor para mí. Mi calidad de sueño mejoró significativamente, y dejé de comer bocadillos a medianoche. Con el tiempo, noté una pérdida de grasa constante. Definitivamente uno de los mejores suplementos para la pérdida de peso que he usado.",
+          "verified": true,
+          "product": "Sleep Lean Paquete Básico"
+        },
+        {
+          "name": "Anita V.",
+          "location": "Jaipur, India",
+          "rating": 4,
+          "date": "hace 2 meses",
+          "title": "Genial para Estilos de Vida Ocupados",
+          "content": "Sleep Lean me ha ayudado a descansar mejor por la noche, y he perdido alrededor de 5 kg en el último mes. ¡No más antojos a medianoche, y me despierto con energía! Genial para estilos de vida ocupados.",
+          "verified": true,
+          "product": "Sleep Lean Paquete Básico"
+        },
+        {
+          "name": "Michael T.",
+          "location": "New York, USA",
+          "rating": 5,
+          "date": "hace 1 semana",
+          "title": "Cambió Todo",
+          "content": "Como alguien con insomnio, Sleep Lean cambió todo. Sueño más profundo llevó a un mejor metabolismo, y he perdido 10 kg sin esfuerzo extra. Altamente recomendado para el manejo de peso nocturno.",
+          "verified": true,
+          "product": "Sleep Lean Paquete Básico"
+        },
+        {
+          "name": "Sarah M.",
+          "location": "California, USA",
+          "rating": 5,
+          "date": "hace 2 semanas",
+          "title": "Hinchazón Desaparecida",
+          "content": "Después de una semana usando BellyFlush, mi hinchazón casi desapareció. Mi estómago se siente más ligero y la digestión es mucho mejor.",
+          "verified": true,
+          "product": "BellyFlush Paquete Básico"
+        },
+        {
+          "name": "Daniel R.",
+          "location": "Texas, USA",
+          "rating": 5,
+          "date": "hace 1 mes",
+          "title": "Limpieza Suave",
+          "content": "He probado muchos productos de limpieza intestinal, pero BellyFlush funcionó suavemente sin calambres. Me siento más cómodo diariamente.",
+          "verified": true,
+          "product": "BellyFlush Paquete Básico"
+        },
+        {
+          "name": "Anita K.",
+          "location": "New York, USA",
+          "rating": 4,
+          "date": "hace 3 semanas",
+          "title": "Mejor Digestión",
+          "content": "Gran suplemento para la digestión. Noté menos gases y mejor regularidad en pocos días.",
+          "verified": true,
+          "product": "BellyFlush Paquete Básico"
+        },
+        {
+          "name": "Vikram P.",
+          "location": "Delhi, India",
+          "rating": 5,
+          "date": "hace 2 meses",
+          "title": "Efectivo para la Hinchazón",
+          "content": "BellyFlush ha sido increíble para mi hinchazón persistente. Después de dos semanas, me siento menos pesado, y mi digestión ha mejorado mucho. ¡Natural y efectivo!",
+          "verified": true,
+          "product": "BellyFlush Paquete Básico"
+        },
+        {
+          "name": "Lisa W.",
+          "location": "London, UK",
+          "rating": 5,
+          "date": "hace 1 semana",
+          "title": "Mejor Limpieza Suave",
+          "content": "Esta es la mejor limpieza suave que he usado. Redujo la retención de agua y hizo que mi vientre se sintiera más plano. Sin efectos secundarios fuertes, solo mejor salud intestinal.",
+          "verified": true,
+          "product": "BellyFlush Paquete Básico"
+        },
+        {
+          "name": "John D.",
+          "location": "New York, USA",
+          "rating": 5,
+          "date": "hace 1 semana",
+          "title": "Salud Oral Mejorada",
+          "content": "PRODENTIM ha transformado mi higiene dental. Mis encías se sienten más saludables, y mi aliento es más fresco. ¡Altamente recomendado para cualquiera con problemas de encías!",
+          "verified": true,
+          "product": "PRODENTIM - Paquete Básico"
+        },
+        {
+          "name": "Maria L.",
+          "location": "Los Angeles, USA",
+          "rating": 4.8,
+          "date": "hace 2 semanas",
+          "title": "Dientes Más Blancos de Forma Natural",
+          "content": "Después de usar PRODENTIM durante un mes, mis dientes están notablemente más blancos y mi placa ha reducido. Es un suplemento suave y efectivo.",
+          "verified": true,
+          "product": "PRODENTIM - Paquete Dúo"
+        },
+        {
+          "name": "Alex K.",
+          "location": "London, UK",
+          "rating": 5,
+          "date": "hace 3 semanas",
+          "title": "No Más Mal Aliento",
+          "content": "PRODENTIM eliminó mi mal aliento crónico. Los probióticos hacen maravillas para equilibrar las bacterias orales. ¡Gran producto!",
+          "verified": true,
+          "product": "PRODENTIM - Popular"
+        },
+        {
+          "name": "Sophie M.",
+          "location": "Paris, France",
+          "rating": 4.9,
+          "date": "hace 1 mes",
+          "title": "Encías y Esmalte Más Fuertes",
+          "content": "He notado una mejora significativa en la salud de mis encías y la fuerza de mis dientes desde que empecé PRODENTIM. Es natural y efectivo.",
+          "verified": true,
+          "product": "PRODENTIM - Paquete Básico"
+        },
+        {
+          "name": "Carlos R.",
+          "location": "Madrid, Spain",
+          "rating": 5,
+          "date": "hace 2 meses",
+          "title": "Excelente para el Bienestar Dental",
+          "content": "PRODENTIM ha sido un cambio de juego en mi rutina de cuidado oral. Menos sensibilidad y mejor salud dental general. ¡Vale cada centavo!",
+          "verified": true,
+          "product": "PRODENTIM - Paquete Dúo"
         }
       ]
-    },
-    "benefits": {
-      "title": "Beneficios de Usar los Mejores Probióticos para Dientes y Encías",
-      "items": [
-        "Reparación y Fortaleza de Encías: Reduce la inflamación, el sangrado y la sensibilidad.",
-        "Blanqueamiento Natural de Dientes: Elimina bacterias dañinas que causan manchas.",
-        "Apoyo para Aliento Fresco: Equilibra las bacterias que causan mal olor.",
-        "Salud Mejorada del Esmalte: Apoya la remineralización y fortalece el esmalte.",
-        "Higiene Dental a Largo Plazo: Reduce la formación de placa y bacterias dañinas.",
-        "Apoya el Bienestar Dental Adulto: Especialmente útil si experimentas problemas dentales recurrentes."
-      ],
-      "footer": "Por Qué Importan los Probióticos Orales para la Salud Dental: Los probióticos orales son bacterias beneficiosas que trabajan dentro de tu boca para restaurar el equilibrio bacteriano. Mientras que los probióticos intestinales mejoran la digestión, los probióticos de salud oral apuntan específicamente a la salud de encías, formación de placa, mal aliento, fuerza del esmalte de los dientes, blanqueamiento de dientes, caries e inflamación. Si has probado innumerables pastas dentales, enjuagues bucales o limpiezas dentales costosas y aún luchas con problemas dentales, los probióticos pueden ser el eslabón perdido. 🔍 Cómo Mejoran los Probióticos Tu Salud de Dientes y Encías ✔ 1. Combaten Placa y Caries Los probióticos bloquean bacterias dañinas como Streptococcus mutans, la principal causa de caries. ✔ 2. Fortalecen las Encías Reducen la inflamación de las encías, apoyan la curación y mejoran el apego de las encías. ✔ 3. Refrescan el Aliento de Forma Natural El mal aliento a menudo es causado por bacterias productoras de azufre. Los probióticos las reemplazan con cepas que combaten olores. ✔ 4. Apoyan la Reparación de Dientes y Salud del Esmalte Ciertas cepas mejoran la absorción de minerales, ayudando al proceso de reparación del esmalte. ✔ 5. Blanquean los Dientes con el Tiempo Al reducir bacterias que causan manchas, los probióticos promueven un esmalte más limpio y brillante. ✔ 6. Mejoran la Higiene Dental General Mejoran el ecosistema de tu boca, creando una defensa natural contra problemas dentales."
-    },
-    "finalThoughts": {
-      "text": "💎 Tu Viaje hacia una Mejor Salud Dental Comienza Aquí Ya sea que busques arreglar problemas de encías, blanquear tus dientes de forma natural, eliminar el mal aliento o fortalecer tu esmalte, los probióticos orales ofrecen una forma poderosa y natural de restaurar la salud dental. Este sitio web es tu destino todo en uno para: Guías expertas Recomendaciones basadas en investigación Reseñas honestas de suplementos Consejos de higiene dental Soluciones naturales Una sonrisa más saludable comienza hoy."
-    },
-    "common": {
-      "buyNow": "Comprar Ahora",
-      "premiumMemberSuffix": "para Miembros Premium"
     }
   }
 }

@@ -10,9 +10,7 @@ import {
 } from "@/components/ui/accordion"
 import CategoryReviewsSection from "@/components/category-reviews-section"
 import { getTranslation, type Locale } from "@/lib/i18n"
-import ProductCards from "@/components/product-card"
 import { ProductknowMoreSection } from "@/components/productKnowMore"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { notFound } from "next/navigation"
 import { CategoriesSection } from "@/components/home/CategoriesSection"
 
@@ -28,34 +26,6 @@ function getCategoryKey(slug: string): CategoryKey | null {
   return map[slug] || null
 }
 
-function ProductToggleSection({
-  t,
-  buyNowLabel,
-}: {
-  t: any
-  buyNowLabel: string
-}) {
-  "use client"
-  const products = t.productsSection?.products || []
-
-  return (
-    <Tabs defaultValue="men" className="w-full">
-
-      <TabsContent value="men" className="mt-6">
-        <ProductCards
-          products={products.map((p: any) => ({ ...p, id: String(p.id) }))}
-          buyNowLabel={buyNowLabel}
-        />
-      </TabsContent>
-      <TabsContent value="women" className="mt-6">
-        <ProductCards
-          products={products.map((p: any) => ({ ...p, id: String(p.id) }))}
-          buyNowLabel={buyNowLabel}
-        />
-      </TabsContent>
-    </Tabs>
-  )
-}
 
 export async function generateMetadata({
   params,
@@ -122,7 +92,7 @@ export default async function SupplementsPage({
   }
   const t = translations[categoryKey]
   const knowMoreData = translations.knowMore?.[categoryKey] || {}
-  console.log("translations:", translations)
+  console.log("translations:akash", translations)
   console.log(`Translations for ${slug} Page:`, t)
 
   return (
@@ -143,7 +113,7 @@ export default async function SupplementsPage({
       </section>
       <section className="py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl lg:text-3xl font-sans font-bold text-center mb-8">{t.benefits.title}</h2>
+          <h2 className="text-2xl lg:text-3xl font-sans font-bold text-center mb-8">{t?.benefits?.title}</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {t.benefits.items.map((benefit: string, index: number) => (
               <Card key={index} className="text-center p-6">
