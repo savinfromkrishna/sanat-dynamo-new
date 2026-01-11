@@ -1,111 +1,194 @@
 {
   "seo": {
-    "title": "Mitolyn Oficial | Suplementos Naturales para Pérdida de Peso",
-    "description": "Descubre los suplementos naturales de Mitolyn diseñados para ayudarte a lograr tus objetivos de salud y fitness de manera efectiva.",
-    "keywords": "pérdida de peso, suplementos, Mitolyn, salud natural, fitness, bienestar"
+    "title": "SuppleLogic | Reseñas honestas de suplementos",
+    "description": "SuppleLogic es una plataforma confiable dedicada a reseñas honestas y basadas en investigación de suplementos. Te ayudamos a cortar el ruido del marketing analizando los ingredientes, los beneficios declarados, los posibles efectos secundarios y las experiencias reales de los usuarios — para que puedas tomar decisiones de compra más inteligentes y seguras.",
+    "keywords": "reseñas de suplementos, suplementos para bajar de peso, apoyo para el sueño, salud intestinal, salud dental, suplementos de bienestar"
   },
   "categories": {
-    "weightLoss": "Pérdida de Peso",
-    "dentalHealth": "Salud Dental",
-    "wellness": "Bienestar",
+    "weightLoss": "Suplementos para bajar de peso",
+    "sleepStress": "Apoyo para el sueño y el estrés",
+    "dentalHealth": "Salud dental y bucal",
+    "gutHealth": "Salud intestinal",
+    "wellness": "Bienestar general",
     "bundles": "Paquetes"
   },
   "nav": {
     "home": "Inicio",
     "dentalHealth": "Salud Dental",
-    "products": "Productos"
+    "products": "Productos",
+    "about": "Sobre Nosotros"
   },
   "products": {
     "weight-loss": [
       {
         "id": "basic",
-        "slug":"metolyn",
-        "name": "Paquete Básico de MITOLYN",
+        "slug": "mitolyn",
+        "name": "Paquete Básico MITOLYN",
         "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
         "price": "₹2,499",
         "originalPrice": "₹2,999",
         "discount": "16% de descuento",
-        "duration": "Suministro para 30 Días",
+        "duration": "Suministro de 30 días",
         "badge": null,
         "url": "https://supplelogic.com/basic-package"
       },
       {
         "id": "popular",
-        "slug":"metolyn",
-        "name": "Paquete Popular de MITOLYN",
+        "slug": "mitolyn",
+        "name": "Paquete Popular MITOLYN",
         "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
         "price": "₹4,449",
         "originalPrice": "₹5,999",
         "discount": "25% de descuento",
-        "duration": "Suministro para 90 Días",
-        "badge": { "text": "Más Popular", "color": "orange" },
+        "duration": "Suministro de 90 días",
+        "badge": {
+          "text": "Más Popular",
+          "color": "orange"
+        },
         "url": "https://supplelogic.com/popular"
       },
       {
         "id": "best-value",
-        "slug":"metolyn",
-        "name": "Paquete de Mejor Valor de MITOLYN",
+        "slug": "mitolyn",
+        "name": "Paquete Mejor Valor MITOLYN",
         "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
         "price": "₹6,899",
         "originalPrice": "₹7,999",
         "discount": "14% de descuento",
-        "duration": "Suministro para 180 Días",
-        "badge": { "text": "Mejor Valor", "color": "emerald" },
+        "duration": "Suministro de 180 días",
+        "badge": {
+          "text": "Mejor Valor",
+          "color": "emerald"
+        },
         "url": "https://supplelogic.com/best-value"
       }
     ],
-    "energy": [
+    "sleep-stress": [
       {
         "id": "power-boost",
-        "slug":"metolyn",
-        "name": "Potenciador de Energía ENERGYMAX",
+        "slug": "mitolyn",
+        "name": "SLEEPMAX Power Boost",
         "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
         "price": "₹1,899",
         "originalPrice": "₹2,299",
         "discount": "17% de descuento",
-        "duration": "Suministro para 30 Días",
-        "badge": { "text": "Energía Natural", "color": "blue" },
+        "duration": "Suministro de 30 días",
+        "badge": {
+          "text": "Energía Natural",
+          "color": "blue"
+        },
         "url": "https://supplelogic.com/energy-boost"
       },
       {
         "id": "endurance",
-        "slug":"metolyn",
-        "name": "Paquete de Resistencia ENERGYMAX",
+        "slug": "mitolyn",
+        "name": "Paquete Endurance SLEEPMAX",
         "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
         "price": "₹5,499",
         "originalPrice": "₹6,999",
         "discount": "21% de descuento",
-        "duration": "Suministro para 90 Días",
-        "badge": { "text": "De Larga Duración", "color": "blue" },
+        "duration": "Suministro de 90 días",
+        "badge": {
+          "text": "Larga duración",
+          "color": "blue"
+        },
         "url": "https://supplelogic.com/endurance-pack"
       },
       {
         "id": "ultimate",
-        "slug":"metolyn",
-        "name": "Paquete Definitivo ENERGYMAX",
+        "slug": "mitolyn",
+        "name": "Paquete Ultimate SLEEPMAX",
         "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
         "price": "₹8,999",
         "originalPrice": "₹11,999",
         "discount": "25% de descuento",
-        "duration": "Suministro para 180 Días",
-        "badge": { "text": "Premium", "color": "blue" },
+        "duration": "Suministro de 180 días",
+        "badge": {
+          "text": "Premium",
+          "color": "blue"
+        },
         "url": "https://supplelogic.com/ultimate-bundle"
       }
     ],
+    "gut-health": [],
     "wellness": [],
     "bundles": []
   },
   "footer": {
-    "description": "Transforma tu salud con Mitolyn: el suplemento natural para pérdida de peso que funciona.",
+    "description": "SuppleLogic es una plataforma confiable dedicada a reseñas honestas y basadas en investigación de suplementos. Te ayudamos a cortar el ruido del marketing analizando los ingredientes, los beneficios declarados, los posibles efectos secundarios y las experiencias reales de los usuarios — para que puedas tomar decisiones de compra más inteligentes y seguras. Ya sea que busques suplementos para bajar de peso, apoyo para el sueño, salud intestinal o cuidado bucal, SuppleLogic ofrece información clara y sin sesgos basada en la lógica, no en exageraciones.",
     "quickLinks": "Enlaces Rápidos",
     "customerService": "Servicio al Cliente",
     "legal": "Legal",
     "privacyPolicy": "Política de Privacidad",
     "termsOfService": "Términos de Servicio",
-    "refundPolicy": "Política de Reembolso",
+    "refundPolicy": "Política de Reembolsos",
     "contactUs": "Contáctanos",
     "faq": "Preguntas Frecuentes",
     "shipping": "Información de Envío",
     "allRightsReserved": "Todos los derechos reservados."
+  },
+  "about": {
+    "title": "Sobre SuppleLogic",
+    "lastUpdated": "Última actualización: 11 de enero de 2026",
+    "introduction": "SuppleLogic es una plataforma confiable dedicada a reseñas honestas y basadas en investigación de suplementos. Te ayudamos a cortar el ruido del marketing analizando los ingredientes, los beneficios declarados, los posibles efectos secundarios y las experiencias reales de los usuarios — para que puedas tomar decisiones de compra más inteligentes y seguras. Ya sea que busques suplementos para bajar de peso, apoyo para el sueño, salud intestinal o cuidado bucal, SuppleLogic ofrece información clara y sin sesgos basada en la lógica, no en exageraciones.",
+    "sections": [
+      {
+        "title": "¿Por qué confiar en SuppleLogic?",
+        "content": "En SuppleLogic, la transparencia es lo primero. Nuestro objetivo es educar, no engañar. Podemos ganar una comisión cuando compras a través de nuestros enlaces, pero esto nunca influye en nuestras reseñas. Cada producto se evalúa con los mismos estándares honestos.",
+        "items": [
+          "Análisis independiente de ingredientes",
+          "Enfoque basado en evidencia científica",
+          "Pros y contras explicados claramente",
+          "Se consideran opiniones reales de usuarios",
+          "Sin afirmaciones falsas ni promesas milagrosas"
+        ]
+      },
+      {
+        "title": "Cómo reseñamos suplementos",
+        "content": "Cada suplemento destacado en SuppleLogic pasa por un proceso de evaluación estructurado. Este enfoque lógico ayuda a los lectores a evitar productos de baja calidad o engañosos.",
+        "items": [
+          "Calidad de los ingredientes – ¿Son efectivos y seguros?",
+          "Evidencia científica – ¿Hay investigación real detrás de las afirmaciones?",
+          "Beneficios vs. Reclamos – ¿Los resultados coinciden con las promesas de marketing?",
+          "Efectos secundarios y seguridad – ¿Quién debería evitarlo?",
+          "Relación calidad-precio – ¿El precio está justificado?"
+        ]
+      },
+      {
+        "title": "Últimas reseñas de suplementos",
+        "content": "Publicamos regularmente reseñas detalladas de suplementos populares y en tendencia, incluyendo:",
+        "items": [
+          "Suplementos para bajar de peso y metabolismo",
+          "Fórmulas para el sueño y la relajación",
+          "Probióticos para la salud dental y bucal",
+          "Apoyo para la salud intestinal y la digestión",
+          "Productos para la energía y el bienestar general"
+        ]
+      },
+      {
+        "title": "Categorías populares de suplementos",
+        "content": "Cada categoría está cuidadosamente seleccionada para ayudarte a comparar opciones fácilmente.",
+        "items": [
+          "Suplementos para bajar de peso – Quemadores de grasa, potenciadores del metabolismo y control del apetito",
+          "Apoyo para el sueño y el estrés – Fórmulas para sueño profundo y relajación",
+          "Salud dental y bucal – Probióticos para dientes y encías",
+          "Salud intestinal – Enzimas digestivas y apoyo al microbioma",
+          "Bienestar general – Suplementos diarios para salud e inmunidad"
+        ]
+      },
+      {
+        "title": "Nuestra misión",
+        "content": "Nuestra misión en SuppleLogic es simple: ofrecer reseñas honestas, lógicas y fáciles de entender que empoderen mejores decisiones de salud. Creemos que los suplementos deben apoyar tu salud — no confundirte ni engañarte."
+      },
+      {
+        "title": "Preguntas frecuentes",
+        "items": [
+          "¿Las reseñas de SuppleLogic son imparciales? Sí. Todas las reseñas se escriben de forma independiente utilizando análisis de ingredientes, datos de investigación y retroalimentación de usuarios. Las comisiones de afiliados no afectan nuestras evaluaciones.",
+          "¿Prueban suplementos? No fabricamos ni vendemos suplementos. Nuestras reseñas se basan en investigación de ingredientes, estudios científicos, transparencia de la marca y experiencias de usuarios disponibles públicamente.",
+          "¿Es SuppleLogic un sitio web médico? No. Solo proporcionamos contenido informativo. Siempre consulta a un profesional de la salud antes de comenzar cualquier suplemento."
+        ],
+        "content": "Descargo de responsabilidad: El contenido de SuppleLogic tiene fines informativos únicamente y no constituye consejo médico. Podemos ganar comisiones de afiliados por compras calificadas."
+      }
+    ]
   }
 }

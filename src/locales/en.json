@@ -1,25 +1,28 @@
 {
   "seo": {
-    "title": "Mitolyn Official | Natural Weight Loss Supplements",
-    "description": "Discover Mitolyn's natural weight loss supplements designed to help you achieve your health and fitness goals effectively.",
-    "keywords": "weight loss, supplements, Mitolyn, natural health, fitness, wellness"
+    "title": "SuppleLogic | Honest Supplement Reviews",
+    "description": "SuppleLogic is a trusted platform dedicated to honest, research-driven supplement reviews. We help you cut through marketing hype by analyzing supplement ingredients, claimed benefits, potential side effects, and real user experiences — so you can make smarter, safer buying decisions.",
+    "keywords": "supplement reviews, weight loss supplements, sleep support, gut health, dental health, wellness supplements"
   },
   "categories": {
-    "weightLoss": "Weight Loss",
-    "dentalHealth": "Dental Health",
-    "wellness": "Wellness",
+    "weightLoss": "Weight Loss Supplements",
+    "sleepStress": "Sleep & Stress Support",
+    "dentalHealth": "Dental & Oral Health",
+    "gutHealth": "Gut Health",
+    "wellness": "General Wellness",
     "bundles": "Bundles"
   },
   "nav": {
     "home": "Home",
     "dentalHealth": "Dental Health",
-    "products": "Products"
+    "products": "Products",
+    "about": "About Us"
   },
   "products": {
     "weight-loss": [
       {
         "id": "basic",
-        "slug":"metolyn",
+        "slug": "mitolyn",
         "name": "MITOLYN Basic Package",
         "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
         "price": "₹2,499",
@@ -31,72 +34,88 @@
       },
       {
         "id": "popular",
-        "slug":"metolyn",
+        "slug": "mitolyn",
         "name": "MITOLYN Popular Package",
         "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
         "price": "₹4,449",
         "originalPrice": "₹5,999",
         "discount": "25% off",
         "duration": "90 Days Supply",
-        "badge": { "text": "Most Popular", "color": "orange" },
+        "badge": {
+          "text": "Most Popular",
+          "color": "orange"
+        },
         "url": "https://supplelogic.com/popular"
       },
       {
         "id": "best-value",
-        "slug":"metolyn",
+        "slug": "mitolyn",
         "name": "MITOLYN Best Value Package",
         "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
         "price": "₹6,899",
         "originalPrice": "₹7,999",
         "discount": "14% off",
         "duration": "180 Days Supply",
-        "badge": { "text": "Best Value", "color": "emerald" },
+        "badge": {
+          "text": "Best Value",
+          "color": "emerald"
+        },
         "url": "https://supplelogic.com/best-value"
       }
     ],
-    "energy": [
+    "sleep-stress": [
       {
         "id": "power-boost",
-        "slug":"metolyn",
-        "name": "ENERGYMAX Power Boost",
+        "slug": "mitolyn",
+        "name": "SLEEPMAX Power Boost",
         "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
         "price": "₹1,899",
         "originalPrice": "₹2,299",
         "discount": "17% off",
         "duration": "30 Days Supply",
-        "badge": { "text": "Natural Energy", "color": "blue" },
+        "badge": {
+          "text": "Natural Energy",
+          "color": "blue"
+        },
         "url": "https://supplelogic.com/energy-boost"
       },
       {
         "id": "endurance",
-        "slug":"metolyn",
-        "name": "ENERGYMAX Endurance Pack",
+        "slug": "mitolyn",
+        "name": "SLEEPMAX Endurance Pack",
         "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
         "price": "₹5,499",
         "originalPrice": "₹6,999",
         "discount": "21% off",
         "duration": "90 Days Supply",
-        "badge": { "text": "Long-lasting", "color": "blue" },
+        "badge": {
+          "text": "Long-lasting",
+          "color": "blue"
+        },
         "url": "https://supplelogic.com/endurance-pack"
       },
       {
         "id": "ultimate",
-        "slug":"metolyn",
-        "name": "ENERGYMAX Ultimate Bundle",
+        "slug": "mitolyn",
+        "name": "SLEEPMAX Ultimate Bundle",
         "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
         "price": "₹8,999",
         "originalPrice": "₹11,999",
         "discount": "25% off",
         "duration": "180 Days Supply",
-        "badge": { "text": "Premium", "color": "blue" },
+        "badge": {
+          "text": "Premium",
+          "color": "blue"
+        },
         "url": "https://supplelogic.com/ultimate-bundle"
       }
     ],
+    "gut-health": [],
     "wellness": [],
     "bundles": []
   },
   "footer": {
-    "description": "SuppleLogic provides honest, research-based supplement reviews that cut through marketing hype. We analyze ingredients, benefits, side effects, and real user experiences to help you make smart, safe buying decisions.",
+    "description": "SuppleLogic is a trusted platform dedicated to honest, research-driven supplement reviews. We help you cut through marketing hype by analyzing supplement ingredients, claimed benefits, potential side effects, and real user experiences — so you can make smarter, safer buying decisions. Whether you’re looking for weight loss, sleep support, gut health, or oral care supplements, SuppleLogic delivers clear, unbiased insights based on logic, not exaggeration.",
     "quickLinks": "Quick Links",
     "customerService": "Customer Service",
     "legal": "Legal",
@@ -107,5 +126,69 @@
     "faq": "FAQ",
     "shipping": "Shipping Info",
     "allRightsReserved": "All rights reserved."
+  },
+  "about": {
+    "title": "About SuppleLogic",
+    "lastUpdated": "Last updated: January 11, 2026",
+    "introduction": "SuppleLogic is a trusted platform dedicated to honest, research-driven supplement reviews. We help you cut through marketing hype by analyzing supplement ingredients, claimed benefits, potential side effects, and real user experiences — so you can make smarter, safer buying decisions. Whether you’re looking for weight loss, sleep support, gut health, or oral care supplements, SuppleLogic delivers clear, unbiased insights based on logic, not exaggeration.",
+    "sections": [
+      {
+        "title": "Why Trust SuppleLogic?",
+        "content": "At SuppleLogic, transparency comes first. Our goal is to educate — not mislead. We may earn a commission when you purchase through our links, but this never influences our reviews. Every product is evaluated using the same honest standards.",
+        "items": [
+          "Independent ingredient analysis",
+          "Science-based research approach",
+          "Pros & cons clearly explained",
+          "Real user feedback considered",
+          "No fake claims or miracle promises"
+        ]
+      },
+      {
+        "title": "How We Review Supplements",
+        "content": "Every supplement featured on SuppleLogic goes through a structured evaluation process: This logical approach helps readers avoid low-quality or misleading products.",
+        "items": [
+          "Ingredient Quality – Are the ingredients effective and safe?",
+          "Scientific Evidence – Is there real research behind the claims?",
+          "Benefits vs Claims – Do results match marketing promises?",
+          "Side Effects & Safety – Who should avoid it?",
+          "Value for Money – Is the price justified?"
+        ]
+      },
+      {
+        "title": "Latest Supplement Reviews",
+        "content": "We regularly publish in-depth reviews of trending and popular supplements, including: 👉 Explore our latest reviews to find supplements that actually make sense for your health goals.",
+        "items": [
+          "Weight loss & metabolism supplements",
+          "Sleep & relaxation formulas",
+          "Dental & oral health probiotics",
+          "Gut health & digestion support",
+          "Energy & overall wellness products"
+        ]
+      },
+      {
+        "title": "Popular Supplement Categories",
+        "content": "Each category is carefully curated to help you compare options easily.",
+        "items": [
+          "Weight Loss Supplements – Fat burners, metabolism boosters & appetite control",
+          "Sleep & Stress Support – Deep sleep and relaxation formulas",
+          "Dental & Oral Health – Probiotics for teeth and gums",
+          "Gut Health – Digestive enzymes & microbiome support",
+          "General Wellness – Daily health & immunity supplements"
+        ]
+      },
+      {
+        "title": "Our Mission",
+        "content": "Our mission at SuppleLogic is simple: to provide honest, logical, and easy-to-understand supplement reviews that empower better health decisions. We believe supplements should support your health — not confuse or mislead you."
+      },
+      {
+        "title": "Frequently Asked Questions",
+        "items": [
+          "Are SuppleLogic reviews unbiased? Yes. All reviews are written independently using ingredient analysis, research data, and user feedback. Affiliate commissions do not affect our evaluations.",
+          "Do you test supplements? We do not manufacture or sell supplements. Our reviews are based on ingredient research, scientific studies, brand transparency, and publicly available user experiences.",
+          "Is SuppleLogic a medical website? No. We provide informational content only. Always consult a healthcare professional before starting any supplement."
+        ],
+        "content": "Disclaimer: Content on SuppleLogic is for informational purposes only and not medical advice. We may earn affiliate commissions from qualifying purchases."
+      }
+    ]
   }
 }

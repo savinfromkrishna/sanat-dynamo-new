@@ -22,6 +22,8 @@ import enKnowMore from "@/locales/know-more.json";
 import esKnowMore from "@/locales/es/know-more.json";
 import enproductKnowMore from "@/locales/product-know-more.json";
 import esproductKnowMore from "@/locales/es/product-know-more.json";
+import escommonjson from "@/locales/es/common.json";
+import encommonjson from "@/locales/common.json";
 export function getTranslation(locale: Locale): Translations {
   const mainTranslations = locale === "es" ? esMain : enMain;
   const heroTranslations = locale === "es" ? esHero : enHero;
@@ -32,6 +34,8 @@ export function getTranslation(locale: Locale): Translations {
   const productTranslations = locale === "es" ? esProducts : enProducts;
   const knowMore = locale === "es" ? esKnowMore : enKnowMore
   const productKnowMore = locale === "es" ? esproductKnowMore : enproductKnowMore
+  const commonTranslations = locale === "es" ? escommonjson : encommonjson;
+  console.log("Common Translations:", commonTranslations);
   const merged = {
     ...mainTranslations,
     ...heroTranslations,
@@ -39,7 +43,9 @@ export function getTranslation(locale: Locale): Translations {
     ...womenWeightLossTranslations,
     ...productTranslations,
     knowMore,
-    productKnowMore
+    productKnowMore,
+    ...commonTranslations,
+    ...aboutTranslations,
   };
   console.log("Merged translations:", merged);
   return merged;

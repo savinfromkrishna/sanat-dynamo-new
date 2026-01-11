@@ -1,0 +1,117 @@
+{
+  "terms": {
+    "title": "Terms & Conditions",
+    "lastUpdated": "Last updated: January 11, 2026",
+    "introduction": "All advertisements on supplelogic.com must comply with these rules. Violation may result in blocking of ads and/or user accounts.",
+    "sections": [
+      {
+        "title": "General Posting Rules",
+        "items": [
+          "Do not submit the same advertisement repeatedly (same product, even in different cities or categories).",
+          "Removing and reposting the same product is also considered a duplicate submission.",
+          "If a product is sold or the offer is no longer relevant, remove the ad immediately after the transaction.",
+          "It is prohibited to replace one product with another (different brand, model, etc.) in the same ad — create a new advertisement instead.",
+          "Use of multiple accounts is strictly forbidden.",
+          "Only post ads for existing, real offers.",
+          "Ads must be placed in the correct category matching the product type, description, and purpose.",
+          "All information in the ad (title, description, parameters, photos) must be truthful and not misleading.",
+          "Prohibited: ads about dubious ways to earn money (e.g. \"Transfer $10 and earn much more\").",
+          "No erotic, pornographic, obscene, extremist or inappropriate content in ads, titles, photos, videos or usernames.",
+          "Unauthorized use of logos, trademarks or names of well-known brands/companies is prohibited."
+        ]
+      },
+      {
+        "title": "Contact Information Rules",
+        "items": [
+          "The name in the ad must be real.",
+          "The \"Name\" field must not contain any contact information (website, phone, email, etc.).",
+          "No phone numbers, email addresses or other contact details are allowed in title or description.",
+          "Exception: contact information may be included only when required by law."
+        ]
+      },
+      {
+        "title": "Photos Requirements",
+        "items": [
+          "Photos must exactly match the title and description of the advertised product.",
+          "Use of watermarked images (without permission of the copyright holder) is prohibited."
+        ]
+      },
+      {
+        "title": "Price Rules",
+        "items": [
+          "Price must be an integer number and quoted in US dollars (USD).",
+          "Indicate only the real asking price.",
+          "If the product has defects, damage or reduced price — clearly mention it in the description.",
+          "Do not write the price in the ad title — use the dedicated price field."
+        ]
+      },
+      {
+        "title": "Important Notices",
+        "items": [
+          "supplelogic.com reserves the right to change and update these rules at any time.",
+          "The platform makes no guarantees of merchantability or fitness for a particular purpose.",
+          "The marketplace assumes no responsibility for the accuracy of information provided by users.",
+          "Paid (Premium, VIP, etc.) advertisements are also subject to these rules and can be blocked if violations are detected.",
+          "Users are fully responsible for compliance of their Products with supplelogic.com requirements and applicable US law."
+        ]
+      }
+    ]
+  },
+
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: January 11, 2026",
+    "introduction": "This Privacy Policy explains how SuppleLogic collects, uses and protects your personal information when you use our website. We are committed to protecting your privacy.",
+    "sections": [
+      {
+        "title": "Information We Collect",
+        "items": [
+          "Name",
+          "Contact information including email address",
+          "Demographic information such as postcode, preferences and interests",
+          "Other information relevant to customer surveys and/or offers",
+          "Cookies and similar technologies (see List of cookies below)"
+        ]
+      },
+      {
+        "title": "How We Use Your Information",
+        "items": [
+          "Internal record keeping",
+          "To improve our products and services",
+          "To send you promotional emails about new products, special offers or other information we think you may find interesting",
+          "For market research purposes (via email, phone, fax or mail)",
+          "To customize the website according to your interests"
+        ]
+      },
+      {
+        "title": "Security",
+        "content": "We are committed to ensuring that your information is secure. We have implemented appropriate physical, electronic and managerial procedures to safeguard and secure the information we collect online."
+      },
+      {
+        "title": "Children's Privacy",
+        "content": "Consistent with the Children's Online Privacy Protection Act of 1998 (COPPA), we will never knowingly request personally identifiable information from anyone under the age of 13 without prior verifiable parental consent. If we become aware of such information, we will promptly remove it from our files."
+      },
+      {
+        "title": "Disclosure to Third Parties",
+        "content": "We do not sell, trade or transfer your personally identifiable information to outside parties, except to trusted third parties who assist us in operating our website (and who agree to keep information confidential). We may release information when required by law, to enforce site policies, or to protect rights, property or safety."
+      },
+      {
+        "title": "How We Use Cookies",
+        "content": "Cookies help us provide you with a better website experience by analyzing traffic and remembering your preferences. You can choose to accept or decline cookies through your browser settings."
+      },
+      {
+        "title": "Links to Other Websites",
+        "content": "Our website may contain links to external sites. We have no control over these sites and are not responsible for their privacy practices."
+      },
+      {
+        "title": "Controlling Your Personal Information",
+        "items": [
+          "Opt-out of direct marketing when filling forms",
+          "Change your marketing preferences at any time by emailing us at mail@SuppleLogic.com",
+          "Request access to your personal data (small fee may apply under Data Protection Act 1998)",
+          "Request correction of inaccurate or incomplete information"
+        ]
+      }
+    ]
+  }
+}
