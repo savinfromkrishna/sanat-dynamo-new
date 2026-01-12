@@ -1,71 +1,78 @@
-import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import type { Metadata, Viewport } from "next"
+import { notFound } from "next/navigation"
 
-import ProductDetailPageClient from "./ProductDetailPageClient";
-import { getTranslation, type Locale } from "@/lib/i18n";
-import type { ProductDetail } from "./product-data";
+import ProductDetailPageClient from "./ProductDetailPageClient"
+import { getTranslation, type Locale } from "@/lib/i18n"
+import type { ProductDetail } from "./product-data"
 
-/* ---------------------------------------------
-   REQUIRED: viewport export
----------------------------------------------- */
-export const viewport = {
-  width: "device-width",
-  initialScale: 1,
-};
-
-/* ---------------------------------------------
-   Category mapping
----------------------------------------------- */
-function getCategoryKey(slug: string): string | null {
-  const map: Record<string, string> = {
-    "weight-loss-supplements": "weightLoss",
-    "dental-health-supplements": "oralProbiotics",
-  };
-  return map[slug] ?? null;
+/* ------------------------------------------------------------------ */
+/* Viewport (REQUIRED – fixes metadata warning) */
+/* ------------------------------------------------------------------ */
+export function generateViewport(): Viewport {
+  return {
+    width: "device-width",
+    initialScale: 1,
+  }
 }
 
-/* ---------------------------------------------
-   Product map for SSG
----------------------------------------------- */
+/* ------------------------------------------------------------------ */
+/* Category mapping */
+/* ------------------------------------------------------------------ */
+type CategoryKey = "weightLoss" | "oralProbiotics"
+
+function getCategoryKey(slug: string): CategoryKey | null {
+  const map: Record<string, CategoryKey> = {
+    "weight-loss-supplements": "weightLoss",
+    "dental-health-supplements": "oralProbiotics",
+  }
+  return map[slug] || null
+}
+
+/* ------------------------------------------------------------------ */
+/* Static product map */
+/* ------------------------------------------------------------------ */
 const productMap: Record<string, string[]> = {
   "weight-loss-supplements": ["metolyn"],
   "dental-health-supplements": ["prodentim"],
-};
+}
 
-/* ---------------------------------------------
-   Metadata
----------------------------------------------- */
+/* ------------------------------------------------------------------ */
+/* Metadata */
+/* ------------------------------------------------------------------ */
 export async function generateMetadata({
   params,
 }: {
-  params: {
-    country: string;
-    locale: Locale;
-    slug: string;
-    id: string;
-  };
+  params: Promise<{
+    country: string
+    locale: Locale
+    slug: string
+    id: string
+  }>
 }): Promise<Metadata> {
-  const { country, locale, slug, id } = params;
+  const { country, locale, slug, id } = await params
 
-  const translations = getTranslation(locale);
-  const categoryKey = getCategoryKey(slug);
+  const translations = getTranslation(locale)
+  const categoryKey = getCategoryKey(slug)
 
   if (!categoryKey) {
-    return { title: "Page Not Found" };
+    return { title: "Page Not Found" }
   }
 
-  const product = translations.products?.[id] as ProductDetail | undefined;
+  const product = translations.products?.[id] as ProductDetail | undefined
 
-  if (!product) {
-    return { title: translations.common?.productNotFound ?? "Product Not Found" };
+  if (!product?.seo) {
+    return {
+      title: translations.common?.productNotFound ?? "Product Not Found",
+    }
   }
 
-  const image = product.image;
+  const fallbackImage =
+    "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp"
 
   return {
-    title: product.seo?.title,
-    description: product.seo?.description,
-    keywords: product.seo?.keywords?.join(", "),
+    title: product.seo.title,
+    description: product.seo.description,
+    keywords: product.seo.keywords?.join(", "),
     metadataBase: new URL("https://supplelogic.com"),
     alternates: {
       canonical: `/${country}/${locale}/${slug}/${product.id}`,
@@ -75,16 +82,16 @@ export async function generateMetadata({
       },
     },
     openGraph: {
-      title: product.seo?.title,
-      description: product.seo?.description,
+      title: product.seo.title,
+      description: product.seo.description,
       url: `https://supplelogic.com/${country}/${locale}/${slug}/${product.id}`,
       siteName: "SuppleLogic",
       images: [
         {
-          url: image,
+          url: product.image || fallbackImage,
           width: 1200,
           height: 630,
-          alt: product.name,
+          alt: product.name ?? product.seo.title,
         },
       ],
       locale: locale === "es" ? "es_ES" : "en_US",
@@ -92,45 +99,56 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: product.seo?.title,
-      description: product.seo?.description,
-      images: [image],
+      title: product.seo.title,
+      description: product.seo.description,
+      images: [product.image || fallbackImage],
     },
-  };
+  }
 }
 
-/* ---------------------------------------------
-   Page
----------------------------------------------- */
+/* ------------------------------------------------------------------ */
+/* Page */
+/* ------------------------------------------------------------------ */
 export default async function ProductPage({
   params,
 }: {
-  params: {
-    country: string;
-    locale: Locale;
-    slug: string;
-    id: string;
-  };
+  params: Promise<{
+    country: string
+    locale: Locale
+    slug: string
+    id: string
+  }>
 }) {
-  const { country, locale, slug, id } = params;
+  const { country, locale, slug, id } = await params
 
-  const translations = getTranslation(locale);
-  const categoryKey = getCategoryKey(slug);
+  const translations = getTranslation(locale)
+  const categoryKey = getCategoryKey(slug)
 
-  if (!categoryKey) notFound();
+  if (!categoryKey) {
+    notFound()
+  }
 
-  const product = translations.products?.[id] as ProductDetail | undefined;
-  if (!product) notFound();
+  const product = translations.products?.[id] as ProductDetail | undefined
 
-  const categoryTranslations = translations[categoryKey];
-  if (!categoryTranslations) notFound();
+  if (!product) {
+    notFound()
+  }
+
+  const categoryTranslations = translations[categoryKey]
+
+  if (!categoryTranslations) {
+    notFound()
+  }
 
   const categoryProducts =
-    categoryTranslations.productsSection?.products ?? [];
+    categoryTranslations.productsSection?.products ?? []
 
   const relatedProducts = categoryProducts
     .filter((p: any) => String(p.id) !== id)
-    .map((p: any) => ({ ...p, id: String(p.id) }));
+    .map((p: any) => ({
+      ...p,
+      id: String(p.id),
+    }))
 
   return (
     <ProductDetailPageClient
@@ -143,22 +161,22 @@ export default async function ProductPage({
       id={id}
       relatedProducts={relatedProducts}
     />
-  );
+  )
 }
 
-/* ---------------------------------------------
-   Static Params (SSG)
----------------------------------------------- */
+/* ------------------------------------------------------------------ */
+/* Static Params (SSG safe) */
+/* ------------------------------------------------------------------ */
 export async function generateStaticParams() {
-  const locales: Locale[] = ["en", "es"];
-  const countries = ["us", "in", "ca"];
+  const locales: Locale[] = ["en", "es"]
+  const countries = ["us", "in", "ca"]
 
   const paramsArray: {
-    country: string;
-    locale: Locale;
-    slug: string;
-    id: string;
-  }[] = [];
+    country: string
+    locale: Locale
+    slug: string
+    id: string
+  }[] = []
 
   for (const country of countries) {
     for (const locale of locales) {
@@ -169,11 +187,11 @@ export async function generateStaticParams() {
             locale,
             slug,
             id,
-          });
+          })
         }
       }
     }
   }
 
-  return paramsArray;
+  return paramsArray
 }
