@@ -17,50 +17,56 @@
       "description": "Many people prefer natural formulas that use plant-based or herbal ingredients. The best natural weight loss supplements are typically free from harsh stimulants and focus on supporting your body’s own fat-burning processes.",
       "products": [
         {
+          "id": 1,
           "name": "MITOLYN Basic Package",
           "price": "₹2,499",
           "originalPrice": "₹2,999",
-          "discount": "16% off",
+          "discount": "16% OFF",
           "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
           "supply": "30 Days Supply",
           "link": "https://supplelogic.com/basic-package",
-          "buyNow": "Buy Now",
+          "badge": "BASIC - 1 BOTTLE",
+          "badgeColor": "bg-gradient-to-r from-teal-500 to-teal-600",
+          "shipping": "* Free Shipping",
           "rating": 4.8,
           "reviews": 2847,
-          "premiumPrice": "₹2,424",
-          "id": 1,
+          "premiumPrice": "₹2,424 for Premium Members",
           "slug": "metolyn",
           "categorySlug": "weight-loss-supplements"
         },
         {
+          "id": 7,
           "name": "Sleep Lean Basic Package",
           "price": "₹2,499",
           "originalPrice": "₹2,999",
-          "discount": "16% off",
+          "discount": "16% OFF",
           "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1766323389/sleep-lean-supplement_naj8ag.png",
           "supply": "30 Days Supply",
           "link": "https://sleeplean-official.com/basic-package",
-          "buyNow": "Buy Now",
+          "badge": "SLEEP SUPPORT",
+          "badgeColor": "bg-gradient-to-r from-green-500 to-green-600",
+          "shipping": "* Free Shipping",
           "rating": 4.9,
           "reviews": 2847,
-          "premiumPrice": "₹2,424",
-          "id": 7,
+          "premiumPrice": "₹2,424 for Premium Members",
           "slug": "sleep-lean",
           "categorySlug": "weight-loss-supplements"
         },
         {
+          "id": 10,
           "name": "BellyFlush Basic Package",
           "price": "₹2,499",
           "originalPrice": "₹2,999",
-          "discount": "16% off",
+          "discount": "16% OFF",
           "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1766323113/bellyflush/BellyFlush-Bottle-Graphic-500px-1_lihmwp.png",
           "supply": "30 Days Supply",
           "link": "https://bellyflush-official.com/basic-package",
-          "buyNow": "Buy Now",
+          "badge": "GUT CLEANSE",
+          "badgeColor": "bg-gradient-to-r from-teal-600 to-teal-700",
+          "shipping": "* Free Shipping",
           "rating": 4.9,
           "reviews": 2847,
-          "premiumPrice": "₹2,424",
-          "id": 10,
+          "premiumPrice": "₹2,424 for Premium Members",
           "slug": "bellyflush",
           "categorySlug": "weight-loss-supplements"
         }
@@ -155,185 +161,6 @@
       "buyNow": "Buy Now",
       "premiumMemberSuffix": "for Premium Members"
     },
-    "oralProbiotics": {
-      "seo": {
-        "title": "Best Probiotics for Teeth & Gums | Natural Oral Health Supplements",
-        "description": "Discover the best probiotics for teeth and gums. Improve gum health, whiten teeth, reduce plaque, and boost oral hygiene naturally with expert guides and reviews.",
-        "keywords": [
-          "best probiotics for teeth and gums",
-          "best oral probiotics",
-          "best dental probiotics",
-          "probiotics for teeth and gums",
-          "teeth supplements",
-          "dental health supplements",
-          "gum health supplements",
-          "probiotics for gum disease",
-          "probiotics for cavities",
-          "probiotics for teeth repair"
-        ]
-      },
-      "title": "Best Probiotics for Teeth & Gums – Improve Your Dental Health Naturally",
-      "intro": "Maintaining strong teeth, healthy gums, and fresh breath goes far beyond brushing and flossing. Modern research proves that the true foundation of oral health lies in your mouth microbiome — the balance of good and harmful bacteria. If harmful bacteria dominate, you may experience gum bleeding, plaque buildup, bad breath, sensitivity, or cavities. The good news? The solution is simple, natural, and scientifically backed: oral probiotics. Welcome to your trusted resource for discovering the best probiotics for teeth and gums, the most effective oral health supplements, and evidence-backed solutions to naturally improve your dental hygiene. ⭐ Why Oral Probiotics Matter for Dental Health Oral probiotics are beneficial bacteria that work inside your mouth to restore bacterial balance. While gut probiotics improve digestion, oral health probiotics specifically target: Gum health Plaque formation Bad breath Tooth enamel strength Teeth whitening Cavities Inflammation If you’ve tried countless toothpastes, mouthwashes, or expensive dental cleaning and still struggle with dental issues — probiotics may be the missing link.",
-      "productsSection": {
-        "title": "What Are the Best Probiotics for Teeth and Gums?",
-        "description": "Not all probiotics are designed for your mouth. Specific strains like Streptococcus salivarius K12 and M18 are proven to: Reduce bad breath Strengthen enamel Reduce plaque Support gum repair Fight cavity-causing bacteria Other powerful strains include: Lactobacillus reuteri Lactobacillus paracasei Bifidobacterium lactis These strains are essential when choosing the best dental probiotics or oral probiotics for teeth. 🌿 A Natural Solution for Teeth, Gums & Oral Hygiene If you’re tired of costly dental treatments or harsh mouthwashes, probiotics offer a gentle yet powerful natural approach to dental health. They work with your body, not against it. Perfect for people dealing with: Bad breath Bleeding gums Plaque buildup Sensitive teeth Yellow teeth and stains Gum infections Weak enamel Anyone can benefit from probiotics — especially adults looking to maintain strong oral hygiene.",
-        "products": [
-          {
-            "id": 1,
-            "name": "PRODENTIM - Basic Package",
-            "price": "$69",
-            "originalPrice": "$99",
-            "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1765645308/ravish/ProDentim-main-1--1-_gnicns.png",
-            "supply": "30-Day Supply",
-            "link": "https://prodentim-official.com/basic-package",
-            "badge": "BASIC - 1 BOTTLE",
-            "badgeColor": "bg-gradient-to-r from-teal-500 to-teal-600",
-            "shipping": "* Free Shipping",
-            "rating": 4.8,
-            "reviews": 2847,
-            "premiumPrice": "$49 for Premium Members",
-            "discount": "30% OFF",
-            "slug": "prodentim",
-            "categorySlug": "dental-health-supplements"
-          },
-          {
-            "id": 2,
-            "name": "PRODENTIM - Duo Package",
-            "price": "$59",
-            "originalPrice": "$198",
-            "total": "$118",
-            "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1765645307/ravish/prodentim-929x793_seuqca.png",
-            "supply": "60-Day Supply",
-            "link": "https://prodentim-official.com/duo-package",
-            "badge": "DUO - 2 BOTTLES",
-            "badgeColor": "bg-gradient-to-r from-green-500 to-green-600",
-            "shipping": "* Free Shipping",
-            "rating": 4.7,
-            "reviews": 2356,
-            "premiumPrice": "$45 for Premium Members",
-            "discount": "40% OFF",
-            "slug": "prodentim-2",
-            "categorySlug": "dental-health-supplements"
-          },
-          {
-            "id": 3,
-            "name": "PRODENTIM - Popular",
-            "price": "$59",
-            "originalPrice": "$297",
-            "total": "$177",
-            "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1765645311/ravish/prodentim-official-website-993x720_s4yrzn.webp",
-            "supply": "90-Day Supply",
-            "link": "https://prodentim-official.com/popular",
-            "badge": "POPULAR - 3 BOTTLES",
-            "badgeColor": "bg-gradient-to-r from-teal-600 to-teal-700",
-            "shipping": "* Free Shipping + Free eBooks",
-            "popular": true,
-            "rating": 4.9,
-            "reviews": 3921,
-            "premiumPrice": "$45 for Premium Members",
-            "discount": "40% OFF",
-            "slug": "prodentim-3",
-            "categorySlug": "dental-health-supplements"
-          }
-        ]
-      },
-      "trustBadges": {
-        "title": "Certified Quality You Can Trust",
-        "items": [
-          {
-            "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/made-in-usa_go4j19.webp",
-            "alt": "Made in USA"
-          },
-          {
-            "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422484/fda-approved_jrawwr.webp",
-            "alt": "FDA-Registered Facility"
-          },
-          {
-            "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422491/natural_dpkfxs.webp",
-            "alt": "100% Natural"
-          }
-        ]
-      },
-      "genderSpecific": {
-        "women": {
-          "title": "Best Oral Probiotics for Women",
-          "description": "Women may experience unique oral health challenges due to hormonal changes affecting gum sensitivity. The best oral probiotics for women are designed to:",
-          "items": [
-            "Support gum health during hormonal shifts.",
-            "Reduce plaque and inflammation naturally.",
-            "Promote overall oral hygiene and fresh breath."
-          ],
-          "footer": "For women seeking effective probiotics for teeth and gums, explore our reviewed options tailored for natural dental wellness."
-        },
-        "men": {
-          "title": "Best Oral Probiotics for Men",
-          "description": "Men often face higher risks of gum disease from lifestyle factors. The top oral probiotics for men focus on:",
-          "items": [
-            "Strengthening enamel and reducing cavities.",
-            "Combating bad breath and plaque buildup.",
-            "Enhancing long-term dental repair and health."
-          ]
-        }
-      },
-      "selectionProcess": {
-        "title": "How to Choose the Best Oral Probiotic Supplement",
-        "items": [
-          "Clinically proven strains (K12 & M18) – These two strains are the top research-backed choices.",
-          "Chewable or lozenge format – Probiotics must stay in the mouth to work; capsules often fail.",
-          "Sugar-free formula – Sugar feeds harmful bacteria.",
-          "GMP-certified manufacturing – Ensures safety, purity, and potency.",
-          "Added vitamins/minerals – Vitamin D, calcium, and zinc support stronger teeth and gums."
-        ]
-      },
-      "faqs": {
-        "title": "FAQs About Oral Probiotics",
-        "items": [
-          {
-            "question": "Are probiotics good for teeth and gums?",
-            "answer": "Yes. They reduce harmful bacteria, strengthen gums, and support enamel."
-          },
-          {
-            "question": "Can probiotics whiten teeth?",
-            "answer": "Indirectly, yes — by removing bacteria that cause yellowing and stains."
-          },
-          {
-            "question": "How long do oral probiotics take to work?",
-            "answer": "Most users see results in 2–4 weeks."
-          },
-          {
-            "question": "Do oral probiotics replace brushing?",
-            "answer": "No. They enhance brushing and flossing, not replace them."
-          },
-          {
-            "question": "Who should take oral probiotics?",
-            "answer": "Anyone dealing with plaque, gum issues, bad breath, weak enamel, or yellow teeth."
-          },
-          {
-            "question": "How to use oral probiotics for best results?",
-            "answer": "Take 1–2 lozenges daily after brushing. Allow it to dissolve slowly — do not chew. Avoid eating or drinking for 30 minutes. Use for 4–8 weeks for best results."
-          }
-        ]
-      },
-      "benefits": {
-        "title": "Benefits of Using the Best Probiotics for Teeth and Gums",
-        "items": [
-          "Gum Repair & Strength – Reduces inflammation, bleeding, and sensitivity.",
-          "Natural Teeth Whitening – Removes harmful staining bacteria.",
-          "Fresh Breath Support – Balances the bacteria that cause bad odor.",
-          "Improved Enamel Health – Supports remineralization and strengthens enamel.",
-          "Long-Term Dental Hygiene – Reduces plaque formation and harmful bacteria.",
-          "Supports Adult Dental Wellness – Especially helpful if you experience recurring dental issues."
-        ],
-        "footer": "Why Oral Probiotics Matter for Dental Health: Oral probiotics are beneficial bacteria that work inside your mouth to restore bacterial balance. While gut probiotics improve digestion, oral health probiotics specifically target gum health, plaque formation, bad breath, tooth enamel strength, teeth whitening, cavities, and inflammation. If you’ve tried countless toothpastes, mouthwashes, or expensive dental cleanings and still struggle with dental issues — probiotics may be the missing link. 🔍 How Probiotics Improve Your Teeth and Gum Health ✔ 1. Fight Plaque and Cavities Probiotics block harmful bacteria like Streptococcus mutans, the leading cause of tooth decay. ✔ 2. Strengthen Gums They reduce gum inflammation, support healing, and improve gum attachment. ✔ 3. Freshen Breath Naturally Bad breath is often caused by sulfur-producing bacteria. Probiotics replace them with odor-fighting strains. ✔ 4. Support Teeth Repair & Enamel Health Certain strains enhance mineral absorption, helping the enamel repair process. ✔ 5. Whiten Teeth Over Time By reducing staining bacteria, probiotics promote cleaner, brighter enamel. ✔ 6. Improve Overall Dental Hygiene They enhance your mouth’s ecosystem, creating a natural defense against dental issues."
-      },
-      "finalThoughts": {
-        "text": "💎 Your Journey to Better Dental Health Starts Here Whether you’re looking to fix gum problems, whiten your teeth naturally, eliminate bad breath, or strengthen your enamel, oral probiotics offer a powerful and natural way to restore dental health. This website is your one-stop destination for: Expert guides Research-based recommendations Honest supplement reviews Dental hygiene tips Natural solutions A healthier smile begins today."
-      },
-      "common": {
-        "buyNow": "Buy Now",
-        "premiumMemberSuffix": "for Premium Members"
-      }
-    },
     "reviews": {
       "title": "Real Customer Reviews",
       "description": "See what real people are saying about our top weight loss supplements",
@@ -368,7 +195,7 @@
           "title": "Amazing Results in Just 30 Days!",
           "content": "I've tried countless weight loss supplements, but MITOLYN is different. Within 30 days, I lost 8 kg and feel more energetic than ever. The natural ingredients make all the difference!",
           "verified": true,
-          "product": "MITOLYN Best Value Package"
+          "product": "MITOLYN Basic Package"
         },
         {
           "name": "Rajesh Kumar",
@@ -378,37 +205,7 @@
           "title": "Life-Changing Experience",
           "content": "After struggling with weight for years, MITOLYN helped me lose 15 kg in 3 months. My confidence is back, and I feel healthier than I have in decades. Highly recommend!",
           "verified": true,
-          "product": "MITOLYN Popular Package"
-        },
-        {
-          "name": "Priya Sharma",
-          "location": "Bangalore, India",
-          "rating": 5,
-          "date": "3 weeks ago",
-          "title": "Natural and Effective",
-          "content": "What I love about MITOLYN is that it's completely natural. No side effects, just steady weight loss and increased energy. Lost 6 kg in my first month!",
-          "verified": true,
           "product": "MITOLYN Basic Package"
-        },
-        {
-          "name": "Amit Patel",
-          "location": "Ahmedabad, India",
-          "rating": 4,
-          "date": "2 months ago",
-          "title": "Steady Progress",
-          "content": "MITOLYN has been a game-changer for my weight loss journey. The results are gradual but consistent. I've lost 12 kg over 4 months and feel fantastic.",
-          "verified": true,
-          "product": "MITOLYN Best Value Package"
-        },
-        {
-          "name": "Neha Gupta",
-          "location": "Pune, India",
-          "rating": 5,
-          "date": "1 week ago",
-          "title": "Exceeded Expectations",
-          "content": "I was skeptical at first, but MITOLYN delivered beyond my expectations. Not only did I lose weight, but my overall health improved significantly. Thank you MITOLYN!",
-          "verified": true,
-          "product": "MITOLYN Popular Package"
         },
         {
           "name": "Rahul S.",
@@ -416,47 +213,7 @@
           "rating": 5,
           "date": "2 weeks ago",
           "title": "Better Sleep and Weight Loss",
-          "content": "I started using Sleep Lean because my sleep cycle was completely disturbed. Within a few days, I was sleeping deeper and waking up refreshed. After a few weeks, I noticed reduced cravings and gradual weight loss. It feels like a clean, natural sleep supplement.",
-          "verified": true,
-          "product": "Sleep Lean Basic Package"
-        },
-        {
-          "name": "Emily R.",
-          "location": "Austin, Texas, USA",
-          "rating": 5,
-          "date": "1 month ago",
-          "title": "Gentle and Effective",
-          "content": "Sleep Lean helped me fall asleep faster without making me feel drowsy in the morning. My stress levels went down, and I slowly started losing weight without changing much in my routine. I like that it’s non-habit forming and gentle.",
-          "verified": true,
-          "product": "Sleep Lean Basic Package"
-        },
-        {
-          "name": "David M.",
-          "location": "London, UK",
-          "rating": 5,
-          "date": "3 weeks ago",
-          "title": "Improved Sleep Quality",
-          "content": "I’ve tried multiple sleep supplements before, but Sleep Lean worked better for me. My sleep quality improved significantly, and I stopped late-night snacking. Over time, I noticed steady fat loss. Definitely one of the better weight loss supplements I’ve used.",
-          "verified": true,
-          "product": "Sleep Lean Basic Package"
-        },
-        {
-          "name": "Anita V.",
-          "location": "Jaipur, India",
-          "rating": 4,
-          "date": "2 months ago",
-          "title": "Great for Busy Lifestyles",
-          "content": "Sleep Lean has helped me get better rest at night, and I've lost about 5 kg in the last month. No more midnight cravings, and I wake up feeling energized. Great for busy lifestyles!",
-          "verified": true,
-          "product": "Sleep Lean Basic Package"
-        },
-        {
-          "name": "Michael T.",
-          "location": "New York, USA",
-          "rating": 5,
-          "date": "1 week ago",
-          "title": "Changed Everything",
-          "content": "As someone with insomnia, Sleep Lean changed everything. Deeper sleep led to better metabolism, and I've shed 10 kg without extra effort. Highly recommended for night-time weight management.",
+          "content": "I started using Sleep Lean because my sleep cycle was completely disturbed. Within a few days, I was sleeping deeper and waking up refreshed.",
           "verified": true,
           "product": "Sleep Lean Basic Package"
         },
@@ -469,98 +226,167 @@
           "content": "After a week of using BellyFlush, my bloating was almost gone. My stomach feels lighter and digestion is much better.",
           "verified": true,
           "product": "BellyFlush Basic Package"
-        },
-        {
-          "name": "Daniel R.",
-          "location": "Texas, USA",
-          "rating": 5,
-          "date": "1 month ago",
-          "title": "Gentle Cleanse",
-          "content": "I’ve tried many gut cleanse products, but BellyFlush worked gently without cramps. I feel more comfortable daily.",
-          "verified": true,
-          "product": "BellyFlush Basic Package"
-        },
-        {
-          "name": "Anita K.",
-          "location": "New York, USA",
-          "rating": 4,
-          "date": "3 weeks ago",
-          "title": "Better Digestion",
-          "content": "Great supplement for digestion. I noticed less gas and better regularity within a few days.",
-          "verified": true,
-          "product": "BellyFlush Basic Package"
-        },
-        {
-          "name": "Vikram P.",
-          "location": "Delhi, India",
-          "rating": 5,
-          "date": "2 months ago",
-          "title": "Effective for Bloating",
-          "content": "BellyFlush has been amazing for my persistent bloating. After two weeks, I feel less heavy, and my digestion has improved a lot. Natural and effective!",
-          "verified": true,
-          "product": "BellyFlush Basic Package"
-        },
-        {
-          "name": "Lisa W.",
-          "location": "London, UK",
-          "rating": 5,
-          "date": "1 week ago",
-          "title": "Best Gentle Cleanse",
-          "content": "This is the best gentle cleanse I've used. Reduced water retention and made my belly feel flatter. No harsh side effects, just better gut health.",
-          "verified": true,
-          "product": "BellyFlush Basic Package"
-        },
-        {
-          "name": "John D.",
-          "location": "New York, USA",
-          "rating": 5,
-          "date": "1 week ago",
-          "title": "Improved Oral Health",
-          "content": "PRODENTIM has transformed my dental hygiene. My gums feel healthier, and my breath is fresher. Highly recommend for anyone with gum issues!",
-          "verified": true,
-          "product": "PRODENTIM - Basic Package"
-        },
-        {
-          "name": "Maria L.",
-          "location": "Los Angeles, USA",
-          "rating": 4.8,
-          "date": "2 weeks ago",
-          "title": "Whiter Teeth Naturally",
-          "content": "After using PRODENTIM for a month, my teeth are noticeably whiter and my plaque has reduced. It's a gentle and effective supplement.",
-          "verified": true,
-          "product": "PRODENTIM - Duo Package"
-        },
-        {
-          "name": "Alex K.",
-          "location": "London, UK",
-          "rating": 5,
-          "date": "3 weeks ago",
-          "title": "No More Bad Breath",
-          "content": "PRODENTIM eliminated my chronic bad breath. The probiotics work wonders for balancing oral bacteria. Great product!",
-          "verified": true,
-          "product": "PRODENTIM - Popular"
-        },
-        {
-          "name": "Sophie M.",
-          "location": "Paris, France",
-          "rating": 4.9,
-          "date": "1 month ago",
-          "title": "Stronger Gums and Enamel",
-          "content": "I've noticed significant improvement in my gum health and tooth strength since starting PRODENTIM. It's natural and effective.",
-          "verified": true,
-          "product": "PRODENTIM - Basic Package"
-        },
-        {
-          "name": "Carlos R.",
-          "location": "Madrid, Spain",
-          "rating": 5,
-          "date": "2 months ago",
-          "title": "Excellent for Dental Wellness",
-          "content": "PRODENTIM has been a game-changer for my oral care routine. Less sensitivity and better overall dental health. Worth every penny!",
-          "verified": true,
-          "product": "PRODENTIM - Duo Package"
         }
       ]
+    }
+  },
+  "oralProbiotics": {
+    "seo": {
+      "title": "Best Probiotics for Teeth & Gums | Natural Oral Health Supplements",
+      "description": "Discover the best probiotics for teeth and gums. Improve gum health, whiten teeth, reduce plaque, and boost oral hygiene naturally with expert guides and reviews.",
+      "keywords": [
+        "best probiotics for teeth and gums",
+        "best oral probiotics",
+        "best dental probiotics",
+        "probiotics for teeth and gums",
+        "teeth supplements",
+        "dental health supplements",
+        "gum health supplements",
+        "probiotics for gum disease",
+        "probiotics for cavities",
+        "probiotics for teeth repair"
+      ]
+    },
+    "title": "Best Probiotics for Teeth & Gums – Improve Your Dental Health Naturally",
+    "intro": "Maintaining strong teeth, healthy gums, and fresh breath goes far beyond brushing and flossing. Modern research proves that the true foundation of oral health lies in your mouth microbiome — the balance of good and harmful bacteria. If harmful bacteria dominate, you may experience gum bleeding, plaque buildup, bad breath, sensitivity, or cavities. The good news? The solution is simple, natural, and scientifically backed: oral probiotics. Welcome to your trusted resource for discovering the best probiotics for teeth and gums, the most effective oral health supplements, and evidence-backed solutions to naturally improve your dental hygiene. ⭐ Why Oral Probiotics Matter for Dental Health Oral probiotics are beneficial bacteria that work inside your mouth to restore bacterial balance. While gut probiotics improve digestion, oral health probiotics specifically target: Gum health Plaque formation Bad breath Tooth enamel strength Teeth whitening Cavities Inflammation If you’ve tried countless toothpastes, mouthwashes, or expensive dental cleaning and still struggle with dental issues — probiotics may be the missing link.",
+    "productsSection": {
+      "title": "What Are the Best Probiotics for Teeth and Gums?",
+      "description": "Not all probiotics are designed for your mouth. Specific strains like Streptococcus salivarius K12 and M18 are proven to: Reduce bad breath Strengthen enamel Reduce plaque Support gum repair Fight cavity-causing bacteria Other powerful strains include: Lactobacillus reuteri Lactobacillus paracasei Bifidobacterium lactis These strains are essential when choosing the best dental probiotics or oral probiotics for teeth.",
+      "products": [
+        {
+          "id": 1,
+          "name": "PRODENTIM - Basic Package",
+          "price": "$69",
+          "originalPrice": "$99",
+          "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1765645308/ravish/ProDentim-main-1--1-_gnicns.png",
+          "supply": "30-Day Supply",
+          "link": "https://prodentim-official.com/basic-package",
+          "badge": "BASIC - 1 BOTTLE",
+          "badgeColor": "bg-gradient-to-r from-teal-500 to-teal-600",
+          "shipping": "* Free Shipping",
+          "rating": 4.8,
+          "reviews": 2847,
+          "premiumPrice": "$49 for Premium Members",
+          "discount": "30% OFF",
+          "slug": "prodentim",
+          "categorySlug": "dental-health-supplements"
+        },
+        {
+          "id": 2,
+          "name": "PRODENTIM - Duo Package",
+          "price": "$59",
+          "originalPrice": "$198",
+          "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1765645307/ravish/prodentim-929x793_seuqca.png",
+          "supply": "60-Day Supply",
+          "link": "https://prodentim-official.com/duo-package",
+          "badge": "DUO - 2 BOTTLES",
+          "badgeColor": "bg-gradient-to-r from-green-500 to-green-600",
+          "shipping": "* Free Shipping",
+          "rating": 4.7,
+          "reviews": 2356,
+          "premiumPrice": "$45 for Premium Members",
+          "discount": "40% OFF",
+          "slug": "prodentim-2",
+          "categorySlug": "dental-health-supplements"
+        },
+        {
+          "id": 3,
+          "name": "PRODENTIM - Popular",
+          "price": "$59",
+          "originalPrice": "$297",
+          "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1765645311/ravish/prodentim-official-website-993x720_s4yrzn.webp",
+          "supply": "90-Day Supply",
+          "link": "https://prodentim-official.com/popular",
+          "badge": "POPULAR - 3 BOTTLES",
+          "badgeColor": "bg-gradient-to-r from-teal-600 to-teal-700",
+          "shipping": "* Free Shipping + Free eBooks",
+          "popular": true,
+          "rating": 4.9,
+          "reviews": 3921,
+          "premiumPrice": "$45 for Premium Members",
+          "discount": "40% OFF",
+          "slug": "prodentim-3",
+          "categorySlug": "dental-health-supplements"
+        }
+      ]
+    },
+    "trustBadges": {
+      "title": "Certified Quality You Can Trust",
+      "items": [
+        {
+          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/made-in-usa_go4j19.webp",
+          "alt": "Made in USA"
+        },
+        {
+          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422484/fda-approved_jrawwr.webp",
+          "alt": "FDA-Registered Facility"
+        },
+        {
+          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422491/natural_dpkfxs.webp",
+          "alt": "100% Natural"
+        }
+      ]
+    },
+    "genderSpecific": {
+      "women": {
+        "title": "Best Oral Probiotics for Women",
+        "description": "Women may experience unique oral health challenges due to hormonal changes affecting gum sensitivity.",
+        "items": [
+          "Support gum health during hormonal shifts.",
+          "Reduce plaque and inflammation naturally.",
+          "Promote overall oral hygiene and fresh breath."
+        ],
+        "footer": "For women seeking effective probiotics for teeth and gums, explore our reviewed options tailored for natural dental wellness."
+      },
+      "men": {
+        "title": "Best Oral Probiotics for Men",
+        "description": "Men often face higher risks of gum disease from lifestyle factors.",
+        "items": [
+          "Strengthening enamel and reducing cavities.",
+          "Combating bad breath and plaque buildup.",
+          "Enhancing long-term dental repair and health."
+        ]
+      }
+    },
+    "selectionProcess": {
+      "title": "How to Choose the Best Oral Probiotic Supplement",
+      "items": [
+        "Clinically proven strains (K12 & M18)",
+        "Chewable or lozenge format",
+        "Sugar-free formula",
+        "GMP-certified manufacturing",
+        "Added vitamins/minerals"
+      ]
+    },
+    "faqs": {
+      "title": "FAQs About Oral Probiotics",
+      "items": [
+        {
+          "question": "Are probiotics good for teeth and gums?",
+          "answer": "Yes. They reduce harmful bacteria, strengthen gums, and support enamel."
+        },
+        {
+          "question": "Can probiotics whiten teeth?",
+          "answer": "Indirectly, yes — by removing bacteria that cause yellowing and stains."
+        }
+      ]
+    },
+    "benefits": {
+      "title": "Benefits of Using the Best Probiotics for Teeth and Gums",
+      "items": [
+        "Gum Repair & Strength",
+        "Natural Teeth Whitening",
+        "Fresh Breath Support",
+        "Improved Enamel Health"
+      ],
+      "footer": "Oral probiotics are beneficial bacteria that work inside your mouth to restore bacterial balance. While gut probiotics improve digestion, oral health probiotics specifically target gum health, plaque formation, bad breath, tooth enamel strength, teeth whitening, cavities, and inflammation."
+    },
+    "finalThoughts": {
+      "text": "💎 Your Journey to Better Dental Health Starts Here. Whether you’re looking to fix gum problems, whiten your teeth naturally, or strengthen your enamel, oral probiotics offer a powerful and natural way to restore dental health."
+    },
+    "common": {
+      "buyNow": "Buy Now",
+      "premiumMemberSuffix": "for Premium Members"
     }
   }
 }

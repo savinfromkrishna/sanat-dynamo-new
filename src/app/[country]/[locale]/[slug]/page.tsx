@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next"
 import Image from "next/image"
-import { notFound } from "next/navigation"
 import { CheckCircle } from "lucide-react"
 
 import { Card, CardContent } from "@/components/ui/card"
@@ -18,7 +17,7 @@ import { ProductknowMoreSection } from "@/components/productKnowMore"
 import { getTranslation, type Locale } from "@/lib/i18n"
 
 /* ------------------------------------------------------------------ */
-/* Viewport (REQUIRED by Next.js App Router) */
+/* Viewport */
 /* ------------------------------------------------------------------ */
 export function generateViewport(): Viewport {
   return {
@@ -28,17 +27,17 @@ export function generateViewport(): Viewport {
 }
 
 /* ------------------------------------------------------------------ */
-/* Category mapping */
+/* Category mapping (TYPE-SAFE) */
 /* ------------------------------------------------------------------ */
-type CategoryKey = "weightLoss" | "bellyFat" | "oralProbiotics"
+export type CategoryKey = "weightLoss" | "oralProbiotics"
+
+const CATEGORY_MAP: Record<string, CategoryKey> = {
+  "weight-loss-supplements": "weightLoss",
+  "dental-health-supplements": "oralProbiotics",
+} as const
 
 function getCategoryKey(slug: string): CategoryKey | null {
-  const map: Record<string, CategoryKey> = {
-    "weight-loss-supplements": "weightLoss",
-    "belly-fat-supplements": "bellyFat",
-    "dental-health-supplements": "oralProbiotics",
-  }
-  return map[slug] || null
+  return CATEGORY_MAP[slug as keyof typeof CATEGORY_MAP] ?? null
 }
 
 /* ------------------------------------------------------------------ */
@@ -47,180 +46,134 @@ function getCategoryKey(slug: string): CategoryKey | null {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ country: string; locale: Locale; slug: string }>
+  params: Promise<{ country: string; locale: string; slug: string }>
 }): Promise<Metadata> {
   const { country, locale, slug } = await params
-  const translations = getTranslation(locale)
+
+  const safeLocale: Locale = locale === "es" ? "es" : "en"
+  const translations = getTranslation(safeLocale)
   const categoryKey = getCategoryKey(slug)
 
-  if (!categoryKey) {
-    return { title: "Page Not Found" }
+  if (!categoryKey || !translations?.[categoryKey]?.seo) {
+    return {
+      title: "Supplements – Not Found",
+      description: "Category not found",
+    }
   }
 
   const t = translations[categoryKey]
-
-  if (!t?.seo) {
-    return { title: "Page Not Found" }
-  }
-
-  const fallbackImage =
-    "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp"
 
   return {
     title: t.seo.title,
     description: t.seo.description,
     metadataBase: new URL("https://supplelogic.com"),
     alternates: {
-      canonical: `/${country}/${locale}/${slug}`,
-      languages: {
-        "en-US": `/${country}/en/${slug}`,
-        "es-ES": `/${country}/es/${slug}`,
-      },
-    },
-    openGraph: {
-      title: t.seo.title,
-      description: t.seo.description,
-      url: `https://supplelogic.com/${country}/${locale}/${slug}`,
-      siteName: "SuppleLogic",
-      images: [
-        {
-          url:
-            t.productsSection?.products?.[0]?.image ||
-            fallbackImage,
-          width: 1200,
-          height: 630,
-          alt: t.seo.title,
-        },
-      ],
-      locale: locale === "es" ? "es_ES" : "en_US",
-      type: "website",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: t.seo.title,
-      description: t.seo.description,
-      images: [
-        t.productsSection?.products?.[0]?.image || fallbackImage,
-      ],
+      canonical: `/${country}/${safeLocale}/${slug}`,
     },
   }
 }
 
 /* ------------------------------------------------------------------ */
-/* Page */
+/* Page Component */
 /* ------------------------------------------------------------------ */
 export default async function SupplementsPage({
   params,
 }: {
-  params: Promise<{ country: string; locale: Locale; slug: string }>
+  params: Promise<{ country: string; locale: string; slug: string }>
 }) {
   const { country, locale, slug } = await params
-  const translations = getTranslation(locale)
+
+  const safeLocale: Locale = locale === "es" ? "es" : "en"
+  const translations = getTranslation(safeLocale)
   const categoryKey = getCategoryKey(slug)
 
+  // Early return with better debugging in development
   if (!categoryKey) {
-    notFound()
+    console.error(`Invalid category slug: "${slug}"`)
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center p-8">
+          <h1 className="text-3xl font-bold mb-4">Invalid Category</h1>
+          <p>Slug <code>{slug}</code> is not recognized.</p>
+        </div>
+      </div>
+    )
   }
 
-  const t = translations[categoryKey]
-  const knowMoreData = translations.knowMore?.[categoryKey]
+  const t = translations?.[categoryKey]
 
   if (!t) {
-    notFound()
+    console.error(`Missing translation for category: ${categoryKey} (locale: ${safeLocale})`)
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center p-8">
+          <h1 className="text-3xl font-bold mb-4">Content Not Available</h1>
+          <p>Translation missing for <strong>{categoryKey}</strong></p>
+          <p className="text-sm text-gray-500 mt-4">
+            Check your translation file structure
+          </p>
+        </div>
+      </div>
+    )
   }
+
+  const knowMoreData = translations.knowMore?.[categoryKey]
 
   return (
     <main className="min-h-screen bg-white">
       {/* Categories */}
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container mx-auto px-4">
-          <CategoriesSection
-            translations={translations}
-            locale={locale}
-            categoryFilter={categoryKey}
-            country={country}
-          />
-        </div>
+        <CategoriesSection
+          translations={translations}
+          locale={safeLocale}
+          categoryFilter={categoryKey}
+          country={country}
+        />
       </section>
 
       {/* Benefits */}
       {t.benefits && (
         <section className="py-12">
           <div className="container mx-auto px-4">
-            <h2 className="text-2xl lg:text-3xl font-bold text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">
               {t.benefits.title}
             </h2>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {t.benefits.items?.map((benefit: string, index: number) => (
-                <Card key={index} className="text-center p-6">
-                  <CardContent className="p-0">
-                    <CheckCircle className="h-8 w-8 text-emerald-500 mx-auto mb-3" />
-                    <p className="text-sm text-muted-foreground">
-                      {benefit}
-                    </p>
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {t.benefits.items.map((item: string, i: number) => (
+                <Card key={i} className="border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+                  <CardContent className="p-6 text-center">
+                    <CheckCircle className="mx-auto mb-4 h-10 w-10 text-emerald-500" />
+                    <p className="text-gray-700 font-medium">{item}</p>
                   </CardContent>
                 </Card>
               ))}
             </div>
-
-            {t.benefits.footer && (
-              <p className="text-center text-muted-foreground mt-6 max-w-3xl mx-auto">
-                {t.benefits.footer}
-              </p>
-            )}
           </div>
         </section>
       )}
 
       {/* Trust Badges */}
       {t.trustBadges && (
-        <section className="py-8 bg-background">
+        <section className="py-12 bg-gray-50">
           <div className="container mx-auto px-4">
-            <h2 className="text-2xl lg:text-3xl font-bold text-center mb-8">
-              {t.trustBadges.title}
-            </h2>
-
-            <div className="flex justify-center gap-8 flex-wrap">
-              {t.trustBadges.items?.map((badge: any, index: number) => (
-                <Image
-                  key={index}
-                  src={badge.image || "/placeholder.svg"}
-                  alt={badge.alt || "badge"}
-                  width={80}
-                  height={80}
-                />
+            <h3 className="text-2xl font-semibold text-center mb-8">
+              {t.trustBadges.title || "Certified Quality You Can Trust"}
+            </h3>
+            <div className="flex flex-wrap justify-center gap-8 md:gap-12">
+              {t.trustBadges.items.map((b: { image: string; alt: string }, i: number) => (
+                <div key={i} className="flex flex-col items-center">
+                  <Image
+                    src={b.image}
+                    alt={b.alt}
+                    width={90}
+                    height={90}
+                    className="object-contain"
+                  />
+                  <p className="mt-2 text-sm text-gray-600">{b.alt}</p>
+                </div>
               ))}
             </div>
-          </div>
-        </section>
-      )}
-
-      {/* Gender Sections */}
-      {t.genderSpecific && (
-        <section className="py-12">
-          <div className="container mx-auto px-4 grid md:grid-cols-2 gap-12">
-            {(["women", "men"] as const).map((gender) => (
-              <div key={gender}>
-                <h2 className="text-2xl font-bold mb-4">
-                  {t.genderSpecific[gender]?.title}
-                </h2>
-                <p className="text-muted-foreground mb-4">
-                  {t.genderSpecific[gender]?.description}
-                </p>
-
-                <ul className="space-y-2">
-                  {t.genderSpecific[gender]?.items?.map(
-                    (item: string, index: number) => (
-                      <li key={index} className="flex gap-2">
-                        <CheckCircle className="h-4 w-4 text-emerald-500" />
-                        <span className="text-sm">{item}</span>
-                      </li>
-                    )
-                  )}
-                </ul>
-              </div>
-            ))}
           </div>
         </section>
       )}
@@ -230,17 +183,21 @@ export default async function SupplementsPage({
 
       {/* FAQs */}
       {t.faqs && (
-        <section className="py-12 bg-muted/30">
-          <div className="container mx-auto px-4 max-w-3xl">
-            <h2 className="text-2xl lg:text-3xl font-bold text-center mb-8">
-              {t.faqs.title}
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">
+              {t.faqs.title || "Frequently Asked Questions"}
             </h2>
 
-            <Accordion type="single" collapsible className="space-y-4">
-              {t.faqs.items?.map((faq: any, index: number) => (
-                <AccordionItem key={index} value={`faq-${index}`}>
-                  <AccordionTrigger>{faq.question}</AccordionTrigger>
-                  <AccordionContent>{faq.answer}</AccordionContent>
+            <Accordion type="single" collapsible className="w-full">
+              {t.faqs.items.map((faq: { question: string; answer: string }, i: number) => (
+                <AccordionItem key={i} value={`faq-${i}`} className="border-b py-2">
+                  <AccordionTrigger className="text-left font-medium">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="pt-4 text-gray-700">
+                    {faq.answer}
+                  </AccordionContent>
                 </AccordionItem>
               ))}
             </Accordion>
@@ -248,7 +205,7 @@ export default async function SupplementsPage({
         </section>
       )}
 
-      {/* Know More */}
+      {/* Know More / Additional Info */}
       {knowMoreData && (
         <ProductknowMoreSection
           translations={{ productKnowMore: knowMoreData }}
@@ -259,15 +216,20 @@ export default async function SupplementsPage({
 }
 
 /* ------------------------------------------------------------------ */
-/* Static Params */
+/* Static Params – Add more combinations as needed */
 /* ------------------------------------------------------------------ */
 export async function generateStaticParams() {
-  return [
-    { country: "in", locale: "en", slug: "weight-loss-supplements" },
-    { country: "in", locale: "en", slug: "dental-health-supplements" },
-    { country: "us", locale: "en", slug: "weight-loss-supplements" },
-    { country: "us", locale: "en", slug: "dental-health-supplements" },
-    { country: "us", locale: "es", slug: "weight-loss-supplements" },
-    { country: "us", locale: "es", slug: "dental-health-supplements" },
-  ]
+  const locales = ["en", "es"]
+  const countries = ["in", "us"]
+  const slugs = ["weight-loss-supplements", "dental-health-supplements"]
+
+  return countries.flatMap((country) =>
+    locales.flatMap((locale) =>
+      slugs.map((slug) => ({
+        country,
+        locale,
+        slug,
+      }))
+    )
+  )
 }
