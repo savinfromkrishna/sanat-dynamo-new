@@ -387,6 +387,74 @@
     "common": {
       "buyNow": "Buy Now",
       "premiumMemberSuffix": "for Premium Members"
+    }, 
+    "reviews": {
+      "title": "Real Customer Reviews",
+      "description": "See what real people are saying about our top weight loss supplements",
+      "stats": [
+        {
+          "icon": "Users",
+          "value": "50,000+",
+          "label": "Happy Customers"
+        },
+        {
+          "icon": "Star",
+          "value": "4.8/5",
+          "label": "Average Rating"
+        },
+        {
+          "icon": "TrendingUp",
+          "value": "92%",
+          "label": "Success Rate"
+        },
+        {
+          "icon": "Award",
+          "value": "15,000+",
+          "label": "5-Star Reviews"
+        }
+      ],
+      "items": [
+        {
+          "name": "Sarah Johnson",
+          "location": "Mumbai, India",
+          "rating": 5,
+          "date": "2 weeks ago",
+          "title": "Amazing Results in Just 30 Days!",
+          "content": "I've tried countless weight loss supplements, but MITOLYN is different. Within 30 days, I lost 8 kg and feel more energetic than ever. The natural ingredients make all the difference!",
+          "verified": true,
+          "product": "MITOLYN Basic Package"
+        },
+        {
+          "name": "Rajesh Kumar",
+          "location": "Delhi, India",
+          "rating": 5,
+          "date": "1 month ago",
+          "title": "Life-Changing Experience",
+          "content": "After struggling with weight for years, MITOLYN helped me lose 15 kg in 3 months. My confidence is back, and I feel healthier than I have in decades. Highly recommend!",
+          "verified": true,
+          "product": "MITOLYN Basic Package"
+        },
+        {
+          "name": "Rahul S.",
+          "location": "Mumbai, India",
+          "rating": 5,
+          "date": "2 weeks ago",
+          "title": "Better Sleep and Weight Loss",
+          "content": "I started using Sleep Lean because my sleep cycle was completely disturbed. Within a few days, I was sleeping deeper and waking up refreshed.",
+          "verified": true,
+          "product": "Sleep Lean Basic Package"
+        },
+        {
+          "name": "Sarah M.",
+          "location": "California, USA",
+          "rating": 5,
+          "date": "2 weeks ago",
+          "title": "Bloating Gone",
+          "content": "After a week of using BellyFlush, my bloating was almost gone. My stomach feels lighter and digestion is much better.",
+          "verified": true,
+          "product": "BellyFlush Basic Package"
+        }
+      ]
     }
   }
 }

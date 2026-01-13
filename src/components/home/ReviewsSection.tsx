@@ -1,204 +1,153 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import useEmblaCarousel from "embla-carousel-react"
-import Autoplay from "embla-carousel-autoplay"
-import { Card, CardContent } from "@/components/ui/card"
-import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react"
+import React, { useCallback, useEffect, useState } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import { Star, Quote, CheckCircle2, ChevronLeft, ChevronRight } from "lucide-react";
+import { cn } from "@/lib/utils"; // Assuming you have a cn utility, otherwise use standard template strings
 
-/* --------------------------------------------------------------- */
-/* 1. Review type                                                  */
-/* --------------------------------------------------------------- */
 interface Review {
-  name: string
-  date?: string
-  rating: number
-  verified?: boolean
-  content: string
-  location: string
-  product: string
+  id: number;
+  name: string;
+  location: string;
+  rating: number;
+  text: string;
+  verified: boolean;
 }
 
-/* --------------------------------------------------------------- */
-/* 2. Helper to map product by ID (based on provided data structure) */
-/* --------------------------------------------------------------- */
-const getProductById = (id: number): string => {
-  if (id >= 1 && id <= 3) return "MITOLYN"
-  if (id >= 4 && id <= 6) return "PRODENTIM"
-  if (id >= 7 && id <= 9) return "Sleep Lean"
-  if (id >= 10 && id <= 12) return "BellyFlush"
-  return "Our Supplements"
+interface ReviewsSectionProps {
+  translations: any;
 }
 
-/* --------------------------------------------------------------- */
-/* 3. Component                                                    */
-/* --------------------------------------------------------------- */
-export function ReviewsSection({ translations }: { translations: any }) {
-  const t = translations?.reviews || {}
+export function ReviewsSection({ translations }: ReviewsSectionProps) {
+  const { reviews: reviewData } = translations;
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: "start",
+    loop: true,
+    skipSnaps: false,
+  });
 
-  /* ----------------------------------------------------------------- */
-  /* Guard – no reviews → fallback UI                                 */
-  /* ----------------------------------------------------------------- */
-  if (!t.reviews || !Array.isArray(t.reviews) || t.reviews.length === 0) {
-    console.error("ReviewsSection: No valid reviews data", t)
-    return (
-      <section id="reviews" className="py-16 bg-muted/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-muted-foreground">
-            No reviews found.
-          </p>
-        </div>
-      </section>
-    )
-  }
+  const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
+  const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
-  /* Map raw data to Review interface */
-  const reviews: Review[] = t.reviews.map((rawReview: any) => ({
-    name: rawReview.name,
-    rating: rawReview.rating,
-    verified: rawReview.verified ?? false,
-    content: rawReview.text,
-    location: rawReview.location,
-    product: getProductById(rawReview.id),
-  }))
+  const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
 
-  /* ----------------------------------------------------------------- */
-  /* Embla Carousel setup                                             */
-  /* ----------------------------------------------------------------- */
-  const autoplayOptions = { delay: 6000, stopOnInteraction: true }
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    {
-      loop: true,
-      align: "start",
-      containScroll: "trimSnaps",
-      slidesToScroll: 1,
-      breakpoints: {
-        "(min-width: 640px)": { slidesToScroll: 2 },
-        "(min-width: 1024px)": { slidesToScroll: 3 }
-      }
-    },
-    [Autoplay(autoplayOptions)]
-  )
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+    setPrevBtnEnabled(emblaApi.canScrollPrev());
+    setNextBtnEnabled(emblaApi.canScrollNext());
+  }, [emblaApi]);
 
-  const [selectedIndex, setSelectedIndex] = useState(0)
-
-  const scrollPrev = () => emblaApi?.scrollPrev()
-  const scrollNext = () => emblaApi?.scrollNext()
-
-  /* Sync selected index with Embla */
-  const onSelect = () => {
-    if (!emblaApi) return
-    setSelectedIndex(emblaApi.selectedScrollSnap())
-  }
-
-  /* Fixed useEffect – return cleanup directly */
   useEffect(() => {
-    if (!emblaApi) return
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on("select", onSelect);
+    emblaApi.on("reInit", onSelect);
+  }, [emblaApi, onSelect]);
 
-    onSelect()
-    emblaApi.on("select", onSelect)
+  if (!reviewData || !reviewData.reviews) return null;
 
-    return () => {
-      emblaApi.off("select", onSelect)
-    }
-  }, [emblaApi])
-
-  /* ----------------------------------------------------------------- */
-  /* Render                                                           */
-  /* ----------------------------------------------------------------- */
   return (
-    <section id="reviews" className="py-16 bg-muted/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Title + subtitle */}
+    <section className="py-16 bg-slate-50 overflow-hidden">
+      <div className="container mx-auto px-4">
+        {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-sans font-bold text-foreground mb-4">
-            {t.title || "What Our Customers Say"}
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+            {reviewData.title}
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {t.subtitle || "Real stories from real people who transformed their lives with our supplements."}
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+            {reviewData.subtitle}
           </p>
         </div>
 
-        {/* Embla Carousel */}
-        <div className="relative">
+        {/* Carousel Container */}
+        <div className="relative max-w-6xl mx-auto">
           <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex items-stretch gap-4">
-              {reviews.map((review, index) => (
+            <div className="flex">
+              {reviewData.reviews.map((review: Review) => (
                 <div
-                  key={`${review.name}-${index}`} // Simplified key since no date
-                  className="flex-none w-full sm:w-1/2 lg:w-1/3"
+                  key={review.id}
+                  className="flex-[0_0_100%] min-w-0 md:flex-[0_0_50%] lg:flex-[0_0_33.33%] px-4"
                 >
-                  <Card className="relative overflow-hidden hover:shadow-lg transition-all duration-300 h-full">
-                    <CardContent className="p-6">
-                      {/* Quote icon */}
-                      <div className="absolute top-4 right-4 text-primary/20">
-                        <Quote className="h-8 w-8" />
+                  <div className="h-full bg-white rounded-2xl p-8 shadow-sm border border-slate-100 flex flex-col justify-between hover:shadow-md transition-shadow duration-300">
+                    <div>
+                      {/* Stars */}
+                      <div className="flex gap-1 mb-4">
+                        {[...Array(5)].map((_, i) => (
+                          <Star
+                            key={i}
+                            size={18}
+                            className={cn(
+                              "fill-current",
+                              i < review.rating ? "text-yellow-400" : "text-slate-200"
+                            )}
+                          />
+                        ))}
                       </div>
 
-                      {/* Rating + verified */}
-                      <div className="flex items-center gap-2 mb-4">
-                        <div className="flex text-yellow-400">
-                          {[...Array(review.rating)].map((_, i) => (
-                            <Star key={i} className="h-4 w-4 fill-current" />
-                          ))}
+                      {/* Quote Icon */}
+                      <Quote className="text-blue-100 mb-4" size={32} fill="currentColor" />
+
+                      {/* Review Text */}
+                      <p className="text-slate-700 leading-relaxed mb-6 italic">
+                        "{review.text}"
+                      </p>
+                    </div>
+
+                    {/* Reviewer Info */}
+                    <div className="mt-auto pt-6 border-t border-slate-50">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <h4 className="font-bold text-slate-900">{review.name}</h4>
+                          <p className="text-sm text-slate-500">{review.location}</p>
                         </div>
                         {review.verified && (
-                          <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded">
-                            {t.verifiedBuyer || "Verified Buyer"}
-                          </span>
+                          <div className="flex items-center gap-1 bg-green-50 text-green-700 px-2 py-1 rounded text-xs font-medium">
+                            <CheckCircle2 size={14} />
+                            {reviewData.verifiedBuyer}
+                          </div>
                         )}
                       </div>
-
-                      {/* Review text */}
-                      <p className="text-muted-foreground mb-4 leading-relaxed italic">
-                        "{review.content}"
-                      </p>
-
-                      {/* Author */}
-                      <div className="border-t pt-4">
-                        <p className="font-sans font-semibold text-foreground">
-                          {review.name}
-                        </p>
-                        <p className="text-sm text-muted-foreground">{review.location}</p>
-                        <p className="text-sm text-muted-foreground">{review.product}</p>
-                      </div>
-                    </CardContent>
-                  </Card>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Navigation arrows */}
+          {/* Navigation Buttons */}
           <button
             onClick={scrollPrev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background rounded-full p-2 shadow-md transition-colors z-10"
-            aria-label="Previous review"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 bg-white p-3 rounded-full shadow-lg text-slate-700 hover:text-blue-600 transition-colors hidden md:block"
+            aria-label="Previous slide"
           >
-            <ChevronLeft className="h-5 w-5" />
+            <ChevronLeft size={24} />
           </button>
           <button
             onClick={scrollNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background rounded-full p-2 shadow-md transition-colors z-10"
-            aria-label="Next review"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 bg-white p-3 rounded-full shadow-lg text-slate-700 hover:text-blue-600 transition-colors hidden md:block"
+            aria-label="Next slide"
           >
-            <ChevronRight className="h-5 w-5" />
+            <ChevronRight size={24} />
           </button>
 
-          {/* Dots indicator */}
-          <div className="flex justify-center gap-2 mt-6">
-            {reviews.map((_, idx) => (
+          {/* Dots Indicator */}
+          <div className="flex justify-center gap-2 mt-8">
+            {reviewData.reviews.slice(0, Math.ceil(reviewData.reviews.length / (typeof window !== 'undefined' && window.innerWidth > 1024 ? 3 : 1))).map((_: any, index: number) => (
               <button
-                key={idx}
-                onClick={() => emblaApi?.scrollTo(idx)}
-                className={`h-2 w-2 rounded-full transition-colors ${idx === selectedIndex ? "bg-primary" : "bg-muted"
-                  }`}
-                aria-label={`Go to review ${idx + 1}`}
+                key={index}
+                className={cn(
+                  "h-2 w-2 rounded-full transition-all duration-300",
+                  selectedIndex === index ? "bg-blue-600 w-6" : "bg-slate-300"
+                )}
+                onClick={() => emblaApi?.scrollTo(index)}
               />
             ))}
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

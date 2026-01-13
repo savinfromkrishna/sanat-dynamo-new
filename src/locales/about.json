@@ -102,119 +102,76 @@
     }
   },
   "reviews": {
-    "title": "Customer Reviews - MITOLYN | Real Results & Testimonials",
-    "description": "Read authentic customer reviews and success stories from MITOLYN users. Discover how our premium supplements have transformed lives.",
-    "hero": {
-      "badge": "Customer Reviews",
-      "title": "What Our Customers Say",
-      "description": "Real results from real people"
-    },
-    "stats": [
-      {
-        "icon": "Users",
-        "value": "50,000+",
-        "label": "Happy Customers"
-      },
-      {
-        "icon": "Star",
-        "value": "4.8/5",
-        "label": "Average Rating"
-      },
-      {
-        "icon": "TrendingUp",
-        "value": "92%",
-        "label": "Success Rate"
-      },
-      {
-        "icon": "Award",
-        "value": "15,000+",
-        "label": "5-Star Reviews"
-      }
-    ],
-    "categories": {
-      "title": "Browse Reviews by Category",
-      "description": "Same trusted theme as the homepage. Switch categories to see relevant testimonials.",
-      "tabs": [
-        {
-          "value": "weight-loss",
-          "label": "Weight Loss Supplements"
-        },
-        {
-          "value": "energy",
-          "label": "Energy Supplements"
-        },
-        {
-          "value": "wellness",
-          "label": "Wellness Products"
-        }
-      ]
-    },
-    "cta": {
-      "title": "Ready to Start Your Transformation?",
-      "description": "Join thousands of satisfied customers who have achieved their weight loss goals with MITOLYN.",
-      "button": "Shop Now",
-      "url": "https://supplelogic.com/best-value"
-    },
+    "title": "What Our Customers Say",
+    "subtitle": "Real stories from real people who transformed their lives with our supplements.",
+    "verifiedBuyer": "Verified Buyer",
     "reviews": [
       {
-        "name": "Sarah Johnson",
+        "id": 1,
+        "name": "Sarah M.",
+        "location": "California, USA",
+        "rating": 5,
+        "text": "After just a few weeks of taking Mitolyn, I noticed a huge boost in my daily energy. I feel lighter, more focused, and the stubborn weight finally started coming off. Highly recommend this supplement!",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "James R.",
+        "location": "Texas, USA",
+        "rating": 5,
+        "text": "I’ve tried countless supplements for weight loss, but nothing worked until Mitolyn. Not only did it help with fat loss, but I also feel sharper mentally. A real game-changer.",
+        "verified": true
+      },
+
+      {
+        "id": 3,
+        "name": "Anjalina S.",
+        "location": "California, USA",
+        "rating": 5,
+        "text": "I started using ProDentim about three weeks ago, and the results are amazing. My gums feel healthier, bleeding has stopped, and my breath stays fresh all day. I’ve tried many dental supplements, but this is the only one that actually worked. Highly recommended!",
+        "verified": true
+      },
+      {
+        "id": 4,
+        "name": "Rick Smith",
+        "location": "Texas, USA",
+        "rating": 5,
+        "text": "ProDentim has completely changed my dental routine. I noticed a big reduction in plaque and sensitivity within the first month. My dentist even asked what I was using! This probiotic is definitely worth the money.",
+        "verified": true
+      },
+
+      {
+        "id": 5,
+        "name": "Rahul S.",
         "location": "Mumbai, India",
         "rating": 5,
-        "date": "2 weeks ago",
-        "title": "Amazing Results in Just 30 Days!",
-        "content": "I've tried countless weight loss supplements, but MITOLYN is different. Within 30 days, I lost 8 kg and feel more energetic than ever. The natural ingredients make all the difference!",
-        "verified": true,
-        "product": "MITOLYN Best Value Package"
+        "text": "I started using Sleep Lean because my sleep cycle was completely disturbed. Within a few days, I was sleeping deeper and waking up refreshed. After a few weeks, I noticed reduced cravings and gradual weight loss. It feels like a clean, natural sleep supplement.",
+        "verified": true
       },
       {
-        "name": "Rajesh Kumar",
-        "location": "Delhi, India",
+        "id": 6,
+        "name": "Emily R.",
+        "location": "Austin, Texas, USA",
         "rating": 5,
-        "date": "1 month ago",
-        "title": "Life-Changing Experience",
-        "content": "After struggling with weight for years, MITOLYN helped me lose 15 kg in 3 months. My confidence is back, and I feel healthier than I have in decades. Highly recommend!",
-        "verified": true,
-        "product": "MITOLYN Popular Package"
+        "text": "Sleep Lean helped me fall asleep faster without making me feel drowsy in the morning. My stress levels went down, and I slowly started losing weight without changing much in my routine. I like that it’s non-habit forming and gentle.",
+        "verified": true
       },
+
       {
-        "name": "Priya Sharma",
-        "location": "Bangalore, India",
+        "id": 7,
+        "name": "Sarah M.",
+        "location": "California, USA",
         "rating": 5,
-        "date": "3 weeks ago",
-        "title": "Natural and Effective",
-        "content": "What I love about MITOLYN is that it's completely natural. No side effects, just steady weight loss and increased energy. Lost 6 kg in my first month!",
-        "verified": true,
-        "product": "MITOLYN Basic Package"
+        "text": "After a week of using BellyFlush, my bloating was almost gone. My stomach feels lighter and digestion is much better.",
+        "verified": true
       },
       {
-        "name": "Amit Patel",
-        "location": "Ahmedabad, India",
-        "rating": 4,
-        "date": "2 months ago",
-        "title": "Steady Progress",
-        "content": "MITOLYN has been a game-changer for my weight loss journey. The results are gradual but consistent. I've lost 12 kg over 4 months and feel fantastic.",
-        "verified": true,
-        "product": "MITOLYN Best Value Package"
-      },
-      {
-        "name": "Neha Gupta",
-        "location": "Pune, India",
+        "id": 8,
+        "name": "Daniel R.",
+        "location": "Texas, USA",
         "rating": 5,
-        "date": "1 week ago",
-        "title": "Exceeded Expectations",
-        "content": "I was skeptical at first, but MITOLYN delivered beyond my expectations. Not only did I lose weight, but my overall health improved significantly. Thank you MITOLYN!",
-        "verified": true,
-        "product": "MITOLYN Popular Package"
-      },
-      {
-        "name": "Vikram Singh",
-        "location": "Jaipur, India",
-        "rating": 5,
-        "date": "5 days ago",
-        "title": "Perfect for Busy Professionals",
-        "content": "As a busy professional, I needed something that worked without disrupting my routine. MITOLYN fit perfectly into my lifestyle and helped me lose 10 kg effortlessly.",
-        "verified": true,
-        "product": "MITOLYN Basic Package"
+        "text": "I’ve tried many gut cleanse products, but BellyFlush worked gently without cramps. I feel more comfortable daily.",
+        "verified": true
       }
     ]
   }
