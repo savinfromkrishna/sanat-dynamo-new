@@ -19,7 +19,7 @@ const categories = [
     products: [
       {
         name: "MITOLYN Basic Package",
-        price: "₹2,499",
+        price: "$59",
         originalPrice: "₹2,999",
         discount: "16% off",
         image: "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
