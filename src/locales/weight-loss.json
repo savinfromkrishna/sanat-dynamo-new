@@ -232,19 +232,18 @@
   },
   "oralProbiotics": {
     "seo": {
-      "title": "Best Probiotics for Teeth & Gums | Natural Oral Health Supplements",
-      "description": "Discover the best probiotics for teeth and gums. Improve gum health, whiten teeth, reduce plaque, and boost oral hygiene naturally with expert guides and reviews.",
+      "title": "Top Dental Health Supplements | Oral Care Support & Healthy Teeth – SuppleLogic",
+      "description": "Discover top dental health supplements that support oral hygiene, gum strength, fresh breath, and healthy teeth — natural formulas for everyday oral care",
       "keywords": [
-        "best probiotics for teeth and gums",
-        "best oral probiotics",
-        "best dental probiotics",
-        "probiotics for teeth and gums",
-        "teeth supplements",
         "dental health supplements",
-        "gum health supplements",
-        "probiotics for gum disease",
-        "probiotics for cavities",
-        "probiotics for teeth repair"
+        "oral health supplements",
+        "supplements for healthy teeth",
+        "gum health support",
+        "oral hygiene supplements",
+        "dental health supplements",
+        "natural dental supplements",
+        "fresh breath support",
+        "oral care vitamins"
       ]
     },
     "title": "Best Probiotics for Teeth & Gums – Improve Your Dental Health Naturally",
@@ -387,7 +386,7 @@
     "common": {
       "buyNow": "Buy Now",
       "premiumMemberSuffix": "for Premium Members"
-    }, 
+    },
     "reviews": {
       "title": "Real Customer Reviews",
       "description": "See what real people are saying about our top weight loss supplements",
@@ -415,44 +414,34 @@
       ],
       "items": [
         {
-          "name": "Sarah Johnson",
+          "name": "Anjalina S.",
           "location": "Mumbai, India",
           "rating": 5,
-          "date": "2 weeks ago",
-          "title": "Amazing Results in Just 30 Days!",
-          "content": "I've tried countless weight loss supplements, but MITOLYN is different. Within 30 days, I lost 8 kg and feel more energetic than ever. The natural ingredients make all the difference!",
+          "date": "3 weeks ago",
+          "title": "Amazing Results in Just Three Weeks!",
+          "content": "I started using ProDentim about three weeks ago, and the results are amazing. My gums feel healthier, bleeding has stopped, and my breath stays fresh all day. I’ve tried many dental supplements, but this is the only one that actually worked. Highly recommended!",
           "verified": true,
-          "product": "MITOLYN Basic Package"
+          "product": "PRODENTIM - Basic Package"
         },
         {
-          "name": "Rajesh Kumar",
+          "name": "Rick Smith",
           "location": "Delhi, India",
           "rating": 5,
           "date": "1 month ago",
-          "title": "Life-Changing Experience",
-          "content": "After struggling with weight for years, MITOLYN helped me lose 15 kg in 3 months. My confidence is back, and I feel healthier than I have in decades. Highly recommend!",
+          "title": "Completely Changed My Dental Routine",
+          "content": "ProDentim has completely changed my dental routine. I noticed a big reduction in plaque and sensitivity within the first month. My dentist even asked what I was using! This probiotic is definitely worth the money.",
           "verified": true,
-          "product": "MITOLYN Basic Package"
+          "product": "PRODENTIM - Basic Package"
         },
         {
-          "name": "Rahul S.",
-          "location": "Mumbai, India",
-          "rating": 5,
-          "date": "2 weeks ago",
-          "title": "Better Sleep and Weight Loss",
-          "content": "I started using Sleep Lean because my sleep cycle was completely disturbed. Within a few days, I was sleeping deeper and waking up refreshed.",
-          "verified": true,
-          "product": "Sleep Lean Basic Package"
-        },
-        {
-          "name": "Sarah M.",
+          "name": "Sofia v.",
           "location": "California, USA",
           "rating": 5,
           "date": "2 weeks ago",
-          "title": "Bloating Gone",
-          "content": "After a week of using BellyFlush, my bloating was almost gone. My stomach feels lighter and digestion is much better.",
+          "title": "Teeth Look Cleaner and Gums Stronger",
+          "content": "I bought ProDentim after reading so many good reviews, and I’m glad I did. My teeth look cleaner, my breath is fresher, and my gums feel stronger than ever. I just ordered another 3-bottle pack. Love this product!",
           "verified": true,
-          "product": "BellyFlush Basic Package"
+          "product": "PRODENTIM - Basic Package"
         }
       ]
     }

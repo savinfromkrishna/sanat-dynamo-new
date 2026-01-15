@@ -86,27 +86,25 @@
     ]
   },
   "oralProbiotics": {
-    "title": "Everything You Need to Know About PRODENTIM",
-    "summary": "PRODENTIM is a science-backed oral probiotic trusted by 50,000+ users. Restore mouth microbiome, whiten teeth, and fight gum issues — naturally.",
+    "title": "Best Probiotics for Teeth & Gums – Improve Your Dental Health Naturally",
+    "summary": "Maintaining strong teeth, healthy gums, and fresh breath goes far beyond brushing and flossing. Modern research proves that the true foundation of oral health lies in your mouth microbiome — the balance of good and harmful bacteria. If harmful bacteria dominate, you may experience gum bleeding, plaque buildup, bad breath, sensitivity, or cavities. The good news? The solution is simple, natural, and scientifically backed: oral probiotics.",
     "knowMore": "Know More",
     "knowLess": "Show Less",
     "sections": [
       {
         "type": "text",
-        "heading": "How PRODENTIM Works",
-        "content": "PRODENTIM rebalances your oral microbiome with beneficial bacteria. It crowds out harmful strains to reduce plaque, strengthen enamel, and promote healthier gums without antibiotics or harsh chemicals.",
+        "heading": "Why Oral Probiotics Matter for Dental Health",
+        "content": "Oral probiotics are beneficial bacteria that work inside your mouth to restore bacterial balance. While gut probiotics improve digestion, oral health probiotics specifically target: Gum health, Plaque formation, Bad breath, Tooth enamel strength, Teeth whitening, Cavities, Inflammation. If you’ve tried countless toothpastes, mouthwashes, or expensive dental cleaning and still struggle with dental issues — probiotics may be the missing link.",
         "link": { "text": "Read the science", "href": "/science" }
       },
       {
         "type": "list",
-        "heading": "Key Ingredients",
-        "content": "PRODENTIM features clinically studied strains like:",
+        "heading": "What Are the Best Probiotics for Teeth and Gums?",
+        "content": "Not all probiotics are designed for your mouth. Specific strains like Streptococcus salivarius K12 and M18 are proven to: Reduce bad breath, Strengthen enamel, Reduce plaque, Support gum repair, Fight cavity-causing bacteria. Other powerful strains include:",
         "items": [
-          "Streptococcus salivarius K12 – fights bad breath and plaque",
-          "Lactobacillus reuteri – supports gum repair",
-          "Lactobacillus paracasei – enhances enamel strength",
-          "Bifidobacterium lactis – reduces inflammation",
-          "Inulin – prebiotic for bacterial growth"
+          "Lactobacillus reuteri",
+          "Lactobacillus paracasei",
+          "Bifidobacterium lactis"
         ],
         "link": { "text": "View full ingredient list", "href": "/ingredients" }
       },
@@ -121,9 +119,9 @@
       },
       {
         "type": "table",
-        "heading": "Compare PRODENTIM vs Others",
+        "heading": "Compare Oral Probiotics vs Others",
         "table": {
-          "headers": ["Feature", "PRODENTIM", "Brand X", "Brand Y"],
+          "headers": ["Feature", "Oral Probiotics", "Brand X", "Brand Y"],
           "rows": [
             ["Oral Microbiome Balance", "Yes", "No", "Partial"],
             ["Clinically Studied Strains", "Yes", "Partial", "No"],
@@ -134,7 +132,7 @@
       },
       {
         "type": "quote",
-        "quote": "My gums used to bleed every brush. After a month with PRODENTIM, they're healthy and my smile is brighter!",
+        "quote": "My gums used to bleed every brush. After a month with oral probiotics, they're healthy and my smile is brighter!",
         "author": "Maria L., 38, Nurse",
         "rating": 5
       },
@@ -143,25 +141,34 @@
         "heading": "Frequently Asked Questions",
         "faqs": [
           {
-            "q": "How soon will I notice improvements?",
-            "a": "Many see fresher breath in 1 week. Full oral health benefits in 2–4 weeks."
+            "q": "Are probiotics good for teeth and gums?",
+            "a": "Yes. They reduce harmful bacteria, strengthen gums, and support enamel."
           },
           {
-            "q": "Is PRODENTIM safe for sensitive mouths?",
-            "a": "Yes. Sugar-free, non-GMO, and produced in FDA-registered facilities."
+            "q": "Can probiotics whiten teeth?",
+            "a": "Indirectly, yes — by removing bacteria that cause yellowing and stains."
           },
           {
-            "q": "Does it replace regular brushing?",
-            "a": "No, it complements your routine for better long-term results."
+            "q": "How long do oral probiotics take to work?",
+            "a": "Most users see results in 2–4 weeks."
+          },
+          {
+            "q": "Do oral probiotics replace brushing?",
+            "a": "No. They enhance brushing and flossing, not replace them."
+          },
+          {
+            "q": "Who should take oral probiotics?",
+            "a": "Anyone dealing with plaque, gum issues, bad breath, weak enamel, or yellow teeth."
           }
         ]
       },
       {
         "type": "cta",
         "heading": "Ready for a Healthier Smile?",
-        "content": "Join 50,000+ happy users. Try PRODENTIM risk-free for 60 days.",
+        "content": "Whether you’re looking to fix gum problems, whiten your teeth naturally, eliminate bad breath, or strengthen your enamel, oral probiotics offer a powerful and natural way to restore dental health.",
         "button": { "text": "Shop Now", "href": "/shop" }
       }
     ]
   }
+
 }

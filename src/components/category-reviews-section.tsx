@@ -1,4 +1,3 @@
-
 "use client"
 
 import React, { useEffect, useState, useCallback } from "react"
@@ -39,7 +38,7 @@ const categoryConfig: Record<string, {
     ]
   },
   "dental-health-supplements": {
-    translationKey: "weightLoss", // In the user's JSON, both are under weightLoss.reviews
+    translationKey: "oralProbiotics", // FIXED: Now points to oralProbiotics
     allowedProducts: [
       "PRODENTIM - Basic Package",
       "PRODENTIM - Duo Package",
@@ -48,9 +47,6 @@ const categoryConfig: Record<string, {
   },
 }
 
-/* --------------------------------------------------------------- */
-/* Main Component                                                  */
-/* --------------------------------------------------------------- */
 export default function CategoryReviewsSection({
   category,
   translations,
@@ -61,31 +57,20 @@ export default function CategoryReviewsSection({
   const config = categoryConfig[category]
 
   if (!config) {
-    return (
-      <section id="reviews" className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4 text-center text-gray-500">
-          No reviews section configured for this category yet.
-        </div>
-      </section>
-    )
+    return null
   }
 
-  // Get reviews from correct place in translations
-  const categoryReviews = translations?.[config.translationKey]?.reviews
+  // Get reviews from the specific category key (weightLoss or oralProbiotics)
+  const categoryData = translations?.[config.translationKey]
+  const categoryReviews = categoryData?.reviews
 
   if (!categoryReviews?.items || !Array.isArray(categoryReviews.items)) {
-    return (
-      <section id="reviews" className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4 text-center text-gray-500">
-          No customer reviews available.
-        </div>
-      </section>
-    )
+    return null
   }
 
-  // Filter reviews by allowed products to ensure correct category items are shown
+  // Filter reviews: Show if the product name matches the allowed list for this category
   const filteredReviews: Review[] = categoryReviews.items.filter((review: Review) =>
-    !review.product || config.allowedProducts.includes(review.product)
+    config.allowedProducts.includes(review.product || "")
   )
 
   if (filteredReviews.length === 0) {
@@ -106,12 +91,10 @@ export default function CategoryReviewsSection({
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([])
 
-  // Fix: Define scrollPrev function for carousel navigation
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev()
   }, [emblaApi])
 
-  // Fix: Define scrollNext function for carousel navigation
   const scrollNext = useCallback(() => {
     if (emblaApi) emblaApi.scrollNext()
   }, [emblaApi])
@@ -136,17 +119,15 @@ export default function CategoryReviewsSection({
   return (
     <section id="reviews" className="py-16 md:py-24 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4 text-gray-900 capitalize">
-            {category.replace(/-/g, ' ')} Reviews
+            {categoryReviews.title || "Customer Reviews"}
           </h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
             {categoryReviews.description}
           </p>
         </div>
 
-        {/* Carousel Container */}
         <div className="relative max-w-7xl mx-auto">
           <div className="overflow-hidden cursor-grab active:cursor-grabbing" ref={emblaRef}>
             <div className="flex -ml-4">
@@ -159,7 +140,6 @@ export default function CategoryReviewsSection({
                     <CardContent className="p-6 md:p-8 relative h-full flex flex-col">
                       <Quote className="absolute top-6 right-6 h-12 w-12 text-blue-500/5 pointer-events-none" />
 
-                      {/* Stars + Verified */}
                       <div className="flex flex-wrap items-center gap-3 mb-6">
                         <div className="flex">
                           {[...Array(5)].map((_, i) => (
@@ -175,15 +155,14 @@ export default function CategoryReviewsSection({
                         </div>
                         {review.verified && (
                           <span className="text-[10px] uppercase tracking-widest font-bold bg-green-50 text-green-700 border border-green-100 px-2.5 py-1 rounded">
-                            Verified
+                            Verified Purchase
                           </span>
                         )}
                       </div>
 
-                      {/* Review content */}
                       <div className="flex-grow">
                         {review.title && (
-                          <h3 className="text-lg font-bold mb-3 text-gray-900 line-clamp-2">
+                          <h3 className="text-lg font-bold mb-3 text-gray-900">
                             {review.title}
                           </h3>
                         )}
@@ -192,15 +171,14 @@ export default function CategoryReviewsSection({
                         </p>
                       </div>
 
-                      {/* Author info */}
                       <div className="mt-auto pt-6 border-t border-gray-50 flex items-center justify-between">
                         <div>
                           <p className="font-bold text-gray-900 text-sm">{review.name}</p>
                           <p className="text-[11px] text-gray-400 mt-0.5">{review.location}</p>
                         </div>
                         <div className="text-right">
-                           <p className="text-[10px] font-medium text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full inline-block">
-                             {review.date}
+                           <p className="text-[10px] font-medium text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full">
+                             {review.product}
                            </p>
                         </div>
                       </div>
@@ -211,39 +189,19 @@ export default function CategoryReviewsSection({
             </div>
           </div>
 
-          {/* Navigation Buttons */}
           <div className="hidden md:block">
             <button
               onClick={scrollPrev}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 lg:-translate-x-10 bg-white hover:bg-blue-600 hover:text-white text-gray-400 shadow-xl rounded-full p-4 transition-all z-10 border border-gray-100 active:scale-95"
-              aria-label="Previous"
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 lg:-translate-x-10 bg-white hover:bg-blue-600 hover:text-white text-gray-400 shadow-xl rounded-full p-4 transition-all z-10 border border-gray-100"
             >
               <ChevronLeft className="h-6 w-6" />
             </button>
-
             <button
               onClick={scrollNext}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 lg:translate-x-10 bg-white hover:bg-blue-600 hover:text-white text-gray-400 shadow-xl rounded-full p-4 transition-all z-10 border border-gray-100 active:scale-95"
-              aria-label="Next"
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 lg:translate-x-10 bg-white hover:bg-blue-600 hover:text-white text-gray-400 shadow-xl rounded-full p-4 transition-all z-10 border border-gray-100"
             >
               <ChevronRight className="h-6 w-6" />
             </button>
-          </div>
-
-          {/* Pagination Dots */}
-          <div className="flex justify-center gap-2 mt-12">
-            {scrollSnaps.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => emblaApi?.scrollTo(idx)}
-                className={`h-1.5 rounded-full transition-all duration-300 ${
-                  idx === selectedIndex
-                    ? "bg-blue-600 w-8"
-                    : "bg-gray-200 w-3 hover:bg-gray-300"
-                }`}
-                aria-label={`Go to slide ${idx + 1}`}
-              />
-            ))}
           </div>
         </div>
       </div>
