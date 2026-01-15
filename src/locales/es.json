@@ -1,16 +1,16 @@
 {
   "seo": {
-    "title": "SuppleLogic | Reseñas honestas de suplementos",
-    "description": "SuppleLogic es una plataforma confiable dedicada a reseñas honestas y basadas en investigación de suplementos. Te ayudamos a cortar el ruido del marketing analizando los ingredientes, los beneficios declarados, los posibles efectos secundarios y las experiencias reales de los usuarios — para que puedas tomar decisiones de compra más inteligentes y seguras.",
-    "keywords": "reseñas de suplementos, suplementos para bajar de peso, apoyo para el sueño, salud intestinal, salud dental, suplementos de bienestar"
+    "title": "SuppleLogic | Reseñas Honestas de Suplementos",
+    "description": "SuppleLogic es una plataforma confiable dedicada a ofrecer reseñas honestas y basadas en investigación de suplementos. Te ayudamos a cortar el ruido del marketing analizando los ingredientes, los beneficios declarados, los posibles efectos secundarios y las experiencias reales de los usuarios — para que puedas tomar decisiones de compra más inteligentes y seguras.",
+    "keywords": "mejores reseñas de suplementos, reseñas de suplementos dietéticos, reseñas de suplementos para la salud, suplementos para bajar de peso, vitaminas y minerales"
   },
   "categories": {
-    "weightLoss": "Suplementos para bajar de peso",
-    "sleepStress": "Apoyo para el sueño y el estrés",
-    "dentalHealth": "Salud dental y bucal",
-    "gutHealth": "Salud intestinal",
-    "wellness": "Bienestar general",
-    "bundles": "Paquetes"
+    "weightLoss": "Suplementos para Bajar de Peso",
+    "sleepStress": "Apoyo para Sueño y Estrés",
+    "dentalHealth": "Salud Dental y Bucal",
+    "gutHealth": "Salud Intestinal",
+    "wellness": "Bienestar General",
+    "bundles": "Paquetes / Bundles"
   },
   "nav": {
     "home": "Inicio",
@@ -23,24 +23,24 @@
       {
         "id": "basic",
         "slug": "mitolyn",
-        "name": "Paquete Básico MITOLYN",
+        "name": "MITOLYN Paquete Básico",
         "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
         "price": "$59",
-        "originalPrice": "₹2,999",
+        "originalPrice": "₹70",
         "discount": "16% de descuento",
-        "duration": "Suministro de 30 días",
+        "duration": "Suministro para 30 días",
         "badge": null,
         "url": "https://supplelogic.com/basic-package"
       },
       {
         "id": "popular",
         "slug": "mitolyn",
-        "name": "Paquete Popular MITOLYN",
+        "name": "MITOLYN Paquete Popular",
         "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
         "price": "₹4,449",
         "originalPrice": "₹5,999",
         "discount": "25% de descuento",
-        "duration": "Suministro de 90 días",
+        "duration": "Suministro para 90 días",
         "badge": {
           "text": "Más Popular",
           "color": "orange"
@@ -50,12 +50,12 @@
       {
         "id": "best-value",
         "slug": "mitolyn",
-        "name": "Paquete Mejor Valor MITOLYN",
+        "name": "MITOLYN Mejor Valor Paquete",
         "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
         "price": "₹6,899",
         "originalPrice": "₹7,999",
         "discount": "14% de descuento",
-        "duration": "Suministro de 180 días",
+        "duration": "Suministro para 180 días",
         "badge": {
           "text": "Mejor Valor",
           "color": "emerald"
@@ -72,7 +72,7 @@
         "price": "₹1,899",
         "originalPrice": "₹2,299",
         "discount": "17% de descuento",
-        "duration": "Suministro de 30 días",
+        "duration": "Suministro para 30 días",
         "badge": {
           "text": "Energía Natural",
           "color": "blue"
@@ -82,14 +82,14 @@
       {
         "id": "endurance",
         "slug": "mitolyn",
-        "name": "Paquete Endurance SLEEPMAX",
+        "name": "SLEEPMAX Paquete Endurance",
         "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
         "price": "₹5,499",
         "originalPrice": "₹6,999",
         "discount": "21% de descuento",
-        "duration": "Suministro de 90 días",
+        "duration": "Suministro para 90 días",
         "badge": {
-          "text": "Larga duración",
+          "text": "Duradero",
           "color": "blue"
         },
         "url": "https://supplelogic.com/endurance-pack"
@@ -97,12 +97,12 @@
       {
         "id": "ultimate",
         "slug": "mitolyn",
-        "name": "Paquete Ultimate SLEEPMAX",
+        "name": "SLEEPMAX Paquete Ultimate",
         "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
         "price": "₹8,999",
         "originalPrice": "₹11,999",
         "discount": "25% de descuento",
-        "duration": "Suministro de 180 días",
+        "duration": "Suministro para 180 días",
         "badge": {
           "text": "Premium",
           "color": "blue"
@@ -115,79 +115,77 @@
     "bundles": []
   },
   "footer": {
-    "description": "SuppleLogic es una plataforma confiable dedicada a reseñas honestas y basadas en investigación de suplementos. Te ayudamos a cortar el ruido del marketing analizando los ingredientes, los beneficios declarados, los posibles efectos secundarios y las experiencias reales de los usuarios — para que puedas tomar decisiones de compra más inteligentes y seguras. Ya sea que busques suplementos para bajar de peso, apoyo para el sueño, salud intestinal o cuidado bucal, SuppleLogic ofrece información clara y sin sesgos basada en la lógica, no en exageraciones.",
+    "description": "SuppleLogic es una plataforma confiable dedicada a ofrecer reseñas honestas y basadas en investigación de suplementos. Te ayudamos a cortar el ruido del marketing analizando los ingredientes, los beneficios declarados, los posibles efectos secundarios y las experiencias reales de los usuarios — para que puedas tomar decisiones de compra más inteligentes y seguras. Ya sea que busques suplementos para bajar de peso, apoyo para el sueño, salud intestinal o cuidado bucal, SuppleLogic ofrece información clara y sin sesgos basada en lógica, no en exageraciones.",
     "quickLinks": "Enlaces Rápidos",
-    "customerService": "Servicio al Cliente",
+    "customerService": "Atención al Cliente",
     "legal": "Legal",
     "privacyPolicy": "Política de Privacidad",
     "termsOfService": "Términos de Servicio",
     "refundPolicy": "Política de Reembolsos",
-    "contactUs": "Contáctanos",
-    "faq": "Preguntas Frecuentes",
-    "shipping": "Información de Envío",
+    "shipping": "Información de Envíos",
     "allRightsReserved": "Todos los derechos reservados."
   },
   "about": {
     "title": "Sobre SuppleLogic",
     "lastUpdated": "Última actualización: 11 de enero de 2026",
-    "introduction": "SuppleLogic es una plataforma confiable dedicada a reseñas honestas y basadas en investigación de suplementos. Te ayudamos a cortar el ruido del marketing analizando los ingredientes, los beneficios declarados, los posibles efectos secundarios y las experiencias reales de los usuarios — para que puedas tomar decisiones de compra más inteligentes y seguras. Ya sea que busques suplementos para bajar de peso, apoyo para el sueño, salud intestinal o cuidado bucal, SuppleLogic ofrece información clara y sin sesgos basada en la lógica, no en exageraciones.",
+    "introduction": "SuppleLogic es una plataforma confiable dedicada a ofrecer reseñas honestas y basadas en investigación de suplementos. Te ayudamos a cortar el ruido del marketing analizando los ingredientes, los beneficios declarados, los posibles efectos secundarios y las experiencias reales de los usuarios — para que puedas tomar decisiones de compra más inteligentes y seguras. Ya sea que busques suplementos para bajar de peso, apoyo para el sueño, salud intestinal o cuidado bucal, SuppleLogic ofrece información clara y sin sesgos basada en lógica, no en exageraciones.",
     "sections": [
       {
         "title": "¿Por qué confiar en SuppleLogic?",
-        "content": "En SuppleLogic, la transparencia es lo primero. Nuestro objetivo es educar, no engañar. Podemos ganar una comisión cuando compras a través de nuestros enlaces, pero esto nunca influye en nuestras reseñas. Cada producto se evalúa con los mismos estándares honestos.",
+        "content": "En SuppleLogic, la transparencia es lo primero. Nuestro objetivo es educar, no engañar. Podemos ganar una comisión cuando compras a través de nuestros enlaces, pero esto nunca influye en nuestras reseñas. Cada producto se evalúa utilizando los mismos estándares honestos.",
         "items": [
           "Análisis independiente de ingredientes",
-          "Enfoque basado en evidencia científica",
+          "Enfoque basado en investigación científica",
           "Pros y contras explicados claramente",
           "Se consideran opiniones reales de usuarios",
           "Sin afirmaciones falsas ni promesas milagrosas"
         ]
       },
       {
-        "title": "Cómo reseñamos suplementos",
-        "content": "Cada suplemento destacado en SuppleLogic pasa por un proceso de evaluación estructurado. Este enfoque lógico ayuda a los lectores a evitar productos de baja calidad o engañosos.",
+        "title": "Cómo evaluamos los suplementos",
+        "content": "Cada suplemento destacado en SuppleLogic pasa por un proceso de evaluación estructurado: Este enfoque lógico ayuda a los lectores a evitar productos de baja calidad o engañosos.",
         "items": [
           "Calidad de los ingredientes – ¿Son efectivos y seguros?",
           "Evidencia científica – ¿Hay investigación real detrás de las afirmaciones?",
-          "Beneficios vs. Reclamos – ¿Los resultados coinciden con las promesas de marketing?",
+          "Beneficios vs Promesas – ¿Los resultados coinciden con lo que anuncia el marketing?",
           "Efectos secundarios y seguridad – ¿Quién debería evitarlo?",
           "Relación calidad-precio – ¿El precio está justificado?"
         ]
       },
       {
         "title": "Últimas reseñas de suplementos",
-        "content": "Publicamos regularmente reseñas detalladas de suplementos populares y en tendencia, incluyendo:",
+        "content": "Publicamos regularmente reseñas detalladas de suplementos de tendencia y populares, incluyendo: 👉 Explora nuestras últimas reseñas para encontrar suplementos que realmente tengan sentido para tus objetivos de salud.",
         "items": [
-          "Suplementos para bajar de peso y metabolismo",
-          "Fórmulas para el sueño y la relajación",
-          "Probióticos para la salud dental y bucal",
-          "Apoyo para la salud intestinal y la digestión",
-          "Productos para la energía y el bienestar general"
+          "Suplementos para pérdida de peso y metabolismo",
+          "Fórmulas para sueño y relajación",
+          "Probióticos para salud dental y bucal",
+          "Apoyo para salud intestinal y digestión",
+          "Productos de energía y bienestar general"
         ]
       },
       {
         "title": "Categorías populares de suplementos",
         "content": "Cada categoría está cuidadosamente seleccionada para ayudarte a comparar opciones fácilmente.",
         "items": [
-          "Suplementos para bajar de peso – Quemadores de grasa, potenciadores del metabolismo y control del apetito",
-          "Apoyo para el sueño y el estrés – Fórmulas para sueño profundo y relajación",
-          "Salud dental y bucal – Probióticos para dientes y encías",
-          "Salud intestinal – Enzimas digestivas y apoyo al microbioma",
-          "Bienestar general – Suplementos diarios para salud e inmunidad"
+          "Suplementos para Bajar de Peso – Quemagrasas, aceleradores del metabolismo y control del apetito",
+          "Apoyo para Sueño y Estrés – Fórmulas para sueño profundo y relajación",
+          "Salud Dental y Bucal – Probióticos para dientes y encías",
+          "Salud Intestinal – Enzimas digestivas y apoyo al microbioma",
+          "Bienestar General – Suplementos diarios para salud e inmunidad"
         ]
       },
       {
-        "title": "Nuestra misión",
-        "content": "Nuestra misión en SuppleLogic es simple: ofrecer reseñas honestas, lógicas y fáciles de entender que empoderen mejores decisiones de salud. Creemos que los suplementos deben apoyar tu salud — no confundirte ni engañarte."
+        "title": "Nuestra Misión",
+        "content": "Nuestra misión en SuppleLogic es simple: ofrecer reseñas honestas, lógicas y fáciles de entender que empoderen mejores decisiones para tu salud. Creemos que los suplementos deben apoyar tu salud — no confundirte ni engañarte."
       },
       {
-        "title": "Preguntas frecuentes",
+        "title": "Preguntas Frecuentes",
         "items": [
-          "¿Las reseñas de SuppleLogic son imparciales? Sí. Todas las reseñas se escriben de forma independiente utilizando análisis de ingredientes, datos de investigación y retroalimentación de usuarios. Las comisiones de afiliados no afectan nuestras evaluaciones.",
-          "¿Prueban suplementos? No fabricamos ni vendemos suplementos. Nuestras reseñas se basan en investigación de ingredientes, estudios científicos, transparencia de la marca y experiencias de usuarios disponibles públicamente.",
-          "¿Es SuppleLogic un sitio web médico? No. Solo proporcionamos contenido informativo. Siempre consulta a un profesional de la salud antes de comenzar cualquier suplemento."
+          "¿Las reseñas de SuppleLogic son imparciales? Sí. Todas las reseñas se escriben de forma independiente utilizando análisis de ingredientes, datos científicos y opiniones de usuarios. Las comisiones de afiliados no afectan nuestras evaluaciones.",
+          "¿Prueban ustedes los suplementos? No fabricamos ni vendemos suplementos. Nuestras reseñas se basan en investigación de ingredientes, estudios científicos, transparencia de las marcas y experiencias de usuarios disponibles públicamente.",
+          "¿Es SuppleLogic un sitio web médico? No. Solo proporcionamos contenido informativo. Siempre consulta a un profesional de la salud antes de comenzar a tomar cualquier suplemento."
         ],
-        "content": "Descargo de responsabilidad: El contenido de SuppleLogic tiene fines informativos únicamente y no constituye consejo médico. Podemos ganar comisiones de afiliados por compras calificadas."
+        "content": "Descargo de responsabilidad: El contenido de SuppleLogic tiene fines informativos únicamente y no constituye consejo médico. Podemos ganar comisiones de afiliados en compras calificadas."
       }
     ]
   }
