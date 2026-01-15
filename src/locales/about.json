@@ -1,102 +1,101 @@
 {
   "about": {
-    "title": "About Us - MITOLYN | Premium Health Supplements",
-    "description": "Learn about MITOLYN's mission to provide premium natural supplements for optimal health and wellness. Discover our story, values, and commitment to quality.",
+    "title": "About SuppleLogic | Trusted Supplement Reviews & Wellness Insights",
+    "description": "Learn about SuppleLogic, a trusted supplement review platform providing unbiased wellness insights, ingredient research, and educational health content worldwide.",
     "hero": {
-      "badge": "About MITOLYN",
-      "title": "Transforming Lives Through",
-      "titleHighlight": "Premium Wellness",
-      "description": "At MITOLYN, we believe that optimal health is the foundation of a fulfilling life. Our mission is to provide scientifically-backed, premium natural supplements that empower individuals to achieve their wellness goals."
+      "badge": "About SuppleLogic",
+      "title": "Honest Supplement Reviews &",
+      "titleHighlight": "Wellness Education",
+      "description": "Welcome to SuppleLogic — your trusted destination for honest, research-driven supplement reviews and wellness insights. At SuppleLogic, our mission is simple: to help people make smarter, safer, and more informed decisions about dietary supplements. With thousands of products on the market and bold claims everywhere, choosing the right supplement can feel confusing. That’s where we come in."
     },
     "story": {
-      "title": "Our Story",
+      "title": "Who We Are",
       "content": [
-        "Founded with a passion for natural wellness, MITOLYN emerged from the understanding that modern lifestyles often leave us depleted of essential nutrients and energy. Our founders, a team of health enthusiasts and nutrition experts, recognized the need for premium supplements that could bridge this gap.",
-        "After years of research and development, we created formulations that combine ancient wisdom with modern science. Each MITOLYN product is carefully crafted to support your body's natural processes, helping you achieve sustainable weight management and enhanced vitality.",
-        "Today, thousands of satisfied customers trust MITOLYN as their partner in their wellness journey, experiencing transformative results that go beyond just weight loss."
+        "SuppleLogic is an independent supplement review and information platform dedicated to analyzing health, fitness, and wellness supplements from around the world. We focus on popular categories such as weight management, dental health, immunity, digestion, sleep, and overall well-being.",
+        "We are not manufacturers. We don’t create or sell supplements. Our role is to research, review, and simplify supplement information so you can understand what a product is, how it works, and whether it may suit your lifestyle."
       ]
     },
     "values": {
-      "title": "Our Core Values",
-      "description": "These principles guide everything we do, from product development to customer service.",
+      "title": "Our Review Process",
+      "description": "Every product featured on SuppleLogic is evaluated using a structured and transparent approach, including:",
       "items": [
         {
-          "title": "Natural Excellence",
-          "description": "We source only the finest natural ingredients, ensuring purity and potency in every capsule.",
+          "title": "Ingredient research and formulation analysis",
+          "description": "",
           "icon": "Leaf"
         },
         {
-          "title": "Safety First",
-          "description": "All our products undergo rigorous testing and are manufactured in FDA-registered facilities.",
+          "title": "Review of manufacturer claims and product positioning",
+          "description": "",
           "icon": "Shield"
         },
         {
-          "title": "Scientific Backing",
-          "description": "Every formulation is based on peer-reviewed research and proven nutritional science.",
+          "title": "Assessment of publicly available user feedback",
+          "description": "",
           "icon": "Award"
         },
         {
-          "title": "Customer-Centric",
-          "description": "Your success is our success. We're committed to supporting your wellness journey.",
+          "title": "Safety considerations and usage information",
+          "description": "",
           "icon": "Users"
         },
         {
-          "title": "Transparency",
-          "description": "We believe in honest communication about ingredients, benefits, and realistic expectations.",
+          "title": "Comparison with similar products in the same category",
+          "description": "",
           "icon": "Heart"
         },
         {
-          "title": "Quality Assurance",
-          "description": "From sourcing to packaging, we maintain the highest standards of quality control.",
+          "title": "Our goal is to present balanced, easy-to-understand reviews without hype or fear-based marketing.",
+          "description": "",
           "icon": "CheckCircle"
         }
       ]
     },
     "certifications": {
-      "title": "Quality You Can Trust",
-      "description": "Our commitment to excellence is reflected in our certifications and manufacturing standards.",
+      "title": "Why Trust SuppleLogic?",
+      "description": "We believe supplements should support a healthy lifestyle — not replace professional medical advice, a balanced diet, or proper exercise.",
       "items": [
         {
           "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422484/fda-approved_jrawwr.webp",
-          "alt": "FDA Registered",
-          "label": "FDA Registered"
+          "alt": "Unbiased and educational content",
+          "label": "Unbiased and educational content"
         },
         {
           "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/gmp-certified_z81hqh.webp",
-          "alt": "GMP Certified",
-          "label": "GMP Certified"
+          "alt": "Focus on science-backed ingredients",
+          "label": "Focus on science-backed ingredients"
         },
         {
           "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422491/natural_dpkfxs.webp",
-          "alt": "100% Natural",
-          "label": "100% Natural"
+          "alt": "Simple language, no medical jargon",
+          "label": "Simple language, no medical jargon"
         },
         {
           "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/made-in-usa_go4j19.webp",
-          "alt": "Made in USA",
-          "label": "Made in USA"
+          "alt": "Global perspective on wellness products",
+          "label": "Global perspective on wellness products"
         }
       ]
     },
     "faq": {
       "title": "Frequently Asked Questions",
-      "description": "Answers to the most common questions about MITOLYN and our supplements.",
+      "description": "Answers to the most common questions about SuppleLogic and our reviews.",
       "items": [
         {
-          "question": "Are MITOLYN supplements safe?",
-          "answer": "Yes. Our products are manufactured in FDA-registered, GMP-certified facilities and undergo rigorous quality testing. Always consult your healthcare provider if you have specific medical conditions."
+          "question": "Is SuppleLogic a supplement manufacturer?",
+          "answer": "No. We are an independent review platform. We don’t create or sell supplements. Our role is to research, review, and simplify supplement information."
         },
         {
-          "question": "How long does it take to see results?",
-          "answer": "Many customers report feeling more energetic within 1–2 weeks. Visible results vary by individual, but most see noticeable changes within 4–8 weeks of consistent use and a healthy lifestyle."
+          "question": "How do you ensure your reviews are unbiased?",
+          "answer": "Our reviews are based on a transparent process including ingredient analysis, user feedback, and safety considerations. Affiliate relationships do not influence our reviews or recommendations."
         },
         {
-          "question": "Are the ingredients natural?",
-          "answer": "We prioritize premium, naturally derived ingredients, and every formulation is backed by nutritional science for purity and efficacy."
+          "question": "Does SuppleLogic provide medical advice?",
+          "answer": "No. The information provided on SuppleLogic is for educational and informational purposes only and is not intended as medical advice. Always consult a qualified healthcare professional."
         },
         {
-          "question": "Do you ship internationally?",
-          "answer": "Yes, we serve customers worldwide. Availability and shipping times may vary by region."
+          "question": "What is your affiliate disclosure?",
+          "answer": "Some links on SuppleLogic may be affiliate links, which means we may earn a small commission if you choose to make a purchase through them — at no additional cost to you. These commissions help us maintain the website."
         }
       ]
     }
