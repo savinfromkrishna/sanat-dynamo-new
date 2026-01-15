@@ -118,45 +118,11 @@ const Header = ({ country, locale, translations }: HeaderProps) => {
               >
                 {t.categories.weightLoss}
               </Link>
-              <div className="pl-4">
-                <Link
-                  href={`/${country}/${locale}/weight-loss-supplements/men`}
-                  className="block text-sm text-gray-600 hover:text-emerald-700 py-1"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {t.categories.forMen || "For Men"}
-                </Link>
-                <Link
-                  href={`/${country}/${locale}/weight-loss-supplements/women`}
-                  className="block text-sm text-gray-600 hover:text-emerald-700 py-1"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {t.categories.forWomen || "For Women"}
-                </Link>
-              </div>
 
-              {/* <Link
-                href={`/${country}/${locale}/energy-supplements`}
-                className="block text-gray-700 hover:text-emerald-600 font-medium py-2"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {t.categories.energy}
-              </Link> */}
-              {/* <Link
-                href={`/${country}/${locale}#categories`}
-                className="block text-gray-700 hover:text-emerald-600 font-medium py-2"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {t.categories.wellness}
-              </Link> */}
 
-              <Link
-                href={`/${country}/${locale}/reviews`}
-                className="block text-gray-700 hover:text-emerald-600 font-medium py-2"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {t.nav.reviews}
-              </Link>
+
+
+
               <Link
                 href={`/${country}/${locale}/about`}
                 className="block text-gray-700 hover:text-emerald-600 font-medium py-2"
