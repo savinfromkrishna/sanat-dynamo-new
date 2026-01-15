@@ -15,6 +15,10 @@ import { CategoriesSection } from "@/components/home/CategoriesSection"
 import { ProductknowMoreSection } from "@/components/productKnowMore"
 
 import { getTranslation, type Locale } from "@/lib/i18n"
+import { validCountryISOs } from "@/middleware"
+
+const supportedCountries = validCountryISOs;
+const supportedLanguages: Locale[] = ["en", "es"];
 
 /* ------------------------------------------------------------------ */
 /* Viewport */
@@ -27,7 +31,7 @@ export function generateViewport(): Viewport {
 }
 
 /* ------------------------------------------------------------------ */
-/* Category mapping (TYPE-SAFE) */
+/* Category mapping */
 /* ------------------------------------------------------------------ */
 export type CategoryKey = "weightLoss" | "oralProbiotics"
 
@@ -41,7 +45,7 @@ function getCategoryKey(slug: string): CategoryKey | null {
 }
 
 /* ------------------------------------------------------------------ */
-/* Metadata */
+/* Metadata with Dynamic Hreflang */
 /* ------------------------------------------------------------------ */
 export async function generateMetadata({
   params,
@@ -51,7 +55,7 @@ export async function generateMetadata({
   const { country, locale, slug } = await params
 
   const safeLocale: Locale = locale === "es" ? "es" : "en"
-  const translations = getTranslation(safeLocale)
+  const translations = await getTranslation(safeLocale)
   const categoryKey = getCategoryKey(slug)
 
   if (!categoryKey || !translations?.[categoryKey]?.seo) {
@@ -63,13 +67,32 @@ export async function generateMetadata({
 
   const t = translations[categoryKey]
 
+  // Generate dynamic hreflang alternates
+  const langMap: Record<string, string> = {};
+  for (const lang of supportedLanguages) {
+    for (const cty of supportedCountries) {
+      const region = cty.toUpperCase();
+      const hrefLang = `${lang}-${region}`;
+      langMap[hrefLang] = `/${cty}/${lang}/${slug}`;
+    }
+  }
+  langMap["x-default"] = `/us/en/${slug}`;
+
   return {
     title: t.seo.title,
     description: t.seo.description,
     metadataBase: new URL("https://supplelogic.com"),
     alternates: {
       canonical: `/${country}/${safeLocale}/${slug}`,
+      languages: langMap,
     },
+    openGraph: {
+      title: t.seo.title,
+      description: t.seo.description,
+      url: `https://supplelogic.com/${country}/${safeLocale}/${slug}`,
+      locale: `${safeLocale}_${country.toUpperCase()}`,
+      type: "website",
+    }
   }
 }
 
@@ -84,12 +107,10 @@ export default async function SupplementsPage({
   const { country, locale, slug } = await params
 
   const safeLocale: Locale = locale === "es" ? "es" : "en"
-  const translations = getTranslation(safeLocale)
+  const translations = await getTranslation(safeLocale)
   const categoryKey = getCategoryKey(slug)
 
-  // Early return with better debugging in development
   if (!categoryKey) {
-    console.error(`Invalid category slug: "${slug}"`)
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center p-8">
@@ -103,15 +124,10 @@ export default async function SupplementsPage({
   const t = translations?.[categoryKey]
 
   if (!t) {
-    console.error(`Missing translation for category: ${categoryKey} (locale: ${safeLocale})`)
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center p-8">
           <h1 className="text-3xl font-bold mb-4">Content Not Available</h1>
-          <p>Translation missing for <strong>{categoryKey}</strong></p>
-          <p className="text-sm text-gray-500 mt-4">
-            Check your translation file structure
-          </p>
         </div>
       </div>
     )
@@ -121,7 +137,6 @@ export default async function SupplementsPage({
 
   return (
     <main className="min-h-screen bg-white">
-      {/* Categories */}
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <CategoriesSection
           translations={translations}
@@ -131,14 +146,12 @@ export default async function SupplementsPage({
         />
       </section>
 
-      {/* Benefits */}
       {t.benefits && (
         <section className="py-12">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">
               {t.benefits.title}
             </h2>
-
             <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {t.benefits.items.map((item: string, i: number) => (
                 <Card key={i} className="border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
@@ -153,23 +166,14 @@ export default async function SupplementsPage({
         </section>
       )}
 
-      {/* Trust Badges */}
       {t.trustBadges && (
         <section className="py-12 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <h3 className="text-2xl font-semibold text-center mb-8">
-              {t.trustBadges.title || "Certified Quality You Can Trust"}
-            </h3>
-            <div className="flex flex-wrap justify-center gap-8 md:gap-12">
-              {t.trustBadges.items.map((b: { image: string; alt: string }, i: number) => (
+          <div className="container mx-auto px-4 text-center">
+            <h3 className="text-2xl font-semibold mb-8">{t.trustBadges.title}</h3>
+            <div className="flex flex-wrap justify-center gap-8">
+              {t.trustBadges.items.map((b: any, i: number) => (
                 <div key={i} className="flex flex-col items-center">
-                  <Image
-                    src={b.image}
-                    alt={b.alt}
-                    width={90}
-                    height={90}
-                    className="object-contain"
-                  />
+                  <Image src={b.image} alt={b.alt} width={90} height={90} className="object-contain" />
                   <p className="mt-2 text-sm text-gray-600">{b.alt}</p>
                 </div>
               ))}
@@ -178,26 +182,17 @@ export default async function SupplementsPage({
         </section>
       )}
 
-      {/* Reviews */}
       <CategoryReviewsSection category={slug} translations={translations} />
 
-      {/* FAQs */}
       {t.faqs && (
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4 max-w-4xl">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">
-              {t.faqs.title || "Frequently Asked Questions"}
-            </h2>
-
+            <h2 className="text-3xl font-bold text-center mb-10">{t.faqs.title}</h2>
             <Accordion type="single" collapsible className="w-full">
-              {t.faqs.items.map((faq: { question: string; answer: string }, i: number) => (
-                <AccordionItem key={i} value={`faq-${i}`} className="border-b py-2">
-                  <AccordionTrigger className="text-left font-medium">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="pt-4 text-gray-700">
-                    {faq.answer}
-                  </AccordionContent>
+              {t.faqs.items.map((faq: any, i: number) => (
+                <AccordionItem key={i} value={`faq-${i}`}>
+                  <AccordionTrigger>{faq.question}</AccordionTrigger>
+                  <AccordionContent>{faq.answer}</AccordionContent>
                 </AccordionItem>
               ))}
             </Accordion>
@@ -205,31 +200,18 @@ export default async function SupplementsPage({
         </section>
       )}
 
-      {/* Know More / Additional Info */}
       {knowMoreData && (
-        <ProductknowMoreSection
-          translations={{ productKnowMore: knowMoreData }}
-        />
+        <ProductknowMoreSection translations={{ productKnowMore: knowMoreData }} />
       )}
     </main>
   )
 }
 
-/* ------------------------------------------------------------------ */
-/* Static Params – Add more combinations as needed */
-/* ------------------------------------------------------------------ */
 export async function generateStaticParams() {
-  const locales = ["en", "es"]
-  const countries = ["in", "us"]
   const slugs = ["weight-loss-supplements", "dental-health-supplements"]
-
-  return countries.flatMap((country) =>
-    locales.flatMap((locale) =>
-      slugs.map((slug) => ({
-        country,
-        locale,
-        slug,
-      }))
+  return validCountryISOs.flatMap((country) =>
+    supportedLanguages.flatMap((locale) =>
+      slugs.map((slug) => ({ country, locale, slug }))
     )
   )
 }

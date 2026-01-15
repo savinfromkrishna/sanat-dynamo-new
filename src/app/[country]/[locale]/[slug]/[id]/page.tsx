@@ -4,20 +4,15 @@ import { notFound } from "next/navigation"
 import ProductDetailPageClient from "./ProductDetailPageClient"
 import { getTranslation, type Locale } from "@/lib/i18n"
 import type { ProductDetail } from "./product-data"
+import { validCountryISOs } from "@/middleware"
 
-/* ------------------------------------------------------------------ */
-/* Viewport (REQUIRED – fixes metadata warning) */
-/* ------------------------------------------------------------------ */
+const supportedCountries = validCountryISOs;
+const supportedLanguages: Locale[] = ["en", "es"];
+
 export function generateViewport(): Viewport {
-  return {
-    width: "device-width",
-    initialScale: 1,
-  }
+  return { width: "device-width", initialScale: 1 }
 }
 
-/* ------------------------------------------------------------------ */
-/* Category mapping */
-/* ------------------------------------------------------------------ */
 type CategoryKey = "weightLoss" | "oralProbiotics"
 
 function getCategoryKey(slug: string): CategoryKey | null {
@@ -28,46 +23,44 @@ function getCategoryKey(slug: string): CategoryKey | null {
   return map[slug] || null
 }
 
-/* ------------------------------------------------------------------ */
-/* Static product map */
-/* ------------------------------------------------------------------ */
 const productMap: Record<string, string[]> = {
   "weight-loss-supplements": ["metolyn"],
   "dental-health-supplements": ["prodentim"],
 }
 
 /* ------------------------------------------------------------------ */
-/* Metadata */
+/* Metadata with Dynamic Hreflang */
 /* ------------------------------------------------------------------ */
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{
-    country: string
-    locale: Locale
-    slug: string
-    id: string
-  }>
+  params: Promise<{ country: string; locale: Locale; slug: string; id: string }>
 }): Promise<Metadata> {
   const { country, locale, slug, id } = await params
 
-  const translations = getTranslation(locale)
+  const translations = await getTranslation(locale)
   const categoryKey = getCategoryKey(slug)
 
-  if (!categoryKey) {
-    return { title: "Page Not Found" }
-  }
+  if (!categoryKey) return { title: "Page Not Found" }
 
   const product = translations.products?.[id] as ProductDetail | undefined
 
   if (!product?.seo) {
-    return {
-      title: translations.common?.productNotFound ?? "Product Not Found",
-    }
+    return { title: translations.common?.productNotFound ?? "Product Not Found" }
   }
 
-  const fallbackImage =
-    "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp"
+  // Generate dynamic hreflang alternates
+  const langMap: Record<string, string> = {};
+  for (const lang of supportedLanguages) {
+    for (const cty of supportedCountries) {
+      const region = cty.toUpperCase();
+      const hrefLang = `${lang}-${region}`;
+      langMap[hrefLang] = `/${cty}/${lang}/${slug}/${id}`;
+    }
+  }
+  langMap["x-default"] = `/us/en/${slug}/${id}`;
+
+  const fallbackImage = "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp"
 
   return {
     title: product.seo.title,
@@ -75,26 +68,16 @@ export async function generateMetadata({
     keywords: product.seo.keywords?.join(", "),
     metadataBase: new URL("https://supplelogic.com"),
     alternates: {
-      canonical: `/${country}/${locale}/${slug}/${product.id}`,
-      languages: {
-        "en-US": `/${country}/en/${slug}/${product.id}`,
-        "es-ES": `/${country}/es/${slug}/${product.id}`,
-      },
+      canonical: `/${country}/${locale}/${slug}/${id}`,
+      languages: langMap,
     },
     openGraph: {
       title: product.seo.title,
       description: product.seo.description,
-      url: `https://supplelogic.com/${country}/${locale}/${slug}/${product.id}`,
+      url: `https://supplelogic.com/${country}/${locale}/${slug}/${id}`,
       siteName: "SuppleLogic",
-      images: [
-        {
-          url: product.image || fallbackImage,
-          width: 1200,
-          height: 630,
-          alt: product.name ?? product.seo.title,
-        },
-      ],
-      locale: locale === "es" ? "es_ES" : "en_US",
+      images: [{ url: product.image || fallbackImage, width: 1200, height: 630, alt: product.name }],
+      locale: `${locale}_${country.toUpperCase()}`,
       type: "website",
     },
     twitter: {
@@ -107,48 +90,30 @@ export async function generateMetadata({
 }
 
 /* ------------------------------------------------------------------ */
-/* Page */
+/* Page Component */
 /* ------------------------------------------------------------------ */
 export default async function ProductPage({
   params,
 }: {
-  params: Promise<{
-    country: string
-    locale: Locale
-    slug: string
-    id: string
-  }>
+  params: Promise<{ country: string; locale: Locale; slug: string; id: string }>
 }) {
   const { country, locale, slug, id } = await params
 
-  const translations = getTranslation(locale)
+  const translations = await getTranslation(locale)
   const categoryKey = getCategoryKey(slug)
 
-  if (!categoryKey) {
-    notFound()
-  }
+  if (!categoryKey) notFound()
 
   const product = translations.products?.[id] as ProductDetail | undefined
-
-  if (!product) {
-    notFound()
-  }
+  if (!product) notFound()
 
   const categoryTranslations = translations[categoryKey]
+  if (!categoryTranslations) notFound()
 
-  if (!categoryTranslations) {
-    notFound()
-  }
-
-  const categoryProducts =
-    categoryTranslations.productsSection?.products ?? []
-
+  const categoryProducts = categoryTranslations.productsSection?.products ?? []
   const relatedProducts = categoryProducts
     .filter((p: any) => String(p.id) !== id)
-    .map((p: any) => ({
-      ...p,
-      id: String(p.id),
-    }))
+    .map((p: any) => ({ ...p, id: String(p.id) }))
 
   return (
     <ProductDetailPageClient
@@ -164,34 +129,16 @@ export default async function ProductPage({
   )
 }
 
-/* ------------------------------------------------------------------ */
-/* Static Params (SSG safe) */
-/* ------------------------------------------------------------------ */
 export async function generateStaticParams() {
-  const locales: Locale[] = ["en", "es"]
-  const countries = ["us", "in", "ca"]
-
-  const paramsArray: {
-    country: string
-    locale: Locale
-    slug: string
-    id: string
-  }[] = []
-
-  for (const country of countries) {
-    for (const locale of locales) {
+  const paramsArray: any[] = []
+  for (const country of supportedCountries) {
+    for (const locale of supportedLanguages) {
       for (const slug of Object.keys(productMap)) {
         for (const id of productMap[slug]) {
-          paramsArray.push({
-            country,
-            locale,
-            slug,
-            id,
-          })
+          paramsArray.push({ country, locale, slug, id })
         }
       }
     }
   }
-
   return paramsArray
 }
