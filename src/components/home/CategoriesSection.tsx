@@ -228,13 +228,13 @@ export function CategoriesSection({
                                   )}
                                 </div>
 
-                                {product.premiumPrice && (
+                                {/* {product.premiumPrice && (
                                   <p className="text-sm text-orange-600 font-medium">
                                     <Star className="w-4 h-4 inline fill-current" />{" "}
                                     {product.premiumPrice}{" "}
                                     {t.common?.premiumMemberSuffix || "for Premium Members"}
                                   </p>
-                                )}
+                                )} */}
 
                                 <p className="text-sm text-gray-600">
                                   {product.supply}

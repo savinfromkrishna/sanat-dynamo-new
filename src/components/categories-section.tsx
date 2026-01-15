@@ -248,12 +248,12 @@ export function CategoriesSection({ showAddToCart = true }: { showAddToCart?: bo
                                 </span>
                               </div>
 
-                              <div className="flex items-center gap-1 text-xs text-orange-600 mb-2">
+                              {/* <div className="flex items-center gap-1 text-xs text-orange-600 mb-2">
                                 <Star className="w-3 h-3 text-orange-500 fill-current" />
                                 <span className="font-medium">
                                   {product.premiumPrice} {t.common.premiumMemberSuffix}
                                 </span>
-                              </div>
+                              </div> */}
 
                               <div className="text-xs text-gray-600 font-medium">{product.supply}</div>
                             </div>

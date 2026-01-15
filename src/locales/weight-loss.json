@@ -16,66 +16,6 @@
     },
     "title": "Best Weight Loss Supplements",
     "intro": "Finding the best weight loss supplements can be overwhelming, especially with so many options on the market. The truth is, not all products are created equal — and the ones that deliver results are often those backed by science and real customer experiences. Whether you’re looking for the best natural weight loss supplements, the best female weight loss supplements, or the best men’s weight loss supplements, this guide will help you explore the most trusted options available today. On this page, we highlight safe and effective choices, including the popular Mitolyn supplement, to support your weight loss journey.",
-    "productsSection": {
-      "title": "Best Natural Weight Loss Supplements",
-      "description": "Many people prefer natural formulas that use plant-based or herbal ingredients. The best natural weight loss supplements are typically free from harsh stimulants and focus on supporting your body’s own fat-burning processes.",
-      "products": [
-        {
-          "id": 1,
-          "name": "MITOLYN Basic Package",
-          "price": "$59",
-          "originalPrice": "₹2,999",
-          "discount": "16% OFF",
-          "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
-          "supply": "30 Days Supply",
-          "link": "https://supplelogic.com/basic-package",
-          "badge": "BASIC - 1 BOTTLE",
-          "badgeColor": "bg-gradient-to-r from-teal-500 to-teal-600",
-          "shipping": "* Free Shipping",
-          "rating": 4.8,
-          "reviews": 2847,
-          "premiumPrice": "₹2,424 for Premium Members",
-          "slug": "metolyn",
-          "categorySlug": "weight-loss-supplements"
-        },
-        {
-          "id": 7,
-          "name": "Sleep Lean Basic Package",
-          "price": "$39",
-          "originalPrice": "₹2,999",
-          "discount": "16% OFF",
-          "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1766323389/sleep-lean-supplement_naj8ag.png",
-          "supply": "30 Days Supply",
-          "link": "https://9fe84fnru1my4rbqz7qhx3oecj.hop.clickbank.net/?&traffic_source=website",
-          "badge": "SLEEP SUPPORT",
-          "badgeColor": "bg-gradient-to-r from-green-500 to-green-600",
-          "shipping": "* Free Shipping",
-          "rating": 4.9,
-          "reviews": 2847,
-          "premiumPrice": "₹2,424 for Premium Members",
-          "slug": "sleep-lean",
-          "categorySlug": "weight-loss-supplements"
-        },
-        {
-          "id": 10,
-          "name": "BellyFlush Basic Package",
-          "price": "$33",
-          "originalPrice": "₹2,999",
-          "discount": "16% OFF",
-          "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1766323113/bellyflush/BellyFlush-Bottle-Graphic-500px-1_lihmwp.png",
-          "supply": "30 Days Supply",
-          "link": "https://4b196jnlxefz5qf6q5zov4fs8k.hop.clickbank.net/?&traffic_source=website",
-          "badge": "GUT CLEANSE",
-          "badgeColor": "bg-gradient-to-r from-teal-600 to-teal-700",
-          "shipping": "* Free Shipping",
-          "rating": 4.9,
-          "reviews": 2847,
-          "premiumPrice": "₹2,424 for Premium Members",
-          "slug": "bellyflush",
-          "categorySlug": "weight-loss-supplements"
-        }
-      ]
-    },
     "trustBadges": {
       "title": "Certified Quality You Can Trust",
       "items": [

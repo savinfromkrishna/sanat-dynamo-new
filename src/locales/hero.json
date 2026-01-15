@@ -78,7 +78,7 @@
           {
             "name": "MITOLYN Basic Package",
             "price": "$59",
-            "originalPrice": "₹2,999",
+            "originalPrice": "$70",
             "discount": "16% off",
             "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
             "supply": "30 Days Supply",
@@ -86,14 +86,14 @@
             "buyNow": "Buy Now",
             "rating": 4.8,
             "reviews": 2847,
-            "premiumPrice": "₹2,424",
+            "premiumPrice": "$49",
             "id": 1,
             "slug": "metolyn"
           },
           {
             "name": "Sleep Lean Basic Package",
             "price": "$39",
-            "originalPrice": "₹2,999",
+            "originalPrice": "$46",
             "discount": "16% off",
             "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1766323389/sleep-lean-supplement_naj8ag.png",
             "supply": "30 Days Supply",
@@ -101,14 +101,14 @@
             "buyNow": "Buy Now",
             "rating": 4.9,
             "reviews": 2847,
-            "premiumPrice": "₹2,424",
+            "premiumPrice": "$29",
             "id": 7,
             "slug": "sleep-lean"
           },
           {
             "name": "BellyFlush Basic Package",
             "price": "$33",
-            "originalPrice": "₹2,999",
+            "originalPrice": "$39",
             "discount": "16% off",
             "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1766323113/bellyflush/BellyFlush-Bottle-Graphic-500px-1_lihmwp.png",
             "supply": "30 Days Supply",
@@ -116,7 +116,7 @@
             "buyNow": "Buy Now",
             "rating": 4.9,
             "reviews": 2847,
-            "premiumPrice": "₹2,424",
+            "premiumPrice": "$25",
             "id": 10,
             "slug": "bellyflush"
           }
@@ -128,7 +128,7 @@
           {
             "name": "PRODENTIM Basic Package",
             "price": "$49",
-            "originalPrice": "₹2,999",
+            "originalPrice": "$58",
             "discount": "16% off",
             "image": "https://res.cloudinary.com/dpqnfjpdw/image/upload/v1765645308/ravish/ProDentim-main-1--1-_gnicns.png",
             "supply": "30 Days Supply",
@@ -136,7 +136,7 @@
             "buyNow": "Buy Now",
             "rating": 4.8,
             "reviews": 95000,
-            "premiumPrice": "₹2,424",
+            "premiumPrice": "$39",
             "id": 4,
             "slug": "prodentim"
           }
@@ -192,7 +192,7 @@
         "name": "Anjalina S.",
         "location": "California, USA",
         "rating": 5,
-        "text": "I started using ProDentim about three weeks ago, and the results are amazing. My gums feel healthier, bleeding has stopped, and my breath stays fresh all day. I’ve tried many dental supplements, but this is the only one that actually worked. Highly recommended!",
+        "text": "I started using ProDentim about three weeks ago, and the results are amazing. My gums feel healthier, bleeding has stopped, and my breath stays fresh all day.",
         "verified": true
       },
       {
@@ -200,7 +200,7 @@
         "name": "Rick Smith",
         "location": "Texas, USA",
         "rating": 5,
-        "text": "ProDentim has completely changed my dental routine. I noticed a big reduction in plaque and sensitivity within the first month. My dentist even asked what I was using! This probiotic is definitely worth the money.",
+        "text": "ProDentim has completely changed my dental routine. I noticed a big reduction in plaque and sensitivity within the first month.",
         "verified": true
       },
       {
@@ -208,31 +208,7 @@
         "name": "Rahul S.",
         "location": "Mumbai, India",
         "rating": 5,
-        "text": "I started using Sleep Lean because my sleep cycle was completely disturbed. Within a few days, I was sleeping deeper and waking up refreshed. After a few weeks, I noticed reduced cravings and gradual weight loss. It feels like a clean, natural sleep supplement.",
-        "verified": true
-      },
-      {
-        "id": 6,
-        "name": "Emily R.",
-        "location": "Austin, Texas, USA",
-        "rating": 5,
-        "text": "Sleep Lean helped me fall asleep faster without making me feel drowsy in the morning. My stress levels went down, and I slowly started losing weight without changing much in my routine. I like that it’s non-habit forming and gentle.",
-        "verified": true
-      },
-      {
-        "id": 7,
-        "name": "Sarah M.",
-        "location": "California, USA",
-        "rating": 5,
-        "text": "After a week of using BellyFlush, my bloating was almost gone. My stomach feels lighter and digestion is much better.",
-        "verified": true
-      },
-      {
-        "id": 8,
-        "name": "Daniel R.",
-        "location": "Texas, USA",
-        "rating": 5,
-        "text": "I’ve tried many gut cleanse products, but BellyFlush worked gently without cramps. I feel more comfortable daily.",
+        "text": "I started using Sleep Lean because my sleep cycle was completely disturbed. Within a few days, I was sleeping deeper and waking up refreshed.",
         "verified": true
       }
     ]
