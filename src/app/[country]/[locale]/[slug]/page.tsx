@@ -16,6 +16,7 @@ import { ProductknowMoreSection } from "@/components/productKnowMore"
 
 import { getTranslation, type Locale } from "@/lib/i18n"
 import { validCountryISOs } from "@/middleware"
+import { countryNamesByISO } from "@/lib/country"
 
 const supportedCountries = validCountryISOs;
 const supportedLanguages: Locale[] = ["en", "es"];
@@ -79,7 +80,7 @@ export async function generateMetadata({
   langMap["x-default"] = `/us/en/${slug}`;
 
   return {
-    title: t.seo.title,
+    title: `${t.seo.title} | ${countryNamesByISO[country?.toLowerCase() as keyof typeof countryNamesByISO]}`,
     description: t.seo.description,
     metadataBase: new URL("https://supplelogic.com"),
     alternates: {

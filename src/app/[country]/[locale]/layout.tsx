@@ -8,6 +8,7 @@ import Header from "@/components/common/header";
 import Footer from "@/components/common/footer";
 import { TranslationProvider } from "@/context/TranslationContext";
 import { validCountryISOs } from "@/middleware";
+import { countryNamesByISO } from "@/lib/country";
 
 // Define supported countries and languages (adjust based on your actual list from "@/i18n" or elsewhere)
 const supportedCountries = validCountryISOs; // Example: Add all your valid country codes here, lowercase
@@ -49,10 +50,7 @@ export async function generateMetadata({
   langMap["x-default"] = "/us/en"; // Adjust to your preferred default
 
   return {
-    title: {
-      default: t.seo.title,
-      template: `%s | ${t.seo.title}`,
-    },
+    title:  `${t.seo.title} | ${countryNamesByISO[(country?.toLowerCase() as keyof typeof countryNamesByISO)] || country || 'Unknown'}`,
     description: t.seo.description,
     keywords: t.seo.keywords,
     metadataBase: new URL("https://supplelogic.com"),

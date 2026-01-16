@@ -5,6 +5,7 @@ import ProductDetailPageClient from "./ProductDetailPageClient"
 import { getTranslation, type Locale } from "@/lib/i18n"
 import type { ProductDetail } from "./product-data"
 import { validCountryISOs } from "@/middleware"
+import { countryNamesByISO } from "@/lib/country"
 
 const supportedCountries = validCountryISOs;
 const supportedLanguages: Locale[] = ["en", "es"];
@@ -63,7 +64,7 @@ export async function generateMetadata({
   const fallbackImage = "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp"
 
   return {
-    title: product.seo.title,
+    title: `${product.seo.title} | ${countryNamesByISO[country?.toLowerCase() as keyof typeof countryNamesByISO]}`,
     description: product.seo.description,
     keywords: product.seo.keywords?.join(", "),
     metadataBase: new URL("https://supplelogic.com"),
