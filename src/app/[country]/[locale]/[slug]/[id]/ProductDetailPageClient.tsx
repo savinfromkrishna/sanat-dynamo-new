@@ -141,12 +141,8 @@ export default function ProductDetailPageClient({
                 )}
 
                 {/* Action Buttons */}
-                <div className="grid grid-cols-2 gap-2 mt-3">
-                  {/* <Button variant="outline" className="w-full">
-                    <ShoppingCart className="mr-2 h-4 w-4" />
-                    Add to Cart
-                  </Button> */}
-                  <Button className="w-full bg-amber-500 hover:bg-amber-600 text-white" asChild>
+                <div className="grid grid-cols-1 place-items-center gap-2 mt-3">
+                  <Button className="w-68 bg-amber-500 hover:bg-amber-600 text-white" asChild>
                     <a href={product.affiliateUrl} target="_blank" rel="noopener noreferrer">
                       Buy Now
                     </a>
@@ -543,7 +539,6 @@ export default function ProductDetailPageClient({
           </div>
         </div>
       </div>
-
       {/* FAQs */}
       <div className="bg-muted/30 py-12 md:py-16">
         <div className="container mx-auto px-4">
@@ -696,7 +691,6 @@ export default function ProductDetailPageClient({
                   </ul>
                 </div>
               </article>
-
               {/* Comprehensive Benefits */}
               <article>
                 <h3 className="text-xl md:text-2xl font-bold mb-4 text-balance">Complete List of Benefits</h3>
