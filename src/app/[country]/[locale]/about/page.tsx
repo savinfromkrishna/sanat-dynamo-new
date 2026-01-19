@@ -82,11 +82,10 @@ export default async function AboutPage({ params }: { params: { locale: Locale }
             <div className="relative">
               <div className="bg-gradient-to-br from-emerald-100 to-teal-100 rounded-2xl p-8 h-96 flex items-center justify-center">
                 <Image
-                  src="https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp"
+                  src="https://res.cloudinary.com/dpqnfjpdw/image/upload/fl_preserve_transparency/v1768831083/Gemini_Generated_Image_rsy1pmrsy1pmrsy1_nx90mc.jpg?_s=public-apps"
                   alt="MITOLYN Premium Supplements"
-                  width={200}
-                  height={240}
-                  className="object-contain"
+                  fill
+                  className="object-fit rounded-2xl shadow-lg"
                 />
               </div>
             </div>
