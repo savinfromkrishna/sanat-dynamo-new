@@ -833,6 +833,576 @@
                     "verified": true
                 }
             ]
+        },
+        "dentolyn": {
+            "id": "dentolyn",
+            "name": "Dentolyn",
+            "subtitle": "Basic Package",
+            "price": 33,
+            "originalPrice": 149,
+            "perBottleSuffix": "/Per Bottle",
+            "supply": "30 Days Supply",
+            "rating": 4.9,
+            "reviews": 3,
+            "image": "https://supplelogic.com/assets/Dentolyn/dentolyn-buy.webp",
+            "gallery": [
+                "https://supplelogic.com/assets/Dentolyn/dentolyn-buy.webp",
+                "https://supplelogic.com/assets/Dentolyn/dentolyn-oral-health.webp",
+                "https://supplelogic.com/assets/Dentolyn/dentolyn-supplement.webp",
+                "https://supplelogic.com/assets/Dentolyn/dentolyn.png"
+            ],
+            "badges": [
+                {
+                    "text": "Basic",
+                    "color": "bg-blue-500"
+                },
+                {
+                    "text": "60-Day Guarantee",
+                    "color": "bg-emerald-600"
+                },
+                {
+                    "text": "FDA Registered Facility",
+                    "color": "bg-gray-900"
+                }
+            ],
+            "affiliateUrl": "https://abcc6nqix6iueubzii0cww2p6p.hop.clickbank.net/?&traffic_source=website",
+            "description": "Oral health issues like gum sensitivity, weak enamel, and persistent bad breath are more common than most people realize. While brushing and flossing are essential, they often fail to address deeper problems such as bacterial imbalance and inflammation below the gum line. This is where Dentolyn, a science-backed natural oral supplement, steps in to support complete oral wellness from the inside out.",
+            "whyChoose": [
+                "Supports strong, healthy gums",
+                "Enhances enamel strength and durability",
+                "Promotes fresh breath throughout the day",
+                "Helps maintain a balanced oral microbiome",
+                "Supports overall periodontal wellness",
+                "Complements brushing and flossing routines"
+            ],
+            "whatIs": "Dentolyn is a daily oral health supplement designed to support gums, teeth, and breath by improving internal oral conditions. Unlike surface-level dental products, Dentolyn focuses on oral health support by targeting the root causes of dental problems—bacterial imbalance, weakened enamel, and gum inflammation. It fits perfectly into the growing category of natural oral supplements that promote long-term dental care without harsh chemicals.",
+            "howItWorks": [
+                "Gum Health Support: Dentolyn promotes periodontal wellness by helping reduce inflammation and supporting healthy gum tissue, which is essential for preventing bleeding, sensitivity, and recession.",
+                "Microbiome Balance: An unhealthy oral microbiome can lead to plaque buildup and bad breath. Dentolyn supports microbiome balance, encouraging beneficial bacteria while limiting harmful microbes.",
+                "Enamel Strength & Protection: Weak enamel increases the risk of cavities and sensitivity. Dentolyn supports enamel strength and enamel protection, helping teeth stay resilient against daily wear.",
+                "Fresh Breath Support: By addressing bacterial imbalance rather than masking odors, Dentolyn provides long-lasting fresh breath support naturally."
+            ],
+            "benefits": [
+                "Supports strong, healthy gums",
+                "Enhances enamel strength and durability",
+                "Promotes fresh breath throughout the day",
+                "Helps maintain a balanced oral microbiome",
+                "Supports overall periodontal wellness",
+                "Complements brushing and flossing routines"
+            ],
+            "ingredients": [
+                {
+                    "name": "Plant-based extracts",
+                    "note": "For gum comfort and antibacterial support"
+                },
+                {
+                    "name": "Essential nutrients",
+                    "note": "That support enamel strength and repair"
+                },
+                {
+                    "name": "Natural compounds",
+                    "note": "That promote microbiome balance"
+                }
+            ],
+            "howToUse": [
+                "Take the recommended dose daily",
+                "Use consistently for best results",
+                "Continue regular brushing and flossing"
+            ],
+            "bonuses": [
+                {
+                    "title": "Gut Health Guide (Digital)",
+                    "image": "/images/bonus-gut-guide.jpeg"
+                },
+                {
+                    "title": "Bloating Relief Recipes (Digital)",
+                    "image": "/images/bonus-recipes.jpeg"
+                }
+            ],
+            "trust": [
+                {
+                    "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422484/fda-approved_jrawwr.webp",
+                    "alt": "FDA Registered Facility"
+                },
+                {
+                    "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/gmp-certified_z81hqh.webp",
+                    "alt": "GMP Certified"
+                },
+                {
+                    "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/made-in-usa_go4j19.webp",
+                    "alt": "Made in USA"
+                },
+                {
+                    "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422491/natural_dpkfxs.webp",
+                    "alt": "100% Natural"
+                }
+            ],
+            "pros": [
+                "Natural and science-based ingredients",
+                "Supports gum health, enamel strength, and fresh breath",
+                "Positive user reviews on improvements in oral health",
+                "Easy to incorporate into daily routine",
+                "Focuses on root causes of oral issues",
+                "Available with discounts on official website"
+            ],
+            "cons": [
+                "Results may take 2–4 weeks",
+                "Not a replacement for professional dental care",
+                "Only available on official website",
+                "Consult doctor for medical conditions",
+                "Individual results may vary"
+            ],
+            "faqs": [
+                {
+                    "q": "What is Dentolyn used for?",
+                    "a": "Dentolyn is a natural oral supplement designed to support gum health, enamel strength, fresh breath, and periodontal wellness."
+                },
+                {
+                    "q": "Is Dentolyn a natural oral supplement?",
+                    "a": "Yes, Dentolyn uses natural ingredients to promote oral health support without harsh chemicals."
+                },
+                {
+                    "q": "How long does Dentolyn take to work?",
+                    "a": "Most users notice improvements within 2–4 weeks of consistent use, depending on oral health condition."
+                },
+                {
+                    "q": "Does Dentolyn help with bad breath?",
+                    "a": "Yes, Dentolyn provides fresh breath support by addressing microbiome imbalance."
+                },
+                {
+                    "q": "Is Dentolyn safe for daily use?",
+                    "a": "Dentolyn is generally safe for daily use by adults when taken as directed."
+                },
+                {
+                    "q": "Where can I buy Dentolyn?",
+                    "a": "To ensure authenticity, always buy Dentolyn from the official website."
+                }
+            ],
+            "seo": {
+                "title": "Dentolyn – Natural Oral Supplement for Gum & Enamel Health",
+                "description": "Dentolyn supplement supports gum health, enamel strength, fresh breath & microbiome balance. Read reviews & buy Dentolyn safely online.",
+                "keywords": [
+                    "dentolyn",
+                    "dentolyn supplement",
+                    "oral health support",
+                    "gum health support",
+                    "enamel strength",
+                    "fresh breath support",
+                    "microbiome balance",
+                    "natural oral supplement",
+                    "periodontal wellness",
+                    "enamel protection",
+                    "buy dentolyn"
+                ]
+            },
+            "productReviews": [
+                {
+                    "id": 1,
+                    "name": "Mark D.",
+                    "location": "Texas",
+                    "rating": 5,
+                    "text": "I started using Dentolyn mainly for gum health, and after a few weeks I noticed my gums felt much healthier and less sensitive. My breath stays fresher throughout the day, even without mouthwash. It fits perfectly into my daily routine.",
+                    "verified": true
+                },
+                {
+                    "id": 2,
+                    "name": "Susan R.",
+                    "location": "California",
+                    "rating": 5,
+                    "text": "Dentolyn has been a great addition to my oral care. I’ve struggled with enamel sensitivity for years, and this supplement really helped support my teeth over time. I like that it’s a natural oral supplement and easy to take.",
+                    "verified": true
+                },
+                {
+                    "id": 3,
+                    "name": "James W.",
+                    "location": "Florida",
+                    "rating": 4,
+                    "text": "I bought Dentolyn to improve overall oral health and balance bacteria in my mouth. After consistent use, my mouth feels cleaner and my breath is noticeably better. Results weren’t instant, but definitely worth sticking with.",
+                    "verified": true
+                }
+            ]
+        },
+        "dentalprime": {
+            "id": "dentalprime",
+            "name": "DentalPrime",
+            "subtitle": "Advanced Oral Health Support",
+            "price": 69,
+            "originalPrice": 179,
+            "perBottleSuffix": "/Per Bottle",
+            "supply": "30 Days Supply",
+            "rating": 4.8,
+            "reviews": 1520,
+            "image": "https://supplelogic.com/assets/dentalprime/dentalprime.webp",
+            "gallery": [
+                "https://supplelogic.com/assets/dentalprime/dentalprime.webp",
+                "https://supplelogic.com/assets/dentalprime/dentalprime%20buy.webp",
+                "https://supplelogic.com/assets/dentalprime/dentalprime-buy.webp",
+                "https://supplelogic.com/assets/dentalprime/dentalprime.webp"
+            ],
+            "badges": [
+                {
+                    "text": "Oral Health Support",
+                    "color": "bg-blue-600"
+                },
+                {
+                    "text": "60-Day Guarantee",
+                    "color": "bg-emerald-600"
+                },
+                {
+                    "text": "FDA Registered Facility",
+                    "color": "bg-gray-900"
+                }
+            ],
+            "affiliateUrl": "https://d03ebngsx2irdlc0k7u7u0u3c0.hop.clickbank.net/?&traffic_source=website",
+            "description": "DentalPrime is an advanced oral health support supplement designed to help maintain healthy gums and teeth from the inside out. By targeting the root causes of dental concerns—such as bacterial imbalance and poor internal support—DentalPrime promotes long-term dental care beyond traditional brushing and flossing. This formula focuses on internal oral balance to support gum comfort, reduce plaque buildup, and maintain fresh breath naturally.",
+            "whyChoose": [
+                "Supports healthy gums and teeth from the inside out",
+                "Targets bacterial imbalance and internal oral health",
+                "Promotes gum comfort and reduces sensitivity",
+                "Natural formula designed for daily oral hygiene support",
+                "60-day money-back guarantee from the DentalPrime official website"
+            ],
+            "whatIs": "DentalPrime is a daily oral health supplement created to support wellness by targeting the root causes of dental concerns. Instead of relying solely on topical products like toothpaste, DentalPrime focuses on gum health support and internal oral balance. It is designed for adults seeking a preventive, natural solution to support long-term dental hygiene and gum strength.",
+            "howItWorks": [
+                "Promotes a balanced oral environment for healthy gums",
+                "Supports internal conditions that influence plaque formation",
+                "Helps reduce gum irritation and sensitivity",
+                "Enhances breath freshness by addressing internal factors"
+            ],
+            "benefits": [
+                "Support healthy gums and gum comfort",
+                "Promote long-term oral health support",
+                "Complement brushing and flossing routines",
+                "Help maintain a clean, fresh-feeling mouth",
+                "Support overall dental hygiene naturally",
+                "Reduces sensitivity to hot and cold"
+            ],
+            "ingredients": [
+                {
+                    "name": "Gum Support Compounds",
+                    "note": "Natural extracts that support oral tissue"
+                },
+                {
+                    "name": "Essential Oral Nutrients",
+                    "note": "Vital minerals for tooth and gum strength"
+                },
+                {
+                    "name": "Probiotic Blends",
+                    "note": "Maintains a healthy oral microbiome"
+                },
+                {
+                    "name": "Antioxidants",
+                    "note": "Helps maintain a clean oral environment"
+                }
+            ],
+            "howToUse": [
+                "Take the supplement daily as directed",
+                "Stay consistent for best results",
+                "Continue brushing and flossing regularly",
+                "Maintain routine dental visits"
+            ],
+            "bonuses": [
+                {
+                    "title": "The Smile Bright Guide (Digital)",
+                    "image": "/images/bonus-smile-guide.jpeg"
+                },
+                {
+                    "title": "Fresh Breath Secrets (Digital)",
+                    "image": "/images/bonus-fresh-breath.jpeg"
+                }
+            ],
+            "trust": [
+                {
+                    "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422484/fda-approved_jrawwr.webp",
+                    "alt": "FDA Registered Facility"
+                },
+                {
+                    "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/gmp-certified_z81hqh.webp",
+                    "alt": "GMP Certified"
+                },
+                {
+                    "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/made-in-usa_go4j19.webp",
+                    "alt": "Made in USA"
+                },
+                {
+                    "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422491/natural_dpkfxs.webp",
+                    "alt": "100% Natural"
+                }
+            ],
+            "pros": [
+                "Focuses on the root cause of gum and tooth issues",
+                "Natural, clean formula safe for daily use",
+                "Positive reviews regarding gum comfort and freshness",
+                "Made in FDA-registered and GMP-certified facilities",
+                "Includes a 60-day money-back guarantee",
+                "Convenient capsule form for internal support"
+            ],
+            "cons": [
+                "Results are gradual (usually 2–4 weeks)",
+                "Only available for purchase on the official website",
+                "Not a replacement for professional dental procedures",
+                "Inventory may be limited due to high demand"
+            ],
+            "faqs": [
+                {
+                    "q": "What is DentalPrime used for?",
+                    "a": "DentalPrime is a supplement designed to provide oral health support and help maintain healthy gums."
+                },
+                {
+                    "q": "Is DentalPrime a supplement or toothpaste?",
+                    "a": "DentalPrime is a dietary supplement and should be used alongside brushing and flossing."
+                },
+                {
+                    "q": "How long does DentalPrime take to work?",
+                    "a": "Most users notice gradual improvements within 2–4 weeks of consistent use."
+                },
+                {
+                    "q": "Where can I buy DentalPrime?",
+                    "a": "To ensure authenticity, always buy DentalPrime from the DentalPrime official website."
+                },
+                {
+                    "q": "Is DentalPrime safe for daily use?",
+                    "a": "DentalPrime is generally safe for daily use by healthy adults when taken as directed."
+                }
+            ],
+            "seo": {
+                "title": "DentalPrime Review – Oral Health & Gum Support Supplement",
+                "description": "DentalPrime supplement supports gum health and overall oral wellness. Read DentalPrime reviews, price & order from official website.",
+                "keywords": [
+                    "dentalprime",
+                    "dentalprime buy",
+                    "dentalprime supplement",
+                    "dentalprime reviews",
+                    "dentalprime order",
+                    "dentalprime official website",
+                    "oral health support",
+                    "gum health support"
+                ]
+            },
+            "productReviews": [
+                {
+                    "id": 1,
+                    "name": "Karen M.",
+                    "location": "Illinois, USA",
+                    "rating": 5,
+                    "text": "I added DentalPrime to my daily routine to support gum health, and after a few weeks I noticed less sensitivity and better overall comfort. My mouth feels healthier throughout the day.",
+                    "verified": true
+                },
+                {
+                    "id": 2,
+                    "name": "David L.",
+                    "location": "North Carolina, USA",
+                    "rating": 5,
+                    "text": "DentalPrime has been a solid oral health support supplement for me. My gums feel stronger, and I’ve noticed improved freshness in my mouth. I like that it focuses on internal support.",
+                    "verified": true
+                },
+                {
+                    "id": 3,
+                    "name": "Melissa R.",
+                    "location": "Washington, USA",
+                    "rating": 4,
+                    "text": "I've been using DentalPrime consistently for about a month. My gums feel more comfortable, and my overall oral hygiene feels improved. Results were gradual but positive.",
+                    "verified": true
+                }
+            ]
+        },
+        "provadent": {
+            "id": "provadent",
+            "name": "ProvaDent",
+            "subtitle": "Basic Package",
+            "price": 49,
+            "originalPrice": 58,
+            "perBottleSuffix": "/Per Bottle",
+            "supply": "30 Days Supply",
+            "rating": 4.8,
+            "reviews": 3482,
+            "image": "https://supplelogic.com/assets/provadent/provadent%203%20bottles.png",
+            "gallery": [
+                "https://supplelogic.com/assets/provadent/provadent%203%20bottles.png",
+                "https://supplelogic.com/assets/provadent/provadent%20bottle%20image.webp",
+                "https://supplelogic.com/assets/provadent/provadent%20ingredients.webp",
+                "https://supplelogic.com/assets/provadent/Provadent.webp"
+            ],
+            "badges": [
+                {
+                    "text": "Basic",
+                    "color": "bg-blue-500"
+                },
+                {
+                    "text": "60-Day Guarantee",
+                    "color": "bg-emerald-600"
+                },
+                {
+                    "text": "FDA Registered Facility",
+                    "color": "bg-gray-900"
+                }
+            ],
+            "affiliateUrl": "https://f8d0eejkzdcu5kaeuf6wk8pd2g.hop.clickbank.net/?&traffic_source=website",
+            "description": "ProvaDent is an advanced dental health supplement designed to support teeth, gums, and overall mouth hygiene from within. Unlike traditional products that work only on the surface, ProvaDent targets internal factors like bacterial balance and nutrient deficiencies. By restoring the oral microbiome, this next-generation formula helps strengthen enamel, reduce inflammation, and promote long-lasting fresh breath for a healthier smile.",
+            "whyChoose": [
+                "Targets oral health at the root level, not just surface cleaning",
+                "Supports a balanced oral microbiome with advanced probiotics",
+                "Helps strengthen tooth enamel and gum tissue naturally",
+                "Reduces plaque buildup and persistent bad breath",
+                "Natural, science-backed ingredients for long-term dental hygiene"
+            ],
+            "whatIs": "ProvaDent is a dental health supplement formulated to support teeth, gums, and overall mouth hygiene from within. It fits into the category of oral probiotics, aiming to restore healthy bacteria in the mouth rather than just killing microbes indiscriminately. This internal approach helps address inflammation, bacterial imbalance, and nutrient gaps that lead to common dental issues.",
+            "howItWorks": [
+                "Balances oral bacteria to prevent plaque and cavities",
+                "Delivers essential minerals to support tooth enamel strength",
+                "Reduces gum inflammation through natural anti-inflammatory extracts",
+                "Neutralizes bad breath by addressing microbial imbalance at the source"
+            ],
+            "benefits": [
+                "Supports stronger teeth and healthier gums",
+                "Helps reduce plaque buildup and bad breath",
+                "Promotes balanced oral bacteria (microbiome support)",
+                "Supports gum comfort and reduced inflammation",
+                "Enhances long-term dental hygiene from the inside",
+                "Provides a natural alternative to chemical-based oral products"
+            ],
+            "ingredients": [
+                {
+                    "name": "Oral Probiotics",
+                    "note": "Supports healthy bacteria balance in the mouth"
+                },
+                {
+                    "name": "Minerals",
+                    "note": "Helps strengthen enamel and tooth structure"
+                },
+                {
+                    "name": "Vitamins",
+                    "note": "Essential nutrients for gum tissue repair"
+                },
+                {
+                    "name": "Natural Plant Extracts",
+                    "note": "Provides antibacterial and anti-inflammatory properties"
+                }
+            ],
+            "howToUse": [
+                "Take 1 capsule daily with water",
+                "Best taken consistently at the same time each day",
+                "Continue regular brushing and flossing routines",
+                "Maintain a healthy diet to support mineral absorption"
+            ],
+            "bonuses": [
+                {
+                    "title": "Healthy Smile Daily Guide (Digital)",
+                    "image": "/images/bonus-smile-guide.jpeg"
+                },
+                {
+                    "title": "Oral Detox Protocols (Digital)",
+                    "image": "/images/bonus-oral-detox.jpeg"
+                }
+            ],
+            "trust": [
+                {
+                    "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422484/fda-approved_jrawwr.webp",
+                    "alt": "FDA Registered Facility"
+                },
+                {
+                    "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/gmp-certified_z81hqh.webp",
+                    "alt": "GMP Certified"
+                },
+                {
+                    "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/made-in-usa_go4j19.webp",
+                    "alt": "Made in USA"
+                },
+                {
+                    "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422491/natural_dpkfxs.webp",
+                    "alt": "100% Natural"
+                }
+            ],
+            "pros": [
+                "Probiotic-focused approach for long-term oral wellness",
+                "Natural, science-backed formula without harsh chemicals",
+                "Positive user feedback on gum comfort and breath freshness",
+                "Manufactured in quality-certified, FDA-registered facilities",
+                "Available in discounted bundle deals for better value",
+                "Safe for daily use by healthy adults"
+            ],
+            "cons": [
+                "Results may take 2–4 weeks for full benefits",
+                "Does not replace the need for brushing and flossing",
+                "Only available for purchase online via the official website",
+                "Consult a dentist if you have severe pre-existing dental conditions",
+                "Individual results can vary based on existing oral health"
+            ],
+            "faqs": [
+                {
+                    "q": "What is ProvaDent used for?",
+                    "a": "ProvaDent is a dental health supplement designed to support healthy teeth, strong gums, and balanced oral bacteria."
+                },
+                {
+                    "q": "Is ProvaDent an oral probiotic?",
+                    "a": "Yes. ProvaDent contains ingredients commonly found in the best oral probiotics, helping restore healthy bacteria in the mouth."
+                },
+                {
+                    "q": "How long does ProvaDent take to work?",
+                    "a": "Most users report noticeable improvements in gum comfort and breath freshness within 2–4 weeks of consistent use."
+                },
+                {
+                    "q": "Is ProvaDent safe for daily use?",
+                    "a": "ProvaDent is made with natural ingredients and is generally safe for daily use by adults."
+                },
+                {
+                    "q": "What is the ProvaDent price?",
+                    "a": "Single bottles start at $69, but bundle deals can lower the price to $49 per bottle during a sale."
+                },
+                {
+                    "q": "Where can I buy ProvaDent?",
+                    "a": "To ensure authenticity, ProvaDent should only be purchased from the ProvaDent official website."
+                },
+                {
+                    "q": "Does ProvaDent replace brushing or flossing?",
+                    "a": "No. ProvaDent complements your daily oral care routine but does not replace brushing, flossing, or dental checkups."
+                },
+                {
+                    "q": "Who should avoid ProvaDent?",
+                    "a": "Pregnant or nursing women and individuals with serious medical conditions should consult a healthcare provider before starting."
+                }
+            ],
+            "seo": {
+                "title": "ProvaDent | Dental Health Supplement",
+                "description": "Read this in-depth ProvaDent review. Learn benefits, ingredients, price & how to order safely from the ProvaDent official website today.",
+                "keywords": [
+                    "provadent",
+                    "provadent review",
+                    "provadent official website",
+                    "provadent price",
+                    "provadent order",
+                    "provadent sale",
+                    "dental health supplement",
+                    "best oral probiotics",
+                    "best dental probiotics"
+                ]
+            },
+            "productReviews": [
+                {
+                    "id": 1,
+                    "name": "Michael T.",
+                    "location": "New York, USA",
+                    "rating": 5,
+                    "text": "I started taking ProvaDent to support my gum health, and within a few weeks I noticed less irritation and better overall comfort. My breath feels fresher for longer.",
+                    "verified": true
+                },
+                {
+                    "id": 2,
+                    "name": "Linda S.",
+                    "location": "Arizona, USA",
+                    "rating": 5,
+                    "text": "ProvaDent has worked really well for me. I was looking for a dental health supplement that supports oral probiotics, and this one delivered.",
+                    "verified": true
+                },
+                {
+                    "id": 3,
+                    "name": "Robert K.",
+                    "location": "Ohio, USA",
+                    "rating": 4,
+                    "text": "I’ve been using ProvaDent consistently for about a month now. I’ve noticed improved gum health and reduced sensitivity. It’s not an overnight fix, but it supports long-term health.",
+                    "verified": true
+                }
+            ]
         }
     },
     "common": {
