@@ -540,7 +540,7 @@ export default function ProductDetailPageClient({
         </div>
       </div>
       {/* FAQs */}
-      <div className="bg-muted/30 py-12 md:py-16">
+      {/* <div className="bg-muted/30 py-12 md:py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8 md:mb-12 text-center text-balance">
             Frequently Asked Questions
@@ -564,10 +564,10 @@ export default function ProductDetailPageClient({
             </Accordion>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Final CTA */}
-      <div className="py-12 md:py-16 bg-gradient-to-br from-primary/10 to-emerald-600/10">
+      {/* <div className="py-12 md:py-16 bg-gradient-to-br from-primary/10 to-emerald-600/10">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4 text-balance">
             Ready to Transform Your Health?
@@ -586,7 +586,7 @@ export default function ProductDetailPageClient({
             </a>
           </Button>
         </div>
-      </div>
+      </div> */}
 
       {filteredRelatedProducts.length > 0 && (
         <div className="py-12 md:py-16">
