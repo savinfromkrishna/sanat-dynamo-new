@@ -1,5 +1,4 @@
 "use client"
-
 import Image from "next/image"
 import Link from "next/link"
 import Autoplay from "embla-carousel-autoplay"
@@ -14,7 +13,6 @@ export function HomeHeroCarousel({
   country,
 }: { translations: any; locale: string; country: string }) {
   const t = translations
-
   // Fallback values for button text
   const buyNowText = t.common?.buyNow || "Buy Now"
   const learnMoreText = t.common?.learnMore || "Learn More"
@@ -25,7 +23,6 @@ export function HomeHeroCarousel({
     if (slide.description) {
       return slide.description
     }
-
     // Auto-construct based on slug/category for common products (expand as needed)
     const autoDescriptions: Record<string, string> = {
       mitolyn: "Revolutionary formula to restore mitochondrial health, improve fat burning, and boost overall vitality with natural ingredients like CoQ10 and resveratrol.",
@@ -38,9 +35,12 @@ export function HomeHeroCarousel({
   }
 
   return (
-    <section className="relative bg-background">
-      <div className="container mx-auto ">
+    <section className="relative bg-gradient-to-b from-background to-muted/20">
+      <div className="container mx-auto">
         <div className="relative">
+          <h1 className="absolute inset-0 z-[-1] flex items-center justify-center text-7xl lg:text-9xl xl:text-[12rem] font-bold leading-none tracking-wider opacity-5 bg-clip-text text-transparent bg-gradient-to-r from-zinc-300 via-zinc-100 to-zinc-300 drop-shadow-md text-center pointer-events-none">
+            {t.hero.mainHeading}
+          </h1>
           <Carousel
             className="w-full"
             plugins={[
@@ -55,7 +55,7 @@ export function HomeHeroCarousel({
             <CarouselContent className="-ml-4">
               {t.hero.slides.map((slide: any, idx: number) => (
                 <CarouselItem key={idx} className="pl-4">
-                  <div className="border bg-card overflow-hidden shadow-sm">
+                  <div className="border bg-card overflow-hidden shadow-sm rounded-xl">
                     <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 p-8 lg:p-12 items-center">
                       {/* Content Section */}
                       <div className="space-y-6">
@@ -71,9 +71,9 @@ export function HomeHeroCarousel({
 
                         {/* Title & Description */}
                         <div className="space-y-3">
-                          <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight">
+                          <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight">
                             {slide.name}
-                          </h1>
+                          </h2>
                           <p className="text-lg text-muted-foreground leading-relaxed">
                             {getSlideDescription(slide)}
                           </p>
