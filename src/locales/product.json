@@ -844,12 +844,12 @@
             "supply": "30 Days Supply",
             "rating": 4.9,
             "reviews": 3,
-            "image": "https://supplelogic.com/assets/Dentolyn/dentolyn-buy.webp",
+            "image": "/assets/Dentolyn/dentolyn-buy.webp",
             "gallery": [
-                "https://supplelogic.com/assets/Dentolyn/dentolyn-buy.webp",
-                "https://supplelogic.com/assets/Dentolyn/dentolyn-oral-health.webp",
-                "https://supplelogic.com/assets/Dentolyn/dentolyn-supplement.webp",
-                "https://supplelogic.com/assets/Dentolyn/dentolyn.png"
+                "/assets/Dentolyn/dentolyn-buy.webp",
+                "/assets/Dentolyn/dentolyn-oral-health.webp",
+                "/assets/Dentolyn/dentolyn-supplement.webp",
+                "/assets/Dentolyn/dentolyn.png"
             ],
             "badges": [
                 {
@@ -1032,12 +1032,12 @@
             "supply": "30 Days Supply",
             "rating": 4.8,
             "reviews": 1520,
-            "image": "https://supplelogic.com/assets/dentalprime/dentalprime.webp",
+            "image": "/assets/dentalprime/dentalprime.webp",
             "gallery": [
-                "https://supplelogic.com/assets/dentalprime/dentalprime.webp",
-                "https://supplelogic.com/assets/dentalprime/dentalprime%20buy.webp",
-                "https://supplelogic.com/assets/dentalprime/dentalprime-buy.webp",
-                "https://supplelogic.com/assets/dentalprime/dentalprime.webp"
+                "/assets/dentalprime/dentalprime.webp",
+                "/assets/dentalprime/dentalprime%20buy.webp",
+                "/assets/dentalprime/dentalprime-buy.webp",
+                "/assets/dentalprime/dentalprime.webp"
             ],
             "badges": [
                 {
@@ -1216,12 +1216,12 @@
             "supply": "30 Days Supply",
             "rating": 4.8,
             "reviews": 3482,
-            "image": "https://supplelogic.com/assets/provadent/provadent%203%20bottles.png",
+            "image": "/assets/provadent/provadent%203%20bottles.png",
             "gallery": [
-                "https://supplelogic.com/assets/provadent/provadent%203%20bottles.png",
-                "https://supplelogic.com/assets/provadent/provadent%20bottle%20image.webp",
-                "https://supplelogic.com/assets/provadent/provadent%20ingredients.webp",
-                "https://supplelogic.com/assets/provadent/Provadent.webp"
+                "/assets/provadent/provadent%203%20bottles.png",
+                "/assets/provadent/provadent%20bottle%20image.webp",
+                "/assets/provadent/provadent%20ingredients.webp",
+                "/assets/provadent/Provadent.webp"
             ],
             "badges": [
                 {
