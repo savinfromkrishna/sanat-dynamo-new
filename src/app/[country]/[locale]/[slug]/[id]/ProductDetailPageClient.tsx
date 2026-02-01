@@ -874,7 +874,7 @@ export default function ProductDetailPageClient({
               </article>
 
               {/* Final CTA in Know More */}
-              <div className="text-center bg-primary/5 rounded-xl p-6 md:p-8 border border-primary/20">
+              {/* <div className="text-center bg-primary/5 rounded-xl p-6 md:p-8 border border-primary/20">
                 <h3 className="text-xl md:text-2xl font-bold mb-3 text-balance">Ready to Experience the Benefits?</h3>
                 <p className="text-muted-foreground mb-6 text-sm md:text-base max-w-2xl mx-auto text-pretty">
                   Join thousands of satisfied customers who have transformed their health with{" "}
@@ -890,7 +890,7 @@ export default function ProductDetailPageClient({
                     Order {product.name.split("–")[0].trim()} Now
                   </a>
                 </Button>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
