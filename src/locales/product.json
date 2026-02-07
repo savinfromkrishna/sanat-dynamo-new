@@ -834,6 +834,182 @@
                 }
             ]
         },
+        "citrusburn": {
+            "id": "citrusburn",
+            "name": "CitrusBurn",
+            "subtitle": "Basic Package",
+            "price": 49,
+            "originalPrice": 58,
+            "perBottleSuffix": "/Per Bottle",
+            "supply": "30 Days Supply",
+            "rating": 4.9,
+            "reviews": 2847,
+            "image": "/assets/citrusburn/citrusburn.webp",
+            "gallery": [
+                "/assets/citrusburn/citrusburn.webp",
+                "/assets/citrusburn/citrus-burn-buy.png",
+                "/assets/citrusburn/citrus-burn-offer.png"],
+            "badges": [
+                {
+                    "text": "Basic",
+                    "color": "bg-blue-500"
+                },
+                {
+                    "text": "60-Day Guarantee",
+                    "color": "bg-emerald-600"
+                },
+                {
+                    "text": "FDA Registered Facility",
+                    "color": "bg-gray-900"
+                }
+            ],
+            "affiliateUrl": "https://b04f5nmuo7ky5sa4vh1hz42jq0.hop.clickbank.net/?&traffic_source=website",
+            "description": "CitrusBurn supplement supports natural fat burning and metabolism. Read CitrusBurn reviews, price & buy CitrusBurn safely today. CitrusBurn - Natural CitrusBurn Supplement for Healthy Weight Support. Weight management has become increasingly challenging due to modern diets, stress, and slowing metabolism. Many people struggle to burn stubborn fat even with exercise and calorie control. CitrusBurn is a premium CitrusBurn supplement designed to support natural fat burning and metabolic health using plant-based ingredients.",
+            "whyChoose": [
+                "Supports natural fat-burning processes",
+                "Promotes healthy metabolism",
+                "Supports energy levels without crashes",
+                "Assists with long-term weight management",
+                "Complements diet and exercise routines"
+            ],
+            "whatIs": "CitrusBurn is a dietary supplement formulated to support healthy metabolism and weight management. Unlike harsh stimulants or extreme diet solutions, CitrusBurn focuses on supporting the body’s natural fat-burning processes. The formula uses citrus-derived compounds and natural ingredients to help the body burn fat more efficiently, making it appealing to adults in the United States who prefer a balanced and sustainable approach to weight support.",
+            "howItWorks": [
+                "Supports Natural Fat Burning: CitrusBurn helps activate metabolic pathways that assist the body in converting stored fat into usable energy.",
+                "Enhances Metabolic Efficiency: By supporting metabolism, CitrusBurn may help the body burn calories more effectively throughout the day.",
+                "Plant-Based Weight Support: The formula is designed to work gently with the body, without relying on harsh stimulants."
+            ],
+            "benefits": [
+                "Support natural fat-burning processes",
+                "Promote healthy metabolism",
+                "Support energy levels without crashes",
+                "Assist with long-term weight management",
+                "Complement diet and exercise routines"
+            ],
+            "ingredients": [
+                {
+                    "name": "Citrus-derived compounds",
+                    "note": "Known for metabolic support"
+                },
+                {
+                    "name": "Natural plant extracts",
+                    "note": "Support fat metabolism"
+                },
+                {
+                    "name": "Ingredients chosen for safety",
+                    "note": "For long-term use"
+                }
+            ],
+            "howToUse": [
+                "Take the recommended daily serving",
+                "Use consistently for best results",
+                "Combine with a healthy diet and active lifestyle"
+            ],
+            "bonuses": [
+                {
+                    "title": "Weight Management Guide (Digital)",
+                    "image": "/images/bonus-weight-guide.jpeg"
+                },
+                {
+                    "title": "Healthy Recipes (Digital)",
+                    "image": "/images/bonus-recipes.jpeg"
+                }
+            ],
+            "trust": [
+                {
+                    "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422484/fda-approved_jrawwr.webp",
+                    "alt": "FDA Registered Facility"
+                },
+                {
+                    "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/gmp-certified_z81hqh.webp",
+                    "alt": "GMP Certified"
+                },
+                {
+                    "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/made-in-usa_go4j19.webp",
+                    "alt": "Made in USA"
+                },
+                {
+                    "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422491/natural_dpkfxs.webp",
+                    "alt": "100% Natural"
+                }
+            ],
+            "pros": [
+                "Plant-based and stimulant-free formula",
+                "Supports natural metabolism and fat burning",
+                "Positive user reviews for energy and cravings",
+                "60-day money-back guarantee",
+                "Manufactured in FDA-registered facilities",
+                "Bundle options for better value"
+            ],
+            "cons": [
+                "Results are gradual, not immediate",
+                "Only available on official website",
+                "Not a replacement for diet and exercise",
+                "May not work for everyone",
+                "Consult doctor if pregnant or with conditions"
+            ],
+            "faqs": [
+                {
+                    "q": "What is CitrusBurn used for?",
+                    "a": "CitrusBurn is a dietary supplement designed to support natural fat burning and healthy metabolism."
+                },
+                {
+                    "q": "Is CitrusBurn a stimulant-based supplement?",
+                    "a": "No, CitrusBurn focuses on plant-based ingredients and does not rely on harsh stimulants."
+                },
+                {
+                    "q": "How long does CitrusBurn take to work?",
+                    "a": "Most users report gradual results within 2–4 weeks when used consistently."
+                },
+                {
+                    "q": "Where can I buy CitrusBurn safely?",
+                    "a": "To avoid counterfeit products, always buy CitrusBurn from the CitrusBurn official website."
+                },
+                {
+                    "q": "Is CitrusBurn safe for daily use?",
+                    "a": "CitrusBurn is generally safe for daily use by healthy adults when taken as directed."
+                }
+            ],
+            "seo": {
+                "title": "CitrusBurn – Natural Fat Burning Supplement",
+                "description": "CitrusBurn supplement supports natural fat burning and metabolism. Read CitrusBurn reviews, price & buy CitrusBurn safely today.",
+                "keywords": [
+                    "CitrusBurn",
+                    "CitrusBurn supplement",
+                    "CitrusBurn reviews",
+                    "CitrusBurn official website",
+                    "CitrusBurn buy",
+                    "CitrusBurn price",
+                    "natural fat burning supplement",
+                    "weight loss supplements"
+                ]
+            },
+            "productReviews": [
+                {
+                    "id": 1,
+                    "name": "Jason M.",
+                    "location": "California, USA",
+                    "rating": 5,
+                    "text": "I started using CitrusBurn to support my metabolism, and after a few weeks I noticed better energy levels and fewer cravings. It doesn’t feel harsh like some weight supplements I’ve tried before. Easy to take and fits well with my daily routine.",
+                    "verified": true
+                },
+                {
+                    "id": 2,
+                    "name": "Amanda L.",
+                    "location": "Texas, USA",
+                    "rating": 5,
+                    "text": "CitrusBurn has been a nice addition to my weight management plan. I use it along with diet and walking, and it helps me stay consistent. I like that it’s plant-based and doesn’t cause jitters.",
+                    "verified": true
+                },
+                {
+                    "id": 3,
+                    "name": "Robert S.",
+                    "location": "Florida, USA",
+                    "rating": 5,
+                    "text": "I’ve been taking CitrusBurn for about a month now. The results were gradual, but I feel lighter and more in control of my appetite. It’s not a magic pill, but it definitely supports healthy weight goals.",
+                    "verified": true
+                }
+            ]
+        },
         "dentolyn": {
             "id": "dentolyn",
             "name": "Dentolyn",

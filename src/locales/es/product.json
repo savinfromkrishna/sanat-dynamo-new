@@ -833,6 +833,182 @@
                     "verified": true
                 }
             ]
+        },
+        "citrusburn": {
+            "id": "citrusburn",
+            "name": "CitrusBurn",
+            "subtitle": "Paquete Básico",
+            "price": 49,
+            "originalPrice": 58,
+            "perBottleSuffix": "/Por Botella",
+            "supply": "Suministro de 30 Días",
+            "rating": 4.9,
+            "reviews": 2847,
+            "image": "/assets/citrusburn/citrusburn.webp",
+            "gallery": [
+                "/assets/citrusburn/citrusburn.webp",
+                "/assets/citrusburn/citrus-burn-buy.png",
+                "/assets/citrusburn/citrus-burn-offer.png"],
+            "badges": [
+                {
+                    "text": "Básico",
+                    "color": "bg-blue-500"
+                },
+                {
+                    "text": "Garantía de 60 Días",
+                    "color": "bg-emerald-600"
+                },
+                {
+                    "text": "Instalación Registrada en la FDA",
+                    "color": "bg-gray-900"
+                }
+            ],
+            "affiliateUrl": "https://b04f5nmuo7ky5sa4vh1hz42jq0.hop.clickbank.net/?&traffic_source=website",
+            "description": "El suplemento CitrusBurn apoya la quema natural de grasa y el metabolismo. Lea reseñas de CitrusBurn, precio y compre CitrusBurn de manera segura hoy. CitrusBurn - Suplemento Natural CitrusBurn para Soporte de Peso Saludable. La gestión del peso se ha vuelto cada vez más desafiante debido a las dietas modernas, el estrés y el metabolismo ralentizado. Muchas personas luchan por quemar grasa obstinada incluso con ejercicio y control de calorías. CitrusBurn es un suplemento premium CitrusBurn diseñado para apoyar la quema natural de grasa y la salud metabólica utilizando ingredientes a base de plantas.",
+            "whyChoose": [
+                "Apoya procesos naturales de quema de grasa",
+                "Promueve un metabolismo saludable",
+                "Apoya niveles de energía sin caídas",
+                "Ayuda con la gestión de peso a largo plazo",
+                "Complementa rutinas de dieta y ejercicio"
+            ],
+            "whatIs": "CitrusBurn es un suplemento dietético formulado para apoyar un metabolismo saludable y la gestión del peso. A diferencia de estimulantes fuertes o soluciones dietéticas extremas, CitrusBurn se enfoca en apoyar los procesos naturales de quema de grasa del cuerpo. La fórmula utiliza compuestos derivados de cítricos e ingredientes naturales para ayudar al cuerpo a quemar grasa de manera más eficiente, lo que lo hace atractivo para adultos en los Estados Unidos que prefieren un enfoque equilibrado y sostenible para el soporte de peso.",
+            "howItWorks": [
+                "Apoya la Quema Natural de Grasa: CitrusBurn ayuda a activar vías metabólicas que asisten al cuerpo en convertir la grasa almacenada en energía utilizable.",
+                "Mejora la Eficiencia Metabólica: Al apoyar el metabolismo, CitrusBurn puede ayudar al cuerpo a quemar calorías de manera más efectiva durante todo el día.",
+                "Soporte de Peso a Base de Plantas: La fórmula está diseñada para trabajar suavemente con el cuerpo, sin depender de estimulantes fuertes."
+            ],
+            "benefits": [
+                "Apoyar procesos naturales de quema de grasa",
+                "Promover un metabolismo saludable",
+                "Apoyar niveles de energía sin caídas",
+                "Ayudar con la gestión de peso a largo plazo",
+                "Complementar rutinas de dieta y ejercicio"
+            ],
+            "ingredients": [
+                {
+                    "name": "Compuestos derivados de cítricos",
+                    "note": "Conocidos por su soporte metabólico"
+                },
+                {
+                    "name": "Extractos de plantas naturales",
+                    "note": "Apoyan el metabolismo de la grasa"
+                },
+                {
+                    "name": "Ingredientes elegidos por seguridad",
+                    "note": "Para uso a largo plazo"
+                }
+            ],
+            "howToUse": [
+                "Tome la porción diaria recomendada",
+                "Úselo de manera consistente para mejores resultados",
+                "Combine con una dieta saludable y un estilo de vida activo"
+            ],
+            "bonuses": [
+                {
+                    "title": "Guía de Gestión de Peso (Digital)",
+                    "image": "/images/bonus-weight-guide.jpeg"
+                },
+                {
+                    "title": "Recetas Saludables (Digital)",
+                    "image": "/images/bonus-recipes.jpeg"
+                }
+            ],
+            "trust": [
+                {
+                    "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422484/fda-approved_jrawwr.webp",
+                    "alt": "Instalación Registrada en la FDA"
+                },
+                {
+                    "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/gmp-certified_z81hqh.webp",
+                    "alt": "Certificado GMP"
+                },
+                {
+                    "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/made-in-usa_go4j19.webp",
+                    "alt": "Hecho en EE.UU."
+                },
+                {
+                    "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422491/natural_dpkfxs.webp",
+                    "alt": "100% Natural"
+                }
+            ],
+            "pros": [
+                "Fórmula a base de plantas y libre de estimulantes",
+                "Apoya el metabolismo natural y la quema de grasa",
+                "Reseñas positivas de usuarios para energía y antojos",
+                "Garantía de devolución de dinero de 60 días",
+                "Fabricado en instalaciones registradas en la FDA",
+                "Opciones de paquetes para mejor valor"
+            ],
+            "cons": [
+                "Los resultados son graduales, no inmediatos",
+                "Solo disponible en el sitio web oficial",
+                "No es un reemplazo para dieta y ejercicio",
+                "Puede no funcionar para todos",
+                "Consulte al médico si está embarazada o con condiciones"
+            ],
+            "faqs": [
+                {
+                    "q": "¿Para qué se usa CitrusBurn?",
+                    "a": "CitrusBurn es un suplemento dietético diseñado para apoyar la quema natural de grasa y un metabolismo saludable."
+                },
+                {
+                    "q": "¿Es CitrusBurn un suplemento basado en estimulantes?",
+                    "a": "No, CitrusBurn se enfoca en ingredientes a base de plantas y no depende de estimulantes fuertes."
+                },
+                {
+                    "q": "¿Cuánto tiempo tarda CitrusBurn en funcionar?",
+                    "a": "La mayoría de los usuarios reportan resultados graduales dentro de 2–4 semanas cuando se usa de manera consistente."
+                },
+                {
+                    "q": "¿Dónde puedo comprar CitrusBurn de manera segura?",
+                    "a": "Para evitar productos falsificados, siempre compre CitrusBurn desde el sitio web oficial de CitrusBurn."
+                },
+                {
+                    "q": "¿Es CitrusBurn seguro para uso diario?",
+                    "a": "CitrusBurn es generalmente seguro para uso diario por adultos saludables cuando se toma según las indicaciones."
+                }
+            ],
+            "seo": {
+                "title": "CitrusBurn – Suplemento Natural para Quema de Grasa",
+                "description": "El suplemento CitrusBurn apoya la quema natural de grasa y el metabolismo. Lea reseñas de CitrusBurn, precio y compre CitrusBurn de manera segura hoy.",
+                "keywords": [
+                    "CitrusBurn",
+                    "Suplemento CitrusBurn",
+                    "Reseñas de CitrusBurn",
+                    "Sitio web oficial de CitrusBurn",
+                    "Comprar CitrusBurn",
+                    "Precio de CitrusBurn",
+                    "suplemento natural para quema de grasa",
+                    "suplementos para pérdida de peso"
+                ]
+            },
+            "productReviews": [
+                {
+                    "id": 1,
+                    "name": "Jason M.",
+                    "location": "California, EE.UU.",
+                    "rating": 5,
+                    "text": "Comencé a usar CitrusBurn para apoyar mi metabolismo, y después de unas semanas noté mejores niveles de energía y menos antojos. No se siente áspero como algunos suplementos para peso que he probado antes. Fácil de tomar y encaja bien con mi rutina diaria.",
+                    "verified": true
+                },
+                {
+                    "id": 2,
+                    "name": "Amanda L.",
+                    "location": "Texas, EE.UU.",
+                    "rating": 5,
+                    "text": "CitrusBurn ha sido una buena adición a mi plan de gestión de peso. Lo uso junto con dieta y caminatas, y me ayuda a mantenerme consistente. Me gusta que sea a base de plantas y no cause nerviosismo.",
+                    "verified": true
+                },
+                {
+                    "id": 3,
+                    "name": "Robert S.",
+                    "location": "Florida, EE.UU.",
+                    "rating": 5,
+                    "text": "He estado tomando CitrusBurn por aproximadamente un mes ahora. Los resultados fueron graduales, pero me siento más ligero y más en control de mi apetito. No es una píldora mágica, pero definitivamente apoya metas de peso saludable.",
+                    "verified": true
+                }
+            ]
         }
     },
     "common": {

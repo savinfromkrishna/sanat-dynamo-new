@@ -50,6 +50,20 @@
         "slug": "bellyflush"
       },
       {
+        "category": "Weight Loss Supplements",
+        "categorySlug": "weight-loss-supplements",
+        "name": "CitrusBurn Basic Package",
+        "image": "https://s.yimg.com/ny/api/res/1.2/fsdq9j0IRe_4F09uzxkI2g--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTQ4MA--/https://media.zenfs.com/en/globenewswire.com/ee4631932df839d5039a4410d640d444",
+        "supply": "30 Days Supply",
+        "rating": 4.9,
+        "reviews": 2847,
+        "learnMoreUrl": "https://citrusburn-official.com/learn-more",
+        "buyNow": "Buy Now",
+        "buyUrl": "https://b04f5nmuo7ky5sa4vh1hz42jq0.hop.clickbank.net/?&traffic_source=website",
+        "isNew": true,
+        "slug": "citrusburn"
+      },
+      {
         "category": "Oral Health Supplements",
         "categorySlug": "dental-health-supplements",
         "name": "PRODENTIM Basic Package",
@@ -120,6 +134,21 @@
             "premiumPrice": "$25",
             "id": 10,
             "slug": "bellyflush"
+          },
+          {
+            "name": "CitrusBurn Basic Package",
+            "price": "$49",
+            "originalPrice": "$58",
+            "discount": "16% off",
+            "image": "/assets/citrusburn/citrus-burn-offer.png",
+            "supply": "30 Days Supply",
+            "link": "https://b04f5nmuo7ky5sa4vh1hz42jq0.hop.clickbank.net/?&traffic_source=website",
+            "buyNow": "Buy Now",
+            "rating": 4.9,
+            "reviews": 2847,
+            "premiumPrice": "$39",
+            "id": 11,
+            "slug": "citrusburn"
           }
         ]
       },
@@ -156,7 +185,7 @@
             "id": 8,
             "slug": "provadent"
           },
-           {
+          {
             "name": "Dentolyn",
             "price": "$49",
             "originalPrice": "$58",
@@ -171,7 +200,7 @@
             "id": 18,
             "slug": "dentolyn"
           },
-           {
+          {
             "name": "DentalPrime",
             "price": "$49",
             "originalPrice": "$58",
@@ -255,6 +284,30 @@
         "location": "Mumbai, India",
         "rating": 5,
         "text": "I started using Sleep Lean because my sleep cycle was completely disturbed. Within a few days, I was sleeping deeper and waking up refreshed.",
+        "verified": true
+      },
+      {
+        "id": 6,
+        "name": "Jason M.",
+        "location": "California, USA",
+        "rating": 5,
+        "text": "I started using CitrusBurn to support my metabolism, and after a few weeks I noticed better energy levels and fewer cravings. It doesn’t feel harsh like some weight supplements I’ve tried before. Easy to take and fits well with my daily routine.",
+        "verified": true
+      },
+      {
+        "id": 7,
+        "name": "Amanda L.",
+        "location": "Texas, USA",
+        "rating": 5,
+        "text": "CitrusBurn has been a nice addition to my weight management plan. I use it along with diet and walking, and it helps me stay consistent. I like that it’s plant-based and doesn’t cause jitters.",
+        "verified": true
+      },
+      {
+        "id": 8,
+        "name": "Robert S.",
+        "location": "Florida, USA",
+        "rating": 5,
+        "text": "I’ve been taking CitrusBurn for about a month now. The results were gradual, but I feel lighter and more in control of my appetite. It’s not a magic pill, but it definitely supports healthy weight goals.",
         "verified": true
       }
     ]
