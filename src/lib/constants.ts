@@ -14,11 +14,11 @@ export const LANGUAGES = ["en"];
 
 // Static pages (top-level + subpages): 49 total
 export const STATIC_PAGES = [
-    "/",
-    "/about",
-    "/contact",
-    "/weight-loss-supplements",
-    "/dental-health-supplements"
+    "",
+    "about",
+    "contact",
+    "weight-loss-supplements",
+    "dental-health-supplements"
 ];
 
 // Product hierarchy: 100 products across 16 categories
