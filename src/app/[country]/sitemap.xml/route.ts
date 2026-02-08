@@ -24,7 +24,7 @@ export async function GET(
 
   const productUrls = Object.entries(PRODUCT_HIERARCHY).flatMap(([category, products]) => {
     return products.map(product => ({
-      loc: `${BASE_URL}/${country}/${locale}/products/${category}/${product}`,
+      loc: `${BASE_URL}/${country}/${locale}/${category}/${product}`,
       lastmod: new Date().toISOString().split('T')[0],
     }));
   });
