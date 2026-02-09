@@ -163,9 +163,9 @@ export default function ProductDetailPageClient({
               </div>
 
               {/* Product Name */}
-              <h1 className="text-xl md:text-2xl lg:text-3xl font-bold mb-1.5 leading-tight text-balance">
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-1.5 leading-tight text-balance">
                 {product.name}
-              </h1>
+              </h2>
 
               {/* Subtitle */}
               <p className="text-xs md:text-sm text-muted-foreground mb-2">{product.subtitle}</p>
@@ -269,22 +269,6 @@ export default function ProductDetailPageClient({
                 </div>
               </div>
 
-              {/* Money Back Guarantee */}
-              <Card className="bg-gradient-to-r from-amber-50 to-orange-50 border-amber-300">
-                <CardContent className="p-3">
-                  <div className="flex items-start gap-2">
-                    <div className="bg-amber-500 text-white rounded-full p-1.5">
-                      <CheckCircle2 className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <p className="font-bold text-xs mb-0.5">60-Day Money Back Guarantee</p>
-                      <p className="text-[10px] text-muted-foreground leading-relaxed">
-                        Not satisfied? Get a full refund within 60 days, no questions asked.
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
             </div>
           </div>
         </div>
@@ -294,9 +278,9 @@ export default function ProductDetailPageClient({
       <div className="bg-muted/30 py-12 md:py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6 text-center text-balance">
-              About This Product
-            </h2>
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6 text-center text-balance">
+              What is {product.name} ?
+            </h1>
             <p className="text-base md:text-lg leading-relaxed text-muted-foreground text-pretty">
               {product.description}
             </p>
@@ -342,9 +326,9 @@ export default function ProductDetailPageClient({
       {/* How It Works - More refined spacing */}
       <div className="py-12 md:py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8 md:mb-12 text-center text-balance">
+          <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8 md:mb-12 text-center text-balance">
             How It Works
-          </h2>
+          </h3>
           <div className="grid sm:grid-cols-2 gap-4 md:gap-6 max-w-5xl mx-auto">
             {product.howItWorks.map((step, idx) => (
               <Card key={idx} className="border-2 border-border/50 hover:shadow-lg transition-shadow">
@@ -438,9 +422,9 @@ export default function ProductDetailPageClient({
       {/* Trust Badges Section */}
       <div className="py-12 md:py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8 md:mb-12 text-center text-balance">
+          <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8 md:mb-12 text-center text-balance">
             Trusted & Certified
-          </h2>
+          </h3>
           <div className="flex flex-wrap justify-center items-center gap-6 md:gap-12">
             {product.trust.map((badge, idx) => (
               <div
@@ -507,9 +491,9 @@ export default function ProductDetailPageClient({
       {/* Customer Reviews */}
       <div className="py-12 md:py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8 md:mb-12 text-center text-balance">
+          <h5 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8 md:mb-12 text-center text-balance">
             What Customers Say
-          </h2>
+          </h5>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
             {product.productReviews.map((review) => (
               <Card key={review.id} className="border-border/50 hover:shadow-xl transition-shadow">
@@ -645,7 +629,7 @@ export default function ProductDetailPageClient({
       <section className="py-12 md:py-16 bg-gradient-to-br from-background via-muted/10 to-background">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-4 md:mb-6 text-balance">
-            Complete Guide to {product.name.split("–")[0].trim()}
+            Everything about {product.name.split("–")[0].trim()}
           </h2>
 
           <div className="max-w-4xl mx-auto text-center">
@@ -660,7 +644,7 @@ export default function ProductDetailPageClient({
               aria-expanded={isKnowMoreExpanded}
               aria-controls="know-more-content"
             >
-              {isKnowMoreExpanded ? "Show Less" : "Read Complete Guide"}
+              {isKnowMoreExpanded ? "Show Less" : "Show More"}
               {isKnowMoreExpanded ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
             </button>
           </div>
