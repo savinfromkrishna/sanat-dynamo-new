@@ -1,90 +1,64 @@
-// api/geo/route.ts (assuming this is the path for your API route)
+// app/api/geo/route.ts
 
-import { NextRequest, NextResponse } from "next/server";
+import { geolocation, ipAddress } from '@vercel/functions';
+import { NextRequest, NextResponse } from 'next/server';
 
-/**
- * Default fallback IP (used in localhost/private networks)
- */
-const DEFAULT_IP = "106.219.70.174";
+export const runtime = 'edge';
+export const dynamic = 'force-dynamic';
 
-/**
- * Check if IP is private or localhost
- */
-function isPrivateIP(ip: string): boolean {
-  if (!ip) return true;
+const FALLBACK_IP = '106.219.70.174';
 
-  return (
-    ip === "::1" || // IPv6 localhost
-    ip === "127.0.0.1" || // IPv4 localhost
-    ip.startsWith("192.168.") ||
-    ip.startsWith("10.") ||
-    /^172\.(1[6-9]|2\d|3[0-1])\./.test(ip)
-  );
+interface GeoResult {
+  ip: string;
+  city: string | null;
+  region: string | null;
+  country: string | null;
+  latitude: number | null;
+  longitude: number | null;
+  timezone: string | null;
+  isp: string | null;
+  error?: string;
 }
 
-/**
- * Extract real client IP from request headers
- */
-function getClientIP(req: NextRequest): string {
-  // 1️⃣ From proxy/CDN
-  const forwardedFor = req.headers.get("x-forwarded-for");
-  let ip = forwardedFor?.split(",")[0].trim();
-
-  // 2️⃣ From nginx / reverse proxy
-  if (!ip) {
-    ip = req.headers.get("x-real-ip") || "";
-  }
-
-  // 3️⃣ fallback (rare case)
-  // @ts-ignore
-  if (!ip && req.ip) ip = req.ip;
-
-  // 4️⃣ Validate IP
-  if (isPrivateIP(ip || "")) {
-    console.log("Private or localhost IP detected → using default IP");
-    return DEFAULT_IP;
-  }
-
-  return ip || DEFAULT_IP;
-}
+const DEFAULT_RESULT: GeoResult = {
+  ip: FALLBACK_IP,
+  city: null,
+  region: null,
+  country: null,
+  latitude: null,
+  longitude: null,
+  timezone: null,
+  isp: null,
+};
 
 /**
- * GET API Handler
+ * Normalize different API responses into consistent shape
  */
-export async function GET(req: NextRequest) {
-  try {
-    const clientIP = getClientIP(req);
-    const lang = req.nextUrl.searchParams.get("lang") || "en";
+function normalizeGeoData(
+  source: string,
+  data: any,
+  extra: Partial<GeoResult> = {},
+): GeoResult {
+  const base: GeoResult = { ...DEFAULT_RESULT, ...extra };
 
-    console.log("Final Client IP:", clientIP);
-    console.log("Requested language:", lang);
+  if (source === 'vercel') {
+    return {
+      ...base,
+      ip: data.ip,
+      city: data.city ?? null,
+      region: data.countryRegion ?? data.region ?? null, // countryRegion is more specific (state)
+      country: data.country ?? null,
+      latitude: data.latitude ? Number(data.latitude) : null,
+      longitude: data.longitude ? Number(data.longitude) : null,
+      // timezone comes from header, not in geolocation()
+      isp: null,
+    };
+  }
 
-    // 🔥 Fetch geo data using ip-api.com for language support
-    let url = `http://ip-api.com/json/${clientIP}`;
-    if (lang !== "en") {
-      url += `?lang=${lang}`;
-    }
-
-    const response = await fetch(url, {
-      headers: {
-        "User-Agent": "NextJS-IP-Service",
-      },
-      cache: "no-store",
-    });
-
-    if (!response.ok) {
-      throw new Error(`Geo API request failed: ${response.status}`);
-    }
-
-    const data = await response.json();
-
-    if (data.status === "fail") {
-      throw new Error(`Geo API failed: ${data.message}`);
-    }
-
-    // ✅ Normalize response (adjust fields to match original structure)
-    const result = {
-      ip: clientIP,
+  if (source === 'ip-api') {
+    return {
+      ...base,
+      ip: data.query ?? data.ip ?? base.ip,
       city: data.city ?? null,
       region: data.regionName ?? null,
       country: data.countryCode ?? null,
@@ -93,19 +67,137 @@ export async function GET(req: NextRequest) {
       timezone: data.timezone ?? null,
       isp: data.isp ?? null,
     };
+  }
 
-    console.log("Geo Result:", result);
+  if (source === 'ipinfo') {
+    const [latStr, lonStr] = (data.loc ?? '').split(',');
+    return {
+      ...base,
+      ip: data.ip ?? base.ip,
+      city: data.city ?? null,
+      region: data.region ?? null,
+      country: data.country ?? null,
+      latitude: latStr ? Number(latStr) : null,
+      longitude: lonStr ? Number(lonStr) : null,
+      timezone: data.timezone ?? null,
+      isp: data.org ?? data.company?.name ?? null,
+    };
+  }
 
-    return NextResponse.json(result);
-  } catch (error) {
-    console.error("IP lookup error:", error);
+  if (source === 'ipwhois') {
+    return {
+      ...base,
+      ip: data.ip ?? base.ip,
+      city: data.city ?? null,
+      region: data.region ?? null,
+      country: data.country_code ?? data.country ?? null,
+      latitude: data.latitude ?? null,
+      longitude: data.longitude ?? null,
+      timezone: data.timezone?.name ?? null,
+      isp: data.asn?.org ?? data.connection?.isp ?? null,
+    };
+  }
+
+  return base;
+}
+
+/**
+ * Try fetching from external APIs in fallback order
+ */
+async function fetchFallbackGeo(ip: string, lang = 'en'): Promise<GeoResult> {
+  // 1. ip-api.com
+  try {
+    let url = `http://ip-api.com/json/${ip}`;
+    if (lang !== 'en') url += `?lang=${lang}`;
+
+    const res = await fetch(url, {
+      headers: { 'User-Agent': 'NextJS-Geo-Fallback' },
+      cache: 'no-store',
+    });
+
+    if (res.ok) {
+      const data = await res.json();
+      if (data.status !== 'fail') {
+        return normalizeGeoData('ip-api', data);
+      }
+    }
+  } catch {}
+
+  // 2. ipinfo.io (free tier)
+  try {
+    const res = await fetch(`https://ipinfo.io/${ip}/json`, {
+      headers: { 'User-Agent': 'NextJS-Geo-Fallback' },
+      cache: 'no-store',
+    });
+
+    if (res.ok) {
+      const data = await res.json();
+      if (!data.error) {
+        return normalizeGeoData('ipinfo', data);
+      }
+    }
+  } catch {}
+
+  // 3. ipwho.is
+  try {
+    const res = await fetch(`https://ipwho.is/${ip}`, {
+      headers: { 'User-Agent': 'NextJS-Geo-Fallback' },
+      cache: 'no-store',
+    });
+
+    if (res.ok) {
+      const data = await res.json();
+      if (data.success) {
+        return normalizeGeoData('ipwhois', data);
+      }
+    }
+  } catch {}
+
+  return { ...DEFAULT_RESULT, ip };
+}
+
+export async function GET(req: NextRequest) {
+  try {
+    const queryLang = req.nextUrl.searchParams.get('lang') || 'en';
+
+    // ── Primary: Vercel ────────────────────────────────────────
+    const vercelGeo = geolocation(req);
+    const vercelIP = ipAddress(req) || FALLBACK_IP;
+
+    const hasVercelGeo = !!vercelGeo.country && vercelGeo.country !== 'undefined';
+
+    if (hasVercelGeo) {
+      const timezone = req.headers.get('x-vercel-ip-timezone') ?? null;
+
+      const result = normalizeGeoData('vercel', {
+        ip: vercelIP,
+        ...vercelGeo,
+      }, { timezone });
+
+      return NextResponse.json({
+        ...result,
+        source: 'vercel',
+        isLocalDev: false,
+      });
+    }
+
+    // ── Fallbacks ──────────────────────────────────────────────
+    console.log(`Vercel geo missing → fallback for IP: ${vercelIP}`);
+
+    const fallbackResult = await fetchFallbackGeo(vercelIP, queryLang);
+
+    return NextResponse.json({
+      ...fallbackResult,
+      source: fallbackResult.error ? 'fallback-failed' : 'fallback',
+      isLocalDev: true,
+    });
+  } catch (err: any) {
+    console.error('Geo endpoint error:', err);
 
     return NextResponse.json(
       {
-        ip: DEFAULT_IP,
-        latitude: null,
-        longitude: null,
-        error: "Failed to fetch IP info",
+        ...DEFAULT_RESULT,
+        error: err.message || 'Internal error',
       },
       { status: 500 }
     );
