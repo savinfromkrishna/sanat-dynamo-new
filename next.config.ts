@@ -2,7 +2,7 @@
 const nextConfig = {
   images: {
     unoptimized: true,
-    domains: ['res.cloudinary.com', 'supplelogic.com'],
+    domains: ['res.cloudinary.com', 'https://sanat-rewa.vercel.app/'],
   },
 };
 
