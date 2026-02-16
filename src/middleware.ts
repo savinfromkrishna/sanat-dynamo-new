@@ -1,5 +1,7 @@
-import { NextResponse } from "next/server"
-import type { NextRequest } from "next/server"
+// middleware.ts  (or src/middleware.ts)
+
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 
 export const validCountryISOs = [
   "ad", "ae", "af", "ag", "ai", "al", "am", "ao", "ar", "as", "at", "au", "aw", "ax", "az",
@@ -20,130 +22,142 @@ export const validCountryISOs = [
   "tz", "ua", "ug", "um", "us", "uy", "uz", "va", "vc", "ve", "vg", "vi", "vn", "vu", "wf",
   "ws", "ye", "yt", "za", "zm", "zw",
 ];
+
 export const validLocales = ["en", "es"];
 
-// Default values for country and locale
+// Default values
 const defaultCountry = "in";
 const defaultLocale = "en";
 
 /**
- * Get the browser language from the request headers
- * @param req NextRequest object
- * @returns The detected browser language or the default locale
+ * Get browser preferred language from accept-language header
  */
 function getBrowserLanguage(req: NextRequest): string {
-  const acceptLanguageHeader = req.headers.get("accept-language");
-  if (!acceptLanguageHeader) return defaultLocale;
-  const browserLanguage = acceptLanguageHeader.split(",")[0]?.split("-")[0];
-  return validLocales.includes(browserLanguage) ? browserLanguage : defaultLocale;
+  const acceptLanguage = req.headers.get("accept-language");
+  if (!acceptLanguage) return defaultLocale;
+
+  const primaryLang = acceptLanguage.split(",")[0]?.split("-")[0]?.toLowerCase();
+  return validLocales.includes(primaryLang) ? primaryLang : defaultLocale;
 }
 
 /**
- * Fetch user location data using the client's IP address from the request
- * @param req NextRequest object
- * @returns Object containing country, language, and IP data
+ * Get country code using Vercel headers (preferred) or fallback API
  */
-async function fetchUserLocation(req: NextRequest): Promise<{ country: string; language: string; ipData: any }> {
+async function getUserCountry(req: NextRequest): Promise<string> {
+  // Primary: Vercel geolocation headers (available on Edge & Serverless functions)
+  const vercelCountry = req.headers.get("x-vercel-ip-country")?.toLowerCase();
+
+  if (vercelCountry && validCountryISOs.includes(vercelCountry)) {
+    console.log("Country from Vercel header:", vercelCountry);
+    return vercelCountry;
+  }
+
+  // Fallback: your existing IP API (used in local dev or when headers missing)
   const clientIP =
-    req.headers.get("x-forwarded-for")?.split(",")[0].trim() ||
+    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+    req.headers.get("x-real-ip") ||
     "0.0.0.0";
 
-  console.log("Client IP from request x-forwarded:", req.headers.get("x-forwarded-for"));
-  console.log("Client IP from request:", clientIP);
+  console.log("Client IP (fallback):", clientIP);
 
   try {
     const response = await fetch(`https://ip.nesscoindia.com/${clientIP}`, {
       headers: {
         "User-Agent": "NextJS-Middleware",
       },
+      // Optional: add timeout if needed
+      // signal: AbortSignal.timeout(3000),
     });
 
     if (!response.ok) {
-      throw new Error(`API request failed with status ${response.status}`);
+      throw new Error(`IP API failed: ${response.status}`);
     }
 
     const ipData = await response.json();
-    console.log("IP Data:", ipData);
+    const country = ipData.country?.toLowerCase();
 
-    return {
-      country: ipData.country.toLowerCase(),
-      language: defaultLocale,
-      ipData: ipData,
-    };
-  } catch (error) {
-    console.error("Error in fetchUserLocation:", error);
-    throw error;
+    console.log("Country from fallback API:", country);
+
+    if (country && validCountryISOs.includes(country)) {
+      return country;
+    }
+  } catch (err) {
+    console.error("Fallback IP fetch error:", err);
   }
+
+  // Ultimate fallback
+  return defaultCountry;
 }
 
 /**
- * Middleware function to handle country and language redirection
- * @param req NextRequest object
- * @returns NextResponse object
+ * Main middleware – handles country/language prefix redirects
  */
 export async function middleware(req: NextRequest) {
-  console.log("Middleware execution started");
+  console.log("Middleware started");
+
   const { pathname } = req.nextUrl;
-  console.log("Current path:", pathname);
+  console.log("Pathname:", pathname);
 
-  // Parse country and language from the URL
+  // Skip internal paths, API routes, static files, etc.
+  if (
+    pathname.startsWith("/_next") ||
+    pathname.startsWith("/api") ||
+    pathname.startsWith("/assets") ||
+    pathname.includes(".") || // files like favicon.ico, robots.txt
+    pathname === "/sitemap-index.xml" ||
+    pathname.endsWith(".xml")
+  ) {
+    return NextResponse.next();
+  }
+
+  // Parse existing country/language from URL
   const pathParts = pathname.split("/").filter(Boolean);
-  const userCountryISO = pathParts[0]?.toLowerCase();
-  const userLanguage = pathParts[1]?.toLowerCase();
+  const urlCountry = pathParts[0]?.toLowerCase();
+  const urlLanguage = pathParts[1]?.toLowerCase();
 
-  // Check if the country and language in the URL are valid
-  const isCountryValid = validCountryISOs.includes(userCountryISO);
-  const isLanguageValid = validLocales.includes(userLanguage);
+  const isCountryValid = validCountryISOs.includes(urlCountry);
+  const isLanguageValid = validLocales.includes(urlLanguage);
 
-  // Prepare the response
-  const res = NextResponse.next();
-  res.headers.set("x-next-url-path", req.nextUrl.pathname);
-  res.headers.set("x-next-url-query", req.nextUrl.search);
-
-  // If both country and language are valid, continue
+  // If URL already has valid country + language → continue
   if (isCountryValid && isLanguageValid) {
-    console.log("Valid country and language in URL, proceeding...");
+    console.log("Valid country/language in URL → proceeding");
+    const res = NextResponse.next();
+    res.headers.set("x-next-url-path", pathname);
+    res.headers.set("x-next-url-query", req.nextUrl.search);
     return res;
   }
 
   try {
-    // Fetch user location data
-    const userLocation = await fetchUserLocation(req);
-    console.log("User location:", userLocation?.country);
-    const detectedCountry = userLocation.country;
+    // Detect country (Vercel preferred + fallback)
+    const detectedCountry = await getUserCountry(req);
+
+    // Detect language from browser
     const browserLanguage = getBrowserLanguage(req);
 
-    // Determine final country and language
-    const finalCountry = isCountryValid
-      ? userCountryISO
-      : validCountryISOs.includes(detectedCountry)
-        ? detectedCountry
-        : defaultCountry;
-
-    const finalLanguage = isLanguageValid
-      ? userLanguage
-      : validLocales.includes(browserLanguage)
-        ? browserLanguage
-        : defaultLocale;
+    // Decide final values
+    const finalCountry = isCountryValid ? urlCountry : detectedCountry;
+    const finalLanguage = isLanguageValid ? urlLanguage : browserLanguage;
 
     console.log("Final country:", finalCountry);
     console.log("Final language:", finalLanguage);
 
-    // Redirect to the appropriate URL with country and language
-    const newPathParts = [finalCountry, finalLanguage, ...pathParts.slice(2)];
-    const redirectURL = `/${newPathParts.join("/")}`;
-    console.log("Redirecting to:", redirectURL);
+    // Build new path: /country/language/rest...
+    const newPathParts = [finalCountry, finalLanguage, ...pathParts.slice(isCountryValid ? 1 : 0)];
+    const newPathname = `/${newPathParts.join("/")}`;
+
+    console.log("Redirecting to:", newPathname);
 
     const url = req.nextUrl.clone();
-    url.pathname = redirectURL;
-    return NextResponse.redirect(url.toString(), 301);
+    url.pathname = newPathname;
+
+    return NextResponse.redirect(url, 307); // 307 = temporary redirect (better for SEO/testing)
   } catch (error) {
-    console.error("Error in middleware:", error);
-    // Redirect to "/in/en" route in case of fetch error
-    const fallbackURL = "/in/en";
-    const url = req.nextUrl.clone();
-    url.pathname = fallbackURL;
-    return NextResponse.redirect(url.toString(), 301);
+    console.error("Middleware error:", error);
+
+    // Fallback redirect in case of any error
+    const fallbackUrl = req.nextUrl.clone();
+    fallbackUrl.pathname = "/in/en";
+    return NextResponse.redirect(fallbackUrl, 307);
   }
 }
 
