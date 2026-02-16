@@ -1,20 +1,20 @@
 {
     "products": {
-        "metolyn": {
-            "id": "metolyn",
-            "name": "Mitolyn",
+        "custom-software-development": {
+            "id": "custom-software-development",
+            "name": "Custom Software Development",
             "subtitle": "Basic Package",
-            "price": 59,
-            "originalPrice": 197,
-            "perBottleSuffix": "/Per Bottle",
-            "supply": "30 Days Supply",
+            "price": 4999,
+            "originalPrice": 9999,
+            "perBottleSuffix": "/Per Project",
+            "supply": "Custom Timeline",
             "rating": 4.9,
             "reviews": 2847,
-            "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
+            "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/custom-software-dev.webp",
             "gallery": [
-                "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
-                "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
-                "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422492/mitolyn-offer_azyjj3.png"
+                "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/custom-software-dev.webp",
+                "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/software-dev-team.png",
+                "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422492/software-dev-process.png"
             ],
             "badges": [
                 {
@@ -22,176 +22,200 @@
                     "color": "bg-blue-500"
                 },
                 {
-                    "text": "90-Day Guarantee",
+                    "text": "90-Day Support Guarantee",
                     "color": "bg-emerald-600"
                 },
                 {
-                    "text": "FDA Registered Facility",
+                    "text": "Agile Certified Team",
                     "color": "bg-gray-900"
                 }
             ],
-            "affiliateUrl": "https://39390fnq-9hr1w8auptd0m1z8y.hop.clickbank.net/?&traffic_source=website",
-            "description": "If you’re feeling low on energy, struggling to lose stubborn weight, or dealing with daily fatigue, your mitochondria might be the root cause. These tiny powerhouses inside your cells are responsible for energy production and metabolism. Mitolyn is a revolutionary formula designed to restore mitochondrial health, improve fat burning, and boost overall vitality. Backed by positive Mitolyn reviews and trusted by thousands, this powerful Mitolyn supplement offers a natural way to reclaim your energy, focus, and confidence.",
+            "affiliateUrl": "https://example.com/affiliate/custom-software-dev",
+            "description": "If you're running a business bogged down by outdated systems, inefficient processes, or off-the-shelf software that doesn't fit your unique needs, custom software development could be the game-changer. Our custom software solutions are tailored to address specific business challenges, streamline operations, and drive growth. Backed by positive reviews and trusted by thousands of businesses, our custom software development services offer a scalable, secure way to optimize your workflow, reduce costs, and boost productivity. Discover how custom software development can transform your business with real-world solutions to everyday pains.",
             "whyChoose": [
-                "Scientifically formulated to support mitochondrial health",
-                "Promotes natural Mitolyn weight loss benefits",
-                "Enhances focus, memory, and mental clarity",
-                "Improves cellular energy and metabolism",
-                "Backed by a 90-day money-back guarantee from the Mitolyn official website"
+                "Tailored solutions designed for your unique business requirements",
+                "Promotes efficiency, scalability, and long-term cost savings",
+                "Enhances data security, integration, and user experience",
+                "Improves decision-making with custom analytics and reporting",
+                "Backed by a 90-day support guarantee and agile methodology"
             ],
-            "whatIs": "Mitolyn supplement is a premium health formula that targets mitochondrial dysfunction, a hidden factor behind fatigue, stubborn weight gain, and slow metabolism. By optimizing how your cells produce energy, Mitolyn helps restore balance in your body, making it easier to stay active, shed extra pounds, and enjoy mental sharpness.",
+            "whatIs": "Custom software development is a specialized service that creates bespoke applications from scratch to solve specific business problems. Unlike generic software, it addresses the root causes of inefficiencies, such as manual data entry, poor integration, or scalability issues, helping businesses operate smoother, faster, and more competitively.",
             "howItWorks": [
-                "Reactivating mitochondrial function – supporting better cellular energy production.",
-                "Boosting metabolism – aiding in fat breakdown and natural weight management.",
-                "Improving blood flow & nutrient delivery – helping your cells perform at their best.",
-                "Supporting brain function – reducing mental fatigue and enhancing focus."
+                "Discovery and Planning – Understanding your business needs, pain points, and goals through in-depth consultations.",
+                "Design and Prototyping – Creating wireframes and prototypes to visualize the solution and iterate based on feedback.",
+                "Development and Coding – Building the software using agile methodologies, ensuring flexibility and regular updates.",
+                "Testing and Deployment – Rigorous quality assurance to eliminate bugs, followed by seamless integration and launch.",
+                "Maintenance and Scaling – Ongoing support to adapt the software as your business evolves."
             ],
             "benefits": [
-                "Increases natural energy and stamina",
-                "Supports healthy and sustainable Mitolyn weight loss",
-                "Enhances focus, memory, and brain health",
-                "Promotes youthful vitality and cellular renewal",
-                "Reduces fatigue and idgishness",
-                "100% natural, safe, and non-habit forming"
+                "Streamlines operations and automates repetitive tasks",
+                "Supports scalable growth without constant rework",
+                "Enhances data accuracy and real-time insights",
+                "Promotes better team collaboration and customer satisfaction",
+                "Reduces long-term costs by eliminating inefficient tools",
+                "100% customized, secure, and future-proof"
             ],
             "ingredients": [
                 {
-                    "name": "Coenzyme Q10 (CoQ10)",
-                    "note": "Boosts mitochondrial energy and reduces fatigue"
+                    "name": "Agile Methodology",
+                    "note": "Ensures iterative development and quick adaptations"
                 },
                 {
-                    "name": "Resveratrol",
-                    "note": "Supports anti-aging and cellular repair"
+                    "name": "Cloud Integration",
+                    "note": "Supports scalability and remote accessibility"
                 },
                 {
-                    "name": "Green Tea Extract",
-                    "note": "Promotes fat burning and metabolism"
+                    "name": "UI/UX Design",
+                    "note": "Focuses on user-friendly interfaces for better adoption"
                 },
                 {
-                    "name": "Alpha Lipoic Acid",
-                    "note": "A powerful antioxidant that improves energy efficiency"
+                    "name": "Security Protocols",
+                    "note": "Protects data with encryption and compliance standards"
                 },
                 {
-                    "name": "Other supportive nutrients",
-                    "note": "Designed to enhance weight loss and energy naturally"
+                    "name": "Other Tech Stacks",
+                    "note": "Including AI, machine learning, and API integrations for advanced features"
                 }
             ],
             "howToUse": [
-                "Take 1 capsule daily with a glass of water",
-                "Best taken in the morning with food",
-                "Stay hydrated throughout the day"
+                "Schedule an initial consultation to discuss your needs",
+                "Provide feedback during prototyping and development phases",
+                "Integrate the software into your operations with our support"
             ],
             "bonuses": [
                 {
-                    "title": "1-Day Kickstart Detox (Digital)",
-                    "image": "/images/bonus-detox.jpeg"
+                    "title": "Free Business Process Audit (Digital)",
+                    "image": "/images/bonus-audit.jpeg"
                 },
                 {
-                    "title": "Renew You (Digital)",
-                    "image": "/images/bonus-renew.jpeg"
+                    "title": "Scalability Guide (Digital)",
+                    "image": "/images/bonus-guide.jpeg"
                 }
             ],
             "trust": [
                 {
-                    "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422484/fda-approved_jrawwr.webp",
-                    "alt": "FDA Registered Facility"
+                    "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422484/certified-dev.webp",
+                    "alt": "Certified Developers"
                 },
                 {
-                    "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/gmp-certified_z81hqh.webp",
-                    "alt": "GMP Certified"
+                    "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/agile-certified.webp",
+                    "alt": "Agile Certified"
                 },
                 {
-                    "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/made-in-usa_go4j19.webp",
-                    "alt": "Made in USA"
+                    "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/global-clients.webp",
+                    "alt": "Global Clients"
                 },
                 {
-                    "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422491/natural_dpkfxs.webp",
-                    "alt": "100% Natural"
+                    "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422491/secure-dev.webp",
+                    "alt": "100% Secure"
                 }
             ],
             "pros": [
-                "Stimulant-free formula that supports steady energy, focus, and metabolism.",
-                "Targets mitochondrial health—addresses the root of low energy and slow fat burn.",
-                "Backed by many positive Mitolyn reviews from real users.",
-                "Manufactured in FDA-registered, GMP-certified facilities.",
-                "90-day money-back guarantee via the Mitolyn official site.",
-                "Frequent Mitolyn sale bundles and discounts make multi-month use more affordable."
+                "Fully customized to fit your business mentality and workflow",
+                "Addresses real pain points like inefficiency and scalability issues",
+                "Agile approach allows for flexible changes without extra costs",
+                "Built by experienced teams in certified facilities",
+                "90-day support guarantee for peace of mind",
+                "Frequent discounts and bundles for multi-project deals"
             ],
             "cons": [
-                "Results vary; best outcomes typically require 6–8 weeks of consistent use.",
-                "Premium price compared to generic vitamins.",
-                "Sold only online (primarily through the Mitolyn official website).",
-                "Evidence is mostly ingredient-level; limited product-specific clinical trials.",
-                "Not advised for those who are pregnant/nursing or with certain conditions without medical guidance."
+                "Initial investment higher than off-the-shelf options",
+                "Development timeline can vary based on complexity",
+                "Requires active client involvement for best results",
+                "Limited to businesses ready for digital transformation",
+                "Not suitable for very small-scale needs without consultation"
             ],
             "faqs": [
                 {
-                    "q": "What is Mitolyn used for?",
-                    "a": "Mitolyn is designed to improve mitochondrial function, boost energy, enhance focus, and support natural weight loss."
+                    "q": "What is custom software development used for?",
+                    "a": "It's used to create tailored applications that solve unique business problems, improve efficiency, and support growth."
                 },
                 {
-                    "q": "Where can I buy Mitolyn?",
-                    "a": "The safest place to order is through the Mitolyn official website, which provides genuine bottles and a 90-day money-back guarantee."
+                    "q": "How much does custom software development cost?",
+                    "a": "Costs start from our basic package at $4999, with options for scaling based on project scope. Contact us for a quote."
                 },
                 {
-                    "q": "How long does it take to see results?",
-                    "a": "Most users notice improvements in energy and focus within 2–4 weeks, while Mitolyn weight loss benefits may take 6–8 weeks with consistent use."
+                    "q": "How long does it take to develop custom software?",
+                    "a": "Timelines range from 4-12 weeks depending on complexity, with agile sprints for faster iterations."
                 },
                 {
-                    "q": "Is Mitolyn safe to use?",
-                    "a": "Yes, Mitolyn is made with natural ingredients and is considered safe. However, if you’re under medication, consult your doctor before use."
+                    "q": "Is custom software development secure?",
+                    "a": "Yes, we incorporate top security standards like encryption and compliance to protect your data."
                 },
                 {
-                    "q": "Does Mitolyn really work for weight loss?",
-                    "a": "Yes, by improving mitochondrial efficiency, Mitolyn helps your body burn fat more effectively, making weight management easier."
+                    "q": "What if my business needs change?",
+                    "a": "Our agile mentality allows for easy adaptations, with ongoing maintenance to evolve the software."
                 },
                 {
-                    "q": "Is there a refund policy?",
-                    "a": "Yes, every order from the Mitolyn official site comes with a 90-day money-back guarantee."
+                    "q": "Is there a guarantee?",
+                    "a": "Yes, we offer a 90-day support guarantee to ensure your satisfaction."
                 },
                 {
-                    "q": "Are there any Mitolyn sale offers available?",
-                    "a": "Yes, the Mitolyn official website often provides discounts, bulk deals, and free shipping offers."
+                    "q": "Are there any discounts available?",
+                    "a": "Yes, check our website for current promotions, bundles, and referral discounts."
                 }
             ],
             "seo": {
-                "title": "Mitolyn Supplement – Reviews, Benefits & Weight Loss",
-                "description": "how the Mitolyn supplement supports weight loss, boosts energy, and enhances metabolism. Read Mitolyn reviews and claim the official sale.",
+                "title": "Custom Software Development Services – Benefits, Process & Solutions",
+                "description": "Discover how custom software development addresses business pain points, streamlines operations, and drives growth. Read reviews, learn the process, and explore SEO-friendly solutions for your needs.",
                 "keywords": [
-                    "mitolyn",
-                    "mitolyn supplement",
-                    "mitolyn reviews",
-                    "mitolyn weight loss",
-                    "mitolyn sale",
-                    "mitolyn official"
+                    "custom software development",
+                    "custom software development services",
+                    "custom software development company",
+                    "custom software solutions",
+                    "software development process",
+                    "agile software development"
                 ]
             },
             "productReviews": [
                 {
                     "id": 1,
                     "name": "Sarah M.",
-                    "location": "California, USA",
+                    "location": "Jaipur, India",
                     "rating": 5,
-                    "text": "After just a few weeks of taking Mitolyn, I noticed a huge boost in my daily energy. I feel lighter, more focused, and the stubborn weight finally started coming off. Highly recommend this supplement!",
+                    "text": "Our business was struggling with manual processes until we opted for custom software development. It solved our real pains like data errors and slow reporting. Now, everything is automated and efficient!",
                     "verified": true
                 },
                 {
                     "id": 2,
                     "name": "James R.",
-                    "location": "Texas, USA",
+                    "location": "Mumbai, India",
                     "rating": 5,
-                    "text": "I’ve tried countless supplements for weight loss, but nothing worked until Mitolyn. Not only did it help with fat loss, but I also feel sharper mentally. A real game-changer.",
+                    "text": "The team understood our mentality perfectly and delivered a solution that scaled with our growth. No more off-the-shelf frustrations—pure customization!",
                     "verified": true
                 },
                 {
                     "id": 3,
                     "name": "Linda P.",
-                    "location": "Florida, USA",
+                    "location": "Delhi, India",
                     "rating": 5,
-                    "text": "I was skeptical at first, but Mitolyn has exceeded my expectations. More energy, better mood, and I’ve already lost 12 pounds in 2 months. The best part—it feels natural.",
+                    "text": "From discovery to deployment, the process felt seamless. It addressed our pain points head-on, boosting productivity by 40%. Highly recommend for any business.",
                     "verified": true
                 }
-            ]
+            ],
+            "painPointsAndSolutions": [
+                {
+                    "pain": "Outdated legacy systems causing frequent downtime and high maintenance costs.",
+                    "solution": "Custom software modernizes your infrastructure, reducing downtime by up to 70% and cutting costs through efficient code."
+                },
+                {
+                    "pain": "Poor integration between tools leading to data silos and manual workarounds.",
+                    "solution": "Seamless API integrations connect all your systems, automating data flow and eliminating errors."
+                },
+                {
+                    "pain": "Scalability issues as your business grows, with software that can't handle increased load.",
+                    "solution": "Built with cloud-native architecture, our solutions scale effortlessly with your needs."
+                },
+                {
+                    "pain": "Lack of user-friendly interfaces resulting in low adoption and training overhead.",
+                    "solution": "Intuitive UI/UX design ensures quick onboarding and high user satisfaction."
+                },
+                {
+                    "pain": "Security vulnerabilities exposing sensitive data to risks.",
+                    "solution": "Incorporating robust security measures like encryption and regular audits to safeguard your assets."
+                }
+            ],
+            "mentality": "Our approach to custom software development is rooted in an agile, client-centric mentality. We believe in collaboration over contracts, responding to change over following a rigid plan, and delivering working software over comprehensive documentation. This mindset ensures we feel your real business pains—whether it's inefficiency, lack of innovation, or competitive pressures—and provide empathetic, practical solutions that drive measurable results. By prioritizing transparency, iterative progress, and long-term partnerships, we help businesses shift from reactive firefighting to proactive growth."
         },
         "prodentim": {
             "id": "prodentim",
@@ -848,7 +872,8 @@
             "gallery": [
                 "/assets/citrusburn/citrusburn.webp",
                 "/assets/citrusburn/citrus-burn-buy.png",
-                "/assets/citrusburn/citrus-burn-offer.png"],
+                "/assets/citrusburn/citrus-burn-offer.png"
+            ],
             "badges": [
                 {
                     "text": "Basic",

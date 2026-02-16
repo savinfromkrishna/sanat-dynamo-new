@@ -1,19 +1,24 @@
 // src/app/[country]/[locale]/layout.tsx
+
 import type { ReactNode } from "react";
 import type { Metadata } from "next";
 import { Space_Grotesk, DM_Sans } from "next/font/google";
 import "./globals.css";
-import { getTranslation, type Locale } from "@/lib/i18n";
-import Header from "@/components/common/header";
-import Footer from "@/components/common/footer";
-import { TranslationProvider } from "@/context/TranslationContext";
-import { validCountryISOs } from "@/middleware";
-import { countryNamesByISO } from "@/lib/country";
 
-// Define supported countries and languages (adjust based on your actual list from "@/i18n" or elsewhere)
-const supportedCountries = validCountryISOs; // Example: Add all your valid country codes here, lowercase
+import { getTranslation, type Locale } from "@/lib/i18n";
+import Footer from "@/components/common/footer";
+import Header from "@/components/common/header";
+import { TranslationProvider } from "@/context/TranslationContext";
+
+import { validCountryISOs } from "@/middleware";
+import { getUserGeo } from "@/lib/getUserGeo"; // ✅ GEO SERVER HELPER
+
+// ------------------------------------------------
+
+const supportedCountries = validCountryISOs;
 const supportedLanguages: Locale[] = ["en", "es"];
 
+// Fonts
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   display: "swap",
@@ -26,71 +31,129 @@ const dmSans = DM_Sans({
   variable: "--font-dm-sans",
 });
 
-// generateMetadata: async + await params + return
+
+// ========================================================
+// ✅ HELPER TO GET LOCALIZED COUNTRY NAME
+// ========================================================
+function getCountryName(code: string, locale: Locale): string {
+  const lowerCode = code.toLowerCase();
+  const maps: Record<Locale, Record<string, string>> = {
+    en: {
+      // Add supported countries here, e.g.
+      us: "United States",
+      es: "Spain",
+      in: "India",
+      // ... add more from validCountryISOs
+    },
+    es: {
+      us: "Estados Unidos",
+      es: "España",
+      in: "India",
+      // ... add more
+    },
+  };
+
+  return maps[locale][lowerCode] || code.toUpperCase();
+}
+
+
+// ========================================================
+// ✅ SEO METADATA WITH CITY + REGION
+// ========================================================
+
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ country: string; locale: string }>;
 }): Promise<Metadata> {
+
   const { country, locale: rawLocale } = await params;
   const locale = rawLocale as Locale;
-  const t = await getTranslation(locale); // Ensure getTranslation is async if needed
 
-  // Generate the full set of hreflang alternates for all country-language combinations
+  const t = await getTranslation(locale);
+
+  // ✅ Get GEO data (SERVER SIDE) with locale for localization
+  const geo = await getUserGeo();
+
+  // Country readable name (localized)
+  const fallbackCountryName = geo.country
+    ? getCountryName(geo.country, locale)
+    : getCountryName(country, locale);
+
+  // ✅ Build dynamic location (using localized geo data if available)
+  let locationLabel = fallbackCountryName;
+
+  if (geo.city && geo.region) {
+    locationLabel = `${geo.city}, ${geo.region}`;
+  } else if (geo.city) {
+    locationLabel = `${geo.city}, ${fallbackCountryName}`;
+  } else if (geo.region) {
+    locationLabel = `${geo.region}, ${fallbackCountryName}`;
+  }
+
+  // FINAL SEO TITLE
+  const finalTitle = `${t.seo.title} | ${locationLabel}`;
+
+  // hreflang map
   const langMap: Record<string, string> = {};
+
   for (const lang of supportedLanguages) {
     for (const cty of supportedCountries) {
       const region = cty.toUpperCase();
-      const hrefLang = `${lang}-${region}`;
-      const url = `/${cty}/${lang}`;
-      langMap[hrefLang] = url;
+      langMap[`${lang}-${region}`] = `/${cty}/${lang}`;
     }
   }
-  // Optionally add x-default (e.g., point to a default like /us/en)
-  langMap["x-default"] = "/us/en"; // Adjust to your preferred default
+
+  langMap["x-default"] = "/us/en";
 
   return {
-    title:  `${t.seo.title} | ${countryNamesByISO[(country?.toLowerCase() as keyof typeof countryNamesByISO)] || country || 'Unknown'}`,
+    title: finalTitle,
     description: t.seo.description,
     keywords: t.seo.keywords,
-    metadataBase: new URL("https://supplelogic.com"),
+
+    metadataBase: new URL("https://sanat-rewa.vercel.app"),
+
     alternates: {
       canonical: `/${country}/${locale}`,
       languages: langMap,
     },
+
     openGraph: {
-      title: t.seo.title,
+      title: finalTitle,
       description: t.seo.description,
-      url: `https://supplelogic.com/${country}/${locale}`,
+      url: `https://sanat-rewa.vercel.app/${country}/${locale}`,
       siteName: "Mitolyn Official",
       images: [
         {
           url: "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
           width: 1200,
           height: 630,
-          alt: t.seo.title,
+          alt: finalTitle,
         },
       ],
       locale: `${locale}_${country.toUpperCase()}`,
       type: "website",
     },
+
     twitter: {
       card: "summary_large_image",
-      title: t.seo.title,
+      title: finalTitle,
       description: t.seo.description,
       images: [
         "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
       ],
     },
-    // Additional SEO-related metadata (optional enhancements)
-    robots: "index, follow", // Controls search engine crawling
-    viewport: "width=device-width, initial-scale=1", // Mobile responsiveness
-    // You can add more like verification for Google Search Console if needed
-    // verification: { google: "your-google-site-verification-code" },
+
+    robots: "index, follow",
+    viewport: "width=device-width, initial-scale=1",
   };
 }
 
-// Layout: async + await params
+
+// ========================================================
+// ✅ ROOT LAYOUT
+// ========================================================
+
 export default async function LocaleLayout({
   children,
   params,
@@ -98,18 +161,34 @@ export default async function LocaleLayout({
   children: ReactNode;
   params: Promise<{ country: string; locale: string }>;
 }) {
-  const { country, locale: rawLocale } = await params;
+
+  const { locale: rawLocale } = await params;
   const locale = rawLocale as Locale;
-  const translations = await getTranslation(locale); // Ensure async if needed
+
+  const translations = await getTranslation(locale);
 
   return (
-    <html lang={locale} className={`${spaceGrotesk.variable} ${dmSans.variable}`}>
-      <body data-hydrated="true" className="min-h-screen flex flex-col">
-        <Header country={country} locale={locale} translations={translations} />
+    <html
+      lang={locale}
+      className={`${spaceGrotesk.variable} ${dmSans.variable}`}
+    >
+      <body
+        data-hydrated="true"
+        className="min-h-screen flex flex-col"
+      >
+        <Header
+          translations={{
+            nav: { home: "home" },
+          }}
+        />
+
         <main className="flex-grow">
-          <TranslationProvider locale={locale}>{children}</TranslationProvider>
+          <TranslationProvider locale={locale}>
+            {children}
+          </TranslationProvider>
         </main>
-        <Footer country={country} locale={locale} translations={translations} />
+
+        <Footer translations={translations} />
       </body>
     </html>
   );

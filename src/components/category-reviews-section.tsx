@@ -1,210 +1,137 @@
+
 "use client"
+import React, { useEffect, useState, useCallback } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
+import { Star, ChevronLeft, ChevronRight, User, ShieldCheck, Activity, Terminal, Database } from "lucide-react";
 
-import React, { useEffect, useState, useCallback } from "react"
-import useEmblaCarousel from "embla-carousel-react"
-import Autoplay from "embla-carousel-autoplay"
-import { Card, CardContent } from "./ui/card"
-import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react"
-
-/* --------------------------------------------------------------- */
-/* Review Interface                                                */
-/* --------------------------------------------------------------- */
 interface Review {
-  name: string
-  location: string
-  rating: number
-  date?: string
-  title?: string
-  content: string
-  verified?: boolean
-  product?: string
-}
-
-/* --------------------------------------------------------------- */
-/* Map slug → translation key & product names for filtering       */
-/* --------------------------------------------------------------- */
-const categoryConfig: Record<string, {
-  translationKey: string
-  allowedProducts: string[]
-}> = {
-  "weight-loss-supplements": {
-    translationKey: "weightLoss",
-    allowedProducts: [
-      "MITOLYN Basic Package",
-      "MITOLYN Popular Package",
-      "MITOLYN Best Value Package",
-      "Sleep Lean Basic Package",
-      "BellyFlush Basic Package",
-    ]
-  },
-  "dental-health-supplements": {
-    translationKey: "oralProbiotics", // FIXED: Now points to oralProbiotics
-    allowedProducts: [
-      "PRODENTIM - Basic Package",
-      "PRODENTIM - Duo Package",
-      "PRODENTIM - Popular",
-    ]
-  },
+  name: string;
+  location: string;
+  rating: number;
+  date?: string;
+  title?: string;
+  content: string;
+  verified?: boolean;
+  product?: string;
 }
 
 export default function CategoryReviewsSection({
   category,
+  locale,
+  country,
   translations,
 }: {
-  category: string
-  translations: any
+  category: string;
+  locale: string;
+  country: string;
+  translations: any;
 }) {
-  const config = categoryConfig[category]
+  const CATEGORY_MAP: Record<string, string> = {
+    "web-dev": "weightLoss",
+    "ai-solutions": "oralProbiotics",
+    "cloud-devops": "energy",
+    "cybersecurity": "bellyFat",
+  };
 
-  if (!config) {
-    return null
-  }
-
-  // Get reviews from the specific category key (weightLoss or oralProbiotics)
-  const categoryData = translations?.[config.translationKey]
-  const categoryReviews = categoryData?.reviews
-
-  if (!categoryReviews?.items || !Array.isArray(categoryReviews.items)) {
-    return null
-  }
-
-  // Filter reviews: Show if the product name matches the allowed list for this category
-  const filteredReviews: Review[] = categoryReviews.items.filter((review: Review) =>
-    config.allowedProducts.includes(review.product || "")
-  )
-
-  if (filteredReviews.length === 0) {
-    return null
-  }
-
-  // ── Carousel setup ──────────────────────────────────────────────
+  const key = CATEGORY_MAP[category] || "weightLoss";
+  const categoryData = translations?.[key];
+  const reviewsData = categoryData?.reviews || translations.reviews;
+  
   const [emblaRef, emblaApi] = useEmblaCarousel(
-    { 
-      loop: true, 
-      align: "start", 
-      skipSnaps: false,
-      containScroll: "trimSnaps" 
-    },
+    { loop: true, align: "start", skipSnaps: false, containScroll: "trimSnaps" },
     [Autoplay({ delay: 5000, stopOnInteraction: true })]
-  )
+  );
 
-  const [selectedIndex, setSelectedIndex] = useState(0)
-  const [scrollSnaps, setScrollSnaps] = useState<number[]>([])
+  const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
 
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev()
-  }, [emblaApi])
+  const reviews: Review[] = reviewsData?.items || reviewsData?.reviews || [];
 
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext()
-  }, [emblaApi])
-
-  const onSelect = useCallback(() => {
-    if (!emblaApi) return
-    setSelectedIndex(emblaApi.selectedScrollSnap())
-  }, [emblaApi])
-
-  useEffect(() => {
-    if (!emblaApi) return
-    setScrollSnaps(emblaApi.scrollSnapList())
-    emblaApi.on("select", onSelect)
-    emblaApi.on("reInit", onSelect)
-    onSelect()
-    return () => {
-      emblaApi.off("select", onSelect)
-      emblaApi.off("reInit", onSelect)
-    }
-  }, [emblaApi, onSelect])
+  if (!reviews.length) return null;
 
   return (
-    <section id="reviews" className="py-16 md:py-24 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4 text-gray-900 capitalize">
-            {categoryReviews.title || "Customer Reviews"}
-          </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-            {categoryReviews.description}
-          </p>
+    <section className="py-48 bg-gray-50 relative overflow-hidden">
+      {/* Blueprint background snippet */}
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/20 to-transparent" />
+      <div className="absolute inset-0 opacity-[0.01] pointer-events-none" style={{ backgroundImage: `radial-gradient(#000 1px, transparent 0)`, backgroundSize: '20px 20px' }} />
+      
+      <div className="container mx-auto px-6 lg:px-12 relative z-10">
+        <div className="flex flex-col lg:flex-row items-end justify-between gap-12 mb-24 text-left">
+          <div className="max-w-3xl space-y-8">
+            <div className="flex items-center gap-4">
+              <div className="h-[2px] w-16 bg-blue-600 shadow-[0_0_10px_rgba(17,109,255,0.3)]" />
+              <span className="text-[11px] font-black tracking-[0.5em] text-blue-600 uppercase flex items-center gap-3">
+                <Terminal size={14} /> System_Telemetry_Log
+              </span>
+            </div>
+            <h2 className="text-6xl md:text-8xl font-black tracking-tighter text-gray-900 uppercase italic leading-[0.85]">
+              VALIDATION<br /><span className="text-blue-600">FEEDBACK.</span>
+            </h2>
+            <p className="text-2xl text-gray-400 font-light max-w-xl">
+              Performance verification data collected from live production nodes across our global infrastructure.
+            </p>
+          </div>
+          
+          <div className="flex gap-5">
+            <button onClick={scrollPrev} className="w-20 h-20 rounded-[28px] bg-white border border-gray-100 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all shadow-sm active:scale-90 group">
+              <ChevronLeft className="w-8 h-8 transition-transform group-hover:-translate-x-1" />
+            </button>
+            <button onClick={scrollNext} className="w-20 h-20 rounded-[28px] bg-white border border-gray-100 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all shadow-sm active:scale-90 group">
+              <ChevronRight className="w-8 h-8 transition-transform group-hover:translate-x-1" />
+            </button>
+          </div>
         </div>
 
-        <div className="relative max-w-7xl mx-auto">
-          <div className="overflow-hidden cursor-grab active:cursor-grabbing" ref={emblaRef}>
-            <div className="flex -ml-4">
-              {filteredReviews.map((review, index) => (
-                <div
-                  key={`${review.name}-${index}`}
-                  className="flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0 pl-4"
-                >
-                  <Card className="h-full border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 bg-white">
-                    <CardContent className="p-6 md:p-8 relative h-full flex flex-col">
-                      <Quote className="absolute top-6 right-6 h-12 w-12 text-blue-500/5 pointer-events-none" />
-
-                      <div className="flex flex-wrap items-center gap-3 mb-6">
-                        <div className="flex">
-                          {[...Array(5)].map((_, i) => (
-                            <Star
-                              key={i}
-                              className={`h-4 w-4 ${
-                                i < Math.floor(review.rating)
-                                  ? "fill-yellow-400 text-yellow-400"
-                                  : "text-gray-200"
-                              }`}
-                            />
-                          ))}
-                        </div>
-                        {review.verified && (
-                          <span className="text-[10px] uppercase tracking-widest font-bold bg-green-50 text-green-700 border border-green-100 px-2.5 py-1 rounded">
-                            Verified Purchase
-                          </span>
-                        )}
+        <div className="overflow-hidden" ref={emblaRef}>
+          <div className="flex -ml-8">
+            {reviews.map((review, index) => (
+              <div key={index} className="flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_40%] pl-8">
+                <div className="h-full bg-white rounded-[48px] border border-gray-100 p-12 flex flex-col relative group overflow-hidden hover:shadow-[0_40px_100px_-20px_rgba(17,109,255,0.08)] transition-all duration-700">
+                  <div className="absolute top-0 left-0 w-full h-1 bg-blue-500/0 group-hover:bg-blue-600 transition-all duration-700" />
+                  
+                  <div className="flex items-center justify-between mb-12">
+                    <div className="flex items-center gap-1.5">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} size={16} className={i < review.rating ? "fill-blue-600 text-blue-600" : "text-gray-100"} />
+                      ))}
+                    </div>
+                    {review.verified && (
+                      <div className="flex items-center gap-2 px-4 py-1.5 bg-blue-50 rounded-xl border border-blue-100 shadow-sm">
+                        <ShieldCheck size={14} className="text-blue-600" />
+                        <span className="text-[10px] font-black uppercase tracking-widest text-blue-600">VALIDATED</span>
                       </div>
+                    )}
+                  </div>
 
-                      <div className="flex-grow">
-                        {review.title && (
-                          <h3 className="text-lg font-bold mb-3 text-gray-900">
-                            {review.title}
-                          </h3>
-                        )}
-                        <p className="text-gray-600 leading-relaxed mb-6 text-sm md:text-base">
-                          "{review.content}"
-                        </p>
-                      </div>
+                  <div className="flex-grow space-y-8 text-left">
+                    {review.title && <h3 className="text-2xl font-black text-gray-900 uppercase tracking-tight leading-tight">{review.title}</h3>}
+                    <p className="text-gray-400 font-light text-xl leading-relaxed italic">"{review.content}"</p>
+                  </div>
 
-                      <div className="mt-auto pt-6 border-t border-gray-50 flex items-center justify-between">
-                        <div>
-                          <p className="font-bold text-gray-900 text-sm">{review.name}</p>
-                          <p className="text-[11px] text-gray-400 mt-0.5">{review.location}</p>
+                  <div className="mt-16 pt-10 border-t border-gray-50 flex items-center justify-between">
+                     <div className="flex items-center gap-5 text-left">
+                        <div className="w-14 h-14 rounded-2xl bg-gray-50 border border-gray-100 flex items-center justify-center group-hover:bg-blue-50 transition-colors">
+                           <User size={24} className="text-gray-300 group-hover:text-blue-600" />
                         </div>
-                        <div className="text-right">
-                           <p className="text-[10px] font-medium text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full">
-                             {review.product}
-                           </p>
+                        <div className="flex flex-col">
+                           <div className="text-sm font-black text-gray-900 uppercase tracking-tight">{review.name}</div>
+                           <div className="text-[10px] text-gray-400 uppercase font-bold tracking-[0.2em]">{review.location}</div>
                         </div>
-                      </div>
-                    </CardContent>
-                  </Card>
+                     </div>
+                     <div className="flex flex-col items-end gap-2">
+                        <Activity size={20} className="text-blue-500/20 group-hover:text-blue-500 transition-colors animate-pulse" />
+                        <div className="w-12 h-1 bg-gray-100 rounded-full overflow-hidden">
+                           <div className="h-full bg-blue-500 w-3/4" />
+                        </div>
+                     </div>
+                  </div>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="hidden md:block">
-            <button
-              onClick={scrollPrev}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 lg:-translate-x-10 bg-white hover:bg-blue-600 hover:text-white text-gray-400 shadow-xl rounded-full p-4 transition-all z-10 border border-gray-100"
-            >
-              <ChevronLeft className="h-6 w-6" />
-            </button>
-            <button
-              onClick={scrollNext}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 lg:translate-x-10 bg-white hover:bg-blue-600 hover:text-white text-gray-400 shadow-xl rounded-full p-4 transition-all z-10 border border-gray-100"
-            >
-              <ChevronRight className="h-6 w-6" />
-            </button>
+              </div>
+            ))}
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

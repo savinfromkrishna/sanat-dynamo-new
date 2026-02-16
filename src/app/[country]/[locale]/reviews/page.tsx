@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: { locale: Locale } 
   return {
     title: translations.reviews.title,
     description: translations.reviews.description,
-    metadataBase: new URL("https://supplelogic.com"),
+    metadataBase: new URL("https://sanat-rewa.vercel.app"),
     alternates: {
       canonical: `/${params.locale}/reviews`,
       languages: {
@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: { params: { locale: Locale } 
     openGraph: {
       title: translations.reviews.title,
       description: translations.reviews.description,
-      url: `https://supplelogic.com/${params.locale}/reviews`,
+      url: `https://sanat-rewa.vercel.app/${params.locale}/reviews`,
       siteName: "Mitolyn Official",
       images: [{ url: "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp", width: 1200, height: 630, alt: translations.reviews.title }],
       locale: params.locale === "es" ? "es_ES" : "en_US",
@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: { params: { locale: Locale } 
   }
 }
 
-export default async function ReviewsPage({ params }: { params: { locale: Locale } }) {
+export default async function ReviewsPage({ params }: { params: { locale: Locale, country: string } }) {
   const translations = getTranslation(params.locale)
   const t = translations.reviews
 
@@ -99,7 +99,7 @@ export default async function ReviewsPage({ params }: { params: { locale: Locale
 
             {t.categories.tabs.map((tab: any) => (
               <TabsContent key={tab.value} value={tab.value} className="mt-8">
-                <CategoryReviewsSection category={`${tab.value}-supplements`} translations={translations} />
+                <CategoryReviewsSection category={`${tab.value}-supplements`} translations={translations} locale={params.locale} country={params.country} />
               </TabsContent>
             ))}
           </Tabs>

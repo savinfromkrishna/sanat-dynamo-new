@@ -18,15 +18,15 @@ type CategoryKey = "weightLoss" | "oralProbiotics"
 
 function getCategoryKey(slug: string): CategoryKey | null {
   const map: Record<string, CategoryKey> = {
-    "weight-loss-supplements": "weightLoss",
-    "dental-health-supplements": "oralProbiotics",
+    "web-dev": "weightLoss",
+    "ai-solutions": "oralProbiotics",
   }
   return map[slug] || null
 }
 
 const productMap: Record<string, string[]> = {
-  "weight-loss-supplements": ["metolyn"],
-  "dental-health-supplements": ["prodentim"],
+  "web-dev": ["custom-software-development"],
+  "ai-solutions": ["prodentim"],
 }
 
 /* ------------------------------------------------------------------ */
@@ -41,7 +41,7 @@ export async function generateMetadata({
 
   const translations = await getTranslation(locale)
   const categoryKey = getCategoryKey(slug)
-
+  
   if (!categoryKey) return { title: "Page Not Found" }
 
   const product = translations.products?.[id] as ProductDetail | undefined
@@ -67,7 +67,7 @@ export async function generateMetadata({
     title: `${product.seo.title} | ${countryNamesByISO[country?.toLowerCase() as keyof typeof countryNamesByISO]}`,
     description: product.seo.description,
     keywords: product.seo.keywords?.join(", "),
-    metadataBase: new URL("https://supplelogic.com"),
+    metadataBase: new URL("https://sanat-rewa.vercel.app"),
     alternates: {
       canonical: `/${country}/${locale}/${slug}/${id}`,
       languages: langMap,
@@ -75,7 +75,7 @@ export async function generateMetadata({
     openGraph: {
       title: product.seo.title,
       description: product.seo.description,
-      url: `https://supplelogic.com/${country}/${locale}/${slug}/${id}`,
+      url: `https://sanat-rewa.vercel.app/${country}/${locale}/${slug}/${id}`,
       siteName: "SuppleLogic",
       images: [{ url: product.image || fallbackImage, width: 1200, height: 630, alt: product.name }],
       locale: `${locale}_${country.toUpperCase()}`,
@@ -116,9 +116,18 @@ export default async function ProductPage({
     .filter((p: any) => String(p.id) !== id)
     .map((p: any) => ({ ...p, id: String(p.id) }))
 
+  const normalizedProduct = {
+    ...product,
+    whatIs: Array.isArray(product.whatIs) ? product.whatIs : [product.whatIs],
+    productReviews: product.productReviews.map((review) => ({
+      ...review,
+      id: String(review.id),
+    })),
+  }
+
   return (
     <ProductDetailPageClient
-      product={product}
+      product={normalizedProduct}
       translations={translations}
       locale={locale}
       country={country}

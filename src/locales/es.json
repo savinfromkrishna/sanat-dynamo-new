@@ -30,7 +30,7 @@
         "discount": "16% de descuento",
         "duration": "Suministro para 30 días",
         "badge": null,
-        "url": "https://supplelogic.com/basic-package"
+        "url": "https://sanat-rewa.vercel.app/basic-package"
       },
       {
         "id": "popular",
@@ -45,7 +45,7 @@
           "text": "Más Popular",
           "color": "orange"
         },
-        "url": "https://supplelogic.com/popular"
+        "url": "https://sanat-rewa.vercel.app/popular"
       },
       {
         "id": "best-value",
@@ -60,7 +60,7 @@
           "text": "Mejor Valor",
           "color": "emerald"
         },
-        "url": "https://supplelogic.com/best-value"
+        "url": "https://sanat-rewa.vercel.app/best-value"
       }
     ],
     "sleep-stress": [
@@ -77,7 +77,7 @@
           "text": "Energía Natural",
           "color": "blue"
         },
-        "url": "https://supplelogic.com/energy-boost"
+        "url": "https://sanat-rewa.vercel.app/energy-boost"
       },
       {
         "id": "endurance",
@@ -92,7 +92,7 @@
           "text": "Duradero",
           "color": "blue"
         },
-        "url": "https://supplelogic.com/endurance-pack"
+        "url": "https://sanat-rewa.vercel.app/endurance-pack"
       },
       {
         "id": "ultimate",
@@ -107,7 +107,7 @@
           "text": "Premium",
           "color": "blue"
         },
-        "url": "https://supplelogic.com/ultimate-bundle"
+        "url": "https://sanat-rewa.vercel.app/ultimate-bundle"
       }
     ],
     "gut-health": [],

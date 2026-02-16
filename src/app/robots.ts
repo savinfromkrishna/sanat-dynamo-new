@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
     ],
-    sitemap: 'https://supplelogic.com/sitemap-index.xml',
+    sitemap: 'https://sanat-rewa.vercel.app/sitemap-index.xml',
   };
 }

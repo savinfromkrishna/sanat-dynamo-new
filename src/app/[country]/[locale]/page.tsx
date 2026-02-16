@@ -1,4 +1,3 @@
-// home
 import { CategoriesSection } from "@/components/home/CategoriesSection"
 import { HomeHeroCarousel } from "@/components/home/homecarouse"
 import { ReviewsSection } from "@/components/home/ReviewsSection"
@@ -12,147 +11,149 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   
   const isSpanish = locale === "es"
   
-  const combinedKnowMoreData = isSpanish ? {
-    title: "SuppleLogic: Decisiones de Salud Basadas en la Lógica, no en el Marketing",
-    summary: "SuppleLogic es una plataforma dedicada a reseñas de suplementos honestas e impulsadas por la investigación. Te ayudamos a filtrar la exageración publicitaria analizando ingredientes, beneficios y experiencias reales para que tomes decisiones de compra más inteligentes y seguras.",
-    knowMore: "Saber Más",
-    knowLess: "Mostrar Menos",
-    sections: [
-      {
-        "type": "text",
-        "heading": "Nuestra Misión: Tu Salud es lo Primero",
-        "content": "Nuestra misión en SuppleLogic es simple: proporcionar reseñas de suplementos honestas, lógicas y fáciles de entender. Creemos que los suplementos deben apoyar tu salud, no confundirte ni engañarte. Nos enfocamos en la transparencia y la educación para empoderar tus decisiones de bienestar.",
-      },
-      {
-        "type": "list",
-        "heading": "Cómo Evaluamos Cada Suplemento",
-        "content": "Cada producto en SuppleLogic pasa por un proceso de evaluación estructurado para garantizar la máxima calidad:",
-        "items": [
-          "Calidad de Ingredientes – ¿Son efectivos y seguros?",
-          "Evidencia Científica – ¿Existe investigación real detrás de las afirmaciones?",
-          "Beneficios vs. Promesas – ¿Coinciden los resultados con el marketing?",
-          "Efectos Secundarios y Seguridad – ¿Quién debería evitar el producto?",
-          "Relación Calidad-Precio – ¿Está justificado el precio?"
-        ]
-      },
-      {
-        "type": "stat",
-        "heading": "¿Por qué confiar en SuppleLogic?",
-        "stats": [
-          { "value": "100%", "label": "Análisis Independiente" },
-          { "value": "Ciencia", "label": "Enfoque basado en investigación" },
-          { "value": "Real", "label": "Experiencias de usuarios verificadas" }
-        ]
-      },
-      {
-        "type": "table",
-        "heading": "SuppleLogic vs. Reseñas Típicas",
-        "table": {
-          "headers": ["Característica", "SuppleLogic", "Otros Sitios"],
-          "rows": [
-            ["Análisis de Ingredientes", "Profundo y Basado en Ciencia", "Superficial"],
-            ["Transparencia de Afiliados", "Clara y Honesta", "A menudo oculta"],
-            ["Promesas de 'Milagro'", "Nunca (Solo hechos)", "Comunes"],
-            ["Enfoque en Seguridad", "Prioridad Alta", "Ignorado a menudo"]
+  const mockTranslations: any = {
+    common: {
+      buyNow: "Get Started",
+      learnMore: "View Solutions",
+      premiumMemberSuffix: "for Enterprise Partners",
+      verifiedBuyer: "Verified Client"
+    },
+    hero: {
+      mainHeading: "SCALABLE INNOVATION",
+      description: "Architecting the next generation of enterprise-grade software solutions.",
+      guarantee: "99.9% Uptime SLA",
+      fdaRegistered: "ISO 27001 Certified",
+      freeShipping: "24/7 Global Support",
+      slides: [
+        {
+          name: "Nexus Cloud Engine",
+          slug: "nexus-cloud",
+          category: "Cloud Infrastructure",
+          categorySlug: "devops",
+          isNew: true,
+          rating: 5.0,
+          reviews: 850,
+          image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800&h=800",
+        }
+      ]
+    },
+    categories: {
+      weightLoss: "Digital Transformation",
+      weightLossDescription: "Precision-coded systems designed to optimize business workflow and automation.",
+      products: [
+        {
+          category: "Software Suites",
+          items: [
+            {
+              id: 1,
+              name: "OmniChannel CRM",
+              slug: "omnichannel-crm",
+              categorySlug: "saas-solutions",
+              image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=400&h=400",
+              rating: 4.8,
+              reviews: 3200,
+              price: "$499/mo",
+              supply: "Unlimited Users",
+              link: "#"
+            }
           ]
         }
-      },
-      {
-        "type": "faq",
-        "heading": "Preguntas Frecuentes",
-        "faqs": [
-          {
-            "q": "¿Son imparciales las reseñas de SuppleLogic?",
-            "a": "Sí. Todas las reseñas se escriben de forma independiente. Las comisiones de afiliados nunca influyen en nuestras evaluaciones."
-          },
-          {
-            "q": "¿SuppleLogic es un sitio médico?",
-            "a": "No. Proporcionamos contenido informativo únicamente. Siempre consulte a un profesional de la salud antes de comenzar cualquier suplemento."
+      ]
+    },
+    reviews: {
+      title: "CLIENT SUCCESS METRICS",
+      subtitle: "Performance analytics and feedback from our global enterprise partners.",
+      verifiedBuyer: "ENTERPRISE_PARTNER",
+      reviews: [
+        {
+          id: 1,
+          name: "Sarah Chen",
+          location: "CTO, FinTech Global",
+          rating: 5,
+          text: "The architectural migration was seamless. Our system latency dropped by 40% within the first month of deployment.",
+          verified: true
+        }
+      ]
+    },
+    trust: {
+      title: "SECURITY & COMPLIANCE",
+      description: "Our infrastructure adheres to the highest global data protection protocols.",
+      badges: [
+        { alt: "SOC2 Type II", image: "https://cdn-icons-png.flaticon.com/512/5822/5822215.png" },
+        { alt: "ISO Certified", image: "https://cdn-icons-png.flaticon.com/512/9322/9322131.png" }
+      ]
+    },
+    productKnowMore: {
+      title: "ENGINEERING CORE: CODE OVER CLUTTER",
+      summary: "Our development framework is dedicated to robust, clean-code architecture. We eliminate technical debt and focus on building scalable, future-proof digital ecosystems.",
+      knowMore: "VIEW_DOCUMENTATION",
+      knowLess: "CLOSE_MODULE",
+      sections: [
+        {
+          "type": "text",
+          "heading": "Our Mission: Agile Excellence",
+          "content": "Our priority is architectural integrity. We believe software should function as a living asset, not a rigid legacy system. We utilize modular microservices to ensure your business stays flexible.",
+        },
+        {
+          "type": "list",
+          "heading": "Development Lifecycle Protocols",
+          "content": "Every line of code undergoes a rigorous CI/CD pipeline and quality assurance check:",
+          "items": [
+            "Structural Integrity – Unit and integration testing",
+            "Security Audits – Automated vulnerability scanning",
+            "Scalability Stress Tests – Load balancing verification",
+            "UX/UI Validation – Human-centric design review",
+            "Documentation – Comprehensive API indexing"
+          ]
+        },
+        {
+          "type": "stat",
+          "heading": "Infrastructure Metrics",
+          "stats": [
+            { "value": "99.99%", "label": "System Uptime" },
+            { "value": "256-bit", "label": "Encryption" },
+            { "value": "Global", "label": "CDN Nodes" }
+          ]
+        },
+        {
+          "type": "table",
+          "heading": "Technology Comparison Matrix",
+          "table": {
+            "headers": ["Feature", "Our Modern Stack", "Legacy Systems"],
+            "rows": [
+              ["Deployment Speed", "Instant (Automated)", "Manual/Weeks"],
+              ["Scalability", "Elastic/Cloud-Native", "Hardware Limited"],
+              ["Security Updates", "Real-time Patching", "Scheduled Downtime"],
+              ["Architecture", "Microservices", "Monolithic"]
+            ]
           }
-        ]
-      },
-      {
-        "type": "cta",
-        "heading": "¿Listo para encontrar el suplemento ideal?",
-        "content": "Explore nuestras categorías de pérdida de peso, salud digestiva, cuidado oral y más para encontrar soluciones que realmente tengan sentido para su salud.",
-        "button": { "text": "Ver Todas las Reseñas", "href": "/categories" }
-      }
-    ]
-  } : {
-    title: "SuppleLogic: Health Decisions Based on Logic, Not Hype",
-    summary: "SuppleLogic is a trusted platform dedicated to honest, research-driven supplement reviews. We help you cut through marketing hype by analyzing ingredients, claimed benefits, and real user experiences so you can make smarter, safer buying decisions.",
-    knowMore: "Know More",
-    knowLess: "Show Less",
-    sections: [
-      {
-        "type": "text",
-        "heading": "Our Mission: Your Health First",
-        "content": "Our mission at SuppleLogic is simple: to provide honest, logical, and easy-to-understand supplement reviews. We believe supplements should support your health—not confuse or mislead you. We prioritize transparency and education to empower your wellness decisions.",
-      },
-      {
-        "type": "list",
-        "heading": "How We Review Every Supplement",
-        "content": "Every product featured on SuppleLogic goes through a structured evaluation process to ensure maximum quality:",
-        "items": [
-          "Ingredient Quality – Are the ingredients effective and safe?",
-          "Scientific Evidence – Is there real research behind the claims?",
-          "Benefits vs Claims – Do results match marketing promises?",
-          "Side Effects & Safety – Who should avoid it?",
-          "Value for Money – Is the price justified?"
-        ]
-      },
-      {
-        "type": "stat",
-        "heading": "Why Trust SuppleLogic?",
-        "stats": [
-          { "value": "100%", "label": "Independent Analysis" },
-          { "value": "Science", "label": "Based research approach" },
-          { "value": "Real", "label": "User feedback considered" }
-        ]
-      },
-      {
-        "type": "table",
-        "heading": "SuppleLogic vs. Typical Review Sites",
-        "table": {
-          "headers": ["Feature", "SuppleLogic", "Other Sites"],
-          "rows": [
-            ["Ingredient Analysis", "Deep & Science-Based", "Surface-level"],
-            ["Affiliate Transparency", "Clear & Honest", "Often Hidden"],
-            ["'Miracle' Claims", "Never (Facts only)", "Common"],
-            ["Safety Focus", "High Priority", "Often Ignored"]
+        },
+        {
+          "type": "faq",
+          "heading": "Technical FAQ",
+          "faqs": [
+            {
+              "q": "Do you provide source code ownership?",
+              "a": "Yes. Upon completion of the contract, intellectual property rights are transferred to the client for custom solutions."
+            },
+            {
+              "q": "How do you handle data migration?",
+              "a": "We use encrypted ETL (Extract, Transform, Load) processes to ensure zero data loss during the transition."
+            }
           ]
         }
-      },
-      {
-        "type": "faq",
-        "heading": "Frequently Asked Questions",
-        "faqs": [
-          {
-            "q": "Are SuppleLogic reviews unbiased?",
-            "a": "Yes. All reviews are written independently using ingredient analysis and research data. Affiliate commissions do not affect our evaluations."
-          },
-          {
-            "q": "Is SuppleLogic a medical website?",
-            "a": "No. We provide informational content only. Always consult a healthcare professional before starting any supplement."
-          }
-        ]
-      },
-      {
-        "type": "cta",
-        "heading": "Ready to find the right supplement?",
-        "content": "Explore our latest reviews across weight loss, gut health, oral care, and more to find supplements that actually make sense for your goals.",
-        "button": { "text": "Explore All Reviews", "href": "/categories" }
-      }
-    ]
-  }
+      ]
+    }
+  };
 
   return (
-    <div>
+    <div className="py-24">
       <HomeHeroCarousel translations={translations} locale={locale} country={country} />
       <CategoriesSection translations={translations} locale={locale} country={country} />
       <TrustSection translations={translations} />
-      <ReviewsSection translations={translations} />
-      <ProductknowMoreSection translations={{ productKnowMore: combinedKnowMoreData }} />
+      <ReviewsSection translations={translations} locale={locale} country={country}/>
+      {/* Passing the custom software object to the specific section */}
+      <ProductknowMoreSection locale={locale} country={country} translations={{ productKnowMore: mockTranslations.productKnowMore }} />
     </div>
   )
 }

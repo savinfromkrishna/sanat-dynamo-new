@@ -1,192 +1,218 @@
 {
   "seo": {
-    "title": "SuppleLogic | Honest Supplement Reviews",
-    "description": "SuppleLogic is a trusted platform dedicated to honest, research-driven supplement reviews. We help you cut through marketing hype by analyzing supplement ingredients, claimed benefits, potential side effects, and real user experiences — so you can make smarter, safer buying decisions.",
-    "keywords": "best supplement reviews, dietary supplement reviews, health supplement reviews, weight loss supplements, vitamins and minerals"
+    "title": "ArchLayer | Best Website & App Development Agency with Expert SEO Management",
+    "description": "ArchLayer is the ultimate full-service agency: creators of high-converting websites, powerful mobile apps, custom software, and top-ranked SEO management that drives explosive business growth. From MVP to enterprise scale — we deliver the best digital solutions with guaranteed results.",
+    "keywords": "best website development company, mobile app development agency, custom software development, SEO management services, website creator agency, app creator for business, SEO services for websites, full-stack development company, digital transformation agency, best SEO agency for software companies"
   },
   "categories": {
-    "weightLoss": "Weight Loss Supplements",
-    "sleepStress": "Sleep & Stress Support",
-    "dentalHealth": "Dental & Oral Health",
-    "gutHealth": "Gut Health",
-    "wellness": "General Wellness",
-    "bundles": "Bundles"
+    "weightLoss": "Strategic Discovery & Planning",
+    "sleepStress": "UI/UX & Website Design Mastery",
+    "dentalHealth": "Core Engineering & App/Software Creation",
+    "gutHealth": "QA, Security & Performance",
+    "wellness": "Cloud, DevOps & Scalable Deployment",
+    "bundles": "SEO Management & Digital Growth"
   },
   "nav": {
     "home": "Home",
-    "dentalHealth": "Dental Health",
-    "products": "Products",
-    "about": "About Us"
+    "dentalHealth": "Best Services",
+    "products": "Top Solutions",
+    "about": "Why We're the Best"
   },
   "products": {
     "weight-loss": [
       {
         "id": "basic",
-        "slug": "mitolyn",
-        "name": "MITOLYN Basic Package",
-        "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
-        "price": "$59",
-        "originalPrice": "₹70",
-        "discount": "16% off",
-        "duration": "30 Days Supply",
+        "slug": "mvp-starter",
+        "name": "Ultimate MVP Discovery & Roadmap",
+        "image": "https://static.vecteezy.com/system/resources/previews/010/834/691/original/3d-target-with-arrow-png.png",
+        "price": "$2,500",
+        "originalPrice": "$3,500",
+        "discount": "29% off – Launch Faster",
+        "duration": "2 Weeks to Dominate",
         "badge": null,
-        "url": "https://supplelogic.com/basic-package"
+        "url": "https://ArchLayer.com/mvp-discovery"
       },
       {
         "id": "popular",
-        "slug": "mitolyn",
-        "name": "MITOLYN Popular Package",
-        "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
-        "price": "₹4,449",
-        "originalPrice": "₹5,999",
-        "discount": "25% off",
-        "duration": "90 Days Supply",
+        "slug": "saas-launch",
+        "name": "Premium SaaS & Website Launch Package",
+        "image": "https://static.vecteezy.com/system/resources/previews/009/393/909/original/laptop-3d-render-png.png",
+        "price": "$8,999",
+        "originalPrice": "$12,500",
+        "discount": "28% off",
+        "duration": "8 Weeks to Market Leadership",
         "badge": {
-          "text": "Most Popular",
+          "text": "Most Popular Choice",
           "color": "orange"
         },
-        "url": "https://supplelogic.com/popular"
+        "url": "https://ArchLayer.com/saas-launch"
       },
       {
         "id": "best-value",
-        "slug": "mitolyn",
-        "name": "MITOLYN Best Value Package",
-        "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
-        "price": "₹6,899",
-        "originalPrice": "₹7,999",
-        "discount": "14% off",
-        "duration": "180 Days Supply",
+        "slug": "enterprise-scale",
+        "name": "Enterprise Website + App + Software Suite",
+        "image": "https://static.vecteezy.com/system/resources/previews/009/393/822/original/cloud-computing-3d-render-icon-illustration-png.png",
+        "price": "$18,500",
+        "originalPrice": "$25,000",
+        "discount": "26% off – Best Overall Value",
+        "duration": "16 Weeks to Full Dominance",
         "badge": {
-          "text": "Best Value",
+          "text": "Best Value Enterprise",
           "color": "emerald"
         },
-        "url": "https://supplelogic.com/best-value"
+        "url": "https://ArchLayer.com/enterprise-scale"
       }
     ],
-    "sleep-stress": [
+    "sleepStress": [
       {
-        "id": "power-boost",
-        "slug": "mitolyn",
-        "name": "SLEEPMAX Power Boost",
-        "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
-        "price": "₹1,899",
-        "originalPrice": "₹2,299",
-        "discount": "17% off",
-        "duration": "30 Days Supply",
+        "id": "ui-ux-audit",
+        "slug": "design-audit",
+        "name": "Conversion-Optimized UI/UX & Website Design Audit",
+        "image": "https://static.vecteezy.com/system/resources/previews/011/153/364/original/3d-mobile-phone-with-user-interface-png.png",
+        "price": "$1,499",
+        "originalPrice": "$2,200",
+        "discount": "32% off",
+        "duration": "1 Week to Skyrocket Conversions",
         "badge": {
-          "text": "Natural Energy",
+          "text": "Best for User Growth",
           "color": "blue"
         },
-        "url": "https://supplelogic.com/energy-boost"
+        "url": "https://ArchLayer.com/design-audit"
       },
       {
-        "id": "endurance",
-        "slug": "mitolyn",
-        "name": "SLEEPMAX Endurance Pack",
-        "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
-        "price": "₹5,499",
-        "originalPrice": "₹6,999",
-        "discount": "21% off",
-        "duration": "90 Days Supply",
+        "id": "full-website",
+        "slug": "premium-website",
+        "name": "High-Performance Website Creation Package",
+        "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2070&auto=format&fit=crop",
+        "price": "$4,999",
+        "originalPrice": "$7,200",
+        "discount": "31% off",
+        "duration": "5 Weeks Delivery",
         "badge": {
-          "text": "Long-lasting",
-          "color": "blue"
+          "text": "Best Website Creator Deal",
+          "color": "purple"
         },
-        "url": "https://supplelogic.com/endurance-pack"
-      },
-      {
-        "id": "ultimate",
-        "slug": "mitolyn",
-        "name": "SLEEPMAX Ultimate Bundle",
-        "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
-        "price": "₹8,999",
-        "originalPrice": "₹11,999",
-        "discount": "25% off",
-        "duration": "180 Days Supply",
-        "badge": {
-          "text": "Premium",
-          "color": "blue"
-        },
-        "url": "https://supplelogic.com/ultimate-bundle"
+        "url": "https://ArchLayer.com/premium-website"
       }
     ],
-    "gut-health": [],
+    "dentalHealth": [
+      {
+        "id": "app-dev",
+        "slug": "mobile-app",
+        "name": "Best Mobile App Creation (iOS & Android)",
+        "image": "https://images.unsplash.com/photo-1551650975-60cb5c8b5e6a?q=80&w=2070&auto=format&fit=crop",
+        "price": "$9,999",
+        "originalPrice": "$14,000",
+        "discount": "29% off",
+        "duration": "10-12 Weeks",
+        "badge": {
+          "text": "Top App Creator",
+          "color": "green"
+        },
+        "url": "https://ArchLayer.com/mobile-app"
+      }
+    ],
+    "gutHealth": [],
     "wellness": [],
-    "bundles": []
+    "bundles": [
+      {
+        "id": "seo-basic",
+        "slug": "seo-audit",
+        "name": "Pro SEO Audit & Strategy",
+        "image": "https://images.unsplash.com/photo-1554224154-6726b3ff858f?q=80&w=2070&auto=format&fit=crop",
+        "price": "$1,999",
+        "originalPrice": "$2,800",
+        "discount": "29% off",
+        "duration": "2 Weeks to Rank Higher",
+        "badge": {
+          "text": "Best SEO Starter",
+          "color": "red"
+        },
+        "url": "https://ArchLayer.com/seo-audit"
+      },
+      {
+        "id": "seo-full",
+        "slug": "seo-management",
+        "name": "Full SEO Management + Website Optimization",
+        "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2070&auto=format&fit=crop",
+        "price": "$3,999/month",
+        "originalPrice": "$5,500/month",
+        "discount": "27% off First 3 Months",
+        "duration": "Ongoing Growth",
+        "badge": {
+          "text": "Best SEO Management",
+          "color": "indigo"
+        },
+        "url": "https://ArchLayer.com/seo-management"
+      }
+    ]
   },
   "footer": {
-    "description": "SuppleLogic is a trusted platform dedicated to honest, research-driven supplement reviews. We help you cut through marketing hype by analyzing supplement ingredients, claimed benefits, potential side effects, and real user experiences — so you can make smarter, safer buying decisions. Whether you’re looking for weight loss, sleep support, gut health, or oral care supplements, SuppleLogic delivers clear, unbiased insights based on logic, not exaggeration.",
-    "quickLinks": "Quick Links",
-    "customerService": "Customer Service",
-    "legal": "Legal",
-    "privacyPolicy": "Privacy Policy",
-    "termsOfService": "Terms of Service",
-    "refundPolicy": "Refund Policy",
-    "shipping": "Shipping Info",
-    "allRightsReserved": "All rights reserved.",
-    "Disclosure":"This website may earn a small commission if you purchase through our links, at no additional cost to you."
+    "description": "ArchLayer is the #1 trusted partner for businesses serious about digital success. We are experts in creating the best websites, building killer mobile apps, developing custom software, and delivering elite SEO management that ranks you #1 and drives real revenue. Transparent, high-performance, results-guaranteed — we turn your vision into market dominance.",
+    "quickLinks": "Our Best Services",
+    "customerService": "24/7 Partner Success Support",
+    "legal": "Compliance & Security",
+    "privacyPolicy": "Data Protection Guarantee",
+    "termsOfService": "Enterprise SLA Terms",
+    "refundPolicy": "On-Time Delivery Guarantee",
+    "shipping": "Zero-Downtime Deployment",
+    "allRightsReserved": "All rights reserved. ArchLayer – The Best Digital Partner.",
+    "Disclosure": "ISO 27001 & SOC 2 Certified | 100% NDA-Protected | We Own Nothing – You Own Everything."
   },
   "about": {
-    "title": "About SuppleLogic",
-    "lastUpdated": "Last updated: January 11, 2026",
-    "introduction": "SuppleLogic is a trusted platform dedicated to honest, research-driven supplement reviews. We help you cut through marketing hype by analyzing supplement ingredients, claimed benefits, potential side effects, and real user experiences — so you can make smarter, safer buying decisions. Whether you’re looking for weight loss, sleep support, gut health, or oral care supplements, SuppleLogic delivers clear, unbiased insights based on logic, not exaggeration.",
+    "title": "Why ArchLayer is the Best Choice for Your Business",
+    "lastUpdated": "Last updated: February 2026",
+    "introduction": "ArchLayer isn't just another agency — we're the premier full-cycle partner that builds the best websites, creates addictive mobile apps, engineers unbreakable custom software, and manages SEO like no one else. We combine obsessive strategy, elite engineering, and proven SEO mastery to deliver unbeatable digital results for businesses of all sizes.",
     "sections": [
       {
-        "title": "Why Trust SuppleLogic?",
-        "content": "At SuppleLogic, transparency comes first. Our goal is to educate — not mislead. We may earn a commission when you purchase through our links, but this never influences our reviews. Every product is evaluated using the same honest standards.",
+        "title": "Why Businesses Choose Us as #1",
+        "content": "We deliver what others promise: fast launches, flawless performance, top search rankings, and massive ROI — backed by guarantees and transparency.",
         "items": [
-          "Independent ingredient analysis",
-          "Science-based research approach",
-          "Pros & cons clearly explained",
-          "Real user feedback considered",
-          "No fake claims or miracle promises"
+          "Best-in-class website & app creation with conversion focus",
+          "Expert SEO management that ranks you higher and faster",
+          "Independent security & performance audits included",
+          "Agile excellence with real-time client dashboards",
+          "Full IP ownership + zero lock-in",
+          "24/7 dedicated support team"
         ]
       },
       {
-        "title": "How We Review Supplements",
-        "content": "Every supplement featured on SuppleLogic goes through a structured evaluation process: This logical approach helps readers avoid low-quality or misleading products.",
+        "title": "Our Proven Full-Cycle Process",
+        "content": "Structured to eliminate risk and accelerate your success — from idea to #1 rankings:",
         "items": [
-          "Ingredient Quality – Are the ingredients effective and safe?",
-          "Scientific Evidence – Is there real research behind the claims?",
-          "Benefits vs Claims – Do results match marketing promises?",
-          "Side Effects & Safety – Who should avoid it?",
-          "Value for Money – Is the price justified?"
+          "Strategic Discovery – Turn business goals into winning tech plans",
+          "Elite UI/UX & Website/App Design – Built to convert and retain",
+          "Bulletproof Full-Stack Engineering – Websites, apps, software that scales",
+          "Military-Grade QA & Security – Zero bugs, zero vulnerabilities",
+          "SEO Management Integration – On-page + off-page domination from day one",
+          "Cloud Mastery & Deployment – Auto-scaling, zero-downtime launches"
         ]
       },
       {
-        "title": "Latest Supplement Reviews",
-        "content": "We regularly publish in-depth reviews of trending and popular supplements, including: 👉 Explore our latest reviews to find supplements that actually make sense for your health goals.",
+        "title": "Our Unmatched Expertise",
+        "content": "We lead in the technologies and strategies that win in 2026 and beyond:",
         "items": [
-          "Weight loss & metabolism supplements",
-          "Sleep & relaxation formulas",
-          "Dental & oral health probiotics",
-          "Gut health & digestion support",
-          "Energy & overall wellness products"
-        ]
-      },
-      {
-        "title": "Popular Supplement Categories",
-        "content": "Each category is carefully curated to help you compare options easily.",
-        "items": [
-          "Weight Loss Supplements – Fat burners, metabolism boosters & appetite control",
-          "Sleep & Stress Support – Deep sleep and relaxation formulas",
-          "Dental & Oral Health – Probiotics for teeth and gums",
-          "Gut Health – Digestive enzymes & microbiome support",
-          "General Wellness – Daily health & immunity supplements"
+          "High-converting Websites & E-commerce Platforms",
+          "Native/Cross-Platform Mobile Apps that users love",
+          "Custom Software, SaaS & Enterprise Systems",
+          "AI Integrations & Automation",
+          "Professional SEO Management, Keyword Domination & Link Building",
+          "Cloud Migration & Modernization"
         ]
       },
       {
         "title": "Our Mission",
-        "content": "Our mission at SuppleLogic is simple: to provide honest, logical, and easy-to-understand supplement reviews that empower better health decisions. We believe supplements should support your health — not confuse or mislead you."
+        "content": "To be the absolute best digital partner: honest, logical, high-performance solutions in website creation, app development, software engineering, and SEO management that solve real problems, eliminate tech debt, and fuel explosive business growth."
       },
       {
-        "title": "Frequently Asked Questions",
+        "title": "Partner FAQ – Why We're Different",
         "items": [
-          "Are SuppleLogic reviews unbiased? Yes. All reviews are written independently using ingredient analysis, research data, and user feedback. Affiliate commissions do not affect our evaluations.",
-          "Do you test supplements? We do not manufacture or sell supplements. Our reviews are based on ingredient research, scientific studies, brand transparency, and publicly available user experiences.",
-          "Is SuppleLogic a medical website? No. We provide informational content only. Always consult a healthcare professional before starting any supplement."
+          "Fixed-price or flexible? Both — fixed for clear MVPs, sprint-based for complex builds with SEO integration.",
+          "Who owns the work? You own 100% — code, designs, SEO strategies, everything.",
+          "How fast to start? Book a free Discovery + SEO Quick-Win call — get your custom roadmap in days.",
+          "SEO results guarantee? We focus on ethical, white-hat SEO with transparent reporting and proven traffic growth."
         ],
-        "content": "Disclaimer: Content on SuppleLogic is for informational purposes only and not medical advice. We may earn affiliate commissions from qualifying purchases."
+        "content": "ArchLayer: Where the best websites, apps, software, and SEO meet unbeatable results. Quotes tailored after deep analysis — no hype, just excellence."
       }
     ]
   }

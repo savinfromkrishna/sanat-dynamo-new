@@ -19,7 +19,7 @@ const featuredProducts = [
     badge: "BASIC - 1 BOTTLE",
     badgeColor: "bg-gradient-to-r from-teal-500 to-teal-600",
     supply: "30 Days Supply",
-    affiliateUrl: "https://supplelogic.com/basic-package",
+    affiliateUrl: "https://sanat-rewa.vercel.app/basic-package",
   },
   {
     id: 2,
@@ -33,7 +33,7 @@ const featuredProducts = [
     badge: "BEST VALUE - 6 BOTTLES",
     badgeColor: "bg-gradient-to-r from-red-500 to-red-600",
     supply: "180 Days Supply",
-    affiliateUrl: "https://supplelogic.com/best-value-package",
+    affiliateUrl: "https://sanat-rewa.vercel.app/best-value-package",
     featured: true,
   },
   {
@@ -48,7 +48,7 @@ const featuredProducts = [
     badge: "POPULAR - 3 BOTTLES",
     badgeColor: "bg-gradient-to-r from-teal-600 to-teal-700",
     supply: "90 Days Supply",
-    affiliateUrl: "https://supplelogic.com/popular-package",
+    affiliateUrl: "https://sanat-rewa.vercel.app/popular-package",
   },
 ]
 

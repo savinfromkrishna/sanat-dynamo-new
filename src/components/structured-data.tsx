@@ -13,19 +13,19 @@ export function StructuredData() {
     "@graph": [
       {
         "@type": "WebSite",
-        "@id": "https://supplelogic.com/#website",
-        url: "https://supplelogic.com/",
+        "@id": "https://sanat-rewa.vercel.app/#website",
+        url: "https://sanat-rewa.vercel.app/",
         name: "Mitolyn Official",
         description: t.seo.description,
         publisher: {
-          "@id": "https://supplelogic.com/#organization",
+          "@id": "https://sanat-rewa.vercel.app/#organization",
         },
         potentialAction: [
           {
             "@type": "SearchAction",
             target: {
               "@type": "EntryPoint",
-              urlTemplate: "https://supplelogic.com/search?q={search_term_string}",
+              urlTemplate: "https://sanat-rewa.vercel.app/search?q={search_term_string}",
             },
             "query-input": "required name=search_term_string",
           },
@@ -34,21 +34,21 @@ export function StructuredData() {
       },
       {
         "@type": "Organization",
-        "@id": "https://supplelogic.com/#organization",
+        "@id": "https://sanat-rewa.vercel.app/#organization",
         name: "Mitolyn Official",
-        url: "https://supplelogic.com/",
+        url: "https://sanat-rewa.vercel.app/",
         logo: {
           "@type": "ImageObject",
           inLanguage: locale === "es" ? "es-ES" : "en-US",
-          "@id": "https://supplelogic.com/#/schema/logo/image/",
-          url: "https://supplelogic.comhttps://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
-          contentUrl: "https://supplelogic.comhttps://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
+          "@id": "https://sanat-rewa.vercel.app/#/schema/logo/image/",
+          url: "https://sanat-rewa.vercel.apphttps://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
+          contentUrl: "https://sanat-rewa.vercel.apphttps://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
           width: 512,
           height: 512,
           caption: "Mitolyn Official",
         },
         image: {
-          "@id": "https://supplelogic.com/#/schema/logo/image/",
+          "@id": "https://sanat-rewa.vercel.app/#/schema/logo/image/",
         },
         sameAs: [
           "https://facebook.com/mitolynofficial",
@@ -74,36 +74,36 @@ export function StructuredData() {
       },
       {
         "@type": "Product",
-        "@id": "https://supplelogic.com/#product",
+        "@id": "https://sanat-rewa.vercel.app/#product",
         name: "Mitolyn Weight Loss Supplement",
         description: t.seo.description,
         image: [
-          "https://supplelogic.comhttps://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
-          "https://supplelogic.comhttps://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
-          "https://supplelogic.comhttps://res.cloudinary.com/ddywjrr08/image/upload/v1758422492/mitolyn-offer_azyjj3.png",
+          "https://sanat-rewa.vercel.apphttps://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
+          "https://sanat-rewa.vercel.apphttps://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
+          "https://sanat-rewa.vercel.apphttps://res.cloudinary.com/ddywjrr08/image/upload/v1758422492/mitolyn-offer_azyjj3.png",
         ],
         brand: {
           "@type": "Brand",
           name: "Mitolyn",
-          logo: "https://supplelogic.comhttps://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
+          logo: "https://sanat-rewa.vercel.apphttps://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
         },
         manufacturer: {
-          "@id": "https://supplelogic.com/#organization",
+          "@id": "https://sanat-rewa.vercel.app/#organization",
         },
         category: "Health & Wellness > Weight Loss > Dietary Supplements",
         additionalType: "https://schema.org/DietarySupplement",
         offers: [
           {
             "@type": "Offer",
-            "@id": "https://supplelogic.com/#offer-basic",
-            url: "https://supplelogic.com/basic-package",
+            "@id": "https://sanat-rewa.vercel.app/#offer-basic",
+            url: "https://sanat-rewa.vercel.app/basic-package",
             priceCurrency: "USD",
             price: "69",
             priceValidUntil: "2025-12-31",
             availability: "https://schema.org/InStock",
             itemCondition: "https://schema.org/NewCondition",
             seller: {
-              "@id": "https://supplelogic.com/#organization",
+              "@id": "https://sanat-rewa.vercel.app/#organization",
             },
             shippingDetails: {
               "@type": "OfferShippingDetails",
@@ -139,28 +139,28 @@ export function StructuredData() {
           },
           {
             "@type": "Offer",
-            "@id": "https://supplelogic.com/#offer-popular",
-            url: "https://supplelogic.com/popular",
+            "@id": "https://sanat-rewa.vercel.app/#offer-popular",
+            url: "https://sanat-rewa.vercel.app/popular",
             priceCurrency: "USD",
             price: "177",
             priceValidUntil: "2025-12-31",
             availability: "https://schema.org/InStock",
             itemCondition: "https://schema.org/NewCondition",
             seller: {
-              "@id": "https://supplelogic.com/#organization",
+              "@id": "https://sanat-rewa.vercel.app/#organization",
             },
           },
           {
             "@type": "Offer",
-            "@id": "https://supplelogic.com/#offer-best-value",
-            url: "https://supplelogic.com/best-value",
+            "@id": "https://sanat-rewa.vercel.app/#offer-best-value",
+            url: "https://sanat-rewa.vercel.app/best-value",
             priceCurrency: "USD",
             price: "294",
             priceValidUntil: "2025-12-31",
             availability: "https://schema.org/InStock",
             itemCondition: "https://schema.org/NewCondition",
             seller: {
-              "@id": "https://supplelogic.com/#organization",
+              "@id": "https://sanat-rewa.vercel.app/#organization",
             },
           },
         ],
@@ -174,7 +174,7 @@ export function StructuredData() {
         review: [
           {
             "@type": "Review",
-            "@id": "https://supplelogic.com/#review-1",
+            "@id": "https://sanat-rewa.vercel.app/#review-1",
             reviewRating: {
               "@type": "Rating",
               ratingValue: "5",
@@ -192,7 +192,7 @@ export function StructuredData() {
           },
           {
             "@type": "Review",
-            "@id": "https://supplelogic.com/#review-2",
+            "@id": "https://sanat-rewa.vercel.app/#review-2",
             reviewRating: {
               "@type": "Rating",
               ratingValue: "5",
@@ -210,7 +210,7 @@ export function StructuredData() {
           },
           {
             "@type": "Review",
-            "@id": "https://supplelogic.com/#review-3",
+            "@id": "https://sanat-rewa.vercel.app/#review-3",
             reviewRating: {
               "@type": "Rating",
               ratingValue: "4",
@@ -247,7 +247,7 @@ export function StructuredData() {
       },
       {
         "@type": "FAQPage",
-        "@id": "https://supplelogic.com/#faq",
+        "@id": "https://sanat-rewa.vercel.app/#faq",
         mainEntity: [
           {
             "@type": "Question",
