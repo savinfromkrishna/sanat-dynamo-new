@@ -1,219 +1,1004 @@
 {
-  "seo": {
-    "title": "ArchLayer | Best Website & App Development Agency with Expert SEO Management",
-    "description": "ArchLayer is the ultimate full-service agency: creators of high-converting websites, powerful mobile apps, custom software, and top-ranked SEO management that drives explosive business growth. From MVP to enterprise scale — we deliver the best digital solutions with guaranteed results.",
-    "keywords": "best website development company, mobile app development agency, custom software development, SEO management services, website creator agency, app creator for business, SEO services for websites, full-stack development company, digital transformation agency, best SEO agency for software companies"
+  "brand": {
+    "name": "Sanat Dynamo",
+    "tagline": "Systems. Automation. Scale.",
+    "oneLiner": "We build revenue systems that help businesses sell more, operate leaner, and grow faster — using custom software, AI automation, and SEO.",
+    "promise": "We don't just build software. We build revenue engines that work while you sleep."
   },
-  "categories": {
-    "weightLoss": "Strategic Discovery & Planning",
-    "sleepStress": "UI/UX & Website Design Mastery",
-    "dentalHealth": "Core Engineering & App/Software Creation",
-    "gutHealth": "QA, Security & Performance",
-    "wellness": "Cloud, DevOps & Scalable Deployment",
-    "bundles": "SEO Management & Digital Growth"
+  "seo": {
+    "title": "Sanat Dynamo — We Build Revenue Systems, Not Just Websites",
+    "description": "Sanat Dynamo is a revenue-focused systems and automation partner. We help e-commerce brands, real estate firms, clinics, coaching institutes, and SMEs increase sales, automate operations, and scale efficiently.",
+    "keywords": "agency, custom software, AI automation, SEO, WhatsApp automation, ERP, D2C, real estate, clinic, coaching, SME, India"
   },
   "nav": {
     "home": "Home",
-    "dentalHealth": "Best Services",
-    "products": "Top Solutions",
-    "about": "Why We're the Best"
+    "services": "Services",
+    "industries": "Industries",
+    "work": "Case Studies",
+    "about": "About",
+    "contact": "Contact",
+    "cta": "Book a Revenue Audit"
   },
-  "products": {
-    "weight-loss": [
+  "hero": {
+    "eyebrow": "Revenue Systems · Automation · Scale",
+    "title": "We Build Revenue Systems.",
+    "titleAccent": "Not Just Websites.",
+    "subtitle": "Custom software, AI automation, and SEO — built as a unified growth engine for e-commerce brands, real estate, clinics, coaching institutes, and SMEs.",
+    "primaryCta": "Book a Free Revenue Audit",
+    "secondaryCta": "See How We Do It",
+    "trustNote": "No commitment. No pitch. Just diagnosis."
+  },
+  "socialProof": {
+    "stats": [
+      { "value": "50+", "label": "Businesses scaled" },
+      { "value": "₹40Cr+", "label": "Client revenue impacted" },
+      { "value": "200%", "label": "Average ROI in Year 1" },
+      { "value": "5", "label": "Industries. One partner." }
+    ],
+    "logosLabel": "Trusted by ambitious teams across India"
+  },
+  "problem": {
+    "eyebrow": "The Revenue Leak",
+    "title": "Your business is leaking revenue right now.",
+    "subtitle": "Every day you wait, the cost compounds. Here's what's quietly draining your bottom line:",
+    "points": [
       {
-        "id": "basic",
-        "slug": "mvp-starter",
-        "name": "Ultimate MVP Discovery & Roadmap",
-        "image": "https://static.vecteezy.com/system/resources/previews/010/834/691/original/3d-target-with-arrow-png.png",
-        "price": "$2,500",
-        "originalPrice": "$3,500",
-        "discount": "29% off – Launch Faster",
-        "duration": "2 Weeks to Dominate",
-        "badge": null,
-        "url": "https://ArchLayer.com/mvp-discovery"
+        "stat": "7%",
+        "label": "Lost per slow page",
+        "detail": "Every extra second of load time costs you 7% of visitors before they ever see your offer."
       },
       {
-        "id": "popular",
-        "slug": "saas-launch",
-        "name": "Premium SaaS & Website Launch Package",
-        "image": "https://static.vecteezy.com/system/resources/previews/009/393/909/original/laptop-3d-render-png.png",
-        "price": "$8,999",
-        "originalPrice": "$12,500",
-        "discount": "28% off",
-        "duration": "8 Weeks to Market Leadership",
-        "badge": {
-          "text": "Most Popular Choice",
-          "color": "orange"
-        },
-        "url": "https://ArchLayer.com/saas-launch"
+        "stat": "70%",
+        "label": "Of leads go cold",
+        "detail": "Because nobody followed up. No automation, no CRM, no second touch — just lost deals."
       },
       {
-        "id": "best-value",
-        "slug": "enterprise-scale",
-        "name": "Enterprise Website + App + Software Suite",
-        "image": "https://static.vecteezy.com/system/resources/previews/009/393/822/original/cloud-computing-3d-render-icon-illustration-png.png",
-        "price": "$18,500",
-        "originalPrice": "$25,000",
-        "discount": "26% off – Best Overall Value",
-        "duration": "16 Weeks to Full Dominance",
-        "badge": {
-          "text": "Best Value Enterprise",
-          "color": "emerald"
-        },
-        "url": "https://ArchLayer.com/enterprise-scale"
+        "stat": "100%",
+        "label": "Ad-dependent",
+        "detail": "Your competitors rank on Google for free. You pay for every click — and one policy change kills you."
+      },
+      {
+        "stat": "20+ hrs",
+        "label": "Wasted weekly",
+        "detail": "Your team is stuck in operations. You're stuck managing your team. Nobody is building."
       }
     ],
-    "sleepStress": [
+    "cta": "We fix all of this. Here's how."
+  },
+  "approach": {
+    "eyebrow": "How We're Different",
+    "title": "Most agencies build websites. We build revenue systems.",
+    "subtitle": "Every solution we deliver is tied to a measurable outcome: more revenue, lower costs, or faster operations. We work like a product company embedded inside your business — not a vendor you chase for updates.",
+    "comparison": [
+      { "typical": "Delivers a website", "us": "Delivers a revenue system" },
+      { "typical": "Focused on design aesthetics", "us": "Focused on conversion rates and ROI" },
+      { "typical": "Hands off after launch", "us": "Builds systems that compound over time" },
+      { "typical": "Sells by service type", "us": "Sells by business outcome" },
+      { "typical": "Technical jargon-heavy", "us": "Business-impact language" },
+      { "typical": "One-size-fits-all packages", "us": "Industry-specific solutions" },
+      { "typical": "Reactive — waits for brief", "us": "Strategic — maps problems first" },
+      { "typical": "No automation expertise", "us": "AI + automation built into every system" }
+    ]
+  },
+  "services": {
+    "eyebrow": "Five systems that grow your revenue",
+    "title": "We don't sell services. We solve problems.",
+    "subtitle": "Every package is built around a specific business challenge — and measured by the outcome it delivers.",
+    "items": [
       {
-        "id": "ui-ux-audit",
-        "slug": "design-audit",
-        "name": "Conversion-Optimized UI/UX & Website Design Audit",
-        "image": "https://static.vecteezy.com/system/resources/previews/011/153/364/original/3d-mobile-phone-with-user-interface-png.png",
-        "price": "$1,499",
-        "originalPrice": "$2,200",
-        "discount": "32% off",
-        "duration": "1 Week to Skyrocket Conversions",
-        "badge": {
-          "text": "Best for User Growth",
-          "color": "blue"
-        },
-        "url": "https://ArchLayer.com/design-audit"
+        "id": "revsite-pro",
+        "number": "01",
+        "name": "RevSite Pro",
+        "kicker": "High-Conversion Website System",
+        "summary": "Turn your traffic into customers. Mobile-first, performance-tuned, and engineered for conversion from the first paint.",
+        "for": "E-commerce brands, coaching institutes, clinics, real estate — anyone losing leads to a weak website.",
+        "deliverables": [
+          "Custom-designed, mobile-first website (7–15 pages)",
+          "Conversion-optimised landing pages for top 3 services/products",
+          "WhatsApp lead capture and callback widget",
+          "On-page SEO setup (meta, schema, sitemap)",
+          "GA4 + Search Console integration",
+          "3-month post-launch performance support"
+        ],
+        "outcomes": [
+          "1.5–3% conversion rate lift",
+          "40–60% page-load speed improvement",
+          "First organic rankings in 60–90 days"
+        ],
+        "investment": "₹60K – ₹1.5L · one-time"
       },
       {
-        "id": "full-website",
-        "slug": "premium-website",
-        "name": "High-Performance Website Creation Package",
-        "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2070&auto=format&fit=crop",
-        "price": "$4,999",
-        "originalPrice": "$7,200",
-        "discount": "31% off",
-        "duration": "5 Weeks Delivery",
-        "badge": {
-          "text": "Best Website Creator Deal",
-          "color": "purple"
-        },
-        "url": "https://ArchLayer.com/premium-website"
-      }
-    ],
-    "dentalHealth": [
-      {
-        "id": "app-dev",
-        "slug": "mobile-app",
-        "name": "Best Mobile App Creation (iOS & Android)",
-        "image": "https://images.unsplash.com/photo-1551650975-60cb5c8b5e6a?q=80&w=2070&auto=format&fit=crop",
-        "price": "$9,999",
-        "originalPrice": "$14,000",
-        "discount": "29% off",
-        "duration": "10-12 Weeks",
-        "badge": {
-          "text": "Top App Creator",
-          "color": "green"
-        },
-        "url": "https://ArchLayer.com/mobile-app"
-      }
-    ],
-    "gutHealth": [],
-    "wellness": [],
-    "bundles": [
-      {
-        "id": "seo-basic",
-        "slug": "seo-audit",
-        "name": "Pro SEO Audit & Strategy",
-        "image": "https://images.unsplash.com/photo-1554224154-6726b3ff858f?q=80&w=2070&auto=format&fit=crop",
-        "price": "$1,999",
-        "originalPrice": "$2,800",
-        "discount": "29% off",
-        "duration": "2 Weeks to Rank Higher",
-        "badge": {
-          "text": "Best SEO Starter",
-          "color": "red"
-        },
-        "url": "https://ArchLayer.com/seo-audit"
+        "id": "autosell-engine",
+        "number": "02",
+        "name": "AutoSell Engine",
+        "kicker": "WhatsApp & CRM Automation System",
+        "summary": "Follow up with every lead, automatically. Cart recovery, appointment reminders, and drip sequences that close deals while you sleep.",
+        "for": "E-commerce, real estate, clinics, coaching institutes drowning in manual follow-ups.",
+        "deliverables": [
+          "WhatsApp Business API setup and integration",
+          "5–8 automated flow sequences (welcome, follow-up, cart recovery, reminders, broadcasts)",
+          "CRM integration (Zoho, HubSpot, or custom)",
+          "Lead source tracking and tagging",
+          "Drip email campaign setup (3–5 sequences)",
+          "Live dashboard for opens, clicks, and conversions"
+        ],
+        "outcomes": [
+          "25–35% lead-to-conversion lift",
+          "50–60% reduction in manual follow-up work",
+          "20–30% cart and inquiry recovery rate"
+        ],
+        "investment": "₹80K – ₹2L · setup + ₹15K–30K/mo retainer"
       },
       {
-        "id": "seo-full",
-        "slug": "seo-management",
-        "name": "Full SEO Management + Website Optimization",
-        "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2070&auto=format&fit=crop",
-        "price": "$3,999/month",
-        "originalPrice": "$5,500/month",
-        "discount": "27% off First 3 Months",
-        "duration": "Ongoing Growth",
-        "badge": {
-          "text": "Best SEO Management",
-          "color": "indigo"
-        },
-        "url": "https://ArchLayer.com/seo-management"
+        "id": "localdom-seo",
+        "number": "03",
+        "name": "LocalDom SEO",
+        "kicker": "Local SEO Dominance Package",
+        "summary": "Own your local search. Stop paying for every visitor. We engineer top-3 rankings for the exact queries your buyers type.",
+        "for": "Clinics, coaching institutes, real estate offices, and any location-based business.",
+        "deliverables": [
+          "Full technical SEO audit and fix",
+          "10–15 local keyword strategy and mapping",
+          "Google Business Profile optimisation (photos, posts, Q&A, reviews)",
+          "Location-specific landing pages (1 per city/locality)",
+          "4 SEO-optimised blog articles per month",
+          "Citation building across 30+ directories",
+          "Monthly ranking and traffic report"
+        ],
+        "outcomes": [
+          "Top 3 rankings for 5–10 local keywords in 4–6 months",
+          "40–80% organic traffic growth",
+          "30–50% reduction in paid ad dependency"
+        ],
+        "investment": "₹30K – ₹60K/mo · 3-month minimum"
+      },
+      {
+        "id": "globalscale-suite",
+        "number": "04",
+        "name": "GlobalScale Suite",
+        "kicker": "International & Multi-Language Website System",
+        "summary": "Sell globally. Localise everything. NRI buyers, global checkout, multi-currency, and language detection that just works.",
+        "for": "E-commerce brands targeting NRI/global buyers, real estate with international clientele, EdTech scaling abroad.",
+        "deliverables": [
+          "Multi-language website (3–5 languages)",
+          "Geo-detection and language auto-switching",
+          "Multi-currency pricing and international payment gateway",
+          "Localised content and SEO for 2–3 target markets",
+          "WhatsApp + email support in multiple languages",
+          "GDPR-compliant cookie and data handling"
+        ],
+        "outcomes": [
+          "New market revenue stream within 90 days",
+          "2–3x higher AOV from international buyers",
+          "Credibility and trust with NRI / global audience"
+        ],
+        "investment": "₹1.2L – ₹3L · one-time"
+      },
+      {
+        "id": "operate-os",
+        "number": "05",
+        "name": "OperateOS",
+        "kicker": "Custom ERP & Business Automation System",
+        "summary": "Run your business from one dashboard. Inventory, orders, invoicing, HR, and finance — all synced, all real-time.",
+        "for": "SMEs in manufacturing, distribution, retail, or services with ₹5Cr+ turnover and operational chaos.",
+        "deliverables": [
+          "Custom ERP (Inventory + Orders + Invoicing + HR/Payroll + CRM)",
+          "Vendor and customer self-serve portals",
+          "Automated GST invoicing and e-way bills",
+          "Role-based access and approval workflows",
+          "Real-time KPI dashboard for management",
+          "Mobile app for field teams (deliveries, collections, tasks)",
+          "3-month post-go-live support and training"
+        ],
+        "outcomes": [
+          "80% reduction in manual data entry",
+          "Daily P&L visibility instead of monthly",
+          "40% faster order-to-delivery cycle"
+        ],
+        "investment": "₹3L – ₹15L · phased delivery"
+      },
+      {
+        "id": "growthos-retainer",
+        "number": "06",
+        "name": "GrowthOS Retainer",
+        "kicker": "Full-Stack Growth Partner",
+        "summary": "A dedicated technology and growth team embedded in your business. Compounding execution, not one-off projects.",
+        "for": "Ambitious businesses that want a partner — not just a vendor.",
+        "deliverables": [
+          "Dedicated project manager + tech lead",
+          "40 development hours/month",
+          "Monthly SEO content (4 blog posts + on-page optimisation)",
+          "Quarterly strategy and performance review",
+          "WhatsApp automation maintenance and new flow development",
+          "Priority response SLA (within 4 business hours)",
+          "Monthly analytics and growth report"
+        ],
+        "outcomes": [
+          "Compounding growth — each month builds on the last",
+          "3–5x faster execution vs juggling vendors",
+          "Full tech ownership without full-time hiring cost"
+        ],
+        "investment": "₹60K – ₹1.5L/mo · 6-month minimum"
       }
     ]
   },
-  "footer": {
-    "description": "ArchLayer is the #1 trusted partner for businesses serious about digital success. We are experts in creating the best websites, building killer mobile apps, developing custom software, and delivering elite SEO management that ranks you #1 and drives real revenue. Transparent, high-performance, results-guaranteed — we turn your vision into market dominance.",
-    "quickLinks": "Our Best Services",
-    "customerService": "24/7 Partner Success Support",
-    "legal": "Compliance & Security",
-    "privacyPolicy": "Data Protection Guarantee",
-    "termsOfService": "Enterprise SLA Terms",
-    "refundPolicy": "On-Time Delivery Guarantee",
-    "shipping": "Zero-Downtime Deployment",
-    "allRightsReserved": "All rights reserved. ArchLayer – The Best Digital Partner.",
-    "Disclosure": "ISO 27001 & SOC 2 Certified | 100% NDA-Protected | We Own Nothing – You Own Everything."
+  "industries": {
+    "eyebrow": "Industries we build for",
+    "title": "Five sectors. One growth playbook.",
+    "subtitle": "We don't pretend to know everyone's business. We've gone deep in five — and we've built repeatable revenue systems for each.",
+    "items": [
+      {
+        "id": "ecommerce",
+        "name": "E-commerce / D2C",
+        "tag": "Direct-to-consumer brands",
+        "description": "Fashion, beauty, wellness, electronics. ₹10L–₹2Cr GMV brands stuck on rising CAC and one-and-done buyers.",
+        "painPoints": [
+          "Website converts below 1%",
+          "No repeat purchase mechanism",
+          "Cart abandonment above 70%",
+          "Fully dependent on Meta ads"
+        ],
+        "outcome": "+1.5–3% conversion · 2x repeat purchase rate · 40–60% organic traffic in 6 months"
+      },
+      {
+        "id": "real-estate",
+        "name": "Real Estate",
+        "tag": "Developers, brokers, agencies",
+        "description": "Residential, commercial, plotted, NRI sales. Teams with 3–20 agents drowning in low-quality portal leads.",
+        "painPoints": [
+          "₹500–2,000 cost per portal lead",
+          "70% of leads die without follow-up",
+          "Cannot showcase to NRI buyers",
+          "No SEO visibility for local searches"
+        ],
+        "outcome": "3–5x more qualified inbound leads · 40% lower CPL · 2x site-visit conversion"
+      },
+      {
+        "id": "edtech",
+        "name": "Coaching / EdTech",
+        "tag": "Institutes and online educators",
+        "description": "JEE, UPSC, NEET prep and skill courses. Institutes with 200–5,000 students moving from offline to hybrid.",
+        "painPoints": [
+          "Manual phone-based admissions",
+          "No online payment integration",
+          "Invisible on Google for local searches",
+          "60–70% of inquiries never convert"
+        ],
+        "outcome": "3–4x faster enrollment · 40–60% inquiry-to-enrollment lift · 30% lower dropout"
+      },
+      {
+        "id": "healthcare",
+        "name": "Healthcare Clinics",
+        "tag": "Multi-specialty and single-doctor",
+        "description": "Dental, dermatology, orthopaedics, fertility, multispecialty. 1–10 locations with 10–200 daily patients.",
+        "painPoints": [
+          "Receptionist drowning in appointment calls",
+          "20–30% no-show rate",
+          "Invisible on Google Maps",
+          "Zero patient retention system"
+        ],
+        "outcome": "60% fewer incoming calls · 25% drop in no-shows · 40–80% more organic appointments"
+      },
+      {
+        "id": "sme-erp",
+        "name": "SME Operations",
+        "tag": "Manufacturing, distribution, retail",
+        "description": "₹5–100Cr turnover SMEs running on Excel sheets and 5+ disconnected tools. Growing but operationally chaotic.",
+        "painPoints": [
+          "Inventory mismatches and stockouts",
+          "No real-time financial visibility",
+          "Manual GST invoicing and vendor management",
+          "Key staff are single points of failure"
+        ],
+        "outcome": "80% less manual data entry · daily P&L visibility · 3x faster order-to-delivery"
+      }
+    ]
+  },
+  "process": {
+    "eyebrow": "How we work",
+    "title": "Diagnose. Build. Compound.",
+    "subtitle": "Every engagement starts with a paid discovery — so you see the entire plan before we touch a line of code.",
+    "steps": [
+      {
+        "number": "01",
+        "name": "Revenue Audit",
+        "duration": "Week 1",
+        "description": "We map your current funnel end-to-end. We identify exactly where revenue is leaking — slow pages, broken follow-up, missing automation, ranking gaps. You get a written diagnosis."
+      },
+      {
+        "number": "02",
+        "name": "Scoped Blueprint",
+        "duration": "Week 2",
+        "description": "We turn the audit into a paid discovery: scope, deliverables, timeline, success metrics. You see the entire build before committing a rupee to development."
+      },
+      {
+        "number": "03",
+        "name": "Build & Ship",
+        "duration": "Weeks 3–10",
+        "description": "We build in phases with weekly demos. You see progress every 7 days — no black-box agency cycles, no endless back-and-forth."
+      },
+      {
+        "number": "04",
+        "name": "Launch & Compound",
+        "duration": "Week 11+",
+        "description": "We don't disappear at launch. We tune conversion, ship new flows, and compound results month over month. The system gets stronger, not staler."
+      }
+    ]
+  },
+  "caseStudies": {
+    "eyebrow": "Proof, not promises",
+    "title": "Real businesses. Real numbers.",
+    "subtitle": "Every case study is measured by one thing: did revenue go up?",
+    "items": [
+      {
+        "id": "d2c-skincare",
+        "industry": "D2C Skincare",
+        "location": "Bangalore",
+        "duration": "3 months",
+        "title": "₹30L → ₹68L monthly revenue without raising ad spend",
+        "summary": "An 8-person skincare brand spending ₹1.8L/month on Meta with a 0.6% conversion rate. We rebuilt the storefront, deployed WhatsApp recovery flows, and shipped an SEO foundation.",
+        "metrics": [
+          { "label": "Monthly revenue", "value": "₹30L → ₹68L", "delta": "+127%" },
+          { "label": "Conversion rate", "value": "0.6% → 2.1%", "delta": "+250%" },
+          { "label": "Cart recovery", "value": "0% → 28%", "delta": "new" },
+          { "label": "Organic traffic", "value": "+340%", "delta": "6 months" },
+          { "label": "Cost per acquisition", "value": "₹820 → ₹290", "delta": "-65%" }
+        ],
+        "quote": "Sanat Dynamo didn't just build us a website. They rebuilt how we sell. We hit our annual revenue target in 7 months.",
+        "author": "Founder, D2C Skincare Brand"
+      },
+      {
+        "id": "real-estate-developer",
+        "industry": "Real Estate Developer",
+        "location": "Pune",
+        "duration": "4 months",
+        "title": "Cost per qualified lead cut 60% in 90 days",
+        "summary": "A mid-sized developer spending lakhs on housing.com and 99acres for low-intent leads. We built a direct-lead website, automated WhatsApp nurturing, and a virtual tour module for NRI buyers.",
+        "metrics": [
+          { "label": "Cost per lead", "value": "₹1,800 → ₹720", "delta": "-60%" },
+          { "label": "Site-visit conversion", "value": "12% → 24%", "delta": "+100%" },
+          { "label": "Inbound qualified leads", "value": "+312%", "delta": "3 months" },
+          { "label": "NRI deal closures", "value": "0 → 6", "delta": "new market" }
+        ],
+        "quote": "We stopped depending on portals. The website now generates more qualified leads than 99acres ever did — at a third of the cost.",
+        "author": "Director, Pune Real Estate Developer"
+      },
+      {
+        "id": "manufacturing-erp",
+        "industry": "Manufacturing SME",
+        "location": "Faridabad",
+        "duration": "5 months",
+        "title": "From 5 spreadsheets to one ERP. 80% less manual entry.",
+        "summary": "A ₹40Cr manufacturing business running operations on Excel, WhatsApp, and tribal knowledge. We built a custom ERP with inventory, orders, GST invoicing, and a vendor portal.",
+        "metrics": [
+          { "label": "Manual data entry", "value": "-80%", "delta": "vs baseline" },
+          { "label": "Order-to-delivery cycle", "value": "11 days → 4 days", "delta": "-64%" },
+          { "label": "Invoice errors", "value": "12% → 0.3%", "delta": "near-zero" },
+          { "label": "P&L visibility", "value": "monthly → daily", "delta": "real-time" }
+        ],
+        "quote": "For the first time, I look at a dashboard at 9am and know exactly where the business stands. That changed everything.",
+        "author": "MD, Auto Components Manufacturer"
+      }
+    ]
+  },
+  "testimonials": {
+    "eyebrow": "What founders say",
+    "title": "We measure ourselves by your revenue.",
+    "items": [
+      {
+        "quote": "They didn't pitch services. They diagnosed our business and proposed a 90-day plan with numbers. That's the moment we knew.",
+        "author": "Rohan M.",
+        "role": "Founder, D2C Wellness Brand"
+      },
+      {
+        "quote": "Three months in, we cut ad spend by 40% and grew revenue 2.3x. The system pays for itself every single week.",
+        "author": "Priya S.",
+        "role": "CEO, Online Coaching Institute"
+      },
+      {
+        "quote": "Most agencies disappear after launch. Sanat Dynamo treats it like day one. Every month is better than the last.",
+        "author": "Dr. Anil K.",
+        "role": "Director, Multi-City Dental Clinics"
+      },
+      {
+        "quote": "We replaced four vendors with one partner. Faster, cheaper, and our team finally stopped firefighting.",
+        "author": "Vikram J.",
+        "role": "MD, Manufacturing SME"
+      }
+    ]
+  },
+  "faq": {
+    "eyebrow": "Common questions",
+    "title": "Questions founders ask before signing.",
+    "items": [
+      {
+        "q": "How is this different from a normal agency?",
+        "a": "Most agencies sell services — websites, ads, SEO. We sell outcomes: more revenue, lower costs, faster operations. Every project is scoped with success metrics before we write a line of code, and we measure ourselves against them every month."
+      },
+      {
+        "q": "What's the minimum engagement?",
+        "a": "Single packages start at ₹60K (RevSite Pro). Retainers start at ₹30K/month. Our most common engagement is a phased build that pays for itself in the first 60–90 days."
+      },
+      {
+        "q": "How long until we see results?",
+        "a": "Conversion improvements show up in week 1 of going live. WhatsApp automation pays back in week 2. SEO compounds over 4–6 months. ERP rollouts deliver visible ROI in the first 30 days."
+      },
+      {
+        "q": "Do you work outside India?",
+        "a": "Yes. Our GlobalScale Suite is built specifically for brands selling to NRIs and global markets. We've shipped multi-language, multi-currency systems for clients in the US, UAE, and Southeast Asia."
+      },
+      {
+        "q": "Can we start with just one system?",
+        "a": "Absolutely. The fastest ROI usually comes from one of three: a website rebuild, WhatsApp automation, or local SEO. We pick the one that pays back the fastest for your specific business."
+      },
+      {
+        "q": "What does the discovery look like?",
+        "a": "A paid 3-hour session. We map your funnel, identify revenue leaks, and deliver a written blueprint with scope, timeline, and projected outcomes. The fee is offset against any project you sign."
+      }
+    ]
+  },
+  "cta": {
+    "eyebrow": "Ready when you are",
+    "title": "Stop leaving money on the table.",
+    "subtitle": "Book a free 30-minute Revenue Audit. We'll show you exactly where your business is leaking — and what it would take to fix it.",
+    "primary": "Book Your Revenue Audit",
+    "secondary": "See Our Work",
+    "trustNote": "No commitment. No pitch. Just diagnosis."
   },
   "about": {
-    "title": "Why ArchLayer is the Best Choice for Your Business",
-    "lastUpdated": "Last updated: February 2026",
-    "introduction": "ArchLayer isn't just another agency — we're the premier full-cycle partner that builds the best websites, creates addictive mobile apps, engineers unbreakable custom software, and manages SEO like no one else. We combine obsessive strategy, elite engineering, and proven SEO mastery to deliver unbeatable digital results for businesses of all sizes.",
-    "sections": [
+    "eyebrow": "About Sanat Dynamo",
+    "title": "We are a revenue-focused systems partner. Not a typical agency.",
+    "lead": "Most agencies take your brief, build what you asked for, and disappear. We start by diagnosing the real problem — whether it's a conversion issue, an operations bottleneck, or a visibility gap — and then we build the exact system that fixes it.",
+    "body": [
+      "We've worked with 50+ businesses across e-commerce, real estate, healthcare, education, and manufacturing. Every engagement is measured by one outcome: does it grow your revenue or reduce your costs?",
+      "We are not the cheapest. We are the most accountable.",
+      "Our team is small, senior, and embedded. You work with the people building your system, not an account manager relaying messages."
+    ],
+    "values": [
       {
-        "title": "Why Businesses Choose Us as #1",
-        "content": "We deliver what others promise: fast launches, flawless performance, top search rankings, and massive ROI — backed by guarantees and transparency.",
-        "items": [
-          "Best-in-class website & app creation with conversion focus",
-          "Expert SEO management that ranks you higher and faster",
-          "Independent security & performance audits included",
-          "Agile excellence with real-time client dashboards",
-          "Full IP ownership + zero lock-in",
-          "24/7 dedicated support team"
-        ]
+        "title": "Outcomes over outputs",
+        "body": "Pixel-perfect doesn't matter if it doesn't convert. Every decision we make is tied to a number you care about."
       },
       {
-        "title": "Our Proven Full-Cycle Process",
-        "content": "Structured to eliminate risk and accelerate your success — from idea to #1 rankings:",
-        "items": [
-          "Strategic Discovery – Turn business goals into winning tech plans",
-          "Elite UI/UX & Website/App Design – Built to convert and retain",
-          "Bulletproof Full-Stack Engineering – Websites, apps, software that scales",
-          "Military-Grade QA & Security – Zero bugs, zero vulnerabilities",
-          "SEO Management Integration – On-page + off-page domination from day one",
-          "Cloud Mastery & Deployment – Auto-scaling, zero-downtime launches"
-        ]
+        "title": "Embedded, not external",
+        "body": "We work like a product team inside your business. You see weekly progress, not quarterly slide decks."
       },
       {
-        "title": "Our Unmatched Expertise",
-        "content": "We lead in the technologies and strategies that win in 2026 and beyond:",
-        "items": [
-          "High-converting Websites & E-commerce Platforms",
-          "Native/Cross-Platform Mobile Apps that users love",
-          "Custom Software, SaaS & Enterprise Systems",
-          "AI Integrations & Automation",
-          "Professional SEO Management, Keyword Domination & Link Building",
-          "Cloud Migration & Modernization"
-        ]
+        "title": "Compound, don't churn",
+        "body": "Every month should be better than the last. We build systems that get stronger over time, not staler."
       },
       {
-        "title": "Our Mission",
-        "content": "To be the absolute best digital partner: honest, logical, high-performance solutions in website creation, app development, software engineering, and SEO management that solve real problems, eliminate tech debt, and fuel explosive business growth."
-      },
-      {
-        "title": "Partner FAQ – Why We're Different",
-        "items": [
-          "Fixed-price or flexible? Both — fixed for clear MVPs, sprint-based for complex builds with SEO integration.",
-          "Who owns the work? You own 100% — code, designs, SEO strategies, everything.",
-          "How fast to start? Book a free Discovery + SEO Quick-Win call — get your custom roadmap in days.",
-          "SEO results guarantee? We focus on ethical, white-hat SEO with transparent reporting and proven traffic growth."
-        ],
-        "content": "ArchLayer: Where the best websites, apps, software, and SEO meet unbeatable results. Quotes tailored after deep analysis — no hype, just excellence."
+        "title": "Honest math",
+        "body": "If a project doesn't pay back inside 6 months, we'll tell you. Sometimes the right answer is don't build it."
       }
     ]
+  },
+  "contact": {
+    "eyebrow": "Let's talk",
+    "title": "Book your free Revenue Audit.",
+    "subtitle": "30 minutes. No pitch. Just diagnosis. We'll show you exactly where your business is leaking revenue — and what it would take to fix it.",
+    "form": {
+      "name": "Your name",
+      "email": "Work email",
+      "company": "Company",
+      "industry": "Industry",
+      "industries": ["E-commerce / D2C", "Real Estate", "Coaching / EdTech", "Healthcare", "SME / Manufacturing", "Other"],
+      "challenge": "What's the biggest problem you're trying to solve?",
+      "submit": "Request Revenue Audit",
+      "submitting": "Sending…"
+    },
+    "details": {
+      "emailLabel": "Email",
+      "email": "hello@sanatdynamo.com",
+      "phoneLabel": "WhatsApp",
+      "phone": "+91 00000 00000",
+      "hoursLabel": "Hours",
+      "hours": "Mon–Sat · 10:00–19:00 IST",
+      "locationLabel": "Based in",
+      "location": "India · Serving global"
+    }
+  },
+  "footer": {
+    "tagline": "We don't just build software. We build revenue engines that work while you sleep.",
+    "columns": {
+      "services": {
+        "title": "Services",
+        "links": [
+          { "label": "RevSite Pro", "href": "/services#revsite-pro" },
+          { "label": "AutoSell Engine", "href": "/services#autosell-engine" },
+          { "label": "LocalDom SEO", "href": "/services#localdom-seo" },
+          { "label": "GlobalScale Suite", "href": "/services#globalscale-suite" },
+          { "label": "OperateOS", "href": "/services#operate-os" },
+          { "label": "GrowthOS Retainer", "href": "/services#growthos-retainer" }
+        ]
+      },
+      "industries": {
+        "title": "Industries",
+        "links": [
+          { "label": "E-commerce / D2C", "href": "/industries#ecommerce" },
+          { "label": "Real Estate", "href": "/industries#real-estate" },
+          { "label": "Coaching / EdTech", "href": "/industries#edtech" },
+          { "label": "Healthcare", "href": "/industries#healthcare" },
+          { "label": "SME Operations", "href": "/industries#sme-erp" }
+        ]
+      },
+      "company": {
+        "title": "Company",
+        "links": [
+          { "label": "About", "href": "/about" },
+          { "label": "Case Studies", "href": "/case-studies" },
+          { "label": "Contact", "href": "/contact" },
+          { "label": "Privacy", "href": "/privacy" },
+          { "label": "Terms", "href": "/terms" }
+        ]
+      }
+    },
+    "rights": "All rights reserved.",
+    "status": "All systems operational"
+  },
+  "pages": {
+    "home": {
+      "metaTitle": "Sanat Dynamo — We Build Revenue Systems, Not Just Websites",
+      "metaDescription": "Custom software, AI automation, and SEO — built as a unified growth engine for D2C brands, real estate, clinics, coaching institutes, and SMEs. 50+ businesses scaled, ₹40Cr+ revenue impacted.",
+      "metaKeywords": "revenue systems, custom software development, AI automation, WhatsApp automation, SEO agency, ERP development, D2C agency, real estate CRM, clinic booking system, coaching institute software, SME automation, India",
+      "ogTitle": "Revenue Systems · Automation · Scale",
+      "ogDescription": "We don't just build software. We build revenue engines that work while you sleep."
+    },
+    "about": {
+      "metaTitle": "About Sanat Dynamo — Revenue-Focused Systems Partner",
+      "metaDescription": "Meet the senior team behind Sanat Dynamo. We've worked with 50+ businesses across e-commerce, real estate, healthcare, education, and manufacturing. Every engagement is measured by one outcome: did revenue go up?",
+      "metaKeywords": "revenue agency, growth partner, custom software team, India agency, accountable agency, embedded engineering team, conversion optimization, business automation"
+    },
+    "services": {
+      "metaTitle": "Services — 6 Productized Revenue Systems",
+      "metaDescription": "RevSite Pro, AutoSell Engine, LocalDom SEO, GlobalScale Suite, OperateOS, GrowthOS Retainer — six fixed-scope packages that turn your business into a revenue engine. Investment ranges from ₹30K/mo to ₹15L.",
+      "metaKeywords": "website rebuild, WhatsApp automation, local SEO, multi-language website, custom ERP, growth retainer, productized services, fixed scope, fixed price agency, conversion-optimized website",
+      "ogTitle": "Six systems that grow your revenue."
+    },
+    "industries": {
+      "metaTitle": "Industries — E-commerce, Real Estate, EdTech, Healthcare, SME",
+      "metaDescription": "We've gone deep in 5 sectors. D2C brands stuck on rising CAC. Real estate teams drowning in low-quality leads. Coaching institutes losing students to manual admissions. Clinics with 20% no-show rates. SMEs running on Excel.",
+      "metaKeywords": "D2C agency, real estate digital marketing, coaching institute software, clinic management system, SME ERP, e-commerce conversion, NRI real estate, online enrollment, patient booking",
+      "ogTitle": "Five sectors. One growth playbook."
+    },
+    "caseStudies": {
+      "metaTitle": "Case Studies — 127% Revenue Growth, 65% CPA Reduction, ₹40Cr Impact",
+      "metaDescription": "Real businesses. Real numbers. A D2C skincare brand that 2.3x'd revenue in 90 days. A real estate developer that cut CPL by 60%. A manufacturing SME that replaced 5 spreadsheets with one ERP.",
+      "metaKeywords": "case studies, D2C revenue growth, real estate CRM case study, manufacturing ERP case study, conversion optimization case study, WhatsApp automation results, SEO case study India",
+      "ogTitle": "Real businesses. Real numbers."
+    },
+    "contact": {
+      "metaTitle": "Contact — Book Your Free 30-Minute Revenue Audit",
+      "metaDescription": "Book a free 30-minute Revenue Audit. We'll show you exactly where your business is leaking — and what it would take to fix it. No commitment. No pitch. Just diagnosis.",
+      "metaKeywords": "free revenue audit, business growth consultation, agency contact, India agency, growth strategy session, conversion audit, automation audit",
+      "ogTitle": "Stop leaving money on the table."
+    },
+    "privacy": {
+      "metaTitle": "Privacy Policy — Sanat Dynamo",
+      "metaDescription": "How Sanat Dynamo collects, uses, and protects your information. We do not sell, rent, or share your data with third parties for marketing.",
+      "metaKeywords": "privacy policy, data protection, GDPR, agency privacy"
+    },
+    "terms": {
+      "metaTitle": "Terms of Service — Sanat Dynamo",
+      "metaDescription": "The rules of the road when you work with Sanat Dynamo. Engagement, payment, ownership, confidentiality, support, termination, liability, and governing law.",
+      "metaKeywords": "terms of service, agency contract, project agreement, India law"
+    }
+  },
+  "featureGrid": {
+    "eyebrow": "Built into every system",
+    "title": "Eight capabilities baked into the engine.",
+    "subtitle": "Whichever package you start with, these come along for the ride. No upsells, no surprises.",
+    "items": [
+      {
+        "icon": "zap",
+        "title": "Performance-first build",
+        "body": "Sub-second loads, Core Web Vitals green, image optimization automatic — every page passes Google's PageSpeed test out of the box."
+      },
+      {
+        "icon": "search",
+        "title": "Technical SEO foundation",
+        "body": "Schema markup, sitemap, robots, hreflang, canonical URLs, semantic HTML — your site is indexable from day one."
+      },
+      {
+        "icon": "globe",
+        "title": "Multi-language ready",
+        "body": "Every site is built i18n-first. Add a new market in days, not months. Currency switching, geo-detection, RTL support."
+      },
+      {
+        "icon": "shield",
+        "title": "Security & compliance",
+        "body": "SSL, CSP headers, GDPR-ready cookie controls, encrypted form submissions, role-based admin access."
+      },
+      {
+        "icon": "smartphone",
+        "title": "Mobile-first by design",
+        "body": "60% of your traffic is on a phone. We build for thumbs first — touch targets, gesture nav, one-handed flows."
+      },
+      {
+        "icon": "database",
+        "title": "Real analytics, real time",
+        "body": "GA4 + Search Console + heatmaps + custom event tracking. You see what works on day one, not at month end."
+      },
+      {
+        "icon": "git-branch",
+        "title": "CI/CD + version control",
+        "body": "Every change is reviewed, tested, and shipped through a pipeline. No cowboy edits. Roll back any deploy in 30 seconds."
+      },
+      {
+        "icon": "headphones",
+        "title": "Real human support",
+        "body": "Direct Slack with the engineer who built your system. 4-hour response SLA on retainers. We don't ghost clients."
+      }
+    ]
+  },
+  "techStack": {
+    "eyebrow": "Built on stacks your team already trusts",
+    "title": "Modern, boring, battle-tested.",
+    "subtitle": "We pick technology your team can hire for, your investors recognize, and your future self won't curse.",
+    "items": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Node.js",
+      "PostgreSQL",
+      "Tailwind CSS",
+      "Prisma",
+      "Vercel",
+      "AWS",
+      "OpenAI",
+      "Stripe",
+      "Razorpay",
+      "WhatsApp Business API",
+      "HubSpot",
+      "Zoho",
+      "Google Analytics 4"
+    ]
+  },
+  "bigNumbers": {
+    "eyebrow": "Numbers, not narratives",
+    "title": "The math behind the headline.",
+    "subtitle": "We measure ourselves the same way our clients do — by what shows up in the bank account.",
+    "items": [
+      { "value": "127%", "label": "Average revenue lift", "detail": "Across 50+ engagements in the last 18 months." },
+      { "value": "65%", "label": "Average CPA reduction", "detail": "Most clients see ad spend halve in 90 days." },
+      { "value": "₹40Cr+", "label": "Client revenue impacted", "detail": "Tracked dollar-for-dollar against baseline." },
+      { "value": "90 days", "label": "Average payback", "detail": "Most engagements pay for themselves in one quarter." }
+    ]
+  },
+  "cityBanner": {
+    "eyebrowDefault": "Serving ambitious teams globally",
+    "titleTemplate": "Now serving {city}, {state}.",
+    "titleTemplateCountry": "Now serving {city}, {country}.",
+    "subtitleTemplate": "We work with founders and growth leaders across {city}, {state} — from D2C brands to multi-location clinics. Every engagement is locally scoped, globally built.",
+    "eyebrowLocal": "Local to your market",
+    "badgeLabel": "Geo-aware content",
+    "ctaLabel": "Talk to a strategist in {city}",
+    "detectedLabel": "Detected location",
+    "sourceLabel": "Source",
+    "sourceLive": "Live geo",
+    "sourceApi": "IP lookup",
+    "sourceDefault": "Default",
+    "preciseLabel": "Use precise location",
+    "preciseHint": "Allow precise GPS for a more accurate city match.",
+    "preciseLoading": "Locating…",
+    "preciseDenied": "Location permission denied. Using IP-based detection.",
+    "preciseError": "Couldn't read precise location. Using IP-based detection.",
+    "preciseUpdated": "Location updated to {city}, {state}."
+  },
+  "knowMore": {
+    "eyebrow": "Know more",
+    "title": "Go deeper — {page} guides and references.",
+    "subtitle": "Long-form, SEO-rich reference material. Expand any section for a full chapter on how revenue systems work in practice.",
+    "readingTime": "{n} min read",
+    "badge": "Reference library",
+    "pages": {
+      "home": [
+        {
+          "id": "revenue-system-definition",
+          "category": "Fundamentals",
+          "readMin": 8,
+          "title": "What is a revenue system (and why it beats a website)?",
+          "summary": "A revenue system is the full stack that turns attention into money — site, capture, nurture, convert, retain. It's the replacement for the fragmented website + ads + spreadsheet setup most SMEs use.",
+          "body": [
+            "A traditional agency delivers a website. A revenue system agency delivers the entire pipeline: how visitors arrive, how they're captured, how they're nurtured, how they convert, and how they return. These five stages are what we collectively call a revenue system.",
+            "The math is simple: a 1% conversion rate on 10,000 visitors is 100 customers. A 3% conversion rate on the same 10,000 visitors — with no extra ad spend — is 300 customers. That single improvement is worth 3x more revenue on the same traffic. A revenue system exists to make those improvements compounding, not one-off.",
+            "Custom software development, AI automation, WhatsApp Business API flows, local SEO, and CRM integration are the components. But they have to be architected together. A fast website with no follow-up is as leaky as a CRM with no inbound. A revenue system ties them together into one coherent engine.",
+            "For D2C brands, a revenue system means: high-conversion storefront + cart recovery + repeat purchase engine + SEO-driven organic traffic. For real estate, it's: direct lead capture + WhatsApp nurturing + virtual tours + local SEO dominance. For clinics: online booking + appointment reminders + patient retention + Google Maps visibility. The pattern is always the same — the specifics change by industry."
+          ],
+          "keywords": ["revenue system", "revenue engine", "conversion optimization", "custom software", "growth infrastructure", "business automation"]
+        },
+        {
+          "id": "why-websites-fail",
+          "category": "Diagnostics",
+          "readMin": 6,
+          "title": "Why 95% of business websites fail at their only job.",
+          "summary": "Most business websites are beautiful brochures that don't convert. Here are the 7 reasons they fail — and how a performance-first build fixes each one.",
+          "body": [
+            "The first reason is speed. Google Core Web Vitals research shows that every 1 second of additional load time drops conversion by 7%. A 5-second site loses 35% of buyers before they see the offer. We build on Next.js with edge deployment, image optimization, and sub-second time-to-interactive targets. Every page passes Google PageSpeed out of the box.",
+            "The second is mobile-first design. 60% of Indian traffic is on a phone. If your buttons are too small, your checkout has desktop-only steps, or your forms break on iOS keyboard, you're losing more than half your market silently. We build for thumbs first — 48px touch targets, single-column checkouts, one-handed navigation flows.",
+            "The third is trust signals. Testimonials, reviews, credentials, case studies, certifications, and live-support chat are not decoration — they're conversion levers. A buyer who sees five recent 5-star reviews converts 270% better than one who sees none.",
+            "The fourth is SEO. Most websites are built without schema markup, canonical tags, hreflang, or a proper sitemap. That means they're invisible to Google on day one. We build every site with technical SEO baked in — your site is indexable and rankable the moment it goes live.",
+            "The fifth is follow-up. A website that captures a lead but doesn't follow up within 5 minutes converts 70% worse than one that does. WhatsApp automation, email drip sequences, and CRM tagging are how you close the gap.",
+            "The sixth is analytics. If you can't see what's working, you can't improve it. GA4, Search Console, heatmaps, and custom event tracking are table stakes.",
+            "The seventh is compounding. A website you ship and forget gets worse every month. A revenue system gets better every month — because we're tuning conversion, shipping new automation, and adding content."
+          ],
+          "keywords": ["website conversion", "core web vitals", "mobile first design", "trust signals", "SEO fundamentals", "cart abandonment", "conversion rate optimization"]
+        },
+        {
+          "id": "whatsapp-automation-playbook",
+          "category": "Automation",
+          "readMin": 7,
+          "title": "The WhatsApp automation playbook every Indian business should run.",
+          "summary": "WhatsApp Business API is the single highest-ROI tool for any Indian B2C business. Here are the 8 flows that pay for themselves in the first 30 days.",
+          "body": [
+            "Flow 1 — Welcome sequence. Triggered when someone first contacts your business. Sends brand introduction, top products/services, and a clear next step. Open rate on WhatsApp is 98% vs 20% for email.",
+            "Flow 2 — Cart abandonment. Triggered 30 minutes after a cart is abandoned. Sends a reminder with product image, price, and a one-click checkout link. Recovers 20–30% of abandoned carts on average.",
+            "Flow 3 — Order confirmation + tracking. Automated order, dispatch, and delivery notifications. Eliminates 50%+ of 'where is my order' customer support tickets.",
+            "Flow 4 — Appointment reminders. For clinics, salons, and service businesses. A 24-hour reminder cuts no-show rates from ~30% to ~10%.",
+            "Flow 5 — Post-purchase care. Triggered 3–7 days after delivery. Asks for feedback, offers care tips, and sets up the repeat purchase. Doubles repeat purchase rate on average.",
+            "Flow 6 — Recall reminders. For clinics and coaching institutes. Automated 30/60/90-day check-ins bring back lost patients/students without manual effort.",
+            "Flow 7 — Broadcast campaigns. Compliant, segmented broadcasts for new launches, sales, and offers. Open rates 5x email.",
+            "Flow 8 — Lead routing. When a new lead comes in, auto-route to the right salesperson with full context. Cuts response time from hours to seconds.",
+            "All 8 flows run on the official WhatsApp Business API, fully compliant with Meta's policies. We build, deploy, and maintain them as part of AutoSell Engine."
+          ],
+          "keywords": ["WhatsApp Business API", "WhatsApp automation", "cart abandonment recovery", "appointment reminders", "CRM automation", "lead nurturing", "customer retention"]
+        },
+        {
+          "id": "local-seo-for-india",
+          "category": "SEO",
+          "readMin": 9,
+          "title": "The local SEO playbook for Indian businesses in 2026.",
+          "summary": "If your customers search '[service] near me' or '[service] in [city]', local SEO is the highest-ROI marketing channel you're not fully using. Here's how to dominate it.",
+          "body": [
+            "Step 1 — Claim and optimize your Google Business Profile. Photos, services, Q&A, opening hours, booking links, and regular posts. Most Indian businesses have a profile but never update it. Weekly updates signal activity to Google and improve ranking.",
+            "Step 2 — Local keyword research. Tools like Ahrefs, SEMrush, and Google Keyword Planner tell you exactly what people in your city are searching. For a dental clinic in Bangalore: 'best dentist Bangalore', 'root canal cost Bangalore', 'dentist near me HSR layout'. Target these with dedicated pages.",
+            "Step 3 — On-page SEO. Every page needs a unique title, meta description, H1, and semantic HTML. Schema markup (LocalBusiness, MedicalOrganization, RealEstateAgent) tells Google exactly what kind of business you are.",
+            "Step 4 — Location pages. One page per city or locality you serve. Each page with unique content — not duplicates. Include local landmarks, directions, parking info, and testimonials from that area.",
+            "Step 5 — Citations and backlinks. Listings on Justdial, Sulekha, IndiaMART, local directories, and industry-specific sites. Consistency of NAP (Name, Address, Phone) across all citations is critical.",
+            "Step 6 — Reviews. Automated review request flows after every transaction. Reply to every review — positive and negative. Google rewards active review management.",
+            "Step 7 — Content marketing. Blog posts targeting local intent queries: 'how to choose a dentist in Bangalore', 'what a root canal actually costs in Bangalore'. These rank fast and drive consistent organic traffic.",
+            "Step 8 — Technical SEO. Mobile-first, fast loading, HTTPS, clean URL structure, XML sitemap, robots.txt, canonical tags. Without these, nothing else matters.",
+            "Done right, local SEO delivers top 3 rankings for 5–10 high-intent keywords within 4–6 months — and those rankings compound. You stop paying for every visitor."
+          ],
+          "keywords": ["local SEO India", "Google Business Profile optimization", "local keyword research", "citation building India", "reviews management", "schema markup LocalBusiness", "hyperlocal marketing"]
+        },
+        {
+          "id": "erp-vs-excel",
+          "category": "Operations",
+          "readMin": 7,
+          "title": "Custom ERP vs Tally vs Excel: which one does your SME actually need?",
+          "summary": "Most Indian SMEs outgrow Excel but underpay for SAP. Here's the honest comparison — and when a custom ERP is the right call.",
+          "body": [
+            "Excel is free. It's also the reason your business runs on 5 disconnected spreadsheets, has no single source of truth, and depends on one person who 'knows where everything is'. Excel is fine for a 2-person startup. It breaks at 20+ employees or ₹5Cr+ turnover.",
+            "Tally is the default Indian accounting software. It's great for compliance, GST filing, and year-end accounts. But it's not an ERP. It doesn't handle inventory flow, vendor management, or sales pipelines. It doesn't have a mobile app your field team can use. And customizing it is painful.",
+            "SAP and Oracle are enterprise ERPs. Great for ₹500Cr+ businesses. Cripplingly expensive and overkill for an SME. A typical SAP implementation runs ₹50L–₹5Cr and 6–18 months. Most SMEs abandon mid-way.",
+            "Zoho One, Odoo, and Microsoft Dynamics 365 are cloud ERPs. Cheaper than SAP. Rigid workflows that rarely fit Indian business realities — GST quirks, credit cycles, informal vendor relationships, mixed cash/credit transactions.",
+            "A custom ERP (like our OperateOS) is the right call when: you're ₹5Cr+ turnover, you have 20+ employees, you run on 5+ tools that don't talk to each other, and your business has workflows no off-the-shelf ERP handles. We build in 12–16 weeks, phased delivery, ₹3–15L total.",
+            "The ROI math: if your accountant spends 8 hours/week reconciling Excel + Tally + WhatsApp + vendor emails, and a custom ERP cuts that to 1 hour/week, you save 364 hours/year. At ₹500/hour, that's ₹1.82L/year just from accounting. Multiply by sales, procurement, HR, and inventory teams, and most custom ERPs pay back in 6–9 months."
+          ],
+          "keywords": ["custom ERP India", "Tally vs ERP", "SAP alternative SME", "SME automation India", "Zoho Odoo comparison", "GST compliance ERP", "inventory management SME"]
+        }
+      ],
+      "about": [
+        {
+          "id": "founding-story",
+          "category": "Our story",
+          "readMin": 5,
+          "title": "Why we started Sanat Dynamo.",
+          "summary": "Because too many good businesses were dying on the vine — not because their product was bad, but because their revenue infrastructure was broken.",
+          "body": [
+            "We started Sanat Dynamo after spending years watching brilliant founders build great products and then hand them to agencies that delivered beautiful websites with zero conversion. The disconnect was infuriating. The founder had a real business problem; the agency delivered a deliverable. Nobody was on the hook for whether revenue actually went up.",
+            "The hypothesis was simple: what if an agency measured itself the same way its clients do — by the number on the P&L? Not by pixels shipped, not by hours billed, but by actual revenue impact, tracked dollar-for-dollar against a baseline.",
+            "We productized six specific systems that cover the 95% of cases we see. RevSite Pro for websites. AutoSell Engine for WhatsApp + CRM automation. LocalDom SEO for local search dominance. GlobalScale Suite for international markets. OperateOS for custom ERP. GrowthOS Retainer for ongoing compounding execution. Each one with fixed scope, fixed price, fixed outcomes.",
+            "Three years in, we've worked with 50+ businesses across five industries. Every engagement is measured the same way: did revenue go up, or costs come down, in the 90-day window after go-live? If yes, we kept working. If no, we'd rather be honest about it than stretch the engagement.",
+            "That's still our north star. A revenue-focused systems partner, not a typical agency."
+          ],
+          "keywords": ["Sanat Dynamo founding", "revenue focused agency", "accountable agency India", "outcome driven agency", "fixed scope fixed price"]
+        },
+        {
+          "id": "how-we-hire",
+          "category": "Team",
+          "readMin": 4,
+          "title": "How we hire (and why it matters to you).",
+          "summary": "Small, senior, embedded. Every engineer on your project can independently ship production code, talk to your customers, and challenge your assumptions.",
+          "body": [
+            "We hire for three traits in this order: judgment, communication, and craft. A technically brilliant engineer who can't explain trade-offs to a non-technical founder is a liability on our projects. We specifically don't hire juniors to bill them at senior rates — the team you meet on the sales call is the team building your system.",
+            "Every engineer we hire has shipped production systems to real users at previous companies. Median experience is 8 years. We cap the team at 12 people so we know every project, every client, every technical decision. Growth beyond that dilutes the quality we're known for.",
+            "Process-wise, we use direct Slack with the build team (no intermediary account managers), weekly demos, and written changelogs. You see what's being built in real time — no black-box cycles, no 'we'll update you next Friday'. This is how product companies work internally; we apply the same discipline to client engagements.",
+            "The tradeoff is we're more expensive per hour than a typical agency. The math still works: you get senior execution, faster decisions, fewer rework cycles, and a system that actually moves your numbers."
+          ],
+          "keywords": ["senior engineers agency", "small agency team", "embedded engineering team", "direct slack agency", "weekly demos"]
+        },
+        {
+          "id": "guarantees",
+          "category": "Accountability",
+          "readMin": 4,
+          "title": "What we guarantee (and what we don't).",
+          "summary": "We guarantee fixed scope, fixed price, fixed timeline, and a written scope document before kickoff. We don't guarantee specific revenue numbers — but we do guarantee we'll be honest about the math.",
+          "body": [
+            "We guarantee a written scope document before any development starts. The document includes exact deliverables, milestones, timeline, success metrics, and commercials. If anything changes mid-project, we write a change order first. No surprise scope creep, no surprise invoices.",
+            "We guarantee fixed pricing on all one-time projects. The only reasons a project cost changes are: (a) you change the scope, or (b) we hit a blocker that was genuinely unknowable at kickoff (and even then, we absorb the first week of rework).",
+            "We guarantee a fixed go-live date on every engagement. If we miss it because of our fault, we work nights and weekends to catch up at no additional cost. We almost never miss — because we scope carefully at the start.",
+            "What we don't guarantee is a specific revenue number. We can project it from benchmark data, we can commit to hitting conversion, traffic, and automation targets — but we won't guarantee that your revenue will grow by exactly X%. Anyone who does is lying.",
+            "What we will do is measure everything honestly against the baseline, month over month, and tell you what's working and what isn't. If something isn't paying back, we'll say so and pivot."
+          ],
+          "keywords": ["fixed scope fixed price agency", "written scope document", "agency guarantees", "accountable delivery", "honest metrics reporting"]
+        }
+      ],
+      "services": [
+        {
+          "id": "how-we-price",
+          "category": "Pricing",
+          "readMin": 6,
+          "title": "How we price — and why it's higher than the agency average.",
+          "summary": "We price on outcome, not hours. Here's exactly how we calculate a project quote, and why you get more for your money than a cheaper agency.",
+          "body": [
+            "Traditional agencies bill hours. A junior at ₹1,200/hour spends 3 hours doing what a senior does in 20 minutes. The senior costs more per hour but costs less per outcome. Worse, the hour-billing model creates perverse incentives: the agency makes more money when things go slowly.",
+            "We price on outcome. Every project has a fixed scope and a fixed price. The price is calculated from: (a) the complexity of the system, (b) the senior engineering time required, (c) the go-live support period, and (d) a buffer for the one or two things that always surprise us.",
+            "RevSite Pro starts at ₹60K for a 7-page mobile-first site with basic SEO. It scales up to ₹1.5L for a 15-page site with advanced CMS, multi-language support, and custom integrations. The difference is scope, not inflation.",
+            "AutoSell Engine setup is ₹80K for 5 flows and a standard CRM integration. It scales to ₹2L for 8+ flows, custom workflow logic, and WhatsApp Business API provisioning. The monthly retainer (₹15–30K) covers flow maintenance, new flow development, and monthly optimization.",
+            "OperateOS starts at ₹3L for a 3-module ERP (inventory + orders + invoicing). It scales to ₹15L for a full suite with HR/payroll, CRM, mobile app, and multi-location support. Phased delivery means you start seeing ROI in month 1, not month 6.",
+            "GrowthOS Retainer is ₹60K–1.5L/month depending on scope. Typically includes 40 dev hours, 4 blog posts, WhatsApp flow maintenance, and monthly optimization. Fixed SLA, fixed deliverables, fixed price.",
+            "Why higher than a ₹15K website agency? Because we ship systems that actually move revenue. A ₹60K RevSite Pro delivering a 2% conversion lift on ₹50L monthly revenue is worth ₹12L/year. A ₹15K brochure website delivering 0 is worth ₹0. The math always works at our end of the market."
+          ],
+          "keywords": ["agency pricing India", "fixed price agency", "outcome based pricing", "senior engineering rates", "RevSite pricing", "ERP cost India"]
+        },
+        {
+          "id": "package-comparison",
+          "category": "Decision",
+          "readMin": 5,
+          "title": "Which package should you start with?",
+          "summary": "Most founders don't need all six systems. They need the one that pays back fastest for their specific situation. Here's how to decide.",
+          "body": [
+            "If your biggest problem is 'I'm getting traffic but no conversions', start with RevSite Pro. Website rebuild pays back in 30–60 days when conversion goes from 0.6% to 2% on existing traffic.",
+            "If your biggest problem is 'leads are coming in but going cold', start with AutoSell Engine. WhatsApp automation + CRM follows up with every lead in 30 seconds instead of 3 days. ROI visible in week 2.",
+            "If your biggest problem is 'I'm paying too much per click on Google Ads', start with LocalDom SEO. 4–6 months of work gives you top 3 organic rankings for 5–10 keywords. Your cost per visitor drops 90% long-term.",
+            "If your biggest problem is 'I can't sell to international buyers', start with GlobalScale Suite. Multi-language, multi-currency, NRI-ready checkout. New market revenue stream in 90 days.",
+            "If your biggest problem is 'my business runs on Excel and tribal knowledge', start with OperateOS. Custom ERP with inventory, orders, invoicing, HR. Pays back in 6–9 months through operational efficiency.",
+            "If your biggest problem is 'I need a tech partner long-term, not just a project', start with GrowthOS Retainer. Embedded senior team, fixed monthly cost, compounding output.",
+            "Still not sure? Book a free Revenue Audit. We'll map your entire funnel and tell you exactly which system has the highest ROI for your specific business — no pitch, just diagnosis."
+          ],
+          "keywords": ["which agency package", "revenue system decision", "SME digital transformation", "agency comparison", "growth strategy India"]
+        },
+        {
+          "id": "timeline-expectations",
+          "category": "Delivery",
+          "readMin": 5,
+          "title": "Realistic timeline expectations for every package.",
+          "summary": "How long each system takes to ship, see results, and fully pay back. Honest numbers, not marketing promises.",
+          "body": [
+            "RevSite Pro — 6–10 weeks from kickoff to go-live. Conversion improvements visible in week 1 post-launch. SEO improvements take 60–90 days to show in rankings, 4–6 months to show in organic traffic.",
+            "AutoSell Engine — 2–4 weeks setup, 2 weeks fine-tuning. Automation runs from day 1 of go-live. Cart recovery and appointment reminder ROI visible in week 2. Full optimization takes 60 days.",
+            "LocalDom SEO — 3 months minimum engagement. First ranking improvements in 30–60 days. Top 3 rankings for most target keywords in 4–6 months. Organic traffic compounds over 12+ months.",
+            "GlobalScale Suite — 8–12 weeks to launch. First international orders in month 1. Real market traction (consistent monthly revenue) in 3–6 months.",
+            "OperateOS — 12–16 weeks phased delivery. First module (usually inventory) goes live in week 4. Second module in week 8. Full system in week 16. Team training and adoption takes another 4 weeks.",
+            "GrowthOS Retainer — Starts delivering in week 1. Every month is a compounding improvement on the last. Most clients see meaningful revenue uplift by month 3, with continued improvements monthly after.",
+            "These are honest numbers. We've hit them consistently across 50+ engagements. A faster promise is usually a worse outcome."
+          ],
+          "keywords": ["agency project timeline", "website rebuild timeline", "ERP implementation time", "SEO results timeline", "WhatsApp automation setup time"]
+        }
+      ],
+      "industries": [
+        {
+          "id": "ecommerce-deep-dive",
+          "category": "E-commerce",
+          "readMin": 8,
+          "title": "The complete D2C revenue playbook (from ₹10L to ₹1Cr monthly GMV).",
+          "summary": "Most D2C brands plateau around ₹30–50L monthly GMV because their unit economics break. Here's the full playbook to push past it.",
+          "body": [
+            "Stage 1 — Fix the website. Most D2C brands on Shopify use a generic theme that converts at 0.6–1%. A rebuild with mobile-first UX, fast loading, trust signals, and a streamlined checkout can push conversion to 2–3% with no change in traffic. That single change can 2x revenue.",
+            "Stage 2 — Cut cart abandonment. Typical D2C brands see 75–80% cart abandonment. A 3-step WhatsApp + email recovery sequence recovers 20–30% of those carts. On ₹30L monthly revenue with 75% abandonment, that's ₹4.5–6L of recovered revenue per month.",
+            "Stage 3 — Build repeat purchase. First-time customers cost 5–7x what repeat customers cost. A post-purchase WhatsApp sequence (7 days + 30 days + 60 days) with care tips, offers, and new product intros doubles repeat purchase rate on most brands.",
+            "Stage 4 — Reduce ad dependence. At ₹30L monthly, you're probably spending ₹5–8L on Meta and Google ads. SEO content (4 blog posts/month targeting product-intent keywords) drives organic traffic over 6–12 months, reducing ad spend 30–50% while maintaining revenue.",
+            "Stage 5 — Go international. Once you're doing ₹50L+ monthly, NRIs and Southeast Asian customers are a massive untapped market. Multi-language, multi-currency, international payment gateway — launch a second revenue stream in 90 days.",
+            "Stage 6 — Add retention infrastructure. Loyalty programs, subscription boxes, referral engines. These are the mechanisms that turn ₹50L brands into ₹1Cr brands. Without them, you plateau.",
+            "The full playbook takes 9–12 months to execute. Most brands we work with go from ₹30–50L to ₹1Cr+ monthly GMV in that window, at the same or lower ad spend."
+          ],
+          "keywords": ["D2C India growth", "Shopify conversion optimization", "cart abandonment recovery", "repeat purchase rate D2C", "international expansion D2C", "D2C unit economics"]
+        },
+        {
+          "id": "real-estate-deep-dive",
+          "category": "Real estate",
+          "readMin": 7,
+          "title": "How to stop depending on 99acres and housing.com.",
+          "summary": "Real estate developers pay ₹500–2,000 per low-intent portal lead. Here's how to build a direct lead pipeline that costs 60% less and converts 2x better.",
+          "body": [
+            "Portal leads are inherently low-intent. Buyers on 99acres and housing.com are shopping 10+ properties simultaneously. They're comparison shopping, not buying. That's why your CPL is ₹500–2,000 and your conversion is 1–3%.",
+            "Direct leads from your own website are fundamentally different. They're searching for you specifically, or they're responding to a well-targeted ad that sent them to your landing page. They're 3–5x more likely to convert.",
+            "Step 1 — Build a proper real estate website. Not a brochure. A website with dynamic listings (synced to your CRM), real-time availability, filters by budget/location/configuration, and high-quality photos/videos/virtual tours.",
+            "Step 2 — WhatsApp lead capture on every listing page. Auto-response within 30 seconds. Agent assignment based on property. Follow-up drip sequence for 30 days.",
+            "Step 3 — CRM with automated nurturing. Track every lead through stages (new → contacted → site visit booked → visited → negotiation → closed). Automated reminders to agents when a lead hasn't been touched in 48 hours.",
+            "Step 4 — Virtual tours for NRI buyers. 360° walkthroughs, drone footage, video call scheduling. NRI deals are 2–3x larger than local deals and zero physical logistics required.",
+            "Step 5 — Local SEO dominance. Rank for '[city] flats for sale', '[locality] apartments', '3 BHK [city]'. Free leads compounding over time.",
+            "The end result is a pipeline where 60%+ of your leads come from your own channels, at 40% lower CPL, with 2x conversion to site visit and 3x conversion to deal. We've seen it work for 10+ Indian real estate developers."
+          ],
+          "keywords": ["real estate lead generation India", "99acres alternative", "NRI real estate marketing", "virtual tour real estate", "real estate CRM India", "housing.com dependency"]
+        },
+        {
+          "id": "edtech-admissions",
+          "category": "Coaching / EdTech",
+          "readMin": 7,
+          "title": "The automated admissions funnel for coaching institutes.",
+          "summary": "Most institutes lose 60–70% of inquiries because follow-up is manual. Here's how to build a self-serve enrollment system that converts 40% more.",
+          "body": [
+            "The typical inquiry flow: parent calls → receptionist takes details → passes to counselor → counselor calls back 2 days later → parent has already joined a competitor. Conversion: 20–30% at best.",
+            "The automated flow: parent fills form on website → instant WhatsApp response → automated course info + fee structure → counselor notified within 60 seconds → counselor call within 2 hours → online fee payment link → instant enrollment confirmation. Conversion: 40–60%.",
+            "The difference is speed and consistency. Parents who are shopping coaching institutes typically call 3–5 places. Whoever responds first with clear information wins 60%+ of the time. A human counselor answering the phone can't match a 30-second automated response.",
+            "Step 1 — Build a fast, mobile-first website with clear course pages (fees, schedule, faculty, syllabus, testimonials). Parents decide on mobile in 90 seconds.",
+            "Step 2 — Integrate online fee payment (Razorpay/PayU). Parents who want instant enrollment are your highest-intent leads. Don't lose them to 'come to the office with cash'.",
+            "Step 3 — WhatsApp admission funnel. Auto-respond, capture details, send brochure PDF, schedule counselor call — all in under 2 minutes.",
+            "Step 4 — Automated follow-up for inquiries that don't convert immediately. Day 1, 3, 7, 14 touchpoints with different content (testimonials, batch starting soon, faculty introductions).",
+            "Step 5 — Student engagement after enrollment. Attendance tracking, assignment reminders, progress reports to parents. This reduces dropout by 30%+ — which directly compounds into referrals.",
+            "The full automated admissions + retention stack is built in AutoSell Engine + OperateOS. Most coaching institutes recoup the investment in one admission cycle."
+          ],
+          "keywords": ["coaching institute CRM India", "automated admissions", "online fee payment", "coaching institute marketing", "student engagement system", "JEE NEET coaching marketing"]
+        }
+      ],
+      "caseStudies": [
+        {
+          "id": "how-we-measure",
+          "category": "Methodology",
+          "readMin": 4,
+          "title": "How we track and verify every case study result.",
+          "summary": "Every number in our case studies is tracked against a written baseline. Here's the exact methodology.",
+          "body": [
+            "Step 1 — Baseline measurement. Before any engagement begins, we record the client's current metrics: monthly revenue, conversion rate, cost per acquisition, organic traffic, cart abandonment, support ticket volume, etc. These numbers come from the client's own tools (Shopify, Google Analytics, Meta Ads Manager, their CRM). We never estimate or back-calculate.",
+            "Step 2 — Success metrics in the scope document. Every project scope explicitly lists the metrics we're committing to move, with a baseline and a target for each. Example: 'Monthly revenue baseline ₹30L, target ₹45L by month 3'. This is agreed and signed before any code is written.",
+            "Step 3 — Monthly tracking. We pull fresh numbers monthly from the same tools. Month-over-month and cumulative deltas are reported transparently.",
+            "Step 4 — Case study numbers. When we publish a case study, the numbers come directly from the monthly tracking. We never round up, we never cherry-pick. If conversion went from 0.6% to 2.1%, we say 2.1%, not 'over 2x'.",
+            "Step 5 — Client review. Every case study is reviewed and approved by the client before publishing. They see the numbers we're quoting and the claims we're making, and sign off. If they want anonymization (because of competitive concerns), we anonymize — but the numbers stay accurate."
+          ],
+          "keywords": ["case study methodology", "verified results agency", "transparent metrics", "baseline measurement"]
+        },
+        {
+          "id": "what-we-dont-share",
+          "category": "Transparency",
+          "readMin": 3,
+          "title": "The engagements we don't put in case studies.",
+          "summary": "About 15% of our engagements don't become case studies. Here's what happened — and why it's useful for you to know.",
+          "body": [
+            "Some projects don't hit their targets in 90 days. Not because the work was bad, but because the underlying business had deeper issues — wrong product-market fit, founder disagreements, cash flow problems. In those cases, we were honest: we told the client the work wouldn't pay back in the planned timeline, and suggested they delay or cancel. Those conversations are harder than pitching, but they build the relationships that last.",
+            "Some clients have strict confidentiality requirements. Banks, healthcare groups, family-owned businesses that don't want visibility. We respect that fully — our NDAs work both ways.",
+            "Some outcomes are too early to publish. A 90-day revenue lift is real. A 6-month compounding trend is more meaningful. We wait until the story is fully told before writing it up.",
+            "If you're evaluating us and want to talk to a current client, we can usually arrange a reference call — including with clients whose stories aren't public. Honest references matter more than glossy case studies."
+          ],
+          "keywords": ["agency transparency", "honest case studies", "client references", "NDA projects", "agency track record"]
+        }
+      ],
+      "contact": [
+        {
+          "id": "what-to-bring",
+          "category": "Preparation",
+          "readMin": 3,
+          "title": "What to bring to your Revenue Audit (nothing required).",
+          "summary": "You don't need to prepare anything to book an audit. But if you come with 5 minutes of data, we can go much deeper in the same 30 minutes.",
+          "body": [
+            "Nothing is required — if you want to just walk in and talk, we can do that. But if you want us to show you specific, data-backed leaks in your funnel in the first call, bring these:",
+            "Your current monthly revenue (approximate is fine).",
+            "Your main traffic source (Meta Ads, Google Ads, SEO, referrals, WhatsApp broadcasts).",
+            "Your conversion rate if you know it (from Shopify, your website analytics, or your CRM).",
+            "Your top 1–2 business goals for the next 6 months (e.g., 'double monthly revenue', 'reduce ad spend 30%', 'automate customer support').",
+            "Your biggest operational frustration right now (e.g., 'my team spends 20 hours/week on manual WhatsApp follow-ups').",
+            "With these five data points, we can usually identify 2–3 specific revenue leaks in the first 15 minutes and show you exactly what it would take to fix them. The other 15 minutes we spend on questions from you. No slide deck, no pitch."
+          ],
+          "keywords": ["revenue audit preparation", "business metrics audit", "agency discovery call", "business diagnosis"]
+        },
+        {
+          "id": "response-time",
+          "category": "Process",
+          "readMin": 2,
+          "title": "What happens after you fill the form.",
+          "summary": "We reply within one business day, every time. Here's exactly what the first 7 days look like.",
+          "body": [
+            "Day 0 (within a few hours) — Automated confirmation email. Your submission is logged and routed to the right strategist based on your industry.",
+            "Day 1 (within one business day) — Personal reply from a senior team member (not an account manager). We propose 2–3 specific 30-minute slots that week.",
+            "Day 2–3 — Revenue Audit call. 30 minutes, no pitch, just diagnosis. We ask questions, we identify leaks, we tell you exactly what it would take to fix them.",
+            "Day 4 (within 24 hours of the call) — Written summary of the audit. 2–4 pages. What we found, what we'd recommend, rough investment range, and the next step if you want to proceed.",
+            "Day 5–7 — You decide. No pressure, no follow-up-every-day harassment. If you want to move forward, the next step is a paid discovery session (3 hours, ₹15K, offset against any project). If you don't, we close the loop cleanly and you walk away with a free written audit."
+          ],
+          "keywords": ["agency response time", "revenue audit process", "discovery call agency", "how agencies work"]
+        }
+      ]
+    }
   }
 }

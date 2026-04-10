@@ -1,0 +1,52 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { Section, SectionHeader } from "../primitives/section";
+import type { Messages } from "@/lib/i18n";
+
+export function BigNumbers({ t }: { t: Messages }) {
+  const bn = t.bigNumbers;
+  return (
+    <Section id="big-numbers">
+      <SectionHeader
+        eyebrow={bn.eyebrow}
+        title={bn.title}
+        subtitle={bn.subtitle}
+        align="center"
+      />
+
+      <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {bn.items.map((item, i) => (
+          <motion.div
+            key={item.label}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.5, delay: i * 0.08 }}
+            className="group relative overflow-hidden rounded-3xl border border-border bg-surface/60 p-8 transition-all hover:-translate-y-1 hover:border-accent/40 hover:bg-surface"
+          >
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full bg-accent/5 blur-3xl transition-opacity group-hover:bg-accent/15"
+            />
+            <div className="font-mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground">
+              Metric · 0{i + 1}
+            </div>
+            <div className="mt-6 font-display text-[clamp(3rem,7vw,4.5rem)] font-semibold leading-none tracking-tighter">
+              <span className="bg-gradient-to-br from-foreground via-foreground to-accent bg-clip-text text-transparent">
+                {item.value}
+              </span>
+            </div>
+            <div className="mt-4 text-sm font-semibold text-foreground">
+              {item.label}
+            </div>
+            <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+              {item.detail}
+            </p>
+            <div className="mt-6 h-px w-full bg-gradient-to-r from-accent/40 via-border to-transparent" />
+          </motion.div>
+        ))}
+      </div>
+    </Section>
+  );
+}

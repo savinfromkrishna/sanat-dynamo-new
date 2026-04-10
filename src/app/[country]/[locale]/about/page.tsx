@@ -1,161 +1,218 @@
-// app/[locale]/about/page.tsx
-import type { Metadata } from "next"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Heart, Shield, Award, Users, Leaf, CheckCircle } from "lucide-react"
-import Image from "next/image"
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion"
-import { getTranslation, type Locale } from "@/lib/i18n"
+import type { Metadata } from "next";
+import { getTranslation, type Locale } from "@/lib/i18n";
+import { buildPageMetadata } from "@/lib/seo";
+import { PageHero } from "@/components/sections/PageHero";
+import { Section, SectionHeader } from "@/components/primitives/section";
+import { Cta } from "@/components/sections/Cta";
+import { Testimonials } from "@/components/sections/Testimonials";
+import { CityBanner } from "@/components/sections/CityBanner";
+import { BigNumbers } from "@/components/sections/BigNumbers";
+import { KnowMore } from "@/components/sections/KnowMore";
+import {
+  Compass,
+  Layers,
+  Repeat,
+  Calculator,
+  Search,
+  Hammer,
+  Rocket,
+} from "lucide-react";
 
-const iconMap = {
-  Leaf,
-  Shield,
-  Award,
-  Users,
-  Heart,
-  CheckCircle,
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ country: string; locale: string }>;
+}): Promise<Metadata> {
+  const { country, locale } = await params;
+  return buildPageMetadata({
+    page: "about",
+    country,
+    locale: locale as Locale,
+  });
 }
 
-export async function generateMetadata({ params }: { params: { locale: Locale } }): Promise<Metadata> {
-  const translations = getTranslation(params.locale)
-  return {
-    title: translations.about.title,
-    description: translations.about.description,
-    metadataBase: new URL("https://sanat-rewa.vercel.app"),
-    alternates: {
-      canonical: `/${params.locale}/about`,
-      languages: {
-        "en-US": "/en/about",
-        "es-ES": "/es/about",
-      },
-    },
-    openGraph: {
-      title: translations.about.title,
-      description: translations.about.description,
-      url: `https://sanat-rewa.vercel.app/${params.locale}/about`,
-      siteName: "Mitolyn Official",
-      images: [{ url: "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp", width: 1200, height: 630, alt: translations.about.title }],
-      locale: params.locale === "es" ? "es_ES" : "en_US",
-      type: "website",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: translations.about.title,
-      description: translations.about.description,
-      images: ["https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp"],
-    },
-  }
-}
+const valueIcons = [Compass, Layers, Repeat, Calculator] as const;
 
-export default async function AboutPage({ params }: { params: { locale: Locale } }) {
-  const translations = getTranslation(params.locale)
-  const t = translations.about
+const timeline = [
+  {
+    year: "2022",
+    title: "First revenue audit",
+    body: "Started as a 2-person team obsessed with one question: why do agencies sell 'websites' instead of revenue?",
+    icon: Search,
+  },
+  {
+    year: "2023",
+    title: "Productized 6 systems",
+    body: "Stopped selling hours. Built repeatable systems — RevSite, AutoSell, LocalDom, GlobalScale, OperateOS, GrowthOS.",
+    icon: Hammer,
+  },
+  {
+    year: "2024",
+    title: "Crossed ₹40Cr revenue impact",
+    body: "50+ engagements across 5 industries. The math worked. Clients renewed. Word spread.",
+    icon: Rocket,
+  },
+];
+
+export default async function AboutPage({
+  params,
+}: {
+  params: Promise<{ country: string; locale: string }>;
+}) {
+  const { country, locale } = await params;
+  const t = getTranslation(locale as Locale);
 
   return (
-    <main className="pt-8">
-      <section className="py-16 bg-gradient-to-br from-emerald-50 via-teal-50 to-blue-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto">
-            <Badge className="mb-6 bg-emerald-100 text-emerald-800 hover:bg-emerald-100">{t.hero.badge}</Badge>
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-balance">
-              {t.hero.title}{" "}
-              <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
-                {t.hero.titleHighlight}
-              </span>
-            </h1>
-            <p className="text-xl text-gray-600 leading-relaxed">{t.hero.description}</p>
-          </div>
-        </div>
-      </section>
+    <>
+      <PageHero
+        eyebrow={t.about.eyebrow}
+        title={
+          <>
+            We are a{" "}
+            <span className="text-accent">revenue-focused</span> systems
+            partner.
+          </>
+        }
+        subtitle={t.about.lead}
+        breadcrumb="About"
+      />
 
-      <section className="py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">{t.story.title}</h2>
-              <div className="space-y-4 text-gray-600 leading-relaxed">
-                {t.story.content.map((paragraph: string, index: number) => (
-                  <p key={index}>{paragraph}</p>
+      <CityBanner t={t} country={country} />
+
+      <Section className="pt-8">
+        <div className="grid gap-12 lg:grid-cols-12">
+          <div className="lg:col-span-7">
+            <div className="space-y-6 text-pretty text-lg leading-relaxed text-muted-foreground">
+              {t.about.body.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+            </div>
+
+            {/* Inline pull quote */}
+            <blockquote className="mt-10 rounded-3xl border-l-2 border-accent bg-surface/40 px-7 py-6">
+              <p className="font-display text-xl italic leading-relaxed text-foreground sm:text-2xl">
+                &ldquo;The best agencies feel less like vendors and more like a
+                quiet, ruthless growth team that lives inside your business.&rdquo;
+              </p>
+              <footer className="mt-3 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+                — How we run every engagement
+              </footer>
+            </blockquote>
+          </div>
+
+          <aside className="lg:col-span-5">
+            <div className="rounded-3xl border border-border bg-surface/60 p-8">
+              <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
+                By the numbers
+              </div>
+              <div className="mt-6 space-y-6">
+                {t.socialProof.stats.map((s) => (
+                  <div
+                    key={s.label}
+                    className="flex items-end justify-between border-b border-border pb-4 last:border-b-0 last:pb-0"
+                  >
+                    <span className="text-sm text-muted-foreground">
+                      {s.label}
+                    </span>
+                    <span className="font-display text-2xl font-semibold tracking-tight text-foreground">
+                      {s.value}
+                    </span>
+                  </div>
                 ))}
               </div>
             </div>
-            <div className="relative">
-              <div className="bg-gradient-to-br from-emerald-100 to-teal-100 rounded-2xl p-8 h-96 flex items-center justify-center">
-                <Image
-                  src="https://res.cloudinary.com/dpqnfjpdw/image/upload/fl_preserve_transparency/v1768831083/Gemini_Generated_Image_rsy1pmrsy1pmrsy1_nx90mc.jpg?_s=public-apps"
-                  alt="MITOLYN Premium Supplements"
-                  fill
-                  className="object-fit rounded-2xl shadow-lg"
-                />
+
+            <div className="mt-5 rounded-3xl border border-accent/30 bg-accent/5 p-8">
+              <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
+                What you can expect
               </div>
+              <ul className="mt-5 space-y-3 text-sm text-foreground">
+                <li>→ Senior engineers on every call — not account managers.</li>
+                <li>→ Weekly demo + written changelog. No black box.</li>
+                <li>→ Fixed scope, fixed price, fixed go-live date.</li>
+              </ul>
             </div>
-          </div>
+          </aside>
         </div>
-      </section>
+      </Section>
 
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">{t.values.title}</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">{t.values.description}</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {t.values.items.map((value: any, index: number) => {
-              const Icon = iconMap[value.icon as keyof typeof iconMap]
-              return (
-                <Card key={index} className="text-center hover:shadow-lg transition-shadow duration-300">
-                  <CardContent className="p-6">
-                    <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Icon className="w-6 h-6 text-emerald-600" />
-                    </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-3">{value.title}</h3>
-                    <p className="text-gray-600">{value.description}</p>
-                  </CardContent>
-                </Card>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">{t.certifications.title}</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">{t.certifications.description}</p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
-            {t.certifications.items.map((cert: any, index: number) => (
-              <div key={index} className="text-center">
-                <Image src={cert.image} alt={cert.alt} width={80} height={80} className="mx-auto mb-2" />
-                <p className="text-sm font-medium text-gray-700">{cert.label}</p>
+      {/* Timeline */}
+      <Section className="pt-0">
+        <SectionHeader
+          eyebrow="Our story"
+          title="A short history of how we got here."
+        />
+        <div className="mt-12 grid gap-5 md:grid-cols-3">
+          {timeline.map((tl, i) => {
+            const Icon = tl.icon;
+            return (
+              <div
+                key={tl.year}
+                className="group relative overflow-hidden rounded-3xl border border-border bg-surface/60 p-7 transition-all hover:border-accent/40 hover:bg-surface"
+              >
+                <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-accent/5 blur-3xl transition-opacity group-hover:bg-accent/15" />
+                <div className="flex items-start justify-between">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-border bg-background text-accent">
+                    <Icon size={20} strokeWidth={1.75} />
+                  </div>
+                  <span className="font-display text-3xl font-semibold tracking-tight text-accent/40">
+                    {tl.year}
+                  </span>
+                </div>
+                <h3 className="mt-6 font-display text-xl font-semibold text-foreground">
+                  {tl.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  {tl.body}
+                </p>
+                <div className="mt-6 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                  Chapter · 0{i + 1}
+                </div>
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
-      </section>
+      </Section>
 
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">{t.faq.title}</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">{t.faq.description}</p>
-          </div>
-
-          <div className="max-w-3xl mx-auto">
-            <Accordion type="single" collapsible className="w-full">
-              {t.faq.items.map((item: any, index: number) => (
-                <AccordionItem key={index} value={`q${index + 1}`}>
-                  <AccordionTrigger>{item.question}</AccordionTrigger>
-                  <AccordionContent>{item.answer}</AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
+      {/* Principles */}
+      <Section className="pt-0">
+        <SectionHeader
+          eyebrow="Our principles"
+          title="Four rules we run by."
+        />
+        <div className="mt-12 grid gap-5 sm:grid-cols-2">
+          {t.about.values.map((v, i) => {
+            const Icon = valueIcons[i] ?? Compass;
+            return (
+              <div
+                key={v.title}
+                className="group relative overflow-hidden rounded-3xl border border-border bg-surface/60 p-8 transition-all hover:border-accent/40 hover:bg-surface"
+              >
+                <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-accent/5 blur-3xl transition-opacity group-hover:bg-accent/15" />
+                <div className="flex items-start justify-between">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-border bg-background text-accent">
+                    <Icon size={20} strokeWidth={1.75} />
+                  </div>
+                  <span className="font-mono text-xs uppercase tracking-[0.22em] text-accent">
+                    0{i + 1}
+                  </span>
+                </div>
+                <h3 className="mt-6 font-display text-2xl font-semibold tracking-tight text-foreground">
+                  {v.title}
+                </h3>
+                <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+                  {v.body}
+                </p>
+              </div>
+            );
+          })}
         </div>
-      </section>
-    </main>
-  )
+      </Section>
+
+      <BigNumbers t={t} />
+      <Testimonials t={t} />
+      <KnowMore t={t} pageKey="about" pageLabel="About" />
+      <Cta t={t} />
+    </>
+  );
 }

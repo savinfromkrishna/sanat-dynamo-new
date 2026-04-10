@@ -1,193 +1,668 @@
 {
-  "seo": {
-    "title": "SuppleLogic | Reseñas Honestas de Suplementos",
-    "description": "SuppleLogic es una plataforma confiable dedicada a ofrecer reseñas honestas y basadas en investigación de suplementos. Te ayudamos a cortar el ruido del marketing analizando los ingredientes, los beneficios declarados, los posibles efectos secundarios y las experiencias reales de los usuarios — para que puedas tomar decisiones de compra más inteligentes y seguras.",
-    "keywords": "mejores reseñas de suplementos, reseñas de suplementos dietéticos, reseñas de suplementos para la salud, suplementos para bajar de peso, vitaminas y minerales"
+  "brand": {
+    "name": "Sanat Dynamo",
+    "tagline": "Sistemas. Automatización. Escala.",
+    "oneLiner": "Construimos sistemas de ingresos que ayudan a las empresas a vender más, operar de forma más eficiente y crecer más rápido — con software a medida, automatización con IA y SEO.",
+    "promise": "No solo construimos software. Construimos motores de ingresos que trabajan mientras duermes."
   },
-  "categories": {
-    "weightLoss": "Suplementos para Bajar de Peso",
-    "sleepStress": "Apoyo para Sueño y Estrés",
-    "dentalHealth": "Salud Dental y Bucal",
-    "gutHealth": "Salud Intestinal",
-    "wellness": "Bienestar General",
-    "bundles": "Paquetes / Bundles"
+  "seo": {
+    "title": "Sanat Dynamo — Construimos Sistemas de Ingresos, No Solo Sitios Web",
+    "description": "Sanat Dynamo es un socio de sistemas y automatización enfocado en ingresos. Ayudamos a marcas D2C, inmobiliarias, clínicas, institutos de coaching y PYMES a aumentar ventas, automatizar operaciones y escalar de manera eficiente.",
+    "keywords": "agencia, software a medida, automatización IA, SEO, automatización WhatsApp, ERP, D2C, inmobiliaria, clínica, coaching, PYME"
   },
   "nav": {
     "home": "Inicio",
-    "dentalHealth": "Salud Dental",
-    "products": "Productos",
-    "about": "Sobre Nosotros"
+    "services": "Servicios",
+    "industries": "Industrias",
+    "work": "Casos de Éxito",
+    "about": "Nosotros",
+    "contact": "Contacto",
+    "cta": "Solicitar Auditoría"
   },
-  "products": {
-    "weight-loss": [
+  "hero": {
+    "eyebrow": "Sistemas de Ingresos · Automatización · Escala",
+    "title": "Construimos Sistemas de Ingresos.",
+    "titleAccent": "No Solo Sitios Web.",
+    "subtitle": "Software a medida, automatización con IA y SEO — construidos como un motor de crecimiento unificado para marcas D2C, inmobiliarias, clínicas, institutos de coaching y PYMES.",
+    "primaryCta": "Solicita una Auditoría Gratuita",
+    "secondaryCta": "Mira Cómo Lo Hacemos",
+    "trustNote": "Sin compromiso. Sin venta. Solo diagnóstico."
+  },
+  "socialProof": {
+    "stats": [
+      { "value": "50+", "label": "Empresas escaladas" },
+      { "value": "₹40Cr+", "label": "Ingresos generados" },
+      { "value": "200%", "label": "ROI promedio en Año 1" },
+      { "value": "5", "label": "Industrias. Un socio." }
+    ],
+    "logosLabel": "La confianza de equipos ambiciosos en toda la India"
+  },
+  "problem": {
+    "eyebrow": "La Fuga de Ingresos",
+    "title": "Tu negocio está perdiendo ingresos ahora mismo.",
+    "subtitle": "Cada día que esperas, el costo se acumula. Esto es lo que silenciosamente está drenando tus resultados:",
+    "points": [
       {
-        "id": "basic",
-        "slug": "mitolyn",
-        "name": "MITOLYN Paquete Básico",
-        "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
-        "price": "$59",
-        "originalPrice": "₹70",
-        "discount": "16% de descuento",
-        "duration": "Suministro para 30 días",
-        "badge": null,
-        "url": "https://sanat-rewa.vercel.app/basic-package"
+        "stat": "7%",
+        "label": "Perdido por página lenta",
+        "detail": "Cada segundo extra de carga te cuesta el 7% de los visitantes antes de que vean tu oferta."
       },
       {
-        "id": "popular",
-        "slug": "mitolyn",
-        "name": "MITOLYN Paquete Popular",
-        "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
-        "price": "₹4,449",
-        "originalPrice": "₹5,999",
-        "discount": "25% de descuento",
-        "duration": "Suministro para 90 días",
-        "badge": {
-          "text": "Más Popular",
-          "color": "orange"
-        },
-        "url": "https://sanat-rewa.vercel.app/popular"
+        "stat": "70%",
+        "label": "De los leads se enfrían",
+        "detail": "Porque nadie hizo seguimiento. Sin automatización, sin CRM, sin segundo contacto — solo negocios perdidos."
       },
       {
-        "id": "best-value",
-        "slug": "mitolyn",
-        "name": "MITOLYN Mejor Valor Paquete",
-        "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
-        "price": "₹6,899",
-        "originalPrice": "₹7,999",
-        "discount": "14% de descuento",
-        "duration": "Suministro para 180 días",
-        "badge": {
-          "text": "Mejor Valor",
-          "color": "emerald"
-        },
-        "url": "https://sanat-rewa.vercel.app/best-value"
+        "stat": "100%",
+        "label": "Dependiente de anuncios",
+        "detail": "Tu competencia rankea en Google gratis. Tú pagas por cada clic — y un cambio de política te arruina."
+      },
+      {
+        "stat": "20+ hrs",
+        "label": "Desperdiciadas a la semana",
+        "detail": "Tu equipo está atascado en operaciones. Tú estás atascado dirigiendo a tu equipo. Nadie está construyendo."
       }
     ],
-    "sleep-stress": [
-      {
-        "id": "power-boost",
-        "slug": "mitolyn",
-        "name": "SLEEPMAX Power Boost",
-        "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-bottle_dj1mxc.webp",
-        "price": "₹1,899",
-        "originalPrice": "₹2,299",
-        "discount": "17% de descuento",
-        "duration": "Suministro para 30 días",
-        "badge": {
-          "text": "Energía Natural",
-          "color": "blue"
-        },
-        "url": "https://sanat-rewa.vercel.app/energy-boost"
-      },
-      {
-        "id": "endurance",
-        "slug": "mitolyn",
-        "name": "SLEEPMAX Paquete Endurance",
-        "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
-        "price": "₹5,499",
-        "originalPrice": "₹6,999",
-        "discount": "21% de descuento",
-        "duration": "Suministro para 90 días",
-        "badge": {
-          "text": "Duradero",
-          "color": "blue"
-        },
-        "url": "https://sanat-rewa.vercel.app/endurance-pack"
-      },
-      {
-        "id": "ultimate",
-        "slug": "mitolyn",
-        "name": "SLEEPMAX Paquete Ultimate",
-        "image": "https://res.cloudinary.com/ddywjrr08/image/upload/v1758422485/mitolyn-3-bottles_jtgdh8.png",
-        "price": "₹8,999",
-        "originalPrice": "₹11,999",
-        "discount": "25% de descuento",
-        "duration": "Suministro para 180 días",
-        "badge": {
-          "text": "Premium",
-          "color": "blue"
-        },
-        "url": "https://sanat-rewa.vercel.app/ultimate-bundle"
-      }
-    ],
-    "gut-health": [],
-    "wellness": [],
-    "bundles": []
+    "cta": "Arreglamos todo esto. Aquí cómo."
   },
-  "footer": {
-    "description": "SuppleLogic es una plataforma confiable dedicada a ofrecer reseñas honestas y basadas en investigación de suplementos. Te ayudamos a cortar el ruido del marketing analizando los ingredientes, los beneficios declarados, los posibles efectos secundarios y las experiencias reales de los usuarios — para que puedas tomar decisiones de compra más inteligentes y seguras. Ya sea que busques suplementos para bajar de peso, apoyo para el sueño, salud intestinal o cuidado bucal, SuppleLogic ofrece información clara y sin sesgos basada en lógica, no en exageraciones.",
-    "quickLinks": "Enlaces Rápidos",
-    "customerService": "Atención al Cliente",
-    "legal": "Legal",
-    "privacyPolicy": "Política de Privacidad",
-    "termsOfService": "Términos de Servicio",
-    "refundPolicy": "Política de Reembolsos",
-    "shipping": "Información de Envíos",
-    "allRightsReserved": "Todos los derechos reservados.",
-    "Disclosure": "This website may earn a small commission if you purchase through our links, at no additional cost to you."
+  "approach": {
+    "eyebrow": "Cómo Somos Diferentes",
+    "title": "Otras agencias hacen sitios web. Nosotros construimos sistemas de ingresos.",
+    "subtitle": "Cada solución que entregamos está atada a un resultado medible: más ingresos, menos costos u operaciones más rápidas. Trabajamos como una empresa de producto integrada en tu negocio — no como un proveedor al que persigues por actualizaciones.",
+    "comparison": [
+      { "typical": "Entrega un sitio web", "us": "Entrega un sistema de ingresos" },
+      { "typical": "Enfocado en estética de diseño", "us": "Enfocado en conversión y ROI" },
+      { "typical": "Desaparece tras el lanzamiento", "us": "Construye sistemas que se acumulan" },
+      { "typical": "Vende por tipo de servicio", "us": "Vende por resultado de negocio" },
+      { "typical": "Lleno de jerga técnica", "us": "Lenguaje de impacto en negocio" },
+      { "typical": "Paquetes únicos para todos", "us": "Soluciones específicas por industria" },
+      { "typical": "Reactivo — espera el brief", "us": "Estratégico — mapea problemas primero" },
+      { "typical": "Sin experiencia en automatización", "us": "IA + automatización en cada sistema" }
+    ]
+  },
+  "services": {
+    "eyebrow": "Cinco sistemas que hacen crecer tus ingresos",
+    "title": "No vendemos servicios. Resolvemos problemas.",
+    "subtitle": "Cada paquete está construido alrededor de un desafío de negocio específico — y medido por el resultado que entrega.",
+    "items": [
+      {
+        "id": "revsite-pro",
+        "number": "01",
+        "name": "RevSite Pro",
+        "kicker": "Sistema Web de Alta Conversión",
+        "summary": "Convierte tu tráfico en clientes. Mobile-first, optimizado en rendimiento, e ingenierizado para convertir desde el primer pixel.",
+        "for": "Marcas D2C, institutos de coaching, clínicas, inmobiliarias — cualquiera que pierda leads por una web débil.",
+        "deliverables": [
+          "Sitio web personalizado mobile-first (7–15 páginas)",
+          "Landing pages optimizadas para conversión",
+          "Captura de leads y widget de WhatsApp",
+          "SEO on-page (meta, schema, sitemap)",
+          "Integración con GA4 y Search Console",
+          "3 meses de soporte post-lanzamiento"
+        ],
+        "outcomes": [
+          "+1.5–3% en tasa de conversión",
+          "40–60% más velocidad de carga",
+          "Primeros rankings orgánicos en 60–90 días"
+        ],
+        "investment": "₹60K – ₹1.5L · pago único"
+      },
+      {
+        "id": "autosell-engine",
+        "number": "02",
+        "name": "AutoSell Engine",
+        "kicker": "Sistema de Automatización WhatsApp y CRM",
+        "summary": "Da seguimiento a cada lead, automáticamente. Recuperación de carrito, recordatorios de cita y secuencias que cierran ventas mientras duermes.",
+        "for": "E-commerce, inmobiliarias, clínicas, institutos de coaching ahogados en seguimientos manuales.",
+        "deliverables": [
+          "Configuración de WhatsApp Business API",
+          "5–8 secuencias de flujos automatizados",
+          "Integración con CRM (Zoho, HubSpot o personalizado)",
+          "Tracking y etiquetado de fuentes de leads",
+          "Campañas de email drip (3–5 secuencias)",
+          "Dashboard en vivo de aperturas, clics y conversiones"
+        ],
+        "outcomes": [
+          "+25–35% en conversión de leads",
+          "50–60% menos trabajo de seguimiento manual",
+          "20–30% de recuperación de carritos"
+        ],
+        "investment": "₹80K – ₹2L + ₹15K–30K/mes"
+      },
+      {
+        "id": "localdom-seo",
+        "number": "03",
+        "name": "LocalDom SEO",
+        "kicker": "Paquete de Dominio Local SEO",
+        "summary": "Domina la búsqueda local. Deja de pagar por cada visitante. Ingenierizamos rankings top-3 para las consultas exactas de tus compradores.",
+        "for": "Clínicas, institutos, oficinas inmobiliarias y cualquier negocio local.",
+        "deliverables": [
+          "Auditoría técnica completa de SEO",
+          "Estrategia de 10–15 palabras clave locales",
+          "Optimización de Google Business Profile",
+          "Landings por ciudad o zona",
+          "4 artículos SEO al mes",
+          "Construcción de citaciones en 30+ directorios",
+          "Reporte mensual de rankings y tráfico"
+        ],
+        "outcomes": [
+          "Top 3 para 5–10 palabras clave en 4–6 meses",
+          "+40–80% de tráfico orgánico",
+          "30–50% menos dependencia de anuncios"
+        ],
+        "investment": "₹30K – ₹60K/mes · mínimo 3 meses"
+      },
+      {
+        "id": "globalscale-suite",
+        "number": "04",
+        "name": "GlobalScale Suite",
+        "kicker": "Sistema Web Internacional Multi-Idioma",
+        "summary": "Vende globalmente. Localiza todo. Compradores NRI, checkout global, multi-moneda y detección de idioma que simplemente funciona.",
+        "for": "Marcas D2C apuntando a compradores globales, inmobiliarias con clientela internacional, EdTech escalando al exterior.",
+        "deliverables": [
+          "Sitio multi-idioma (3–5 idiomas)",
+          "Detección geográfica y cambio automático",
+          "Precios multi-moneda y pasarela internacional",
+          "Contenido y SEO para 2–3 mercados",
+          "Soporte WhatsApp y email en varios idiomas",
+          "Cumplimiento GDPR de cookies y datos"
+        ],
+        "outcomes": [
+          "Nuevo flujo de ingresos en 90 días",
+          "2–3x mayor ticket promedio internacional",
+          "Credibilidad ante audiencia global"
+        ],
+        "investment": "₹1.2L – ₹3L · pago único"
+      },
+      {
+        "id": "operate-os",
+        "number": "05",
+        "name": "OperateOS",
+        "kicker": "ERP a Medida y Automatización Empresarial",
+        "summary": "Gestiona tu negocio desde un solo dashboard. Inventario, pedidos, facturación, RRHH y finanzas — todo sincronizado, todo en tiempo real.",
+        "for": "PYMES en manufactura, distribución, retail o servicios con ₹5Cr+ de facturación y caos operativo.",
+        "deliverables": [
+          "ERP a medida (Inventario + Pedidos + Facturación + RRHH + CRM)",
+          "Portales auto-servicio para proveedores y clientes",
+          "Facturación GST automatizada",
+          "Acceso por roles y flujos de aprobación",
+          "Dashboard de KPIs en tiempo real",
+          "App móvil para equipo de campo",
+          "3 meses de soporte y capacitación"
+        ],
+        "outcomes": [
+          "80% menos entrada manual de datos",
+          "Visibilidad diaria de P&L",
+          "40% más velocidad de pedido a entrega"
+        ],
+        "investment": "₹3L – ₹15L · entrega por fases"
+      },
+      {
+        "id": "growthos-retainer",
+        "number": "06",
+        "name": "GrowthOS Retainer",
+        "kicker": "Socio de Crecimiento Full-Stack",
+        "summary": "Un equipo dedicado de tecnología y crecimiento embebido en tu negocio. Ejecución acumulativa, no proyectos sueltos.",
+        "for": "Negocios ambiciosos que quieren un socio — no solo un proveedor.",
+        "deliverables": [
+          "Project manager + tech lead dedicados",
+          "40 horas de desarrollo al mes",
+          "Contenido SEO mensual (4 artículos)",
+          "Revisión trimestral de estrategia",
+          "Mantenimiento y nuevos flujos de WhatsApp",
+          "SLA de respuesta prioritaria (4 horas)",
+          "Reporte mensual de analytics y crecimiento"
+        ],
+        "outcomes": [
+          "Crecimiento acumulativo cada mes",
+          "3–5x más rápido que múltiples proveedores",
+          "Propiedad total sin contratar in-house"
+        ],
+        "investment": "₹60K – ₹1.5L/mes · mínimo 6 meses"
+      }
+    ]
+  },
+  "industries": {
+    "eyebrow": "Industrias para las que construimos",
+    "title": "Cinco sectores. Un manual de crecimiento.",
+    "subtitle": "No fingimos conocer todos los negocios. Hemos profundizado en cinco — y hemos construido sistemas de ingresos repetibles para cada uno.",
+    "items": [
+      {
+        "id": "ecommerce",
+        "name": "E-commerce / D2C",
+        "tag": "Marcas directas al consumidor",
+        "description": "Moda, belleza, bienestar, electrónica. Marcas con ₹10L–₹2Cr GMV atrapadas en CAC creciente y compradores únicos.",
+        "painPoints": [
+          "Sitio convierte por debajo del 1%",
+          "Sin mecanismo de recompra",
+          "Abandono de carrito sobre el 70%",
+          "Dependencia total de Meta Ads"
+        ],
+        "outcome": "+1.5–3% conversión · 2x recompra · +40–60% tráfico orgánico"
+      },
+      {
+        "id": "real-estate",
+        "name": "Inmobiliaria",
+        "tag": "Desarrolladores, brokers, agencias",
+        "description": "Residencial, comercial, NRI. Equipos con 3–20 agentes ahogados en leads de baja calidad de portales.",
+        "painPoints": [
+          "₹500–2,000 costo por lead de portal",
+          "70% de leads mueren sin seguimiento",
+          "No pueden mostrar a compradores NRI",
+          "Sin visibilidad SEO local"
+        ],
+        "outcome": "3–5x más leads calificados · 40% menos CPL · 2x conversión a visitas"
+      },
+      {
+        "id": "edtech",
+        "name": "Coaching / EdTech",
+        "tag": "Institutos y educadores online",
+        "description": "JEE, UPSC, NEET y cursos de habilidades. Institutos con 200–5,000 estudiantes pasando a híbrido.",
+        "painPoints": [
+          "Admisiones manuales por teléfono",
+          "Sin pago en línea",
+          "Invisibles en Google",
+          "60–70% de consultas nunca convierten"
+        ],
+        "outcome": "3–4x más rápido inscripción · +40–60% conversión · 30% menos abandono"
+      },
+      {
+        "id": "healthcare",
+        "name": "Clínicas",
+        "tag": "Multi-especialidad y especialistas",
+        "description": "Dental, dermatología, ortopedia, fertilidad, multi-especialidad. 1–10 sedes con 10–200 pacientes diarios.",
+        "painPoints": [
+          "Recepción saturada de llamadas",
+          "20–30% tasa de no-show",
+          "Invisibles en Google Maps",
+          "Cero retención de pacientes"
+        ],
+        "outcome": "60% menos llamadas · 25% menos no-shows · +40–80% citas orgánicas"
+      },
+      {
+        "id": "sme-erp",
+        "name": "PYMES",
+        "tag": "Manufactura, distribución, retail",
+        "description": "PYMES de ₹5–100Cr corriendo en Excel y 5+ herramientas desconectadas. Crecen pero operativamente caóticos.",
+        "painPoints": [
+          "Desajustes de inventario",
+          "Sin visibilidad financiera en tiempo real",
+          "Facturación GST manual",
+          "Personal clave es punto único de falla"
+        ],
+        "outcome": "80% menos entrada manual · P&L diario · 3x más rápido pedido a entrega"
+      }
+    ]
+  },
+  "process": {
+    "eyebrow": "Cómo trabajamos",
+    "title": "Diagnosticar. Construir. Acumular.",
+    "subtitle": "Cada compromiso empieza con un descubrimiento pagado — para que veas todo el plan antes de que toquemos una línea de código.",
+    "steps": [
+      {
+        "number": "01",
+        "name": "Auditoría de Ingresos",
+        "duration": "Semana 1",
+        "description": "Mapeamos tu embudo actual de extremo a extremo. Identificamos dónde se fuga la facturación. Recibes un diagnóstico escrito."
+      },
+      {
+        "number": "02",
+        "name": "Plan a Medida",
+        "duration": "Semana 2",
+        "description": "Convertimos la auditoría en un descubrimiento pagado: alcance, entregables, cronograma, métricas de éxito."
+      },
+      {
+        "number": "03",
+        "name": "Construir y Lanzar",
+        "duration": "Semanas 3–10",
+        "description": "Construimos por fases con demos semanales. Ves progreso cada 7 días — sin ciclos de agencia caja-negra."
+      },
+      {
+        "number": "04",
+        "name": "Lanzar y Acumular",
+        "duration": "Semana 11+",
+        "description": "No desaparecemos en el lanzamiento. Afinamos conversión, lanzamos nuevos flujos y acumulamos resultados mes a mes."
+      }
+    ]
+  },
+  "caseStudies": {
+    "eyebrow": "Pruebas, no promesas",
+    "title": "Negocios reales. Números reales.",
+    "subtitle": "Cada caso de éxito se mide por una cosa: ¿subieron los ingresos?",
+    "items": [
+      {
+        "id": "d2c-skincare",
+        "industry": "D2C Skincare",
+        "location": "Bangalore",
+        "duration": "3 meses",
+        "title": "₹30L → ₹68L mensuales sin subir gasto en ads",
+        "summary": "Marca de skincare de 8 personas gastando ₹1.8L/mes en Meta con 0.6% de conversión. Reconstruimos la tienda, desplegamos flujos de WhatsApp y una base de SEO.",
+        "metrics": [
+          { "label": "Ingresos mensuales", "value": "₹30L → ₹68L", "delta": "+127%" },
+          { "label": "Tasa de conversión", "value": "0.6% → 2.1%", "delta": "+250%" },
+          { "label": "Recuperación carrito", "value": "0% → 28%", "delta": "nuevo" },
+          { "label": "Tráfico orgánico", "value": "+340%", "delta": "6 meses" },
+          { "label": "Costo adquisición", "value": "₹820 → ₹290", "delta": "-65%" }
+        ],
+        "quote": "Sanat Dynamo no solo nos hizo un sitio. Reconstruyeron cómo vendemos. Cumplimos la meta anual en 7 meses.",
+        "author": "Fundador, Marca D2C de Skincare"
+      },
+      {
+        "id": "real-estate-developer",
+        "industry": "Desarrolladora Inmobiliaria",
+        "location": "Pune",
+        "duration": "4 meses",
+        "title": "Costo por lead calificado bajó 60% en 90 días",
+        "summary": "Desarrolladora gastando lakhs en housing.com y 99acres por leads de baja intención. Construimos sitio con captura directa, nurturing automatizado y módulo de tour virtual para NRI.",
+        "metrics": [
+          { "label": "Costo por lead", "value": "₹1,800 → ₹720", "delta": "-60%" },
+          { "label": "Conversión a visita", "value": "12% → 24%", "delta": "+100%" },
+          { "label": "Leads inbound calificados", "value": "+312%", "delta": "3 meses" },
+          { "label": "Cierres NRI", "value": "0 → 6", "delta": "nuevo mercado" }
+        ],
+        "quote": "Dejamos de depender de portales. El sitio genera más leads calificados que 99acres a un tercio del costo.",
+        "author": "Director, Desarrolladora en Pune"
+      },
+      {
+        "id": "manufacturing-erp",
+        "industry": "PYME Manufactura",
+        "location": "Faridabad",
+        "duration": "5 meses",
+        "title": "De 5 hojas de Excel a un ERP. 80% menos entrada manual.",
+        "summary": "Negocio de manufactura ₹40Cr corriendo en Excel y conocimiento tribal. Construimos un ERP con inventario, pedidos, facturación GST y portal de proveedores.",
+        "metrics": [
+          { "label": "Entrada manual", "value": "-80%", "delta": "vs base" },
+          { "label": "Pedido a entrega", "value": "11 días → 4 días", "delta": "-64%" },
+          { "label": "Errores en factura", "value": "12% → 0.3%", "delta": "casi cero" },
+          { "label": "Visibilidad P&L", "value": "mensual → diario", "delta": "tiempo real" }
+        ],
+        "quote": "Por primera vez veo un dashboard a las 9am y sé exactamente dónde está el negocio. Eso lo cambió todo.",
+        "author": "MD, Fabricante de Componentes Auto"
+      }
+    ]
+  },
+  "testimonials": {
+    "eyebrow": "Lo que dicen los fundadores",
+    "title": "Nos medimos por tus ingresos.",
+    "items": [
+      {
+        "quote": "No vendieron servicios. Diagnosticaron el negocio y propusieron un plan de 90 días con números. Ahí supimos.",
+        "author": "Rohan M.",
+        "role": "Fundador, Marca D2C de Bienestar"
+      },
+      {
+        "quote": "A los 3 meses, recortamos ads 40% y crecimos ingresos 2.3x. El sistema se paga solo cada semana.",
+        "author": "Priya S.",
+        "role": "CEO, Instituto de Coaching Online"
+      },
+      {
+        "quote": "La mayoría de agencias desaparecen al lanzar. Sanat Dynamo lo trata como el día uno cada mes.",
+        "author": "Dr. Anil K.",
+        "role": "Director, Clínicas Dentales Multi-Sede"
+      },
+      {
+        "quote": "Reemplazamos cuatro proveedores con un socio. Más rápido, más barato, y nuestro equipo dejó de apagar fuegos.",
+        "author": "Vikram J.",
+        "role": "MD, PYME Manufactura"
+      }
+    ]
+  },
+  "faq": {
+    "eyebrow": "Preguntas frecuentes",
+    "title": "Lo que preguntan los fundadores antes de firmar.",
+    "items": [
+      {
+        "q": "¿En qué se diferencian de una agencia normal?",
+        "a": "La mayoría vende servicios. Nosotros vendemos resultados: más ingresos, menos costos, operaciones más rápidas. Cada proyecto se planifica con métricas de éxito antes de escribir código."
+      },
+      {
+        "q": "¿Cuál es el compromiso mínimo?",
+        "a": "Paquetes individuales desde ₹60K (RevSite Pro). Retainers desde ₹30K/mes. Lo más común es una construcción por fases que se paga sola en 60–90 días."
+      },
+      {
+        "q": "¿En cuánto tiempo veremos resultados?",
+        "a": "La conversión mejora en la semana 1 del lanzamiento. WhatsApp se paga en 2 semanas. SEO acumula en 4–6 meses. ERP entrega ROI visible en los primeros 30 días."
+      },
+      {
+        "q": "¿Trabajan fuera de India?",
+        "a": "Sí. Nuestra GlobalScale Suite está hecha para marcas vendiendo a NRIs y mercados globales. Hemos lanzado sistemas multi-idioma y multi-moneda en EE.UU., EAU y Asia."
+      },
+      {
+        "q": "¿Podemos empezar con un solo sistema?",
+        "a": "Por supuesto. El ROI más rápido suele venir de uno de tres: rebuild de sitio, automatización WhatsApp, o SEO local. Elegimos el que se paga más rápido para ti."
+      },
+      {
+        "q": "¿Cómo es el descubrimiento?",
+        "a": "Una sesión pagada de 3 horas. Mapeamos tu embudo, identificamos fugas y entregamos un plan escrito con alcance, cronograma y resultados proyectados."
+      }
+    ]
+  },
+  "cta": {
+    "eyebrow": "Cuando estés listo",
+    "title": "Deja de dejar dinero sobre la mesa.",
+    "subtitle": "Reserva una Auditoría de Ingresos gratuita de 30 minutos. Te mostraremos exactamente dónde se fuga tu negocio.",
+    "primary": "Reservar Auditoría",
+    "secondary": "Ver Nuestro Trabajo",
+    "trustNote": "Sin compromiso. Sin venta. Solo diagnóstico."
   },
   "about": {
-    "title": "Sobre SuppleLogic",
-    "lastUpdated": "Última actualización: 11 de enero de 2026",
-    "introduction": "SuppleLogic es una plataforma confiable dedicada a ofrecer reseñas honestas y basadas en investigación de suplementos. Te ayudamos a cortar el ruido del marketing analizando los ingredientes, los beneficios declarados, los posibles efectos secundarios y las experiencias reales de los usuarios — para que puedas tomar decisiones de compra más inteligentes y seguras. Ya sea que busques suplementos para bajar de peso, apoyo para el sueño, salud intestinal o cuidado bucal, SuppleLogic ofrece información clara y sin sesgos basada en lógica, no en exageraciones.",
-    "sections": [
+    "eyebrow": "Sobre Sanat Dynamo",
+    "title": "Somos un socio de sistemas enfocado en ingresos. No una agencia típica.",
+    "lead": "La mayoría de las agencias toman tu brief, construyen lo que pediste, y desaparecen. Nosotros empezamos diagnosticando el problema real — sea conversión, operaciones o visibilidad — y luego construimos el sistema exacto que lo resuelve.",
+    "body": [
+      "Hemos trabajado con 50+ negocios en e-commerce, inmobiliaria, salud, educación y manufactura. Cada compromiso se mide por un resultado: ¿crece tu facturación o bajan tus costos?",
+      "No somos los más baratos. Somos los más responsables.",
+      "Nuestro equipo es pequeño, senior y embebido. Trabajas con quienes construyen tu sistema, no con un account manager pasando mensajes."
+    ],
+    "values": [
       {
-        "title": "¿Por qué confiar en SuppleLogic?",
-        "content": "En SuppleLogic, la transparencia es lo primero. Nuestro objetivo es educar, no engañar. Podemos ganar una comisión cuando compras a través de nuestros enlaces, pero esto nunca influye en nuestras reseñas. Cada producto se evalúa utilizando los mismos estándares honestos.",
-        "items": [
-          "Análisis independiente de ingredientes",
-          "Enfoque basado en investigación científica",
-          "Pros y contras explicados claramente",
-          "Se consideran opiniones reales de usuarios",
-          "Sin afirmaciones falsas ni promesas milagrosas"
-        ]
+        "title": "Resultados sobre entregables",
+        "body": "Pixel-perfect no importa si no convierte. Cada decisión está atada a un número que importa."
       },
       {
-        "title": "Cómo evaluamos los suplementos",
-        "content": "Cada suplemento destacado en SuppleLogic pasa por un proceso de evaluación estructurado: Este enfoque lógico ayuda a los lectores a evitar productos de baja calidad o engañosos.",
-        "items": [
-          "Calidad de los ingredientes – ¿Son efectivos y seguros?",
-          "Evidencia científica – ¿Hay investigación real detrás de las afirmaciones?",
-          "Beneficios vs Promesas – ¿Los resultados coinciden con lo que anuncia el marketing?",
-          "Efectos secundarios y seguridad – ¿Quién debería evitarlo?",
-          "Relación calidad-precio – ¿El precio está justificado?"
-        ]
+        "title": "Embebidos, no externos",
+        "body": "Trabajamos como un equipo de producto dentro de tu negocio. Ves progreso semanal, no slides trimestrales."
       },
       {
-        "title": "Últimas reseñas de suplementos",
-        "content": "Publicamos regularmente reseñas detalladas de suplementos de tendencia y populares, incluyendo: 👉 Explora nuestras últimas reseñas para encontrar suplementos que realmente tengan sentido para tus objetivos de salud.",
-        "items": [
-          "Suplementos para pérdida de peso y metabolismo",
-          "Fórmulas para sueño y relajación",
-          "Probióticos para salud dental y bucal",
-          "Apoyo para salud intestinal y digestión",
-          "Productos de energía y bienestar general"
-        ]
+        "title": "Acumular, no rotar",
+        "body": "Cada mes debe ser mejor que el anterior. Construimos sistemas que se hacen más fuertes con el tiempo."
       },
       {
-        "title": "Categorías populares de suplementos",
-        "content": "Cada categoría está cuidadosamente seleccionada para ayudarte a comparar opciones fácilmente.",
-        "items": [
-          "Suplementos para Bajar de Peso – Quemagrasas, aceleradores del metabolismo y control del apetito",
-          "Apoyo para Sueño y Estrés – Fórmulas para sueño profundo y relajación",
-          "Salud Dental y Bucal – Probióticos para dientes y encías",
-          "Salud Intestinal – Enzimas digestivas y apoyo al microbioma",
-          "Bienestar General – Suplementos diarios para salud e inmunidad"
-        ]
-      },
-      {
-        "title": "Nuestra Misión",
-        "content": "Nuestra misión en SuppleLogic es simple: ofrecer reseñas honestas, lógicas y fáciles de entender que empoderen mejores decisiones para tu salud. Creemos que los suplementos deben apoyar tu salud — no confundirte ni engañarte."
-      },
-      {
-        "title": "Preguntas Frecuentes",
-        "items": [
-          "¿Las reseñas de SuppleLogic son imparciales? Sí. Todas las reseñas se escriben de forma independiente utilizando análisis de ingredientes, datos científicos y opiniones de usuarios. Las comisiones de afiliados no afectan nuestras evaluaciones.",
-          "¿Prueban ustedes los suplementos? No fabricamos ni vendemos suplementos. Nuestras reseñas se basan en investigación de ingredientes, estudios científicos, transparencia de las marcas y experiencias de usuarios disponibles públicamente.",
-          "¿Es SuppleLogic un sitio web médico? No. Solo proporcionamos contenido informativo. Siempre consulta a un profesional de la salud antes de comenzar a tomar cualquier suplemento."
-        ],
-        "content": "Descargo de responsabilidad: El contenido de SuppleLogic tiene fines informativos únicamente y no constituye consejo médico. Podemos ganar comisiones de afiliados en compras calificadas."
+        "title": "Matemáticas honestas",
+        "body": "Si un proyecto no se paga en 6 meses, te lo decimos. A veces la respuesta correcta es no construirlo."
       }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Hablemos",
+    "title": "Reserva tu Auditoría de Ingresos gratuita.",
+    "subtitle": "30 minutos. Sin venta. Solo diagnóstico. Te mostraremos exactamente dónde se fuga tu negocio — y qué tomaría arreglarlo.",
+    "form": {
+      "name": "Tu nombre",
+      "email": "Email de trabajo",
+      "company": "Empresa",
+      "industry": "Industria",
+      "industries": ["E-commerce / D2C", "Inmobiliaria", "Coaching / EdTech", "Salud", "PYME / Manufactura", "Otro"],
+      "challenge": "¿Cuál es el problema más grande que intentas resolver?",
+      "submit": "Solicitar Auditoría",
+      "submitting": "Enviando…"
+    },
+    "details": {
+      "emailLabel": "Email",
+      "email": "hello@sanatdynamo.com",
+      "phoneLabel": "WhatsApp",
+      "phone": "+91 00000 00000",
+      "hoursLabel": "Horario",
+      "hours": "Lun–Sáb · 10:00–19:00 IST",
+      "locationLabel": "Ubicación",
+      "location": "India · Servicio global"
+    }
+  },
+  "footer": {
+    "tagline": "No solo construimos software. Construimos motores de ingresos que trabajan mientras duermes.",
+    "columns": {
+      "services": {
+        "title": "Servicios",
+        "links": [
+          { "label": "RevSite Pro", "href": "/services#revsite-pro" },
+          { "label": "AutoSell Engine", "href": "/services#autosell-engine" },
+          { "label": "LocalDom SEO", "href": "/services#localdom-seo" },
+          { "label": "GlobalScale Suite", "href": "/services#globalscale-suite" },
+          { "label": "OperateOS", "href": "/services#operate-os" },
+          { "label": "GrowthOS Retainer", "href": "/services#growthos-retainer" }
+        ]
+      },
+      "industries": {
+        "title": "Industrias",
+        "links": [
+          { "label": "E-commerce / D2C", "href": "/industries#ecommerce" },
+          { "label": "Inmobiliaria", "href": "/industries#real-estate" },
+          { "label": "Coaching / EdTech", "href": "/industries#edtech" },
+          { "label": "Salud", "href": "/industries#healthcare" },
+          { "label": "PYMES", "href": "/industries#sme-erp" }
+        ]
+      },
+      "company": {
+        "title": "Empresa",
+        "links": [
+          { "label": "Nosotros", "href": "/about" },
+          { "label": "Casos de Éxito", "href": "/case-studies" },
+          { "label": "Contacto", "href": "/contact" },
+          { "label": "Privacidad", "href": "/privacy" },
+          { "label": "Términos", "href": "/terms" }
+        ]
+      }
+    },
+    "rights": "Todos los derechos reservados.",
+    "status": "Todos los sistemas operativos"
+  },
+  "pages": {
+    "home": {
+      "metaTitle": "Sanat Dynamo — Construimos Sistemas de Ingresos, No Solo Sitios Web",
+      "metaDescription": "Software a medida, automatización con IA y SEO — construidos como un motor de crecimiento unificado para marcas D2C, inmobiliarias, clínicas, institutos y PYMES. 50+ negocios escalados, ₹40Cr+ de ingresos generados.",
+      "metaKeywords": "sistemas de ingresos, desarrollo software a medida, automatización IA, automatización WhatsApp, agencia SEO, desarrollo ERP, agencia D2C, CRM inmobiliario, sistema de citas para clínicas, software para coaching, automatización PYME, India",
+      "ogTitle": "Sistemas de Ingresos · Automatización · Escala",
+      "ogDescription": "No solo construimos software. Construimos motores de ingresos que trabajan mientras duermes."
+    },
+    "about": {
+      "metaTitle": "Sobre Sanat Dynamo — Socio de Sistemas Enfocado en Ingresos",
+      "metaDescription": "Conoce al equipo senior detrás de Sanat Dynamo. Hemos trabajado con 50+ negocios en e-commerce, inmobiliaria, salud, educación y manufactura. Cada compromiso se mide por un resultado: ¿crecieron los ingresos?",
+      "metaKeywords": "agencia de ingresos, socio de crecimiento, equipo software a medida, agencia India, agencia responsable, equipo embebido, optimización de conversión, automatización de negocio"
+    },
+    "services": {
+      "metaTitle": "Servicios — 6 Sistemas de Ingresos Productizados",
+      "metaDescription": "RevSite Pro, AutoSell Engine, LocalDom SEO, GlobalScale Suite, OperateOS, GrowthOS Retainer — seis paquetes con alcance fijo que transforman tu negocio en un motor de ingresos. Inversión desde ₹30K/mes hasta ₹15L.",
+      "metaKeywords": "rebuild de sitio, automatización WhatsApp, SEO local, sitio multi-idioma, ERP a medida, retainer de crecimiento, servicios productizados, alcance fijo, agencia precio fijo, sitio optimizado para conversión",
+      "ogTitle": "Seis sistemas que hacen crecer tus ingresos."
+    },
+    "industries": {
+      "metaTitle": "Industrias — E-commerce, Inmobiliaria, EdTech, Salud, PYME",
+      "metaDescription": "Hemos profundizado en 5 sectores. Marcas D2C atrapadas en CAC creciente. Equipos inmobiliarios ahogados en leads de baja calidad. Institutos perdiendo estudiantes por admisiones manuales. Clínicas con 20% de no-show.",
+      "metaKeywords": "agencia D2C, marketing digital inmobiliario, software para institutos, sistema de gestión de clínicas, ERP PYME, conversión e-commerce, inmobiliaria NRI, inscripción online, citas para pacientes",
+      "ogTitle": "Cinco sectores. Un manual de crecimiento."
+    },
+    "caseStudies": {
+      "metaTitle": "Casos de Éxito — 127% Crecimiento, 65% Reducción CPA, ₹40Cr Impacto",
+      "metaDescription": "Negocios reales. Números reales. Una marca de skincare D2C que duplicó ingresos en 90 días. Una desarrolladora que cortó CPL 60%. Una PYME que reemplazó 5 hojas de Excel con un ERP.",
+      "metaKeywords": "casos de éxito, crecimiento ingresos D2C, caso CRM inmobiliario, caso ERP manufactura, caso optimización conversión, resultados WhatsApp, caso SEO India",
+      "ogTitle": "Negocios reales. Números reales."
+    },
+    "contact": {
+      "metaTitle": "Contacto — Reserva tu Auditoría de Ingresos Gratuita de 30 Min",
+      "metaDescription": "Reserva una Auditoría de Ingresos gratuita de 30 minutos. Te mostraremos exactamente dónde se fuga tu negocio — y qué tomaría arreglarlo. Sin compromiso. Sin venta. Solo diagnóstico.",
+      "metaKeywords": "auditoría gratis, consultoría crecimiento, contacto agencia, agencia India, sesión de estrategia, auditoría de conversión, auditoría de automatización",
+      "ogTitle": "Deja de dejar dinero sobre la mesa."
+    },
+    "privacy": {
+      "metaTitle": "Política de Privacidad — Sanat Dynamo",
+      "metaDescription": "Cómo Sanat Dynamo recopila, usa y protege tu información. No vendemos, alquilamos ni compartimos tus datos con terceros para marketing.",
+      "metaKeywords": "política de privacidad, protección de datos, GDPR, privacidad agencia"
+    },
+    "terms": {
+      "metaTitle": "Términos del Servicio — Sanat Dynamo",
+      "metaDescription": "Las reglas del juego cuando trabajas con Sanat Dynamo. Compromiso, pago, propiedad, confidencialidad, soporte, terminación, responsabilidad y ley aplicable.",
+      "metaKeywords": "términos del servicio, contrato de agencia, acuerdo de proyecto, ley India"
+    }
+  },
+  "featureGrid": {
+    "eyebrow": "Construido en cada sistema",
+    "title": "Ocho capacidades incluidas en el motor.",
+    "subtitle": "Empieces con el paquete que empieces, estas vienen incluidas. Sin upsells, sin sorpresas.",
+    "items": [
+      {
+        "icon": "zap",
+        "title": "Construcción de alto rendimiento",
+        "body": "Carga sub-segundo, Core Web Vitals en verde, optimización de imágenes automática — cada página pasa el test de PageSpeed de Google."
+      },
+      {
+        "icon": "search",
+        "title": "Base SEO técnica",
+        "body": "Schema markup, sitemap, robots, hreflang, canonical, HTML semántico — tu sitio es indexable desde el día uno."
+      },
+      {
+        "icon": "globe",
+        "title": "Listo para multi-idioma",
+        "body": "Cada sitio se construye i18n-first. Añade un nuevo mercado en días, no en meses. Cambio de moneda, geo-detección, soporte RTL."
+      },
+      {
+        "icon": "shield",
+        "title": "Seguridad y cumplimiento",
+        "body": "SSL, headers CSP, controles de cookies GDPR, envíos de formularios cifrados, accesos admin por roles."
+      },
+      {
+        "icon": "smartphone",
+        "title": "Mobile-first por diseño",
+        "body": "60% de tu tráfico está en un teléfono. Construimos para pulgares primero — touch targets, navegación gestual, flujos de una mano."
+      },
+      {
+        "icon": "database",
+        "title": "Analítica real, en tiempo real",
+        "body": "GA4 + Search Console + heatmaps + tracking de eventos. Ves qué funciona el día uno, no a fin de mes."
+      },
+      {
+        "icon": "git-branch",
+        "title": "CI/CD + control de versiones",
+        "body": "Cada cambio se revisa, prueba y despliega por pipeline. Sin ediciones improvisadas. Revierte cualquier deploy en 30 segundos."
+      },
+      {
+        "icon": "headphones",
+        "title": "Soporte humano real",
+        "body": "Slack directo con el ingeniero que construyó tu sistema. SLA de respuesta en 4 horas. No desaparecemos."
+      }
+    ]
+  },
+  "techStack": {
+    "eyebrow": "Sobre stacks que tu equipo ya conoce",
+    "title": "Moderno, aburrido, probado en batalla.",
+    "subtitle": "Elegimos tecnología que tu equipo puede contratar, tus inversores reconocen y tu yo del futuro no maldecirá.",
+    "items": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Node.js",
+      "PostgreSQL",
+      "Tailwind CSS",
+      "Prisma",
+      "Vercel",
+      "AWS",
+      "OpenAI",
+      "Stripe",
+      "Razorpay",
+      "WhatsApp Business API",
+      "HubSpot",
+      "Zoho",
+      "Google Analytics 4"
+    ]
+  },
+  "bigNumbers": {
+    "eyebrow": "Números, no narrativas",
+    "title": "La matemática detrás del titular.",
+    "subtitle": "Nos medimos como nuestros clientes — por lo que aparece en el banco.",
+    "items": [
+      { "value": "127%", "label": "Crecimiento promedio de ingresos", "detail": "Promediado en 50+ compromisos en los últimos 18 meses." },
+      { "value": "65%", "label": "Reducción promedio de CPA", "detail": "La mayoría de clientes ven el gasto en ads caer a la mitad en 90 días." },
+      { "value": "₹40Cr+", "label": "Ingresos de cliente impactados", "detail": "Trazado dólar por dólar contra la línea base." },
+      { "value": "90 días", "label": "Recuperación promedio", "detail": "La mayoría de compromisos se pagan solos en un trimestre." }
     ]
   }
 }

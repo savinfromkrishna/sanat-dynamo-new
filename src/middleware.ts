@@ -23,7 +23,7 @@ export const validCountryISOs = [
   "ws", "ye", "yt", "za", "zm", "zw",
 ];
 
-export const validLocales = ["en", "es"];
+export const validLocales = ["en", "es", "fr", "de", "ar", "hi", "zh"];
 
 // Default values
 const defaultCountry = "in";
@@ -124,6 +124,17 @@ export async function middleware(req: NextRequest) {
     const res = NextResponse.next();
     res.headers.set("x-next-url-path", pathname);
     res.headers.set("x-next-url-query", req.nextUrl.search);
+    // Forward Vercel geo headers so server components can read them via next/headers
+    const city = req.headers.get("x-vercel-ip-city");
+    const region = req.headers.get("x-vercel-ip-country-region");
+    const country = req.headers.get("x-vercel-ip-country");
+    const latitude = req.headers.get("x-vercel-ip-latitude");
+    const longitude = req.headers.get("x-vercel-ip-longitude");
+    if (city) res.headers.set("x-geo-city", decodeURIComponent(city));
+    if (region) res.headers.set("x-geo-region", region);
+    if (country) res.headers.set("x-geo-country", country);
+    if (latitude) res.headers.set("x-geo-latitude", latitude);
+    if (longitude) res.headers.set("x-geo-longitude", longitude);
     return res;
   }
 

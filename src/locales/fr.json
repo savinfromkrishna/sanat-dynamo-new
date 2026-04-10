@@ -1,0 +1,668 @@
+{
+  "brand": {
+    "name": "Sanat Dynamo",
+    "tagline": "Systèmes. Automatisation. Échelle.",
+    "oneLiner": "Nous construisons des systèmes de revenus qui aident les entreprises à vendre plus, opérer plus efficacement et croître plus vite — grâce au logiciel sur mesure, à l'automatisation IA et au SEO.",
+    "promise": "Nous ne construisons pas que des logiciels. Nous construisons des moteurs de revenus qui travaillent pendant que vous dormez."
+  },
+  "seo": {
+    "title": "Sanat Dynamo — Nous Construisons des Systèmes de Revenus, Pas de Simples Sites Web",
+    "description": "Sanat Dynamo est un partenaire de systèmes et d'automatisation axé sur les revenus. Nous aidons les marques D2C, l'immobilier, les cliniques, les instituts de coaching et les PME à augmenter leurs ventes, automatiser leurs opérations et croître efficacement.",
+    "keywords": "agence, logiciel sur mesure, automatisation IA, SEO, automatisation WhatsApp, ERP, D2C, immobilier, clinique, coaching, PME, Inde"
+  },
+  "nav": {
+    "home": "Accueil",
+    "services": "Services",
+    "industries": "Industries",
+    "work": "Études de Cas",
+    "about": "À Propos",
+    "contact": "Contact",
+    "cta": "Réserver un Audit"
+  },
+  "hero": {
+    "eyebrow": "Systèmes de Revenus · Automatisation · Échelle",
+    "title": "Nous Construisons des Systèmes de Revenus.",
+    "titleAccent": "Pas de Simples Sites Web.",
+    "subtitle": "Logiciel sur mesure, automatisation IA et SEO — construits comme un moteur de croissance unifié pour les marques D2C, l'immobilier, les cliniques, les instituts de coaching et les PME.",
+    "primaryCta": "Réservez un Audit Gratuit",
+    "secondaryCta": "Voyez Comment Nous Faisons",
+    "trustNote": "Sans engagement. Sans pitch. Juste un diagnostic."
+  },
+  "socialProof": {
+    "stats": [
+      { "value": "50+", "label": "Entreprises accompagnées" },
+      { "value": "₹40Cr+", "label": "Revenus clients générés" },
+      { "value": "200%", "label": "ROI moyen en Année 1" },
+      { "value": "5", "label": "Industries. Un partenaire." }
+    ],
+    "logosLabel": "La confiance d'équipes ambitieuses partout en Inde"
+  },
+  "problem": {
+    "eyebrow": "La Fuite de Revenus",
+    "title": "Votre entreprise perd des revenus en ce moment même.",
+    "subtitle": "Chaque jour d'attente, le coût s'accumule. Voici ce qui draine silencieusement vos résultats :",
+    "points": [
+      {
+        "stat": "7%",
+        "label": "Perdu par page lente",
+        "detail": "Chaque seconde supplémentaire de chargement vous coûte 7% de visiteurs avant qu'ils ne voient votre offre."
+      },
+      {
+        "stat": "70%",
+        "label": "Des leads se refroidissent",
+        "detail": "Parce que personne n'a fait de suivi. Pas d'automatisation, pas de CRM, pas de second contact — juste des deals perdus."
+      },
+      {
+        "stat": "100%",
+        "label": "Dépendance aux pubs",
+        "detail": "Vos concurrents apparaissent gratuitement sur Google. Vous payez pour chaque clic — et un changement de politique vous tue."
+      },
+      {
+        "stat": "20+ h",
+        "label": "Gaspillées chaque semaine",
+        "detail": "Votre équipe est coincée dans les opérations. Vous êtes coincé à gérer votre équipe. Personne ne construit."
+      }
+    ],
+    "cta": "Nous corrigeons tout ça. Voici comment."
+  },
+  "approach": {
+    "eyebrow": "En Quoi Nous Sommes Différents",
+    "title": "Les autres agences font des sites. Nous construisons des systèmes de revenus.",
+    "subtitle": "Chaque solution livrée est liée à un résultat mesurable : plus de revenus, moins de coûts, ou des opérations plus rapides. Nous travaillons comme une entreprise produit intégrée à votre entreprise — pas comme un fournisseur que vous courez après.",
+    "comparison": [
+      { "typical": "Livre un site web", "us": "Livre un système de revenus" },
+      { "typical": "Focalisé sur l'esthétique", "us": "Focalisé sur la conversion et le ROI" },
+      { "typical": "Disparaît après le lancement", "us": "Construit des systèmes qui s'accumulent" },
+      { "typical": "Vend par type de service", "us": "Vend par résultat business" },
+      { "typical": "Plein de jargon technique", "us": "Langage d'impact business" },
+      { "typical": "Forfaits universels", "us": "Solutions spécifiques à l'industrie" },
+      { "typical": "Réactif — attend le brief", "us": "Stratégique — cartographie les problèmes" },
+      { "typical": "Aucune expertise en automatisation", "us": "IA + automatisation dans chaque système" }
+    ]
+  },
+  "services": {
+    "eyebrow": "Cinq systèmes qui font croître vos revenus",
+    "title": "Nous ne vendons pas de services. Nous résolvons des problèmes.",
+    "subtitle": "Chaque package est construit autour d'un défi business spécifique — et mesuré par le résultat qu'il livre.",
+    "items": [
+      {
+        "id": "revsite-pro",
+        "number": "01",
+        "name": "RevSite Pro",
+        "kicker": "Système de Site Web à Haute Conversion",
+        "summary": "Transformez votre trafic en clients. Mobile-first, optimisé en performance, et conçu pour convertir dès le premier pixel.",
+        "for": "Marques D2C, instituts de coaching, cliniques, immobilier — quiconque perd des leads à cause d'un site faible.",
+        "deliverables": [
+          "Site personnalisé mobile-first (7–15 pages)",
+          "Landing pages optimisées pour la conversion",
+          "Capture de leads et widget WhatsApp",
+          "SEO on-page (meta, schema, sitemap)",
+          "Intégration GA4 et Search Console",
+          "3 mois de support post-lancement"
+        ],
+        "outcomes": [
+          "+1.5–3% de taux de conversion",
+          "40–60% d'amélioration de vitesse",
+          "Premiers classements organiques en 60–90 jours"
+        ],
+        "investment": "₹60K – ₹1.5L · paiement unique"
+      },
+      {
+        "id": "autosell-engine",
+        "number": "02",
+        "name": "AutoSell Engine",
+        "kicker": "Système d'Automatisation WhatsApp & CRM",
+        "summary": "Faites le suivi de chaque lead, automatiquement. Récupération de panier, rappels de rendez-vous et séquences qui closent pendant que vous dormez.",
+        "for": "E-commerce, immobilier, cliniques, coaching submergés par les suivis manuels.",
+        "deliverables": [
+          "Configuration WhatsApp Business API",
+          "5–8 séquences de flux automatisés",
+          "Intégration CRM (Zoho, HubSpot ou sur mesure)",
+          "Tracking et étiquetage des sources",
+          "Campagnes drip email (3–5 séquences)",
+          "Dashboard live des taux d'ouverture et conversions"
+        ],
+        "outcomes": [
+          "+25–35% de conversion lead",
+          "50–60% moins de suivi manuel",
+          "20–30% de récupération de panier"
+        ],
+        "investment": "₹80K – ₹2L + ₹15K–30K/mois"
+      },
+      {
+        "id": "localdom-seo",
+        "number": "03",
+        "name": "LocalDom SEO",
+        "kicker": "Pack de Domination SEO Local",
+        "summary": "Dominez la recherche locale. Arrêtez de payer pour chaque visiteur. Nous concevons des classements top-3 pour les requêtes exactes de vos acheteurs.",
+        "for": "Cliniques, instituts, agences immobilières et tout business local.",
+        "deliverables": [
+          "Audit technique SEO complet",
+          "Stratégie de 10–15 mots-clés locaux",
+          "Optimisation Google Business Profile",
+          "Landing pages par ville/quartier",
+          "4 articles SEO par mois",
+          "Citations dans 30+ annuaires",
+          "Rapport mensuel de classements"
+        ],
+        "outcomes": [
+          "Top 3 pour 5–10 mots-clés en 4–6 mois",
+          "+40–80% de trafic organique",
+          "30–50% moins de dépendance pub"
+        ],
+        "investment": "₹30K – ₹60K/mois · 3 mois min"
+      },
+      {
+        "id": "globalscale-suite",
+        "number": "04",
+        "name": "GlobalScale Suite",
+        "kicker": "Système Web International Multilingue",
+        "summary": "Vendez à l'international. Localisez tout. Acheteurs NRI, checkout global, multi-devises et détection de langue qui marche.",
+        "for": "Marques D2C visant les acheteurs globaux, immobilier avec clientèle internationale, EdTech à l'export.",
+        "deliverables": [
+          "Site multilingue (3–5 langues)",
+          "Géo-détection et bascule auto",
+          "Multi-devises et passerelle internationale",
+          "Contenu et SEO pour 2–3 marchés",
+          "Support WhatsApp et email multilingue",
+          "Conformité RGPD cookies et données"
+        ],
+        "outcomes": [
+          "Nouveau flux de revenus en 90 jours",
+          "2–3x panier moyen international",
+          "Crédibilité auprès d'audience globale"
+        ],
+        "investment": "₹1.2L – ₹3L · paiement unique"
+      },
+      {
+        "id": "operate-os",
+        "number": "05",
+        "name": "OperateOS",
+        "kicker": "ERP sur Mesure & Automatisation Métier",
+        "summary": "Gérez votre business depuis un seul tableau de bord. Stock, commandes, facturation, RH et finance — synchronisés en temps réel.",
+        "for": "PME en industrie, distribution, retail ou services avec ₹5Cr+ de CA et chaos opérationnel.",
+        "deliverables": [
+          "ERP sur mesure (Stock + Commandes + Facturation + RH + CRM)",
+          "Portails self-service fournisseurs et clients",
+          "Facturation GST automatisée",
+          "Accès par rôles et workflows d'approbation",
+          "Dashboard KPI temps réel",
+          "App mobile pour équipe terrain",
+          "3 mois de support et formation"
+        ],
+        "outcomes": [
+          "80% moins de saisie manuelle",
+          "Visibilité quotidienne du P&L",
+          "40% plus rapide commande à livraison"
+        ],
+        "investment": "₹3L – ₹15L · livraison par phases"
+      },
+      {
+        "id": "growthos-retainer",
+        "number": "06",
+        "name": "GrowthOS Retainer",
+        "kicker": "Partenaire de Croissance Full-Stack",
+        "summary": "Une équipe dédiée tech et croissance intégrée à votre business. Exécution cumulative, pas des projets ponctuels.",
+        "for": "Entreprises ambitieuses qui veulent un partenaire — pas juste un fournisseur.",
+        "deliverables": [
+          "Project manager + tech lead dédiés",
+          "40h de développement par mois",
+          "Contenu SEO mensuel (4 articles)",
+          "Revue trimestrielle de stratégie",
+          "Maintenance et nouveaux flux WhatsApp",
+          "SLA de réponse prioritaire (4h)",
+          "Rapport mensuel d'analytics et croissance"
+        ],
+        "outcomes": [
+          "Croissance cumulative chaque mois",
+          "3–5x plus rapide que multiples vendeurs",
+          "Propriété tech sans embauche"
+        ],
+        "investment": "₹60K – ₹1.5L/mois · 6 mois min"
+      }
+    ]
+  },
+  "industries": {
+    "eyebrow": "Industries pour lesquelles nous construisons",
+    "title": "Cinq secteurs. Un manuel de croissance.",
+    "subtitle": "Nous ne prétendons pas connaître toutes les industries. Nous nous sommes spécialisés dans cinq — et avons construit des systèmes de revenus reproductibles pour chacune.",
+    "items": [
+      {
+        "id": "ecommerce",
+        "name": "E-commerce / D2C",
+        "tag": "Marques direct-to-consumer",
+        "description": "Mode, beauté, bien-être, électronique. Marques avec ₹10L–₹2Cr GMV coincées sur un CAC qui monte et des acheteurs uniques.",
+        "painPoints": [
+          "Site convertit sous 1%",
+          "Pas de mécanisme de réachat",
+          "Abandon de panier au-dessus de 70%",
+          "Dépendance totale à Meta Ads"
+        ],
+        "outcome": "+1.5–3% conversion · 2x réachat · +40–60% trafic organique"
+      },
+      {
+        "id": "real-estate",
+        "name": "Immobilier",
+        "tag": "Promoteurs, courtiers, agences",
+        "description": "Résidentiel, commercial, NRI. Équipes de 3–20 agents submergées par des leads de mauvaise qualité venant de portails.",
+        "painPoints": [
+          "₹500–2,000 coût par lead de portail",
+          "70% des leads meurent sans suivi",
+          "Pas de présentation aux acheteurs NRI",
+          "Aucune visibilité SEO local"
+        ],
+        "outcome": "3–5x plus de leads qualifiés · 40% moins de CPL · 2x conversion en visite"
+      },
+      {
+        "id": "edtech",
+        "name": "Coaching / EdTech",
+        "tag": "Instituts et éducateurs en ligne",
+        "description": "Préparation JEE, UPSC, NEET et formations. Instituts de 200–5,000 élèves passant à l'hybride.",
+        "painPoints": [
+          "Admissions manuelles par téléphone",
+          "Pas de paiement en ligne",
+          "Invisibles sur Google",
+          "60–70% des demandes ne convertissent jamais"
+        ],
+        "outcome": "3–4x cycle d'inscription plus rapide · +40–60% conversion · 30% moins d'abandon"
+      },
+      {
+        "id": "healthcare",
+        "name": "Cliniques",
+        "tag": "Multi-spécialités et spécialistes",
+        "description": "Dentaire, dermatologie, orthopédie, fertilité, multi-spécialités. 1–10 sites avec 10–200 patients par jour.",
+        "painPoints": [
+          "Réception saturée d'appels",
+          "20–30% de taux de no-show",
+          "Invisibles sur Google Maps",
+          "Aucun système de rétention patient"
+        ],
+        "outcome": "60% moins d'appels · 25% moins de no-shows · +40–80% rendez-vous organiques"
+      },
+      {
+        "id": "sme-erp",
+        "name": "PME",
+        "tag": "Industrie, distribution, retail",
+        "description": "PME de ₹5–100Cr tournant sur Excel et 5+ outils déconnectés. En croissance mais opérationnellement chaotiques.",
+        "painPoints": [
+          "Écarts d'inventaire",
+          "Aucune visibilité financière temps réel",
+          "Facturation GST manuelle",
+          "Personnel clé est un point unique de défaillance"
+        ],
+        "outcome": "80% moins de saisie · P&L quotidien · 3x plus rapide commande à livraison"
+      }
+    ]
+  },
+  "process": {
+    "eyebrow": "Comment nous travaillons",
+    "title": "Diagnostiquer. Construire. Cumuler.",
+    "subtitle": "Chaque engagement commence par une découverte payante — pour que vous voyiez tout le plan avant qu'on touche une ligne de code.",
+    "steps": [
+      {
+        "number": "01",
+        "name": "Audit de Revenus",
+        "duration": "Semaine 1",
+        "description": "Nous cartographions votre tunnel actuel de bout en bout. Nous identifions où les revenus fuient. Vous obtenez un diagnostic écrit."
+      },
+      {
+        "number": "02",
+        "name": "Plan Sur Mesure",
+        "duration": "Semaine 2",
+        "description": "Nous transformons l'audit en découverte payante : périmètre, livrables, planning, métriques de succès. Vous voyez tout avant d'engager."
+      },
+      {
+        "number": "03",
+        "name": "Construire & Lancer",
+        "duration": "Semaines 3–10",
+        "description": "Nous construisons par phases avec des démos hebdomadaires. Vous voyez le progrès tous les 7 jours — pas de cycles boîte-noire."
+      },
+      {
+        "number": "04",
+        "name": "Lancer & Cumuler",
+        "duration": "Semaine 11+",
+        "description": "Nous ne disparaissons pas au lancement. Nous affinons la conversion, livrons de nouveaux flux et cumulons les résultats mois après mois."
+      }
+    ]
+  },
+  "caseStudies": {
+    "eyebrow": "Preuves, pas promesses",
+    "title": "Vraies entreprises. Vrais chiffres.",
+    "subtitle": "Chaque étude de cas est mesurée par une chose : les revenus ont-ils monté ?",
+    "items": [
+      {
+        "id": "d2c-skincare",
+        "industry": "D2C Skincare",
+        "location": "Bangalore",
+        "duration": "3 mois",
+        "title": "₹30L → ₹68L mensuels sans augmenter le budget pub",
+        "summary": "Marque skincare de 8 personnes dépensant ₹1.8L/mois sur Meta avec 0.6% de conversion. Nous avons reconstruit la boutique, déployé des flux WhatsApp et une base SEO.",
+        "metrics": [
+          { "label": "Revenu mensuel", "value": "₹30L → ₹68L", "delta": "+127%" },
+          { "label": "Taux de conversion", "value": "0.6% → 2.1%", "delta": "+250%" },
+          { "label": "Récupération panier", "value": "0% → 28%", "delta": "nouveau" },
+          { "label": "Trafic organique", "value": "+340%", "delta": "6 mois" },
+          { "label": "Coût d'acquisition", "value": "₹820 → ₹290", "delta": "-65%" }
+        ],
+        "quote": "Sanat Dynamo n'a pas juste fait un site. Ils ont reconstruit notre façon de vendre. Objectif annuel atteint en 7 mois.",
+        "author": "Fondateur, Marque D2C Skincare"
+      },
+      {
+        "id": "real-estate-developer",
+        "industry": "Promoteur Immobilier",
+        "location": "Pune",
+        "duration": "4 mois",
+        "title": "Coût par lead qualifié réduit de 60% en 90 jours",
+        "summary": "Promoteur dépensant des lakhs sur housing.com et 99acres pour des leads de basse intention. Nous avons construit un site de capture directe, du nurturing automatisé et un module de visite virtuelle pour NRI.",
+        "metrics": [
+          { "label": "Coût par lead", "value": "₹1,800 → ₹720", "delta": "-60%" },
+          { "label": "Conversion en visite", "value": "12% → 24%", "delta": "+100%" },
+          { "label": "Leads inbound qualifiés", "value": "+312%", "delta": "3 mois" },
+          { "label": "Closures NRI", "value": "0 → 6", "delta": "nouveau marché" }
+        ],
+        "quote": "Nous avons arrêté de dépendre des portails. Le site génère plus de leads qualifiés que 99acres pour un tiers du coût.",
+        "author": "Directeur, Promoteur Immobilier Pune"
+      },
+      {
+        "id": "manufacturing-erp",
+        "industry": "PME Industrie",
+        "location": "Faridabad",
+        "duration": "5 mois",
+        "title": "De 5 feuilles Excel à un ERP. 80% moins de saisie manuelle.",
+        "summary": "Business industriel ₹40Cr tournant sur Excel et savoir tribal. Nous avons construit un ERP avec stock, commandes, facturation GST et portail fournisseurs.",
+        "metrics": [
+          { "label": "Saisie manuelle", "value": "-80%", "delta": "vs base" },
+          { "label": "Commande à livraison", "value": "11 jours → 4 jours", "delta": "-64%" },
+          { "label": "Erreurs facture", "value": "12% → 0.3%", "delta": "quasi nul" },
+          { "label": "Visibilité P&L", "value": "mensuel → quotidien", "delta": "temps réel" }
+        ],
+        "quote": "Pour la première fois je regarde un dashboard à 9h et je sais exactement où en est l'entreprise. Ça a tout changé.",
+        "author": "MD, Fabricant de Composants Auto"
+      }
+    ]
+  },
+  "testimonials": {
+    "eyebrow": "Ce que disent les fondateurs",
+    "title": "Nous nous mesurons à vos revenus.",
+    "items": [
+      {
+        "quote": "Ils n'ont pas pitché des services. Ils ont diagnostiqué notre business et proposé un plan 90 jours avec des chiffres. À ce moment-là on a su.",
+        "author": "Rohan M.",
+        "role": "Fondateur, Marque D2C Bien-être"
+      },
+      {
+        "quote": "Trois mois plus tard, on a coupé les ads de 40% et fait croître les revenus 2.3x. Le système se paie tout seul chaque semaine.",
+        "author": "Priya S.",
+        "role": "CEO, Institut de Coaching En Ligne"
+      },
+      {
+        "quote": "La plupart des agences disparaissent au lancement. Sanat Dynamo le traite comme le jour un. Chaque mois est meilleur.",
+        "author": "Dr. Anil K.",
+        "role": "Directeur, Cliniques Dentaires Multi-Sites"
+      },
+      {
+        "quote": "Nous avons remplacé quatre prestataires par un partenaire. Plus rapide, moins cher, et notre équipe a arrêté d'éteindre des feux.",
+        "author": "Vikram J.",
+        "role": "MD, PME Industrielle"
+      }
+    ]
+  },
+  "faq": {
+    "eyebrow": "Questions fréquentes",
+    "title": "Ce que les fondateurs demandent avant de signer.",
+    "items": [
+      {
+        "q": "En quoi êtes-vous différents d'une agence normale ?",
+        "a": "La plupart vendent des services. Nous vendons des résultats : plus de revenus, moins de coûts, opérations plus rapides. Chaque projet est cadré avec des métriques de succès avant qu'on écrive une ligne de code."
+      },
+      {
+        "q": "Quel est l'engagement minimum ?",
+        "a": "Les packages individuels commencent à ₹60K (RevSite Pro). Les retainers à ₹30K/mois. Le plus courant est une construction par phases qui se rentabilise en 60–90 jours."
+      },
+      {
+        "q": "En combien de temps voit-on les résultats ?",
+        "a": "Les améliorations de conversion arrivent en semaine 1 du go-live. WhatsApp se rentabilise en semaine 2. Le SEO cumule en 4–6 mois. L'ERP livre du ROI visible dans les 30 premiers jours."
+      },
+      {
+        "q": "Travaillez-vous hors de l'Inde ?",
+        "a": "Oui. Notre GlobalScale Suite est construite spécifiquement pour les marques vendant aux NRIs et marchés globaux. Nous avons livré des systèmes multilingues et multi-devises pour des clients aux US, EAU et Asie du Sud-Est."
+      },
+      {
+        "q": "Peut-on commencer par un seul système ?",
+        "a": "Absolument. Le ROI le plus rapide vient généralement de l'un de trois : refonte de site, automatisation WhatsApp, ou SEO local. Nous choisissons celui qui se rentabilise le plus vite pour vous."
+      },
+      {
+        "q": "À quoi ressemble la découverte ?",
+        "a": "Une session payante de 3 heures. Nous cartographions votre tunnel, identifions les fuites, et livrons un plan écrit avec périmètre, planning et résultats projetés."
+      }
+    ]
+  },
+  "cta": {
+    "eyebrow": "Quand vous êtes prêt",
+    "title": "Arrêtez de laisser de l'argent sur la table.",
+    "subtitle": "Réservez un Audit de Revenus gratuit de 30 minutes. Nous vous montrerons exactement où votre entreprise fuit — et ce qu'il faudrait pour la réparer.",
+    "primary": "Réserver Mon Audit",
+    "secondary": "Voir Notre Travail",
+    "trustNote": "Sans engagement. Sans pitch. Juste un diagnostic."
+  },
+  "about": {
+    "eyebrow": "À propos de Sanat Dynamo",
+    "title": "Nous sommes un partenaire systèmes axé revenus. Pas une agence classique.",
+    "lead": "La plupart des agences prennent votre brief, construisent ce que vous avez demandé, et disparaissent. Nous commençons par diagnostiquer le vrai problème — conversion, opérations ou visibilité — puis nous construisons le système exact qui le résout.",
+    "body": [
+      "Nous avons travaillé avec 50+ entreprises en e-commerce, immobilier, santé, éducation et industrie. Chaque engagement est mesuré par un résultat : vos revenus ont-ils crû ou vos coûts baissé ?",
+      "Nous ne sommes pas les moins chers. Nous sommes les plus responsables.",
+      "Notre équipe est petite, senior et intégrée. Vous travaillez avec ceux qui construisent votre système, pas un account manager qui transmet des messages."
+    ],
+    "values": [
+      {
+        "title": "Résultats avant livrables",
+        "body": "Le pixel-perfect ne compte pas s'il ne convertit pas. Chaque décision est liée à un chiffre qui vous tient à cœur."
+      },
+      {
+        "title": "Intégrés, pas externes",
+        "body": "Nous travaillons comme une équipe produit dans votre entreprise. Vous voyez du progrès chaque semaine, pas des slides trimestriels."
+      },
+      {
+        "title": "Cumuler, pas tourner",
+        "body": "Chaque mois doit être meilleur que le précédent. Nous construisons des systèmes qui se renforcent avec le temps."
+      },
+      {
+        "title": "Mathématiques honnêtes",
+        "body": "Si un projet ne se rentabilise pas en 6 mois, on vous le dit. Parfois la bonne réponse est : ne le construisez pas."
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Parlons",
+    "title": "Réservez votre Audit de Revenus gratuit.",
+    "subtitle": "30 minutes. Sans pitch. Juste un diagnostic. Nous vous montrerons exactement où votre entreprise fuit — et ce qu'il faudrait pour la réparer.",
+    "form": {
+      "name": "Votre nom",
+      "email": "Email professionnel",
+      "company": "Entreprise",
+      "industry": "Industrie",
+      "industries": ["E-commerce / D2C", "Immobilier", "Coaching / EdTech", "Santé", "PME / Industrie", "Autre"],
+      "challenge": "Quel est le plus gros problème que vous essayez de résoudre ?",
+      "submit": "Demander l'Audit",
+      "submitting": "Envoi…"
+    },
+    "details": {
+      "emailLabel": "Email",
+      "email": "hello@sanatdynamo.com",
+      "phoneLabel": "WhatsApp",
+      "phone": "+91 00000 00000",
+      "hoursLabel": "Horaires",
+      "hours": "Lun–Sam · 10:00–19:00 IST",
+      "locationLabel": "Basés à",
+      "location": "Inde · Service global"
+    }
+  },
+  "footer": {
+    "tagline": "Nous ne construisons pas que des logiciels. Nous construisons des moteurs de revenus qui travaillent pendant que vous dormez.",
+    "columns": {
+      "services": {
+        "title": "Services",
+        "links": [
+          { "label": "RevSite Pro", "href": "/services#revsite-pro" },
+          { "label": "AutoSell Engine", "href": "/services#autosell-engine" },
+          { "label": "LocalDom SEO", "href": "/services#localdom-seo" },
+          { "label": "GlobalScale Suite", "href": "/services#globalscale-suite" },
+          { "label": "OperateOS", "href": "/services#operate-os" },
+          { "label": "GrowthOS Retainer", "href": "/services#growthos-retainer" }
+        ]
+      },
+      "industries": {
+        "title": "Industries",
+        "links": [
+          { "label": "E-commerce / D2C", "href": "/industries#ecommerce" },
+          { "label": "Immobilier", "href": "/industries#real-estate" },
+          { "label": "Coaching / EdTech", "href": "/industries#edtech" },
+          { "label": "Santé", "href": "/industries#healthcare" },
+          { "label": "PME", "href": "/industries#sme-erp" }
+        ]
+      },
+      "company": {
+        "title": "Entreprise",
+        "links": [
+          { "label": "À Propos", "href": "/about" },
+          { "label": "Études de Cas", "href": "/case-studies" },
+          { "label": "Contact", "href": "/contact" },
+          { "label": "Confidentialité", "href": "/privacy" },
+          { "label": "Conditions", "href": "/terms" }
+        ]
+      }
+    },
+    "rights": "Tous droits réservés.",
+    "status": "Tous les systèmes opérationnels"
+  },
+  "pages": {
+    "home": {
+      "metaTitle": "Sanat Dynamo — Nous Construisons des Systèmes de Revenus, Pas de Simples Sites",
+      "metaDescription": "Logiciel sur mesure, automatisation IA et SEO — construits comme un moteur de croissance unifié pour les marques D2C, l'immobilier, les cliniques, les instituts et PME. 50+ entreprises accompagnées, ₹40Cr+ de revenus générés.",
+      "metaKeywords": "systèmes de revenus, développement logiciel sur mesure, automatisation IA, automatisation WhatsApp, agence SEO, développement ERP, agence D2C, CRM immobilier, système rendez-vous clinique, software coaching, automatisation PME, Inde",
+      "ogTitle": "Systèmes de Revenus · Automatisation · Échelle",
+      "ogDescription": "Nous ne construisons pas que des logiciels. Nous construisons des moteurs de revenus qui travaillent pendant que vous dormez."
+    },
+    "about": {
+      "metaTitle": "À Propos de Sanat Dynamo — Partenaire Systèmes Axé Revenus",
+      "metaDescription": "Rencontrez l'équipe senior derrière Sanat Dynamo. 50+ entreprises accompagnées en e-commerce, immobilier, santé, éducation et industrie. Chaque engagement mesuré par un résultat : les revenus ont-ils monté ?",
+      "metaKeywords": "agence revenus, partenaire croissance, équipe logiciel sur mesure, agence Inde, agence responsable, équipe produit intégrée, optimisation conversion, automatisation business"
+    },
+    "services": {
+      "metaTitle": "Services — 6 Systèmes de Revenus Productisés",
+      "metaDescription": "RevSite Pro, AutoSell Engine, LocalDom SEO, GlobalScale Suite, OperateOS, GrowthOS Retainer — six packages à périmètre fixe qui transforment votre business en moteur de revenus. Investissement de ₹30K/mois à ₹15L.",
+      "metaKeywords": "refonte de site, automatisation WhatsApp, SEO local, site multilingue, ERP sur mesure, retainer croissance, services productisés, périmètre fixe, prix fixe, site optimisé conversion",
+      "ogTitle": "Six systèmes qui font croître vos revenus."
+    },
+    "industries": {
+      "metaTitle": "Industries — E-commerce, Immobilier, EdTech, Santé, PME",
+      "metaDescription": "Nous nous sommes spécialisés dans 5 secteurs. Marques D2C coincées sur un CAC qui monte. Équipes immobilières submergées. Instituts perdant des élèves. Cliniques avec 20% de no-show. PME tournant sur Excel.",
+      "metaKeywords": "agence D2C, marketing digital immobilier, software coaching, gestion clinique, ERP PME, conversion e-commerce, immobilier NRI, inscription en ligne, rendez-vous patient",
+      "ogTitle": "Cinq secteurs. Un manuel de croissance."
+    },
+    "caseStudies": {
+      "metaTitle": "Études de Cas — 127% Croissance, 65% Réduction CPA, ₹40Cr Impact",
+      "metaDescription": "Vraies entreprises. Vrais chiffres. Une marque skincare D2C qui a doublé en 90 jours. Un promoteur qui a coupé son CPL de 60%. Une PME industrielle qui a remplacé 5 feuilles Excel par un ERP.",
+      "metaKeywords": "études de cas, croissance D2C, étude CRM immobilier, étude ERP industrie, étude conversion, résultats WhatsApp, étude SEO Inde",
+      "ogTitle": "Vraies entreprises. Vrais chiffres."
+    },
+    "contact": {
+      "metaTitle": "Contact — Réservez votre Audit Revenus Gratuit de 30 Min",
+      "metaDescription": "Réservez un Audit de Revenus gratuit de 30 minutes. Nous vous montrerons exactement où votre business fuit — et ce qu'il faudrait pour réparer. Sans engagement. Sans pitch. Juste un diagnostic.",
+      "metaKeywords": "audit gratuit, consultation croissance, contact agence, agence Inde, session stratégie, audit conversion, audit automatisation",
+      "ogTitle": "Arrêtez de laisser de l'argent sur la table."
+    },
+    "privacy": {
+      "metaTitle": "Politique de Confidentialité — Sanat Dynamo",
+      "metaDescription": "Comment Sanat Dynamo collecte, utilise et protège vos informations. Nous ne vendons, louons ni partageons vos données avec des tiers à des fins marketing.",
+      "metaKeywords": "politique de confidentialité, protection des données, RGPD, confidentialité agence"
+    },
+    "terms": {
+      "metaTitle": "Conditions de Service — Sanat Dynamo",
+      "metaDescription": "Les règles du jeu quand vous travaillez avec Sanat Dynamo. Engagement, paiement, propriété, confidentialité, support, résiliation, responsabilité et droit applicable.",
+      "metaKeywords": "conditions de service, contrat agence, accord projet, droit Inde"
+    }
+  },
+  "featureGrid": {
+    "eyebrow": "Intégré dans chaque système",
+    "title": "Huit capacités intégrées au moteur.",
+    "subtitle": "Quel que soit le package par lequel vous commencez, celles-ci sont incluses. Pas d'upsells, pas de surprises.",
+    "items": [
+      {
+        "icon": "zap",
+        "title": "Construction haute performance",
+        "body": "Chargement sub-seconde, Core Web Vitals au vert, optimisation d'images automatique — chaque page passe le test PageSpeed de Google."
+      },
+      {
+        "icon": "search",
+        "title": "Base SEO technique",
+        "body": "Schema markup, sitemap, robots, hreflang, canoniques, HTML sémantique — votre site est indexable dès le jour un."
+      },
+      {
+        "icon": "globe",
+        "title": "Prêt pour le multilingue",
+        "body": "Chaque site est construit i18n-first. Ajoutez un nouveau marché en jours, pas en mois. Bascule de devise, géo-détection, support RTL."
+      },
+      {
+        "icon": "shield",
+        "title": "Sécurité et conformité",
+        "body": "SSL, headers CSP, contrôles cookies RGPD, soumissions de formulaires chiffrées, accès admin par rôles."
+      },
+      {
+        "icon": "smartphone",
+        "title": "Mobile-first par design",
+        "body": "60% de votre trafic est sur mobile. Nous construisons pour les pouces d'abord — touch targets, navigation gestuelle, flux à une main."
+      },
+      {
+        "icon": "database",
+        "title": "Analytics réelle, en temps réel",
+        "body": "GA4 + Search Console + heatmaps + tracking d'événements personnalisés. Vous voyez ce qui marche dès le jour un."
+      },
+      {
+        "icon": "git-branch",
+        "title": "CI/CD + contrôle de version",
+        "body": "Chaque changement est revu, testé et déployé via pipeline. Pas d'éditions cowboy. Rollback de n'importe quel deploy en 30 secondes."
+      },
+      {
+        "icon": "headphones",
+        "title": "Support humain réel",
+        "body": "Slack direct avec l'ingénieur qui a construit votre système. SLA réponse 4h sur retainers. Nous ne ghostons pas."
+      }
+    ]
+  },
+  "techStack": {
+    "eyebrow": "Sur des stacks que votre équipe connaît déjà",
+    "title": "Moderne, ennuyeux, éprouvé.",
+    "subtitle": "Nous choisissons des technologies que votre équipe peut recruter, vos investisseurs reconnaissent et que votre futur vous ne maudira pas.",
+    "items": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Node.js",
+      "PostgreSQL",
+      "Tailwind CSS",
+      "Prisma",
+      "Vercel",
+      "AWS",
+      "OpenAI",
+      "Stripe",
+      "Razorpay",
+      "WhatsApp Business API",
+      "HubSpot",
+      "Zoho",
+      "Google Analytics 4"
+    ]
+  },
+  "bigNumbers": {
+    "eyebrow": "Chiffres, pas récits",
+    "title": "Les maths derrière le titre.",
+    "subtitle": "Nous nous mesurons comme nos clients — par ce qui apparaît sur le compte en banque.",
+    "items": [
+      { "value": "127%", "label": "Croissance moyenne des revenus", "detail": "Sur 50+ engagements ces 18 derniers mois." },
+      { "value": "65%", "label": "Réduction moyenne du CPA", "detail": "La plupart des clients voient les ads diviser par deux en 90 jours." },
+      { "value": "₹40Cr+", "label": "Revenus clients impactés", "detail": "Tracé euro pour euro contre la base." },
+      { "value": "90 jours", "label": "Retour sur investissement moyen", "detail": "La plupart des engagements se rentabilisent en un trimestre." }
+    ]
+  }
+}

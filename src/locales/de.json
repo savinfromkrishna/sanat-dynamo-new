@@ -1,0 +1,668 @@
+{
+  "brand": {
+    "name": "Sanat Dynamo",
+    "tagline": "Systeme. Automatisierung. Skalierung.",
+    "oneLiner": "Wir bauen Umsatzsysteme, die Unternehmen helfen, mehr zu verkaufen, schlanker zu arbeiten und schneller zu wachsen — mit individueller Software, KI-Automatisierung und SEO.",
+    "promise": "Wir bauen nicht nur Software. Wir bauen Umsatzmaschinen, die arbeiten, während Sie schlafen."
+  },
+  "seo": {
+    "title": "Sanat Dynamo — Wir Bauen Umsatzsysteme, Nicht Nur Websites",
+    "description": "Sanat Dynamo ist ein umsatzfokussierter Systeme- und Automatisierungspartner. Wir helfen D2C-Marken, Immobilienfirmen, Kliniken, Coaching-Instituten und KMU, ihren Umsatz zu steigern, Operationen zu automatisieren und effizient zu skalieren.",
+    "keywords": "Agentur, individuelle Software, KI-Automatisierung, SEO, WhatsApp-Automatisierung, ERP, D2C, Immobilien, Klinik, Coaching, KMU, Indien"
+  },
+  "nav": {
+    "home": "Startseite",
+    "services": "Leistungen",
+    "industries": "Branchen",
+    "work": "Fallstudien",
+    "about": "Über uns",
+    "contact": "Kontakt",
+    "cta": "Audit buchen"
+  },
+  "hero": {
+    "eyebrow": "Umsatzsysteme · Automatisierung · Skalierung",
+    "title": "Wir Bauen Umsatzsysteme.",
+    "titleAccent": "Nicht Nur Websites.",
+    "subtitle": "Individuelle Software, KI-Automatisierung und SEO — als einheitliche Wachstumsmaschine für D2C-Marken, Immobilien, Kliniken, Coaching-Institute und KMU.",
+    "primaryCta": "Kostenloses Audit buchen",
+    "secondaryCta": "So machen wir es",
+    "trustNote": "Keine Verpflichtung. Kein Pitch. Nur Diagnose."
+  },
+  "socialProof": {
+    "stats": [
+      { "value": "50+", "label": "Skalierte Unternehmen" },
+      { "value": "₹40Cr+", "label": "Beeinflusster Umsatz" },
+      { "value": "200%", "label": "Durchschnitts-ROI im 1. Jahr" },
+      { "value": "5", "label": "Branchen. Ein Partner." }
+    ],
+    "logosLabel": "Vertraut von ambitionierten Teams in ganz Indien"
+  },
+  "problem": {
+    "eyebrow": "Das Umsatzleck",
+    "title": "Ihr Geschäft verliert gerade Umsatz.",
+    "subtitle": "Jeder Tag des Wartens summiert sich. Das fließt leise von Ihrem Endergebnis ab:",
+    "points": [
+      {
+        "stat": "7%",
+        "label": "Verlust pro langsamer Seite",
+        "detail": "Jede zusätzliche Sekunde Ladezeit kostet Sie 7% der Besucher, bevor sie Ihr Angebot überhaupt sehen."
+      },
+      {
+        "stat": "70%",
+        "label": "Der Leads kühlen ab",
+        "detail": "Weil niemand nachfasste. Keine Automatisierung, kein CRM, kein zweiter Kontakt — nur verlorene Deals."
+      },
+      {
+        "stat": "100%",
+        "label": "Anzeigenabhängig",
+        "detail": "Ihre Konkurrenten ranken kostenlos auf Google. Sie zahlen für jeden Klick — und eine Richtlinienänderung tötet Sie."
+      },
+      {
+        "stat": "20+ Std",
+        "label": "Wöchentlich verschwendet",
+        "detail": "Ihr Team steckt im Tagesgeschäft fest. Sie stecken im Team-Management fest. Niemand baut."
+      }
+    ],
+    "cta": "Wir reparieren das alles. So geht's."
+  },
+  "approach": {
+    "eyebrow": "Wie wir uns unterscheiden",
+    "title": "Andere Agenturen bauen Websites. Wir bauen Umsatzsysteme.",
+    "subtitle": "Jede Lösung ist an ein messbares Ergebnis gebunden: mehr Umsatz, niedrigere Kosten oder schnellere Operationen. Wir arbeiten wie ein Produktunternehmen in Ihr Geschäft eingebettet — kein Anbieter, dem Sie hinterherlaufen.",
+    "comparison": [
+      { "typical": "Liefert eine Website", "us": "Liefert ein Umsatzsystem" },
+      { "typical": "Fokus auf Design-Ästhetik", "us": "Fokus auf Conversion und ROI" },
+      { "typical": "Verschwindet nach dem Launch", "us": "Baut Systeme, die sich kumulieren" },
+      { "typical": "Verkauft nach Servicetyp", "us": "Verkauft nach Geschäftsergebnis" },
+      { "typical": "Voller Fachjargon", "us": "Sprache der Geschäftswirkung" },
+      { "typical": "Pauschale Pakete", "us": "Branchenspezifische Lösungen" },
+      { "typical": "Reaktiv — wartet auf Briefing", "us": "Strategisch — kartiert Probleme zuerst" },
+      { "typical": "Keine Automatisierungsexpertise", "us": "KI + Automatisierung in jedem System" }
+    ]
+  },
+  "services": {
+    "eyebrow": "Fünf Systeme, die Ihren Umsatz wachsen lassen",
+    "title": "Wir verkaufen keine Services. Wir lösen Probleme.",
+    "subtitle": "Jedes Paket ist auf eine spezifische Geschäftsherausforderung zugeschnitten — und am gelieferten Ergebnis gemessen.",
+    "items": [
+      {
+        "id": "revsite-pro",
+        "number": "01",
+        "name": "RevSite Pro",
+        "kicker": "Hochkonvertierendes Website-System",
+        "summary": "Verwandeln Sie Traffic in Kunden. Mobile-first, performance-optimiert und für Conversion vom ersten Pixel an gebaut.",
+        "for": "D2C-Marken, Coaching-Institute, Kliniken, Immobilien — jeder, der Leads durch eine schwache Website verliert.",
+        "deliverables": [
+          "Maßgeschneiderte mobile-first Website (7–15 Seiten)",
+          "Conversion-optimierte Landingpages",
+          "WhatsApp-Lead-Capture und Callback-Widget",
+          "On-Page SEO (Meta, Schema, Sitemap)",
+          "GA4 + Search Console Integration",
+          "3 Monate Post-Launch-Support"
+        ],
+        "outcomes": [
+          "+1.5–3% Conversion-Rate",
+          "40–60% schnellere Ladezeit",
+          "Erste organische Rankings in 60–90 Tagen"
+        ],
+        "investment": "₹60K – ₹1.5L · Einmalig"
+      },
+      {
+        "id": "autosell-engine",
+        "number": "02",
+        "name": "AutoSell Engine",
+        "kicker": "WhatsApp & CRM Automatisierungssystem",
+        "summary": "Folgen Sie jedem Lead nach, automatisch. Warenkorb-Recovery, Termin-Reminder und Sequenzen, die Deals abschließen, während Sie schlafen.",
+        "for": "E-Commerce, Immobilien, Kliniken, Coaching — überfordert von manuellen Follow-ups.",
+        "deliverables": [
+          "WhatsApp Business API Setup",
+          "5–8 automatisierte Flow-Sequenzen",
+          "CRM-Integration (Zoho, HubSpot oder maßgeschneidert)",
+          "Lead-Source-Tracking und Tagging",
+          "Drip-E-Mail-Kampagnen (3–5 Sequenzen)",
+          "Live-Dashboard für Öffnungen, Klicks und Conversions"
+        ],
+        "outcomes": [
+          "+25–35% Lead-Conversion",
+          "50–60% weniger manuelle Nachfass-Arbeit",
+          "20–30% Warenkorb-Recovery-Rate"
+        ],
+        "investment": "₹80K – ₹2L + ₹15K–30K/Monat"
+      },
+      {
+        "id": "localdom-seo",
+        "number": "03",
+        "name": "LocalDom SEO",
+        "kicker": "Lokales SEO Dominanz-Paket",
+        "summary": "Dominieren Sie die lokale Suche. Hören Sie auf, für jeden Besucher zu zahlen. Wir erzielen Top-3-Rankings für die exakten Suchanfragen Ihrer Käufer.",
+        "for": "Kliniken, Coaching-Institute, Immobilienbüros und alle standortbasierten Geschäfte.",
+        "deliverables": [
+          "Vollständiges technisches SEO-Audit",
+          "Strategie für 10–15 lokale Keywords",
+          "Google Business Profile Optimierung",
+          "Stadt-/Quartier-spezifische Landingpages",
+          "4 SEO-Artikel pro Monat",
+          "Citations in 30+ Verzeichnissen",
+          "Monatlicher Ranking- und Traffic-Report"
+        ],
+        "outcomes": [
+          "Top-3 für 5–10 lokale Keywords in 4–6 Monaten",
+          "+40–80% organischer Traffic",
+          "30–50% weniger Werbeabhängigkeit"
+        ],
+        "investment": "₹30K – ₹60K/Monat · 3 Monate Min."
+      },
+      {
+        "id": "globalscale-suite",
+        "number": "04",
+        "name": "GlobalScale Suite",
+        "kicker": "Internationales Mehrsprachiges Web-System",
+        "summary": "Verkaufen Sie global. Lokalisieren Sie alles. NRI-Käufer, globaler Checkout, Multi-Währung und Spracherkennung, die einfach funktioniert.",
+        "for": "D2C-Marken mit globalem Fokus, Immobilien mit internationaler Klientel, EdTech mit Auslandsexpansion.",
+        "deliverables": [
+          "Mehrsprachige Website (3–5 Sprachen)",
+          "Geo-Erkennung und Sprachumschaltung",
+          "Multi-Währung und internationales Payment",
+          "Lokalisierte Inhalte und SEO für 2–3 Märkte",
+          "WhatsApp + E-Mail Support in mehreren Sprachen",
+          "DSGVO-konforme Cookie- und Datenverwaltung"
+        ],
+        "outcomes": [
+          "Neuer Umsatzstrom in 90 Tagen",
+          "2–3x höherer durchschnittlicher Bestellwert international",
+          "Glaubwürdigkeit beim globalen Publikum"
+        ],
+        "investment": "₹1.2L – ₹3L · Einmalig"
+      },
+      {
+        "id": "operate-os",
+        "number": "05",
+        "name": "OperateOS",
+        "kicker": "Maßgeschneidertes ERP & Geschäftsautomatisierung",
+        "summary": "Führen Sie Ihr Geschäft von einem einzigen Dashboard. Inventar, Bestellungen, Rechnungen, HR und Finanzen — synchronisiert in Echtzeit.",
+        "for": "KMU in Fertigung, Vertrieb, Einzelhandel oder Dienstleistung mit ₹5Cr+ Umsatz und operativem Chaos.",
+        "deliverables": [
+          "Maßgeschneidertes ERP (Inventar + Bestellungen + Rechnung + HR + CRM)",
+          "Self-Service-Portale für Lieferanten und Kunden",
+          "Automatisierte GST-Rechnungen",
+          "Rollenbasierter Zugriff und Genehmigungsworkflows",
+          "Echtzeit-KPI-Dashboard",
+          "Mobile App für Außendienst",
+          "3 Monate Post-Go-Live-Support"
+        ],
+        "outcomes": [
+          "80% weniger manuelle Dateneingabe",
+          "Tägliche P&L-Sichtbarkeit",
+          "40% schnellerer Bestell-zu-Liefer-Zyklus"
+        ],
+        "investment": "₹3L – ₹15L · Phasenweise Lieferung"
+      },
+      {
+        "id": "growthos-retainer",
+        "number": "06",
+        "name": "GrowthOS Retainer",
+        "kicker": "Full-Stack Wachstumspartner",
+        "summary": "Ein dediziertes Tech- und Wachstumsteam in Ihr Geschäft eingebettet. Kumulative Ausführung, keine Einzelprojekte.",
+        "for": "Ambitionierte Unternehmen, die einen Partner wollen — nicht nur einen Anbieter.",
+        "deliverables": [
+          "Dedizierter Project Manager + Tech Lead",
+          "40 Entwicklungsstunden pro Monat",
+          "Monatlicher SEO-Content (4 Artikel)",
+          "Vierteljährlicher Strategie-Review",
+          "WhatsApp-Wartung und neue Flows",
+          "Priority-Response-SLA (4h)",
+          "Monatlicher Analytics- und Wachstumsbericht"
+        ],
+        "outcomes": [
+          "Kumulatives Wachstum jeden Monat",
+          "3–5x schnellere Ausführung als mehrere Anbieter",
+          "Volle Tech-Eigentümerschaft ohne Vollzeit-Einstellung"
+        ],
+        "investment": "₹60K – ₹1.5L/Monat · 6 Monate Min."
+      }
+    ]
+  },
+  "industries": {
+    "eyebrow": "Branchen, für die wir bauen",
+    "title": "Fünf Sektoren. Ein Wachstumshandbuch.",
+    "subtitle": "Wir tun nicht so, als kennten wir jedes Geschäft. Wir haben uns in fünf vertieft — und für jedes wiederholbare Umsatzsysteme gebaut.",
+    "items": [
+      {
+        "id": "ecommerce",
+        "name": "E-Commerce / D2C",
+        "tag": "Direct-to-Consumer-Marken",
+        "description": "Mode, Beauty, Wellness, Elektronik. Marken mit ₹10L–₹2Cr GMV festgefahren bei steigenden CAC und Einmalkäufern.",
+        "painPoints": [
+          "Website konvertiert unter 1%",
+          "Kein Mechanismus für Wiederkäufe",
+          "Warenkorbabbruch über 70%",
+          "Vollständig abhängig von Meta Ads"
+        ],
+        "outcome": "+1.5–3% Conversion · 2x Wiederkaufrate · +40–60% organischer Traffic"
+      },
+      {
+        "id": "real-estate",
+        "name": "Immobilien",
+        "tag": "Bauträger, Makler, Agenturen",
+        "description": "Wohnen, Gewerbe, NRI. Teams mit 3–20 Maklern, ertrinkend in Low-Quality-Portal-Leads.",
+        "painPoints": [
+          "₹500–2.000 Kosten pro Portal-Lead",
+          "70% der Leads sterben ohne Follow-up",
+          "Keine Präsentation für NRI-Käufer",
+          "Keine lokale SEO-Sichtbarkeit"
+        ],
+        "outcome": "3–5x mehr qualifizierte Leads · 40% weniger CPL · 2x Besuchskonversion"
+      },
+      {
+        "id": "edtech",
+        "name": "Coaching / EdTech",
+        "tag": "Institute und Online-Pädagogen",
+        "description": "JEE, UPSC, NEET-Vorbereitung und Skill-Kurse. Institute mit 200–5.000 Schülern auf dem Weg zu hybrid.",
+        "painPoints": [
+          "Manuelle Anmeldungen per Telefon",
+          "Keine Online-Zahlung",
+          "Unsichtbar bei Google",
+          "60–70% der Anfragen konvertieren nie"
+        ],
+        "outcome": "3–4x schnellerer Anmeldezyklus · +40–60% Anfrage-zu-Anmeldung · 30% weniger Abbruch"
+      },
+      {
+        "id": "healthcare",
+        "name": "Kliniken",
+        "tag": "Multidisziplinär und Spezialisten",
+        "description": "Zahn, Dermatologie, Orthopädie, Fertilität, Multidisziplinär. 1–10 Standorte mit 10–200 Patienten täglich.",
+        "painPoints": [
+          "Empfang überlastet mit Anrufen",
+          "20–30% No-Show-Rate",
+          "Unsichtbar auf Google Maps",
+          "Kein Patientenbindungssystem"
+        ],
+        "outcome": "60% weniger Anrufe · 25% weniger No-Shows · +40–80% organische Termine"
+      },
+      {
+        "id": "sme-erp",
+        "name": "KMU",
+        "tag": "Fertigung, Vertrieb, Einzelhandel",
+        "description": "KMU von ₹5–100Cr, die auf Excel und 5+ getrennten Tools laufen. Wachsend, aber operativ chaotisch.",
+        "painPoints": [
+          "Inventar-Diskrepanzen",
+          "Keine Echtzeit-Finanzsicht",
+          "Manuelle GST-Rechnungen",
+          "Schlüsselpersonal als Single Point of Failure"
+        ],
+        "outcome": "80% weniger manuelle Eingabe · Tägliches P&L · 3x schnellerer Lieferzyklus"
+      }
+    ]
+  },
+  "process": {
+    "eyebrow": "Wie wir arbeiten",
+    "title": "Diagnostizieren. Bauen. Akkumulieren.",
+    "subtitle": "Jedes Engagement beginnt mit einer bezahlten Discovery — damit Sie den ganzen Plan sehen, bevor wir eine Codezeile berühren.",
+    "steps": [
+      {
+        "number": "01",
+        "name": "Umsatz-Audit",
+        "duration": "Woche 1",
+        "description": "Wir kartieren Ihren aktuellen Funnel von Anfang bis Ende. Wir identifizieren, wo Umsatz leckt. Sie erhalten eine schriftliche Diagnose."
+      },
+      {
+        "number": "02",
+        "name": "Maßgeschneiderter Plan",
+        "duration": "Woche 2",
+        "description": "Wir verwandeln das Audit in eine bezahlte Discovery: Scope, Deliverables, Timeline, Erfolgsmetriken. Sie sehen alles vor jeder Verpflichtung."
+      },
+      {
+        "number": "03",
+        "name": "Bauen & Liefern",
+        "duration": "Wochen 3–10",
+        "description": "Wir bauen in Phasen mit wöchentlichen Demos. Sie sehen Fortschritt alle 7 Tage — keine Black-Box-Agentur-Zyklen."
+      },
+      {
+        "number": "04",
+        "name": "Launch & Wachstum",
+        "duration": "Woche 11+",
+        "description": "Wir verschwinden nicht beim Launch. Wir feilen an der Conversion, liefern neue Flows und kumulieren Ergebnisse Monat für Monat."
+      }
+    ]
+  },
+  "caseStudies": {
+    "eyebrow": "Beweise, keine Versprechen",
+    "title": "Echte Unternehmen. Echte Zahlen.",
+    "subtitle": "Jede Fallstudie wird an einer Sache gemessen: Ist der Umsatz gestiegen?",
+    "items": [
+      {
+        "id": "d2c-skincare",
+        "industry": "D2C Skincare",
+        "location": "Bangalore",
+        "duration": "3 Monate",
+        "title": "₹30L → ₹68L monatlich ohne Werbebudget zu erhöhen",
+        "summary": "8-Personen-Skincare-Marke gab ₹1.8L/Monat für Meta aus mit 0.6% Conversion. Wir bauten den Storefront neu, deployten WhatsApp-Recovery-Flows und eine SEO-Basis.",
+        "metrics": [
+          { "label": "Monatsumsatz", "value": "₹30L → ₹68L", "delta": "+127%" },
+          { "label": "Conversion-Rate", "value": "0.6% → 2.1%", "delta": "+250%" },
+          { "label": "Warenkorb-Recovery", "value": "0% → 28%", "delta": "neu" },
+          { "label": "Organischer Traffic", "value": "+340%", "delta": "6 Monate" },
+          { "label": "Akquisitionskosten", "value": "₹820 → ₹290", "delta": "-65%" }
+        ],
+        "quote": "Sanat Dynamo baute uns nicht nur eine Website. Sie bauten neu, wie wir verkaufen. Wir erreichten unser Jahresziel in 7 Monaten.",
+        "author": "Gründer, D2C Skincare-Marke"
+      },
+      {
+        "id": "real-estate-developer",
+        "industry": "Immobilien-Bauträger",
+        "location": "Pune",
+        "duration": "4 Monate",
+        "title": "Kosten pro qualifiziertem Lead um 60% gesenkt in 90 Tagen",
+        "summary": "Mittelgroßer Bauträger gab Lakhs für housing.com und 99acres aus für Low-Intent-Leads. Wir bauten eine Direct-Lead-Website, automatisiertes WhatsApp-Nurturing und ein Virtual-Tour-Modul für NRI.",
+        "metrics": [
+          { "label": "Kosten pro Lead", "value": "₹1.800 → ₹720", "delta": "-60%" },
+          { "label": "Besichtigungs-Conversion", "value": "12% → 24%", "delta": "+100%" },
+          { "label": "Inbound-Qualified-Leads", "value": "+312%", "delta": "3 Monate" },
+          { "label": "NRI-Abschlüsse", "value": "0 → 6", "delta": "neuer Markt" }
+        ],
+        "quote": "Wir hörten auf, von Portalen abhängig zu sein. Die Website generiert mehr qualifizierte Leads als 99acres je tat — zu einem Drittel der Kosten.",
+        "author": "Direktor, Pune Immobilien-Bauträger"
+      },
+      {
+        "id": "manufacturing-erp",
+        "industry": "Fertigung KMU",
+        "location": "Faridabad",
+        "duration": "5 Monate",
+        "title": "Von 5 Tabellen zu einem ERP. 80% weniger manuelle Eingabe.",
+        "summary": "₹40Cr Fertigungsbetrieb auf Excel und Stammeswissen. Wir bauten ein maßgeschneidertes ERP mit Inventar, Bestellungen, GST-Rechnung und Lieferantenportal.",
+        "metrics": [
+          { "label": "Manuelle Eingabe", "value": "-80%", "delta": "vs Baseline" },
+          { "label": "Bestell-zu-Liefer-Zyklus", "value": "11 Tage → 4 Tage", "delta": "-64%" },
+          { "label": "Rechnungsfehler", "value": "12% → 0.3%", "delta": "fast null" },
+          { "label": "P&L-Sichtbarkeit", "value": "monatlich → täglich", "delta": "Echtzeit" }
+        ],
+        "quote": "Zum ersten Mal schaue ich um 9 Uhr auf ein Dashboard und weiß genau, wo das Geschäft steht. Das hat alles verändert.",
+        "author": "MD, Auto-Komponenten-Hersteller"
+      }
+    ]
+  },
+  "testimonials": {
+    "eyebrow": "Was Gründer sagen",
+    "title": "Wir messen uns an Ihrem Umsatz.",
+    "items": [
+      {
+        "quote": "Sie pitchten keine Services. Sie diagnostizierten unser Geschäft und schlugen einen 90-Tage-Plan mit Zahlen vor. Da wussten wir es.",
+        "author": "Rohan M.",
+        "role": "Gründer, D2C Wellness-Marke"
+      },
+      {
+        "quote": "Drei Monate später haben wir Ads um 40% gekürzt und Umsatz 2,3-fach gesteigert. Das System bezahlt sich jede Woche selbst.",
+        "author": "Priya S.",
+        "role": "CEO, Online Coaching-Institut"
+      },
+      {
+        "quote": "Die meisten Agenturen verschwinden nach dem Launch. Sanat Dynamo behandelt es wie Tag eins. Jeder Monat ist besser.",
+        "author": "Dr. Anil K.",
+        "role": "Direktor, Multi-City Zahnkliniken"
+      },
+      {
+        "quote": "Wir ersetzten vier Anbieter mit einem Partner. Schneller, günstiger, und unser Team hörte auf, Feuer zu löschen.",
+        "author": "Vikram J.",
+        "role": "MD, KMU Fertigung"
+      }
+    ]
+  },
+  "faq": {
+    "eyebrow": "Häufige Fragen",
+    "title": "Was Gründer vor dem Vertragsabschluss fragen.",
+    "items": [
+      {
+        "q": "Wie unterscheiden Sie sich von einer normalen Agentur?",
+        "a": "Die meisten verkaufen Services. Wir verkaufen Ergebnisse: mehr Umsatz, niedrigere Kosten, schnellere Operationen. Jedes Projekt wird mit Erfolgsmetriken festgelegt, bevor wir eine Zeile Code schreiben."
+      },
+      {
+        "q": "Was ist das minimale Engagement?",
+        "a": "Einzelpakete starten bei ₹60K (RevSite Pro). Retainers ab ₹30K/Monat. Am häufigsten ist eine phasenweise Konstruktion, die sich in 60–90 Tagen amortisiert."
+      },
+      {
+        "q": "Wie schnell sehen wir Ergebnisse?",
+        "a": "Conversion-Verbesserungen erscheinen in Woche 1 nach Go-Live. WhatsApp zahlt sich in Woche 2 aus. SEO kumuliert über 4–6 Monate. ERP-Rollouts liefern sichtbaren ROI in den ersten 30 Tagen."
+      },
+      {
+        "q": "Arbeiten Sie außerhalb Indiens?",
+        "a": "Ja. Unsere GlobalScale Suite ist speziell für Marken gebaut, die an NRIs und globale Märkte verkaufen. Wir lieferten mehrsprachige, multi-Währungs-Systeme für Kunden in den USA, VAE und Südostasien."
+      },
+      {
+        "q": "Können wir mit einem System anfangen?",
+        "a": "Absolut. Der schnellste ROI kommt meist von einem von dreien: Website-Rebuild, WhatsApp-Automatisierung oder lokales SEO. Wir wählen das, was sich für Sie am schnellsten amortisiert."
+      },
+      {
+        "q": "Wie sieht die Discovery aus?",
+        "a": "Eine bezahlte 3-Stunden-Sitzung. Wir kartieren Ihren Funnel, identifizieren Umsatzlecks und liefern einen schriftlichen Plan mit Scope, Timeline und prognostizierten Ergebnissen."
+      }
+    ]
+  },
+  "cta": {
+    "eyebrow": "Wenn Sie bereit sind",
+    "title": "Hören Sie auf, Geld liegen zu lassen.",
+    "subtitle": "Buchen Sie ein kostenloses 30-minütiges Umsatz-Audit. Wir zeigen Ihnen genau, wo Ihr Geschäft leckt — und was es zur Behebung braucht.",
+    "primary": "Audit Buchen",
+    "secondary": "Unsere Arbeit Sehen",
+    "trustNote": "Keine Verpflichtung. Kein Pitch. Nur Diagnose."
+  },
+  "about": {
+    "eyebrow": "Über Sanat Dynamo",
+    "title": "Wir sind ein umsatzfokussierter Systeme-Partner. Keine typische Agentur.",
+    "lead": "Die meisten Agenturen nehmen Ihr Briefing, bauen, was Sie verlangten, und verschwinden. Wir beginnen mit der Diagnose des wahren Problems — sei es Conversion, operativer Engpass oder Sichtbarkeit — und bauen dann das exakte System, das es löst.",
+    "body": [
+      "Wir haben mit 50+ Unternehmen in E-Commerce, Immobilien, Gesundheit, Bildung und Fertigung gearbeitet. Jedes Engagement wird an einem Ergebnis gemessen: Ist Ihr Umsatz gewachsen oder Ihre Kosten gesunken?",
+      "Wir sind nicht die billigsten. Wir sind die rechenschaftspflichtigsten.",
+      "Unser Team ist klein, senior und eingebettet. Sie arbeiten mit denen, die Ihr System bauen, nicht mit einem Account Manager, der Nachrichten weiterleitet."
+    ],
+    "values": [
+      {
+        "title": "Ergebnisse vor Outputs",
+        "body": "Pixelgenau spielt keine Rolle, wenn es nicht konvertiert. Jede Entscheidung ist an eine Zahl gebunden, die Sie interessiert."
+      },
+      {
+        "title": "Eingebettet, nicht extern",
+        "body": "Wir arbeiten wie ein Produktteam in Ihrem Geschäft. Sie sehen wöchentlichen Fortschritt, keine Quartals-Slides."
+      },
+      {
+        "title": "Akkumulieren, nicht rotieren",
+        "body": "Jeder Monat sollte besser sein als der letzte. Wir bauen Systeme, die mit der Zeit stärker werden."
+      },
+      {
+        "title": "Ehrliche Mathematik",
+        "body": "Wenn ein Projekt sich nicht in 6 Monaten amortisiert, sagen wir es. Manchmal ist die richtige Antwort: nicht bauen."
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Lassen Sie uns reden",
+    "title": "Buchen Sie Ihr kostenloses Umsatz-Audit.",
+    "subtitle": "30 Minuten. Kein Pitch. Nur Diagnose. Wir zeigen Ihnen genau, wo Ihr Geschäft Umsatz verliert — und was zur Behebung nötig ist.",
+    "form": {
+      "name": "Ihr Name",
+      "email": "Geschäfts-E-Mail",
+      "company": "Unternehmen",
+      "industry": "Branche",
+      "industries": ["E-Commerce / D2C", "Immobilien", "Coaching / EdTech", "Gesundheit", "KMU / Fertigung", "Andere"],
+      "challenge": "Was ist das größte Problem, das Sie zu lösen versuchen?",
+      "submit": "Audit Anfordern",
+      "submitting": "Senden…"
+    },
+    "details": {
+      "emailLabel": "E-Mail",
+      "email": "hello@sanatdynamo.com",
+      "phoneLabel": "WhatsApp",
+      "phone": "+91 00000 00000",
+      "hoursLabel": "Öffnungszeiten",
+      "hours": "Mo–Sa · 10:00–19:00 IST",
+      "locationLabel": "Standort",
+      "location": "Indien · Globaler Service"
+    }
+  },
+  "footer": {
+    "tagline": "Wir bauen nicht nur Software. Wir bauen Umsatzmaschinen, die arbeiten, während Sie schlafen.",
+    "columns": {
+      "services": {
+        "title": "Leistungen",
+        "links": [
+          { "label": "RevSite Pro", "href": "/services#revsite-pro" },
+          { "label": "AutoSell Engine", "href": "/services#autosell-engine" },
+          { "label": "LocalDom SEO", "href": "/services#localdom-seo" },
+          { "label": "GlobalScale Suite", "href": "/services#globalscale-suite" },
+          { "label": "OperateOS", "href": "/services#operate-os" },
+          { "label": "GrowthOS Retainer", "href": "/services#growthos-retainer" }
+        ]
+      },
+      "industries": {
+        "title": "Branchen",
+        "links": [
+          { "label": "E-Commerce / D2C", "href": "/industries#ecommerce" },
+          { "label": "Immobilien", "href": "/industries#real-estate" },
+          { "label": "Coaching / EdTech", "href": "/industries#edtech" },
+          { "label": "Gesundheit", "href": "/industries#healthcare" },
+          { "label": "KMU", "href": "/industries#sme-erp" }
+        ]
+      },
+      "company": {
+        "title": "Unternehmen",
+        "links": [
+          { "label": "Über uns", "href": "/about" },
+          { "label": "Fallstudien", "href": "/case-studies" },
+          { "label": "Kontakt", "href": "/contact" },
+          { "label": "Datenschutz", "href": "/privacy" },
+          { "label": "AGB", "href": "/terms" }
+        ]
+      }
+    },
+    "rights": "Alle Rechte vorbehalten.",
+    "status": "Alle Systeme betriebsbereit"
+  },
+  "pages": {
+    "home": {
+      "metaTitle": "Sanat Dynamo — Wir Bauen Umsatzsysteme, Nicht Nur Websites",
+      "metaDescription": "Individuelle Software, KI-Automatisierung und SEO — als einheitliche Wachstumsmaschine für D2C-Marken, Immobilien, Kliniken, Coaching-Institute und KMU. 50+ Unternehmen skaliert, ₹40Cr+ beeinflusster Umsatz.",
+      "metaKeywords": "Umsatzsysteme, individuelle Softwareentwicklung, KI-Automatisierung, WhatsApp-Automatisierung, SEO-Agentur, ERP-Entwicklung, D2C-Agentur, Immobilien-CRM, Klinik-Buchungssystem, Coaching-Software, KMU-Automatisierung, Indien",
+      "ogTitle": "Umsatzsysteme · Automatisierung · Skalierung",
+      "ogDescription": "Wir bauen nicht nur Software. Wir bauen Umsatzmaschinen, die arbeiten, während Sie schlafen."
+    },
+    "about": {
+      "metaTitle": "Über Sanat Dynamo — Umsatzfokussierter Systeme-Partner",
+      "metaDescription": "Lernen Sie das Senior-Team hinter Sanat Dynamo kennen. Wir haben mit 50+ Unternehmen in E-Commerce, Immobilien, Gesundheit, Bildung und Fertigung gearbeitet. Jedes Engagement wird an einem Ergebnis gemessen: Ist der Umsatz gestiegen?",
+      "metaKeywords": "Umsatzagentur, Wachstumspartner, individuelle Software-Team, Indien Agentur, rechenschaftspflichtige Agentur, eingebettetes Engineering-Team, Conversion-Optimierung, Geschäftsautomatisierung"
+    },
+    "services": {
+      "metaTitle": "Leistungen — 6 Produktisierte Umsatzsysteme",
+      "metaDescription": "RevSite Pro, AutoSell Engine, LocalDom SEO, GlobalScale Suite, OperateOS, GrowthOS Retainer — sechs Pakete mit festem Scope, die Ihr Geschäft zur Umsatzmaschine machen. Investition von ₹30K/Monat bis ₹15L.",
+      "metaKeywords": "Website-Rebuild, WhatsApp-Automatisierung, lokales SEO, mehrsprachige Website, individuelles ERP, Wachstums-Retainer, produktisierte Services, fester Scope, Festpreis-Agentur",
+      "ogTitle": "Sechs Systeme, die Ihren Umsatz wachsen lassen."
+    },
+    "industries": {
+      "metaTitle": "Branchen — E-Commerce, Immobilien, EdTech, Gesundheit, KMU",
+      "metaDescription": "Wir haben uns in 5 Sektoren vertieft. D2C-Marken festgefahren bei steigenden CAC. Immobilienteams ertrinkend in Low-Quality-Leads. Coaching-Institute, die Schüler an manuelle Anmeldungen verlieren.",
+      "metaKeywords": "D2C-Agentur, Immobilien-Marketing, Coaching-Software, Klinik-Management, KMU-ERP, E-Commerce-Conversion, NRI-Immobilien, Online-Anmeldung, Patiententermine",
+      "ogTitle": "Fünf Sektoren. Ein Wachstumshandbuch."
+    },
+    "caseStudies": {
+      "metaTitle": "Fallstudien — 127% Wachstum, 65% CPA-Reduktion, ₹40Cr Impact",
+      "metaDescription": "Echte Unternehmen. Echte Zahlen. Eine D2C-Skincare-Marke, die in 90 Tagen 2,3x wuchs. Ein Bauträger, der CPL um 60% senkte. Ein Fertigungs-KMU, das 5 Tabellen durch ein ERP ersetzte.",
+      "metaKeywords": "Fallstudien, D2C-Wachstum, Immobilien-CRM-Fallstudie, Fertigungs-ERP-Fallstudie, Conversion-Optimierung, WhatsApp-Ergebnisse, SEO-Fallstudie Indien",
+      "ogTitle": "Echte Unternehmen. Echte Zahlen."
+    },
+    "contact": {
+      "metaTitle": "Kontakt — Buchen Sie Ihr kostenloses 30-min Umsatz-Audit",
+      "metaDescription": "Buchen Sie ein kostenloses 30-minütiges Umsatz-Audit. Wir zeigen Ihnen genau, wo Ihr Geschäft leckt — und was zur Behebung nötig ist. Keine Verpflichtung. Kein Pitch. Nur Diagnose.",
+      "metaKeywords": "kostenloses Audit, Wachstumsberatung, Agentur-Kontakt, Indien Agentur, Strategie-Session, Conversion-Audit, Automatisierungs-Audit",
+      "ogTitle": "Hören Sie auf, Geld liegen zu lassen."
+    },
+    "privacy": {
+      "metaTitle": "Datenschutz — Sanat Dynamo",
+      "metaDescription": "Wie Sanat Dynamo Ihre Informationen sammelt, nutzt und schützt. Wir verkaufen, vermieten oder teilen Ihre Daten nicht mit Dritten für Marketing.",
+      "metaKeywords": "Datenschutz, DSGVO, Agentur-Datenschutz"
+    },
+    "terms": {
+      "metaTitle": "AGB — Sanat Dynamo",
+      "metaDescription": "Die Spielregeln, wenn Sie mit Sanat Dynamo arbeiten. Engagement, Zahlung, Eigentum, Vertraulichkeit, Support, Kündigung, Haftung und anwendbares Recht.",
+      "metaKeywords": "AGB, Agenturvertrag, Projektvereinbarung, indisches Recht"
+    }
+  },
+  "featureGrid": {
+    "eyebrow": "In jedem System eingebaut",
+    "title": "Acht Fähigkeiten in den Motor eingebaut.",
+    "subtitle": "Egal mit welchem Paket Sie starten, diese sind dabei. Keine Upsells, keine Überraschungen.",
+    "items": [
+      {
+        "icon": "zap",
+        "title": "Performance-First-Build",
+        "body": "Sub-Sekunden-Ladezeiten, Core Web Vitals grün, automatische Bildoptimierung — jede Seite besteht Googles PageSpeed-Test."
+      },
+      {
+        "icon": "search",
+        "title": "Technische SEO-Basis",
+        "body": "Schema-Markup, Sitemap, Robots, Hreflang, Canonical-URLs, semantisches HTML — Ihre Site ist ab Tag eins indexierbar."
+      },
+      {
+        "icon": "globe",
+        "title": "Mehrsprachig bereit",
+        "body": "Jede Site ist i18n-first gebaut. Neuer Markt in Tagen, nicht Monaten. Währungswechsel, Geo-Erkennung, RTL-Support."
+      },
+      {
+        "icon": "shield",
+        "title": "Sicherheit & Compliance",
+        "body": "SSL, CSP-Header, DSGVO-Cookie-Kontrollen, verschlüsselte Formulareinreichungen, rollenbasierter Admin-Zugriff."
+      },
+      {
+        "icon": "smartphone",
+        "title": "Mobile-First by Design",
+        "body": "60% Ihres Traffics ist mobil. Wir bauen für Daumen zuerst — Touch Targets, Gestennavigation, Einhand-Flows."
+      },
+      {
+        "icon": "database",
+        "title": "Echte Analytics in Echtzeit",
+        "body": "GA4 + Search Console + Heatmaps + Custom Events. Sie sehen, was funktioniert, ab Tag eins."
+      },
+      {
+        "icon": "git-branch",
+        "title": "CI/CD + Versionskontrolle",
+        "body": "Jede Änderung wird geprüft, getestet, durch Pipeline ausgerollt. Keine Cowboy-Edits. Rollback in 30 Sekunden."
+      },
+      {
+        "icon": "headphones",
+        "title": "Echter menschlicher Support",
+        "body": "Direktes Slack mit dem Engineer, der Ihr System gebaut hat. 4-Stunden-SLA bei Retainers. Wir ghosten nicht."
+      }
+    ]
+  },
+  "techStack": {
+    "eyebrow": "Auf Stacks, denen Ihr Team vertraut",
+    "title": "Modern, langweilig, kampferprobt.",
+    "subtitle": "Wir wählen Technologie, für die Ihr Team einstellen kann, die Ihre Investoren erkennen und Ihr zukünftiges Ich nicht verfluchen wird.",
+    "items": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Node.js",
+      "PostgreSQL",
+      "Tailwind CSS",
+      "Prisma",
+      "Vercel",
+      "AWS",
+      "OpenAI",
+      "Stripe",
+      "Razorpay",
+      "WhatsApp Business API",
+      "HubSpot",
+      "Zoho",
+      "Google Analytics 4"
+    ]
+  },
+  "bigNumbers": {
+    "eyebrow": "Zahlen, keine Geschichten",
+    "title": "Die Mathematik hinter der Schlagzeile.",
+    "subtitle": "Wir messen uns wie unsere Kunden — an dem, was auf dem Bankkonto erscheint.",
+    "items": [
+      { "value": "127%", "label": "Durchschnittliches Umsatzwachstum", "detail": "Über 50+ Engagements der letzten 18 Monate." },
+      { "value": "65%", "label": "Durchschnittliche CPA-Reduktion", "detail": "Die meisten Kunden sehen Ad-Spend in 90 Tagen halbieren." },
+      { "value": "₹40Cr+", "label": "Beeinflusster Kundenumsatz", "detail": "Euro für Euro gegen die Baseline getrackt." },
+      { "value": "90 Tage", "label": "Durchschnittliche Amortisation", "detail": "Die meisten Engagements amortisieren sich in einem Quartal." }
+    ]
+  }
+}
