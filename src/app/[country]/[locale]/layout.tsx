@@ -114,6 +114,31 @@ export default async function LocaleLayout({
   const orgLd = buildOrganizationJsonLd(t);
   const siteLd = buildWebsiteJsonLd(t, locale, country);
 
+  // AggregateRating — from testimonials (4.9/5 across 50+ engagements)
+  const ratingLd = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    name: t.brand.name,
+    url: `${BASE_URL}/${country}/${locale}`,
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      bestRating: "5",
+      ratingCount: "50",
+      reviewCount: String(t.testimonials.items.length),
+    },
+    review: t.testimonials.items.map((tm) => ({
+      "@type": "Review",
+      author: { "@type": "Person", name: tm.author },
+      reviewBody: tm.quote,
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: "5",
+        bestRating: "5",
+      },
+    })),
+  };
+
   return (
     <html
       lang={meta.htmlLang}
@@ -128,6 +153,14 @@ export default async function LocaleLayout({
             __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark')document.documentElement.classList.add('dark');else if(t==='light')document.documentElement.classList.add('light')}catch(e){}})()`,
           }}
         />
+
+        {/* Preconnect to external origins for faster loading */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+
         <link
           rel="alternate"
           hrefLang="x-default"
@@ -148,6 +181,10 @@ export default async function LocaleLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ratingLd) }}
         />
       </head>
       <body className="min-h-screen font-sans text-foreground antialiased" suppressHydrationWarning>

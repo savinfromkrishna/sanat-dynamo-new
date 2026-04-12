@@ -1,13 +1,24 @@
-import { MetadataRoute } from 'next';
+import { MetadataRoute } from "next";
+import { BASE_URL } from "@/lib/constants";
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
-        userAgent: '*',
-        allow: '/',
+        userAgent: "*",
+        allow: "/",
+        disallow: ["/api/", "/_next/", "/*/sitemap.xml"],
+      },
+      {
+        userAgent: "GPTBot",
+        disallow: "/",
+      },
+      {
+        userAgent: "CCBot",
+        disallow: "/",
       },
     ],
-    sitemap: 'https://sanat-rewa.vercel.app/sitemap-index.xml',
+    sitemap: `${BASE_URL}/sitemap-index.xml`,
+    host: BASE_URL,
   };
 }

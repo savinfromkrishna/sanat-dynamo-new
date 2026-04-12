@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslation, type Locale } from "@/lib/i18n";
-import { buildPageMetadata, buildServiceJsonLd } from "@/lib/seo";
+import { buildPageMetadata, buildServiceJsonLd, buildPageBreadcrumbJsonLd } from "@/lib/seo";
 import { PageHero } from "@/components/sections/PageHero";
 import { Cta } from "@/components/sections/Cta";
 import { Faq } from "@/components/sections/Faq";
@@ -36,9 +36,11 @@ export default async function ServicesPage({
   const serviceLd = t.services.items.map((s) =>
     buildServiceJsonLd(s, locale as Locale, country)
   );
+  const breadcrumbLd = buildPageBreadcrumbJsonLd("services", locale as Locale, country);
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }}

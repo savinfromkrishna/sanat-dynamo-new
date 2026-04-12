@@ -538,50 +538,56 @@
   },
   "pages": {
     "home": {
-      "metaTitle": "Sanat Dynamo — We Build Revenue Systems, Not Just Websites",
-      "metaDescription": "Custom software, AI automation, and SEO — built as a unified growth engine for D2C brands, real estate, clinics, coaching institutes, and SMEs. 50+ businesses scaled, ₹40Cr+ revenue impacted.",
-      "metaKeywords": "revenue systems, custom software development, AI automation, WhatsApp automation, SEO agency, ERP development, D2C agency, real estate CRM, clinic booking system, coaching institute software, SME automation, India",
-      "ogTitle": "Revenue Systems · Automation · Scale",
-      "ogDescription": "We don't just build software. We build revenue engines that work while you sleep."
+      "metaTitle": "Sanat Dynamo — We Build Revenue Systems, Not Just Websites | Custom Software & AI Automation",
+      "metaDescription": "Sanat Dynamo builds revenue systems using custom software, AI automation, WhatsApp CRM, and SEO for D2C brands, real estate, clinics, coaching institutes & SMEs. 50+ businesses scaled. ₹40Cr+ revenue impacted. 200% average ROI.",
+      "metaKeywords": "revenue systems, custom software development, AI automation agency, WhatsApp automation, SEO agency, CRM development, ERP development, D2C growth agency, real estate lead generation, clinic booking automation, coaching institute enrollment, SME business automation, website conversion optimization",
+      "ogTitle": "Sanat Dynamo — Revenue Systems · Automation · Scale",
+      "ogDescription": "We don't just build websites — we build revenue engines. Custom software, AI automation & SEO for 50+ businesses. ₹40Cr+ revenue impacted."
     },
     "about": {
-      "metaTitle": "About Sanat Dynamo — Revenue-Focused Systems Partner",
-      "metaDescription": "Meet the senior team behind Sanat Dynamo. We've worked with 50+ businesses across e-commerce, real estate, healthcare, education, and manufacturing. Every engagement is measured by one outcome: did revenue go up?",
-      "metaKeywords": "revenue agency, growth partner, custom software team, India agency, accountable agency, embedded engineering team, conversion optimization, business automation"
+      "metaTitle": "Sanat Dynamo — About Us | Revenue-Focused Systems & Automation Partner",
+      "metaDescription": "Sanat Dynamo is a senior, embedded revenue systems partner. 50+ businesses across e-commerce, real estate, healthcare, education & manufacturing. Every engagement is measured by one outcome: did revenue go up? 200% average ROI.",
+      "metaKeywords": "revenue agency, growth partner, custom software team, accountable agency, embedded engineering team, conversion optimization company, business automation partner, AI automation agency, senior developer team, outcome-focused agency",
+      "ogTitle": "Sanat Dynamo — Revenue-Focused Systems Partner",
+      "ogDescription": "Meet the team that has scaled 50+ businesses with revenue systems. Senior engineers. Weekly demos. Outcome-focused."
     },
     "services": {
-      "metaTitle": "Services — 6 Productized Revenue Systems",
-      "metaDescription": "RevSite Pro, AutoSell Engine, LocalDom SEO, GlobalScale Suite, OperateOS, GrowthOS Retainer — six fixed-scope packages that turn your business into a revenue engine. Investment ranges from ₹30K/mo to ₹15L.",
-      "metaKeywords": "website rebuild, WhatsApp automation, local SEO, multi-language website, custom ERP, growth retainer, productized services, fixed scope, fixed price agency, conversion-optimized website",
-      "ogTitle": "Six systems that grow your revenue."
+      "metaTitle": "Sanat Dynamo — Services | 6 Revenue Systems: Websites, WhatsApp, SEO, ERP & Growth",
+      "metaDescription": "6 productized revenue systems: RevSite Pro (high-conversion websites), AutoSell Engine (WhatsApp & CRM automation), LocalDom SEO, GlobalScale Suite (multi-language), OperateOS (custom ERP), GrowthOS Retainer. Fixed scope, fixed price. From ₹30K/mo.",
+      "metaKeywords": "high conversion website development, WhatsApp business API automation, local SEO services, multi-language website development, custom ERP software, growth retainer agency, conversion rate optimization, lead generation automation, cart recovery automation, Google Business Profile optimization",
+      "ogTitle": "Sanat Dynamo — 6 Revenue Systems That Grow Your Business",
+      "ogDescription": "RevSite Pro · AutoSell Engine · LocalDom SEO · GlobalScale Suite · OperateOS · GrowthOS Retainer. Fixed scope, fixed price."
     },
     "industries": {
-      "metaTitle": "Industries — E-commerce, Real Estate, EdTech, Healthcare, SME",
-      "metaDescription": "We've gone deep in 5 sectors. D2C brands stuck on rising CAC. Real estate teams drowning in low-quality leads. Coaching institutes losing students to manual admissions. Clinics with 20% no-show rates. SMEs running on Excel.",
-      "metaKeywords": "D2C agency, real estate digital marketing, coaching institute software, clinic management system, SME ERP, e-commerce conversion, NRI real estate, online enrollment, patient booking",
-      "ogTitle": "Five sectors. One growth playbook."
+      "metaTitle": "Sanat Dynamo — Industries | E-commerce, Real Estate, EdTech, Healthcare & SME Solutions",
+      "metaDescription": "Industry-specific revenue systems for 5 sectors: D2C e-commerce (2x repeat purchase), real estate (3-5x inbound leads), coaching/EdTech (3-4x enrollment), healthcare clinics (-60% incoming calls), SME operations (-80% manual entry). Proven playbooks.",
+      "metaKeywords": "D2C e-commerce agency, real estate digital marketing, coaching institute software, clinic management system, SME ERP system, e-commerce conversion optimization, NRI real estate website, online enrollment system, patient booking automation, inventory management software",
+      "ogTitle": "Sanat Dynamo — Five Sectors. One Growth Playbook.",
+      "ogDescription": "E-commerce, real estate, EdTech, healthcare & SME — we've built repeatable revenue systems for each sector."
     },
     "caseStudies": {
-      "metaTitle": "Case Studies — 127% Revenue Growth, 65% CPA Reduction, ₹40Cr Impact",
-      "metaDescription": "Real businesses. Real numbers. A D2C skincare brand that 2.3x'd revenue in 90 days. A real estate developer that cut CPL by 60%. A manufacturing SME that replaced 5 spreadsheets with one ERP.",
-      "metaKeywords": "case studies, D2C revenue growth, real estate CRM case study, manufacturing ERP case study, conversion optimization case study, WhatsApp automation results, SEO case study India",
-      "ogTitle": "Real businesses. Real numbers."
+      "metaTitle": "Sanat Dynamo — Case Studies | +127% Revenue, -65% CPA, ₹40Cr+ Impact",
+      "metaDescription": "Real results: D2C skincare brand 2.3x'd revenue in 90 days. Real estate developer cut CPL 60%. Manufacturing SME replaced 5 spreadsheets with one ERP, -80% manual entry. Every case measured by revenue impact.",
+      "metaKeywords": "revenue growth case study, D2C conversion optimization results, real estate CRM case study, manufacturing ERP implementation, WhatsApp automation ROI, SEO traffic growth results, cost per acquisition reduction, cart recovery case study, business automation results",
+      "ogTitle": "Sanat Dynamo — Real Businesses. Real Numbers. ₹40Cr+ Impact.",
+      "ogDescription": "+127% revenue. -65% CPA. 28% cart recovery. Real case studies from D2C, real estate & manufacturing."
     },
     "contact": {
-      "metaTitle": "Contact — Book Your Free 30-Minute Revenue Audit",
-      "metaDescription": "Book a free 30-minute Revenue Audit. We'll show you exactly where your business is leaking — and what it would take to fix it. No commitment. No pitch. Just diagnosis.",
-      "metaKeywords": "free revenue audit, business growth consultation, agency contact, India agency, growth strategy session, conversion audit, automation audit",
-      "ogTitle": "Stop leaving money on the table."
+      "metaTitle": "Sanat Dynamo — Contact | Book Your Free 30-Minute Revenue Audit",
+      "metaDescription": "Book a free 30-minute Revenue Audit with Sanat Dynamo. We'll diagnose exactly where your business is leaking revenue and deliver a written action plan. No commitment. No pitch. Senior strategist on every call.",
+      "metaKeywords": "free revenue audit, business growth consultation, conversion audit, automation consultation, SEO audit, website performance review, lead generation strategy, revenue leak diagnosis, free business consultation",
+      "ogTitle": "Sanat Dynamo — Stop Leaving Money on the Table",
+      "ogDescription": "Free 30-min Revenue Audit. We show you exactly where your business is leaking — and how to fix it."
     },
     "privacy": {
       "metaTitle": "Privacy Policy — Sanat Dynamo",
-      "metaDescription": "How Sanat Dynamo collects, uses, and protects your information. We do not sell, rent, or share your data with third parties for marketing.",
-      "metaKeywords": "privacy policy, data protection, GDPR, agency privacy"
+      "metaDescription": "How Sanat Dynamo collects, uses, and protects your information. We do not sell, rent, or share your data with third parties for marketing. GDPR and Indian IT Act compliant.",
+      "metaKeywords": "privacy policy, data protection, GDPR compliance, Indian IT Act, agency privacy policy"
     },
     "terms": {
       "metaTitle": "Terms of Service — Sanat Dynamo",
-      "metaDescription": "The rules of the road when you work with Sanat Dynamo. Engagement, payment, ownership, confidentiality, support, termination, liability, and governing law.",
-      "metaKeywords": "terms of service, agency contract, project agreement, India law"
+      "metaDescription": "Terms governing engagements with Sanat Dynamo. Covers scope, payment, IP ownership, confidentiality, SLA, termination, liability, and governing law under Indian jurisdiction.",
+      "metaKeywords": "terms of service, agency contract terms, project agreement, Indian jurisdiction, IP ownership, NDA, SLA"
     }
   },
   "featureGrid": {

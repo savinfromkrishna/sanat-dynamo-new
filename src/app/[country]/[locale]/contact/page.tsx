@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslation, type Locale } from "@/lib/i18n";
-import { buildPageMetadata } from "@/lib/seo";
+import { buildPageMetadata, buildPageBreadcrumbJsonLd } from "@/lib/seo";
 import { PageHero } from "@/components/sections/PageHero";
 import { Section } from "@/components/primitives/section";
 import { ContactForm } from "@/components/sections/ContactForm";
@@ -36,6 +36,7 @@ export default async function ContactPage({
 }) {
   const { country, locale } = await params;
   const t = getTranslation(locale as Locale);
+  const breadcrumbLd = buildPageBreadcrumbJsonLd("contact", locale as Locale, country);
   const d = t.contact.details;
 
   const detailItems = [
@@ -57,6 +58,7 @@ export default async function ContactPage({
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <PageHero
         eyebrow={t.contact.eyebrow}
         title={

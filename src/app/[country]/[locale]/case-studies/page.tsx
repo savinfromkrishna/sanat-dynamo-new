@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslation, type Locale } from "@/lib/i18n";
-import { buildPageMetadata } from "@/lib/seo";
+import { buildPageMetadata, buildPageBreadcrumbJsonLd } from "@/lib/seo";
 import { PageHero } from "@/components/sections/PageHero";
 import { CaseStudies } from "@/components/sections/CaseStudies";
 import { Testimonials } from "@/components/sections/Testimonials";
@@ -31,9 +31,11 @@ export default async function CaseStudiesPage({
 }) {
   const { country, locale } = await params;
   const t = getTranslation(locale as Locale);
+  const breadcrumbLd = buildPageBreadcrumbJsonLd("caseStudies", locale as Locale, country);
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <PageHero
         eyebrow={t.caseStudies.eyebrow}
         title={

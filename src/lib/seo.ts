@@ -75,22 +75,34 @@ function geoifyTitle(title: string, geo: GeoInfo): string {
   const countryOnlyInsert = `in ${country}`;
 
   // 1. Try inserting "in {city}, {country}" right after the brand name
+  //    Matches: "Sanat Dynamo —", "Sanat Dynamo -", "Sanat Dynamo ·", "Sanat Dynamo |"
   const brandRe = /^(Sanat Dynamo)(\s*[—\-·|])/;
 
   if (brandRe.test(title)) {
+    // First try full city+country
     const withCity = title.replace(brandRe, `$1 ${fullInsert}$2`);
-    if (withCity.length <= 85) return withCity;
+    if (withCity.length <= 90) return withCity;
 
     // City made it too long → drop the city, keep the country
-    return title.replace(brandRe, `$1 ${countryOnlyInsert}$2`);
+    const withCountry = title.replace(brandRe, `$1 ${countryOnlyInsert}$2`);
+    if (withCountry.length <= 90) return withCountry;
+
+    // Even country is too long → truncate the suffix after the separator
+    // but always keep the country in the title
+    const parts = title.split(/\s*[—\-·|]\s*/);
+    if (parts.length >= 2) {
+      const core = `Sanat Dynamo ${countryOnlyInsert} — ${parts[1]}`;
+      return core.length <= 90 ? core : `Sanat Dynamo ${countryOnlyInsert} — ${parts[1].slice(0, 40)}…`;
+    }
+    return withCountry;
   }
 
   // 2. Brand didn't match the start of the title — append " · {city, country}"
   const withCity = `${title} · ${cityPart}${country}`;
-  if (withCity.length <= 85) return withCity;
+  if (withCity.length <= 90) return withCity;
 
   const countryOnly = `${title} · ${country}`;
-  return countryOnly.length <= 85 ? countryOnly : title;
+  return countryOnly.length <= 90 ? countryOnly : title;
 }
 
 /**
@@ -217,6 +229,15 @@ export async function buildPageMetadata({
   if (geo.detected && geo.latitude && geo.longitude) {
     otherMeta["geo.position"] = `${geo.latitude};${geo.longitude}`;
     otherMeta["ICBM"] = `${geo.latitude}, ${geo.longitude}`;
+  }
+
+  // Breadcrumb — auto-generated for every page except home
+  const breadcrumbItems = [
+    { name: "Home", url: `${BASE_URL}/${country}/${locale}` },
+  ];
+  if (page !== "home") {
+    const pageName = meta.metaTitle.split("—")[0]?.split("|")[0]?.trim() ?? page;
+    breadcrumbItems.push({ name: pageName, url: fullUrl });
   }
 
   return {
@@ -350,6 +371,34 @@ export function buildWebsiteJsonLd(t: Messages, locale: Locale, country: string)
       "query-input": "required name=search_term_string",
     },
   };
+}
+
+/**
+ * Build breadcrumb JSON-LD for a page. Call from page components.
+ */
+export function buildPageBreadcrumbJsonLd(
+  page: PageKey,
+  locale: Locale,
+  country: string,
+): object {
+  const t = getTranslation(locale);
+  const subPath = PAGE_PATHS[page];
+  const homeUrl = `${BASE_URL}/${country}/${locale}`;
+  const items = [{ name: t.nav.home, url: homeUrl }];
+
+  if (page !== "home") {
+    const pageUrl = `${homeUrl}/${subPath}`;
+    const label =
+      page === "caseStudies" ? t.nav.work :
+      page === "about" ? t.nav.about :
+      page === "services" ? t.nav.services :
+      page === "industries" ? t.nav.industries :
+      page === "contact" ? t.nav.contact :
+      page;
+    items.push({ name: label, url: pageUrl });
+  }
+
+  return buildBreadcrumbJsonLd(items);
 }
 
 export function buildBreadcrumbJsonLd(items: Array<{ name: string; url: string }>) {
