@@ -1,7 +1,7 @@
 // Site-wide constants for Sanat Dynamo
 import { validCountryISOs } from "@/middleware";
 
-export const BASE_URL = "https://sanat-rewa.vercel.app";
+export const BASE_URL = "https://www.savingroup.in";
 
 export const COUNTRIES = validCountryISOs;
 export const LANGUAGES = ["en", "es", "fr", "de", "ar", "hi", "zh"] as const;

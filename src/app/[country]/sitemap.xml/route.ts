@@ -4,6 +4,28 @@ import { NextResponse } from "next/server";
 
 export const dynamic = "force-dynamic";
 
+/**
+ * Resolve the public base URL from the incoming request.
+ * Reads `x-forwarded-host`/`host` + `x-forwarded-proto` so that the sitemap's
+ * <loc> URLs always match the host the sitemap was served from.
+ *
+ * Google rejects sitemaps containing cross-domain URLs ("General HTTP error").
+ */
+function resolveBaseUrl(request: Request): string {
+  const host =
+    request.headers.get("x-forwarded-host") ??
+    request.headers.get("host");
+  if (!host) return BASE_URL;
+
+  const proto =
+    request.headers.get("x-forwarded-proto") ??
+    (host.startsWith("localhost") || host.startsWith("127.0.0.1")
+      ? "http"
+      : "https");
+
+  return `${proto}://${host}`;
+}
+
 /** SEO priority per page type — homepage highest, legal pages lowest */
 const PAGE_PRIORITY: Record<string, number> = {
   "": 1.0,
@@ -28,33 +50,32 @@ const PAGE_CHANGEFREQ: Record<string, string> = {
 };
 
 export async function GET(
-  _request: Request,
+  request: Request,
   { params }: { params: Promise<{ country: string }> }
 ) {
   const { country } = await params;
+  const base = resolveBaseUrl(request);
   const today = new Date().toISOString().split("T")[0];
 
   const urls = LANGUAGES.flatMap((locale) =>
     STATIC_PAGES.map((page) => {
       const loc =
         page === ""
-          ? `${BASE_URL}/${country}/${locale}`
-          : `${BASE_URL}/${country}/${locale}/${page}`;
+          ? `${base}/${country}/${locale}`
+          : `${base}/${country}/${locale}/${page}`;
 
       // Build hreflang alternates for this URL across all locales
       const alternates = LANGUAGES.map((altLocale) => {
         const altLoc =
           page === ""
-            ? `${BASE_URL}/${country}/${altLocale}`
-            : `${BASE_URL}/${country}/${altLocale}/${page}`;
+            ? `${base}/${country}/${altLocale}`
+            : `${base}/${country}/${altLocale}/${page}`;
         const htmlLang = LOCALES[altLocale as Locale]?.htmlLang ?? altLocale;
         return `      <xhtml:link rel="alternate" hreflang="${htmlLang}" href="${altLoc}" />`;
       });
       // x-default
       const xDefault =
-        page === ""
-          ? `${BASE_URL}/in/en`
-          : `${BASE_URL}/in/en/${page}`;
+        page === "" ? `${base}/in/en` : `${base}/in/en/${page}`;
       alternates.push(
         `      <xhtml:link rel="alternate" hreflang="x-default" href="${xDefault}" />`
       );
@@ -87,7 +108,7 @@ ${u.alternates}
 
   return new NextResponse(xml, {
     headers: {
-      "Content-Type": "application/xml",
+      "Content-Type": "application/xml; charset=utf-8",
       "Cache-Control": "public, s-maxage=86400, stale-while-revalidate=43200",
     },
   });
