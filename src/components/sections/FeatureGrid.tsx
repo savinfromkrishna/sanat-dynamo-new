@@ -48,7 +48,7 @@ export function FeatureGrid({ t }: { t: Messages }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.45, delay: (i % 4) * 0.06 }}
-              className="group relative overflow-hidden rounded-3xl border border-border bg-surface/60 p-6 transition-all hover:-translate-y-1 hover:border-accent/40 hover:bg-surface"
+              className="group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-border bg-surface/60 p-4 sm:p-6 transition-all hover:-translate-y-1 hover:border-accent/40 hover:bg-surface"
             >
               <div className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-accent/5 blur-2xl transition-opacity group-hover:bg-accent/15" />
               <div

@@ -17,7 +17,7 @@ export function Cta({ t }: { t: Messages }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7 }}
-          className="relative overflow-hidden rounded-[32px] border border-accent/20 bg-gradient-to-br from-surface via-surface-2 to-surface p-10 shadow-2xl sm:p-16 lg:p-20"
+          className="relative overflow-hidden rounded-2xl sm:rounded-[32px] border border-accent/20 bg-gradient-to-br from-surface via-surface-2 to-surface p-6 shadow-2xl sm:p-12 lg:p-20"
         >
           {/* Background visual */}
           <div className="bg-grid bg-grid-fade absolute inset-0 opacity-30" />
@@ -44,7 +44,7 @@ export function Cta({ t }: { t: Messages }) {
           <div className="relative grid items-center gap-10 lg:grid-cols-12">
             <div className="lg:col-span-7">
               <Eyebrow>{t.cta.eyebrow}</Eyebrow>
-              <h2 className="text-balance mt-5 font-display text-4xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+              <h2 className="text-balance mt-5 font-display text-2xl font-semibold leading-[1.08] tracking-tight text-foreground sm:text-4xl lg:text-6xl">
                 {t.cta.title}
               </h2>
               <p className="text-pretty mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
@@ -67,7 +67,7 @@ export function Cta({ t }: { t: Messages }) {
 
             {/* Side testimonial card */}
             <div className="lg:col-span-5">
-              <div className="relative rounded-3xl border border-border bg-background/80 p-7 backdrop-blur-xl">
+              <div className="relative rounded-2xl sm:rounded-3xl border border-border bg-background/80 p-5 sm:p-7 backdrop-blur-xl">
                 <div
                   aria-hidden
                   className="absolute -top-3 right-6 flex h-9 w-9 items-center justify-center rounded-full bg-accent text-accent-foreground shadow-[0_8px_24px_-8px_oklch(0.78_0.165_70/0.7)]"

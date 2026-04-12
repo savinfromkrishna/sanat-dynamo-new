@@ -96,7 +96,7 @@ export default async function ServicesPage({
               <article
                 key={s.id}
                 id={s.id}
-                className="group relative scroll-mt-32 overflow-hidden rounded-3xl border border-border bg-surface/60 transition-colors hover:border-accent/30"
+                className="group relative scroll-mt-32 overflow-hidden rounded-2xl sm:rounded-3xl border border-border bg-surface/60 transition-colors hover:border-accent/30"
               >
                 <div
                   aria-hidden
@@ -113,7 +113,7 @@ export default async function ServicesPage({
                   </div>
                 )}
 
-                <div className="grid gap-8 p-8 lg:grid-cols-12 lg:gap-12 lg:p-12">
+                <div className="grid gap-6 p-5 sm:gap-8 sm:p-8 lg:grid-cols-12 lg:gap-12 lg:p-12">
                   {/* Left: name + summary */}
                   <div
                     className={`relative lg:col-span-5 ${right ? "lg:order-2" : ""}`}

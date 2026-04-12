@@ -47,7 +47,7 @@ export function Industries({ t }: { t: Messages }) {
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.5, delay: i * 0.05 }}
               id={ind.id}
-              className={`group relative flex flex-col overflow-hidden rounded-3xl border border-border bg-surface/60 p-7 transition-all duration-500 hover:border-accent/40 hover:bg-surface ${
+              className={`group relative flex flex-col overflow-hidden rounded-2xl sm:rounded-3xl border border-border bg-surface/60 p-5 sm:p-7 transition-all duration-500 hover:border-accent/40 hover:bg-surface ${
                 isFeatured ? "lg:col-span-7 lg:row-span-2" : "lg:col-span-5"
               }`}
             >

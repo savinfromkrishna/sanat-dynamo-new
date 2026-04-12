@@ -39,7 +39,7 @@ export function Testimonials({ t }: { t: Messages }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.5, delay: (i % 2) * 0.08 }}
-            className="group relative overflow-hidden rounded-3xl border border-border bg-surface/60 p-8 transition-all hover:border-accent/30 hover:bg-surface"
+            className="group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-border bg-surface/60 p-5 sm:p-8 transition-all hover:border-accent/30 hover:bg-surface"
           >
             <div
               aria-hidden
@@ -63,7 +63,7 @@ export function Testimonials({ t }: { t: Messages }) {
                 ))}
               </div>
             </div>
-            <blockquote className="mt-4 text-balance text-lg leading-relaxed text-foreground">
+            <blockquote className="mt-4 text-balance text-base sm:text-lg leading-relaxed text-foreground">
               {tm.quote}
             </blockquote>
             <figcaption className="mt-6 flex items-center gap-3 border-t border-border pt-5">

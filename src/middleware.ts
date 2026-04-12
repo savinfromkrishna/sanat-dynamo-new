@@ -174,6 +174,6 @@ export async function middleware(req: NextRequest) {
 
 export const config = {
   matcher: [
-    "/((?!_next/static|_next/image|assets|favicon-96x96.png|favicon-180x180.png|favicon.ico|favicon.svg|google059bd1b2c050b28b.html|robots.txt|api|^app$|^app/|sitemap-index.xml|[a-zA-Z]{2}/sitemap.xml|[a-zA-Z]{2}/[a-zA-Z]{2}/sitemap.xml).*)",
+    "/((?!_next/static|_next/image|assets|favicon-96x96.png|favicon-180x180.png|favicon.ico|favicon.svg|google059bd1b2c050b28b.html|google7f9e3db7a201227d.html|robots.txt|api|^app$|^app/|sitemap-index.xml|[a-zA-Z]{2}/sitemap.xml|[a-zA-Z]{2}/[a-zA-Z]{2}/sitemap.xml).*)",
   ],
 };

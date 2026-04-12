@@ -20,7 +20,7 @@ export function Hero({ t }: { t: Messages }) {
   const stats = t.socialProof.stats;
 
   return (
-    <section className="relative overflow-hidden pt-36 pb-24 sm:pt-44 sm:pb-32 lg:pt-52 lg:pb-40">
+    <section className="relative overflow-hidden pt-28 pb-16 sm:pt-44 sm:pb-32 lg:pt-52 lg:pb-40">
       {/* Background layers */}
       <div className="bg-mesh absolute inset-0 -z-20" />
       <div className="bg-grid bg-grid-fade absolute inset-0 -z-10 opacity-60" />
@@ -157,7 +157,7 @@ export function Hero({ t }: { t: Messages }) {
           transition={{ duration: 0.7, delay: 0.5 }}
           className="border-grad mt-12 rounded-3xl p-1 shadow-2xl"
         >
-          <div className="rounded-[22px] bg-surface/80 p-6 backdrop-blur-xl sm:p-8">
+          <div className="rounded-[22px] bg-surface/80 p-5 backdrop-blur-xl sm:p-8">
             <div className="mb-6 flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-accent" />
@@ -169,7 +169,7 @@ export function Hero({ t }: { t: Messages }) {
                 Last 18 months
               </span>
             </div>
-            <div className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4 sm:gap-x-4">
+            <div className="grid grid-cols-2 gap-x-4 gap-y-6 sm:grid-cols-4 sm:gap-x-4">
               {stats.map((s, i) => {
                 const Icon = statIcons[i] ?? TrendingUp;
                 return (

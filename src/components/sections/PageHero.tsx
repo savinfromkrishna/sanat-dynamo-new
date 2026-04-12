@@ -14,7 +14,7 @@ export function PageHero({
   breadcrumb?: string;
 }) {
   return (
-    <section className="relative overflow-hidden pt-40 pb-16 sm:pt-48 sm:pb-24">
+    <section className="relative overflow-hidden pt-28 pb-12 sm:pt-44 sm:pb-20 lg:pt-48 lg:pb-24">
       <div className="bg-mesh absolute inset-0 -z-20" />
       <div className="bg-grid bg-grid-fade absolute inset-0 -z-10 opacity-50" />
       <div className="bg-noise absolute inset-0 -z-10 opacity-[0.18] mix-blend-overlay" />
@@ -42,11 +42,11 @@ export function PageHero({
         </nav>
 
         <Eyebrow>{eyebrow}</Eyebrow>
-        <h1 className="text-balance mt-6 max-w-4xl font-display text-5xl font-semibold leading-[1.02] tracking-tight text-foreground sm:text-6xl lg:text-[5rem]">
+        <h1 className="text-balance mt-4 sm:mt-6 max-w-4xl font-display text-3xl font-semibold leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:text-[5rem]">
           {title}
         </h1>
         {subtitle && (
-          <p className="text-pretty mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+          <p className="text-pretty mt-4 sm:mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-muted-foreground">
             {subtitle}
           </p>
         )}

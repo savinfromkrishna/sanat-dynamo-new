@@ -21,7 +21,7 @@ export function Faq({ t }: { t: Messages }) {
           />
 
           {/* Sidebar contact card */}
-          <div className="mt-10 rounded-3xl border border-accent/30 bg-accent/5 p-7">
+          <div className="mt-8 sm:mt-10 rounded-2xl sm:rounded-3xl border border-accent/30 bg-accent/5 p-5 sm:p-7">
             <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-accent/40 bg-background text-accent">
               <MessageCircle size={20} />
             </div>
@@ -53,7 +53,7 @@ export function Faq({ t }: { t: Messages }) {
                 <div key={i}>
                   <button
                     onClick={() => setOpen(isOpen ? null : i)}
-                    className="flex w-full items-center justify-between gap-6 px-6 py-6 text-left transition-colors hover:bg-surface sm:px-8"
+                    className="flex w-full items-center justify-between gap-4 px-4 py-5 text-left transition-colors hover:bg-surface sm:gap-6 sm:px-6 sm:py-6 lg:px-8"
                     aria-expanded={isOpen}
                   >
                     <div className="flex items-start gap-4">
@@ -85,7 +85,7 @@ export function Faq({ t }: { t: Messages }) {
                         transition={{ duration: 0.3, ease: "easeOut" }}
                         className="overflow-hidden"
                       >
-                        <p className="px-6 pb-7 pl-[3.75rem] text-base leading-relaxed text-muted-foreground sm:px-8 sm:pl-[5rem]">
+                        <p className="px-4 pb-5 pl-12 text-sm leading-relaxed text-muted-foreground sm:px-6 sm:pb-7 sm:pl-[3.75rem] sm:text-base lg:px-8 lg:pl-[5rem]">
                           {item.a}
                         </p>
                       </motion.div>

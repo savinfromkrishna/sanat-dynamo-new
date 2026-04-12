@@ -102,7 +102,7 @@ export default async function IndustriesPage({
               <article
                 key={ind.id}
                 id={ind.id}
-                className="group relative scroll-mt-32 overflow-hidden rounded-3xl border border-border bg-surface/60 p-8 transition-colors hover:border-accent/30 sm:p-12"
+                className="group relative scroll-mt-32 overflow-hidden rounded-2xl sm:rounded-3xl border border-border bg-surface/60 p-5 transition-colors hover:border-accent/30 sm:p-8 lg:p-12"
               >
                 <div
                   aria-hidden

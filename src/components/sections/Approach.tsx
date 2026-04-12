@@ -62,7 +62,7 @@ export function Approach({ t }: { t: Messages }) {
           {t.approach.comparison.map((row, i) => (
             <div key={i} className="contents">
               <div
-                className={`flex items-center gap-3 border-t border-border p-6 ${
+                className={`flex items-center gap-3 border-t border-border p-4 sm:p-6 ${
                   i % 2 === 0 ? "bg-surface/20" : "bg-surface/40"
                 }`}
               >

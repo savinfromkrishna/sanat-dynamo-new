@@ -2,7 +2,6 @@ import type { ReactNode } from "react";
 import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, DM_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-
 import {
   getTranslation,
   LOCALES,

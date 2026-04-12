@@ -150,7 +150,7 @@ export function KnowMore({ t, pageKey, pageLabel }: KnowMoreProps) {
 
                   <button
                     onClick={() => setOpen(active ? null : it.id)}
-                    className="relative flex w-full items-start gap-5 p-7 text-left sm:p-8"
+                    className="relative flex w-full items-start gap-4 p-5 text-left sm:gap-5 sm:p-8"
                     aria-expanded={active}
                   >
                     {/* Chapter number */}

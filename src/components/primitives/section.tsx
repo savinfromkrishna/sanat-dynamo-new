@@ -14,7 +14,7 @@ export function Section({
     <section
       id={id}
       className={cn(
-        "relative scroll-mt-24 py-24 sm:py-32 lg:py-40",
+        "relative scroll-mt-24 py-16 sm:py-24 lg:py-32",
         className
       )}
     >
@@ -85,11 +85,11 @@ export function SectionHeader({
           </span>
         )}
       </div>
-      <h2 className="text-balance mt-5 font-display text-4xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-[3.5rem]">
+      <h2 className="text-balance mt-4 sm:mt-5 font-display text-2xl font-semibold leading-[1.08] tracking-tight text-foreground sm:text-4xl lg:text-[3.5rem]">
         {title}
       </h2>
       {subtitle && (
-        <p className="text-pretty mt-6 text-lg leading-relaxed text-muted-foreground">
+        <p className="text-pretty mt-4 sm:mt-6 text-base sm:text-lg leading-relaxed text-muted-foreground">
           {subtitle}
         </p>
       )}

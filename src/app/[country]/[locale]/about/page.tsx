@@ -104,7 +104,7 @@ export default async function AboutPage({
           </div>
 
           <aside className="lg:col-span-5">
-            <div className="rounded-3xl border border-border bg-surface/60 p-8">
+            <div className="rounded-2xl sm:rounded-3xl border border-border bg-surface/60 p-5 sm:p-8">
               <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
                 By the numbers
               </div>
@@ -125,7 +125,7 @@ export default async function AboutPage({
               </div>
             </div>
 
-            <div className="mt-5 rounded-3xl border border-accent/30 bg-accent/5 p-8">
+            <div className="mt-4 sm:mt-5 rounded-2xl sm:rounded-3xl border border-accent/30 bg-accent/5 p-5 sm:p-8">
               <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
                 What you can expect
               </div>
@@ -162,7 +162,7 @@ export default async function AboutPage({
             return (
               <div
                 key={tl.year}
-                className="group relative overflow-hidden rounded-3xl border border-border bg-surface/60 p-7 transition-all hover:border-accent/40 hover:bg-surface"
+                className="group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-border bg-surface/60 p-5 sm:p-7 transition-all hover:border-accent/40 hover:bg-surface"
               >
                 <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-accent/5 blur-3xl transition-opacity group-hover:bg-accent/15" />
                 <div className="flex items-start justify-between">
@@ -207,7 +207,7 @@ export default async function AboutPage({
             return (
               <div
                 key={v.title}
-                className="group relative overflow-hidden rounded-3xl border border-border bg-surface/60 p-8 transition-all hover:border-accent/40 hover:bg-surface"
+                className="group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-border bg-surface/60 p-5 sm:p-8 transition-all hover:border-accent/40 hover:bg-surface"
               >
                 <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-accent/5 blur-3xl transition-opacity group-hover:bg-accent/15" />
                 <div className="flex items-start justify-between">

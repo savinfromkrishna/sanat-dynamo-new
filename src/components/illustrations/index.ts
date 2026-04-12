@@ -12,4 +12,4 @@ export { featureIllustrationMap } from "./FeatureIllustrations";
 // Page-specific illustrations
 export { TimelineSVG, ValuesConstellation, EmbeddedTeamVisual } from "./AboutIllustrations";
 export { RevenueGrowthChart, BeforeAfterMetric, ProofStripVisual } from "./CaseStudyIllustrations";
-export { ContactProcessFlow, TrustVisual } from "./ContactIllustrations";
+export { ContactProcessFlow, TrustVisual, GlobalReachMap } from "./ContactIllustrations";

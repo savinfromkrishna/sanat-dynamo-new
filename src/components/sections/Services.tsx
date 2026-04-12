@@ -33,7 +33,7 @@ export function Services({ t, expanded = false }: ServicesProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.5, delay: (i % 3) * 0.08 }}
-            className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-surface/60 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-accent/40 hover:bg-surface"
+            className="group relative flex h-full flex-col overflow-hidden rounded-2xl sm:rounded-3xl border border-border bg-surface/60 p-5 sm:p-7 transition-all duration-500 hover:-translate-y-1 hover:border-accent/40 hover:bg-surface"
           >
             {/* Background decorations */}
             <div className="pointer-events-none absolute -right-20 -top-20 h-48 w-48 rounded-full bg-accent/5 blur-3xl transition-opacity duration-500 group-hover:bg-accent/15" />

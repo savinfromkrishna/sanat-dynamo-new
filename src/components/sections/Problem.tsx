@@ -36,7 +36,7 @@ export function Problem({ t }: { t: Messages }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.5, delay: i * 0.06 }}
-            className="group relative flex flex-col overflow-hidden rounded-3xl border border-border bg-surface/60 p-7 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:border-danger/40 hover:bg-surface"
+            className="group relative flex flex-col overflow-hidden rounded-2xl sm:rounded-3xl border border-border bg-surface/60 p-5 sm:p-7 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:border-danger/40 hover:bg-surface"
           >
             <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-danger/5 blur-2xl transition-opacity duration-500 group-hover:bg-danger/15" />
 
@@ -78,7 +78,7 @@ export function Problem({ t }: { t: Messages }) {
       </div>
 
       {/* Bottom CTA strip */}
-      <div className="mt-14 flex flex-col items-center justify-between gap-6 rounded-3xl border border-border bg-surface/40 p-8 backdrop-blur-sm sm:flex-row sm:p-10">
+      <div className="mt-10 sm:mt-14 flex flex-col items-center justify-between gap-6 rounded-2xl sm:rounded-3xl border border-border bg-surface/40 p-5 sm:p-8 backdrop-blur-sm sm:flex-row lg:p-10">
         <div className="flex items-start gap-4 sm:items-center">
           <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-danger/40 bg-danger/10 text-danger">
             <AlertTriangle size={20} />

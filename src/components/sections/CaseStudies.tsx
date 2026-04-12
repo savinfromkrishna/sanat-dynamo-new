@@ -63,7 +63,7 @@ export function CaseStudies({
               aria-hidden
               className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
             />
-            <div className="grid gap-8 p-8 lg:grid-cols-12 lg:p-10">
+            <div className="grid gap-6 p-5 sm:gap-8 sm:p-8 lg:grid-cols-12 lg:p-10">
               {/* Left: title + meta */}
               <div className="lg:col-span-5">
                 <div className="flex flex-wrap items-center gap-3">

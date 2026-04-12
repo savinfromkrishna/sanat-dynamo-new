@@ -86,13 +86,13 @@ export function Process({ t }: { t: Messages }) {
                 className="relative grid gap-6 lg:grid-cols-2 lg:gap-16"
               >
                 <div
-                  className={`relative pl-16 lg:pl-0 ${
+                  className={`relative pl-0 lg:pl-0 ${
                     right ? "lg:order-2 lg:pl-16" : "lg:pr-16 lg:text-right"
                   }`}
                 >
-                  {/* Number bubble */}
+                  {/* Number bubble — inline on mobile, absolute on desktop */}
                   <div
-                    className={`absolute left-0 top-0 flex h-14 w-14 items-center justify-center rounded-2xl border border-accent/40 bg-background font-mono text-sm font-semibold text-accent shadow-[0_0_0_6px_var(--background)] lg:left-1/2 lg:-translate-x-1/2 ${
+                    className={`mb-4 flex h-12 w-12 items-center justify-center rounded-2xl border border-accent/40 bg-background font-mono text-sm font-semibold text-accent lg:absolute lg:left-1/2 lg:top-0 lg:mb-0 lg:h-14 lg:w-14 lg:-translate-x-1/2 lg:shadow-[0_0_0_6px_var(--background)] ${
                       right ? "lg:left-[-44px]" : "lg:left-auto lg:right-[-44px]"
                     }`}
                   >
