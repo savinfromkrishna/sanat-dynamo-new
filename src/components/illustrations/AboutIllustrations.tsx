@@ -57,7 +57,7 @@ export function TimelineSVG({ className = "" }: { className?: string }) {
       <motion.line x1="334" y1="80" x2="546" y2="80" stroke="var(--accent-soft)" strokeWidth="3" strokeLinecap="round" variants={draw(1)} />
 
       {/* Pulse ring on latest milestone */}
-      <motion.circle cx="560" cy="80" r="14" fill="none" stroke="oklch(0.74 0.16 155 / 0.2)" strokeWidth="1" animate={{ r: [14, 24, 14], opacity: [0.2, 0, 0.2] }} transition={{ duration: 3, repeat: Infinity }} />
+      <motion.circle cx="560" cy="80" r="14" fill="none" stroke="oklch(0.74 0.16 155 / 0.4)" strokeWidth="1" animate={{ r: [14, 24, 14], opacity: [0.2, 0, 0.2] }} transition={{ duration: 3, repeat: Infinity }} />
 
       {/* Arrow tip at end */}
       <motion.polygon points="596,76 604,80 596,84" fill="var(--muted-foreground)" opacity="0.3" variants={pop(4)} />

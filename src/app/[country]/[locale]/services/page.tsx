@@ -106,7 +106,7 @@ export default async function ServicesPage({
                 />
                 {/* Service blueprint sketch */}
                 {Illust && (
-                  <div className="pointer-events-none absolute right-8 top-8 hidden h-32 w-40 opacity-30 transition-opacity duration-500 group-hover:opacity-50 lg:block">
+                  <div className="pointer-events-none absolute right-8 top-8 hidden h-32 w-40 opacity-80 transition-opacity duration-500 group-hover:opacity-100 lg:block">
                     <Illust className="h-full w-full" />
                   </div>
                 )}

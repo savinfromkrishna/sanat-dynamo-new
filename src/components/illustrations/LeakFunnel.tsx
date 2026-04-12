@@ -54,7 +54,7 @@ export function LeakFunnel({ className = "" }: { className?: string }) {
           <stop offset="100%" stopColor="oklch(0.65 0.22 25)" stopOpacity="0" />
         </linearGradient>
         <filter id="lf-glow">
-          <feGaussianBlur stdDeviation="3" result="blur" />
+          <feGaussianBlur stdDeviation="1" result="blur" />
           <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
         </filter>
       </defs>
@@ -68,7 +68,7 @@ export function LeakFunnel({ className = "" }: { className?: string }) {
       {/* Title annotation */}
       <motion.g variants={popIn(0)}>
         <text x="190" y="22" textAnchor="middle" fontFamily="var(--font-mono)" fontSize="7" letterSpacing="0.18em" fill="oklch(0.65 0.22 25 / 0.5)">REVENUE DIAGNOSTIC</text>
-        <line x1="100" y1="28" x2="280" y2="28" stroke="oklch(0.65 0.22 25 / 0.15)" strokeWidth="0.5" />
+        <line x1="100" y1="28" x2="280" y2="28" stroke="oklch(0.65 0.22 25 / 0.35)" strokeWidth="0.5" />
       </motion.g>
 
       {/* === FUNNEL PIPELINE — narrowing with cracks === */}
@@ -102,7 +102,7 @@ export function LeakFunnel({ className = "" }: { className?: string }) {
       <motion.g variants={popIn(1)}>
         <line x1="70" y1="100" x2="310" y2="100" stroke="var(--svg-line-faint)" strokeWidth="0.5" strokeDasharray="4 4" />
         <text x="35" y="80" fontFamily="var(--font-mono)" fontSize="7" letterSpacing="0.12em" fill="oklch(0.78 0.165 70 / 0.5)">TRAFFIC</text>
-        <text x="35" y="90" fontFamily="var(--font-mono)" fontSize="6" fill="oklch(0.7 0.015 260 / 0.3)">100%</text>
+        <text x="35" y="90" fontFamily="var(--font-mono)" fontSize="6" fill="oklch(0.7 0.015 260 / 0.5)">100%</text>
       </motion.g>
 
       {/* Stage 2: Leads — CRACK #1 (slow page = -7%) */}
@@ -114,14 +114,13 @@ export function LeakFunnel({ className = "" }: { className?: string }) {
       <motion.path d="M 280 150 L 290 148 L 284 155 L 296 153 L 288 162" stroke="oklch(0.65 0.22 25 / 0.5)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" fill="none" variants={drawLine(2)} />
       {/* Leak annotation */}
       <motion.g variants={popIn(3)}>
-        <line x1="296" y1="153" x2="330" y2="140" stroke="oklch(0.65 0.22 25 / 0.3)" strokeWidth="0.5" strokeDasharray="2 2" />
-        <rect x="320" y="128" width="52" height="18" rx="4" fill="oklch(0.65 0.22 25 / 0.08)" stroke="oklch(0.65 0.22 25 / 0.25)" strokeWidth="0.6" />
+        <line x1="296" y1="153" x2="330" y2="140" stroke="oklch(0.65 0.22 25 / 0.5)" strokeWidth="0.5" strokeDasharray="2 2" />
+        <rect x="320" y="128" width="52" height="18" rx="4" fill="oklch(0.65 0.22 25 / 0.08)" stroke="oklch(0.65 0.22 25 / 0.45)" strokeWidth="0.6" />
         <text x="346" y="140" textAnchor="middle" fontFamily="var(--font-mono)" fontSize="8" fontWeight="600" fill="oklch(0.65 0.22 25 / 0.7)">−7%/sec</text>
       </motion.g>
 
       {/* Leaking drops from crack #1 */}
-      <motion.circle r="3" fill="url(#lf-drop)" filter="url(#lf-glow)"
-        animate={{ cx: [290, 305, 315], cy: [155, 185, 220], opacity: [0.7, 0.4, 0] }}
+      <motion.circle r="3" fill="url(#lf-drop)"        animate={{ cx: [290, 305, 315], cy: [155, 185, 220], opacity: [0.7, 0.4, 0] }}
         transition={{ duration: 2.5, repeat: Infinity, ease: "easeIn" as const }}
       />
 
@@ -133,14 +132,13 @@ export function LeakFunnel({ className = "" }: { className?: string }) {
       {/* Crack #2 — bigger, more severe */}
       <motion.path d="M 116 210 L 106 208 L 112 215 L 98 214 L 108 225" stroke="oklch(0.65 0.22 25 / 0.6)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" fill="none" variants={drawLine(3)} />
       <motion.g variants={popIn(4)}>
-        <line x1="98" y1="214" x2="50" y2="210" stroke="oklch(0.65 0.22 25 / 0.3)" strokeWidth="0.5" strokeDasharray="2 2" />
-        <rect x="4" y="200" width="52" height="18" rx="4" fill="oklch(0.65 0.22 25 / 0.1)" stroke="oklch(0.65 0.22 25 / 0.3)" strokeWidth="0.6" />
+        <line x1="98" y1="214" x2="50" y2="210" stroke="oklch(0.65 0.22 25 / 0.5)" strokeWidth="0.5" strokeDasharray="2 2" />
+        <rect x="4" y="200" width="52" height="18" rx="4" fill="oklch(0.65 0.22 25 / 0.1)" stroke="oklch(0.65 0.22 25 / 0.5)" strokeWidth="0.6" />
         <text x="30" y="212" textAnchor="middle" fontFamily="var(--font-mono)" fontSize="8" fontWeight="600" fill="oklch(0.65 0.22 25 / 0.8)">70% COLD</text>
       </motion.g>
 
       {/* Multiple drops from crack #2 */}
-      <motion.circle r="3.5" fill="url(#lf-drop)" filter="url(#lf-glow)"
-        animate={{ cx: [100, 85, 70], cy: [215, 250, 290], opacity: [0.8, 0.4, 0] }}
+      <motion.circle r="3.5" fill="url(#lf-drop)"        animate={{ cx: [100, 85, 70], cy: [215, 250, 290], opacity: [0.8, 0.4, 0] }}
         transition={{ duration: 3, repeat: Infinity, ease: "easeIn" as const, delay: 0.5 }}
       />
       <motion.circle r="2.5" fill="url(#lf-drop)"
@@ -154,8 +152,8 @@ export function LeakFunnel({ className = "" }: { className?: string }) {
         <text x="35" y="270" fontFamily="var(--font-mono)" fontSize="7" letterSpacing="0.12em" fill="oklch(0.7 0.015 260 / 0.4)">CONVERT</text>
       </motion.g>
       <motion.g variants={popIn(5)}>
-        <line x1="230" y1="290" x2="290" y2="280" stroke="oklch(0.65 0.22 25 / 0.3)" strokeWidth="0.5" strokeDasharray="2 2" />
-        <rect x="280" y="270" width="70" height="18" rx="4" fill="oklch(0.65 0.22 25 / 0.08)" stroke="oklch(0.65 0.22 25 / 0.25)" strokeWidth="0.6" />
+        <line x1="230" y1="290" x2="290" y2="280" stroke="oklch(0.65 0.22 25 / 0.5)" strokeWidth="0.5" strokeDasharray="2 2" />
+        <rect x="280" y="270" width="70" height="18" rx="4" fill="oklch(0.65 0.22 25 / 0.08)" stroke="oklch(0.65 0.22 25 / 0.45)" strokeWidth="0.6" />
         <text x="315" y="282" textAnchor="middle" fontFamily="var(--font-mono)" fontSize="7" fontWeight="600" fill="oklch(0.65 0.22 25 / 0.7)">100% AD-DEP</text>
       </motion.g>
 
@@ -165,14 +163,14 @@ export function LeakFunnel({ className = "" }: { className?: string }) {
         <text x="35" y="340" fontFamily="var(--font-mono)" fontSize="7" letterSpacing="0.12em" fill="oklch(0.7 0.015 260 / 0.4)">CLOSE</text>
       </motion.g>
       <motion.g variants={popIn(6)}>
-        <line x1="155" y1="360" x2="60" y2="370" stroke="oklch(0.65 0.22 25 / 0.3)" strokeWidth="0.5" strokeDasharray="2 2" />
-        <rect x="8" y="362" width="60" height="18" rx="4" fill="oklch(0.65 0.22 25 / 0.08)" stroke="oklch(0.65 0.22 25 / 0.25)" strokeWidth="0.6" />
+        <line x1="155" y1="360" x2="60" y2="370" stroke="oklch(0.65 0.22 25 / 0.5)" strokeWidth="0.5" strokeDasharray="2 2" />
+        <rect x="8" y="362" width="60" height="18" rx="4" fill="oklch(0.65 0.22 25 / 0.08)" stroke="oklch(0.65 0.22 25 / 0.45)" strokeWidth="0.6" />
         <text x="38" y="374" textAnchor="middle" fontFamily="var(--font-mono)" fontSize="7" fontWeight="600" fill="oklch(0.65 0.22 25 / 0.7)">20+ HRS/WK</text>
       </motion.g>
 
       {/* === OUTPUT TRICKLE — what actually converts === */}
       <motion.g variants={popIn(7)}>
-        <rect x="170" y="415" width="40" height="18" rx="6" fill="oklch(0.78 0.165 70 / 0.08)" stroke="oklch(0.78 0.165 70 / 0.3)" strokeWidth="0.6" />
+        <rect x="170" y="415" width="40" height="18" rx="6" fill="oklch(0.78 0.165 70 / 0.08)" stroke="oklch(0.78 0.165 70 / 0.5)" strokeWidth="0.6" />
         <text x="190" y="427" textAnchor="middle" fontFamily="var(--font-mono)" fontSize="7" fontWeight="700" fill="oklch(0.78 0.165 70 / 0.6)">≈ 3%</text>
       </motion.g>
 

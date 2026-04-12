@@ -92,7 +92,7 @@ export function Approach({ t }: { t: Messages }) {
 
       {/* Visual duality: Chaos vs System */}
       <div className="mt-12 hidden lg:block">
-        <ApproachDuality className="mx-auto max-w-4xl opacity-70" />
+        <ApproachDuality className="mx-auto max-w-4xl" />
       </div>
 
       {/* Pull-quote summary */}

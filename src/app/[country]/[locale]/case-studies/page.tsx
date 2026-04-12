@@ -57,7 +57,7 @@ export default async function CaseStudiesPage({
 
       {/* Proof strip */}
       <Section className="pt-6 pb-0">
-        <ProofStripVisual className="mx-auto max-w-3xl opacity-80" />
+        <ProofStripVisual className="mx-auto max-w-3xl" />
       </Section>
 
       <CaseStudies t={t} expanded />

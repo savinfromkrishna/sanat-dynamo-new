@@ -147,7 +147,7 @@ export function Hero({ t }: { t: Messages }) {
           transition={{ duration: 1, delay: 0.6 }}
           className="mx-auto mt-16 max-w-3xl"
         >
-          <HeroNetwork className="opacity-70" />
+          <HeroNetwork />
         </motion.div>
 
         {/* Stats card */}

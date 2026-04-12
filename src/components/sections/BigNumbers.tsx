@@ -34,7 +34,7 @@ export function BigNumbers({ t }: { t: Messages }) {
             {(() => {
               const Chart = bigNumberCharts[i];
               return Chart ? (
-                <div className="pointer-events-none absolute -bottom-2 -right-2 h-20 w-28 opacity-30 transition-opacity duration-500 group-hover:opacity-50">
+                <div className="pointer-events-none absolute -bottom-2 -right-2 h-20 w-28 opacity-70 transition-opacity duration-500 group-hover:opacity-100">
                   <Chart className="h-full w-full" />
                 </div>
               ) : null;

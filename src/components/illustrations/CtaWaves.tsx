@@ -21,13 +21,13 @@ export function CtaWaves({ className = "" }: { className?: string }) {
       <defs>
         <linearGradient id="cta-wave-1" x1="0" y1="200" x2="600" y2="200" gradientUnits="userSpaceOnUse">
           <stop offset="0%" stopColor="oklch(0.78 0.165 70)" stopOpacity="0" />
-          <stop offset="30%" stopColor="oklch(0.78 0.165 70)" stopOpacity="0.12" />
-          <stop offset="70%" stopColor="oklch(0.66 0.18 295)" stopOpacity="0.08" />
+          <stop offset="30%" stopColor="oklch(0.78 0.165 70)" stopOpacity="0.25" />
+          <stop offset="70%" stopColor="oklch(0.66 0.18 295)" stopOpacity="0.2" />
           <stop offset="100%" stopColor="oklch(0.66 0.18 295)" stopOpacity="0" />
         </linearGradient>
         <linearGradient id="cta-wave-2" x1="0" y1="250" x2="600" y2="250" gradientUnits="userSpaceOnUse">
           <stop offset="0%" stopColor="oklch(0.66 0.18 295)" stopOpacity="0" />
-          <stop offset="40%" stopColor="oklch(0.66 0.18 295)" stopOpacity="0.08" />
+          <stop offset="40%" stopColor="oklch(0.66 0.18 295)" stopOpacity="0.2" />
           <stop offset="60%" stopColor="oklch(0.78 0.165 70)" stopOpacity="0.06" />
           <stop offset="100%" stopColor="oklch(0.78 0.165 70)" stopOpacity="0" />
         </linearGradient>
@@ -82,7 +82,7 @@ export function CtaWaves({ className = "" }: { className?: string }) {
           cx={p.cx}
           cy={p.cy}
           r={p.r}
-          fill={i % 2 === 0 ? "oklch(0.78 0.165 70 / 0.4)" : "oklch(0.66 0.18 295 / 0.35)"}
+          fill={i % 2 === 0 ? "oklch(0.78 0.165 70 / 0.6)" : "oklch(0.66 0.18 295 / 0.55)"}
           animate={{
             y: [-p.dy / 2, p.dy / 2, -p.dy / 2],
             opacity: [0.2, 0.6, 0.2],
@@ -97,8 +97,8 @@ export function CtaWaves({ className = "" }: { className?: string }) {
       ))}
 
       {/* Connecting constellation lines between nearby particles */}
-      <motion.line x1="80" y1="180" x2="200" y2="300" stroke="oklch(0.78 0.165 70 / 0.04)" strokeWidth="0.5" animate={{ opacity: [0.04, 0.1, 0.04] }} transition={{ duration: 4, repeat: Infinity }} />
-      <motion.line x1="350" y1="150" x2="480" y2="280" stroke="oklch(0.66 0.18 295 / 0.04)" strokeWidth="0.5" animate={{ opacity: [0.04, 0.08, 0.04] }} transition={{ duration: 5, repeat: Infinity, delay: 1 }} />
+      <motion.line x1="80" y1="180" x2="200" y2="300" stroke="oklch(0.78 0.165 70 / 0.12)" strokeWidth="0.5" animate={{ opacity: [0.04, 0.1, 0.04] }} transition={{ duration: 4, repeat: Infinity }} />
+      <motion.line x1="350" y1="150" x2="480" y2="280" stroke="oklch(0.66 0.18 295 / 0.12)" strokeWidth="0.5" animate={{ opacity: [0.04, 0.08, 0.04] }} transition={{ duration: 5, repeat: Infinity, delay: 1 }} />
       <motion.line x1="200" y1="300" x2="350" y2="150" stroke="oklch(0.78 0.165 70 / 0.03)" strokeWidth="0.5" animate={{ opacity: [0.03, 0.07, 0.03] }} transition={{ duration: 6, repeat: Infinity, delay: 2 }} />
     </motion.svg>
   );

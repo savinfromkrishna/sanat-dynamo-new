@@ -24,7 +24,7 @@ export function Problem({ t }: { t: Messages }) {
           />
         </div>
         <div className="hidden lg:col-span-5 lg:flex lg:items-center lg:justify-center">
-          <LeakFunnel className="max-w-[280px] opacity-60" />
+          <LeakFunnel className="max-w-[280px]" />
         </div>
       </div>
 

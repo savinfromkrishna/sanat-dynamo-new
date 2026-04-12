@@ -44,7 +44,7 @@ export function ApproachDuality({ className = "" }: { className?: string }) {
     >
       <defs>
         <filter id="ad-glow">
-          <feGaussianBlur stdDeviation="3" result="blur" />
+          <feGaussianBlur stdDeviation="1" result="blur" />
           <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
         </filter>
       </defs>
@@ -66,16 +66,16 @@ export function ApproachDuality({ className = "" }: { className?: string }) {
       ].map((box, i) => (
         <motion.g key={box.label} variants={popIn(i + 1)}>
           <g transform={`rotate(${box.rot} ${box.x + box.w / 2} ${box.y + box.h / 2})`}>
-            <rect x={box.x} y={box.y} width={box.w} height={box.h} rx="6" fill="none" stroke="oklch(0.7 0.015 260 / 0.15)" strokeWidth="0.8" strokeDasharray="3 3" />
-            <text x={box.x + box.w / 2} y={box.y + box.h / 2 + 3} textAnchor="middle" fontFamily="var(--font-mono)" fontSize="6.5" fill="oklch(0.7 0.015 260 / 0.3)">{box.label}</text>
+            <rect x={box.x} y={box.y} width={box.w} height={box.h} rx="6" fill="none" stroke="oklch(0.7 0.015 260 / 0.35)" strokeWidth="0.8" strokeDasharray="3 3" />
+            <text x={box.x + box.w / 2} y={box.y + box.h / 2 + 3} textAnchor="middle" fontFamily="var(--font-mono)" fontSize="6.5" fill="oklch(0.7 0.015 260 / 0.5)">{box.label}</text>
           </g>
         </motion.g>
       ))}
 
       {/* Broken disconnected lines — nothing talks to anything */}
-      <motion.path d="M 100 72 L 130 60" stroke="oklch(0.65 0.22 25 / 0.15)" strokeWidth="0.6" strokeDasharray="2 4" variants={drawLine(3)} />
-      <motion.path d="M 185 67 L 230 70" stroke="oklch(0.65 0.22 25 / 0.15)" strokeWidth="0.6" strokeDasharray="2 4" variants={drawLine(3)} />
-      <motion.path d="M 125 125 L 170 115" stroke="oklch(0.65 0.22 25 / 0.15)" strokeWidth="0.6" strokeDasharray="2 4" variants={drawLine(4)} />
+      <motion.path d="M 100 72 L 130 60" stroke="oklch(0.65 0.22 25 / 0.35)" strokeWidth="0.6" strokeDasharray="2 4" variants={drawLine(3)} />
+      <motion.path d="M 185 67 L 230 70" stroke="oklch(0.65 0.22 25 / 0.35)" strokeWidth="0.6" strokeDasharray="2 4" variants={drawLine(3)} />
+      <motion.path d="M 125 125 L 170 115" stroke="oklch(0.65 0.22 25 / 0.35)" strokeWidth="0.6" strokeDasharray="2 4" variants={drawLine(4)} />
 
       {/* Red X marks — things that don't work */}
       {[
@@ -98,7 +98,7 @@ export function ApproachDuality({ className = "" }: { className?: string }) {
 
       {/* Dead end */}
       <motion.g variants={popIn(7)}>
-        <rect x="100" y="215" width="120" height="28" rx="8" fill="oklch(0.65 0.22 25 / 0.06)" stroke="oklch(0.65 0.22 25 / 0.2)" strokeWidth="0.8" />
+        <rect x="100" y="215" width="120" height="28" rx="8" fill="oklch(0.65 0.22 25 / 0.06)" stroke="oklch(0.65 0.22 25 / 0.4)" strokeWidth="0.8" />
         <text x="160" y="232" textAnchor="middle" fontFamily="var(--font-mono)" fontSize="8" letterSpacing="0.1em" fill="oklch(0.65 0.22 25 / 0.5)">OUTPUT-FOCUSED</text>
       </motion.g>
 
@@ -119,27 +119,27 @@ export function ApproachDuality({ className = "" }: { className?: string }) {
       ))}
 
       {/* Clean connecting arrows */}
-      <motion.path d="M 420 64 L 440 64" stroke="oklch(0.78 0.165 70 / 0.3)" strokeWidth="1" variants={drawLine(2)} />
-      <motion.polygon points="437,61 443,64 437,67" fill="oklch(0.78 0.165 70 / 0.3)" variants={popIn(2)} />
-      <motion.path d="M 510 64 L 530 64" stroke="oklch(0.66 0.18 295 / 0.3)" strokeWidth="1" variants={drawLine(3)} />
-      <motion.polygon points="527,61 533,64 527,67" fill="oklch(0.66 0.18 295 / 0.3)" variants={popIn(3)} />
+      <motion.path d="M 420 64 L 440 64" stroke="oklch(0.78 0.165 70 / 0.5)" strokeWidth="1" variants={drawLine(2)} />
+      <motion.polygon points="437,61 443,64 437,67" fill="oklch(0.78 0.165 70 / 0.5)" variants={popIn(2)} />
+      <motion.path d="M 510 64 L 530 64" stroke="oklch(0.66 0.18 295 / 0.5)" strokeWidth="1" variants={drawLine(3)} />
+      <motion.polygon points="527,61 533,64 527,67" fill="oklch(0.66 0.18 295 / 0.5)" variants={popIn(3)} />
 
       {/* Central hub — unified data layer */}
       <motion.g variants={popIn(4)}>
-        <rect x="400" y="105" width="160" height="50" rx="12" fill="var(--svg-node-fill)" stroke="oklch(0.78 0.165 70 / 0.25)" strokeWidth="1" />
+        <rect x="400" y="105" width="160" height="50" rx="12" fill="var(--svg-node-fill)" stroke="oklch(0.78 0.165 70 / 0.45)" strokeWidth="1" />
         <text x="480" y="125" textAnchor="middle" fontFamily="var(--font-mono)" fontSize="7" letterSpacing="0.12em" fill="oklch(0.78 0.165 70 / 0.4)">UNIFIED DATA LAYER</text>
-        <text x="480" y="140" textAnchor="middle" fontFamily="var(--font-mono)" fontSize="6" fill="oklch(0.7 0.015 260 / 0.3)">CRM · ANALYTICS · AUTOMATION</text>
+        <text x="480" y="140" textAnchor="middle" fontFamily="var(--font-mono)" fontSize="6" fill="oklch(0.7 0.015 260 / 0.5)">CRM · ANALYTICS · AUTOMATION</text>
       </motion.g>
 
       {/* Connections from modules down to data layer */}
-      <motion.path d="M 385 83 L 430 105" stroke="oklch(0.78 0.165 70 / 0.15)" strokeWidth="0.6" strokeDasharray="3 3" variants={drawLine(4)} />
-      <motion.path d="M 475 83 L 480 105" stroke="oklch(0.66 0.18 295 / 0.15)" strokeWidth="0.6" strokeDasharray="3 3" variants={drawLine(4)} />
-      <motion.path d="M 565 83 L 530 105" stroke="oklch(0.74 0.16 155 / 0.15)" strokeWidth="0.6" strokeDasharray="3 3" variants={drawLine(4)} />
+      <motion.path d="M 385 83 L 430 105" stroke="oklch(0.78 0.165 70 / 0.35)" strokeWidth="0.6" strokeDasharray="3 3" variants={drawLine(4)} />
+      <motion.path d="M 475 83 L 480 105" stroke="oklch(0.66 0.18 295 / 0.35)" strokeWidth="0.6" strokeDasharray="3 3" variants={drawLine(4)} />
+      <motion.path d="M 565 83 L 530 105" stroke="oklch(0.74 0.16 155 / 0.35)" strokeWidth="0.6" strokeDasharray="3 3" variants={drawLine(4)} />
 
       {/* Revenue output */}
       <motion.g variants={popIn(6)}>
-        <path d="M 480 155 L 480 180" stroke="oklch(0.78 0.165 70 / 0.3)" strokeWidth="1" />
-        <polygon points="477,177 480,183 483,177" fill="oklch(0.78 0.165 70 / 0.3)" />
+        <path d="M 480 155 L 480 180" stroke="oklch(0.78 0.165 70 / 0.5)" strokeWidth="1" />
+        <polygon points="477,177 480,183 483,177" fill="oklch(0.78 0.165 70 / 0.5)" />
       </motion.g>
 
       {/* Compound growth curve */}
@@ -166,12 +166,12 @@ export function ApproachDuality({ className = "" }: { className?: string }) {
 
       {/* Bottom label */}
       <motion.g variants={popIn(8)}>
-        <rect x="420" y="228" width="120" height="28" rx="8" fill="oklch(0.78 0.165 70 / 0.06)" stroke="oklch(0.78 0.165 70 / 0.25)" strokeWidth="0.8" />
+        <rect x="420" y="228" width="120" height="28" rx="8" fill="oklch(0.78 0.165 70 / 0.06)" stroke="oklch(0.78 0.165 70 / 0.45)" strokeWidth="0.8" />
         <text x="480" y="245" textAnchor="middle" fontFamily="var(--font-mono)" fontSize="8" letterSpacing="0.1em" fill="oklch(0.78 0.165 70 / 0.6)">OUTCOME-FOCUSED</text>
       </motion.g>
 
       {/* Flowing particle on right side */}
-      <motion.circle r="2" fill="oklch(0.78 0.165 70)" filter="url(#ad-glow)"
+      <motion.circle r="2" fill="oklch(0.78 0.165 70)"
         animate={{ cx: [385, 475, 565], cy: [64, 64, 64], opacity: [0, 1, 0] }}
         transition={{ duration: 3, repeat: Infinity, ease: "linear" as const, delay: 2 }}
       />

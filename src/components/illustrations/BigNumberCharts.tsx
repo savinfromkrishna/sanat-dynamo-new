@@ -21,8 +21,8 @@ export function ChartBars({ className = "" }: { className?: string }) {
             cx={8 + col * 11}
             cy={8 + row * 12}
             r="3"
-            fill="oklch(0.78 0.165 70 / 0.15)"
-            stroke="oklch(0.78 0.165 70 / 0.25)"
+            fill="oklch(0.78 0.165 70 / 0.45)"
+            stroke="oklch(0.78 0.165 70 / 0.45)"
             strokeWidth="0.4"
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
@@ -65,7 +65,7 @@ export function ChartDonut({ className = "" }: { className?: string }) {
       />
       <motion.path
         d="M 10 60 C 20 58, 35 52, 50 42 C 65 30, 80 18, 95 10 C 105 5, 110 3, 115 2 L 115 65 L 10 65 Z"
-        fill="oklch(0.78 0.165 70 / 0.04)"
+        fill="oklch(0.78 0.165 70 / 0.12)"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -84,7 +84,7 @@ export function ChartDonut({ className = "" }: { className?: string }) {
         x="105" y="15"
         fontFamily="var(--font-display)"
         fontSize="8"
-        fill="oklch(0.78 0.165 70 / 0.3)"
+        fill="oklch(0.78 0.165 70 / 0.5)"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -140,11 +140,11 @@ export function ChartWave({ className = "" }: { className?: string }) {
 /* Metric 4: Industries — 5 connected sectors */
 export function ChartStacked({ className = "" }: { className?: string }) {
   const sectors = [
-    { cx: 25, cy: 35, label: "D2C", color: "oklch(0.78 0.165 70 / 0.3)" },
-    { cx: 55, cy: 18, label: "RE", color: "oklch(0.66 0.18 295 / 0.3)" },
-    { cx: 85, cy: 35, label: "HC", color: "oklch(0.74 0.16 155 / 0.3)" },
-    { cx: 40, cy: 55, label: "ED", color: "oklch(0.78 0.165 70 / 0.3)" },
-    { cx: 70, cy: 55, label: "SME", color: "oklch(0.66 0.18 295 / 0.3)" },
+    { cx: 25, cy: 35, label: "D2C", color: "oklch(0.78 0.165 70 / 0.5)" },
+    { cx: 55, cy: 18, label: "RE", color: "oklch(0.66 0.18 295 / 0.5)" },
+    { cx: 85, cy: 35, label: "HC", color: "oklch(0.74 0.16 155 / 0.5)" },
+    { cx: 40, cy: 55, label: "ED", color: "oklch(0.78 0.165 70 / 0.5)" },
+    { cx: 70, cy: 55, label: "SME", color: "oklch(0.66 0.18 295 / 0.5)" },
   ];
 
   return (

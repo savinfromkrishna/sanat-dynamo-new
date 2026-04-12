@@ -46,7 +46,7 @@ export function Services({ t, expanded = false }: ServicesProps) {
             {(() => {
               const Illust = serviceIllustrations[i];
               return Illust ? (
-                <div className="pointer-events-none absolute -right-2 -top-2 h-24 w-24 opacity-40 transition-opacity duration-500 group-hover:opacity-70">
+                <div className="pointer-events-none absolute -right-2 -top-2 h-24 w-24 opacity-70 transition-opacity duration-500 group-hover:opacity-100">
                   <Illust className="h-full w-full" />
                 </div>
               ) : null;

@@ -132,7 +132,7 @@ export default async function IndustriesPage({
                     {/* Industry-specific sketch illustration */}
                     {Illust && (
                       <div className="mt-6 hidden sm:block">
-                        <Illust className="max-w-[260px] opacity-60" />
+                        <Illust className="max-w-[260px]" />
                       </div>
                     )}
 

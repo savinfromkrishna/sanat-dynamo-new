@@ -23,7 +23,7 @@ export function Cta({ t }: { t: Messages }) {
           <div className="bg-grid bg-grid-fade absolute inset-0 opacity-30" />
           <div className="bg-noise absolute inset-0 opacity-[0.18] mix-blend-overlay" />
           {/* Animated wave decoration */}
-          <CtaWaves className="pointer-events-none opacity-60" />
+          <CtaWaves className="pointer-events-none" />
           <div
             aria-hidden
             className="pointer-events-none absolute -left-32 -top-32 h-96 w-96 rounded-full"

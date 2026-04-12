@@ -72,7 +72,7 @@ export default async function ContactPage({
 
       {/* Process flow diagram */}
       <Section className="pt-8 pb-0">
-        <ContactProcessFlow className="mx-auto max-w-2xl opacity-80" />
+        <ContactProcessFlow className="mx-auto max-w-2xl" />
       </Section>
 
       <Section className="pt-8">

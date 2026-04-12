@@ -83,7 +83,7 @@ export function Industries({ t }: { t: Messages }) {
               {(() => {
                 const Illust = industryIllustrations[ind.id];
                 return Illust ? (
-                  <div className={`pointer-events-none mt-4 ${isFeatured ? "h-28 w-full opacity-50" : "h-20 w-full opacity-35"}`}>
+                  <div className={`pointer-events-none mt-4 ${isFeatured ? "h-28 w-full" : "h-20 w-full"}`}>
                     <Illust className="h-full w-auto" />
                   </div>
                 ) : null;

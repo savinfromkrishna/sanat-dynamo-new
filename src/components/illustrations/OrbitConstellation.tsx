@@ -40,7 +40,7 @@ export function OrbitConstellation({ className = "" }: { className?: string }) {
     >
       <defs>
         <filter id="orbit-glow">
-          <feGaussianBlur stdDeviation="3" result="blur" />
+          <feGaussianBlur stdDeviation="1" result="blur" />
           <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
         </filter>
         <radialGradient id="core-grad" cx="50%" cy="50%">
@@ -60,7 +60,7 @@ export function OrbitConstellation({ className = "" }: { className?: string }) {
       <circle cx="200" cy="200" r="28" fill="var(--svg-node-fill)" stroke="oklch(0.78 0.165 70 / 0.5)" strokeWidth="1.5" />
       <motion.circle cx="200" cy="200" r="28" fill="none" stroke="oklch(0.78 0.165 70 / 0.3)" strokeWidth="1" animate={{ r: [28, 35, 28], opacity: [0.3, 0, 0.3] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }} />
       {/* Core icon — diamond/gem */}
-      <path d="M 192 196 L 200 188 L 208 196 L 200 212 Z" stroke="oklch(0.78 0.165 70)" strokeWidth="1.5" strokeLinejoin="round" fill="oklch(0.78 0.165 70 / 0.15)" />
+      <path d="M 192 196 L 200 188 L 208 196 L 200 212 Z" stroke="oklch(0.78 0.165 70)" strokeWidth="1.5" strokeLinejoin="round" fill="oklch(0.78 0.165 70 / 0.35)" />
       <line x1="194" y1="196" x2="206" y2="196" stroke="oklch(0.78 0.165 70 / 0.5)" strokeWidth="0.8" />
 
       {/* Inner orbit nodes — rotating slowly */}
@@ -78,7 +78,7 @@ export function OrbitConstellation({ className = "" }: { className?: string }) {
               transition={{ delay: 0.3 + i * 0.08, type: "spring", stiffness: 200 }}
             >
               {/* Connection line to core */}
-              <line x1="200" y1="200" x2={cx} y2={cy} stroke={`${item.color.replace(")", " / 0.1)")}`} strokeWidth="0.5" />
+              <line x1="200" y1="200" x2={cx} y2={cy} stroke={`${item.color.replace(")", " / 0.25)")}`} strokeWidth="0.5" />
               <circle cx={cx} cy={cy} r="16" fill="var(--svg-node-fill)" stroke={`${item.color.replace(")", " / 0.5)")}`} strokeWidth="1" />
               {/* Counter-rotate text so it stays upright */}
               <motion.g animate={{ rotate: -360 }} transition={{ duration: 60, repeat: Infinity, ease: "linear" }} style={{ transformOrigin: `${cx}px ${cy}px` }}>
@@ -113,8 +113,8 @@ export function OrbitConstellation({ className = "" }: { className?: string }) {
       </motion.g>
 
       {/* Animated pulse particles traveling along orbits */}
-      <motion.circle cx="310" cy="200" r="2" fill="oklch(0.78 0.165 70)" filter="url(#orbit-glow)" animate={{ rotate: [0, 360] }} transition={{ duration: 8, repeat: Infinity, ease: "linear" }} style={{ transformOrigin: "200px 200px" }} />
-      <motion.circle cx="365" cy="200" r="1.5" fill="oklch(0.66 0.18 295)" filter="url(#orbit-glow)" animate={{ rotate: [0, -360] }} transition={{ duration: 12, repeat: Infinity, ease: "linear" }} style={{ transformOrigin: "200px 200px" }} />
+      <motion.circle cx="310" cy="200" r="2" fill="oklch(0.78 0.165 70)" animate={{ rotate: [0, 360] }} transition={{ duration: 8, repeat: Infinity, ease: "linear" }} style={{ transformOrigin: "200px 200px" }} />
+      <motion.circle cx="365" cy="200" r="1.5" fill="oklch(0.66 0.18 295)" animate={{ rotate: [0, -360] }} transition={{ duration: 12, repeat: Infinity, ease: "linear" }} style={{ transformOrigin: "200px 200px" }} />
     </motion.svg>
   );
 }

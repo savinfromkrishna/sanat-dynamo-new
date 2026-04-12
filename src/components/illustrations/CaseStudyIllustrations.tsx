@@ -40,8 +40,8 @@ export function RevenueGrowthChart({ className = "" }: { className?: string }) {
 
       {/* Before line (flat/declining) */}
       <motion.path d="M 60 135 L 120 138 L 180 140 L 240 142" stroke="var(--danger)" strokeWidth="1.5" strokeDasharray="4 4" strokeLinecap="round" fill="none"
-        initial={{ pathLength: 0, opacity: 0 }} whileInView={{ pathLength: 1, opacity: 0.5 }} viewport={{ once: true }} transition={{ duration: 1 }} />
-      <motion.text x="245" y="148" fontFamily="var(--font-mono)" fontSize="6" fill="var(--danger)" opacity="0.5" initial={{ opacity: 0 }} whileInView={{ opacity: 0.5 }} viewport={{ once: true }} transition={{ delay: 1 }}>BEFORE</motion.text>
+        initial={{ pathLength: 0, opacity: 0 }} whileInView={{ pathLength: 1, opacity: 0.7 }} viewport={{ once: true }} transition={{ duration: 1 }} />
+      <motion.text x="245" y="148" fontFamily="var(--font-mono)" fontSize="6" fill="var(--danger)" opacity="0.7" initial={{ opacity: 0 }} whileInView={{ opacity: 0.7 }} viewport={{ once: true }} transition={{ delay: 1 }}>BEFORE</motion.text>
 
       {/* After line (growth curve) */}
       <motion.path d="M 60 135 L 120 128 L 180 112 L 240 95 L 300 75 L 360 58 L 420 42" stroke="var(--accent)" strokeWidth="2" strokeLinecap="round" fill="none"

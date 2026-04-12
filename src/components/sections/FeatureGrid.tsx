@@ -63,7 +63,7 @@ export function FeatureGrid({ t }: { t: Messages }) {
                 {(() => {
                   const FeatIllust = featureIllustrationMap[item.icon];
                   return FeatIllust ? (
-                    <div className="pointer-events-none h-14 w-20 opacity-30 transition-opacity duration-500 group-hover:opacity-60">
+                    <div className="pointer-events-none h-14 w-20 opacity-70 transition-opacity duration-500 group-hover:opacity-100">
                       <FeatIllust className="h-full w-full" />
                     </div>
                   ) : null;

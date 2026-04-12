@@ -140,7 +140,7 @@ export default async function AboutPage({
       {/* Embedded Team Visual */}
       <Section className="pt-0">
         <div className="hidden lg:block">
-          <EmbeddedTeamVisual className="mx-auto max-w-2xl opacity-70" />
+          <EmbeddedTeamVisual className="mx-auto max-w-2xl" />
         </div>
       </Section>
 
@@ -196,7 +196,7 @@ export default async function AboutPage({
             />
           </div>
           <div className="hidden lg:col-span-5 lg:flex lg:items-center lg:justify-center">
-            <ValuesConstellation className="max-w-[240px] opacity-60" />
+            <ValuesConstellation className="max-w-[240px]" />
           </div>
         </div>
         <div className="mt-12 grid gap-5 sm:grid-cols-2">

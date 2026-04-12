@@ -33,7 +33,7 @@ export function TechStack({ t }: { t: Messages }) {
 
           {/* Orbital tech constellation diagram */}
           <div className="mt-8 hidden lg:block">
-            <OrbitConstellation className="mx-auto max-w-[300px] opacity-50" />
+            <OrbitConstellation className="mx-auto max-w-[300px]" />
           </div>
         </div>
 

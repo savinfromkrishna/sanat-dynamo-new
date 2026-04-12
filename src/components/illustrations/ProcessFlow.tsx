@@ -28,7 +28,7 @@ export function ProcessFlowConnector({ className = "" }: { className?: string })
           <stop offset="100%" stopColor="oklch(0.78 0.165 70)" stopOpacity="0.4" />
         </linearGradient>
         <filter id="flow-glow">
-          <feGaussianBlur stdDeviation="3" result="blur" />
+          <feGaussianBlur stdDeviation="1" result="blur" />
           <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
         </filter>
       </defs>
@@ -49,7 +49,7 @@ export function ProcessFlowConnector({ className = "" }: { className?: string })
         <motion.g key={i}>
           <motion.circle
             cx="30" cy={y} r="6"
-            fill="oklch(0.78 0.165 70 / 0.15)"
+            fill="oklch(0.78 0.165 70 / 0.35)"
             stroke="oklch(0.78 0.165 70 / 0.4)"
             strokeWidth="1"
             initial={{ scale: 0 }}
@@ -60,7 +60,7 @@ export function ProcessFlowConnector({ className = "" }: { className?: string })
           <motion.circle
             cx="30" cy={y} r="6"
             fill="none"
-            stroke="oklch(0.78 0.165 70 / 0.2)"
+            stroke="oklch(0.78 0.165 70 / 0.4)"
             strokeWidth="1"
             animate={{ r: [6, 16, 6], opacity: [0.2, 0, 0.2] }}
             transition={{ duration: 3, repeat: Infinity, delay: i * 0.5 }}
@@ -72,21 +72,21 @@ export function ProcessFlowConnector({ className = "" }: { className?: string })
       <motion.circle
         r="3" cx="30"
         fill="oklch(0.78 0.165 70)"
-        filter="url(#flow-glow)"
+
         animate={{ cy: [10, 590], opacity: [0, 1, 1, 1, 0] }}
         transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
       />
       <motion.circle
         r="2" cx="30"
         fill="oklch(0.66 0.18 295)"
-        filter="url(#flow-glow)"
+
         animate={{ cy: [10, 590], opacity: [0, 1, 1, 1, 0] }}
         transition={{ duration: 6, repeat: Infinity, ease: "linear", delay: 2 }}
       />
       <motion.circle
         r="2.5" cx="30"
         fill="oklch(0.74 0.16 155)"
-        filter="url(#flow-glow)"
+
         animate={{ cy: [10, 590], opacity: [0, 1, 1, 1, 0] }}
         transition={{ duration: 6, repeat: Infinity, ease: "linear", delay: 4 }}
       />
