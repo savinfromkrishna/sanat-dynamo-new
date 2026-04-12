@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Section, SectionHeader } from "../primitives/section";
+import { bigNumberCharts } from "../illustrations";
 import type { Messages } from "@/lib/i18n";
 
 export function BigNumbers({ t }: { t: Messages }) {
@@ -29,6 +30,15 @@ export function BigNumbers({ t }: { t: Messages }) {
               aria-hidden
               className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full bg-accent/5 blur-3xl transition-opacity group-hover:bg-accent/15"
             />
+            {/* Animated mini chart SVG */}
+            {(() => {
+              const Chart = bigNumberCharts[i];
+              return Chart ? (
+                <div className="pointer-events-none absolute -bottom-2 -right-2 h-20 w-28 opacity-30 transition-opacity duration-500 group-hover:opacity-50">
+                  <Chart className="h-full w-full" />
+                </div>
+              ) : null;
+            })()}
             <div className="font-mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground">
               Metric · 0{i + 1}
             </div>

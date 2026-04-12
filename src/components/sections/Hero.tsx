@@ -11,6 +11,7 @@ import {
   Layers,
 } from "lucide-react";
 import LocalizedLink from "../LocalizedLink";
+import { HeroNetwork } from "../illustrations";
 import type { Messages } from "@/lib/i18n";
 
 const statIcons = [Users, IndianRupee, TrendingUp, Layers] as const;
@@ -139,12 +140,22 @@ export function Hero({ t }: { t: Messages }) {
           ✦ {t.hero.trustNote}
         </motion.p>
 
+        {/* Network diagram — visual representation of the revenue system */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 0.6 }}
+          className="mx-auto mt-16 max-w-3xl"
+        >
+          <HeroNetwork className="opacity-70" />
+        </motion.div>
+
         {/* Stats card */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.5 }}
-          className="border-grad mt-20 rounded-3xl p-1 shadow-2xl"
+          className="border-grad mt-12 rounded-3xl p-1 shadow-2xl"
         >
           <div className="rounded-[22px] bg-surface/80 p-6 backdrop-blur-xl sm:p-8">
             <div className="mb-6 flex items-center justify-between">

@@ -8,6 +8,7 @@ import { CityBanner } from "@/components/sections/CityBanner";
 import { BigNumbers } from "@/components/sections/BigNumbers";
 import { KnowMore } from "@/components/sections/KnowMore";
 import { Section } from "@/components/primitives/section";
+import { industryIllustrations } from "@/components/illustrations";
 
 export async function generateMetadata({
   params,
@@ -94,6 +95,7 @@ export default async function IndustriesPage({
         <div className="space-y-6">
           {t.industries.items.map((ind, i) => {
             const Icon = iconMap[ind.id as keyof typeof iconMap];
+            const Illust = industryIllustrations[ind.id];
             return (
               <article
                 key={ind.id}
@@ -126,6 +128,14 @@ export default async function IndustriesPage({
                     <p className="mt-6 text-base leading-relaxed text-muted-foreground">
                       {ind.description}
                     </p>
+
+                    {/* Industry-specific sketch illustration */}
+                    {Illust && (
+                      <div className="mt-6 hidden sm:block">
+                        <Illust className="max-w-[260px] opacity-60" />
+                      </div>
+                    )}
+
                     <LocalizedLink
                       href="/contact"
                       className="group/btn mt-8 inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-6 py-3 text-sm font-semibold text-accent transition-all hover:border-accent/70 hover:bg-accent/15"

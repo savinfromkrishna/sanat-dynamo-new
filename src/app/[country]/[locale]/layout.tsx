@@ -35,8 +35,10 @@ const jetbrains = JetBrains_Mono({
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#0A0E1A",
-  colorScheme: "dark",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#FAFAFA" },
+    { media: "(prefers-color-scheme: dark)", color: "#0A0E1A" },
+  ],
 };
 
 export async function generateMetadata({
@@ -117,8 +119,15 @@ export default async function LocaleLayout({
       lang={meta.htmlLang}
       dir={meta.dir}
       className={`${spaceGrotesk.variable} ${dmSans.variable} ${jetbrains.variable}`}
+      suppressHydrationWarning
     >
       <head>
+        {/* Prevent flash of wrong theme */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark')document.documentElement.classList.add('dark');else if(t==='light')document.documentElement.classList.add('light')}catch(e){}})()`,
+          }}
+        />
         <link
           rel="alternate"
           hrefLang="x-default"
@@ -141,7 +150,7 @@ export default async function LocaleLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteLd) }}
         />
       </head>
-      <body className="min-h-screen bg-background font-sans text-foreground antialiased">
+      <body className="min-h-screen font-sans text-foreground antialiased" suppressHydrationWarning>
         <Header translations={t} locale={locale} country={country} />
         <main className="flex-grow">{children}</main>
         <Footer translations={t} />

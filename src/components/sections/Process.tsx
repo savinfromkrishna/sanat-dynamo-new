@@ -9,6 +9,7 @@ import {
   Check,
 } from "lucide-react";
 import { Section, SectionHeader } from "../primitives/section";
+import { ProcessFlowConnector } from "../illustrations";
 import type { Messages } from "@/lib/i18n";
 
 const stepIcons = [Search, Map, Hammer, TrendingUp];
@@ -67,6 +68,8 @@ export function Process({ t }: { t: Messages }) {
           aria-hidden
           className="absolute left-[27px] top-2 hidden h-[calc(100%-1rem)] w-px bg-gradient-to-b from-accent/40 via-border to-border lg:left-1/2 lg:-translate-x-1/2 lg:block"
         />
+        {/* Animated flow particles along the connector */}
+        <ProcessFlowConnector />
 
         <div className="space-y-12 lg:space-y-24">
           {t.process.steps.map((step, i) => {

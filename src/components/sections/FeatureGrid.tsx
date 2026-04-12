@@ -13,6 +13,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { Section, SectionHeader } from "../primitives/section";
+import { featureIllustrationMap } from "../illustrations";
 import type { Messages } from "@/lib/i18n";
 
 const iconMap: Record<string, LucideIcon> = {
@@ -54,8 +55,19 @@ export function FeatureGrid({ t }: { t: Messages }) {
                 aria-hidden
                 className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
               />
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-border bg-background text-accent transition-colors group-hover:border-accent/40">
-                <Icon size={20} strokeWidth={1.75} />
+              <div className="flex items-start justify-between">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-border bg-background text-accent transition-colors group-hover:border-accent/40">
+                  <Icon size={20} strokeWidth={1.75} />
+                </div>
+                {/* Animated sketch illustration */}
+                {(() => {
+                  const FeatIllust = featureIllustrationMap[item.icon];
+                  return FeatIllust ? (
+                    <div className="pointer-events-none h-14 w-20 opacity-30 transition-opacity duration-500 group-hover:opacity-60">
+                      <FeatIllust className="h-full w-full" />
+                    </div>
+                  ) : null;
+                })()}
               </div>
               <h3 className="mt-5 font-display text-lg font-semibold text-foreground">
                 {item.title}

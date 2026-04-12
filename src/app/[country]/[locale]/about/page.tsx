@@ -17,6 +17,7 @@ import {
   Hammer,
   Rocket,
 } from "lucide-react";
+import { TimelineSVG, ValuesConstellation, EmbeddedTeamVisual } from "@/components/illustrations";
 
 export async function generateMetadata({
   params,
@@ -136,12 +137,23 @@ export default async function AboutPage({
         </div>
       </Section>
 
+      {/* Embedded Team Visual */}
+      <Section className="pt-0">
+        <div className="hidden lg:block">
+          <EmbeddedTeamVisual className="mx-auto max-w-2xl opacity-70" />
+        </div>
+      </Section>
+
       {/* Timeline */}
       <Section className="pt-0">
         <SectionHeader
           eyebrow="Our story"
           title="A short history of how we got here."
         />
+        {/* Animated timeline diagram */}
+        <div className="mt-8 hidden sm:block">
+          <TimelineSVG className="mx-auto max-w-3xl opacity-80" />
+        </div>
         <div className="mt-12 grid gap-5 md:grid-cols-3">
           {timeline.map((tl, i) => {
             const Icon = tl.icon;
@@ -176,10 +188,17 @@ export default async function AboutPage({
 
       {/* Principles */}
       <Section className="pt-0">
-        <SectionHeader
-          eyebrow="Our principles"
-          title="Four rules we run by."
-        />
+        <div className="grid gap-10 lg:grid-cols-12">
+          <div className="lg:col-span-7">
+            <SectionHeader
+              eyebrow="Our principles"
+              title="Four rules we run by."
+            />
+          </div>
+          <div className="hidden lg:col-span-5 lg:flex lg:items-center lg:justify-center">
+            <ValuesConstellation className="max-w-[240px] opacity-60" />
+          </div>
+        </div>
         <div className="mt-12 grid gap-5 sm:grid-cols-2">
           {t.about.values.map((v, i) => {
             const Icon = valueIcons[i] ?? Compass;

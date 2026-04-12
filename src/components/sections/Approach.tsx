@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Check, X, Shield } from "lucide-react";
 import { Section, SectionHeader } from "../primitives/section";
+import { ApproachDuality } from "../illustrations";
 import type { Messages } from "@/lib/i18n";
 
 export function Approach({ t }: { t: Messages }) {
@@ -88,6 +89,11 @@ export function Approach({ t }: { t: Messages }) {
           ))}
         </div>
       </motion.div>
+
+      {/* Visual duality: Chaos vs System */}
+      <div className="mt-12 hidden lg:block">
+        <ApproachDuality className="mx-auto max-w-4xl opacity-70" />
+      </div>
 
       {/* Pull-quote summary */}
       <div className="mx-auto mt-12 max-w-3xl text-center">

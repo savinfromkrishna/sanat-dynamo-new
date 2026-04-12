@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Layers } from "lucide-react";
 import { Section, SectionHeader } from "../primitives/section";
+import { OrbitConstellation } from "../illustrations";
 import type { Messages } from "@/lib/i18n";
 
 export function TechStack({ t }: { t: Messages }) {
@@ -28,6 +29,11 @@ export function TechStack({ t }: { t: Messages }) {
               investors recognize, and your future self won&apos;t curse. We
               don&apos;t chase trends — we ship systems that compound for years.
             </p>
+          </div>
+
+          {/* Orbital tech constellation diagram */}
+          <div className="mt-8 hidden lg:block">
+            <OrbitConstellation className="mx-auto max-w-[300px] opacity-50" />
           </div>
         </div>
 

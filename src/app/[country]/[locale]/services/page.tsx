@@ -11,6 +11,7 @@ import { KnowMore } from "@/components/sections/KnowMore";
 import { Section, SectionHeader } from "@/components/primitives/section";
 import { Check, Sparkles, ArrowUpRight, Target } from "lucide-react";
 import LocalizedLink from "@/components/LocalizedLink";
+import { serviceIllustrations } from "@/components/illustrations";
 
 export async function generateMetadata({
   params,
@@ -88,6 +89,7 @@ export default async function ServicesPage({
         <div className="space-y-6">
           {t.services.items.map((s, i) => {
             const right = i % 2 === 1;
+            const Illust = serviceIllustrations[i];
             return (
               <article
                 key={s.id}
@@ -102,6 +104,12 @@ export default async function ServicesPage({
                   aria-hidden
                   className="pointer-events-none absolute -right-32 -top-32 h-72 w-72 rounded-full bg-accent/5 blur-3xl"
                 />
+                {/* Service blueprint sketch */}
+                {Illust && (
+                  <div className="pointer-events-none absolute right-8 top-8 hidden h-32 w-40 opacity-30 transition-opacity duration-500 group-hover:opacity-50 lg:block">
+                    <Illust className="h-full w-full" />
+                  </div>
+                )}
 
                 <div className="grid gap-8 p-8 lg:grid-cols-12 lg:gap-12 lg:p-12">
                   {/* Left: name + summary */}

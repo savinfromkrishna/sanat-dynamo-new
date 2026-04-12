@@ -6,6 +6,7 @@ import { Section } from "@/components/primitives/section";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { CityBanner } from "@/components/sections/CityBanner";
 import { KnowMore } from "@/components/sections/KnowMore";
+import { ContactProcessFlow, TrustVisual } from "@/components/illustrations";
 import {
   Mail,
   MessageCircle,
@@ -69,6 +70,11 @@ export default async function ContactPage({
 
       <CityBanner t={t} country={country} />
 
+      {/* Process flow diagram */}
+      <Section className="pt-8 pb-0">
+        <ContactProcessFlow className="mx-auto max-w-2xl opacity-80" />
+      </Section>
+
       <Section className="pt-8">
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-7">
@@ -130,6 +136,7 @@ export default async function ContactPage({
             </div>
 
             <div className="rounded-2xl border border-border bg-surface/40 p-6">
+              <TrustVisual className="mx-auto mb-4 max-w-[140px]" />
               <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
                 <ShieldCheck size={12} className="text-accent" />
                 Confidential by default

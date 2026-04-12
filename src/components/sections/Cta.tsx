@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, Star, Quote } from "lucide-react";
 import { ButtonLink } from "../primitives/button";
 import { Eyebrow } from "../primitives/section";
+import { CtaWaves } from "../illustrations";
 import type { Messages } from "@/lib/i18n";
 
 export function Cta({ t }: { t: Messages }) {
@@ -21,6 +22,8 @@ export function Cta({ t }: { t: Messages }) {
           {/* Background visual */}
           <div className="bg-grid bg-grid-fade absolute inset-0 opacity-30" />
           <div className="bg-noise absolute inset-0 opacity-[0.18] mix-blend-overlay" />
+          {/* Animated wave decoration */}
+          <CtaWaves className="pointer-events-none opacity-60" />
           <div
             aria-hidden
             className="pointer-events-none absolute -left-32 -top-32 h-96 w-96 rounded-full"

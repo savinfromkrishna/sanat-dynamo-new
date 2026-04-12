@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, Check, Sparkles } from "lucide-react";
 import { Section, SectionHeader } from "../primitives/section";
 import LocalizedLink from "../LocalizedLink";
+import { serviceIllustrations } from "../illustrations";
 import type { Messages } from "@/lib/i18n";
 
 interface ServicesProps {
@@ -40,6 +41,16 @@ export function Services({ t, expanded = false }: ServicesProps) {
               aria-hidden
               className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
             />
+
+            {/* Sketch illustration */}
+            {(() => {
+              const Illust = serviceIllustrations[i];
+              return Illust ? (
+                <div className="pointer-events-none absolute -right-2 -top-2 h-24 w-24 opacity-40 transition-opacity duration-500 group-hover:opacity-70">
+                  <Illust className="h-full w-full" />
+                </div>
+              ) : null;
+            })()}
 
             <div className="flex items-start justify-between">
               <span className="font-mono text-xs uppercase tracking-[0.22em] text-accent">

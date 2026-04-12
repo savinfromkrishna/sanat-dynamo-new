@@ -8,6 +8,8 @@ import { CityBanner } from "@/components/sections/CityBanner";
 import { BigNumbers } from "@/components/sections/BigNumbers";
 import { KnowMore } from "@/components/sections/KnowMore";
 import { Cta } from "@/components/sections/Cta";
+import { Section } from "@/components/primitives/section";
+import { RevenueGrowthChart, ProofStripVisual } from "@/components/illustrations";
 
 export async function generateMetadata({
   params,
@@ -44,6 +46,20 @@ export default async function CaseStudiesPage({
         breadcrumb="Case Studies"
       />
       <CityBanner t={t} country={country} />
+
+      {/* Revenue growth visualization */}
+      <Section className="pt-8 pb-0">
+        <div className="rounded-3xl border border-border bg-surface/40 p-6 sm:p-8">
+          <div className="mb-4 font-mono text-[10px] uppercase tracking-[0.22em] text-accent">Aggregate Revenue Impact</div>
+          <RevenueGrowthChart className="mx-auto max-w-3xl" />
+        </div>
+      </Section>
+
+      {/* Proof strip */}
+      <Section className="pt-6 pb-0">
+        <ProofStripVisual className="mx-auto max-w-3xl opacity-80" />
+      </Section>
+
       <CaseStudies t={t} expanded />
       <BigNumbers t={t} />
       <Testimonials t={t} />

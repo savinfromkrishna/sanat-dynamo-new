@@ -6,6 +6,7 @@ import { Menu, X, ArrowUpRight, Sparkles } from "lucide-react";
 import LocalizedLink from "../LocalizedLink";
 import Logo from "../Logo/logo";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { ThemeToggle } from "./ThemeToggle";
 import type { Messages, Locale } from "@/lib/i18n";
 
 interface HeaderProps {
@@ -99,6 +100,7 @@ export default function Header({ translations, locale, country }: HeaderProps) {
           </nav>
 
           <div className="hidden items-center gap-3 lg:flex">
+            <ThemeToggle />
             <LanguageSwitcher locale={locale} country={country} />
             <LocalizedLink
               href="/contact"
@@ -167,7 +169,10 @@ export default function Header({ translations, locale, country }: HeaderProps) {
                     <span className="h-1.5 w-1.5 rounded-full bg-success pulse-dot" />
                     All systems operational
                   </div>
-                  <LanguageSwitcher locale={locale} country={country} />
+                  <div className="flex items-center gap-2">
+                    <ThemeToggle />
+                    <LanguageSwitcher locale={locale} country={country} />
+                  </div>
                 </div>
               </div>
             </motion.div>

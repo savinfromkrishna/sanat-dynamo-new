@@ -39,7 +39,7 @@ const Logo: React.FC<LogoProps> = ({
         <svg
           viewBox="0 0 24 24"
           fill="none"
-          className="relative h-1/2 w-1/2 text-[oklch(0.13_0.02_260)]"
+          className="relative h-1/2 w-1/2 text-accent-foreground"
           stroke="currentColor"
           strokeWidth="2.6"
           strokeLinecap="round"
@@ -60,7 +60,7 @@ const Logo: React.FC<LogoProps> = ({
               s.text
             )}
           >
-            Sanat<span className="text-[oklch(0.78_0.165_70)]">Dynamo</span>
+            Sanat<span className="text-accent">Dynamo</span>
           </span>
           <span
             className={cn(

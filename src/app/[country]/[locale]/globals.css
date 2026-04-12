@@ -40,29 +40,104 @@
   --radius-2xl: 2rem;
 }
 
+/* ==========================================================================
+   LIGHT THEME (default)
+   Clean white + warm gray + amber/violet accents
+   ========================================================================== */
 :root {
-  /* Brand: Sanat Dynamo — Deep navy + amber + violet highlight */
-  --background: oklch(0.13 0.02 260);          /* deep navy-black */
-  --foreground: oklch(0.965 0.005 100);        /* warm white */
-  --surface: oklch(0.17 0.022 260);            /* slightly raised navy */
-  --surface-2: oklch(0.205 0.025 260);         /* card / hover */
-  --surface-3: oklch(0.235 0.028 262);         /* elevated emphasis */
+  --background: oklch(0.99 0.002 260);             /* near-white with faint blue tint */
+  --foreground: oklch(0.14 0.02 260);              /* near-black navy */
+  --surface: oklch(0.965 0.004 260);               /* very light gray */
+  --surface-2: oklch(0.94 0.006 260);              /* slightly darker — cards/hover */
+  --surface-3: oklch(0.92 0.008 260);              /* elevated emphasis */
+  --border: oklch(0 0 0 / 0.08);
+  --border-strong: oklch(0 0 0 / 0.16);
+  --muted: oklch(0.94 0.004 260);
+  --muted-foreground: oklch(0.44 0.02 260);
+  --accent: oklch(0.65 0.19 55);                   /* deeper amber for contrast on white */
+  --accent-foreground: oklch(0.99 0.002 260);
+  --accent-soft: oklch(0.65 0.19 55 / 0.1);
+  --accent-2: oklch(0.55 0.2 295);                 /* deeper violet for contrast on white */
+  --success: oklch(0.52 0.17 155);                  /* deeper green for white bg */
+  --danger: oklch(0.55 0.22 25);                    /* deeper red for white bg */
+
+  /* Shadows — light mode uses soft drop shadows */
+  --shadow-glow-amber: 0 20px 60px -20px oklch(0.65 0.19 55 / 0.25),
+                       0 6px 20px -8px oklch(0.65 0.19 55 / 0.15);
+  --shadow-card: 0 1px 0 0 oklch(0 0 0 / 0.03) inset,
+                 0 12px 40px -16px oklch(0 0 0 / 0.1);
+
+  /* SVG illustrations — semantic fill tokens */
+  --svg-node-fill: oklch(0.965 0.004 260);
+  --svg-line-faint: oklch(0 0 0 / 0.06);
+  --svg-grid-line: oklch(0 0 0 / 0.04);
+
+  color-scheme: light;
+}
+
+/* ==========================================================================
+   DARK THEME
+   Deep navy + amber + violet highlights (original brand look)
+   ========================================================================== */
+.dark {
+  --background: oklch(0.13 0.02 260);
+  --foreground: oklch(0.965 0.005 100);
+  --surface: oklch(0.17 0.022 260);
+  --surface-2: oklch(0.205 0.025 260);
+  --surface-3: oklch(0.235 0.028 262);
   --border: oklch(1 0 0 / 0.08);
   --border-strong: oklch(1 0 0 / 0.18);
   --muted: oklch(0.205 0.018 260);
   --muted-foreground: oklch(0.7 0.015 260);
-  --accent: oklch(0.78 0.165 70);              /* amber */
+  --accent: oklch(0.78 0.165 70);
   --accent-foreground: oklch(0.13 0.02 260);
   --accent-soft: oklch(0.78 0.165 70 / 0.12);
-  --accent-2: oklch(0.66 0.18 295);            /* violet — secondary highlight */
+  --accent-2: oklch(0.66 0.18 295);
   --success: oklch(0.74 0.16 155);
   --danger: oklch(0.65 0.22 25);
 
-  /* Premium shadows */
   --shadow-glow-amber: 0 30px 80px -20px oklch(0.78 0.165 70 / 0.45),
                        0 8px 24px -10px oklch(0.78 0.165 70 / 0.35);
   --shadow-card: 0 1px 0 0 oklch(1 0 0 / 0.04) inset,
                  0 24px 48px -24px oklch(0 0 0 / 0.6);
+
+  --svg-node-fill: oklch(0.17 0.022 260);
+  --svg-line-faint: oklch(1 0 0 / 0.06);
+  --svg-grid-line: oklch(1 0 0 / 0.04);
+
+  color-scheme: dark;
+}
+
+/* Auto-detect system preference */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --background: oklch(0.13 0.02 260);
+    --foreground: oklch(0.965 0.005 100);
+    --surface: oklch(0.17 0.022 260);
+    --surface-2: oklch(0.205 0.025 260);
+    --surface-3: oklch(0.235 0.028 262);
+    --border: oklch(1 0 0 / 0.08);
+    --border-strong: oklch(1 0 0 / 0.18);
+    --muted: oklch(0.205 0.018 260);
+    --muted-foreground: oklch(0.7 0.015 260);
+    --accent: oklch(0.78 0.165 70);
+    --accent-foreground: oklch(0.13 0.02 260);
+    --accent-soft: oklch(0.78 0.165 70 / 0.12);
+    --accent-2: oklch(0.66 0.18 295);
+    --success: oklch(0.74 0.16 155);
+    --danger: oklch(0.65 0.22 25);
+
+    --shadow-glow-amber: 0 30px 80px -20px oklch(0.78 0.165 70 / 0.45),
+                         0 8px 24px -10px oklch(0.78 0.165 70 / 0.35);
+    --shadow-card: 0 1px 0 0 oklch(1 0 0 / 0.04) inset,
+                   0 24px 48px -24px oklch(0 0 0 / 0.6);
+
+    --svg-node-fill: oklch(0.17 0.022 260);
+    --svg-line-faint: oklch(1 0 0 / 0.06);
+    --svg-grid-line: oklch(1 0 0 / 0.04);
+
+    color-scheme: dark;
+  }
 }
 
 @layer base {
@@ -128,15 +203,20 @@
   /* === Backgrounds: grids, mesh, noise === */
   .bg-grid {
     background-image:
-      linear-gradient(to right, oklch(1 0 0 / 0.04) 1px, transparent 1px),
-      linear-gradient(to bottom, oklch(1 0 0 / 0.04) 1px, transparent 1px);
+      linear-gradient(to right, var(--border) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--border) 1px, transparent 1px);
     background-size: 56px 56px;
   }
   .bg-grid-sm {
     background-image:
+      linear-gradient(to right, oklch(0 0 0 / 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, oklch(0 0 0 / 0.04) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+  :is(.dark) .bg-grid-sm {
+    background-image:
       linear-gradient(to right, oklch(1 0 0 / 0.05) 1px, transparent 1px),
       linear-gradient(to bottom, oklch(1 0 0 / 0.05) 1px, transparent 1px);
-    background-size: 28px 28px;
   }
   .bg-grid-fade {
     -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
@@ -147,36 +227,44 @@
             mask-image: linear-gradient(to bottom, black 0%, transparent 80%);
   }
 
-  /* Subtle mesh gradient — use as a backdrop layer */
+  /* Subtle mesh gradient — adapts per theme */
   .bg-mesh {
     background-image:
-      radial-gradient(at 20% 0%, oklch(0.78 0.165 70 / 0.15) 0px, transparent 50%),
-      radial-gradient(at 80% 10%, oklch(0.66 0.18 295 / 0.10) 0px, transparent 50%),
-      radial-gradient(at 50% 100%, oklch(0.78 0.165 70 / 0.08) 0px, transparent 60%);
+      radial-gradient(at 20% 0%, var(--accent-soft) 0px, transparent 50%),
+      radial-gradient(at 80% 10%, oklch(from var(--accent-2) l c h / 0.08) 0px, transparent 50%),
+      radial-gradient(at 50% 100%, var(--accent-soft) 0px, transparent 60%);
   }
 
-  /* Procedural noise via SVG dataURL — adds film grain / paper texture */
+  /* Procedural noise — film grain / paper texture */
   .bg-noise {
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.06 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 0.04 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
     background-size: 200px 200px;
+  }
+  :is(.dark) .bg-noise {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.06 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
   }
 
   /* Glow utilities */
   .glow-amber {
     box-shadow:
-      0 0 0 1px oklch(0.78 0.165 70 / 0.35),
-      0 20px 60px -15px oklch(0.78 0.165 70 / 0.45);
+      0 0 0 1px oklch(from var(--accent) l c h / 0.35),
+      0 20px 60px -15px oklch(from var(--accent) l c h / 0.25);
   }
   .glow-amber-lg {
     box-shadow: var(--shadow-glow-amber);
   }
   .ring-accent-soft {
-    box-shadow: 0 0 0 4px oklch(0.78 0.165 70 / 0.15);
+    box-shadow: 0 0 0 4px var(--accent-soft);
   }
 
   /* Gradient borders */
   .border-grad {
     border: 1px solid transparent;
+    background:
+      linear-gradient(var(--surface), var(--surface)) padding-box,
+      linear-gradient(135deg, var(--border-strong), oklch(0 0 0 / 0.02)) border-box;
+  }
+  :is(.dark) .border-grad {
     background:
       linear-gradient(var(--surface), var(--surface)) padding-box,
       linear-gradient(135deg, oklch(1 0 0 / 0.18), oklch(1 0 0 / 0.02)) border-box;
@@ -185,18 +273,18 @@
     border: 1px solid transparent;
     background:
       linear-gradient(var(--surface), var(--surface)) padding-box,
-      linear-gradient(135deg, oklch(0.78 0.165 70 / 0.6), oklch(0.78 0.165 70 / 0.05)) border-box;
+      linear-gradient(135deg, oklch(from var(--accent) l c h / 0.5), oklch(from var(--accent) l c h / 0.05)) border-box;
   }
 
   /* Glass surface */
   .glass {
-    background: oklch(0.17 0.022 260 / 0.6);
+    background: oklch(from var(--surface) l c h / 0.7);
     backdrop-filter: blur(24px) saturate(140%);
     -webkit-backdrop-filter: blur(24px) saturate(140%);
     border: 1px solid var(--border);
   }
   .glass-strong {
-    background: oklch(0.17 0.022 260 / 0.82);
+    background: oklch(from var(--surface) l c h / 0.88);
     backdrop-filter: blur(28px) saturate(160%);
     -webkit-backdrop-filter: blur(28px) saturate(160%);
     border: 1px solid var(--border);
@@ -232,8 +320,8 @@
     color: var(--muted-foreground);
   }
   .chip-accent {
-    border-color: oklch(0.78 0.165 70 / 0.4);
-    background: oklch(0.78 0.165 70 / 0.1);
+    border-color: oklch(from var(--accent) l c h / 0.4);
+    background: var(--accent-soft);
     color: var(--accent);
   }
 
@@ -242,7 +330,7 @@
     background: linear-gradient(
       110deg,
       transparent 40%,
-      oklch(1 0 0 / 0.08) 50%,
+      var(--border) 50%,
       transparent 60%
     );
     background-size: 200% 100%;
@@ -284,4 +372,53 @@
     background-size: 1px 6px;
     background-repeat: repeat-y;
   }
+
+  /* === SVG Illustration Animations === */
+  @keyframes svg-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  .svg-float { animation: svg-float 6s ease-in-out infinite; }
+  .svg-float-slow { animation: svg-float 8s ease-in-out infinite; }
+
+  @keyframes svg-spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .svg-spin-slow { animation: svg-spin-slow 30s linear infinite; }
+
+  @keyframes svg-pulse-ring {
+    0%, 100% { transform: scale(1); opacity: 0.3; }
+    50% { transform: scale(1.5); opacity: 0; }
+  }
+  .svg-pulse-ring { animation: svg-pulse-ring 3s ease-in-out infinite; }
+
+  @keyframes svg-dash {
+    to { stroke-dashoffset: 0; }
+  }
+  .svg-dash-animate {
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    animation: svg-dash 2s ease-in-out forwards;
+  }
+
+  @keyframes svg-particle-flow {
+    0% { opacity: 0; transform: translateY(-10px); }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; transform: translateY(10px); }
+  }
+  .svg-particle { animation: svg-particle-flow 3s ease-in-out infinite; }
+
+  @keyframes svg-blink {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+  .svg-blink { animation: svg-blink 2s ease-in-out infinite; }
+
+  @keyframes svg-scale-in {
+    from { transform: scale(0); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  .svg-scale-in { animation: svg-scale-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
 }

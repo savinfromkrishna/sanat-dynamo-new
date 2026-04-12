@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { TrendingDown, AlertTriangle } from "lucide-react";
 import { Section, SectionHeader } from "../primitives/section";
 import { ButtonLink } from "../primitives/button";
+import { LeakFunnel } from "../illustrations";
 import type { Messages } from "@/lib/i18n";
 
 export function Problem({ t }: { t: Messages }) {
@@ -14,11 +15,18 @@ export function Problem({ t }: { t: Messages }) {
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-72 bg-gradient-to-b from-danger/5 to-transparent"
       />
-      <SectionHeader
-        eyebrow={t.problem.eyebrow}
-        title={t.problem.title}
-        subtitle={t.problem.subtitle}
-      />
+      <div className="grid gap-10 lg:grid-cols-12">
+        <div className="lg:col-span-7">
+          <SectionHeader
+            eyebrow={t.problem.eyebrow}
+            title={t.problem.title}
+            subtitle={t.problem.subtitle}
+          />
+        </div>
+        <div className="hidden lg:col-span-5 lg:flex lg:items-center lg:justify-center">
+          <LeakFunnel className="max-w-[280px] opacity-60" />
+        </div>
+      </div>
 
       <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {t.problem.points.map((p, i) => (

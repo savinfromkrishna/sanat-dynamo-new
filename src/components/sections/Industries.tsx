@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { Section, SectionHeader } from "../primitives/section";
 import LocalizedLink from "../LocalizedLink";
+import { industryIllustrations } from "../illustrations";
 import type { Messages } from "@/lib/i18n";
 
 const iconMap = {
@@ -77,6 +78,16 @@ export function Industries({ t }: { t: Messages }) {
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 {ind.description}
               </p>
+
+              {/* Industry sketch illustration */}
+              {(() => {
+                const Illust = industryIllustrations[ind.id];
+                return Illust ? (
+                  <div className={`pointer-events-none mt-4 ${isFeatured ? "h-28 w-full opacity-50" : "h-20 w-full opacity-35"}`}>
+                    <Illust className="h-full w-auto" />
+                  </div>
+                ) : null;
+              })()}
 
               {isFeatured && (
                 <>
