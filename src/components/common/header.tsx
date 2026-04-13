@@ -44,6 +44,7 @@ export default function Header({ translations, locale, country }: HeaderProps) {
     { label: translations.nav.services, href: "/services" },
     { label: translations.nav.industries, href: "/industries" },
     { label: translations.nav.work, href: "/case-studies" },
+    { label: "Blog", href: "/blogs" },
     { label: translations.nav.about, href: "/about" },
     { label: translations.nav.contact, href: "/contact" },
   ];

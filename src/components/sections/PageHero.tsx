@@ -1,31 +1,27 @@
 import { ChevronRight } from "lucide-react";
 import { Eyebrow } from "../primitives/section";
 import LocalizedLink from "../LocalizedLink";
+import { HeroBackground } from "../illustrations";
 
 export function PageHero({
   eyebrow,
   title,
   subtitle,
   breadcrumb,
+  bgVariant = "top",
 }: {
   eyebrow: string;
   title: React.ReactNode;
   subtitle?: string;
   breadcrumb?: string;
+  /** `center` shifts the animated story strip down so it sits behind taller heroes. */
+  bgVariant?: "top" | "center";
 }) {
   return (
-    <section className="relative overflow-hidden pt-28 pb-12 sm:pt-44 sm:pb-20 lg:pt-48 lg:pb-24">
-      <div className="bg-mesh absolute inset-0 -z-20" />
-      <div className="bg-grid bg-grid-fade absolute inset-0 -z-10 opacity-50" />
-      <div className="bg-noise absolute inset-0 -z-10 opacity-[0.18] mix-blend-overlay" />
-      <div
-        className="absolute inset-x-0 top-12 -z-10 mx-auto h-72 w-3/4 max-w-3xl blur-3xl"
-        style={{
-          background:
-            "radial-gradient(closest-side, oklch(0.78 0.165 70 / 0.18), transparent)",
-        }}
-      />
-      <div className="container-px relative mx-auto max-w-7xl">
+    <section className="relative isolate overflow-hidden mt-40 mb-16 sm:mt-48 sm:mb-24 lg:mt-64 lg:mb-32  pt-28 pb-16 sm:pt-44 sm:pb-32 lg:pt-64 lg:pb-40 ">
+      {/* Advanced animated SVG background — visualizes the living revenue system */}
+      <HeroBackground variant={bgVariant} />
+      <div className="container-px relative z-10 mx-auto max-w-7xl">
         {/* Breadcrumb */}
         <nav
           aria-label="Breadcrumb"

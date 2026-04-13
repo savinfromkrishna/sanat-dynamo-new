@@ -11,7 +11,7 @@ import {
   Layers,
 } from "lucide-react";
 import LocalizedLink from "../LocalizedLink";
-import { HeroNetwork } from "../illustrations";
+import { HeroNetwork, HeroBackground } from "../illustrations";
 import type { Messages } from "@/lib/i18n";
 
 const statIcons = [Users, IndianRupee, TrendingUp, Layers] as const;
@@ -21,19 +21,8 @@ export function Hero({ t }: { t: Messages }) {
 
   return (
     <section className="relative overflow-hidden pt-28 pb-16 sm:pt-44 sm:pb-32 lg:pt-52 lg:pb-40">
-      {/* Background layers */}
-      <div className="bg-mesh absolute inset-0 -z-20" />
-      <div className="bg-grid bg-grid-fade absolute inset-0 -z-10 opacity-60" />
-      <div className="bg-noise absolute inset-0 -z-10 opacity-[0.18] mix-blend-overlay" />
-      <div
-        className="absolute inset-x-0 top-0 -z-10 mx-auto h-[520px] w-[80%] max-w-5xl blur-3xl"
-        style={{
-          background:
-            "radial-gradient(closest-side, oklch(0.78 0.165 70 / 0.18), transparent)",
-        }}
-      />
-      <div className="pointer-events-none absolute -left-24 top-32 -z-10 h-72 w-72 rounded-full bg-accent/10 blur-3xl" />
-      <div className="pointer-events-none absolute -right-24 bottom-0 -z-10 h-96 w-96 rounded-full bg-accent-2/10 blur-3xl" />
+      {/* Advanced animated SVG background — visualizes the living revenue system */}
+      {/* <HeroBackground /> */}
 
       <div className="container-px relative mx-auto max-w-7xl">
         {/* Eyebrow + live availability */}

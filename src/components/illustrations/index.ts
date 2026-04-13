@@ -1,4 +1,13 @@
 export { HeroNetwork } from "./HeroNetwork";
+export { HeroBackground } from "./HeroBackground";
+export {
+  AuditLensSketch,
+  LeakyFunnelSketch,
+  WhatsAppFlowSketch,
+  LayerStackSketch,
+  SeoPeakGraphSketch,
+  BlogSketch,
+} from "./BlogSketches";
 export { LeakFunnel } from "./LeakFunnel";
 export { ApproachDuality } from "./ApproachDuality";
 export { OrbitConstellation } from "./OrbitConstellation";
