@@ -317,7 +317,8 @@ export const BLOG_POSTS: BlogPost[] = [
         heading: "The three leaks we find on almost every SME site",
         paragraphs: [
           "After running this inspection on 120+ businesses in the last eighteen months, the same three leaks show up over and over. If your site is bleeding money, it's probably here.",
-          "The first is the dead hero — a headline that describes the company instead of the customer's problem. The second is friction-stuffed forms that ask for everything up front. The third is the ghost CRM: a lead comes in, sits in an inbox, and slowly dies because no one owns the next step.",
+          "The first is the dead hero — a headline that describes the company instead of the customer's problem. We wrote the template fix for this in [the 7-second hero section](/blogs/7-second-hero-section). The second is friction-stuffed forms that ask for everything up front. The third is the ghost CRM: a lead comes in, sits in an inbox, and slowly dies because no one owns the next step — we solved that with [your CRM should live in WhatsApp](/blogs/whatsapp-as-crm).",
+          "If your site is D2C, add a fourth leak: the catalog page. We've seen 40% of paid traffic bounce at the product listing page before ever seeing a product — unpacked in [your D2C catalog page is losing you 40% of sales](/blogs/d2c-catalog-conversion). And if the technical foundation is red on Core Web Vitals, none of these fixes compound — start instead with [the 90-minute CWV fix](/blogs/core-web-vitals-90-minute-fix).",
         ],
         pullQuote:
           "A form is not a contract. Ask for the minimum. You can qualify on the call.",
@@ -416,7 +417,8 @@ export const BLOG_POSTS: BlogPost[] = [
         heading: "The four places traffic silently disappears",
         paragraphs: [
           "When a website \"doesn't convert,\" what's usually happening is that visitors ARE acting — they're just abandoning between two very specific screens. The job is to find which two.",
-          "We instrument four seams on every audit: above the fold, mid-page CTAs, form field drop-off, and post-submit dead time. Every site we've ever inspected has exactly one dominant leak. Find it, fix it, ignore the rest.",
+          "We instrument four seams on every audit: above the fold (which is why [the 7-second hero section template](/blogs/7-second-hero-section) matters so much), mid-page CTAs, form field drop-off, and post-submit dead time. Every site we've ever inspected has exactly one dominant leak. Find it, fix it, ignore the rest — this is the same discipline behind our [45-minute revenue audit](/blogs/revenue-audit-45-minutes).",
+          "If you're running paid traffic into any of these pages and watching the money evaporate, the other place to look is upstream: [the anatomy of a Google Ads campaign that actually pays back](/blogs/google-ads-that-pay) covers why most SME ad accounts lose money before the landing page ever gets a chance.",
         ],
       },
       {
@@ -579,7 +581,8 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         heading: "Day-by-day rollout timeline",
         paragraphs: [
-          "A full WhatsApp sales agent fits in a 7-day sprint if scope is frozen. Here's the timeline we run with SMEs every time.",
+          "A full WhatsApp sales agent fits in a 7-day sprint if scope is frozen. Here's the timeline we run with SMEs every time. Once it's live, the natural next step is [turning WhatsApp itself into your CRM](/blogs/whatsapp-as-crm) — no dashboard logins, no friction, just labels and a webhook.",
+          "For real estate SMEs, also wire [the four-variable lead scoring model](/blogs/real-estate-lead-scoring) into this flow so hot leads hit the closer within minutes. For clinics, this same three-tier stack doubles as [a no-show reminder system that drops no-shows from 30% to under 8%](/blogs/clinic-reception-automation).",
         ],
         bullets: [
           "Day 1 — map the three tiers, freeze scope, get the WhatsApp Business API approved",
@@ -676,8 +679,8 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         heading: "Layer 2 — the conversion asset",
         paragraphs: [
-          "Once someone lands, you need an asset that does the actual selling. That asset is usually a landing page or a product page, not \"the website.\" The website is a collection of pages; the conversion asset is ONE page that owns ONE job.",
-          "A good conversion asset promises a specific outcome in the hero, proves it with 1–2 specifics in the second fold, removes the obvious objection in the third, and ends with a low-friction capture. That's the whole page. Everything else is padding.",
+          "Once someone lands, you need an asset that does the actual selling. That asset is usually a landing page or a product page, not \"the website.\" The website is a collection of pages; the conversion asset is ONE page that owns ONE job. For D2C brands, the catalog page is the conversion asset, not the product detail page — and it's probably leaking — see [your D2C catalog page is losing you 40% of sales](/blogs/d2c-catalog-conversion).",
+          "A good conversion asset promises a specific outcome in the hero, proves it with 1–2 specifics in the second fold, removes the obvious objection in the third, and ends with a low-friction capture. That's the whole page. Everything else is padding. The exact template for the hero is in [the 7-second hero section](/blogs/7-second-hero-section), and if you're writing copy with AI in the loop, read [AI copywriting for Indian SMEs](/blogs/ai-copywriting-india) first so you know where AI wins and where it loses.",
         ],
       },
       {
@@ -813,7 +816,8 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         heading: "Technical SEO checklist we never skip",
         paragraphs: [
-          "Before any content goes live, the site has to pass a minimum technical bar. If core web vitals are red, content is wasted effort.",
+          "Before any content goes live, the site has to pass a minimum technical bar. If core web vitals are red, content is wasted effort. We wrote up the exact 90-minute remediation sequence we use in [Core Web Vitals for SMEs: the 90-minute fix](/blogs/core-web-vitals-90-minute-fix) — fix that first, content second.",
+          "If you're also running paid acquisition alongside SEO (most SMEs should, for the first 6 months), the same keyword-to-page discipline applies — see [the anatomy of a Google Ads campaign that actually pays back](/blogs/google-ads-that-pay) for the five-campaign structure that reuses the SEO landing pages.",
         ],
         bullets: [
           "LCP under 2.5s on 4G mobile",

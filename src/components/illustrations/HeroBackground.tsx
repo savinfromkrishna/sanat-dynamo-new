@@ -1189,13 +1189,15 @@ export function HeroBackground({
         </g>
       </svg>
 
-      {/* --- Controller: play/pause + hint ------------------------------- */}
-      <div className="pointer-events-auto absolute right-4 top-24 z-20 sm:right-6 sm:top-28">
+      {/* --- Controller: play/pause + hint --------------------------------
+          On phones we render an icon-only round button (no label, no hint
+          chip). From sm: upward we show the labelled pill + the hint chip. */}
+      <div className="pointer-events-auto absolute right-3 top-20 z-20 sm:right-6 sm:top-28">
         <button
           type="button"
           onClick={togglePlayback}
           aria-label={paused ? "Play story animation" : "Pause story animation"}
-          className="group flex items-center gap-2 rounded-full border border-border bg-surface/70 px-3 py-2 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground shadow-sm backdrop-blur-md transition hover:border-border-strong hover:bg-surface hover:text-foreground"
+          className="group flex items-center gap-2 rounded-full border border-border bg-surface/80 p-2 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground shadow-sm backdrop-blur-md transition hover:border-border-strong hover:bg-surface hover:text-foreground sm:px-3 sm:py-2"
         >
           <span className="flex h-5 w-5 items-center justify-center rounded-full bg-accent/15 text-accent">
             {paused ? (
@@ -1204,9 +1206,9 @@ export function HeroBackground({
               <Pause size={10} />
             )}
           </span>
-          <span>{paused ? "play story" : "pause story"}</span>
+          <span className="hidden sm:inline">{paused ? "play story" : "pause story"}</span>
         </button>
-        <div className="mt-2 flex items-center gap-1.5 rounded-full border border-border/60 bg-surface/60 px-3 py-1.5 font-mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground backdrop-blur-sm">
+        <div className="mt-2 hidden items-center gap-1.5 rounded-full border border-border/60 bg-surface/60 px-3 py-1.5 font-mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground backdrop-blur-sm sm:flex">
           <Sparkles size={9} className="text-accent" />
           <span>click any step to explore</span>
         </div>

@@ -152,12 +152,17 @@
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     scroll-behavior: smooth;
+    /* Prevent rogue absolute children (decorative blobs, animated SVG offscreen
+       layers, etc.) from causing horizontal scroll on small viewports. */
+    overflow-x: hidden;
   }
 
   body {
     background-color: var(--background);
     color: var(--foreground);
     font-feature-settings: "ss01", "cv11";
+    overflow-x: hidden;
+    min-width: 0;
   }
 
   ::selection {

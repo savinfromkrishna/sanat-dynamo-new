@@ -20,7 +20,7 @@ export function Hero({ t }: { t: Messages }) {
   const stats = t.socialProof.stats;
 
   return (
-    <section className="relative overflow-hidden pt-28 pb-16 sm:pt-44 sm:pb-32 lg:pt-52 lg:pb-40">
+    <section className="relative overflow-hidden pt-24 pb-12 sm:pt-44 sm:pb-32 lg:pt-52 lg:pb-40">
       {/* Advanced animated SVG background — visualizes the living revenue system */}
       {/* <HeroBackground /> */}
 

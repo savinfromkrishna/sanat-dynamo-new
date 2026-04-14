@@ -1,6 +1,7 @@
 import { STATIC_PAGES, BASE_URL, LANGUAGES } from "@/lib/constants";
 import { LOCALES, type Locale } from "@/lib/i18n";
 import { NextResponse } from "next/server";
+import { BLOG_POSTS, BLOG_CATEGORIES } from "@/lib/blogs";
 
 export const dynamic = "force-dynamic";
 
@@ -34,6 +35,7 @@ const PAGE_PRIORITY: Record<string, number> = {
   "case-studies": 0.8,
   about: 0.7,
   contact: 0.8,
+  blogs: 0.9,
   privacy: 0.2,
   terms: 0.2,
 };
@@ -45,9 +47,14 @@ const PAGE_CHANGEFREQ: Record<string, string> = {
   "case-studies": "weekly",
   about: "monthly",
   contact: "monthly",
+  blogs: "weekly",
   privacy: "yearly",
   terms: "yearly",
 };
+
+const BLOG_POST_PRIORITY = 0.7;
+const BLOG_CATEGORY_PRIORITY = 0.75;
+const BLOG_CHANGEFREQ = "monthly";
 
 export async function GET(
   request: Request,
@@ -57,14 +64,18 @@ export async function GET(
   const base = resolveBaseUrl(request);
   const today = new Date().toISOString().split("T")[0];
 
-  const urls = LANGUAGES.flatMap((locale) =>
-    STATIC_PAGES.map((page) => {
+  // Static pages (home, services, industries, case-studies, about, contact, legal)
+  // plus the blog index page (hardcoded here because STATIC_PAGES lives in
+  // `lib/constants` and we don't want to touch it from here).
+  const pagesWithBlogIndex = [...STATIC_PAGES, "blogs"];
+
+  const staticUrls = LANGUAGES.flatMap((locale) =>
+    pagesWithBlogIndex.map((page) => {
       const loc =
         page === ""
           ? `${base}/${country}/${locale}`
           : `${base}/${country}/${locale}/${page}`;
 
-      // Build hreflang alternates for this URL across all locales
       const alternates = LANGUAGES.map((altLocale) => {
         const altLoc =
           page === ""
@@ -73,7 +84,6 @@ export async function GET(
         const htmlLang = LOCALES[altLocale as Locale]?.htmlLang ?? altLocale;
         return `      <xhtml:link rel="alternate" hreflang="${htmlLang}" href="${altLoc}" />`;
       });
-      // x-default
       const xDefault =
         page === "" ? `${base}/in/en` : `${base}/in/en/${page}`;
       alternates.push(
@@ -89,6 +99,55 @@ export async function GET(
       };
     })
   );
+
+  // Individual blog posts — indexed per locale with hreflang alternates
+  const blogPostUrls = LANGUAGES.flatMap((locale) =>
+    BLOG_POSTS.map((post) => {
+      const loc = `${base}/${country}/${locale}/blogs/${post.slug}`;
+      const alternates = LANGUAGES.map((altLocale) => {
+        const altLoc = `${base}/${country}/${altLocale}/blogs/${post.slug}`;
+        const htmlLang = LOCALES[altLocale as Locale]?.htmlLang ?? altLocale;
+        return `      <xhtml:link rel="alternate" hreflang="${htmlLang}" href="${altLoc}" />`;
+      });
+      alternates.push(
+        `      <xhtml:link rel="alternate" hreflang="x-default" href="${base}/in/en/blogs/${post.slug}" />`
+      );
+      return {
+        loc,
+        lastmod: post.updatedAt ?? post.publishedAt,
+        priority: BLOG_POST_PRIORITY,
+        changefreq: BLOG_CHANGEFREQ,
+        alternates: alternates.join("\n"),
+      };
+    })
+  );
+
+  // Blog category pages
+  const categoryKeys = BLOG_CATEGORIES
+    .filter((c) => c.key !== "all")
+    .map((c) => c.key);
+  const blogCategoryUrls = LANGUAGES.flatMap((locale) =>
+    categoryKeys.map((catKey) => {
+      const loc = `${base}/${country}/${locale}/blogs/category/${catKey}`;
+      const alternates = LANGUAGES.map((altLocale) => {
+        const altLoc = `${base}/${country}/${altLocale}/blogs/category/${catKey}`;
+        const htmlLang = LOCALES[altLocale as Locale]?.htmlLang ?? altLocale;
+        return `      <xhtml:link rel="alternate" hreflang="${htmlLang}" href="${altLoc}" />`;
+      });
+      alternates.push(
+        `      <xhtml:link rel="alternate" hreflang="x-default" href="${base}/in/en/blogs/category/${catKey}" />`
+      );
+      return {
+        loc,
+        lastmod: today,
+        priority: BLOG_CATEGORY_PRIORITY,
+        changefreq: BLOG_CHANGEFREQ,
+        alternates: alternates.join("\n"),
+      };
+    })
+  );
+
+  const urls = [...staticUrls, ...blogCategoryUrls, ...blogPostUrls];
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"

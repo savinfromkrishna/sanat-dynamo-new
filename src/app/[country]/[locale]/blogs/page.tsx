@@ -318,25 +318,25 @@ export default async function BlogsIndexPage({
       {/* FEATURED CAROUSEL — 3 cards in a big grid                         */}
       {/* ================================================================ */}
       <Section className="pt-6 pb-0">
-        <div className="mb-8 flex items-end justify-between gap-4 border-b border-border pb-6">
+        <div className="mb-6 flex flex-col items-start gap-3 border-b border-border pb-5 sm:mb-8 sm:flex-row sm:items-end sm:justify-between sm:gap-4 sm:pb-6">
           <div>
             <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
               <Sparkles size={11} />
               {ui.featuredEyebrow}
             </div>
-            <h2 className="mt-3 font-display text-3xl font-semibold leading-[1.1] tracking-tight text-foreground sm:text-4xl">
+            <h2 className="mt-3 font-display text-2xl font-semibold leading-[1.1] tracking-tight text-foreground sm:text-3xl lg:text-4xl">
               {ui.featuredTitle}{" "}
               <span className="text-accent">{ui.featuredTitleAccent}</span>
             </h2>
           </div>
-          <div className="hidden items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground sm:flex">
+          <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
             <span>{featuredPosts.length} featured</span>
             <span className="h-1 w-1 rounded-full bg-accent" />
             <span>editor's pick</span>
           </div>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-3">
+        <div className="grid gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
           {featuredPosts.map((post, i) => (
             <LocalizedLink
               key={post.slug}
@@ -391,24 +391,24 @@ export default async function BlogsIndexPage({
       {/* LATEST + MOST READ (side-by-side)                                 */}
       {/* ================================================================ */}
       <Section className="pt-10 pb-0">
-        <div className="grid gap-10 lg:grid-cols-[1fr_340px]">
+        <div className="grid gap-8 lg:grid-cols-[1fr_340px] lg:gap-10">
           <div>
-            <div className="mb-6 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
+            <div className="mb-5 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-accent sm:mb-6">
               <Flame size={11} />
               {ui.latestEyebrow}
             </div>
-            <h2 className="font-display text-3xl font-semibold leading-[1.1] tracking-tight text-foreground sm:text-4xl">
+            <h2 className="font-display text-2xl font-semibold leading-[1.1] tracking-tight text-foreground sm:text-3xl lg:text-4xl">
               {ui.latestTitle}{" "}
               <span className="text-accent">{ui.latestTitleAccent}</span>
             </h2>
-            <div className="mt-8 grid gap-5 sm:grid-cols-2">
+            <div className="mt-6 grid gap-4 sm:mt-8 sm:gap-5 md:grid-cols-2">
               {latestPosts.slice(0, 4).map((post) => (
                 <PostCard key={post.slug} post={post} />
               ))}
             </div>
           </div>
 
-          <aside className="rounded-2xl border border-border bg-surface/40 p-6">
+          <aside className="rounded-2xl border border-border bg-surface/40 p-5 sm:p-6">
             <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
               <TrendingUp size={11} />
               {ui.mostReadEyebrow}
@@ -442,8 +442,8 @@ export default async function BlogsIndexPage({
       {/* WHY WE WRITE                                                      */}
       {/* ================================================================ */}
       <Section className="pt-12 pb-0">
-        <div className="rounded-3xl border border-border bg-surface/40 p-8 sm:p-12">
-          <div className="grid gap-10 lg:grid-cols-[1fr_340px]">
+        <div className="rounded-3xl border border-border bg-surface/40 p-6 sm:p-10 lg:p-12">
+          <div className="grid gap-8 lg:grid-cols-[1fr_340px] lg:gap-10">
             <div>
               <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
                 <BookOpen size={11} />
@@ -657,8 +657,8 @@ export default async function BlogsIndexPage({
       {/* AUTHOR SPOTLIGHT                                                  */}
       {/* ================================================================ */}
       <Section className="pt-4">
-        <div className="rounded-3xl border border-border bg-surface/40 p-6 sm:p-10">
-          <div className="grid gap-8 lg:grid-cols-[240px_1fr]">
+        <div className="rounded-3xl border border-border bg-surface/40 p-6 sm:p-8 lg:p-10">
+          <div className="grid gap-6 sm:gap-8 lg:grid-cols-[240px_1fr]">
             <div className="flex flex-col items-start gap-4">
               <div className="flex h-20 w-20 items-center justify-center rounded-full border border-accent/40 bg-accent/10 font-display text-3xl font-semibold text-accent">
                 KS
@@ -708,8 +708,8 @@ export default async function BlogsIndexPage({
       {/* NEWSLETTER                                                        */}
       {/* ================================================================ */}
       <Section className="pt-0">
-        <div className="rounded-3xl border border-accent/40 bg-accent/5 p-8 sm:p-12">
-          <div className="grid gap-8 lg:grid-cols-[1fr_380px] lg:items-center">
+        <div className="rounded-3xl border border-accent/40 bg-accent/5 p-6 sm:p-10 lg:p-12">
+          <div className="grid gap-6 lg:grid-cols-[1fr_380px] lg:items-center lg:gap-8">
             <div>
               <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
                 <Mail size={11} />

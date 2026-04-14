@@ -1,9 +1,10 @@
 "use client";
 
-import { ArrowUpRight, Github, Linkedin, Twitter, Mail, MessageCircle } from "lucide-react";
+import { ArrowUpRight, BookOpen, Github, Linkedin, Twitter, Mail, MessageCircle } from "lucide-react";
 import LocalizedLink from "../LocalizedLink";
 import Logo from "../Logo/logo";
 import type { Messages } from "@/lib/i18n";
+import { getMostReadPosts, BLOG_CATEGORIES } from "@/lib/blogs";
 
 interface FooterProps {
   translations: Messages;
@@ -12,6 +13,8 @@ interface FooterProps {
 export default function Footer({ translations }: FooterProps) {
   const t = translations;
   const year = new Date().getFullYear();
+  const popularPosts = getMostReadPosts(5);
+  const blogCategories = BLOG_CATEGORIES.filter((c) => c.key !== "all");
 
   return (
     <footer className="relative mt-32 border-t border-border bg-background">
@@ -20,7 +23,7 @@ export default function Footer({ translations }: FooterProps) {
 
       <div className="container-px relative mx-auto max-w-7xl">
         {/* Top contact strip */}
-        <div className="grid gap-4 border-b border-border py-10 md:grid-cols-3">
+        <div className="grid gap-3 border-b border-border py-8 sm:gap-4 sm:py-10 md:grid-cols-3">
           <a
             href={`mailto:${t.contact.details.email}`}
             className="group flex items-center gap-4 rounded-2xl border border-border bg-surface/40 p-5 transition-all hover:border-accent/40 hover:bg-surface"
@@ -80,7 +83,7 @@ export default function Footer({ translations }: FooterProps) {
         </div>
 
         {/* Brand + columns */}
-        <div className="grid gap-12 py-16 lg:grid-cols-12">
+        <div className="grid gap-10 py-12 sm:gap-12 sm:py-16 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <Logo size="lg" />
             <p className="mt-6 max-w-md text-pretty text-base leading-relaxed text-muted-foreground">
@@ -115,7 +118,7 @@ export default function Footer({ translations }: FooterProps) {
             </div>
           </div>
 
-          <div className="grid gap-10 sm:grid-cols-3 lg:col-span-7">
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-10 lg:col-span-7">
             {(["services", "industries", "company"] as const).map((key) => {
               const col = t.footer.columns[key];
               return (
@@ -142,6 +145,81 @@ export default function Footer({ translations }: FooterProps) {
                 </div>
               );
             })}
+          </div>
+        </div>
+
+        {/* From the blog — site-wide internal linking to popular posts */}
+        <div className="border-t border-border py-10 sm:py-12">
+          <div className="mb-6 flex flex-col gap-4 sm:mb-8 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex items-center gap-3">
+              <div className="flex h-8 w-8 items-center justify-center rounded-full border border-accent/40 bg-accent/10 text-accent">
+                <BookOpen size={14} />
+              </div>
+              <div>
+                <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
+                  From the blog
+                </div>
+                <h3 className="font-display text-lg font-semibold text-foreground">
+                  Most-read field notes this month
+                </h3>
+              </div>
+            </div>
+            <LocalizedLink
+              href="/blogs"
+              className="hidden items-center gap-2 rounded-full border border-border bg-surface/60 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground transition hover:border-accent/50 hover:text-accent sm:inline-flex"
+            >
+              All posts
+              <ArrowUpRight size={11} />
+            </LocalizedLink>
+          </div>
+
+          <div className="grid gap-3 sm:grid-cols-2 sm:gap-4 md:grid-cols-3 xl:grid-cols-5">
+            {popularPosts.map((post, i) => (
+              <LocalizedLink
+                key={post.slug}
+                href={`/blogs/${post.slug}`}
+                className="group flex h-full flex-col rounded-2xl border border-border bg-surface/40 p-4 transition hover:-translate-y-0.5 hover:border-accent/40 hover:bg-surface"
+              >
+                <div className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground">
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full border border-accent/40 bg-accent/10 text-accent">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span>{post.readTime} min</span>
+                </div>
+                <h4 className="mt-3 flex-1 font-display text-sm font-semibold leading-tight tracking-tight text-foreground transition group-hover:text-accent">
+                  {post.title}
+                </h4>
+                <span className="mt-3 inline-flex items-center gap-1 text-[10px] font-mono uppercase tracking-[0.18em] text-accent">
+                  read
+                  <ArrowUpRight
+                    size={10}
+                    className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  />
+                </span>
+              </LocalizedLink>
+            ))}
+          </div>
+
+          <div className="mt-6 flex flex-wrap items-center gap-2 border-t border-border pt-6">
+            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+              Topics ·
+            </span>
+            {blogCategories.map((c) => (
+              <LocalizedLink
+                key={c.key}
+                href={`/blogs/category/${c.key}`}
+                className="rounded-full border border-border bg-surface/40 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground transition hover:border-accent/50 hover:text-accent"
+              >
+                {c.label}
+              </LocalizedLink>
+            ))}
+            <LocalizedLink
+              href="/blogs"
+              className="ml-auto inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-accent hover:underline sm:hidden"
+            >
+              All posts
+              <ArrowUpRight size={11} />
+            </LocalizedLink>
           </div>
         </div>
 

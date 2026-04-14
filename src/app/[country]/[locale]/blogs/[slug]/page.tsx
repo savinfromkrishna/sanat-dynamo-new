@@ -295,7 +295,7 @@ export default async function BlogDetailPage({
       {/* Post meta strip                                                   */}
       {/* ================================================================ */}
       <Section className="pt-6 pb-0">
-        <div className="flex flex-wrap items-center justify-between gap-4 border-y border-border py-5">
+        <div className="flex flex-col gap-3 border-y border-border py-4 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-4 sm:py-5">
           <div className="flex flex-wrap items-center gap-5 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
             <span className="flex items-center gap-1.5 text-foreground">
               <span className="h-1.5 w-1.5 rounded-full bg-accent" />
@@ -335,9 +335,9 @@ export default async function BlogDetailPage({
       {/* ================================================================ */}
       {/* Hero sketch                                                       */}
       {/* ================================================================ */}
-      <Section className="pt-10 pb-0">
-        <div className="relative overflow-hidden rounded-3xl border border-border bg-surface/40 p-6 sm:p-10">
-          <div className="pointer-events-none absolute left-6 top-6 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+      <Section className="pt-8 pb-0 sm:pt-10">
+        <div className="relative overflow-hidden rounded-2xl border border-border bg-surface/40 p-4 pt-12 sm:rounded-3xl sm:p-10">
+          <div className="pointer-events-none absolute left-4 top-4 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground sm:left-6 sm:top-6 sm:text-[10px]">
             <Sparkles size={11} className="text-accent" />
             {ui.fieldSketch} · {post.heroSketch}
           </div>
@@ -351,10 +351,38 @@ export default async function BlogDetailPage({
       {/* ================================================================ */}
       {/* Main content layout: body + sticky TOC sidebar                    */}
       {/* ================================================================ */}
-      <Section className="pt-12">
-        <div className="grid gap-12 lg:grid-cols-[1fr_260px]">
+      <Section className="pt-10 sm:pt-12">
+        <div className="grid gap-10 lg:grid-cols-[1fr_260px] lg:gap-12">
           {/* ---------- Article body ---------- */}
           <article className="prose-like max-w-3xl">
+            {/* Mobile-only TOC: collapsible above the TLDR for small screens */}
+            <details className="mb-6 rounded-2xl border border-border bg-surface/40 p-5 lg:hidden">
+              <summary className="flex cursor-pointer items-center justify-between gap-4">
+                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
+                  {ui.onThisPage}
+                </span>
+                <ChevronRight
+                  size={14}
+                  className="text-accent transition-transform group-open:rotate-90"
+                />
+              </summary>
+              <ol className="mt-4 space-y-3">
+                {post.sections.map((section, i) => (
+                  <li key={section.heading}>
+                    <a
+                      href={`#${slugifyHeading(section.heading)}`}
+                      className="flex gap-3 text-sm leading-snug text-muted-foreground transition hover:text-foreground"
+                    >
+                      <span className="font-mono text-[10px] text-accent">
+                        §{String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span>{section.heading}</span>
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </details>
+
             {/* TLDR */}
             <div className="rounded-2xl border border-border bg-surface/40 p-6 sm:p-7">
               <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
@@ -422,7 +450,7 @@ export default async function BlogDetailPage({
             </div>
 
             {/* Sections */}
-            <div className="mt-14 space-y-16">
+            <div className="mt-12 space-y-12 sm:mt-14 sm:space-y-16">
               {post.sections.map((section, i) => {
                 const id = slugifyHeading(section.heading);
                 return (
@@ -433,7 +461,7 @@ export default async function BlogDetailPage({
                       </span>
                       <div className="h-px flex-1 bg-border" />
                     </div>
-                    <h2 className="mt-4 font-display text-3xl font-semibold leading-[1.15] tracking-tight text-foreground sm:text-4xl">
+                    <h2 className="mt-4 font-display text-2xl font-semibold leading-[1.15] tracking-tight text-foreground sm:text-3xl lg:text-4xl">
                       {section.heading}
                     </h2>
 
@@ -458,12 +486,12 @@ export default async function BlogDetailPage({
                     )}
 
                     {section.pullQuote && (
-                      <figure className="relative mt-8 rounded-2xl border border-border bg-surface/40 p-8 pl-14">
+                      <figure className="relative mt-8 rounded-2xl border border-border bg-surface/40 p-6 pl-11 sm:p-8 sm:pl-14">
                         <Quote
-                          className="absolute left-5 top-6 text-accent"
-                          size={26}
+                          className="absolute left-3 top-5 text-accent sm:left-5 sm:top-6"
+                          size={22}
                         />
-                        <blockquote className="font-display text-xl leading-[1.4] tracking-tight text-foreground sm:text-2xl">
+                        <blockquote className="font-display text-lg leading-[1.4] tracking-tight text-foreground sm:text-xl lg:text-2xl">
                           &ldquo;{section.pullQuote}&rdquo;
                         </blockquote>
                         <figcaption className="mt-4 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
@@ -527,7 +555,7 @@ export default async function BlogDetailPage({
                   <BookOpen size={11} />
                   {ui.frequentlyAsked}
                 </div>
-                <h2 className="mt-3 font-display text-3xl font-semibold leading-tight tracking-tight text-foreground sm:text-4xl">
+                <h2 className="mt-3 font-display text-2xl font-semibold leading-tight tracking-tight text-foreground sm:text-3xl lg:text-4xl">
                   {ui.faqIntro}
                 </h2>
                 <div className="mt-8 space-y-4">
@@ -707,7 +735,7 @@ export default async function BlogDetailPage({
       {/* Prev / next navigation                                            */}
       {/* ================================================================ */}
       <Section className="pt-8 pb-0">
-        <div className="grid gap-4 border-y border-border py-8 md:grid-cols-2">
+        <div className="grid gap-3 border-y border-border py-6 sm:gap-4 sm:py-8 md:grid-cols-2">
           {prev ? (
             <LocalizedLink
               href={`/blogs/${prev.slug}`}
