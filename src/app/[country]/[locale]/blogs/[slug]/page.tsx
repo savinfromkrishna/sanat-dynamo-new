@@ -134,10 +134,23 @@ function categoryLabel(key: BlogCategory) {
  * `[anchor](/path)` style inline links. Relative paths are routed
  * through LocalizedLink, absolute URLs render as external <a>.
  */
-function ParagraphWithLinks({ text }: { text: string }) {
+function ParagraphWithLinks({
+  text,
+  dropCap = false,
+}: {
+  text: string;
+  dropCap?: boolean;
+}) {
   const tokens = parseInlineLinks(text);
   return (
-    <p className="text-base leading-[1.75] text-muted-foreground sm:text-lg">
+    <p
+      className={[
+        "text-[17px] leading-[1.8] text-muted-foreground sm:text-[18px]",
+        dropCap
+          ? "first-letter:float-left first-letter:mr-3 first-letter:mt-1.5 first-letter:font-display first-letter:text-[64px] first-letter:font-semibold first-letter:leading-[0.85] first-letter:text-accent sm:first-letter:text-[78px]"
+          : "",
+      ].join(" ")}
+    >
       {tokens.map((tok, i) => {
         if (tok.kind === "text") {
           return <span key={i}>{tok.value}</span>;
@@ -150,7 +163,7 @@ function ParagraphWithLinks({ text }: { text: string }) {
               href={tok.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-medium text-accent underline decoration-accent/30 underline-offset-4 hover:decoration-accent"
+              className="font-medium text-accent underline decoration-accent/40 decoration-[1.5px] underline-offset-[5px] transition hover:decoration-accent"
             >
               {tok.value}
             </a>
@@ -160,7 +173,7 @@ function ParagraphWithLinks({ text }: { text: string }) {
           <LocalizedLink
             key={i}
             href={tok.href}
-            className="font-medium text-accent underline decoration-accent/30 underline-offset-4 hover:decoration-accent"
+            className="font-medium text-accent underline decoration-accent/40 decoration-[1.5px] underline-offset-[5px] transition hover:decoration-accent"
           >
             {tok.value}
           </LocalizedLink>
@@ -333,17 +346,35 @@ export default async function BlogDetailPage({
       </Section>
 
       {/* ================================================================ */}
-      {/* Hero sketch                                                       */}
+      {/* Hero sketch — editorial field diagram                             */}
       {/* ================================================================ */}
       <Section className="pt-8 pb-0 sm:pt-10">
-        <div className="relative overflow-hidden rounded-2xl border border-border bg-surface/40 p-4 pt-12 sm:rounded-3xl sm:p-10">
-          <div className="pointer-events-none absolute left-4 top-4 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground sm:left-6 sm:top-6 sm:text-[10px]">
+        <div className="relative overflow-hidden rounded-3xl border border-border bg-surface/40 p-4 pt-14 shadow-[0_1px_0_0_rgba(255,255,255,0.04)_inset] sm:p-12 sm:pt-14">
+          {/* Ambient gradients */}
+          <div
+            className="pointer-events-none absolute inset-0 opacity-80"
+            style={{
+              backgroundImage:
+                "radial-gradient(at 15% 0%, oklch(0.65 0.19 55 / 0.10) 0px, transparent 45%), radial-gradient(at 85% 100%, oklch(0.66 0.18 295 / 0.08) 0px, transparent 50%)",
+            }}
+          />
+          {/* Corner hash-marks — a faint grid feel */}
+          <div className="pointer-events-none absolute left-3 top-3 h-4 w-4 border-l border-t border-accent/40 sm:left-5 sm:top-5" />
+          <div className="pointer-events-none absolute right-3 top-3 h-4 w-4 border-r border-t border-accent/40 sm:right-5 sm:top-5" />
+          <div className="pointer-events-none absolute bottom-3 left-3 h-4 w-4 border-b border-l border-accent/40 sm:bottom-5 sm:left-5" />
+          <div className="pointer-events-none absolute bottom-3 right-3 h-4 w-4 border-b border-r border-accent/40 sm:bottom-5 sm:right-5" />
+
+          {/* Eyebrow chip */}
+          <div className="pointer-events-none absolute left-4 top-4 flex items-center gap-2 rounded-full border border-border bg-background/70 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground backdrop-blur-sm sm:left-6 sm:top-6 sm:text-[10px]">
             <Sparkles size={11} className="text-accent" />
-            {ui.fieldSketch} · {post.heroSketch}
+            <span>{ui.fieldSketch}</span>
+            <span className="h-2.5 w-px bg-border" />
+            <span className="text-accent">{post.heroSketch}</span>
           </div>
+
           <BlogSketch
             sketchKey={post.heroSketch}
-            className="mx-auto h-auto w-full max-w-4xl"
+            className="relative mx-auto h-auto w-full max-w-4xl"
           />
         </div>
       </Section>
@@ -383,63 +414,92 @@ export default async function BlogDetailPage({
               </ol>
             </details>
 
-            {/* TLDR */}
-            <div className="rounded-2xl border border-border bg-surface/40 p-6 sm:p-7">
-              <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                <Zap size={11} className="text-accent" />
-                {ui.tldr}
+            {/* TLDR — editorial summary card */}
+            <div className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-surface/70 via-surface/40 to-background/40 p-6 shadow-[0_1px_0_0_rgba(255,255,255,0.04)_inset] sm:p-8">
+              <div
+                className="pointer-events-none absolute inset-0 opacity-60"
+                style={{
+                  backgroundImage:
+                    "radial-gradient(at 100% 0%, oklch(0.65 0.19 55 / 0.08) 0px, transparent 40%)",
+                }}
+              />
+              <div className="relative flex items-center gap-2.5">
+                <span className="flex h-6 w-6 items-center justify-center rounded-lg border border-accent/40 bg-accent/10 text-accent">
+                  <Zap size={11} />
+                </span>
+                <span className="font-mono text-[10px] uppercase tracking-[0.26em] text-accent">
+                  {ui.tldr}
+                </span>
               </div>
-              <p className="mt-4 text-base leading-relaxed text-foreground sm:text-lg">
+              <p className="relative mt-5 font-display text-lg leading-[1.55] tracking-tight text-foreground sm:text-xl">
                 {post.excerpt}
               </p>
             </div>
 
-            {/* Key takeaways callout */}
-            <div className="mt-6 rounded-2xl border border-accent/40 bg-accent/5 p-6 sm:p-8">
-              <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
-                <Bookmark size={11} />
-                {ui.keyTakeaways}
+            {/* Key takeaways — numbered editorial list */}
+            <div className="relative mt-6 overflow-hidden rounded-3xl border border-accent/30 bg-gradient-to-br from-accent/10 via-accent/[0.03] to-transparent p-6 sm:p-8">
+              <div
+                className="pointer-events-none absolute inset-0 opacity-60"
+                style={{
+                  backgroundImage:
+                    "radial-gradient(at 0% 100%, oklch(0.65 0.19 55 / 0.10) 0px, transparent 45%)",
+                }}
+              />
+              <div className="relative flex items-center gap-2.5">
+                <span className="flex h-6 w-6 items-center justify-center rounded-lg border border-accent/40 bg-background/60 text-accent">
+                  <Bookmark size={11} />
+                </span>
+                <span className="font-mono text-[10px] uppercase tracking-[0.26em] text-accent">
+                  {ui.keyTakeaways}
+                </span>
               </div>
-              <ul className="mt-5 space-y-3">
+              <ol className="relative mt-6 space-y-4">
                 {post.takeaways.map((k, i) => (
                   <li
                     key={i}
-                    className="flex gap-3 text-base leading-relaxed text-foreground"
+                    className="flex items-start gap-4 text-[17px] leading-[1.6] text-foreground"
                   >
-                    <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
-                    <span>{k}</span>
+                    <span className="mt-0.5 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border border-accent/40 bg-background/70 font-mono text-[10px] font-semibold text-accent">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="pt-0.5">{k}</span>
                   </li>
                 ))}
-              </ul>
+              </ol>
             </div>
 
-            {/* Keyword targeting strip (transparency + SEO anchor text) */}
-            <div className="mt-6 rounded-2xl border border-border bg-background/60 p-5">
-              <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                <Target size={11} className="text-accent" />
-                {ui.whatThisPostIsFor}
+            {/* Keyword targeting strip */}
+            <div className="mt-6 rounded-3xl border border-border bg-background/60 p-5 sm:p-6">
+              <div className="flex items-center gap-2.5">
+                <span className="flex h-6 w-6 items-center justify-center rounded-lg border border-border bg-surface/60 text-accent">
+                  <Target size={11} />
+                </span>
+                <span className="font-mono text-[10px] uppercase tracking-[0.26em] text-muted-foreground">
+                  {ui.whatThisPostIsFor}
+                </span>
               </div>
-              <div className="mt-4 grid gap-4 sm:grid-cols-2">
-                <div>
+              <div className="mt-5 grid gap-5 sm:grid-cols-2 sm:gap-6">
+                <div className="rounded-2xl border border-border bg-surface/40 p-4">
                   <div className="font-mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground">
                     {ui.primaryKeyword}
                   </div>
-                  <div className="mt-1 font-display text-base font-semibold text-foreground">
+                  <div className="mt-2 font-display text-lg font-semibold leading-tight text-foreground">
                     {post.keywords.primary}
                   </div>
-                  <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-accent">
+                  <div className="mt-2 inline-flex items-center gap-1.5 rounded-full border border-accent/30 bg-accent/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-accent">
+                    <span className="h-1 w-1 rounded-full bg-accent" />
                     ~{post.keywords.searchVolume.toLocaleString()} {ui.monthlySearchesLabel}
                   </div>
                 </div>
-                <div>
+                <div className="rounded-2xl border border-border bg-surface/40 p-4">
                   <div className="font-mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground">
                     {ui.alsoAnswers}
                   </div>
-                  <div className="mt-2 flex flex-wrap gap-1.5">
+                  <div className="mt-3 flex flex-wrap gap-1.5">
                     {post.keywords.secondary.map((kw) => (
                       <span
                         key={kw}
-                        className="rounded-full border border-border bg-surface/60 px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.15em] text-muted-foreground"
+                        className="rounded-full border border-border bg-background/60 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.15em] text-muted-foreground"
                       >
                         {kw}
                       </span>
@@ -450,35 +510,54 @@ export default async function BlogDetailPage({
             </div>
 
             {/* Sections */}
-            <div className="mt-12 space-y-12 sm:mt-14 sm:space-y-16">
+            <div className="mt-14 space-y-16 sm:mt-16 sm:space-y-20">
               {post.sections.map((section, i) => {
                 const id = slugifyHeading(section.heading);
+                const isFirst = i === 0;
+                const sectionNum = String(i + 1).padStart(2, "0");
                 return (
                   <section key={id} id={id} className="scroll-mt-28">
-                    <div className="flex items-baseline gap-4">
-                      <span className="font-mono text-[11px] uppercase tracking-[0.28em] text-accent">
-                        §{String(i + 1).padStart(2, "0")}
-                      </span>
-                      <div className="h-px flex-1 bg-border" />
-                    </div>
-                    <h2 className="mt-4 font-display text-2xl font-semibold leading-[1.15] tracking-tight text-foreground sm:text-3xl lg:text-4xl">
-                      {section.heading}
-                    </h2>
+                    {/* Editorial section header — numbered badge + decorative rule */}
+                    <header className="relative">
+                      <div className="flex items-center gap-4">
+                        <span className="relative flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl border border-accent/40 bg-gradient-to-br from-accent/15 to-accent/5 font-mono text-[12px] font-semibold tracking-wider text-accent shadow-[0_0_0_1px_rgba(255,255,255,0.04)_inset]">
+                          {sectionNum}
+                          <span className="pointer-events-none absolute -inset-1 rounded-[14px] border border-accent/15" />
+                        </span>
+                        <div className="flex-1">
+                          <div className="font-mono text-[10px] uppercase tracking-[0.26em] text-muted-foreground">
+                            Section {sectionNum} / {String(post.sections.length).padStart(2, "0")}
+                          </div>
+                          <div className="mt-1 h-px bg-gradient-to-r from-accent/40 via-border to-transparent" />
+                        </div>
+                      </div>
+                      <h2 className="mt-5 font-display text-[26px] font-semibold leading-[1.12] tracking-tight text-foreground sm:text-[32px] lg:text-[38px]">
+                        {section.heading}
+                      </h2>
+                    </header>
 
                     <div className="mt-6 space-y-5">
                       {section.paragraphs.map((p, pi) => (
-                        <ParagraphWithLinks key={pi} text={p} />
+                        <ParagraphWithLinks
+                          key={pi}
+                          text={p}
+                          dropCap={isFirst && pi === 0}
+                        />
                       ))}
                     </div>
 
                     {section.bullets && (
-                      <ul className="mt-6 space-y-3 rounded-xl border border-border bg-surface/30 p-5">
+                      <ul className="relative mt-7 space-y-3 overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-surface/60 to-surface/20 p-6 shadow-[0_1px_0_0_rgba(255,255,255,0.03)_inset]">
+                        <div
+                          className="pointer-events-none absolute inset-y-0 left-0 w-[3px] bg-gradient-to-b from-accent/50 via-accent/20 to-transparent"
+                          aria-hidden
+                        />
                         {section.bullets.map((b, bi) => (
                           <li
                             key={bi}
-                            className="flex gap-3 text-base leading-relaxed text-foreground"
+                            className="flex items-start gap-3 text-[16px] leading-[1.65] text-foreground"
                           >
-                            <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
+                            <span className="mt-[10px] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent shadow-[0_0_0_3px_oklch(0.65_0.19_55_/_0.12)]" />
                             <span>{b}</span>
                           </li>
                         ))}
@@ -486,30 +565,50 @@ export default async function BlogDetailPage({
                     )}
 
                     {section.pullQuote && (
-                      <figure className="relative mt-8 rounded-2xl border border-border bg-surface/40 p-6 pl-11 sm:p-8 sm:pl-14">
-                        <Quote
-                          className="absolute left-3 top-5 text-accent sm:left-5 sm:top-6"
-                          size={22}
+                      <figure className="relative mt-10 overflow-hidden rounded-3xl border border-accent/30 bg-gradient-to-br from-accent/[0.08] via-surface/40 to-transparent p-8 sm:p-10 sm:pl-14">
+                        <div
+                          className="pointer-events-none absolute inset-0 opacity-70"
+                          style={{
+                            backgroundImage:
+                              "radial-gradient(at 10% 0%, oklch(0.65 0.19 55 / 0.14) 0px, transparent 45%), radial-gradient(at 90% 100%, oklch(0.66 0.18 295 / 0.10) 0px, transparent 50%)",
+                          }}
                         />
-                        <blockquote className="font-display text-lg leading-[1.4] tracking-tight text-foreground sm:text-xl lg:text-2xl">
-                          &ldquo;{section.pullQuote}&rdquo;
+                        <Quote
+                          aria-hidden
+                          className="pointer-events-none absolute -left-2 -top-2 text-accent/20 sm:left-2 sm:top-3"
+                          size={96}
+                          strokeWidth={1.4}
+                        />
+                        <blockquote className="relative font-display text-[22px] font-medium leading-[1.35] tracking-tight text-foreground sm:text-[28px] lg:text-[32px]">
+                          <span className="text-accent/80">&ldquo;</span>
+                          {section.pullQuote}
+                          <span className="text-accent/80">&rdquo;</span>
                         </blockquote>
-                        <figcaption className="mt-4 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                          — {post.author.name}, {post.author.role}
+                        <figcaption className="relative mt-6 flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.26em] text-muted-foreground">
+                          <span className="h-px w-8 bg-accent/50" />
+                          <span className="text-foreground">{post.author.name}</span>
+                          <span className="text-border">·</span>
+                          <span>{post.author.role}</span>
                         </figcaption>
                       </figure>
                     )}
 
                     {section.callout && (
-                      <div className="mt-6 rounded-2xl border border-accent/40 bg-accent/5 p-5 sm:p-6">
-                        <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
-                          <Sparkles size={11} />
-                          {section.callout.title}
+                      <aside className="relative mt-7 overflow-hidden rounded-2xl border border-accent/40 bg-gradient-to-br from-accent/[0.08] via-accent/[0.03] to-transparent p-5 sm:p-6">
+                        <div className="flex items-start gap-3.5">
+                          <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl border border-accent/40 bg-background/60 text-accent">
+                            <Sparkles size={14} />
+                          </span>
+                          <div className="flex-1">
+                            <div className="font-mono text-[10px] uppercase tracking-[0.26em] text-accent">
+                              {section.callout.title}
+                            </div>
+                            <p className="mt-2 text-[16px] leading-[1.6] text-foreground">
+                              {section.callout.body}
+                            </p>
+                          </div>
                         </div>
-                        <p className="mt-3 text-base leading-relaxed text-foreground">
-                          {section.callout.body}
-                        </p>
-                      </div>
+                      </aside>
                     )}
                   </section>
                 );
@@ -518,27 +617,41 @@ export default async function BlogDetailPage({
 
             {/* Cross-page internal links — the on-page SEO linking box */}
             {post.crossPageLinks && post.crossPageLinks.length > 0 && (
-              <div className="mt-16 rounded-2xl border border-border bg-surface/40 p-6 sm:p-8">
-                <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
-                  <ExternalLink size={11} />
-                  {ui.takeNextStep}
+              <div className="relative mt-20 overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-surface/60 to-surface/20 p-6 sm:p-8">
+                <div
+                  className="pointer-events-none absolute inset-0 opacity-60"
+                  style={{
+                    backgroundImage:
+                      "radial-gradient(at 100% 100%, oklch(0.65 0.19 55 / 0.08) 0px, transparent 50%)",
+                  }}
+                />
+                <div className="relative flex items-center gap-2.5">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-lg border border-accent/40 bg-background/60 text-accent">
+                    <ExternalLink size={11} />
+                  </span>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.26em] text-accent">
+                    {ui.takeNextStep}
+                  </span>
                 </div>
-                <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="relative mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                   {post.crossPageLinks.map((link) => (
                     <LocalizedLink
                       key={link.href}
                       href={link.href}
-                      className="group flex items-start gap-3 rounded-xl border border-border bg-background/60 p-4 transition hover:border-accent/50"
+                      className="group relative flex items-start gap-3 overflow-hidden rounded-2xl border border-border bg-background/70 p-4 transition-all hover:-translate-y-0.5 hover:border-accent/50 hover:bg-background"
                     >
-                      <ChevronRight
-                        size={14}
-                        className="mt-1 flex-shrink-0 text-accent transition-transform group-hover:translate-x-0.5"
+                      <span
+                        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent opacity-0 transition-opacity group-hover:opacity-100"
+                        aria-hidden
                       />
-                      <div>
-                        <div className="font-display text-sm font-semibold text-foreground">
+                      <span className="mt-1 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-md border border-accent/30 bg-accent/5 text-accent transition-transform group-hover:translate-x-0.5">
+                        <ChevronRight size={12} />
+                      </span>
+                      <div className="flex-1">
+                        <div className="font-display text-sm font-semibold leading-tight text-foreground transition-colors group-hover:text-accent">
                           {link.label}
                         </div>
-                        <div className="mt-1 text-xs text-muted-foreground">
+                        <div className="mt-1.5 text-xs leading-relaxed text-muted-foreground">
                           {link.note}
                         </div>
                       </div>
@@ -550,32 +663,41 @@ export default async function BlogDetailPage({
 
             {/* Post FAQ — feeds FAQPage schema and is real readable content */}
             {post.faq && post.faq.length > 0 && (
-              <div className="mt-12">
-                <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
-                  <BookOpen size={11} />
-                  {ui.frequentlyAsked}
+              <div className="mt-16">
+                <div className="flex items-center gap-2.5">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-lg border border-accent/40 bg-accent/10 text-accent">
+                    <BookOpen size={11} />
+                  </span>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.26em] text-accent">
+                    {ui.frequentlyAsked}
+                  </span>
                 </div>
-                <h2 className="mt-3 font-display text-2xl font-semibold leading-tight tracking-tight text-foreground sm:text-3xl lg:text-4xl">
+                <h2 className="mt-4 font-display text-[26px] font-semibold leading-[1.12] tracking-tight text-foreground sm:text-[32px] lg:text-[38px]">
                   {ui.faqIntro}
                 </h2>
-                <div className="mt-8 space-y-4">
+                <div className="mt-8 space-y-3.5">
                   {post.faq.map((f, i) => (
                     <details
                       key={i}
-                      className="group rounded-2xl border border-border bg-surface/40 p-5 transition hover:border-border-strong"
+                      className="group overflow-hidden rounded-2xl border border-border bg-surface/40 transition-all hover:border-accent/40 open:border-accent/40 open:bg-surface/60"
                     >
-                      <summary className="flex cursor-pointer items-start justify-between gap-4">
-                        <span className="font-display text-lg font-semibold text-foreground">
+                      <summary className="flex cursor-pointer items-start gap-4 p-5 sm:p-6">
+                        <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg border border-border bg-background/70 font-mono text-[10px] font-semibold text-muted-foreground transition-colors group-open:border-accent/40 group-open:text-accent">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <span className="flex-1 pt-0.5 font-display text-[17px] font-semibold leading-snug text-foreground sm:text-[19px]">
                           {f.question}
                         </span>
                         <ChevronRight
                           size={18}
-                          className="mt-1 flex-shrink-0 text-accent transition-transform group-open:rotate-90"
+                          className="mt-1 flex-shrink-0 text-muted-foreground transition-transform group-open:rotate-90 group-open:text-accent"
                         />
                       </summary>
-                      <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-                        {f.answer}
-                      </p>
+                      <div className="border-t border-border/60 px-5 pb-6 pt-4 sm:px-6">
+                        <p className="pl-11 text-[16px] leading-[1.7] text-muted-foreground">
+                          {f.answer}
+                        </p>
+                      </div>
                     </details>
                   ))}
                 </div>
@@ -631,30 +753,60 @@ export default async function BlogDetailPage({
               ))}
             </div>
 
-            {/* Author block */}
-            <div className="mt-10 rounded-2xl border border-border bg-surface/40 p-6 sm:p-8">
-              <div className="flex items-start gap-5">
-                <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full border border-accent/40 bg-accent/10 font-display text-xl font-semibold text-accent">
-                  {post.author.name
-                    .split(" ")
-                    .map((n) => n[0])
-                    .join("")}
+            {/* Author block — premium byline with halo avatar */}
+            <div className="relative mt-12 overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-surface/60 via-surface/30 to-background/40 p-6 sm:p-8">
+              <div
+                className="pointer-events-none absolute inset-0 opacity-60"
+                style={{
+                  backgroundImage:
+                    "radial-gradient(at 0% 0%, oklch(0.65 0.19 55 / 0.08) 0px, transparent 45%)",
+                }}
+              />
+              <div className="relative flex flex-col gap-5 sm:flex-row sm:items-start sm:gap-6">
+                <div className="relative flex-shrink-0">
+                  <span className="pointer-events-none absolute -inset-1.5 rounded-full bg-accent/20 blur-md" aria-hidden />
+                  <div className="relative flex h-16 w-16 items-center justify-center rounded-full border border-accent/50 bg-gradient-to-br from-accent/20 via-accent/10 to-accent/5 font-display text-2xl font-semibold text-accent shadow-[0_0_0_1px_rgba(255,255,255,0.05)_inset]">
+                    {post.author.name
+                      .split(" ")
+                      .map((n) => n[0])
+                      .join("")}
+                  </div>
+                  <span
+                    className="pointer-events-none absolute -inset-1 rounded-full border border-accent/20"
+                    aria-hidden
+                  />
                 </div>
                 <div className="flex-1">
-                  <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
+                  <div className="font-mono text-[10px] uppercase tracking-[0.26em] text-accent">
                     {ui.writtenBy}
                   </div>
-                  <div className="mt-1 font-display text-lg font-semibold text-foreground">
+                  <div className="mt-1.5 font-display text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
                     {post.author.name}
                   </div>
-                  <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+                  <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
                     {post.author.role}
                   </div>
                   {post.author.bio && (
-                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                    <p className="mt-4 max-w-xl text-[15px] leading-[1.65] text-muted-foreground">
                       {post.author.bio}
                     </p>
                   )}
+                  <div className="mt-5 flex flex-wrap items-center gap-2">
+                    <LocalizedLink
+                      href="/contact"
+                      className="inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-accent transition hover:border-accent/60 hover:bg-accent/15"
+                    >
+                      {ui.authorBookAudit}
+                      <ArrowUpRight size={11} />
+                    </LocalizedLink>
+                    <LocalizedLink
+                      href="/about"
+                      className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface/60 px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground transition hover:border-accent/40 hover:text-foreground"
+                    >
+                      {ui.authorReadStory}
+                      <ArrowUpRight size={11} />
+                    </LocalizedLink>
+                  </div>
                 </div>
               </div>
             </div>
@@ -664,39 +816,63 @@ export default async function BlogDetailPage({
           <aside className="hidden lg:block">
             <div className="sticky top-28 space-y-5">
               {/* Table of contents */}
-              <div className="rounded-2xl border border-border bg-surface/40 p-5">
-                <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
-                  {ui.onThisPage}
+              <div className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-surface/60 to-surface/20 p-5 shadow-[0_1px_0_0_rgba(255,255,255,0.04)_inset]">
+                <div
+                  className="pointer-events-none absolute inset-0 opacity-50"
+                  style={{
+                    backgroundImage:
+                      "radial-gradient(at 0% 0%, oklch(0.65 0.19 55 / 0.08) 0px, transparent 45%)",
+                  }}
+                />
+                <div className="relative flex items-center gap-2">
+                  <span className="flex h-5 w-5 items-center justify-center rounded-md border border-accent/40 bg-accent/10 text-accent">
+                    <BookOpen size={10} />
+                  </span>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.26em] text-accent">
+                    {ui.onThisPage}
+                  </span>
                 </div>
-                <ol className="mt-4 space-y-3">
+                <ol className="relative mt-5 space-y-3">
                   {post.sections.map((section, i) => (
                     <li key={section.heading}>
                       <a
                         href={`#${slugifyHeading(section.heading)}`}
-                        className="group flex gap-3 text-sm leading-snug text-muted-foreground transition hover:text-foreground"
+                        className="group flex gap-3 rounded-lg py-1 text-sm leading-snug text-muted-foreground transition-colors hover:text-foreground"
                       >
-                        <span className="font-mono text-[10px] text-accent">
-                          §{String(i + 1).padStart(2, "0")}
+                        <span className="mt-px flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-md border border-border bg-background/60 font-mono text-[9px] font-semibold text-muted-foreground transition-colors group-hover:border-accent/40 group-hover:text-accent">
+                          {String(i + 1).padStart(2, "0")}
                         </span>
-                        <span>{section.heading}</span>
+                        <span className="pt-0.5">{section.heading}</span>
                       </a>
                     </li>
                   ))}
                 </ol>
 
-                <div className="mt-5 border-t border-border pt-4">
-                  <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                <div className="relative mt-6 rounded-2xl border border-border bg-background/60 p-4">
+                  <div className="font-mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground">
                     {ui.writtenBy}
                   </div>
-                  <div className="mt-1 font-display text-sm font-semibold text-foreground">
-                    {post.author.name}
+                  <div className="mt-1.5 flex items-center gap-2.5">
+                    <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-accent/40 bg-accent/10 font-display text-[11px] font-semibold text-accent">
+                      {post.author.name
+                        .split(" ")
+                        .map((n) => n[0])
+                        .join("")}
+                    </span>
+                    <div className="min-w-0">
+                      <div className="truncate font-display text-sm font-semibold text-foreground">
+                        {post.author.name}
+                      </div>
+                      <div className="truncate font-mono text-[9px] uppercase tracking-[0.18em] text-muted-foreground">
+                        {post.author.role}
+                      </div>
+                    </div>
                   </div>
-                  <div className="text-xs text-muted-foreground">{post.author.role}</div>
                 </div>
 
                 <LocalizedLink
                   href="/contact"
-                  className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent px-4 py-2.5 text-xs font-semibold text-accent-foreground transition hover:-translate-y-0.5"
+                  className="relative mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent px-4 py-2.5 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-accent-foreground shadow-[0_10px_30px_-10px_oklch(0.65_0.19_55_/_0.6)] transition hover:-translate-y-0.5"
                 >
                   {ui.bookAudit}
                   <ArrowUpRight size={12} />
@@ -704,21 +880,31 @@ export default async function BlogDetailPage({
               </div>
 
               {/* Related posts (explicit, from relatedSlugs) */}
-              <div className="rounded-2xl border border-border bg-surface/40 p-5">
-                <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
-                  {ui.readNext}
+              <div className="rounded-3xl border border-border bg-surface/40 p-5">
+                <div className="flex items-center gap-2">
+                  <span className="flex h-5 w-5 items-center justify-center rounded-md border border-accent/40 bg-accent/10 text-accent">
+                    <ArrowRight size={10} />
+                  </span>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.26em] text-accent">
+                    {ui.readNext}
+                  </span>
                 </div>
-                <ul className="mt-4 space-y-4">
-                  {related.slice(0, 3).map((rp) => (
-                    <li key={rp.slug}>
+                <ul className="mt-5 space-y-5">
+                  {related.slice(0, 3).map((rp, i) => (
+                    <li key={rp.slug} className={i !== 0 ? "border-t border-border/60 pt-5" : ""}>
                       <LocalizedLink
                         href={`/blogs/${rp.slug}`}
                         className="group block"
                       >
-                        <div className="font-mono text-[9px] uppercase tracking-[0.18em] text-muted-foreground">
-                          {categoryLabel(rp.category)} · {rp.readTime} {ui.minRead}
+                        <div className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em]">
+                          <span className="rounded-full border border-accent/30 bg-accent/5 px-1.5 py-0.5 text-accent">
+                            {categoryLabel(rp.category)}
+                          </span>
+                          <span className="text-muted-foreground">
+                            {rp.readTime} {ui.minRead}
+                          </span>
                         </div>
-                        <div className="mt-1 font-display text-sm font-semibold leading-snug text-foreground transition group-hover:text-accent">
+                        <div className="mt-2 font-display text-sm font-semibold leading-[1.3] text-foreground transition-colors group-hover:text-accent">
                           {rp.title}
                         </div>
                       </LocalizedLink>
@@ -734,39 +920,55 @@ export default async function BlogDetailPage({
       {/* ================================================================ */}
       {/* Prev / next navigation                                            */}
       {/* ================================================================ */}
-      <Section className="pt-8 pb-0">
-        <div className="grid gap-3 border-y border-border py-6 sm:gap-4 sm:py-8 md:grid-cols-2">
+      <Section className="pt-10 pb-0">
+        <div className="grid gap-4 md:grid-cols-2">
           {prev ? (
             <LocalizedLink
               href={`/blogs/${prev.slug}`}
-              className="group flex flex-col rounded-2xl border border-border bg-surface/40 p-5 transition hover:border-accent/40"
+              className="group relative flex items-start gap-4 overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-surface/60 to-surface/20 p-5 transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-[0_20px_40px_-20px_oklch(0.65_0.19_55_/_0.2)] sm:p-6"
             >
-              <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                <ArrowLeft size={11} />
-                {ui.previousPost}
-              </div>
-              <div className="mt-3 font-display text-base font-semibold leading-snug text-foreground transition group-hover:text-accent">
-                {prev.title}
+              <span
+                className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent opacity-0 transition-opacity group-hover:opacity-100"
+                aria-hidden
+              />
+              <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl border border-border bg-background/70 text-muted-foreground transition-all group-hover:-translate-x-0.5 group-hover:border-accent/40 group-hover:text-accent">
+                <ArrowLeft size={14} />
+              </span>
+              <div className="flex-1">
+                <div className="font-mono text-[10px] uppercase tracking-[0.26em] text-muted-foreground">
+                  {ui.previousPost}
+                </div>
+                <div className="mt-2 font-display text-[17px] font-semibold leading-[1.25] text-foreground transition-colors group-hover:text-accent">
+                  {prev.title}
+                </div>
               </div>
             </LocalizedLink>
           ) : (
-            <div />
+            <div className="hidden md:block" />
           )}
           {next ? (
             <LocalizedLink
               href={`/blogs/${next.slug}`}
-              className="group flex flex-col rounded-2xl border border-border bg-surface/40 p-5 text-right transition hover:border-accent/40"
+              className="group relative flex items-start gap-4 overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-surface/60 to-surface/20 p-5 text-right transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-[0_20px_40px_-20px_oklch(0.65_0.19_55_/_0.2)] sm:p-6"
             >
-              <div className="flex items-center justify-end gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                {ui.nextPost}
-                <ArrowRight size={11} />
+              <span
+                className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent opacity-0 transition-opacity group-hover:opacity-100"
+                aria-hidden
+              />
+              <div className="flex-1">
+                <div className="font-mono text-[10px] uppercase tracking-[0.26em] text-muted-foreground">
+                  {ui.nextPost}
+                </div>
+                <div className="mt-2 font-display text-[17px] font-semibold leading-[1.25] text-foreground transition-colors group-hover:text-accent">
+                  {next.title}
+                </div>
               </div>
-              <div className="mt-3 font-display text-base font-semibold leading-snug text-foreground transition group-hover:text-accent">
-                {next.title}
-              </div>
+              <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl border border-border bg-background/70 text-muted-foreground transition-all group-hover:translate-x-0.5 group-hover:border-accent/40 group-hover:text-accent">
+                <ArrowRight size={14} />
+              </span>
             </LocalizedLink>
           ) : (
-            <div />
+            <div className="hidden md:block" />
           )}
         </div>
       </Section>
@@ -774,38 +976,62 @@ export default async function BlogDetailPage({
       {/* ================================================================ */}
       {/* Related posts grid                                                */}
       {/* ================================================================ */}
-      <Section className="pt-8">
-        <div className="mb-8 flex items-center gap-3">
-          <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
-            {ui.keepReading}
-          </span>
-          <div className="h-px flex-1 bg-border" />
+      <Section className="pt-10">
+        <div className="mb-10 flex items-end justify-between gap-4">
+          <div>
+            <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.26em] text-accent">
+              <span className="h-1 w-1 rounded-full bg-accent" />
+              {ui.keepReading}
+            </div>
+            <h2 className="mt-2 font-display text-xl font-semibold tracking-tight text-foreground sm:text-2xl lg:text-3xl">
+              {ui.readNext}
+            </h2>
+          </div>
+          <div className="hidden h-px flex-1 bg-gradient-to-r from-border to-transparent sm:block" />
         </div>
         <div className="grid gap-6 md:grid-cols-3">
           {related.map((rp) => (
             <LocalizedLink
               key={rp.slug}
               href={`/blogs/${rp.slug}`}
-              className="group flex h-full flex-col rounded-2xl border border-border bg-surface/40 p-5 transition hover:-translate-y-0.5 hover:border-border-strong hover:bg-surface"
+              className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-surface/60 to-surface/20 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-[0_20px_40px_-20px_oklch(0.65_0.19_55_/_0.25)]"
             >
-              <div className="mb-4 overflow-hidden rounded-xl border border-border bg-background/60 p-3">
-                <BlogSketch sketchKey={rp.heroSketch} className="h-auto w-full" />
-              </div>
-              <div className="font-mono text-[9px] uppercase tracking-[0.22em] text-accent">
-                {categoryLabel(rp.category)} · {rp.readTime} {ui.minRead}
-              </div>
-              <h3 className="mt-3 font-display text-lg font-semibold leading-tight tracking-tight text-foreground">
-                {rp.title}
-              </h3>
-              <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
-                {rp.excerpt}
-              </p>
-              <div className="mt-4 inline-flex items-center gap-1 text-xs text-accent">
-                Read
-                <ArrowUpRight
-                  size={12}
-                  className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              <span
+                className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent opacity-0 transition-opacity group-hover:opacity-100"
+                aria-hidden
+              />
+              <div className="relative overflow-hidden border-b border-border bg-background/60 p-5">
+                <div
+                  className="pointer-events-none absolute inset-0 opacity-50"
+                  style={{
+                    backgroundImage:
+                      "radial-gradient(at 50% 0%, oklch(0.65 0.19 55 / 0.08) 0px, transparent 60%)",
+                  }}
                 />
+                <BlogSketch sketchKey={rp.heroSketch} className="relative h-auto w-full" />
+              </div>
+              <div className="flex flex-1 flex-col p-5 sm:p-6">
+                <div className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.22em]">
+                  <span className="rounded-full border border-accent/30 bg-accent/5 px-2 py-0.5 text-accent">
+                    {categoryLabel(rp.category)}
+                  </span>
+                  <span className="text-muted-foreground">
+                    {rp.readTime} {ui.minRead}
+                  </span>
+                </div>
+                <h3 className="mt-3 font-display text-[18px] font-semibold leading-[1.25] tracking-tight text-foreground transition-colors group-hover:text-accent sm:text-[19px]">
+                  {rp.title}
+                </h3>
+                <p className="mt-3 flex-1 text-sm leading-[1.65] text-muted-foreground">
+                  {rp.excerpt}
+                </p>
+                <div className="mt-5 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
+                  {ui.featuredReadMore}
+                  <ArrowUpRight
+                    size={12}
+                    className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  />
+                </div>
               </div>
             </LocalizedLink>
           ))}

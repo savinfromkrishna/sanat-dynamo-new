@@ -306,7 +306,7 @@ export function buildOrganizationJsonLd(t: Messages) {
     contactPoint: [
       {
         "@type": "ContactPoint",
-        email: t.contact.details.email,
+        email: t.contact.details.emailHref,
         telephone: t.contact.details.phone,
         contactType: "sales",
         availableLanguage: LOCALE_CODES.map((c) => LOCALES[c].name),
@@ -334,7 +334,7 @@ export function buildLocalBusinessJsonLd(t: Messages, geo: GeoInfo) {
     description: t.seo.description,
     priceRange: "₹₹₹",
     telephone: t.contact.details.phone,
-    email: t.contact.details.email,
+    email: t.contact.details.emailHref,
     address: {
       "@type": "PostalAddress",
       addressLocality: geo.city,

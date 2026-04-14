@@ -25,7 +25,7 @@ export default function Footer({ translations }: FooterProps) {
         {/* Top contact strip */}
         <div className="grid gap-3 border-b border-border py-8 sm:gap-4 sm:py-10 md:grid-cols-3">
           <a
-            href={`mailto:${t.contact.details.email}`}
+            href={`mailto:${t.contact.details.emailHref}`}
             className="group flex items-center gap-4 rounded-2xl border border-border bg-surface/40 p-5 transition-all hover:border-accent/40 hover:bg-surface"
           >
             <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-border bg-background text-accent">

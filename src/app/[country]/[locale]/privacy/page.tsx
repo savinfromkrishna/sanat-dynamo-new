@@ -32,7 +32,7 @@ const sections = [
   {
     icon: Database,
     title: "How long we keep it",
-    body: "We retain inquiry data for as long as it's necessary to serve you and to comply with our legal obligations. If you'd like us to delete your data, email hello@sanatdynamo.com and we'll remove it within 30 days.",
+    body: "We retain inquiry data for as long as it's necessary to serve you and to comply with our legal obligations. If you'd like us to delete your data, email savingroup@gmail.com and we'll remove it within 30 days.",
   },
   {
     icon: Cookie,
@@ -47,7 +47,7 @@ const sections = [
   {
     icon: Mail,
     title: "Contact",
-    body: "Questions about this policy? Email hello@sanatdynamo.com.",
+    body: "Questions about this policy? Email savingroup@gmail.com.",
   },
 ];
 

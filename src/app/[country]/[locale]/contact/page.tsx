@@ -84,7 +84,7 @@ export default async function ContactPage({
                 </a>
 
                 <a
-                  href={`mailto:${d.email}`}
+                  href={`mailto:${d.emailHref}`}
                   className="group flex items-center gap-3 rounded-xl border-2 border-border p-3.5 transition-colors hover:border-accent/40 hover:bg-surface"
                 >
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-border bg-background text-accent">
