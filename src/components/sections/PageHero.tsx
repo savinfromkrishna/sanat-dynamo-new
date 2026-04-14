@@ -18,9 +18,9 @@ export function PageHero({
   bgVariant?: "top" | "center";
 }) {
   return (
-    <section className="relative isolate overflow-hidden mt-16 mb-8 pt-20 pb-12 sm:mt-32 sm:mb-16 sm:pt-32 sm:pb-24 lg:mt-48 lg:mb-24 lg:pt-48 lg:pb-32">
+    <section className="relative isolate overflow-hidden mt-20 sm:mt-32 lg:mt-40">
       {/* Advanced animated SVG background — visualizes the living revenue system */}
-      <HeroBackground variant={bgVariant} />
+      {/* <HeroBackground variant={bgVariant} /> */}
       <div className="container-px relative z-10 mx-auto max-w-7xl">
         {/* Breadcrumb */}
         <nav

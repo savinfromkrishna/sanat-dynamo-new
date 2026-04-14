@@ -1121,7 +1121,7 @@ export function HeroBackground({
       <svg
         ref={svgRef}
         viewBox="0 0 1440 900"
-        preserveAspectRatio="xMidYMid slice"
+        preserveAspectRatio="xMidYMin slice"
         className="absolute inset-0 h-full w-full"
         style={{ filter: "blur(0.35px)" }}
       >
