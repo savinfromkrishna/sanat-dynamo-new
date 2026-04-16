@@ -35,7 +35,7 @@
       { "value": "200%", "label": "ROI promedio en Año 1" },
       { "value": "5", "label": "Industrias. Un socio." }
     ],
-    "logosLabel": "La confianza de equipos ambiciosos en toda la India"
+    "logosLabel": "La confianza de equipos ambiciosos en todo {country} y más allá"
   },
   "problem": {
     "eyebrow": "La Fuga de Ingresos",

@@ -1,6 +1,18 @@
-import type { Messages } from "@/lib/i18n";
+import { interpolate, type Locale, type Messages } from "@/lib/i18n";
+import { getCountryName } from "@/lib/geo";
 
-export function LogosMarquee({ t }: { t: Messages }) {
+interface LogosMarqueeProps {
+  t: Messages;
+  country?: string;
+  locale?: Locale;
+}
+
+export function LogosMarquee({ t, country, locale = "en" }: LogosMarqueeProps) {
+  const label = country
+    ? interpolate(t.socialProof.logosLabel, {
+        country: getCountryName(country, locale),
+      })
+    : t.socialProof.logosLabel;
   // Placeholder client wordmarks — replace with real logos when available.
   const rowA = [
     "AURORA · D2C",
@@ -26,7 +38,7 @@ export function LogosMarquee({ t }: { t: Messages }) {
     <section className="relative border-y border-border/60 bg-surface/40 py-12">
       <div className="container-px mx-auto max-w-7xl">
         <p className="text-center font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
-          {t.socialProof.logosLabel}
+          {label}
         </p>
       </div>
 

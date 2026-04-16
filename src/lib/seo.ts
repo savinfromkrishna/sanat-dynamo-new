@@ -181,10 +181,10 @@ export async function buildPageMetadata({
   const canonical = `/${country}/${locale}${subPath ? `/${subPath}` : ""}`;
   const fullUrl = `${BASE_URL}${canonical}`;
 
-  // Personalize with geo. The country slug in the URL guarantees we always
-  // have at least a country name — even when IP geo detection fails — so
-  // personalization runs unconditionally for non-legal pages.
-  const geo = await getGeo(country);
+  // Personalize with geo. `getGeo` always returns a country name derived from
+  // the URL slug (not the visitor IP), so the page is deterministic per URL —
+  // Googlebot sees the same country-specific title/description on every crawl.
+  const geo = await getGeo(country, locale);
   const geoize = GEO_PERSONALIZED.includes(page);
 
   const title = geoize ? geoifyTitle(meta.metaTitle, geo) : meta.metaTitle;

@@ -5,6 +5,7 @@ import { PageHero } from "@/components/sections/PageHero";
 import { CaseStudies } from "@/components/sections/CaseStudies";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { CityBanner } from "@/components/sections/CityBanner";
+import { CountryMarketContext } from "@/components/sections/CountryMarketContext";
 import { BigNumbers } from "@/components/sections/BigNumbers";
 import { KnowMore } from "@/components/sections/KnowMore";
 import { Cta } from "@/components/sections/Cta";
@@ -47,7 +48,8 @@ export default async function CaseStudiesPage({
         subtitle={t.caseStudies.subtitle}
         breadcrumb="Case Studies"
       />
-      <CityBanner t={t} country={country} />
+      <CityBanner t={t} country={country} locale={locale as Locale} />
+      <CountryMarketContext t={t} country={country} locale={locale as Locale} pageKey="caseStudies" />
 
       {/* Revenue growth visualization */}
       <Section className="pt-8 pb-0">

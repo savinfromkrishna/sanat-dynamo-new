@@ -1,134 +1,125 @@
 import { headers } from "next/headers";
 import { unstable_cache } from "next/cache";
+import { countryNamesByISO } from "@/lib/country";
+import type { Locale } from "@/lib/i18n";
 
 /* -------------------------------------------------------------------------- */
 /*                          Country and city lookups                          */
 /* -------------------------------------------------------------------------- */
 
-const COUNTRY_NAMES: Record<string, string> = {
-  in: "India",
-  us: "United States",
-  gb: "United Kingdom",
-  ae: "United Arab Emirates",
-  sa: "Saudi Arabia",
-  ca: "Canada",
-  au: "Australia",
-  sg: "Singapore",
-  de: "Germany",
-  fr: "France",
-  es: "Spain",
-  it: "Italy",
-  nl: "Netherlands",
-  jp: "Japan",
-  kr: "South Korea",
-  cn: "China",
-  hk: "Hong Kong",
-  my: "Malaysia",
-  th: "Thailand",
-  id: "Indonesia",
-  ph: "Philippines",
-  vn: "Vietnam",
-  bd: "Bangladesh",
-  pk: "Pakistan",
-  lk: "Sri Lanka",
-  np: "Nepal",
-  za: "South Africa",
-  ng: "Nigeria",
-  ke: "Kenya",
-  eg: "Egypt",
-  br: "Brazil",
-  mx: "Mexico",
-  ar: "Argentina",
-  cl: "Chile",
-  co: "Colombia",
-  pe: "Peru",
-};
+/**
+ * Full country name dictionary (all 249 ISO 3166-1 codes) from
+ * `@/lib/country`. Localized per request locale via `Intl.DisplayNames`.
+ */
+const COUNTRY_NAMES_EN = countryNamesByISO as Record<string, string>;
 
-/** Default city per country when geo headers are missing. */
+/** Default city per country — capital or largest city. Covers major markets. */
 const DEFAULT_CITIES: Record<string, string> = {
-  in: "Bangalore",
-  us: "New York",
-  gb: "London",
-  ae: "Dubai",
-  sa: "Riyadh",
-  ca: "Toronto",
-  au: "Sydney",
-  sg: "Singapore",
-  de: "Berlin",
-  fr: "Paris",
-  es: "Madrid",
-  it: "Milan",
-  nl: "Amsterdam",
-  jp: "Tokyo",
-  kr: "Seoul",
-  cn: "Shanghai",
-  hk: "Hong Kong",
-  my: "Kuala Lumpur",
-  th: "Bangkok",
-  id: "Jakarta",
-  ph: "Manila",
-  vn: "Ho Chi Minh City",
-  bd: "Dhaka",
-  pk: "Karachi",
-  lk: "Colombo",
-  np: "Kathmandu",
-  za: "Johannesburg",
-  ng: "Lagos",
-  ke: "Nairobi",
-  eg: "Cairo",
-  br: "São Paulo",
-  mx: "Mexico City",
+  ad: "Andorra la Vella", ae: "Dubai", af: "Kabul", ag: "Saint John's",
+  al: "Tirana", am: "Yerevan", ao: "Luanda", ar: "Buenos Aires",
+  at: "Vienna", au: "Sydney", az: "Baku", ba: "Sarajevo", bb: "Bridgetown",
+  bd: "Dhaka", be: "Brussels", bf: "Ouagadougou", bg: "Sofia", bh: "Manama",
+  bi: "Bujumbura", bj: "Porto-Novo", bn: "Bandar Seri Begawan", bo: "La Paz",
+  br: "São Paulo", bs: "Nassau", bt: "Thimphu", bw: "Gaborone", by: "Minsk",
+  bz: "Belmopan", ca: "Toronto", cd: "Kinshasa", cf: "Bangui", cg: "Brazzaville",
+  ch: "Zurich", ci: "Abidjan", cl: "Santiago", cm: "Yaoundé", cn: "Shanghai",
+  co: "Bogotá", cr: "San José", cu: "Havana", cv: "Praia", cy: "Nicosia",
+  cz: "Prague", de: "Berlin", dj: "Djibouti", dk: "Copenhagen", dm: "Roseau",
+  do: "Santo Domingo", dz: "Algiers", ec: "Quito", ee: "Tallinn", eg: "Cairo",
+  er: "Asmara", es: "Madrid", et: "Addis Ababa", fi: "Helsinki", fj: "Suva",
+  fm: "Palikir", fr: "Paris", ga: "Libreville", gb: "London", gd: "St. George's",
+  ge: "Tbilisi", gh: "Accra", gm: "Banjul", gn: "Conakry", gq: "Malabo",
+  gr: "Athens", gt: "Guatemala City", gw: "Bissau", gy: "Georgetown",
+  hk: "Hong Kong", hn: "Tegucigalpa", hr: "Zagreb", ht: "Port-au-Prince",
+  hu: "Budapest", id: "Jakarta", ie: "Dublin", il: "Tel Aviv", in: "Bangalore",
+  iq: "Baghdad", ir: "Tehran", is: "Reykjavík", it: "Milan", jm: "Kingston",
+  jo: "Amman", jp: "Tokyo", ke: "Nairobi", kg: "Bishkek", kh: "Phnom Penh",
+  ki: "Tarawa", km: "Moroni", kn: "Basseterre", kp: "Pyongyang", kr: "Seoul",
+  kw: "Kuwait City", kz: "Almaty", la: "Vientiane", lb: "Beirut", lc: "Castries",
+  li: "Vaduz", lk: "Colombo", lr: "Monrovia", ls: "Maseru", lt: "Vilnius",
+  lu: "Luxembourg", lv: "Riga", ly: "Tripoli", ma: "Casablanca", mc: "Monaco",
+  md: "Chișinău", me: "Podgorica", mg: "Antananarivo", mh: "Majuro",
+  mk: "Skopje", ml: "Bamako", mm: "Yangon", mn: "Ulaanbaatar", mo: "Macao",
+  mr: "Nouakchott", mt: "Valletta", mu: "Port Louis", mv: "Malé", mw: "Lilongwe",
+  mx: "Mexico City", my: "Kuala Lumpur", mz: "Maputo", na: "Windhoek",
+  ne: "Niamey", ng: "Lagos", ni: "Managua", nl: "Amsterdam", no: "Oslo",
+  np: "Kathmandu", nr: "Yaren", nz: "Auckland", om: "Muscat", pa: "Panama City",
+  pe: "Lima", pg: "Port Moresby", ph: "Manila", pk: "Karachi", pl: "Warsaw",
+  pt: "Lisbon", pw: "Ngerulmud", py: "Asunción", qa: "Doha", ro: "Bucharest",
+  rs: "Belgrade", ru: "Moscow", rw: "Kigali", sa: "Riyadh", sb: "Honiara",
+  sc: "Victoria", sd: "Khartoum", se: "Stockholm", sg: "Singapore",
+  si: "Ljubljana", sk: "Bratislava", sl: "Freetown", sm: "San Marino",
+  sn: "Dakar", so: "Mogadishu", sr: "Paramaribo", ss: "Juba", st: "São Tomé",
+  sv: "San Salvador", sy: "Damascus", sz: "Mbabane", td: "N'Djamena",
+  tg: "Lomé", th: "Bangkok", tj: "Dushanbe", tl: "Dili", tm: "Ashgabat",
+  tn: "Tunis", to: "Nukuʻalofa", tr: "Istanbul", tt: "Port of Spain",
+  tv: "Funafuti", tw: "Taipei", tz: "Dar es Salaam", ua: "Kyiv", ug: "Kampala",
+  us: "New York", uy: "Montevideo", uz: "Tashkent", va: "Vatican City",
+  vc: "Kingstown", ve: "Caracas", vn: "Ho Chi Minh City", vu: "Port Vila",
+  ws: "Apia", ye: "Sana'a", za: "Johannesburg", zm: "Lusaka", zw: "Harare",
 };
 
-/** Default state (admin region) per country when geo headers are missing. */
+/** Default state / admin region per country. Sparse — only filled for markets
+ * where the state materially differs from the city. */
 const DEFAULT_STATES: Record<string, string> = {
-  in: "Karnataka",
-  us: "New York",
-  gb: "England",
-  ae: "Dubai",
-  sa: "Riyadh Province",
-  ca: "Ontario",
-  au: "New South Wales",
-  sg: "Singapore",
-  de: "Berlin",
-  fr: "Île-de-France",
-  es: "Community of Madrid",
-  it: "Lombardy",
-  nl: "North Holland",
-  jp: "Tokyo",
-  kr: "Seoul",
-  cn: "Shanghai",
-  hk: "Hong Kong",
-  my: "Kuala Lumpur",
-  th: "Bangkok",
-  id: "Jakarta",
-  ph: "Metro Manila",
-  vn: "Ho Chi Minh City",
-  bd: "Dhaka",
-  pk: "Sindh",
-  lk: "Western Province",
-  np: "Bagmati",
-  za: "Gauteng",
-  ng: "Lagos",
-  ke: "Nairobi County",
-  eg: "Cairo Governorate",
-  br: "São Paulo",
+  in: "Karnataka", us: "New York", gb: "England", ae: "Dubai",
+  sa: "Riyadh Province", ca: "Ontario", au: "New South Wales",
+  de: "Berlin", fr: "Île-de-France", es: "Community of Madrid",
+  it: "Lombardy", nl: "North Holland", jp: "Tokyo", kr: "Seoul",
+  cn: "Shanghai", my: "Kuala Lumpur", th: "Bangkok", id: "Jakarta",
+  ph: "Metro Manila", vn: "Ho Chi Minh City", bd: "Dhaka", pk: "Sindh",
+  lk: "Western Province", np: "Bagmati", za: "Gauteng", ng: "Lagos",
+  ke: "Nairobi County", eg: "Cairo Governorate", br: "São Paulo",
   mx: "Mexico City",
 };
 
 /** Indian Tier-1 city list — used by CityBanner. */
 export const INDIAN_TIER1 = [
-  "Bangalore",
-  "Mumbai",
-  "Delhi",
-  "Pune",
-  "Hyderabad",
-  "Chennai",
-  "Kolkata",
-  "Ahmedabad",
-  "Jaipur",
-  "Surat",
+  "Bangalore", "Mumbai", "Delhi", "Pune", "Hyderabad",
+  "Chennai", "Kolkata", "Ahmedabad", "Jaipur", "Surat",
 ];
+
+/* -------------------------------------------------------------------------- */
+/*                         Localized country name helper                      */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * Return the country name for an ISO code, localized to the requested locale.
+ *
+ * Uses the built-in `Intl.DisplayNames` API (supported in all modern runtimes
+ * including the Next.js Edge runtime) so that `/us/hi` pages render
+ * "संयुक्त राज्य अमेरिका" while `/us/fr` pages render "États-Unis".
+ *
+ * Falls back to the English dictionary, then to the uppercased ISO code.
+ */
+export function getCountryName(countryCode: string, locale: Locale = "en"): string {
+  const code = countryCode.trim().toUpperCase();
+  if (!code) return "";
+
+  try {
+    const dn = new Intl.DisplayNames([locale], { type: "region" });
+    const name = dn.of(code);
+    if (name && name !== code) return name;
+  } catch {
+    // Intl.DisplayNames unavailable — fall through to dictionary
+  }
+
+  return COUNTRY_NAMES_EN[countryCode.toLowerCase()] ?? code;
+}
+
+/** Default city for a country slug. Falls back to the localized country name
+ * when the country isn't in the defaults map (so the copy still reads as a
+ * proper noun rather than an ISO code). */
+export function getDefaultCity(countryCode: string, locale: Locale = "en"): string {
+  const code = countryCode.toLowerCase();
+  return DEFAULT_CITIES[code] ?? getCountryName(code, locale);
+}
+
+/** Default state for a country slug. Falls back to the default city. */
+export function getDefaultState(countryCode: string, locale: Locale = "en"): string {
+  const code = countryCode.toLowerCase();
+  return DEFAULT_STATES[code] ?? getDefaultCity(code, locale);
+}
 
 /* -------------------------------------------------------------------------- */
 /*                                   Types                                    */
@@ -139,17 +130,17 @@ export interface GeoInfo {
   city: string;
   /** Detected or default state / admin region */
   state: string;
-  /** ISO 3166-1 alpha-2 country code, lowercase */
+  /** ISO 3166-1 alpha-2 country code, lowercase. Always matches URL. */
   countryCode: string;
-  /** Human-readable country name */
+  /** Human-readable country name, localized to the request locale. */
   countryName: string;
-  /** Latitude (Vercel or IP API) — may be empty if unknown */
+  /** Latitude — may be empty if unknown */
   latitude?: string;
-  /** Longitude (Vercel or IP API) — may be empty if unknown */
+  /** Longitude — may be empty if unknown */
   longitude?: string;
-  /** True if geo was actually detected (not fallback defaults) */
+  /** True if visitor geo enriched the city/state (visitor was in the URL country) */
   detected: boolean;
-  /** "vercel" | "ipwhois" | "default" — where the data came from */
+  /** "vercel" | "ipwhois" | "default" — where the city/state data came from */
   source: "vercel" | "ipwhois" | "default";
 }
 
@@ -171,11 +162,9 @@ interface IpWhoIsResponse {
 
 async function lookupIpWhoIs(ip: string): Promise<Partial<GeoInfo> | null> {
   try {
-    // ipwho.is: free, no API key, HTTPS, unlimited for reasonable use
     const url = ip ? `https://ipwho.is/${ip}` : "https://ipwho.is/";
     const res = await fetch(url, {
       headers: { "User-Agent": "SanatDynamo/1.0" },
-      // 2s timeout — we don't want slow IP lookups to block the page
       signal: AbortSignal.timeout(2000),
     });
     if (!res.ok) return null;
@@ -186,7 +175,6 @@ async function lookupIpWhoIs(ip: string): Promise<Partial<GeoInfo> | null> {
       city: data.city || "",
       state: data.region || "",
       countryCode: (data.country_code || "").toLowerCase(),
-      countryName: data.country || "",
       latitude: data.latitude !== undefined ? String(data.latitude) : undefined,
       longitude: data.longitude !== undefined ? String(data.longitude) : undefined,
     };
@@ -195,7 +183,6 @@ async function lookupIpWhoIs(ip: string): Promise<Partial<GeoInfo> | null> {
   }
 }
 
-// Cache IP lookups for 1 hour — avoids hammering the free API and saves response time.
 const cachedLookupIpWhoIs = unstable_cache(
   async (ip: string) => lookupIpWhoIs(ip),
   ["ipwhois-v1"],
@@ -207,59 +194,67 @@ const cachedLookupIpWhoIs = unstable_cache(
 /* -------------------------------------------------------------------------- */
 
 /**
- * Resolve visitor geo info. Preference order:
- *   1. Vercel geo headers (free, instant, accurate in production)
- *   2. Free IP API lookup (ipwho.is — no key needed, HTTPS, 1h cache)
- *   3. Country-aware defaults from the URL slug
+ * Resolve geo info for a URL country slug.
  *
- * Always returns a usable `GeoInfo` — never throws.
+ * Core contract (critical for SEO): **the URL country slug ALWAYS wins.**
+ * Every server render of `/us/en/about` produces the same countryName
+ * regardless of which IP requested it — so Googlebot (crawling from a
+ * datacenter) sees the same "United States" content that a US visitor sees.
+ *
+ * Visitor IP is used only to enrich the `city` and `state` when the visitor
+ * is actually in the URL country. If the visitor is elsewhere (or we can't
+ * tell), we fall back to the country's default city — deterministic per URL.
  */
-export async function getGeo(countrySlug: string): Promise<GeoInfo> {
+export async function getGeo(
+  countrySlug: string,
+  locale: Locale = "en",
+): Promise<GeoInfo> {
+  const urlCountry = (countrySlug || "in").toLowerCase();
+  const countryName = getCountryName(urlCountry, locale);
+
   const h = await headers();
+  const visitorCountry = (
+    h.get("x-geo-country") ||
+    h.get("x-vercel-ip-country") ||
+    ""
+  ).toLowerCase();
+  const visitorCity = h.get("x-geo-city") || h.get("x-vercel-ip-city") || "";
+  const visitorRegion =
+    h.get("x-geo-region") || h.get("x-vercel-ip-country-region") || "";
+  const visitorLat =
+    h.get("x-geo-latitude") || h.get("x-vercel-ip-latitude") || undefined;
+  const visitorLng =
+    h.get("x-geo-longitude") || h.get("x-vercel-ip-longitude") || undefined;
 
-  const fwdCity = h.get("x-geo-city");
-  const fwdRegion = h.get("x-geo-region");
-  const fwdCountry = h.get("x-geo-country");
-  const vercelCity = h.get("x-vercel-ip-city");
-  const vercelRegion = h.get("x-vercel-ip-country-region");
-  const vercelCountry = h.get("x-vercel-ip-country");
-  const vercelLat = h.get("x-vercel-ip-latitude");
-  const vercelLng = h.get("x-vercel-ip-longitude");
-
-  const rawCity = fwdCity || vercelCity || "";
-  const rawRegion = fwdRegion || vercelRegion || "";
-  const rawCountry = (fwdCountry || vercelCountry || "").toLowerCase();
-
-  // 1. Vercel headers — fastest path, available in production on Vercel
-  if (rawCity) {
-    const code = rawCountry || countrySlug;
+  // 1. Visitor is in the URL country → enrich city/state from their headers
+  if (visitorCountry === urlCountry && visitorCity) {
     return {
-      city: safeDecode(rawCity),
-      state: safeDecode(rawRegion) || DEFAULT_STATES[code] || "",
-      countryCode: code,
-      countryName: COUNTRY_NAMES[code] || code.toUpperCase(),
-      latitude: vercelLat || undefined,
-      longitude: vercelLng || undefined,
+      city: safeDecode(visitorCity),
+      state: safeDecode(visitorRegion) || getDefaultState(urlCountry, locale),
+      countryCode: urlCountry,
+      countryName,
+      latitude: visitorLat ?? undefined,
+      longitude: visitorLng ?? undefined,
       detected: true,
       source: "vercel",
     };
   }
 
-  // 2. Free IP API fallback — used in local dev or non-Vercel hosts
+  // 2. Visitor country missing from headers → try IP API, but ONLY accept
+  //    enrichment if it matches the URL country (same rule as above).
   const clientIp =
     h.get("x-forwarded-for")?.split(",")[0]?.trim() ||
     h.get("x-real-ip") ||
     "";
 
-  // Don't call the API for obvious private/local IPs — wastes a request
-  if (clientIp && !isPrivateIp(clientIp)) {
+  if (!visitorCountry && clientIp && !isPrivateIp(clientIp)) {
     const api = await cachedLookupIpWhoIs(clientIp);
-    if (api?.city && api.countryCode) {
+    if (api?.city && api.countryCode === urlCountry) {
       return {
         city: api.city,
-        state: api.state || DEFAULT_STATES[api.countryCode] || "",
-        countryCode: api.countryCode,
-        countryName: api.countryName || COUNTRY_NAMES[api.countryCode] || api.countryCode.toUpperCase(),
+        state: api.state || getDefaultState(urlCountry, locale),
+        countryCode: urlCountry,
+        countryName,
         latitude: api.latitude,
         longitude: api.longitude,
         detected: true,
@@ -268,13 +263,14 @@ export async function getGeo(countrySlug: string): Promise<GeoInfo> {
     }
   }
 
-  // 3. Country-aware defaults
-  const code = countrySlug.toLowerCase();
+  // 3. Visitor not in URL country (or unknown) → deterministic defaults.
+  //    This is the path Googlebot always hits, and it's what we want: the
+  //    same page rendered the same way for every crawler request.
   return {
-    city: DEFAULT_CITIES[code] ?? "Bangalore",
-    state: DEFAULT_STATES[code] ?? "Karnataka",
-    countryCode: code || "in",
-    countryName: COUNTRY_NAMES[code] ?? (code ? code.toUpperCase() : "India"),
+    city: getDefaultCity(urlCountry, locale),
+    state: getDefaultState(urlCountry, locale),
+    countryCode: urlCountry,
+    countryName,
     detected: false,
     source: "default",
   };
@@ -309,7 +305,7 @@ function isPrivateIp(ip: string): boolean {
  */
 export function formatLocation(geo: GeoInfo): string {
   const parts = [geo.city, geo.state, geo.countryName].filter(
-    (p, i, arr) => p && arr.indexOf(p) === i // de-dupe in case city === state
+    (p, i, arr) => p && arr.indexOf(p) === i
   );
   return parts.join(", ");
 }

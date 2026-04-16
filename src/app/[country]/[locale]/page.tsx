@@ -4,6 +4,7 @@ import { buildPageMetadata, buildFaqJsonLd } from "@/lib/seo";
 import { Hero } from "@/components/sections/Hero";
 import { LogosMarquee } from "@/components/sections/LogosMarquee";
 import { CityBanner } from "@/components/sections/CityBanner";
+import { CountryMarketContext } from "@/components/sections/CountryMarketContext";
 import { Problem } from "@/components/sections/Problem";
 import { Approach } from "@/components/sections/Approach";
 import { Services } from "@/components/sections/Services";
@@ -47,8 +48,9 @@ export default async function HomePage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
       />
       <Hero t={t} />
-      <LogosMarquee t={t} />
-      <CityBanner t={t} country={country} />
+      <LogosMarquee t={t} country={country} locale={locale as Locale} />
+      <CityBanner t={t} country={country} locale={locale as Locale} />
+      <CountryMarketContext t={t} country={country} locale={locale as Locale} pageKey="home" />
       <Problem t={t} />
       <Approach t={t} />
       <Services t={t} />

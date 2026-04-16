@@ -5,6 +5,7 @@ import { PageHero } from "@/components/sections/PageHero";
 import { Cta } from "@/components/sections/Cta";
 import { Faq } from "@/components/sections/Faq";
 import { CityBanner } from "@/components/sections/CityBanner";
+import { CountryMarketContext } from "@/components/sections/CountryMarketContext";
 import { FeatureGrid } from "@/components/sections/FeatureGrid";
 import { TechStack } from "@/components/sections/TechStack";
 import { KnowMore } from "@/components/sections/KnowMore";
@@ -57,7 +58,8 @@ export default async function ServicesPage({
         breadcrumb="Services"
       />
 
-      <CityBanner t={t} country={country} />
+      <CityBanner t={t} country={country} locale={locale as Locale} />
+      <CountryMarketContext t={t} country={country} locale={locale as Locale} pageKey="services" />
 
       {/* Quick navigator */}
       <Section className="pt-8">

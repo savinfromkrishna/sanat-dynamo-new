@@ -35,7 +35,7 @@ export default async function ContactPage({
   const { country, locale } = await params;
   const t = getTranslation(locale as Locale);
   const breadcrumbLd = buildPageBreadcrumbJsonLd("contact", locale as Locale, country);
-  const geo = await getGeo(country);
+  const geo = await getGeo(country, locale as Locale);
   const d = t.contact.details;
 
   return (

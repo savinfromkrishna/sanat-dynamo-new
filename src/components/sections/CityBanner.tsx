@@ -1,17 +1,22 @@
 import { MapPin, ArrowUpRight, Globe2, Satellite } from "lucide-react";
 import { getGeo, INDIAN_TIER1 } from "@/lib/geo";
 import { buildLocalBusinessJsonLd } from "@/lib/seo";
-import { interpolate, type Messages } from "@/lib/i18n";
+import { interpolate, type Locale, type Messages } from "@/lib/i18n";
+import { getCountryMeta, getRegionLabel } from "@/lib/country-meta";
 import LocalizedLink from "../LocalizedLink";
 import { PreciseLocationButton } from "./PreciseLocationButton";
 
 interface CityBannerProps {
   t: Messages;
   country: string;
+  locale?: Locale;
 }
 
-export async function CityBanner({ t, country }: CityBannerProps) {
-  const geo = await getGeo(country);
+export async function CityBanner({ t, country, locale = "en" }: CityBannerProps) {
+  const geo = await getGeo(country, locale);
+  const countryMeta = getCountryMeta(country);
+  const regionLabel = getRegionLabel(countryMeta.region, locale);
+  const isIndia = geo.countryCode === "in";
   const cb = t.cityBanner;
 
   // Prefer city, state template; fall back to city, country if state is empty
@@ -76,24 +81,36 @@ export async function CityBanner({ t, country }: CityBannerProps) {
                 {subtitle}
               </p>
 
-              {/* City chips — highlight if detected city matches */}
-              <div className="mt-6 flex flex-wrap items-center gap-2">
-                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                  Cities we serve in India:
-                </span>
-                {INDIAN_TIER1.map((c) => (
-                  <span
-                    key={c}
-                    className={`rounded-full border px-3 py-1 text-xs ${
-                      c.toLowerCase() === geo.city.toLowerCase()
-                        ? "border-accent/50 bg-accent/10 text-accent"
-                        : "border-border bg-background text-muted-foreground"
-                    }`}
-                  >
-                    {c}
+              {/* City chips for India — region line for everywhere else */}
+              {isIndia ? (
+                <div className="mt-6 flex flex-wrap items-center gap-2">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                    {interpolate(cb.citiesLabel ?? "Cities we serve in {country}:", {
+                      country: geo.countryName,
+                    })}
                   </span>
-                ))}
-              </div>
+                  {INDIAN_TIER1.map((c) => (
+                    <span
+                      key={c}
+                      className={`rounded-full border px-3 py-1 text-xs ${
+                        c.toLowerCase() === geo.city.toLowerCase()
+                          ? "border-accent/50 bg-accent/10 text-accent"
+                          : "border-border bg-background text-muted-foreground"
+                      }`}
+                    >
+                      {c}
+                    </span>
+                  ))}
+                </div>
+              ) : (
+                <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-xs text-muted-foreground">
+                  <Globe2 size={12} className="text-accent" />
+                  {interpolate(
+                    cb.regionLabelTemplate ?? "Serving {country} and the {region} region.",
+                    { country: geo.countryName, region: regionLabel },
+                  )}
+                </div>
+              )}
             </div>
 
             <div className="lg:col-span-4">

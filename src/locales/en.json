@@ -35,7 +35,7 @@
       { "value": "200%", "label": "Average ROI in Year 1" },
       { "value": "5", "label": "Industries. One partner." }
     ],
-    "logosLabel": "Trusted by ambitious teams across India"
+    "logosLabel": "Trusted by ambitious teams across {country} and beyond"
   },
   "problem": {
     "eyebrow": "The Revenue Leak",
@@ -677,6 +677,8 @@
     "titleTemplate": "Now serving {city}, {state}.",
     "titleTemplateCountry": "Now serving {city}, {country}.",
     "subtitleTemplate": "We work with founders and growth leaders across {city}, {state} — from D2C brands to multi-location clinics. Every engagement is locally scoped, globally built.",
+    "citiesLabel": "Cities we serve in {country}:",
+    "regionLabelTemplate": "Serving {country} and the {region} region.",
     "eyebrowLocal": "Local to your market",
     "badgeLabel": "Geo-aware content",
     "ctaLabel": "Talk to a strategist in {city}",

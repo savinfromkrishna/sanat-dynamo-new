@@ -35,7 +35,7 @@
       { "value": "200%", "label": "ROI moyen en Année 1" },
       { "value": "5", "label": "Industries. Un partenaire." }
     ],
-    "logosLabel": "La confiance d'équipes ambitieuses partout en Inde"
+    "logosLabel": "La confiance d'équipes ambitieuses partout en {country} et au-delà"
   },
   "problem": {
     "eyebrow": "La Fuite de Revenus",

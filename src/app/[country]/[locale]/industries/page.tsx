@@ -5,6 +5,7 @@ import { PageHero } from "@/components/sections/PageHero";
 import { Cta } from "@/components/sections/Cta";
 import { Faq } from "@/components/sections/Faq";
 import { CityBanner } from "@/components/sections/CityBanner";
+import { CountryMarketContext } from "@/components/sections/CountryMarketContext";
 import { BigNumbers } from "@/components/sections/BigNumbers";
 import { KnowMore } from "@/components/sections/KnowMore";
 import { Section } from "@/components/primitives/section";
@@ -66,7 +67,8 @@ export default async function IndustriesPage({
         breadcrumb="Industries"
       />
 
-      <CityBanner t={t} country={country} />
+      <CityBanner t={t} country={country} locale={locale as Locale} />
+      <CountryMarketContext t={t} country={country} locale={locale as Locale} pageKey="industries" />
 
       {/* Quick jump */}
       <Section className="pt-8">

@@ -6,6 +6,7 @@ import { Section, SectionHeader } from "@/components/primitives/section";
 import { Cta } from "@/components/sections/Cta";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { CityBanner } from "@/components/sections/CityBanner";
+import { CountryMarketContext } from "@/components/sections/CountryMarketContext";
 import { BigNumbers } from "@/components/sections/BigNumbers";
 import { KnowMore } from "@/components/sections/KnowMore";
 import {
@@ -80,7 +81,8 @@ export default async function AboutPage({
         breadcrumb="About"
       />
 
-      <CityBanner t={t} country={country} />
+      <CityBanner t={t} country={country} locale={locale as Locale} />
+      <CountryMarketContext t={t} country={country} locale={locale as Locale} pageKey="about" />
 
       <Section className="pt-8">
         <div className="grid gap-12 lg:grid-cols-12">

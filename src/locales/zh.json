@@ -35,7 +35,7 @@
       { "value": "200%", "label": "第一年平均 ROI" },
       { "value": "5", "label": "行业。一个合作伙伴。" }
     ],
-    "logosLabel": "受印度各地雄心勃勃的团队信赖"
+    "logosLabel": "受{country}及全球雄心勃勃团队信赖"
   },
   "problem": {
     "eyebrow": "收入泄漏",
