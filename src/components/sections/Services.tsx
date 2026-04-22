@@ -6,15 +6,21 @@ import { Section, SectionHeader } from "../primitives/section";
 import LocalizedLink from "../LocalizedLink";
 import { serviceIllustrations } from "../illustrations";
 import type { Messages } from "@/lib/i18n";
+import { getCountryContent } from "@/lib/country-content";
+import { isTargetCountry } from "@/lib/constants";
 
 interface ServicesProps {
   t: Messages;
   /** When true, render a richer expanded layout (Services page). When false, condensed (Home preview). */
   expanded?: boolean;
+  /** Country slug — when supplied for a target country, renders a per-country intro paragraph */
+  country?: string;
 }
 
-export function Services({ t, expanded = false }: ServicesProps) {
+export function Services({ t, expanded = false, country }: ServicesProps) {
   const items = expanded ? t.services.items : t.services.items.slice(0, 6);
+  const countryContent =
+    country && isTargetCountry(country) ? getCountryContent(country) : null;
 
   return (
     <Section id="services">
@@ -24,6 +30,12 @@ export function Services({ t, expanded = false }: ServicesProps) {
         subtitle={t.services.subtitle}
         meta={`${t.services.items.length} packages`}
       />
+
+      {countryContent && (
+        <p className="mx-auto mt-8 max-w-3xl text-balance text-center text-base leading-relaxed text-muted-foreground sm:text-lg">
+          {countryContent.servicesAngle}
+        </p>
+      )}
 
       <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {items.map((s, i) => (

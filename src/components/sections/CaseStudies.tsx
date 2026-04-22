@@ -5,15 +5,36 @@ import { ArrowUpRight, TrendingUp, Quote } from "lucide-react";
 import { Section, SectionHeader } from "../primitives/section";
 import LocalizedLink from "../LocalizedLink";
 import type { Messages } from "@/lib/i18n";
+import { getCountryContent } from "@/lib/country-content";
+import { isTargetCountry } from "@/lib/constants";
 
 export function CaseStudies({
   t,
   expanded = false,
+  country,
 }: {
   t: Messages;
   expanded?: boolean;
+  country?: string;
 }) {
-  const items = t.caseStudies.items;
+  const countryContent =
+    country && isTargetCountry(country) ? getCountryContent(country) : null;
+
+  // Reorder so the country's featured case studies appear first. Any
+  // non-featured items keep their original order behind the featured set.
+  const items = (() => {
+    if (!countryContent) return t.caseStudies.items;
+    const featuredOrder = countryContent.caseStudiesFeatured as readonly string[];
+    const byId = new Map(t.caseStudies.items.map((it) => [it.id, it]));
+    const featured = featuredOrder.flatMap((id) => {
+      const it = byId.get(id);
+      return it ? [it] : [];
+    });
+    const remaining = t.caseStudies.items.filter(
+      (it) => !featuredOrder.includes(it.id),
+    );
+    return [...featured, ...remaining];
+  })();
 
   return (
     <Section id="case-studies">

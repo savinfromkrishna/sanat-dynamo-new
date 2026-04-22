@@ -6,7 +6,7 @@ import {
   type Locale,
   type Messages,
 } from "@/lib/i18n";
-import { BASE_URL } from "@/lib/constants";
+import { BASE_URL, isTargetCountry } from "@/lib/constants";
 import { validCountryISOs } from "@/middleware";
 import { getGeo, formatLocation, formatLocationShort, type GeoInfo } from "@/lib/geo";
 
@@ -268,17 +268,28 @@ export async function buildPageMetadata({
       description: ogDescription,
       images: [`${BASE_URL}/og.png`],
     },
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        "max-snippet": -1,
-        "max-image-preview": "large",
-        "max-video-preview": -1,
-      },
-    },
+    // Only target countries are indexed. Non-target URLs still render (the
+    // middleware canonicalizes most traffic away from them), but if a visitor
+    // types a non-target country slug directly, we don't want Google to treat
+    // that URL as a ranking candidate — it would compete with the canonical
+    // target-country page.
+    robots: isTargetCountry(country)
+      ? {
+          index: true,
+          follow: true,
+          googleBot: {
+            index: true,
+            follow: true,
+            "max-snippet": -1,
+            "max-image-preview": "large",
+            "max-video-preview": -1,
+          },
+        }
+      : {
+          index: false,
+          follow: true,
+          googleBot: { index: false, follow: true },
+        },
     authors: [{ name: t.brand.name }],
     creator: t.brand.name,
     publisher: t.brand.name,
@@ -298,11 +309,10 @@ export function buildOrganizationJsonLd(t: Messages) {
     url: BASE_URL,
     logo: `${BASE_URL}/og.png`,
     description: t.seo.description,
-    sameAs: [
-      "https://www.linkedin.com/",
-      "https://x.com/",
-      "https://github.com/",
-    ],
+    // sameAs intentionally omitted until real social profiles exist. Including
+    // placeholder URLs like `https://linkedin.com/` (no company slug) is worse
+    // than no sameAs — Google uses this for entity verification and rejects
+    // unverifiable claims. Add real profile URLs here when they're live.
     contactPoint: [
       {
         "@type": "ContactPoint",

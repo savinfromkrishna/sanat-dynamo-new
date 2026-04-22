@@ -6,9 +6,22 @@ import { Plus, MessageCircle, ArrowUpRight } from "lucide-react";
 import { Section, SectionHeader } from "../primitives/section";
 import LocalizedLink from "../LocalizedLink";
 import type { Messages } from "@/lib/i18n";
+import { getCountryContent } from "@/lib/country-content";
+import { isTargetCountry } from "@/lib/constants";
 
-export function Faq({ t }: { t: Messages }) {
+export function Faq({ t, country }: { t: Messages; country?: string }) {
   const [open, setOpen] = useState<number | null>(0);
+
+  const countryContent =
+    country && isTargetCountry(country) ? getCountryContent(country) : null;
+
+  // Append country-specific FAQs after the global list. Appending (not
+  // prepending) preserves the most important global questions at the top
+  // of the rendered list while adding unique market-relevant Q&As at the
+  // bottom — which is where Google's FAQ rich-result picker reads from too.
+  const items = countryContent
+    ? [...t.faq.items, ...countryContent.faqAdditions]
+    : t.faq.items;
 
   return (
     <Section id="faq">
@@ -47,7 +60,7 @@ export function Faq({ t }: { t: Messages }) {
 
         <div className="lg:col-span-7">
           <div className="divide-y divide-border rounded-3xl border border-border bg-surface/40">
-            {t.faq.items.map((item, i) => {
+            {items.map((item, i) => {
               const isOpen = open === i;
               return (
                 <div key={i}>

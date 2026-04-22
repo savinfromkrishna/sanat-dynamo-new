@@ -4,8 +4,38 @@ import { motion } from "framer-motion";
 import { Quote, Star } from "lucide-react";
 import { Section, SectionHeader } from "../primitives/section";
 import type { Messages } from "@/lib/i18n";
+import { getCountryContent } from "@/lib/country-content";
+import { isTargetCountry } from "@/lib/constants";
 
-export function Testimonials({ t }: { t: Messages }) {
+export function Testimonials({
+  t,
+  country,
+}: {
+  t: Messages;
+  country?: string;
+}) {
+  const countryContent =
+    country && isTargetCountry(country) ? getCountryContent(country) : null;
+
+  // Lift any testimonial whose author/role matches a country priority hint
+  // to the top of the list. Priority matching is a case-insensitive substring
+  // search so the country-content file doesn't have to know testimonial IDs.
+  const items = (() => {
+    const priority = countryContent?.testimonialsPriority ?? [];
+    if (priority.length === 0) return t.testimonials.items;
+    const matches = new Set<number>();
+    const scored = t.testimonials.items.map((tm, idx) => {
+      const hay = `${tm.author} ${tm.role}`.toLowerCase();
+      const hit = priority.some((p) => hay.includes(p.toLowerCase()));
+      if (hit) matches.add(idx);
+      return { tm, idx, hit };
+    });
+    return [
+      ...scored.filter((s) => s.hit).map((s) => s.tm),
+      ...scored.filter((s) => !s.hit).map((s) => s.tm),
+    ];
+  })();
+
   return (
     <Section id="testimonials">
       <SectionHeader
@@ -32,7 +62,7 @@ export function Testimonials({ t }: { t: Messages }) {
       </div>
 
       <div className="mt-12 grid gap-5 sm:grid-cols-2">
-        {t.testimonials.items.map((tm, i) => (
+        {items.map((tm, i) => (
           <motion.figure
             key={i}
             initial={{ opacity: 0, y: 24 }}

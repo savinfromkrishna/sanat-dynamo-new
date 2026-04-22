@@ -15,6 +15,11 @@ import { Section, SectionHeader } from "../primitives/section";
 import LocalizedLink from "../LocalizedLink";
 import { industryIllustrations } from "../illustrations";
 import type { Messages } from "@/lib/i18n";
+import {
+  getCountryContent,
+  type IndustryKey,
+} from "@/lib/country-content";
+import { isTargetCountry } from "@/lib/constants";
 
 const iconMap = {
   ecommerce: ShoppingBag,
@@ -24,7 +29,33 @@ const iconMap = {
   "sme-erp": Factory,
 } as const;
 
-export function Industries({ t }: { t: Messages }) {
+export function Industries({
+  t,
+  country,
+}: {
+  t: Messages;
+  country?: string;
+}) {
+  const countryContent =
+    country && isTargetCountry(country) ? getCountryContent(country) : null;
+
+  // Reorder the translation industry items by the country-specific priority.
+  // The country-priority list references real industry ids; any id not in
+  // the priority list falls back to its original translation order.
+  const items = (() => {
+    if (!countryContent) return t.industries.items;
+    const order = countryContent.industries.order;
+    const byId = new Map(t.industries.items.map((it) => [it.id, it]));
+    const ordered = order.flatMap((id) => {
+      const it = byId.get(id);
+      return it ? [it] : [];
+    });
+    const remaining = t.industries.items.filter(
+      (it) => !order.includes(it.id as IndustryKey),
+    );
+    return [...ordered, ...remaining];
+  })();
+
   return (
     <Section id="industries" className="bg-surface/20">
       <SectionHeader
@@ -36,7 +67,7 @@ export function Industries({ t }: { t: Messages }) {
 
       {/* Bento layout: featured (col-span 7) + 4 small cards */}
       <div className="mt-16 grid gap-5 lg:grid-cols-12">
-        {t.industries.items.map((ind, i) => {
+        {items.map((ind, i) => {
           const Icon = iconMap[ind.id as keyof typeof iconMap];
           const isFeatured = i === 0;
           return (
@@ -78,6 +109,17 @@ export function Industries({ t }: { t: Messages }) {
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 {ind.description}
               </p>
+
+              {/* Country-specific angle — renders under the generic description
+                  so the card reads differently on /us/en vs /de/en. */}
+              {countryContent?.industries.angle[ind.id as IndustryKey] && (
+                <p className="mt-3 rounded-xl border-l-2 border-accent/60 bg-accent/5 px-3 py-2 text-xs leading-relaxed text-foreground">
+                  <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-accent">
+                    {countryContent.countryName}
+                  </span>{" "}
+                  {countryContent.industries.angle[ind.id as IndustryKey]}
+                </p>
+              )}
 
               {/* Industry sketch illustration */}
               {(() => {

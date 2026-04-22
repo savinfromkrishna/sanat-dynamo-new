@@ -1,5 +1,9 @@
 import { BASE_URL, COUNTRIES } from "@/lib/constants";
+import { BLOG_POSTS } from "@/lib/blogs";
 import { NextResponse } from "next/server";
+
+// Revalidate at most once per day — same rationale as the per-country sitemap.
+export const revalidate = 86400;
 
 /**
  * Resolve the public base URL from the incoming request.
@@ -30,11 +34,18 @@ function resolveBaseUrl(request: Request): string {
 
 export async function GET(request: Request) {
   const base = resolveBaseUrl(request);
-  const today = new Date().toISOString().split("T")[0];
+
+  // Real freshness signal: the most recent blog post timestamp. Static pages
+  // change rarely; blog posts drive actual sitemap churn. Previously this was
+  // `new Date()` on every render, which Google's crawler learns to ignore.
+  const latestBlogDate =
+    BLOG_POSTS.map((p) => p.updatedAt ?? p.publishedAt)
+      .sort()
+      .pop() ?? "2026-01-01";
 
   const sitemaps = COUNTRIES.map((country: string) => ({
     loc: `${base}/${country}/sitemap.xml`,
-    lastmod: today,
+    lastmod: latestBlogDate,
   }));
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>

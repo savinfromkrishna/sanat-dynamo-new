@@ -6,9 +6,19 @@ import { ButtonLink } from "../primitives/button";
 import { Eyebrow } from "../primitives/section";
 import { CtaWaves } from "../illustrations";
 import type { Messages } from "@/lib/i18n";
+import { getCountryContent } from "@/lib/country-content";
+import { isTargetCountry } from "@/lib/constants";
 
-export function Cta({ t }: { t: Messages }) {
+export function Cta({ t, country }: { t: Messages; country?: string }) {
   const tm = t.testimonials.items[0];
+  const countryContent =
+    country && isTargetCountry(country) ? getCountryContent(country) : null;
+
+  // Use country-specific CTA copy when available — timezone-aware primary
+  // button and "Free 45-minute audit in IST/ET/GST" support line. Falls
+  // back to the global translated CTA for non-target countries.
+  const primaryLabel = countryContent?.cta.primary ?? t.cta.primary;
+  const trustNote = countryContent?.cta.supportLine ?? t.cta.trustNote;
   return (
     <section className="relative py-24 sm:py-32">
       <div className="container-px mx-auto max-w-7xl">
@@ -53,7 +63,7 @@ export function Cta({ t }: { t: Messages }) {
 
               <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
                 <ButtonLink href="/contact" size="lg">
-                  {t.cta.primary}
+                  {primaryLabel}
                 </ButtonLink>
                 <ButtonLink href="/case-studies" variant="secondary" size="lg">
                   {t.cta.secondary}
@@ -61,7 +71,7 @@ export function Cta({ t }: { t: Messages }) {
               </div>
 
               <p className="mt-6 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                ✦ {t.cta.trustNote}
+                ✦ {trustNote}
               </p>
             </div>
 

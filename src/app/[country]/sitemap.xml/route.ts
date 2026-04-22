@@ -1,9 +1,31 @@
-import { STATIC_PAGES, BASE_URL, LANGUAGES } from "@/lib/constants";
+import { STATIC_PAGES, BASE_URL, LANGUAGES, TARGET_COUNTRIES } from "@/lib/constants";
 import { LOCALES, type Locale } from "@/lib/i18n";
 import { NextResponse } from "next/server";
 import { BLOG_POSTS, BLOG_CATEGORIES } from "@/lib/blogs";
 
-export const dynamic = "force-dynamic";
+// Revalidate at most once per day — Googlebot doesn't need minute-fresh sitemaps,
+// and the previous `force-dynamic` was regenerating with a new `lastmod` on every
+// crawl, which Google downweights as an unreliable freshness signal.
+export const revalidate = 86400;
+
+/**
+ * Static timestamps for page-type `lastmod` values. These are bumped manually
+ * when the content of the corresponding page meaningfully changes. Previously
+ * every page got `new Date()` on every request, which Google flags as spam.
+ *
+ * Format: ISO date (YYYY-MM-DD).
+ */
+const STATIC_PAGE_LASTMOD: Record<string, string> = {
+  "": "2026-04-15",           // home
+  services: "2026-04-10",
+  industries: "2026-04-08",
+  "case-studies": "2026-04-12",
+  about: "2026-03-20",
+  contact: "2026-03-20",
+  privacy: "2026-01-15",
+  terms: "2026-01-15",
+  blogs: "2026-04-18",         // index bumped when new posts land
+};
 
 /**
  * Resolve the public base URL from the incoming request.
@@ -61,8 +83,22 @@ export async function GET(
   { params }: { params: Promise<{ country: string }> }
 ) {
   const { country } = await params;
+
+  // Only our target markets are indexed. Non-target country URLs still resolve
+  // (middleware redirects them), but we never ship their sitemap — that's the
+  // whole point of TARGET_COUNTRIES.
+  if (!(TARGET_COUNTRIES as readonly string[]).includes(country.toLowerCase())) {
+    return new NextResponse("Not Found", { status: 404 });
+  }
+
   const base = resolveBaseUrl(request);
-  const today = new Date().toISOString().split("T")[0];
+
+  // Latest blog publication date — used as category-page `lastmod` so category
+  // freshness actually tracks when new posts land, not when the sitemap renders.
+  const latestBlogDate =
+    BLOG_POSTS.map((p) => p.updatedAt ?? p.publishedAt)
+      .sort()
+      .pop() ?? "2026-01-01";
 
   // Static pages (home, services, industries, case-studies, about, contact, legal)
   // plus the blog index page (hardcoded here because STATIC_PAGES lives in
@@ -92,7 +128,7 @@ export async function GET(
 
       return {
         loc,
-        lastmod: today,
+        lastmod: STATIC_PAGE_LASTMOD[page] ?? "2026-01-01",
         priority: PAGE_PRIORITY[page] ?? 0.5,
         changefreq: PAGE_CHANGEFREQ[page] ?? "monthly",
         alternates: alternates.join("\n"),
@@ -139,7 +175,7 @@ export async function GET(
       );
       return {
         loc,
-        lastmod: today,
+        lastmod: latestBlogDate,
         priority: BLOG_CATEGORY_PRIORITY,
         changefreq: BLOG_CHANGEFREQ,
         alternates: alternates.join("\n"),

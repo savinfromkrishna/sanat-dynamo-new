@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import { getTranslation, type Locale } from "@/lib/i18n";
 import { buildPageMetadata, buildFaqJsonLd } from "@/lib/seo";
+import { getCountryContent } from "@/lib/country-content";
+import { isTargetCountry } from "@/lib/constants";
 import { Hero } from "@/components/sections/Hero";
 import { LogosMarquee } from "@/components/sections/LogosMarquee";
 import { CityBanner } from "@/components/sections/CityBanner";
 import { CountryMarketContext } from "@/components/sections/CountryMarketContext";
+import { CountryTrustBlock } from "@/components/sections/CountryTrustBlock";
 import { Problem } from "@/components/sections/Problem";
 import { Approach } from "@/components/sections/Approach";
 import { Services } from "@/components/sections/Services";
@@ -39,7 +42,17 @@ export default async function HomePage({
 }) {
   const { country, locale } = await params;
   const t = getTranslation(locale as Locale);
-  const faqLd = buildFaqJsonLd(t.faq.items);
+
+  // Build FAQ JSON-LD including country-specific additions so the
+  // FAQ rich result matches what's rendered on-page for this market.
+  const countryContent = isTargetCountry(country)
+    ? getCountryContent(country)
+    : null;
+  const faqLd = buildFaqJsonLd(
+    countryContent
+      ? [...t.faq.items, ...countryContent.faqAdditions]
+      : t.faq.items,
+  );
 
   return (
     <>
@@ -47,23 +60,24 @@ export default async function HomePage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
       />
-      <Hero t={t} />
+      <Hero t={t} country={country} />
       <LogosMarquee t={t} country={country} locale={locale as Locale} />
       <CityBanner t={t} country={country} locale={locale as Locale} />
       <CountryMarketContext t={t} country={country} locale={locale as Locale} pageKey="home" />
+      <CountryTrustBlock t={t} country={country} />
       <Problem t={t} />
       <Approach t={t} />
-      <Services t={t} />
+      <Services t={t} country={country} />
       <FeatureGrid t={t} />
-      <Industries t={t} />
+      <Industries t={t} country={country} />
       <BigNumbers t={t} />
       <Process t={t} />
-      <CaseStudies t={t} />
+      <CaseStudies t={t} country={country} />
       <TechStack t={t} />
-      <Testimonials t={t} />
-      <Faq t={t} />
+      <Testimonials t={t} country={country} />
+      <Faq t={t} country={country} />
       <KnowMore t={t} pageKey="home" pageLabel="home" />
-      <Cta t={t} />
+      <Cta t={t} country={country} />
     </>
   );
 }

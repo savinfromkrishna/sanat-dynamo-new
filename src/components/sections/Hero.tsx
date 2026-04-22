@@ -13,11 +13,22 @@ import {
 import LocalizedLink from "../LocalizedLink";
 import { HeroNetwork, HeroBackground } from "../illustrations";
 import type { Messages } from "@/lib/i18n";
+import { getCountryContent } from "@/lib/country-content";
+import { isTargetCountry } from "@/lib/constants";
 
 const statIcons = [Users, IndianRupee, TrendingUp, Layers] as const;
 
-export function Hero({ t }: { t: Messages }) {
-  const stats = t.socialProof.stats;
+export function Hero({ t, country }: { t: Messages; country?: string }) {
+  // When a target-country slug is present, swap the global subtitle and
+  // stat grid for country-specific copy. Non-target (or unspecified) falls
+  // back to the global translations unchanged.
+  const countryContent =
+    country && isTargetCountry(country) ? getCountryContent(country) : null;
+
+  const subtitle = countryContent?.hero.subheadline ?? t.hero.subtitle;
+  const stats = countryContent
+    ? countryContent.bigNumbers.map((s) => ({ value: s.value, label: s.label }))
+    : t.socialProof.stats;
 
   return (
     <section className="relative overflow-hidden pt-24 pb-12 sm:pt-44 sm:pb-32 lg:pt-52 lg:pb-40">
@@ -86,7 +97,7 @@ export function Hero({ t }: { t: Messages }) {
           transition={{ duration: 0.6, delay: 0.18 }}
           className="text-pretty mx-auto mt-10 max-w-2xl text-center text-lg leading-relaxed text-muted-foreground sm:text-xl"
         >
-          {t.hero.subtitle}
+          {subtitle}
         </motion.p>
 
         {/* CTAs */}

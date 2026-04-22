@@ -8,7 +8,7 @@ import {
   LOCALE_CODES,
   type Locale,
 } from "@/lib/i18n";
-import { BASE_URL } from "@/lib/constants";
+import { BASE_URL, isTargetCountry } from "@/lib/constants";
 import { buildOrganizationJsonLd, buildWebsiteJsonLd } from "@/lib/seo";
 import Header from "@/components/common/header";
 import Footer from "@/components/common/footer";
@@ -82,17 +82,27 @@ export async function generateMetadata({
       title: t.seo.title,
       description: t.seo.description,
     },
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        "max-snippet": -1,
-        "max-image-preview": "large",
-        "max-video-preview": -1,
-      },
-    },
+    // Only TARGET_COUNTRIES are indexed. If a visitor hits a non-target
+    // country slug directly (rare — middleware usually redirects), this page
+    // still renders but carries `noindex,follow` so Google doesn't promote it
+    // as a ranking candidate against the canonical target-country page.
+    robots: isTargetCountry(country)
+      ? {
+          index: true,
+          follow: true,
+          googleBot: {
+            index: true,
+            follow: true,
+            "max-snippet": -1,
+            "max-image-preview": "large",
+            "max-video-preview": -1,
+          },
+        }
+      : {
+          index: false,
+          follow: true,
+          googleBot: { index: false, follow: true },
+        },
   };
 }
 

@@ -2,6 +2,7 @@
 
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { TARGET_COUNTRIES } from "@/lib/constants";
 
 export const validCountryISOs = [
   "ad", "ae", "af", "ag", "ai", "al", "am", "ao", "ar", "as", "at", "au", "aw", "ax", "az",
@@ -30,6 +31,61 @@ const defaultCountry = "in";
 const defaultLocale = "en";
 
 /**
+ * Map a non-target country to the closest target market for canonical redirects.
+ * Keeps visitor-country intent without creating 240 near-duplicate indexed pages.
+ * Countries not listed here fall through to `defaultCountry` (India).
+ */
+const NEAREST_TARGET: Record<string, string> = {
+  // Americas → US
+  mx: "us", br: "us", ar: "us", cl: "us", co: "us", pe: "us", ve: "us", uy: "us",
+  py: "us", bo: "us", ec: "us", cr: "us", pa: "us", gt: "us", hn: "us", sv: "us",
+  ni: "us", cu: "us", do: "us", ht: "us", jm: "us", tt: "us", pr: "us",
+  // Oceania → AU
+  nz: "au", fj: "au", pg: "au",
+  // South Asia → IN
+  bd: "in", pk: "in", lk: "in", np: "in", bt: "in", mv: "in", af: "in",
+  // SE Asia / East Asia → SG
+  my: "sg", th: "sg", id: "sg", ph: "sg", vn: "sg", kh: "sg", la: "sg", mm: "sg",
+  hk: "sg", tw: "sg", jp: "sg", kr: "sg", cn: "sg", mo: "sg",
+  // Gulf (non-KSA/UAE) → AE
+  qa: "ae", kw: "ae", bh: "ae", om: "ae", ye: "ae", jo: "ae", lb: "ae", iq: "ae",
+  // Middle East North Africa → AE
+  eg: "ae", tr: "ae", il: "ae", ir: "ae", ma: "ae", tn: "ae", dz: "ae", ly: "ae", sd: "ae",
+  // EU non-target → DE
+  at: "de", ch: "de", be: "de", lu: "de", dk: "de", se: "de", no: "de", fi: "de",
+  is: "de", ie: "gb", pl: "de", cz: "de", sk: "de", hu: "de", ro: "de", bg: "de",
+  hr: "de", si: "de", gr: "de", pt: "es", it: "de", ee: "de", lv: "de", lt: "de",
+  ua: "de", by: "de", ru: "de",
+  // Africa → AE or FR (francophone) — simple split
+  za: "gb", ng: "gb", ke: "gb", gh: "gb", et: "gb", tz: "gb", ug: "gb", zm: "gb",
+  zw: "gb", rw: "gb", sn: "fr", ci: "fr", cm: "fr", mg: "fr", bf: "fr", ml: "fr",
+};
+
+/**
+ * Check if a user-agent is a known search-engine bot. Bots don't send
+ * `x-vercel-ip-country`, so we skip the external IP API call entirely for
+ * them and honor the URL country directly. This cuts Googlebot TTFB and
+ * preserves crawl budget.
+ */
+function isSearchEngineBot(userAgent: string | null): boolean {
+  if (!userAgent) return false;
+  const ua = userAgent.toLowerCase();
+  return (
+    ua.includes("googlebot") ||
+    ua.includes("bingbot") ||
+    ua.includes("duckduckbot") ||
+    ua.includes("yandexbot") ||
+    ua.includes("baiduspider") ||
+    ua.includes("applebot") ||
+    ua.includes("slurp") || // Yahoo
+    ua.includes("facebookexternalhit") ||
+    ua.includes("twitterbot") ||
+    ua.includes("linkedinbot") ||
+    ua.includes("whatsapp")
+  );
+}
+
+/**
  * Get browser preferred language from accept-language header
  */
 function getBrowserLanguage(req: NextRequest): string {
@@ -41,32 +97,34 @@ function getBrowserLanguage(req: NextRequest): string {
 }
 
 /**
- * Get country code using Vercel headers (preferred) or fallback API
+ * Get country code using Vercel headers (preferred) or fallback API.
+ * Bots are short-circuited to the default country to avoid external fetch.
  */
 async function getUserCountry(req: NextRequest): Promise<string> {
+  // Search-engine bots — skip external IP lookup entirely (saves TTFB + crawl budget)
+  if (isSearchEngineBot(req.headers.get("user-agent"))) {
+    return defaultCountry;
+  }
+
   // Primary: Vercel geolocation headers (available on Edge & Serverless functions)
   const vercelCountry = req.headers.get("x-vercel-ip-country")?.toLowerCase();
 
   if (vercelCountry && validCountryISOs.includes(vercelCountry)) {
-    console.log("Country from Vercel header:", vercelCountry);
     return vercelCountry;
   }
 
-  // Fallback: your existing IP API (used in local dev or when headers missing)
+  // Fallback: IP API (used in local dev or when headers missing)
   const clientIP =
     req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
     req.headers.get("x-real-ip") ||
     "0.0.0.0";
-
-  console.log("Client IP (fallback):", clientIP);
 
   try {
     const response = await fetch(`https://ip.nesscoindia.com/${clientIP}`, {
       headers: {
         "User-Agent": "NextJS-Middleware",
       },
-      // Optional: add timeout if needed
-      // signal: AbortSignal.timeout(3000),
+      signal: AbortSignal.timeout(2000),
     });
 
     if (!response.ok) {
@@ -75,8 +133,6 @@ async function getUserCountry(req: NextRequest): Promise<string> {
 
     const ipData = await response.json();
     const country = ipData.country?.toLowerCase();
-
-    console.log("Country from fallback API:", country);
 
     if (country && validCountryISOs.includes(country)) {
       return country;
@@ -90,13 +146,29 @@ async function getUserCountry(req: NextRequest): Promise<string> {
 }
 
 /**
- * Main middleware – handles country/language prefix redirects
+ * Map a detected country to the closest target market we actually index.
+ * If the visitor's country IS a target, we keep it. Otherwise we canonicalize
+ * to the nearest target (e.g., br → us, my → sg) so we don't create
+ * near-duplicate URLs Google has to deduplicate.
+ */
+function canonicalizeToTarget(country: string): string {
+  if ((TARGET_COUNTRIES as readonly string[]).includes(country)) {
+    return country;
+  }
+  return NEAREST_TARGET[country] ?? defaultCountry;
+}
+
+/**
+ * Main middleware – handles country/language prefix redirects.
+ *
+ * Redirect semantics:
+ *   - When the URL already has a valid country/locale → pass through (no redirect).
+ *   - When we need to ADD country/locale to the URL (bare `/`, `/about`, etc.)
+ *     → 308 permanent redirect so Google consolidates ranking to the target.
+ *     Previously used 307 which is temporary and bleeds PageRank.
  */
 export async function middleware(req: NextRequest) {
-  console.log("Middleware started");
-
   const { pathname } = req.nextUrl;
-  console.log("Pathname:", pathname);
 
   // Skip internal paths, API routes, static files, etc.
   if (
@@ -120,7 +192,6 @@ export async function middleware(req: NextRequest) {
 
   // If URL already has valid country + language → continue
   if (isCountryValid && isLanguageValid) {
-    console.log("Valid country/language in URL → proceeding");
     const res = NextResponse.next();
     res.headers.set("x-next-url-path", pathname);
     res.headers.set("x-next-url-query", req.nextUrl.search);
@@ -139,36 +210,36 @@ export async function middleware(req: NextRequest) {
   }
 
   try {
-    // Detect country (Vercel preferred + fallback)
+    // Detect country (Vercel preferred + fallback, bots short-circuit to default)
     const detectedCountry = await getUserCountry(req);
 
     // Detect language from browser
     const browserLanguage = getBrowserLanguage(req);
 
-    // Decide final values
-    const finalCountry = isCountryValid ? urlCountry : detectedCountry;
+    // Decide final values — any URL-country that isn't a TARGET gets
+    // canonicalized to the nearest target so we don't create 240 near-duplicate
+    // indexed URL trees.
+    const resolvedCountry = isCountryValid ? urlCountry : detectedCountry;
+    const finalCountry = canonicalizeToTarget(resolvedCountry);
     const finalLanguage = isLanguageValid ? urlLanguage : browserLanguage;
-
-    console.log("Final country:", finalCountry);
-    console.log("Final language:", finalLanguage);
 
     // Build new path: /country/language/rest...
     const newPathParts = [finalCountry, finalLanguage, ...pathParts.slice(isCountryValid ? 1 : 0)];
     const newPathname = `/${newPathParts.join("/")}`;
 
-    console.log("Redirecting to:", newPathname);
-
     const url = req.nextUrl.clone();
     url.pathname = newPathname;
 
-    return NextResponse.redirect(url, 307); // 307 = temporary redirect (better for SEO/testing)
+    // 308 = permanent redirect. Google consolidates ranking signals to the
+    // target URL; 307 (previous value) was temporary and stranded PageRank.
+    return NextResponse.redirect(url, 308);
   } catch (error) {
     console.error("Middleware error:", error);
 
     // Fallback redirect in case of any error
     const fallbackUrl = req.nextUrl.clone();
     fallbackUrl.pathname = "/in/en";
-    return NextResponse.redirect(fallbackUrl, 307);
+    return NextResponse.redirect(fallbackUrl, 308);
   }
 }
 
