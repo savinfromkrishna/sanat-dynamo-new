@@ -2,6 +2,7 @@ import { STATIC_PAGES, BASE_URL, LANGUAGES, TARGET_COUNTRIES } from "@/lib/const
 import { LOCALES, type Locale } from "@/lib/i18n";
 import { NextResponse } from "next/server";
 import { BLOG_POSTS, BLOG_CATEGORIES } from "@/lib/blogs";
+import { INDIA_CITIES } from "@/lib/cities";
 
 // Revalidate at most once per day — Googlebot doesn't need minute-fresh sitemaps,
 // and the previous `force-dynamic` was regenerating with a new `lastmod` on every
@@ -25,7 +26,16 @@ const STATIC_PAGE_LASTMOD: Record<string, string> = {
   privacy: "2026-01-15",
   terms: "2026-01-15",
   blogs: "2026-04-18",         // index bumped when new posts land
+  cities: "2026-05-03",        // city hub — bumped on each new metro added
 };
+
+/** Per-city `lastmod`. Bump when the city's content meaningfully changes. */
+const CITY_LASTMOD_DEFAULT = "2026-05-03";
+
+/** City-page sitemap is restricted to en+hi: those are the locales Indian
+ * search traffic actually uses. Other locales render via fallback but stay
+ * out of the sitemap so Google doesn't see 7 near-duplicate URLs per city. */
+const CITY_SITEMAP_LOCALES: readonly string[] = ["en", "hi"];
 
 /**
  * Resolve the public base URL from the incoming request.
@@ -60,7 +70,10 @@ const PAGE_PRIORITY: Record<string, number> = {
   blogs: 0.9,
   privacy: 0.2,
   terms: 0.2,
+  cities: 0.85,
 };
+
+const CITY_PAGE_PRIORITY = 0.85;
 
 const PAGE_CHANGEFREQ: Record<string, string> = {
   "": "weekly",
@@ -72,6 +85,7 @@ const PAGE_CHANGEFREQ: Record<string, string> = {
   blogs: "weekly",
   privacy: "yearly",
   terms: "yearly",
+  cities: "monthly",
 };
 
 const BLOG_POST_PRIORITY = 0.7;
@@ -101,9 +115,14 @@ export async function GET(
       .pop() ?? "2026-01-01";
 
   // Static pages (home, services, industries, case-studies, about, contact, legal)
-  // plus the blog index page (hardcoded here because STATIC_PAGES lives in
-  // `lib/constants` and we don't want to touch it from here).
-  const pagesWithBlogIndex = [...STATIC_PAGES, "blogs"];
+  // plus the blog index and the cities hub. Cities hub is India-only, so we
+  // append it later only inside the IN block.
+  const isIndia = country === "in";
+  const pagesWithBlogIndex = [
+    ...STATIC_PAGES,
+    "blogs",
+    ...(isIndia ? ["cities"] : []),
+  ];
 
   const staticUrls = LANGUAGES.flatMap((locale) =>
     pagesWithBlogIndex.map((page) => {
@@ -183,7 +202,35 @@ export async function GET(
     })
   );
 
-  const urls = [...staticUrls, ...blogCategoryUrls, ...blogPostUrls];
+  // Per-city URLs — India only, en + hi only. We deliberately keep these
+  // out of the sitemap for non-IN markets and other locales so Google
+  // doesn't see them as duplicates of the canonical /in/{en|hi} versions.
+  const cityUrls = isIndia
+    ? INDIA_CITIES.flatMap((city) =>
+        CITY_SITEMAP_LOCALES.map((sitemapLocale) => {
+          const loc = `${base}/${country}/${sitemapLocale}/cities/${city.slug}`;
+          // hreflang alternates: include every locale + x-default so Google
+          // understands the localized variants exist via fallback rendering.
+          const alternates = LANGUAGES.map((altLocale) => {
+            const altLoc = `${base}/${country}/${altLocale}/cities/${city.slug}`;
+            const htmlLang = LOCALES[altLocale as Locale]?.htmlLang ?? altLocale;
+            return `      <xhtml:link rel="alternate" hreflang="${htmlLang}" href="${altLoc}" />`;
+          });
+          alternates.push(
+            `      <xhtml:link rel="alternate" hreflang="x-default" href="${base}/in/en/cities/${city.slug}" />`
+          );
+          return {
+            loc,
+            lastmod: CITY_LASTMOD_DEFAULT,
+            priority: CITY_PAGE_PRIORITY,
+            changefreq: "monthly",
+            alternates: alternates.join("\n"),
+          };
+        })
+      )
+    : [];
+
+  const urls = [...staticUrls, ...cityUrls, ...blogCategoryUrls, ...blogPostUrls];
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"

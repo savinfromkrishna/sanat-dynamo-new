@@ -1,10 +1,11 @@
 "use client";
 
-import { ArrowUpRight, BookOpen, Github, Linkedin, Twitter, Mail, MessageCircle } from "lucide-react";
+import { ArrowUpRight, BookOpen, Github, Linkedin, Twitter, Mail, MessageCircle, MapPin } from "lucide-react";
 import LocalizedLink from "../LocalizedLink";
 import Logo from "../Logo/logo";
 import type { Messages } from "@/lib/i18n";
 import { getMostReadPosts, BLOG_CATEGORIES } from "@/lib/blogs";
+import { INDIA_CITIES } from "@/lib/cities";
 
 interface FooterProps {
   translations: Messages;
@@ -220,6 +221,58 @@ export default function Footer({ translations }: FooterProps) {
               All posts
               <ArrowUpRight size={11} />
             </LocalizedLink>
+          </div>
+        </div>
+
+        {/* Cities we serve — site-wide internal-link equity for the
+            India city hub. Every page in the site links to all 11 city
+            pages. This is what makes "best web development in {city}"
+            queries actually rank. */}
+        <div className="border-t border-border py-10 sm:py-12">
+          <div className="mb-6 flex flex-col gap-3 sm:mb-8 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex items-center gap-3">
+              <div className="flex h-8 w-8 items-center justify-center rounded-full border border-accent/40 bg-accent/10 text-accent">
+                <MapPin size={14} />
+              </div>
+              <div>
+                <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
+                  Cities we serve in India
+                </div>
+                <h3 className="font-display text-lg font-semibold text-foreground">
+                  Local revenue systems · 11 metros
+                </h3>
+              </div>
+            </div>
+            <LocalizedLink
+              href="/cities"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground transition hover:border-accent/50 hover:text-accent"
+            >
+              All cities
+              <ArrowUpRight size={11} />
+            </LocalizedLink>
+          </div>
+
+          <div className="grid gap-2 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+            {INDIA_CITIES.map((city) => (
+              <LocalizedLink
+                key={city.slug}
+                href={`/cities/${city.slug}`}
+                className="group flex items-center justify-between rounded-2xl border border-border bg-surface/40 px-4 py-3 transition hover:-translate-y-0.5 hover:border-accent/40 hover:bg-surface"
+              >
+                <div className="min-w-0">
+                  <div className="truncate text-sm font-semibold text-foreground transition-colors group-hover:text-accent">
+                    {city.name}
+                  </div>
+                  <div className="mt-0.5 truncate font-mono text-[9px] uppercase tracking-[0.18em] text-muted-foreground">
+                    {city.state}
+                  </div>
+                </div>
+                <ArrowUpRight
+                  size={12}
+                  className="ml-2 shrink-0 text-muted-foreground transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent"
+                />
+              </LocalizedLink>
+            ))}
           </div>
         </div>
 
