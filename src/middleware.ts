@@ -24,7 +24,7 @@ export const validCountryISOs = [
   "ws", "ye", "yt", "za", "zm", "zw",
 ];
 
-export const validLocales = ["en", "es", "fr", "de", "ar", "hi", "zh"];
+export const validLocales = ["en", "es", "fr", "de", "ar", "hi", "zh", "gu"];
 
 // Default values
 const defaultCountry = "in";

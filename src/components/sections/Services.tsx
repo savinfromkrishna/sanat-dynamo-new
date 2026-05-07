@@ -7,7 +7,7 @@ import LocalizedLink from "../LocalizedLink";
 import { serviceIllustrations } from "../illustrations";
 import type { Messages } from "@/lib/i18n";
 import { getCountryContent } from "@/lib/country-content";
-import { isTargetCountry } from "@/lib/constants";
+import { isResolvableCountry } from "@/lib/constants";
 
 interface ServicesProps {
   t: Messages;
@@ -20,7 +20,7 @@ interface ServicesProps {
 export function Services({ t, expanded = false, country }: ServicesProps) {
   const items = expanded ? t.services.items : t.services.items.slice(0, 6);
   const countryContent =
-    country && isTargetCountry(country) ? getCountryContent(country) : null;
+    country && isResolvableCountry(country) ? getCountryContent(country) : null;
 
   return (
     <Section id="services">

@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ArrowUpRight, MapPin } from "lucide-react";
 import { getTranslation, type Locale, LOCALE_CODES, LOCALES } from "@/lib/i18n";
-import { BASE_URL, isTargetCountry } from "@/lib/constants";
+import {
+  BASE_URL,
+  INDEXABLE_LOCALES,
+  isIndexable,
+} from "@/lib/constants";
 import { INDIA_CITIES } from "@/lib/cities";
 import { buildBreadcrumbJsonLd } from "@/lib/seo";
 import { PageHero } from "@/components/sections/PageHero";
@@ -20,11 +24,6 @@ export async function generateMetadata({
   const { country, locale } = await params;
   const lc = (LOCALE_CODES.includes(locale as Locale) ? locale : "en") as Locale;
 
-  // Cities directory only carries unique value on the India market. Other
-  // markets render a thin version with `noindex` so Google doesn't see a
-  // duplicate hub page across countries.
-  const indexable = country === "in";
-
   const title =
     country === "in"
       ? "Website Development Company in India · Cities We Serve"
@@ -35,9 +34,11 @@ export async function generateMetadata({
       : "Cities and regions we serve.";
 
   const canonical = `/${country}/${lc}/${PAGE_PATH}`;
+  // Hreflang cluster: indexable locales pinned to /in/. The cities hub is
+  // intrinsically India-only, so the cluster only includes IN URLs.
   const languages: Record<string, string> = {};
-  for (const lang of LOCALE_CODES) {
-    languages[LOCALES[lang].htmlLang] = `${BASE_URL}/${country}/${lang}/${PAGE_PATH}`;
+  for (const lang of INDEXABLE_LOCALES) {
+    languages[LOCALES[lang].htmlLang] = `${BASE_URL}/in/${lang}/${PAGE_PATH}`;
   }
   languages["x-default"] = `${BASE_URL}/in/en/${PAGE_PATH}`;
 
@@ -63,20 +64,19 @@ export async function generateMetadata({
       description,
       images: [`${BASE_URL}/og.png`],
     },
-    robots:
-      indexable && isTargetCountry(country)
-        ? {
+    robots: isIndexable(country, lc)
+      ? {
+          index: true,
+          follow: true,
+          googleBot: {
             index: true,
             follow: true,
-            googleBot: {
-              index: true,
-              follow: true,
-              "max-snippet": -1,
-              "max-image-preview": "large",
-              "max-video-preview": -1,
-            },
-          }
-        : { index: false, follow: true, googleBot: { index: false, follow: true } },
+            "max-snippet": -1,
+            "max-image-preview": "large",
+            "max-video-preview": -1,
+          },
+        }
+      : { index: false, follow: true, googleBot: { index: false, follow: true } },
   };
 }
 

@@ -6,7 +6,7 @@ import { Section, SectionHeader } from "../primitives/section";
 import LocalizedLink from "../LocalizedLink";
 import type { Messages } from "@/lib/i18n";
 import { getCountryContent } from "@/lib/country-content";
-import { isTargetCountry } from "@/lib/constants";
+import { isResolvableCountry } from "@/lib/constants";
 
 export function CaseStudies({
   t,
@@ -18,7 +18,7 @@ export function CaseStudies({
   country?: string;
 }) {
   const countryContent =
-    country && isTargetCountry(country) ? getCountryContent(country) : null;
+    country && isResolvableCountry(country) ? getCountryContent(country) : null;
 
   // Reorder so the country's featured case studies appear first. Any
   // non-featured items keep their original order behind the featured set.

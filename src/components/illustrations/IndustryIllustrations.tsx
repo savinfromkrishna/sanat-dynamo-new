@@ -160,8 +160,8 @@ export function IllustEdtech({ className = "" }: { className?: string }) {
   );
 }
 
-/* SME/ERP: Connected modules replacing Excel chaos */
-export function IllustSmeErp({ className = "" }: { className?: string }) {
+/* Manufacturing: Connected ERP modules replacing Tally + Excel chaos */
+export function IllustManufacturing({ className = "" }: { className?: string }) {
   return (
     <motion.svg viewBox="0 0 160 110" fill="none" className={className} initial="hidden" whileInView="visible" viewport={{ once: true }}>
       {/* Central hub */}
@@ -199,9 +199,9 @@ export function IllustSmeErp({ className = "" }: { className?: string }) {
 }
 
 export const industryIllustrations: Record<string, React.ComponentType<{ className?: string }>> = {
-  ecommerce: IllustEcommerce,
+  manufacturing: IllustManufacturing,
   "real-estate": IllustRealEstate,
+  ecommerce: IllustEcommerce,
   healthcare: IllustHealthcare,
   edtech: IllustEdtech,
-  "sme-erp": IllustSmeErp,
 };

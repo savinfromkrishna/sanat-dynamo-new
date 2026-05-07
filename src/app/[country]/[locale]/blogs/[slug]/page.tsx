@@ -23,8 +23,12 @@ import { PageHero } from "@/components/sections/PageHero";
 import { Section } from "@/components/primitives/section";
 import LocalizedLink from "@/components/LocalizedLink";
 import { Cta } from "@/components/sections/Cta";
-import { getTranslation, type Locale } from "@/lib/i18n";
-import { BASE_URL } from "@/lib/constants";
+import { getTranslation, LOCALES, type Locale } from "@/lib/i18n";
+import {
+  BASE_URL,
+  INDEXABLE_LOCALES,
+  isIndexable,
+} from "@/lib/constants";
 import {
   BLOG_CATEGORIES,
   BLOG_POSTS,
@@ -60,12 +64,21 @@ export async function generateMetadata({
   const canonical = `${BASE_URL}/${country}/${locale}/blogs/${slug}`;
   const description = post.excerpt;
 
+  // Hreflang cluster: indexable locales pinned to /in/. Pages outside the
+  // cluster ship noindex and stay out so Google doesn't fold fallback
+  // translations back into the canonical EN/HI versions.
+  const languages: Record<string, string> = {};
+  for (const lang of INDEXABLE_LOCALES) {
+    languages[LOCALES[lang].htmlLang] = `${BASE_URL}/in/${lang}/blogs/${slug}`;
+  }
+  languages["x-default"] = `${BASE_URL}/in/en/blogs/${slug}`;
+
   return {
     title: `${post.title}`,
     description,
     keywords: [post.keywords.primary, ...post.keywords.secondary, ...post.tags],
     authors: [{ name: post.author.name, url: `${BASE_URL}/${country}/${locale}/about` }],
-    alternates: { canonical },
+    alternates: { canonical, languages },
     openGraph: {
       title: post.title,
       description,
@@ -92,17 +105,23 @@ export async function generateMetadata({
       description,
       images: [`${BASE_URL}/og.png`],
     },
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        "max-snippet": -1,
-        "max-image-preview": "large",
-        "max-video-preview": -1,
-      },
-    },
+    robots: isIndexable(country, locale)
+      ? {
+          index: true,
+          follow: true,
+          googleBot: {
+            index: true,
+            follow: true,
+            "max-snippet": -1,
+            "max-image-preview": "large",
+            "max-video-preview": -1,
+          },
+        }
+      : {
+          index: false,
+          follow: true,
+          googleBot: { index: false, follow: true },
+        },
     other: {
       "article:published_time": post.publishedAt,
       "article:modified_time": post.updatedAt ?? post.publishedAt,

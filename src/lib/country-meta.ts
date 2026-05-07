@@ -274,6 +274,14 @@ export function getRegionLabel(region: Region, locale: Locale = "en"): string {
       africa: "非洲",
       oceania: "大洋洲",
     },
+    gu: {
+      asia: "એશિયા-પેસિફિક",
+      "middle-east": "મધ્ય પૂર્વ",
+      europe: "યુરોપ",
+      americas: "અમેરિકા",
+      africa: "આફ્રિકા",
+      oceania: "ઓશનિયા",
+    },
   };
   return labels[locale]?.[region] ?? labels.en[region];
 }

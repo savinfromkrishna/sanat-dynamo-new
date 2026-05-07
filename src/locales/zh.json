@@ -215,7 +215,7 @@
       { "id": "real-estate", "name": "房地产", "tag": "开发商、经纪人、代理机构", "description": "住宅、商业、NRI 销售。拥有 3–20 名代理的团队淹没在低质量的门户潜在客户中。", "painPoints": ["每个门户潜在客户 ₹500–2,000", "70% 的潜在客户因无跟进而流失", "无法向 NRI 买家展示", "本地搜索无 SEO 可见性"], "outcome": "3–5 倍合格入站潜在客户 · 40% 降低 CPL · 2 倍现场访问转化" },
       { "id": "edtech", "name": "培训 / EdTech", "tag": "机构和在线教育者", "description": "JEE、UPSC、NEET 备考和技能课程。200–5,000 名学生的机构从线下转向混合模式。", "painPoints": ["手动电话招生", "无在线支付集成", "在 Google 上不可见", "60–70% 的询问从未转化"], "outcome": "3–4 倍更快的招生 · +40–60% 询问到入学转化 · 30% 降低辍学率" },
       { "id": "healthcare", "name": "医疗诊所", "tag": "综合和专科", "description": "牙科、皮肤科、骨科、生育、综合科。1–10 个位置,每天 10–200 名患者。", "painPoints": ["前台被预约电话淹没", "20–30% 的爽约率", "Google 地图上不可见", "无患者留存系统"], "outcome": "60% 更少来电 · 25% 减少爽约 · +40–80% 更多有机预约" },
-      { "id": "sme-erp", "name": "中小企业运营", "tag": "制造、分销、零售", "description": "₹5–100Cr 营业额的中小企业在 Excel 和 5+ 个断开连接的工具上运行。在增长但运营混乱。", "painPoints": ["库存不匹配", "无实时财务可见性", "手动 GST 发票", "关键员工是单点故障"], "outcome": "80% 减少手动输入 · 每日 P&L · 3 倍订单到交付速度" }
+      { "id": "manufacturing", "name": "制造业", "tag": "制造、分销、零售", "description": "₹5–100Cr 营业额的中小企业在 Excel 和 5+ 个断开连接的工具上运行。在增长但运营混乱。", "painPoints": ["库存不匹配", "无实时财务可见性", "手动 GST 发票", "关键员工是单点故障"], "outcome": "80% 减少手动输入 · 每日 P&L · 3 倍订单到交付速度" }
     ]
   },
   "process": {
@@ -374,11 +374,11 @@
       "industries": {
         "title": "行业",
         "links": [
-          { "label": "电子商务 / D2C", "href": "/industries#ecommerce" },
-          { "label": "房地产", "href": "/industries#real-estate" },
-          { "label": "培训 / EdTech", "href": "/industries#edtech" },
-          { "label": "医疗", "href": "/industries#healthcare" },
-          { "label": "中小企业", "href": "/industries#sme-erp" }
+          { "label": "制造业", "href": "/industries/manufacturing" },
+          { "label": "房地产", "href": "/industries/real-estate" },
+          { "label": "医疗", "href": "/industries/healthcare" },
+          { "label": "电子商务 / D2C", "href": "/industries/ecommerce" },
+          { "label": "培训 / EdTech", "href": "/industries/edtech" }
         ]
       },
       "company": {

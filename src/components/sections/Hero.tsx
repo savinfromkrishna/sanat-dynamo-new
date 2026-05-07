@@ -14,7 +14,7 @@ import LocalizedLink from "../LocalizedLink";
 import { HeroNetwork, HeroBackground } from "../illustrations";
 import type { Messages } from "@/lib/i18n";
 import { getCountryContent } from "@/lib/country-content";
-import { isTargetCountry } from "@/lib/constants";
+import { isResolvableCountry } from "@/lib/constants";
 
 const statIcons = [Users, IndianRupee, TrendingUp, Layers] as const;
 
@@ -23,7 +23,7 @@ export function Hero({ t, country }: { t: Messages; country?: string }) {
   // stat grid for country-specific copy. Non-target (or unspecified) falls
   // back to the global translations unchanged.
   const countryContent =
-    country && isTargetCountry(country) ? getCountryContent(country) : null;
+    country && isResolvableCountry(country) ? getCountryContent(country) : null;
 
   const subtitle = countryContent?.hero.subheadline ?? t.hero.subtitle;
   const stats = countryContent

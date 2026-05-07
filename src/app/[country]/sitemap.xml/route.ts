@@ -1,4 +1,9 @@
-import { STATIC_PAGES, BASE_URL, LANGUAGES, TARGET_COUNTRIES } from "@/lib/constants";
+import {
+  STATIC_PAGES,
+  BASE_URL,
+  LANGUAGES,
+  INDEXABLE_COUNTRIES,
+} from "@/lib/constants";
 import { LOCALES, type Locale } from "@/lib/i18n";
 import { NextResponse } from "next/server";
 import { BLOG_POSTS, BLOG_CATEGORIES } from "@/lib/blogs";
@@ -98,10 +103,12 @@ export async function GET(
 ) {
   const { country } = await params;
 
-  // Only our target markets are indexed. Non-target country URLs still resolve
-  // (middleware redirects them), but we never ship their sitemap — that's the
-  // whole point of TARGET_COUNTRIES.
-  if (!(TARGET_COUNTRIES as readonly string[]).includes(country.toLowerCase())) {
+  // Only INDEXABLE markets ship a sitemap. Non-indexable country URLs still
+  // resolve and render (with `noindex`), but they don't get a sitemap so
+  // Google doesn't waste crawl budget chasing variants we don't want indexed.
+  if (
+    !(INDEXABLE_COUNTRIES as readonly string[]).includes(country.toLowerCase())
+  ) {
     return new NextResponse("Not Found", { status: 404 });
   }
 

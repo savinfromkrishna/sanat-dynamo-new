@@ -2,39 +2,118 @@
 
 export const BASE_URL = "https://www.savingroup.in";
 
+/* -------------------------------------------------------------------------- */
+/*                  Resolvable vs Indexable — the core split                  */
+/* -------------------------------------------------------------------------- */
+
 /**
- * Countries we actively target for SEO / indexing.
- *
- * Every country in this list gets:
- *   - its own entry in the sitemap index
- *   - unique body content from `country-content.ts`
- *   - `<meta name="robots" content="index,follow">` on every page
- *
- * Countries outside this list still *resolve* (URL works, content renders)
- * but ship with `noindex,follow` and are excluded from the sitemap so Google
- * doesn't see them as duplicate canonicals. Keeping this list small is the
- * single most important SEO lever — ~240 near-duplicate country variants is
- * what was killing indexing before.
+ * Countries the site can RESOLVE URLs for. A visitor hitting `/us/en/about`
+ * still gets a rendered page, country-aware metadata, and country-specific
+ * content blocks from `country-content.ts`. Resolvable ≠ indexable: most of
+ * these ship `noindex` until we earn local authority in those markets.
  *
  * Tiers (see `country-content.ts` for content depth):
  *   T1 — deep hand-written content: in, us, gb, ae
  *   T2 — templated + market-specific bullets: ca, au, sg, de
  *   T3 — lighter localization:       fr, es, nl, sa
  */
-export const TARGET_COUNTRIES = [
+export const RESOLVABLE_COUNTRIES = [
   "in", "us", "gb", "ae",
   "ca", "au", "sg", "de",
   "fr", "es", "nl", "sa",
 ] as const;
 
-export type TargetCountry = (typeof TARGET_COUNTRIES)[number];
+/**
+ * Countries we want Google to actually INDEX. Every country here gets:
+ *   - an entry in the sitemap index
+ *   - a per-country sitemap.xml
+ *   - `index,follow` robots metadata on every page
+ *
+ * The .in TLD pins this site to India in Google's eyes. Until we move TLD
+ * or build serious local authority + backlinks per country, expanding this
+ * list just creates duplicates Google folds back to /in/. We re-add countries
+ * one at a time as we earn local case studies and local backlinks.
+ */
+export const INDEXABLE_COUNTRIES = ["in"] as const;
 
-export const COUNTRIES = TARGET_COUNTRIES;
-export const LANGUAGES = ["en", "es", "fr", "de", "ar", "hi", "zh"] as const;
+/**
+ * Locales the site can RESOLVE. Adding a new language = add it here AND in
+ * `i18n.ts` (LOCALES record) AND in `middleware.ts` (validLocales).
+ */
+export const RESOLVABLE_LOCALES = [
+  "en", "es", "fr", "de", "ar", "hi", "zh", "gu",
+] as const;
 
-export function isTargetCountry(code: string): code is TargetCountry {
-  return (TARGET_COUNTRIES as readonly string[]).includes(code.toLowerCase());
+/**
+ * Locales we want Google to actually INDEX. Other locales resolve but ship
+ * `noindex` so Google doesn't fold near-duplicate translation fallbacks
+ * back into the canonical English/Hindi pages.
+ *
+ * Currently EN + HI. Gujarati (gu) gets promoted into this list once the
+ * Ahmedabad pillar pages have hand-written GU content (Phase 2).
+ */
+export const INDEXABLE_LOCALES = ["en", "hi"] as const;
+
+/* -------------------------------------------------------------------------- */
+/*                       Backwards-compat aliases                             */
+/* -------------------------------------------------------------------------- */
+
+/** @deprecated Use RESOLVABLE_COUNTRIES (URL works) or INDEXABLE_COUNTRIES (in sitemap). */
+export const TARGET_COUNTRIES = RESOLVABLE_COUNTRIES;
+export type TargetCountry = (typeof RESOLVABLE_COUNTRIES)[number];
+
+/** Alias used by sitemap routes — equivalent to INDEXABLE_LOCALES. */
+export const LANGUAGES = INDEXABLE_LOCALES;
+
+/** Alias used by sitemap-index — equivalent to INDEXABLE_COUNTRIES. */
+export const COUNTRIES = INDEXABLE_COUNTRIES;
+
+/* -------------------------------------------------------------------------- */
+/*                              Type guards                                   */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * Is this country/locale combo something we want indexed by Google?
+ * Used by layout + seo.ts to decide robots index/noindex flags.
+ */
+export function isIndexableCountry(
+  code: string,
+): code is (typeof INDEXABLE_COUNTRIES)[number] {
+  return (INDEXABLE_COUNTRIES as readonly string[]).includes(code.toLowerCase());
 }
+
+export function isIndexableLocale(
+  code: string,
+): code is (typeof INDEXABLE_LOCALES)[number] {
+  return (INDEXABLE_LOCALES as readonly string[]).includes(code.toLowerCase());
+}
+
+/**
+ * Combined check — index only when BOTH country and locale are indexable.
+ * A page at /us/en/* is noindex (US not indexable) even though en is.
+ * A page at /in/zh/* is noindex (zh not indexable) even though in is.
+ */
+export function isIndexable(country: string, locale: string): boolean {
+  return isIndexableCountry(country) && isIndexableLocale(locale);
+}
+
+/** Resolvable check — does this country render at all? */
+export function isResolvableCountry(
+  code: string,
+): code is TargetCountry {
+  return (RESOLVABLE_COUNTRIES as readonly string[]).includes(code.toLowerCase());
+}
+
+/**
+ * @deprecated Renamed to isIndexableCountry. Kept as alias because
+ * country-content.ts comments reference the old name. Behavior changed:
+ * previously checked all 12 markets, now only `in`.
+ */
+export const isTargetCountry = isIndexableCountry;
+
+/* -------------------------------------------------------------------------- */
+/*                              Page registry                                 */
+/* -------------------------------------------------------------------------- */
 
 export const STATIC_PAGES = [
   "",

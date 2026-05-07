@@ -16,7 +16,11 @@ import {
   LOCALE_CODES,
   LOCALES,
 } from "@/lib/i18n";
-import { BASE_URL, isTargetCountry } from "@/lib/constants";
+import {
+  BASE_URL,
+  INDEXABLE_LOCALES,
+  isIndexable,
+} from "@/lib/constants";
 import {
   INDIA_CITIES,
   getCityBySlug,
@@ -67,15 +71,17 @@ export async function generateMetadata({
   const lc = (LOCALE_CODES.includes(locale as Locale) ? locale : "en") as Locale;
 
   // City pages only have unique value on the India market — same content
-  // rendered under another country slug would be a duplicate. Non-IN
-  // countries get noindex so Google never sees them as ranking candidates.
-  const indexable = country === "in" && isTargetCountry(country);
+  // rendered under another country slug would be a duplicate. Indexable
+  // check enforces /in/* + en/hi only; everything else ships noindex.
+  const indexable = isIndexable(country, lc);
 
   const canonical = `/${country}/${lc}/${CITIES_PATH}/${city.slug}`;
+  // Hreflang cluster: indexable locales pinned to /in/. City pages are
+  // intrinsically India-only, so the cluster only includes IN URLs.
   const languages: Record<string, string> = {};
-  for (const lang of LOCALE_CODES) {
+  for (const lang of INDEXABLE_LOCALES) {
     languages[LOCALES[lang].htmlLang] =
-      `${BASE_URL}/${country}/${lang}/${CITIES_PATH}/${city.slug}`;
+      `${BASE_URL}/in/${lang}/${CITIES_PATH}/${city.slug}`;
   }
   languages["x-default"] = `${BASE_URL}/in/en/${CITIES_PATH}/${city.slug}`;
 

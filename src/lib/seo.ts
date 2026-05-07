@@ -6,7 +6,11 @@ import {
   type Locale,
   type Messages,
 } from "@/lib/i18n";
-import { BASE_URL, isTargetCountry } from "@/lib/constants";
+import {
+  BASE_URL,
+  INDEXABLE_LOCALES,
+  isIndexable,
+} from "@/lib/constants";
 import { validCountryISOs } from "@/middleware";
 import { getGeo, formatLocation, formatLocationShort, type GeoInfo } from "@/lib/geo";
 
@@ -195,11 +199,14 @@ export async function buildPageMetadata({
     ? geoifyKeywords(meta.metaKeywords, geo)
     : meta.metaKeywords;
 
-  // hreflang alternates: every supported locale, same country
+  // hreflang cluster: only locales we want indexed. Pinning the cluster to
+  // /in/* (the indexable country) keeps the cluster tight and prevents
+  // Google from folding fallback-English locales back into the EN canonical.
+  // Other locales still resolve but are noindex and stay out of the cluster.
   const languages: Record<string, string> = {};
-  for (const lang of LOCALE_CODES) {
+  for (const lang of INDEXABLE_LOCALES) {
     languages[LOCALES[lang].htmlLang] =
-      `${BASE_URL}/${country}/${lang}${subPath ? `/${subPath}` : ""}`;
+      `${BASE_URL}/in/${lang}${subPath ? `/${subPath}` : ""}`;
   }
   languages["x-default"] =
     `${BASE_URL}/in/en${subPath ? `/${subPath}` : ""}`;
@@ -268,12 +275,11 @@ export async function buildPageMetadata({
       description: ogDescription,
       images: [`${BASE_URL}/og.png`],
     },
-    // Only target countries are indexed. Non-target URLs still render (the
-    // middleware canonicalizes most traffic away from them), but if a visitor
-    // types a non-target country slug directly, we don't want Google to treat
-    // that URL as a ranking candidate — it would compete with the canonical
-    // target-country page.
-    robots: isTargetCountry(country)
+    // Only INDEXABLE country+locale combinations are indexed (currently
+    // /in/en and /in/hi). Other URLs still render but ship `noindex,follow`
+    // so Google doesn't fold near-duplicate translation fallbacks back into
+    // the canonical EN/HI pages — this is the indexability lever, keep tight.
+    robots: isIndexable(country, locale)
       ? {
           index: true,
           follow: true,

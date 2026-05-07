@@ -280,7 +280,7 @@
         "outcome": "60% تقليل المكالمات · 25% تقليل عدم الحضور · +40–80% مواعيد عضوية"
       },
       {
-        "id": "sme-erp",
+        "id": "manufacturing",
         "name": "الشركات الصغيرة والمتوسطة",
         "tag": "التصنيع، التوزيع، التجزئة",
         "description": "شركات من ₹5–100Cr تعمل على Excel و5+ أدوات منفصلة. تنمو لكنها فوضوية تشغيلياً.",
@@ -450,11 +450,11 @@
       "industries": {
         "title": "الصناعات",
         "links": [
-          { "label": "التجارة الإلكترونية / D2C", "href": "/industries#ecommerce" },
-          { "label": "العقارات", "href": "/industries#real-estate" },
-          { "label": "التدريب / EdTech", "href": "/industries#edtech" },
-          { "label": "الصحة", "href": "/industries#healthcare" },
-          { "label": "الشركات الصغيرة", "href": "/industries#sme-erp" }
+          { "label": "التصنيع", "href": "/industries/manufacturing" },
+          { "label": "العقارات", "href": "/industries/real-estate" },
+          { "label": "الصحة", "href": "/industries/healthcare" },
+          { "label": "التجارة الإلكترونية / D2C", "href": "/industries/ecommerce" },
+          { "label": "التدريب / EdTech", "href": "/industries/edtech" }
         ]
       },
       "company": {

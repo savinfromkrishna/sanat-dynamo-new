@@ -17,8 +17,12 @@ import { Section, SectionHeader } from "@/components/primitives/section";
 import LocalizedLink from "@/components/LocalizedLink";
 import { KnowMore } from "@/components/sections/KnowMore";
 import { Cta } from "@/components/sections/Cta";
-import { getTranslation, type Locale } from "@/lib/i18n";
-import { BASE_URL } from "@/lib/constants";
+import { getTranslation, LOCALES, type Locale } from "@/lib/i18n";
+import {
+  BASE_URL,
+  INDEXABLE_LOCALES,
+  isIndexable,
+} from "@/lib/constants";
 import {
   BLOG_CATEGORIES,
   BLOG_POSTS,
@@ -62,6 +66,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { country, locale } = await params;
   const canonical = `${BASE_URL}/${country}/${locale}/blogs`;
+
+  // Hreflang cluster: only indexable locales, all pinned to /in/. Other
+  // country/locale combos resolve but ship noindex via the robots block below.
+  const languages: Record<string, string> = {};
+  for (const lang of INDEXABLE_LOCALES) {
+    languages[LOCALES[lang].htmlLang] = `${BASE_URL}/in/${lang}/blogs`;
+  }
+  languages["x-default"] = `${BASE_URL}/in/en/blogs`;
+
   return {
     title:
       "Blog · Revenue Systems, WhatsApp Automation, SEO & CRO for Indian SMEs",
@@ -71,7 +84,7 @@ export async function generateMetadata({
     authors: [
       { name: "Kanha Singh", url: `${BASE_URL}/${country}/${locale}/about` },
     ],
-    alternates: { canonical },
+    alternates: { canonical, languages },
     openGraph: {
       title: "Sanat Dynamo · Blog",
       description:
@@ -96,17 +109,23 @@ export async function generateMetadata({
         "Opinionated long-form writing on revenue systems, conversion, WhatsApp automation, and SEO.",
       images: [`${BASE_URL}/og.png`],
     },
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        "max-snippet": -1,
-        "max-image-preview": "large",
-        "max-video-preview": -1,
-      },
-    },
+    robots: isIndexable(country, locale)
+      ? {
+          index: true,
+          follow: true,
+          googleBot: {
+            index: true,
+            follow: true,
+            "max-snippet": -1,
+            "max-image-preview": "large",
+            "max-video-preview": -1,
+          },
+        }
+      : {
+          index: false,
+          follow: true,
+          googleBot: { index: false, follow: true },
+        },
   };
 }
 

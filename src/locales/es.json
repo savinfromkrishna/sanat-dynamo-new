@@ -280,7 +280,7 @@
         "outcome": "60% menos llamadas · 25% menos no-shows · +40–80% citas orgánicas"
       },
       {
-        "id": "sme-erp",
+        "id": "manufacturing",
         "name": "PYMES",
         "tag": "Manufactura, distribución, retail",
         "description": "PYMES de ₹5–100Cr corriendo en Excel y 5+ herramientas desconectadas. Crecen pero operativamente caóticos.",
@@ -516,11 +516,11 @@
       "industries": {
         "title": "Industrias",
         "links": [
-          { "label": "E-commerce / D2C", "href": "/industries#ecommerce" },
-          { "label": "Inmobiliaria", "href": "/industries#real-estate" },
-          { "label": "Coaching / EdTech", "href": "/industries#edtech" },
-          { "label": "Salud", "href": "/industries#healthcare" },
-          { "label": "PYMES", "href": "/industries#sme-erp" }
+          { "label": "Manufactura", "href": "/industries/manufacturing" },
+          { "label": "Inmobiliaria", "href": "/industries/real-estate" },
+          { "label": "Salud", "href": "/industries/healthcare" },
+          { "label": "E-commerce / D2C", "href": "/industries/ecommerce" },
+          { "label": "Coaching / EdTech", "href": "/industries/edtech" }
         ]
       },
       "company": {

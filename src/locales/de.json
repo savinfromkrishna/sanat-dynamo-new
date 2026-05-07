@@ -280,7 +280,7 @@
         "outcome": "60% weniger Anrufe · 25% weniger No-Shows · +40–80% organische Termine"
       },
       {
-        "id": "sme-erp",
+        "id": "manufacturing",
         "name": "KMU",
         "tag": "Fertigung, Vertrieb, Einzelhandel",
         "description": "KMU von ₹5–100Cr, die auf Excel und 5+ getrennten Tools laufen. Wachsend, aber operativ chaotisch.",
@@ -516,11 +516,11 @@
       "industries": {
         "title": "Branchen",
         "links": [
-          { "label": "E-Commerce / D2C", "href": "/industries#ecommerce" },
-          { "label": "Immobilien", "href": "/industries#real-estate" },
-          { "label": "Coaching / EdTech", "href": "/industries#edtech" },
-          { "label": "Gesundheit", "href": "/industries#healthcare" },
-          { "label": "KMU", "href": "/industries#sme-erp" }
+          { "label": "Fertigung", "href": "/industries/manufacturing" },
+          { "label": "Immobilien", "href": "/industries/real-estate" },
+          { "label": "Gesundheit", "href": "/industries/healthcare" },
+          { "label": "E-Commerce / D2C", "href": "/industries/ecommerce" },
+          { "label": "Coaching / EdTech", "href": "/industries/edtech" }
         ]
       },
       "company": {

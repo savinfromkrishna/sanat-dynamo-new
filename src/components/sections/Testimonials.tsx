@@ -5,7 +5,7 @@ import { Quote, Star } from "lucide-react";
 import { Section, SectionHeader } from "../primitives/section";
 import type { Messages } from "@/lib/i18n";
 import { getCountryContent } from "@/lib/country-content";
-import { isTargetCountry } from "@/lib/constants";
+import { isResolvableCountry } from "@/lib/constants";
 
 export function Testimonials({
   t,
@@ -15,7 +15,7 @@ export function Testimonials({
   country?: string;
 }) {
   const countryContent =
-    country && isTargetCountry(country) ? getCountryContent(country) : null;
+    country && isResolvableCountry(country) ? getCountryContent(country) : null;
 
   // Lift any testimonial whose author/role matches a country priority hint
   // to the top of the list. Priority matching is a case-insensitive substring

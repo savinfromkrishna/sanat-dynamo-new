@@ -17,7 +17,7 @@
  * to `TARGET_COUNTRIES` in `constants.ts`.
  *
  * Industry keys match `t.industries.items[].id` in translations:
- *   ecommerce, real-estate, edtech, healthcare, sme-erp
+ *   manufacturing, real-estate, ecommerce, healthcare, edtech
  * Case-study slugs match `t.caseStudies.items[].id`:
  *   d2c-skincare, real-estate-developer, manufacturing-erp
  */
@@ -25,11 +25,11 @@
 import type { TargetCountry } from "@/lib/constants";
 
 export type IndustryKey =
-  | "ecommerce"
+  | "manufacturing"
   | "real-estate"
-  | "edtech"
+  | "ecommerce"
   | "healthcare"
-  | "sme-erp";
+  | "edtech";
 
 export type CaseStudySlug =
   | "d2c-skincare"
@@ -151,11 +151,11 @@ const IN: CountryContent = {
     ],
   },
   industries: {
-    order: ["real-estate", "sme-erp", "ecommerce", "healthcare", "edtech"],
+    order: ["real-estate", "manufacturing", "ecommerce", "healthcare", "edtech"],
     angle: {
       "real-estate":
         "From Gurugram high-rise launches to Pune villas — automated lead routing, virtual walkthroughs, and WhatsApp nurture that closes site visits, not just inquiries.",
-      "sme-erp":
+      "manufacturing":
         "MSMEs and manufacturers across Pune, Coimbatore, and Faridabad — we digitize order workflows, tie GST filings to sales pipeline, and cut quote-to-dispatch time by 40%.",
       ecommerce:
         "₹5Cr–₹50Cr D2C brands on Shopify and WooCommerce — we fix cart abandonment, scale paid-organic balance, and build LTV through WhatsApp retention loops.",
@@ -222,11 +222,11 @@ const US: CountryContent = {
     ],
   },
   industries: {
-    order: ["ecommerce", "sme-erp", "healthcare", "real-estate", "edtech"],
+    order: ["ecommerce", "manufacturing", "healthcare", "real-estate", "edtech"],
     angle: {
       ecommerce:
         "Shopify Plus and headless stacks — Klaviyo lifecycle, post-purchase upsells, subscription rescue, and a checkout that doesn't hemorrhage mobile revenue.",
-      "sme-erp":
+      "manufacturing":
         "Product-led SaaS and US service businesses $1M–$50M — we fix the pricing page, the self-serve onboarding, and the ops dashboards founders quietly dread.",
       healthcare:
         "Medical, dental, and med-spa practices — HIPAA-aware intake flows, no-show recovery, and Google Business Profile plays that dominate 5-mile-radius search.",
@@ -297,11 +297,11 @@ const GB: CountryContent = {
     ],
   },
   industries: {
-    order: ["ecommerce", "sme-erp", "real-estate", "healthcare", "edtech"],
+    order: ["ecommerce", "manufacturing", "real-estate", "healthcare", "edtech"],
     angle: {
       ecommerce:
         "UK Shopify and Magento stacks — post-purchase, subscription, and SMS flows that work under GDPR consent rules without killing conversion.",
-      "sme-erp":
+      "manufacturing":
         "UK B2B SaaS and service firms £1M–£20M — ABM-friendly websites, webinar funnels, and the internal dashboards directors actually use.",
       "real-estate":
         "UK estate agents and property developers — Rightmove/Zoopla-adjacent lead capture, valuation funnels, and post-viewing nurture.",
@@ -368,7 +368,7 @@ const AE: CountryContent = {
     ],
   },
   industries: {
-    order: ["real-estate", "ecommerce", "healthcare", "sme-erp", "edtech"],
+    order: ["real-estate", "ecommerce", "healthcare", "manufacturing", "edtech"],
     angle: {
       "real-estate":
         "Dubai and Abu Dhabi developers + brokerages — bilingual property pages, WhatsApp lead routing, and off-plan launch funnels that convert in both Arabic and English.",
@@ -376,7 +376,7 @@ const AE: CountryContent = {
         "UAE retail and D2C — Shopify + Zid builds with Tabby/Tamara BNPL integration and Arabic-first product discovery.",
       healthcare:
         "Jumeirah, Al Barsha, and DIFC clinics — WhatsApp-first booking, Google Reviews automation, and bilingual SEO.",
-      "sme-erp":
+      "manufacturing":
         "UAE SMEs scaling beyond founder-led sales — bilingual CRM, automation, and dashboards in English + Arabic.",
       edtech:
         "Gulf-region coaches and course creators — Arabic webinar funnels and WhatsApp-led nurture.",
@@ -442,10 +442,10 @@ const CA: CountryContent = {
     ],
   },
   industries: {
-    order: ["ecommerce", "sme-erp", "real-estate", "healthcare", "edtech"],
+    order: ["ecommerce", "manufacturing", "real-estate", "healthcare", "edtech"],
     angle: {
       ecommerce: "Canadian Shopify and Shopify Plus merchants — lifecycle + SEO heavy, paid-efficient.",
-      "sme-erp": "Canadian B2B SaaS and service firms — ABM and self-serve funnels with EN/FR support.",
+      "manufacturing": "Canadian B2B SaaS and service firms — ABM and self-serve funnels with EN/FR support.",
       "real-estate": "Canadian brokerages across GTA, Vancouver, Montreal — IDX-integrated lead systems.",
       healthcare: "Canadian clinics and med-spas — Jane App-friendly intake and review automation.",
       edtech: "Canadian coaches and course creators — long-nurture funnels for higher-LTV programs.",
@@ -502,11 +502,11 @@ const AU: CountryContent = {
     ],
   },
   industries: {
-    order: ["ecommerce", "real-estate", "sme-erp", "healthcare", "edtech"],
+    order: ["ecommerce", "real-estate", "manufacturing", "healthcare", "edtech"],
     angle: {
       ecommerce: "Australian Shopify merchants — post-purchase, subscription, and SMS flows that beat local CPM pressure.",
       "real-estate": "Australian real estate — realestate.com.au-adjacent lead capture and appraisal funnels.",
-      "sme-erp": "Australian B2B SaaS and service firms — APAC-to-US pipeline with async US overlap.",
+      "manufacturing": "Australian B2B SaaS and service firms — APAC-to-US pipeline with async US overlap.",
       healthcare: "Australian clinics — HealthEngine-friendly intake, review automation, local SEO.",
       edtech: "Australian coaches and course creators — long-nurture for premium pricing.",
     },
@@ -562,9 +562,9 @@ const SG: CountryContent = {
     ],
   },
   industries: {
-    order: ["sme-erp", "ecommerce", "edtech", "healthcare", "real-estate"],
+    order: ["manufacturing", "ecommerce", "edtech", "healthcare", "real-estate"],
     angle: {
-      "sme-erp": "Singapore B2B SaaS and services selling across APAC — ABM, enterprise proof, multi-currency checkout.",
+      "manufacturing": "Singapore B2B SaaS and services selling across APAC — ABM, enterprise proof, multi-currency checkout.",
       ecommerce: "Singapore D2C — Shopify with PayNow, GrabPay, and Atome integrations.",
       edtech: "Singapore coaches and course creators — premium-tier funnels and retention.",
       healthcare: "Singapore clinics and med-spas — PDPA-aware intake and review automation.",
@@ -622,9 +622,9 @@ const DE: CountryContent = {
     ],
   },
   industries: {
-    order: ["sme-erp", "ecommerce", "real-estate", "healthcare", "edtech"],
+    order: ["manufacturing", "ecommerce", "real-estate", "healthcare", "edtech"],
     angle: {
-      "sme-erp": "German B2B SaaS and Mittelstand manufacturers — long-cycle ABM, B2B lead systems, DSGVO-clean forms.",
+      "manufacturing": "German B2B SaaS and Mittelstand manufacturers — long-cycle ABM, B2B lead systems, DSGVO-clean forms.",
       ecommerce: "German D2C on Shopify and Shopware — DSGVO-clean lifecycle, Klarna and Sofort integrations.",
       "real-estate": "German real estate — ImmoScout24-adjacent landing pages and lead systems.",
       healthcare: "German clinics and practices — DSGVO-aware intake and review flows.",
@@ -686,10 +686,10 @@ const FR: CountryContent = {
     ],
   },
   industries: {
-    order: ["ecommerce", "sme-erp", "real-estate", "edtech", "healthcare"],
+    order: ["ecommerce", "manufacturing", "real-estate", "edtech", "healthcare"],
     angle: {
       ecommerce: "French D2C — Shopify + PrestaShop, with Cartes Bancaires and Alma integrations.",
-      "sme-erp": "French B2B SaaS — French-language funnels, EU-to-US sales motion support.",
+      "manufacturing": "French B2B SaaS — French-language funnels, EU-to-US sales motion support.",
       "real-estate": "French real estate — SeLoger-adjacent lead capture and valuation funnels.",
       edtech: "French coaches and formateurs — long-nurture, premium-tier funnels.",
       healthcare: "French clinics — Doctolib-friendly intake, RGPD-aware.",
@@ -746,13 +746,13 @@ const ES: CountryContent = {
     ],
   },
   industries: {
-    order: ["ecommerce", "real-estate", "edtech", "healthcare", "sme-erp"],
+    order: ["ecommerce", "real-estate", "edtech", "healthcare", "manufacturing"],
     angle: {
       ecommerce: "Spanish D2C — Shopify with Bizum and Redsys integrations, Spanish-first lifecycle.",
       "real-estate": "Spanish real estate — Idealista-adjacent lead capture and valuation funnels.",
       edtech: "Spanish coaches and formadores — Spanish-first funnels and retention.",
       healthcare: "Spanish clinics and dental practices — Spanish-language intake and review flows.",
-      "sme-erp": "Spanish B2B SaaS and SMEs selling into LATAM — multi-country Spanish funnels.",
+      "manufacturing": "Spanish B2B SaaS and SMEs selling into LATAM — multi-country Spanish funnels.",
     },
   },
   servicesAngle:
@@ -806,10 +806,10 @@ const NL: CountryContent = {
     ],
   },
   industries: {
-    order: ["ecommerce", "sme-erp", "real-estate", "healthcare", "edtech"],
+    order: ["ecommerce", "manufacturing", "real-estate", "healthcare", "edtech"],
     angle: {
       ecommerce: "Dutch D2C — Shopify with iDEAL, Klarna, and Mollie integrations.",
-      "sme-erp": "Dutch B2B SaaS — direct-copy funnels, EU-wide ABM motion.",
+      "manufacturing": "Dutch B2B SaaS — direct-copy funnels, EU-wide ABM motion.",
       "real-estate": "Dutch real estate — Funda-adjacent lead capture and valuation funnels.",
       healthcare: "Dutch clinics — AVG-compliant intake and review flows.",
       edtech: "Dutch coaches and trainers — direct-style funnels.",
@@ -866,12 +866,12 @@ const SA: CountryContent = {
     ],
   },
   industries: {
-    order: ["real-estate", "ecommerce", "healthcare", "sme-erp", "edtech"],
+    order: ["real-estate", "ecommerce", "healthcare", "manufacturing", "edtech"],
     angle: {
       "real-estate": "Saudi real estate across Riyadh, Jeddah, Dammam — Arabic-first property pages and WhatsApp-led lead routing.",
       ecommerce: "Saudi D2C on Shopify and Zid — Mada, STC Pay, Tabby, Tamara integrations.",
       healthcare: "Saudi clinics in Riyadh and Jeddah — Arabic intake flows and review automation.",
-      "sme-erp": "Saudi SMEs and regional SaaS — Arabic-first CRM, automation, and dashboards.",
+      "manufacturing": "Saudi SMEs and regional SaaS — Arabic-first CRM, automation, and dashboards.",
       edtech: "Saudi coaches and trainers — Arabic funnels and WhatsApp nurture.",
     },
   },

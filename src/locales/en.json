@@ -223,74 +223,79 @@
     ]
   },
   "industries": {
-    "eyebrow": "Industries we build for",
-    "title": "Five sectors. One growth playbook.",
-    "subtitle": "We don't pretend to know everyone's business. We've gone deep in five — and we've built repeatable revenue systems for each.",
+    "eyebrow": "Industry-specific revenue systems",
+    "title": "Software built for the way Indian SMEs actually run.",
+    "subtitle": "Manufacturing ERP, real estate CRM, clinic management, D2C commerce, coaching LMS — we build the production-grade software stack each industry needs to stop leaking revenue and start compounding it.",
     "items": [
       {
-        "id": "ecommerce",
-        "name": "E-commerce / D2C",
-        "tag": "Direct-to-consumer brands",
-        "description": "Fashion, beauty, wellness, electronics. ₹10L–₹2Cr GMV brands stuck on rising CAC and one-and-done buyers.",
+        "id": "manufacturing",
+        "name": "Manufacturing ERP",
+        "tag": "Textile, chemical, engineering, pharma SMEs",
+        "description": "Custom ERP for ₹5–100Cr Indian manufacturers. Ahmedabad textile, Gujarat chemical, Pune engineering, Coimbatore pumps. We replace Tally + 5 spreadsheets with one cloud ERP that runs production planning, GST e-invoicing, inventory across godowns, and daily P&L from one dashboard.",
         "painPoints": [
-          "Website converts below 1%",
-          "No repeat purchase mechanism",
-          "Cart abandonment above 70%",
-          "Fully dependent on Meta ads"
+          "Tally caps at 2 users — production runs blind",
+          "GST e-invoicing & e-way bills done manually every day",
+          "WIP, raw material, finished goods tracked on WhatsApp",
+          "No real-time costing per SKU or order",
+          "Single supervisor knows the whole shop floor — leaves and you're stuck"
         ],
-        "outcome": "+1.5–3% conversion · 2x repeat purchase rate · 40–60% organic traffic in 6 months"
+        "outcome": "Tally → cloud ERP in 6 weeks · Daily P&L on phone · 40% faster quote-to-dispatch · 80% less manual entry"
       },
       {
         "id": "real-estate",
-        "name": "Real Estate",
-        "tag": "Developers, brokers, agencies",
-        "description": "Residential, commercial, plotted, NRI sales. Teams with 3–20 agents drowning in low-quality portal leads.",
+        "name": "Real Estate CRM & Lead Systems",
+        "tag": "Developers, brokers, channel partners",
+        "description": "Lead-to-site-visit systems for Indian real estate — residential, commercial, plotted, NRI sales. Teams with 3–20 sales managers drowning in ₹500–2,000 portal leads from 99acres, MagicBricks, Housing.com that die without follow-up.",
         "painPoints": [
-          "₹500–2,000 cost per portal lead",
-          "70% of leads die without follow-up",
-          "Cannot showcase to NRI buyers",
-          "No SEO visibility for local searches"
+          "₹500–2,000 portal CPL with sub-2% site-visit conversion",
+          "70% of inbound leads cold within 5 minutes — no auto-routing",
+          "NRI buyers from US/UAE/SG bounce on slow project sites",
+          "Zero SEO visibility for '3BHK in {locality}' or 'flats near {metro}'",
+          "WhatsApp follow-up done manually by overworked telecallers"
         ],
-        "outcome": "3–5x more qualified inbound leads · 40% lower CPL · 2x site-visit conversion"
-      },
-      {
-        "id": "edtech",
-        "name": "Coaching / EdTech",
-        "tag": "Institutes and online educators",
-        "description": "JEE, UPSC, NEET prep and skill courses. Institutes with 200–5,000 students moving from offline to hybrid.",
-        "painPoints": [
-          "Manual phone-based admissions",
-          "No online payment integration",
-          "Invisible on Google for local searches",
-          "60–70% of inquiries never convert"
-        ],
-        "outcome": "3–4x faster enrollment · 40–60% inquiry-to-enrollment lift · 30% lower dropout"
+        "outcome": "3–5x qualified inbound · 40% lower CPL · 2x site-visit conversion · 0–5 min lead routing"
       },
       {
         "id": "healthcare",
-        "name": "Healthcare Clinics",
-        "tag": "Multi-specialty and single-doctor",
-        "description": "Dental, dermatology, orthopaedics, fertility, multispecialty. 1–10 locations with 10–200 daily patients.",
+        "name": "Healthcare Clinic Software",
+        "tag": "Dental, dermatology, multispecialty, fertility",
+        "description": "Patient booking, EMR, and retention software for Indian clinics — dental, derma, orthopaedics, fertility, multispecialty. 1–10 locations, 10–200 daily patients. We replace Practo dependency and the chaos of WhatsApp + Excel patient records with a clinic management system that owns booking, reminders, and Google reviews.",
         "painPoints": [
-          "Receptionist drowning in appointment calls",
-          "20–30% no-show rate",
-          "Invisible on Google Maps",
-          "Zero patient retention system"
+          "Receptionist drowning in appointment + reschedule calls",
+          "20–30% no-show rate eating chair time",
+          "Invisible on Google Maps for 'dentist near me' searches",
+          "Patient records scattered across paper, WhatsApp, Excel",
+          "Zero retention loop — patients churn after one visit"
         ],
-        "outcome": "60% fewer incoming calls · 25% drop in no-shows · 40–80% more organic appointments"
+        "outcome": "60% fewer incoming calls · 25% drop in no-shows · 40–80% more organic Google bookings"
       },
       {
-        "id": "sme-erp",
-        "name": "SME Operations",
-        "tag": "Manufacturing, distribution, retail",
-        "description": "₹5–100Cr turnover SMEs running on Excel sheets and 5+ disconnected tools. Growing but operationally chaotic.",
+        "id": "ecommerce",
+        "name": "D2C E-commerce Stack",
+        "tag": "Shopify, WooCommerce, headless India",
+        "description": "Revenue systems for Indian D2C — fashion, beauty, wellness, F&B, electronics. ₹10L–₹2Cr GMV brands on Shopify or WooCommerce stuck below 1% conversion, 70% cart abandonment, and fully Meta-ad-dependent. We rebuild storefront, WhatsApp recovery, and SEO so the brand stops renting traffic and starts owning it.",
         "painPoints": [
-          "Inventory mismatches and stockouts",
-          "No real-time financial visibility",
-          "Manual GST invoicing and vendor management",
-          "Key staff are single points of failure"
+          "Storefront converts under 1% on mobile",
+          "70%+ cart abandonment with no WhatsApp/SMS recovery",
+          "100% dependent on Meta ads — CAC creeping every month",
+          "Zero LTV / repeat-purchase engine",
+          "Invisible for product + 'buy in India' organic queries"
         ],
-        "outcome": "80% less manual data entry · daily P&L visibility · 3x faster order-to-delivery"
+        "outcome": "+1.5–3% conversion lift · 2x repeat purchase rate · 40–60% organic GMV in 6 months"
+      },
+      {
+        "id": "edtech",
+        "name": "Coaching & EdTech LMS",
+        "tag": "JEE / NEET / UPSC institutes & online creators",
+        "description": "Enrollment funnels and learning management systems for Indian coaching — JEE, NEET, UPSC, CA, CAT, skill courses. Institutes with 200–5,000 students transitioning offline-to-hybrid. We build the website, fee + Razorpay flow, attendance, and live-class stack that institutes can actually run themselves.",
+        "painPoints": [
+          "Phone-based admissions losing 60–70% of warm inquiries",
+          "No Razorpay-integrated fee + EMI structure",
+          "Invisible on Google for 'coaching in {city}' or 'NEET coaching near me'",
+          "Manual attendance, fees, doubt-clearing across WhatsApp groups",
+          "No retention loop — students drop after demo class"
+        ],
+        "outcome": "3–4x faster enrollment · 40–60% inquiry-to-enrollment lift · 30% lower demo-to-paid drop-off"
       }
     ]
   },
@@ -516,11 +521,11 @@
       "industries": {
         "title": "Industries",
         "links": [
-          { "label": "E-commerce / D2C", "href": "/industries#ecommerce" },
-          { "label": "Real Estate", "href": "/industries#real-estate" },
-          { "label": "Coaching / EdTech", "href": "/industries#edtech" },
-          { "label": "Healthcare", "href": "/industries#healthcare" },
-          { "label": "SME Operations", "href": "/industries#sme-erp" }
+          { "label": "Manufacturing ERP", "href": "/industries/manufacturing" },
+          { "label": "Real Estate CRM", "href": "/industries/real-estate" },
+          { "label": "Healthcare Clinics", "href": "/industries/healthcare" },
+          { "label": "E-commerce / D2C", "href": "/industries/ecommerce" },
+          { "label": "Coaching / EdTech", "href": "/industries/edtech" }
         ]
       },
       "company": {
@@ -560,11 +565,11 @@
       "ogDescription": "RevSite Pro · AutoSell Engine · LocalDom SEO · GlobalScale Suite · OperateOS · GrowthOS Retainer. Fixed scope, fixed price."
     },
     "industries": {
-      "metaTitle": "Sanat Dynamo — Industries | E-commerce, Real Estate, EdTech, Healthcare & SME Solutions",
-      "metaDescription": "Industry-specific revenue systems for 5 sectors: D2C e-commerce (2x repeat purchase), real estate (3-5x inbound leads), coaching/EdTech (3-4x enrollment), healthcare clinics (-60% incoming calls), SME operations (-80% manual entry). Proven playbooks.",
-      "metaKeywords": "D2C e-commerce agency, real estate digital marketing, coaching institute software, clinic management system, SME ERP system, e-commerce conversion optimization, NRI real estate website, online enrollment system, patient booking automation, inventory management software",
-      "ogTitle": "Sanat Dynamo — Five Sectors. One Growth Playbook.",
-      "ogDescription": "E-commerce, real estate, EdTech, healthcare & SME — we've built repeatable revenue systems for each sector."
+      "metaTitle": "Industry Software India — Manufacturing ERP, Real Estate CRM, Clinic Software, D2C, EdTech | Sanat Dynamo",
+      "metaDescription": "Custom software for Indian SMEs by industry: manufacturing ERP (Tally→cloud, GST e-invoicing), real estate CRM (3-5x leads), clinic management (-60% calls), D2C Shopify stack, coaching LMS. Built for Ahmedabad, Mumbai, Bengaluru, Pune.",
+      "metaKeywords": "manufacturing software India, ERP for manufacturers, real estate CRM India, clinic management software, D2C ecommerce development, coaching LMS, MSME ERP, GST inventory software, Tally alternative, industry software Ahmedabad, NRI real estate website, online enrollment system, patient booking automation, inventory management software",
+      "ogTitle": "Industry-Specific Revenue Systems for Indian SMEs — Sanat Dynamo",
+      "ogDescription": "Manufacturing ERP, real estate CRM, clinic software, D2C stack, coaching LMS — production-grade systems built for the way Indian SMEs actually run."
     },
     "caseStudies": {
       "metaTitle": "Sanat Dynamo — Case Studies | +127% Revenue, -65% CPA, ₹40Cr+ Impact",

@@ -5,8 +5,9 @@ import deMessages from "@/locales/de.json";
 import arMessages from "@/locales/ar.json";
 import hiMessages from "@/locales/hi.json";
 import zhMessages from "@/locales/zh.json";
+import guMessages from "@/locales/gu.json";
 
-export type Locale = "en" | "es" | "fr" | "de" | "ar" | "hi" | "zh";
+export type Locale = "en" | "es" | "fr" | "de" | "ar" | "hi" | "zh" | "gu";
 export type Messages = typeof enMessages;
 
 /** Metadata for each supported locale */
@@ -77,6 +78,14 @@ export const LOCALES: Record<
     dir: "ltr",
     htmlLang: "zh-Hans",
   },
+  gu: {
+    code: "gu",
+    name: "Gujarati",
+    nativeName: "ગુજરાતી",
+    flag: "🇮🇳",
+    dir: "ltr",
+    htmlLang: "gu-IN",
+  },
 };
 
 export const LOCALE_CODES = Object.keys(LOCALES) as Locale[];
@@ -117,6 +126,7 @@ const rawDictionaries: Record<Locale, unknown> = {
   ar: arMessages,
   hi: hiMessages,
   zh: zhMessages,
+  gu: guMessages,
 };
 
 // Pre-merge every locale with English as fallback, so partial translations

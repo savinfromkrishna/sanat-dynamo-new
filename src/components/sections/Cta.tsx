@@ -7,12 +7,12 @@ import { Eyebrow } from "../primitives/section";
 import { CtaWaves } from "../illustrations";
 import type { Messages } from "@/lib/i18n";
 import { getCountryContent } from "@/lib/country-content";
-import { isTargetCountry } from "@/lib/constants";
+import { isResolvableCountry } from "@/lib/constants";
 
 export function Cta({ t, country }: { t: Messages; country?: string }) {
   const tm = t.testimonials.items[0];
   const countryContent =
-    country && isTargetCountry(country) ? getCountryContent(country) : null;
+    country && isResolvableCountry(country) ? getCountryContent(country) : null;
 
   // Use country-specific CTA copy when available — timezone-aware primary
   // button and "Free 45-minute audit in IST/ET/GST" support line. Falls

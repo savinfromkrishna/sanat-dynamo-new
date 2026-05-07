@@ -19,14 +19,14 @@ import {
   getCountryContent,
   type IndustryKey,
 } from "@/lib/country-content";
-import { isTargetCountry } from "@/lib/constants";
+import { isResolvableCountry } from "@/lib/constants";
 
 const iconMap = {
-  ecommerce: ShoppingBag,
+  manufacturing: Factory,
   "real-estate": Building2,
-  edtech: GraduationCap,
   healthcare: Stethoscope,
-  "sme-erp": Factory,
+  ecommerce: ShoppingBag,
+  edtech: GraduationCap,
 } as const;
 
 export function Industries({
@@ -37,7 +37,7 @@ export function Industries({
   country?: string;
 }) {
   const countryContent =
-    country && isTargetCountry(country) ? getCountryContent(country) : null;
+    country && isResolvableCountry(country) ? getCountryContent(country) : null;
 
   // Reorder the translation industry items by the country-specific priority.
   // The country-priority list references real industry ids; any id not in

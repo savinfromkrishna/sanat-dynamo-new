@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getTranslation, type Locale } from "@/lib/i18n";
 import { buildPageMetadata, buildFaqJsonLd } from "@/lib/seo";
 import { getCountryContent } from "@/lib/country-content";
-import { isTargetCountry } from "@/lib/constants";
+import { isResolvableCountry } from "@/lib/constants";
 import { Hero } from "@/components/sections/Hero";
 import { LogosMarquee } from "@/components/sections/LogosMarquee";
 import { CityBanner } from "@/components/sections/CityBanner";
@@ -45,7 +45,7 @@ export default async function HomePage({
 
   // Build FAQ JSON-LD including country-specific additions so the
   // FAQ rich result matches what's rendered on-page for this market.
-  const countryContent = isTargetCountry(country)
+  const countryContent = isResolvableCountry(country)
     ? getCountryContent(country)
     : null;
   const faqLd = buildFaqJsonLd(

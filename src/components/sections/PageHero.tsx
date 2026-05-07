@@ -14,7 +14,6 @@ export function PageHero({
   title: React.ReactNode;
   subtitle?: string;
   breadcrumb?: string;
-  /** `center` shifts the animated story strip down so it sits behind taller heroes. */
   bgVariant?: "top" | "center";
 }) {
   return (

@@ -8,7 +8,11 @@ import {
   LOCALE_CODES,
   type Locale,
 } from "@/lib/i18n";
-import { BASE_URL, isTargetCountry } from "@/lib/constants";
+import {
+  BASE_URL,
+  INDEXABLE_LOCALES,
+  isIndexable,
+} from "@/lib/constants";
 import { buildOrganizationJsonLd, buildWebsiteJsonLd } from "@/lib/seo";
 import Header from "@/components/common/header";
 import Footer from "@/components/common/footer";
@@ -51,9 +55,14 @@ export async function generateMetadata({
     : "en") as Locale;
   const t = getTranslation(locale);
 
+  // Hreflang for the homepage only — child pages override via their own
+  // `generateMetadata`. Cluster includes only the locales we want indexed
+  // (INDEXABLE_LOCALES); other locales resolve but ship `noindex` and stay
+  // out of the cluster so Google doesn't fold near-duplicate translation
+  // fallbacks back into the canonical EN/HI versions.
   const langMap: Record<string, string> = {};
-  for (const lang of LOCALE_CODES) {
-    langMap[LOCALES[lang].htmlLang] = `${BASE_URL}/${country}/${lang}`;
+  for (const lang of INDEXABLE_LOCALES) {
+    langMap[LOCALES[lang].htmlLang] = `${BASE_URL}/in/${lang}`;
   }
   langMap["x-default"] = `${BASE_URL}/in/en`;
 
@@ -82,11 +91,11 @@ export async function generateMetadata({
       title: t.seo.title,
       description: t.seo.description,
     },
-    // Only TARGET_COUNTRIES are indexed. If a visitor hits a non-target
-    // country slug directly (rare — middleware usually redirects), this page
-    // still renders but carries `noindex,follow` so Google doesn't promote it
-    // as a ranking candidate against the canonical target-country page.
-    robots: isTargetCountry(country)
+    // Only INDEXABLE country+locale combinations are indexed (currently
+    // /in/en and /in/hi). Everything else resolves but ships `noindex,follow`
+    // so Google doesn't fold near-duplicates back into the canonical pages.
+    // This is the indexability lever — keep this check tight.
+    robots: isIndexable(country, locale)
       ? {
           index: true,
           follow: true,
@@ -170,19 +179,13 @@ export default async function LocaleLayout({
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://res.cloudinary.com" />
 
-        <link
-          rel="alternate"
-          hrefLang="x-default"
-          href={`${BASE_URL}/in/en`}
-        />
-        {LOCALE_CODES.map((lang) => (
-          <link
-            key={lang}
-            rel="alternate"
-            hrefLang={LOCALES[lang].htmlLang}
-            href={`${BASE_URL}/${country}/${lang}`}
-          />
-        ))}
+        {/* Hreflang is emitted by Next.js from metadata.alternates.languages
+            on each page. We deliberately do NOT emit hardcoded <link rel="alternate">
+            tags here — the layout doesn't know the page path, so any tags it
+            emits would point at the country root instead of the actual page.
+            That mismatch (HTML hreflang vs sitemap hreflang) was killing
+            cluster recognition; Google would discard the cluster and fold
+            variants together. */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLd) }}

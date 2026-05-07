@@ -7,13 +7,13 @@ import { Section, SectionHeader } from "../primitives/section";
 import LocalizedLink from "../LocalizedLink";
 import type { Messages } from "@/lib/i18n";
 import { getCountryContent } from "@/lib/country-content";
-import { isTargetCountry } from "@/lib/constants";
+import { isResolvableCountry } from "@/lib/constants";
 
 export function Faq({ t, country }: { t: Messages; country?: string }) {
   const [open, setOpen] = useState<number | null>(0);
 
   const countryContent =
-    country && isTargetCountry(country) ? getCountryContent(country) : null;
+    country && isResolvableCountry(country) ? getCountryContent(country) : null;
 
   // Append country-specific FAQs after the global list. Appending (not
   // prepending) preserves the most important global questions at the top

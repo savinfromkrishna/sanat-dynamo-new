@@ -1,6 +1,6 @@
 import { MapPin, ShieldCheck, Clock, Wallet } from "lucide-react";
 import { getCountryContent } from "@/lib/country-content";
-import { isTargetCountry, BASE_URL } from "@/lib/constants";
+import { isResolvableCountry, BASE_URL } from "@/lib/constants";
 import type { Messages } from "@/lib/i18n";
 import { Section } from "../primitives/section";
 
@@ -23,7 +23,7 @@ export function CountryTrustBlock({
   t: Messages;
   country: string;
 }) {
-  if (!isTargetCountry(country)) return null;
+  if (!isResolvableCountry(country)) return null;
 
   const c = getCountryContent(country);
 
