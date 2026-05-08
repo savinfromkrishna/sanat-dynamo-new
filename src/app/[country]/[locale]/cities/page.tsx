@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ArrowUpRight, MapPin } from "lucide-react";
 import { getTranslation, type Locale, LOCALE_CODES, LOCALES } from "@/lib/i18n";
 import {
   BASE_URL,
@@ -10,9 +9,14 @@ import {
 import { INDIA_CITIES } from "@/lib/cities";
 import { buildBreadcrumbJsonLd } from "@/lib/seo";
 import { PageHero } from "@/components/sections/PageHero";
-import { Section } from "@/components/primitives/section";
+import { Section, Eyebrow } from "@/components/primitives/section";
 import { Cta } from "@/components/sections/Cta";
-import LocalizedLink from "@/components/LocalizedLink";
+import {
+  IndiaMetroMap,
+  CitiesScrollTimeline,
+  CitiesIntentMatrix,
+  GlobalPeersConstellation,
+} from "@/components/illustrations/CitiesHubVisuals";
 
 const PAGE_PATH = "cities";
 
@@ -141,52 +145,41 @@ export default async function CitiesIndexPage({
         breadcrumb="Cities"
       />
 
+      {/* Animated India map — every metro plotted on a stylised silhouette */}
       <Section className="pt-8">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {INDIA_CITIES.map((city) => (
-            <LocalizedLink
-              key={city.slug}
-              href={`/cities/${city.slug}`}
-              className="group relative overflow-hidden rounded-3xl border border-border bg-surface/40 p-6 transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:bg-surface"
-            >
-              <div
-                aria-hidden
-                className="pointer-events-none absolute -right-16 -top-16 h-44 w-44 rounded-full bg-accent/5 blur-3xl"
-              />
+        <IndiaMetroMap />
+      </Section>
 
-              <div className="flex items-center justify-between">
-                <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
-                  <MapPin size={11} />
-                  {city.state}
-                </div>
-                <ArrowUpRight
-                  size={16}
-                  className="text-muted-foreground transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent"
-                />
-              </div>
-
-              <h2 className="mt-5 font-display text-2xl font-semibold tracking-tight text-foreground transition-colors group-hover:text-accent">
-                {city.name}
-              </h2>
-
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                {city.heroSubheadline.split(".")[0]}.
-              </p>
-
-              <div className="mt-5 flex flex-wrap gap-2 border-t border-border pt-5">
-                {city.heroStats.slice(0, 2).map((s) => (
-                  <span
-                    key={s.label}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.18em] text-muted-foreground"
-                  >
-                    <span className="text-accent">{s.value}</span>
-                    <span className="truncate max-w-[18ch]">{s.label}</span>
-                  </span>
-                ))}
-              </div>
-            </LocalizedLink>
-          ))}
+      {/* Scroll-driven city ladder with hidden-gem teaser per row */}
+      <Section className="pt-0">
+        <div className="max-w-3xl">
+          <Eyebrow>11-metro deep dive</Eyebrow>
+          <h2 className="text-balance mt-4 font-display text-2xl font-semibold leading-[1.08] tracking-tight text-foreground sm:text-4xl lg:text-[3rem]">
+            Each city is a different game.
+            <span className="bg-gradient-to-br from-foreground via-accent to-[oklch(0.66_0.18_295)] bg-clip-text text-transparent">
+              {" "}We play them differently.
+            </span>
+          </h2>
+          <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
+            Scroll through to see the local stuck-state, the stat that matters
+            in this metro, and the hidden-gem insight we build around. Tap any
+            row to open the city.
+          </p>
         </div>
+
+        <div className="mt-16">
+          <CitiesScrollTimeline />
+        </div>
+      </Section>
+
+      {/* City × intent matrix */}
+      <Section className="pt-0">
+        <CitiesIntentMatrix />
+      </Section>
+
+      {/* Global peer-cities map */}
+      <Section className="pt-0">
+        <GlobalPeersConstellation />
       </Section>
 
       <Cta t={t} country={country} />

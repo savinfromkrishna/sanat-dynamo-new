@@ -8,6 +8,7 @@ import { LOCALES, type Locale } from "@/lib/i18n";
 import { NextResponse } from "next/server";
 import { BLOG_POSTS, BLOG_CATEGORIES } from "@/lib/blogs";
 import { INDIA_CITIES } from "@/lib/cities";
+import { INDUSTRY_SLUGS } from "@/lib/industry-data";
 
 // Revalidate at most once per day — Googlebot doesn't need minute-fresh sitemaps,
 // and the previous `force-dynamic` was regenerating with a new `lastmod` on every
@@ -24,7 +25,7 @@ export const revalidate = 86400;
 const STATIC_PAGE_LASTMOD: Record<string, string> = {
   "": "2026-04-15",           // home
   services: "2026-04-10",
-  industries: "2026-04-08",
+  industries: "2026-05-07",
   "case-studies": "2026-04-12",
   about: "2026-03-20",
   contact: "2026-03-20",
@@ -36,6 +37,13 @@ const STATIC_PAGE_LASTMOD: Record<string, string> = {
 
 /** Per-city `lastmod`. Bump when the city's content meaningfully changes. */
 const CITY_LASTMOD_DEFAULT = "2026-05-03";
+
+/** Per-industry-slug `lastmod`. Bump when content of that industry page changes. */
+const INDUSTRY_LASTMOD_DEFAULT = "2026-05-07";
+const INDUSTRY_PAGE_PRIORITY = 0.85;
+/** Industry pages are sitemap-included only for indexable locales (en + hi),
+ * matching the city-page rule. */
+const INDUSTRY_SITEMAP_LOCALES: readonly string[] = ["en", "hi"];
 
 /** City-page sitemap is restricted to en+hi: those are the locales Indian
  * search traffic actually uses. Other locales render via fallback but stay
@@ -209,6 +217,31 @@ export async function GET(
     })
   );
 
+  // Per-industry URLs — emitted for every indexable country × en+hi locale.
+  // Each /industries/[slug] is a standalone page with its own canonical,
+  // service JSON-LD, and FAQPage JSON-LD. Hreflang alternates pin the cluster
+  // to /in/{en|hi} so Google doesn't fold them into the country-less canonical.
+  const industryUrls = INDUSTRY_SLUGS.flatMap((slug) =>
+    INDUSTRY_SITEMAP_LOCALES.map((sitemapLocale) => {
+      const loc = `${base}/${country}/${sitemapLocale}/industries/${slug}`;
+      const alternates = LANGUAGES.map((altLocale) => {
+        const altLoc = `${base}/${country}/${altLocale}/industries/${slug}`;
+        const htmlLang = LOCALES[altLocale as Locale]?.htmlLang ?? altLocale;
+        return `      <xhtml:link rel="alternate" hreflang="${htmlLang}" href="${altLoc}" />`;
+      });
+      alternates.push(
+        `      <xhtml:link rel="alternate" hreflang="x-default" href="${base}/in/en/industries/${slug}" />`
+      );
+      return {
+        loc,
+        lastmod: INDUSTRY_LASTMOD_DEFAULT,
+        priority: INDUSTRY_PAGE_PRIORITY,
+        changefreq: "monthly",
+        alternates: alternates.join("\n"),
+      };
+    })
+  );
+
   // Per-city URLs — India only, en + hi only. We deliberately keep these
   // out of the sitemap for non-IN markets and other locales so Google
   // doesn't see them as duplicates of the canonical /in/{en|hi} versions.
@@ -237,7 +270,13 @@ export async function GET(
       )
     : [];
 
-  const urls = [...staticUrls, ...cityUrls, ...blogCategoryUrls, ...blogPostUrls];
+  const urls = [
+    ...staticUrls,
+    ...industryUrls,
+    ...cityUrls,
+    ...blogCategoryUrls,
+    ...blogPostUrls,
+  ];
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"

@@ -1,6 +1,22 @@
 import type { Metadata } from "next";
+import {
+  ShoppingBag,
+  Building2,
+  GraduationCap,
+  Stethoscope,
+  Factory,
+} from "lucide-react";
+
 import { getTranslation, type Locale } from "@/lib/i18n";
-import { buildPageMetadata, buildPageBreadcrumbJsonLd } from "@/lib/seo";
+import {
+  buildPageMetadata,
+  buildPageBreadcrumbJsonLd,
+  buildBreadcrumbJsonLd,
+} from "@/lib/seo";
+import { BASE_URL } from "@/lib/constants";
+import { INDUSTRY_DATA, INDUSTRY_SLUGS } from "@/lib/industry-data";
+import type { IndustryKey } from "@/lib/country-content";
+
 import { PageHero } from "@/components/sections/PageHero";
 import { Cta } from "@/components/sections/Cta";
 import { Faq } from "@/components/sections/Faq";
@@ -9,7 +25,12 @@ import { CountryMarketContext } from "@/components/sections/CountryMarketContext
 import { BigNumbers } from "@/components/sections/BigNumbers";
 import { KnowMore } from "@/components/sections/KnowMore";
 import { Section } from "@/components/primitives/section";
-import { industryIllustrations } from "@/components/illustrations";
+import {
+  IndustryConstellation,
+  WhyPerIndustryMatrix,
+} from "@/components/illustrations/IndustryHubVisuals";
+import { IndustryScrollTimeline } from "@/components/sections/IndustryScrollTimeline";
+import LocalizedLink from "@/components/LocalizedLink";
 
 export async function generateMetadata({
   params,
@@ -23,44 +44,91 @@ export async function generateMetadata({
     locale: locale as Locale,
   });
 }
-import {
-  ShoppingBag,
-  Building2,
-  GraduationCap,
-  Stethoscope,
-  Factory,
-  AlertTriangle,
-  Sparkles,
-  ArrowUpRight,
-} from "lucide-react";
-import LocalizedLink from "@/components/LocalizedLink";
 
-const iconMap = {
-  ecommerce: ShoppingBag,
+const iconMap: Record<IndustryKey, typeof Factory> = {
+  manufacturing: Factory,
   "real-estate": Building2,
-  edtech: GraduationCap,
   healthcare: Stethoscope,
-  "sme-erp": Factory,
-} as const;
+  ecommerce: ShoppingBag,
+  edtech: GraduationCap,
+};
 
-export default async function IndustriesPage({
+export default async function IndustriesHubPage({
   params,
 }: {
   params: Promise<{ country: string; locale: string }>;
 }) {
   const { country, locale } = await params;
   const t = getTranslation(locale as Locale);
-  const breadcrumbLd = buildPageBreadcrumbJsonLd("industries", locale as Locale, country);
+
+  const breadcrumbLd = buildPageBreadcrumbJsonLd(
+    "industries",
+    locale as Locale,
+    country,
+  );
+
+  // ItemList JSON-LD — tells Google this hub indexes 5 standalone industry
+  // URLs, each with its own canonical page. Critical for hub→spoke ranking.
+  const itemListLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: t.industries.title,
+    itemListOrder: "https://schema.org/ItemListOrderAscending",
+    numberOfItems: INDUSTRY_SLUGS.length,
+    itemListElement: INDUSTRY_SLUGS.map((slug, i) => {
+      const data = INDUSTRY_DATA[slug];
+      const display =
+        t.industries.items.find((it) => it.id === slug)?.name ??
+        data.serviceType;
+      return {
+        "@type": "ListItem",
+        position: i + 1,
+        url: `${BASE_URL}/${country}/${locale}/industries/${slug}`,
+        name: display,
+        description: data.metaDescription,
+      };
+    }),
+  };
+
+  // Sub-breadcrumb that lists each industry as an extra navigational hint
+  const industryNavLd = buildBreadcrumbJsonLd(
+    INDUSTRY_SLUGS.map((slug) => ({
+      name:
+        t.industries.items.find((it) => it.id === slug)?.name ??
+        INDUSTRY_DATA[slug].serviceType,
+      url: `${BASE_URL}/${country}/${locale}/industries/${slug}`,
+    })),
+  );
+
+  // Reorder translations.items to match INDUSTRY_SLUGS (manufacturing first,
+  // matching the SEO pivot for Ahmedabad / Gujarat manufacturing).
+  const orderedItems = INDUSTRY_SLUGS.flatMap((slug) => {
+    const item = t.industries.items.find((it) => it.id === slug);
+    return item ? [item] : [];
+  });
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(industryNavLd) }}
+      />
+
       <PageHero
         eyebrow={t.industries.eyebrow}
         title={
           <>
-            Five sectors.{" "}
-            <span className="text-accent">One growth playbook.</span>
+            Industry-specific{" "}
+            <span className="text-accent">growth systems for Indian SMEs</span>
+            : manufacturing, real estate, clinics, D2C &amp; coaching.
           </>
         }
         subtitle={t.industries.subtitle}
@@ -68,25 +136,39 @@ export default async function IndustriesPage({
       />
 
       <CityBanner t={t} country={country} locale={locale as Locale} />
-      <CountryMarketContext t={t} country={country} locale={locale as Locale} pageKey="industries" />
 
-      {/* Quick jump */}
+      {/* Animated constellation hero — shows the 5-sector revenue system map */}
       <Section className="pt-8">
+        <IndustryConstellation
+          countryHint="India · Ahmedabad manufacturing pivot live"
+        />
+      </Section>
+
+      <CountryMarketContext
+        t={t}
+        country={country}
+        locale={locale as Locale}
+        pageKey="industries"
+      />
+
+      {/* Quick-jump nav — every chip links to a standalone /industries/[slug] URL */}
+      <Section className="pt-0">
         <div className="rounded-3xl border border-border bg-surface/40 p-2">
           <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
-            {t.industries.items.map((ind) => {
-              const Icon = iconMap[ind.id as keyof typeof iconMap];
+            {INDUSTRY_SLUGS.map((slug) => {
+              const Icon = iconMap[slug];
+              const item = t.industries.items.find((it) => it.id === slug);
               return (
                 <LocalizedLink
-                  key={ind.id}
-                  href={`/industries#${ind.id}`}
+                  key={slug}
+                  href={`/industries/${slug}`}
                   className="group flex items-center gap-3 rounded-2xl border border-border bg-background px-4 py-3 transition-all hover:border-accent/40 hover:bg-surface"
                 >
                   <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border bg-surface text-accent">
-                    {Icon && <Icon size={16} strokeWidth={1.75} />}
+                    <Icon size={16} strokeWidth={1.75} />
                   </div>
                   <span className="truncate text-sm font-semibold text-foreground">
-                    {ind.name}
+                    {item?.name ?? INDUSTRY_DATA[slug].serviceType}
                   </span>
                 </LocalizedLink>
               );
@@ -95,103 +177,29 @@ export default async function IndustriesPage({
         </div>
       </Section>
 
+      {/* Scroll-driven sector timeline — replaces the static cards */}
+      <IndustryScrollTimeline
+        rows={orderedItems.map((it) => ({
+          id: it.id as IndustryKey,
+          name: it.name,
+          tag: it.tag,
+          description: it.description,
+          outcome: it.outcome,
+          painPoints: it.painPoints,
+        }))}
+        primaryId="manufacturing"
+        primaryBadge="Primary pivot · Ahmedabad"
+      />
+
+      {/* Why per-industry — animated comparison matrix */}
       <Section className="pt-0">
-        <div className="space-y-6">
-          {t.industries.items.map((ind, i) => {
-            const Icon = iconMap[ind.id as keyof typeof iconMap];
-            const Illust = industryIllustrations[ind.id];
-            return (
-              <article
-                key={ind.id}
-                id={ind.id}
-                className="group relative scroll-mt-32 overflow-hidden rounded-2xl sm:rounded-3xl border border-border bg-surface/60 p-5 transition-colors hover:border-accent/30 sm:p-8 lg:p-12"
-              >
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute -right-32 -top-32 h-72 w-72 rounded-full bg-accent/5 blur-3xl"
-                />
-                <div className="absolute right-6 top-6 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                  Sector · 0{i + 1}
-                </div>
-
-                <div className="grid gap-10 lg:grid-cols-12">
-                  <div className="lg:col-span-5">
-                    <div className="flex items-start gap-4">
-                      <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-border bg-background text-accent">
-                        {Icon && <Icon size={22} strokeWidth={1.75} />}
-                      </div>
-                      <div>
-                        <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                          {ind.tag}
-                        </div>
-                        <h2 className="font-display text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-                          {ind.name}
-                        </h2>
-                      </div>
-                    </div>
-                    <p className="mt-6 text-base leading-relaxed text-muted-foreground">
-                      {ind.description}
-                    </p>
-
-                    {/* Industry-specific sketch illustration */}
-                    {Illust && (
-                      <div className="mt-6 hidden sm:block">
-                        <Illust className="max-w-[260px]" />
-                      </div>
-                    )}
-
-                    <LocalizedLink
-                      href="/contact"
-                      className="group/btn mt-8 inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-6 py-3 text-sm font-semibold text-accent transition-all hover:border-accent/70 hover:bg-accent/15"
-                    >
-                      Build for {ind.name}
-                      <ArrowUpRight
-                        size={14}
-                        className="transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"
-                      />
-                    </LocalizedLink>
-                  </div>
-
-                  <div className="lg:col-span-7">
-                    <div className="rounded-2xl border border-border bg-background/60 p-6">
-                      <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-danger/80">
-                        <AlertTriangle size={12} />
-                        Pain points
-                      </div>
-                      <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-                        {ind.painPoints.map((pp) => (
-                          <li
-                            key={pp}
-                            className="flex items-start gap-2.5 text-sm text-muted-foreground"
-                          >
-                            <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-danger/70" />
-                            {pp}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="mt-4 rounded-2xl border border-accent/30 bg-accent-soft p-6">
-                      <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
-                        <Sparkles size={12} />
-                        After we ship
-                      </div>
-                      <p className="mt-3 text-lg font-semibold text-foreground">
-                        {ind.outcome}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </article>
-            );
-          })}
-        </div>
+        <WhyPerIndustryMatrix />
       </Section>
 
       <BigNumbers t={t} />
-      <Faq t={t} />
+      <Faq t={t} country={country} />
       <KnowMore t={t} pageKey="industries" pageLabel="Industries" />
-      <Cta t={t} />
+      <Cta t={t} country={country} />
     </>
   );
 }

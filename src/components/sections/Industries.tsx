@@ -163,7 +163,7 @@ export function Industries({
                   </div>
                 </div>
                 <LocalizedLink
-                  href={`/industries#${ind.id}`}
+                  href={`/industries/${ind.id}`}
                   className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-border text-foreground transition-all hover:border-accent hover:text-accent"
                   aria-label={`Learn more about ${ind.name}`}
                 >

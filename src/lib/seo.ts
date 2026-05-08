@@ -442,6 +442,150 @@ export function buildFaqJsonLd(items: Array<{ q: string; a: string }>) {
   };
 }
 
+/* -------------------------------------------------------------------------- */
+/*                       Industry slug page metadata                          */
+/* -------------------------------------------------------------------------- */
+
+import type { IndustrySeoData } from "@/lib/industry-data";
+
+/**
+ * Build Metadata for `/{country}/{locale}/industries/{slug}` from a static
+ * `IndustrySeoData` entry. Mirrors `buildPageMetadata` — per-slug canonical,
+ * hreflang cluster pinned to /in/*, and the same geoify treatment applied to
+ * title / description / keywords so the page personalizes by visitor country.
+ */
+export async function buildIndustryPageMetadata({
+  industry,
+  country,
+  locale,
+}: {
+  industry: IndustrySeoData;
+  country: string;
+  locale: Locale;
+}): Promise<Metadata> {
+  const subPath = `industries/${industry.slug}`;
+  const canonical = `/${country}/${locale}/${subPath}`;
+  const fullUrl = `${BASE_URL}${canonical}`;
+
+  const geo = await getGeo(country, locale);
+
+  const title = geoifyTitle(industry.metaTitle, geo);
+  const description = geoifyDescription(industry.metaDescription, geo);
+  const keywords = geoifyKeywords(industry.metaKeywords, geo);
+
+  const languages: Record<string, string> = {};
+  for (const lang of INDEXABLE_LOCALES) {
+    languages[LOCALES[lang].htmlLang] = `${BASE_URL}/in/${lang}/${subPath}`;
+  }
+  languages["x-default"] = `${BASE_URL}/in/en/${subPath}`;
+
+  const ogTitle = geoifyTitle(industry.ogTitle, geo);
+  const ogDescription = geoifyDescription(industry.ogDescription, geo);
+
+  const otherMeta: Record<string, string> = {
+    "geo.country": geo.countryCode.toUpperCase(),
+    "geo.region": geo.state
+      ? `${geo.countryCode.toUpperCase()}-${geo.state}`
+      : geo.countryCode.toUpperCase(),
+  };
+  if (geo.detected && geo.city) {
+    otherMeta["geo.placename"] = geo.city;
+  }
+  if (geo.detected && geo.latitude && geo.longitude) {
+    otherMeta["geo.position"] = `${geo.latitude};${geo.longitude}`;
+    otherMeta["ICBM"] = `${geo.latitude}, ${geo.longitude}`;
+  }
+
+  return {
+    title,
+    description,
+    keywords,
+    metadataBase: new URL(BASE_URL),
+    alternates: { canonical, languages },
+    openGraph: {
+      title: ogTitle,
+      description: ogDescription,
+      url: fullUrl,
+      siteName: "Sanat Dynamo",
+      locale: `${locale}_${country.toUpperCase()}`,
+      type: "article",
+      images: [
+        {
+          url: `${BASE_URL}/og.png`,
+          width: 1200,
+          height: 630,
+          alt: "Sanat Dynamo",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: ogTitle,
+      description: ogDescription,
+      images: [`${BASE_URL}/og.png`],
+    },
+    robots: isIndexable(country, locale)
+      ? {
+          index: true,
+          follow: true,
+          googleBot: {
+            index: true,
+            follow: true,
+            "max-snippet": -1,
+            "max-image-preview": "large",
+            "max-video-preview": -1,
+          },
+        }
+      : {
+          index: false,
+          follow: true,
+          googleBot: { index: false, follow: true },
+        },
+    authors: [{ name: "Sanat Dynamo" }],
+    creator: "Sanat Dynamo",
+    publisher: "Sanat Dynamo",
+    other: otherMeta,
+  };
+}
+
+/**
+ * `Service` JSON-LD for an industry page — pins the page as a Service offering
+ * with `areaServed` set to the country and `provider` set to the org.
+ */
+export function buildIndustryServiceJsonLd(
+  industry: IndustrySeoData,
+  locale: Locale,
+  country: string,
+) {
+  const url = `${BASE_URL}/${country}/${locale}/industries/${industry.slug}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: industry.metaTitle.split("|")[0]?.trim() ?? industry.serviceType,
+    serviceType: industry.serviceType,
+    description: industry.metaDescription,
+    provider: {
+      "@type": "Organization",
+      name: "Sanat Dynamo",
+      url: BASE_URL,
+    },
+    areaServed: {
+      "@type": "Country",
+      name: country.toUpperCase() === "IN" ? "India" : country.toUpperCase(),
+    },
+    url,
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "INR",
+      priceSpecification: {
+        "@type": "PriceSpecification",
+        priceCurrency: "INR",
+        description: "Custom-priced from a 1-week paid discovery",
+      },
+    },
+  };
+}
+
 export function buildServiceJsonLd(
   service: Messages["services"]["items"][number],
   locale: Locale,

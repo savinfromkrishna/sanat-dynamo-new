@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import {
   ArrowUpRight,
+  ArrowRight,
+  BookOpen,
   CheckCircle2,
+  Landmark,
   MapPin,
   Sparkles,
   Star,
@@ -26,6 +29,9 @@ import {
   getCityBySlug,
   type CityContent,
 } from "@/lib/cities";
+import { getCityExtras } from "@/lib/city-extras";
+import { getCityIdentity } from "@/lib/city-identity";
+import { getCityPosts } from "@/lib/city-blog";
 import { buildBreadcrumbJsonLd, buildFaqJsonLd } from "@/lib/seo";
 import { PageHero } from "@/components/sections/PageHero";
 import { Section, SectionHeader } from "@/components/primitives/section";
@@ -33,6 +39,13 @@ import { Cta } from "@/components/sections/Cta";
 import { Services } from "@/components/sections/Services";
 import { CaseStudies } from "@/components/sections/CaseStudies";
 import { TechStack } from "@/components/sections/TechStack";
+import {
+  CityLeadCTA,
+  CityHiddenGem,
+  CityGlobalPeersCard,
+  CityStatRadials,
+} from "@/components/illustrations/CityPageVisuals";
+import { cityIdentityVisuals } from "@/components/illustrations/CityIdentityVisuals";
 import LocalizedLink from "@/components/LocalizedLink";
 
 const CITIES_PATH = "cities";
@@ -160,16 +173,96 @@ export default async function CityPage({
 
   const lc = (LOCALE_CODES.includes(locale as Locale) ? locale : "en") as Locale;
   const t = getTranslation(lc);
+  const extras = getCityExtras(city.slug);
+  const identity = getCityIdentity(city.slug);
+  const Identity = cityIdentityVisuals[city.slug];
+  const posts = getCityPosts(city.slug);
+
+  // Lead-button contact details — fall back to the global IN translation
+  // since the city pages are India-only.
+  const phoneDisplay = t.contact.details.phone;
+  // wa.me requires international format without "+" or spaces
+  const whatsappE164 = phoneDisplay.replace(/[^\d]/g, "");
 
   return (
     <>
       <CityJsonLd city={city} country={country} locale={lc} t={t} />
       <CityHero city={city} t={t} />
+
+      {/* Sub-page nav chips — overview / about / journal */}
+      <Section className="pt-8">
+        <div className="flex flex-wrap items-center gap-2">
+          <span
+            className="inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-accent"
+          >
+            <MapPin size={11} />
+            {city.name} overview
+          </span>
+          {identity && (
+            <LocalizedLink
+              href={`/cities/${city.slug}/about`}
+              className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface/60 px-3 py-1.5 text-xs font-semibold text-muted-foreground transition-colors hover:border-accent/40 hover:text-foreground"
+            >
+              <Landmark size={11} />
+              About {identity.nickname}
+              <ArrowUpRight size={11} />
+            </LocalizedLink>
+          )}
+          {posts.length > 0 && (
+            <LocalizedLink
+              href={`/cities/${city.slug}/blog`}
+              className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface/60 px-3 py-1.5 text-xs font-semibold text-muted-foreground transition-colors hover:border-accent/40 hover:text-foreground"
+            >
+              <BookOpen size={11} />
+              {city.name} journal · {posts.length}
+              <ArrowUpRight size={11} />
+            </LocalizedLink>
+          )}
+        </div>
+      </Section>
+
+      {/* Iconic city identity visualization — landmark + cultural motif */}
+      {Identity && identity && (
+        <Section className="pt-6">
+          <CityIdentityShowcase
+            identity={identity}
+            cityName={city.name}
+            citySlug={city.slug}
+            Identity={Identity}
+          />
+        </Section>
+      )}
+
+      {/* Triple lead-button cluster — sits high on the page */}
+      <Section className="pt-0">
+        <CityLeadCTA
+          city={city}
+          whatsappNumber={whatsappE164}
+          phoneNumber={phoneDisplay}
+        />
+      </Section>
+
       <CityLocalContext city={city} />
+
+      {/* Hidden gem — the operational insight the agency competition misses */}
+      {extras && (
+        <Section className="pt-0">
+          <CityHiddenGem extras={extras} cityName={city.name} />
+        </Section>
+      )}
+
       <CityWhyHire city={city} />
       <CityNeighborhoods city={city} />
       <Services t={t} country={country} />
       <CityIndustriesAngle city={city} />
+
+      {/* Global peer cities — world twins where the same playbook works */}
+      {extras && (
+        <Section className="pt-0">
+          <CityGlobalPeersCard city={city} extras={extras} />
+        </Section>
+      )}
+
       <CaseStudies t={t} country={country} />
       <CityCaseStudyCallout city={city} />
       <CityTestimonials city={city} />
@@ -321,13 +414,28 @@ function CityHero({
   city: CityContent;
   t: ReturnType<typeof getTranslation>;
 }) {
+  const identity = getCityIdentity(city.slug);
   return (
     <PageHero
-      eyebrow={`${city.name} · ${city.state}`}
+      eyebrow={`${city.name} · ${city.state}${
+        identity ? ` · ${identity.nickname}` : ""
+      }`}
       title={
         <>
           The best website development & revenue-system company in{" "}
-          <span className="text-accent">{city.name}</span>.
+          <span
+            className={identity ? "bg-clip-text text-transparent" : "text-accent"}
+            style={
+              identity
+                ? {
+                    backgroundImage: `linear-gradient(120deg, ${identity.themeColor}, ${identity.themeColorAccent})`,
+                  }
+                : undefined
+            }
+          >
+            {city.name}
+          </span>
+          .
         </>
       }
       subtitle={city.heroSubheadline}
@@ -336,11 +444,80 @@ function CityHero({
   );
 }
 
+function CityIdentityShowcase({
+  identity,
+  cityName,
+  citySlug,
+  Identity,
+}: {
+  identity: NonNullable<ReturnType<typeof getCityIdentity>>;
+  cityName: string;
+  citySlug: string;
+  Identity: React.ComponentType<{ className?: string }>;
+}) {
+  return (
+    <div
+      className="relative overflow-hidden rounded-3xl border p-3 sm:p-6"
+      style={{
+        borderColor: identity.themeColor.replace(")", " / 0.3)"),
+        background: `linear-gradient(140deg, ${identity.themeColor.replace(")", " / 0.07)")}, ${identity.themeColorAccent.replace(")", " / 0.03)")} 60%)`,
+      }}
+    >
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full blur-3xl"
+        style={{ background: identity.themeColor.replace(")", " / 0.15)") }}
+      />
+      <div className="relative grid gap-4 lg:grid-cols-12 lg:items-center lg:gap-8">
+        <div className="lg:col-span-8">
+          <Identity className="rounded-2xl" />
+        </div>
+        <div className="px-3 pb-2 lg:col-span-4 lg:px-0 lg:pb-0">
+          <div
+            className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.22em]"
+            style={{
+              borderColor: identity.themeColor.replace(")", " / 0.4)"),
+              background: identity.themeColor.replace(")", " / 0.08)"),
+              color: identity.themeColor,
+            }}
+          >
+            <Landmark size={11} />
+            {identity.nickname}
+          </div>
+          <h2 className="text-balance mt-3 font-display text-xl font-semibold leading-tight tracking-tight text-foreground sm:text-2xl">
+            The visual identity of {cityName}.
+          </h2>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            {identity.tagline}
+          </p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            <LocalizedLink
+              href={`/cities/${citySlug}/about`}
+              className="group inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold transition-all hover:-translate-y-0.5"
+              style={{
+                borderColor: identity.themeColor.replace(")", " / 0.4)"),
+                background: identity.themeColor.replace(")", " / 0.08)"),
+                color: identity.themeColor,
+              }}
+            >
+              Read about {identity.nickname}
+              <ArrowRight
+                size={11}
+                className="transition-transform group-hover:translate-x-0.5"
+              />
+            </LocalizedLink>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function CityLocalContext({ city }: { city: CityContent }) {
   return (
     <Section className="pt-8">
       <div className="grid gap-10 lg:grid-cols-12">
-        <div className="lg:col-span-8">
+        <div className="lg:col-span-7">
           <div className="space-y-5">
             {city.localContext.map((p, i) => (
               <p
@@ -353,34 +530,21 @@ function CityLocalContext({ city }: { city: CityContent }) {
           </div>
         </div>
 
-        <div className="lg:col-span-4">
-          <div className="rounded-3xl border border-border bg-surface/40 p-6 backdrop-blur-xl">
-            <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
-              <MapPin size={11} />
-              {city.name} · {city.state}
+        <div className="lg:col-span-5">
+          <div className="rounded-3xl border border-border bg-surface/40 p-5 backdrop-blur-xl sm:p-6">
+            <div className="flex items-center justify-between gap-2">
+              <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
+                <MapPin size={11} />
+                {city.name} · {city.state}
+              </div>
+              <div className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.18em] text-muted-foreground">
+                <Users size={10} className="text-accent" />
+                {city.population}
+              </div>
             </div>
 
-            <div className="mt-4 grid gap-3">
-              {city.heroStats.map((s) => (
-                <div
-                  key={s.label}
-                  className="flex items-baseline justify-between gap-3 rounded-2xl border border-border bg-background p-4"
-                >
-                  <div className="font-display text-2xl font-semibold text-foreground">
-                    {s.value}
-                  </div>
-                  <div className="text-right text-xs leading-snug text-muted-foreground">
-                    {s.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-4 flex items-center gap-2 rounded-2xl border border-accent/30 bg-accent/5 p-4">
-              <Users size={14} className="text-accent" />
-              <span className="text-xs text-foreground">
-                Serving {city.population}
-              </span>
+            <div className="mt-5">
+              <CityStatRadials city={city} />
             </div>
           </div>
         </div>

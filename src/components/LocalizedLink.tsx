@@ -3,18 +3,21 @@
 
 import Link, { LinkProps } from 'next/link';
 import { useParams } from 'next/navigation';
-import { ReactNode } from 'react';
+import { CSSProperties, ReactNode } from 'react';
 
 interface LocalizedLinkProps extends Omit<LinkProps, 'href'> {
   href: string;
   children: ReactNode;
   className?: string;
+  style?: CSSProperties;
+  'aria-label'?: string;
 }
 
 export default function LocalizedLink({
   href,
   children,
   className,
+  style,
   ...props
 }: LocalizedLinkProps) {
   const params = useParams();
@@ -39,7 +42,7 @@ export default function LocalizedLink({
   const cleaned = finalHref.replace(/\/{2,}/g, '/');
 
   return (
-    <Link href={cleaned} className={className} {...props}>
+    <Link href={cleaned} className={className} style={style} {...props}>
       {children}
     </Link>
   );
