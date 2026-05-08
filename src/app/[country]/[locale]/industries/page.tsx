@@ -32,6 +32,8 @@ import {
 import { IndustryScrollTimeline } from "@/components/sections/IndustryScrollTimeline";
 import LocalizedLink from "@/components/LocalizedLink";
 
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata({
   params,
 }: {

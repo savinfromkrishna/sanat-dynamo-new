@@ -39,6 +39,8 @@ import {
 } from "@/components/illustrations/IndustrySegmentVisuals";
 import LocalizedLink from "@/components/LocalizedLink";
 
+export const dynamic = "force-dynamic";
+
 const iconMap: Record<IndustryKey, typeof Factory> = {
   manufacturing: Factory,
   "real-estate": Building2,
