@@ -15,7 +15,10 @@ import {
 } from "@/lib/constants";
 import { buildOrganizationJsonLd, buildWebsiteJsonLd } from "@/lib/seo";
 import Header from "@/components/common/header";
+import type { CityNavItem } from "@/components/common/MegaMenu";
 import Footer from "@/components/common/footer";
+import { INDIA_CITIES } from "@/lib/cities";
+import { getCityIdentity } from "@/lib/city-identity";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -132,6 +135,21 @@ export default async function LocaleLayout({
   const orgLd = buildOrganizationJsonLd(t);
   const siteLd = buildWebsiteJsonLd(t, locale, country);
 
+  // Slim city nav data for the header mega-menu — built server-side so the
+  // full CITY_IDENTITY object never enters the client bundle. Only the
+  // fields the menu actually renders (slug/name/state/nickname/themeColor)
+  // are sent down.
+  const cityNavItems: CityNavItem[] = INDIA_CITIES.map((c) => {
+    const id = getCityIdentity(c.slug);
+    return {
+      slug: c.slug,
+      name: c.name,
+      state: c.state,
+      nickname: id?.nickname,
+      themeColor: id?.themeColor,
+    };
+  });
+
   // AggregateRating — from testimonials (4.9/5 across 50+ engagements)
   const ratingLd = {
     "@context": "https://schema.org",
@@ -200,7 +218,12 @@ export default async function LocaleLayout({
         />
       </head>
       <body className="min-h-screen font-sans text-foreground antialiased" suppressHydrationWarning>
-        <Header translations={t} locale={locale} country={country} />
+        <Header
+          translations={t}
+          locale={locale}
+          country={country}
+          cities={cityNavItems}
+        />
         <main className="flex-grow">{children}</main>
         <Footer translations={t} />
       </body>

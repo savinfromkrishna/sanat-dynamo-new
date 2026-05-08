@@ -185,6 +185,30 @@ export default async function CityAboutPage({
     })),
   };
 
+  // ItemList — landmarks as an ordered list with anchor URLs back to the
+  // page. ItemList is what powers Google's "carousel" rich result, and the
+  // per-landmark anchor URLs make each entry independently linkable.
+  const landmarksItemListLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": `${aboutUrl}#landmarks`,
+    name: `Landmarks of ${city.name}`,
+    description: `The defining places of ${city.name} — what each one stands for in the city's identity.`,
+    itemListOrder: "https://schema.org/ItemListOrderAscending",
+    numberOfItems: identity.landmarks.length,
+    itemListElement: identity.landmarks.map((l, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: {
+        "@type": "LandmarksOrHistoricalBuildings",
+        name: l.name,
+        description: l.meaning,
+        url: `${aboutUrl}#${l.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`,
+        containedInPlace: { "@id": `${aboutUrl}#place` },
+      },
+    })),
+  };
+
   // Article schema — this is editorial about-content, not a service page
   const articleLd = {
     "@context": "https://schema.org",
@@ -220,6 +244,10 @@ export default async function CityAboutPage({
       />
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(landmarksItemListLd) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}
       />
 
@@ -249,6 +277,43 @@ export default async function CityAboutPage({
         subtitle={identity.tagline}
         breadcrumb={`${city.name} · About`}
       />
+
+      {identity.heroImage && (
+        <div className="container-px mx-auto mt-8 max-w-7xl sm:mt-10 lg:mt-12">
+          <figure
+            className="relative overflow-hidden rounded-3xl border bg-surface/30 shadow-[0_28px_72px_-32px_rgba(0,0,0,0.45)]"
+            style={{ borderColor: identity.themeColor.replace(")", " / 0.3)") }}
+          >
+            <div className="aspect-[16/8] w-full sm:aspect-[16/7] lg:aspect-[16/6]">
+              <img
+                src={identity.heroImage.src}
+                alt={identity.heroImage.alt}
+                loading="eager"
+                fetchPriority="high"
+                className="h-full w-full object-cover"
+              />
+            </div>
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0"
+              style={{
+                background: `linear-gradient(180deg, transparent 45%, ${identity.themeColor.replace(")", " / 0.55)")} 100%)`,
+              }}
+            />
+            <figcaption className="absolute inset-x-3 bottom-3 flex items-center justify-between gap-3 sm:inset-x-5 sm:bottom-5">
+              <span
+                className="rounded-full border bg-background/85 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-foreground backdrop-blur"
+                style={{ borderColor: identity.themeColor.replace(")", " / 0.4)") }}
+              >
+                {identity.nickname}
+              </span>
+              <span className="hidden rounded-full bg-background/70 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground backdrop-blur sm:inline">
+                {identity.heroImage.credit}
+              </span>
+            </figcaption>
+          </figure>
+        </div>
+      )}
 
       {/* Sub-nav chips back to the main city page + blog */}
       <Section className="pt-8">
@@ -523,7 +588,8 @@ function LandmarksBlock({
         {identity.landmarks.map((l, i) => (
           <article
             key={l.name}
-            className="group relative overflow-hidden rounded-2xl border border-border bg-surface/40 p-5 transition-all hover:-translate-y-0.5 hover:border-accent/40"
+            id={l.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}
+            className="group relative scroll-mt-32 overflow-hidden rounded-2xl border border-border bg-surface/40 p-5 transition-all hover:-translate-y-0.5 hover:border-accent/40"
           >
             <span
               aria-hidden

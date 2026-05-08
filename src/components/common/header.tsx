@@ -7,15 +7,26 @@ import LocalizedLink from "../LocalizedLink";
 import Logo from "../Logo/logo";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { ThemeToggle } from "./ThemeToggle";
+import {
+  DesktopMegaNav,
+  MobileMegaNav,
+  type CityNavItem,
+} from "./MegaMenu";
 import type { Messages, Locale } from "@/lib/i18n";
 
 interface HeaderProps {
   translations: Messages;
   locale: Locale;
   country: string;
+  cities: CityNavItem[];
 }
 
-export default function Header({ translations, locale, country }: HeaderProps) {
+export default function Header({
+  translations,
+  locale,
+  country,
+  cities,
+}: HeaderProps) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -39,15 +50,6 @@ export default function Header({ translations, locale, country }: HeaderProps) {
       document.body.style.overflow = "";
     };
   }, [open]);
-
-  const nav = [
-    { label: translations.nav.services, href: "/services" },
-    { label: translations.nav.industries, href: "/industries" },
-    { label: translations.nav.work, href: "/case-studies" },
-    { label: "Blog", href: "/blogs" },
-    { label: translations.nav.about, href: "/about" },
-    { label: translations.nav.contact, href: "/contact" },
-  ];
 
   return (
     <>
@@ -82,39 +84,29 @@ export default function Header({ translations, locale, country }: HeaderProps) {
           style={{ scaleX }}
         />
 
-        <div className="container-px mx-auto flex h-[72px] max-w-7xl items-center justify-between">
-          <LocalizedLink href="/" className="group">
+        <div className="container-px mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-3">
+          <LocalizedLink href="/" className="group shrink-0">
             <Logo size="md" />
           </LocalizedLink>
 
-          <nav className="hidden items-center gap-1 lg:flex">
-            {nav.map((item) => (
-              <LocalizedLink
-                key={item.href}
-                href={item.href}
-                className="group relative rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-              >
-                {item.label}
-                <span className="pointer-events-none absolute inset-x-4 -bottom-px h-px scale-x-0 bg-accent transition-transform duration-300 group-hover:scale-x-100" />
-              </LocalizedLink>
-            ))}
-          </nav>
+          <DesktopMegaNav translations={translations} cities={cities} />
 
-          <div className="hidden items-center gap-3 lg:flex">
+          <div className="hidden shrink-0 items-center gap-2 lg:flex xl:gap-3">
             <ThemeToggle />
             <LanguageSwitcher locale={locale} country={country} />
             <LocalizedLink
               href="/contact"
-              className="group relative inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground shadow-[0_8px_32px_-12px_oklch(0.78_0.165_70/0.6)] transition-all hover:shadow-[0_12px_36px_-10px_oklch(0.78_0.165_70/0.75)]"
+              className="group relative inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-accent px-4 py-2.5 text-sm font-semibold text-accent-foreground shadow-[0_8px_32px_-12px_oklch(0.78_0.165_70/0.6)] transition-all hover:shadow-[0_12px_36px_-10px_oklch(0.78_0.165_70/0.75)] xl:px-5"
             >
               <span
                 aria-hidden
                 className="pointer-events-none absolute inset-0 -z-10 rounded-full bg-gradient-to-r from-accent to-[oklch(0.7_0.18_55)] opacity-0 blur-md transition-opacity group-hover:opacity-80"
               />
-              {translations.nav.cta}
+              <span className="hidden xl:inline">{translations.nav.cta}</span>
+              <span className="xl:hidden">Book audit</span>
               <ArrowUpRight
-                size={16}
-                className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                size={15}
+                className="shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
               />
             </LocalizedLink>
           </div>
@@ -135,37 +127,23 @@ export default function Header({ translations, locale, country }: HeaderProps) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
-              className="absolute inset-x-0 top-full border-b border-border bg-background/95 backdrop-blur-xl lg:hidden"
+              className="absolute inset-x-0 top-full max-h-[calc(100vh-72px)] overflow-y-auto border-b border-border bg-background/95 backdrop-blur-xl lg:hidden"
             >
-              <div className="container-px mx-auto flex max-w-7xl flex-col gap-1 py-6">
-                {nav.map((item, i) => (
-                  <motion.div
-                    key={item.href}
-                    initial={{ opacity: 0, x: -8 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.04 }}
-                  >
-                    <LocalizedLink
-                      href={item.href}
-                      onClick={() => setOpen(false)}
-                      className="flex items-center justify-between rounded-2xl px-5 py-4 text-2xl font-semibold tracking-tight text-foreground hover:bg-surface"
-                    >
-                      {item.label}
-                      <span className="font-mono text-xs text-muted-foreground">
-                        0{i + 1}
-                      </span>
-                    </LocalizedLink>
-                  </motion.div>
-                ))}
+              <div className="container-px mx-auto flex max-w-7xl flex-col gap-3 py-6">
+                <MobileMegaNav
+                  translations={translations}
+                  cities={cities}
+                  onNavigate={() => setOpen(false)}
+                />
                 <LocalizedLink
                   href="/contact"
                   onClick={() => setOpen(false)}
-                  className="mt-4 inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-4 text-base font-semibold text-accent-foreground"
+                  className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-4 text-base font-semibold text-accent-foreground"
                 >
                   {translations.nav.cta}
                   <ArrowUpRight size={18} />
                 </LocalizedLink>
-                <div className="mt-4 flex items-center justify-between px-5">
+                <div className="mt-2 flex items-center justify-between px-5">
                   <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
                     <span className="h-1.5 w-1.5 rounded-full bg-success pulse-dot" />
                     All systems operational

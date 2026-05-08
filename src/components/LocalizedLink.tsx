@@ -3,7 +3,12 @@
 
 import Link, { LinkProps } from 'next/link';
 import { useParams } from 'next/navigation';
-import { CSSProperties, ReactNode } from 'react';
+import {
+  CSSProperties,
+  FocusEventHandler,
+  KeyboardEventHandler,
+  ReactNode,
+} from 'react';
 
 interface LocalizedLinkProps extends Omit<LinkProps, 'href'> {
   href: string;
@@ -11,6 +16,11 @@ interface LocalizedLinkProps extends Omit<LinkProps, 'href'> {
   className?: string;
   style?: CSSProperties;
   'aria-label'?: string;
+  'aria-haspopup'?: boolean | 'true' | 'false' | 'menu' | 'listbox' | 'tree' | 'grid' | 'dialog';
+  'aria-expanded'?: boolean;
+  onFocus?: FocusEventHandler<HTMLAnchorElement>;
+  onBlur?: FocusEventHandler<HTMLAnchorElement>;
+  onKeyDown?: KeyboardEventHandler<HTMLAnchorElement>;
 }
 
 export default function LocalizedLink({

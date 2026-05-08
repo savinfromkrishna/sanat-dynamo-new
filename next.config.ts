@@ -7,6 +7,23 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "sanat-rewa.vercel.app" },
     ],
   },
+  // Permanent redirects for slug aliases users naturally type but the
+  // canonical slug differs. Without these, the URL 404s and Next.js renders
+  // a noindex page — which Lighthouse / Search Console then flags. Keep
+  // the canonical `delhi` slug (already indexed) and 308 the brand-name
+  // variant so PageRank consolidates instead of stranding on a 404.
+  redirects: async () => [
+    {
+      source: "/:country/:locale/cities/delhi-ncr",
+      destination: "/:country/:locale/cities/delhi",
+      permanent: true,
+    },
+    {
+      source: "/:country/:locale/cities/delhi-ncr/:rest*",
+      destination: "/:country/:locale/cities/delhi/:rest*",
+      permanent: true,
+    },
+  ],
   headers: async () => [
     {
       source: "/(.*)",
