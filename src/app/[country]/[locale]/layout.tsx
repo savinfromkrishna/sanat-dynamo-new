@@ -16,6 +16,7 @@ import {
 import { buildOrganizationJsonLd, buildWebsiteJsonLd } from "@/lib/seo";
 import Header from "@/components/common/header";
 import Footer from "@/components/common/footer";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -203,6 +204,7 @@ export default async function LocaleLayout({
         <Header translations={t} locale={locale} country={country} />
         <main className="flex-grow">{children}</main>
         <Footer translations={t} />
+        <SpeedInsights />
       </body>
     </html>
   );
