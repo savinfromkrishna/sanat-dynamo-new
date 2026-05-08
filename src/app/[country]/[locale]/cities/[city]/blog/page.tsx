@@ -1,6 +1,16 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ArrowUpRight, BookOpen, Clock, Sparkles } from "lucide-react";
+import {
+  ArrowUpRight,
+  ArrowRight,
+  BookOpen,
+  Clock,
+  Quote,
+  Sparkles,
+  Tag,
+  User,
+  ChevronRight,
+} from "lucide-react";
 import {
   getTranslation,
   type Locale,
@@ -16,8 +26,7 @@ import { INDIA_CITIES, getCityBySlug } from "@/lib/cities";
 import { getCityIdentity } from "@/lib/city-identity";
 import { getCityPosts } from "@/lib/city-blog";
 import { buildBreadcrumbJsonLd } from "@/lib/seo";
-import { PageHero } from "@/components/sections/PageHero";
-import { Section, Eyebrow } from "@/components/primitives/section";
+import { Section } from "@/components/primitives/section";
 import { Cta } from "@/components/sections/Cta";
 import { cityIdentityVisuals } from "@/components/illustrations/CityIdentityVisuals";
 import LocalizedLink from "@/components/LocalizedLink";
@@ -115,6 +124,9 @@ export default async function CityBlogIndexPage({
   const cityUrl = `${homeUrl}/cities/${city.slug}`;
   const blogUrl = `${cityUrl}/${BLOG_PATH}`;
 
+  const themeColor = identity?.themeColor ?? "oklch(0.78 0.165 70)";
+  const themeAccent = identity?.themeColorAccent ?? "oklch(0.66 0.18 295)";
+
   const breadcrumbLd = buildBreadcrumbJsonLd([
     { name: t.nav.home, url: homeUrl },
     { name: "Cities", url: `${homeUrl}/cities` },
@@ -122,7 +134,6 @@ export default async function CityBlogIndexPage({
     { name: "Journal", url: blogUrl },
   ]);
 
-  // Blog ItemList schema
   const itemListLd = {
     "@context": "https://schema.org",
     "@type": "Blog",
@@ -140,6 +151,14 @@ export default async function CityBlogIndexPage({
     })),
   };
 
+  // Issue number is derived from post count + a rolling baseline so the
+  // editorial framing always looks credible (Issue 01 is fine; "0 posts" is not).
+  const issueNumber = String(Math.max(1, posts.length)).padStart(2, "0");
+  const featured = posts[0];
+  const rest = posts.slice(1);
+
+  const totalReadTime = posts.reduce((sum, p) => sum + p.readTime, 0);
+
   return (
     <>
       <script
@@ -151,70 +170,197 @@ export default async function CityBlogIndexPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListLd) }}
       />
 
-      <PageHero
-        eyebrow={`${city.name} journal`}
-        title={
-          <>
-            Field notes from{" "}
-            <span
-              className="bg-clip-text text-transparent"
-              style={{
-                backgroundImage: identity
-                  ? `linear-gradient(120deg, ${identity.themeColor}, ${identity.themeColorAccent})`
-                  : undefined,
-              }}
+      {/* ===================================================================== */}
+      {/*                       EDITORIAL MASTHEAD HERO                          */}
+      {/* ===================================================================== */}
+      <header className="relative isolate mt-20 overflow-hidden sm:mt-32 lg:mt-40">
+        {/* breadcrumb above the masthead */}
+        <div className="container-px relative z-10 mx-auto max-w-7xl">
+          <nav
+            aria-label="Breadcrumb"
+            className="mb-6 flex flex-wrap items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground"
+          >
+            <LocalizedLink
+              href="/"
+              className="transition-colors hover:text-foreground"
             >
-              building revenue systems in {city.name}
-            </span>
-            .
-          </>
-        }
-        subtitle={`Long-form posts on what we ship locally — and the moves agencies serving ${city.name} consistently miss.`}
-        breadcrumb={`${city.name} · Journal`}
-      />
-
-      {/* Sub-nav chips */}
-      <Section className="pt-8">
-        <div className="flex flex-wrap items-center gap-2">
-          <LocalizedLink
-            href={`/cities/${city.slug}`}
-            className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface/60 px-3 py-1.5 text-xs font-semibold text-muted-foreground transition-colors hover:border-accent/40 hover:text-foreground"
-          >
-            {city.name} overview
-          </LocalizedLink>
-          <LocalizedLink
-            href={`/cities/${city.slug}/about`}
-            className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface/60 px-3 py-1.5 text-xs font-semibold text-muted-foreground transition-colors hover:border-accent/40 hover:text-foreground"
-          >
-            About {identity?.nickname ?? city.name}
-          </LocalizedLink>
-          <span
-            className="inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-accent"
-          >
-            <BookOpen size={11} />
-            Journal · {posts.length} {posts.length === 1 ? "post" : "posts"}
-          </span>
+              Home
+            </LocalizedLink>
+            <ChevronRight size={11} />
+            <LocalizedLink
+              href="/cities"
+              className="transition-colors hover:text-foreground"
+            >
+              Cities
+            </LocalizedLink>
+            <ChevronRight size={11} />
+            <LocalizedLink
+              href={`/cities/${city.slug}`}
+              className="transition-colors hover:text-foreground"
+            >
+              {city.name}
+            </LocalizedLink>
+            <ChevronRight size={11} />
+            <span className="text-foreground">Journal</span>
+          </nav>
         </div>
-      </Section>
 
-      {/* Identity strip — small version of the city visual at the top */}
-      {Identity && identity && (
-        <Section className="pt-6">
+        {/* masthead band */}
+        <div
+          className="border-y"
+          style={{
+            borderColor: themeColor.replace(")", " / 0.3)"),
+            background: `linear-gradient(140deg, ${themeColor.replace(")", " / 0.1)")}, transparent 60%)`,
+          }}
+        >
           <div
-            className="overflow-hidden rounded-3xl border p-2"
-            style={{
-              borderColor: identity.themeColor.replace(")", " / 0.3)"),
-              background: `linear-gradient(120deg, ${identity.themeColor.replace(")", " / 0.06)")}, transparent 70%)`,
-            }}
-          >
-            <Identity className="rounded-2xl" />
-          </div>
-        </Section>
-      )}
+            aria-hidden
+            className="pointer-events-none absolute -right-32 top-0 h-96 w-96 rounded-full blur-3xl"
+            style={{ background: themeColor.replace(")", " / 0.18)") }}
+          />
+          <div className="container-px relative z-10 mx-auto max-w-7xl py-10 sm:py-14">
+            <div className="grid gap-8 lg:grid-cols-12 lg:items-end lg:gap-12">
+              {/* LEFT — masthead text */}
+              <div className="lg:col-span-7">
+                {/* publication line */}
+                <div className="flex flex-wrap items-center gap-3 font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+                  <span
+                    className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5"
+                    style={{
+                      borderColor: themeColor.replace(")", " / 0.4)"),
+                      background: themeColor.replace(")", " / 0.08)"),
+                      color: themeColor,
+                    }}
+                  >
+                    <BookOpen size={11} />
+                    Sanat Dynamo · {city.name} Journal
+                  </span>
+                  <span>VOL. I</span>
+                  <span>·</span>
+                  <span>ISSUE {issueNumber}</span>
+                  <span>·</span>
+                  <span>2026</span>
+                </div>
 
-      {/* Posts grid */}
-      <Section className="pt-0">
-        {posts.length === 0 ? (
+                {/* serif-style oversized masthead title */}
+                <h1 className="text-balance mt-6 font-display text-[clamp(2.75rem,8vw,5.5rem)] font-semibold leading-[0.95] tracking-tight text-foreground">
+                  The{" "}
+                  <span
+                    className="bg-clip-text text-transparent"
+                    style={{
+                      backgroundImage: `linear-gradient(120deg, ${themeColor}, ${themeAccent})`,
+                    }}
+                  >
+                    {city.name}
+                  </span>
+                  <br />
+                  Journal.
+                </h1>
+
+                {/* subtitle */}
+                <p className="text-pretty mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+                  Long-form field notes on building revenue systems where
+                  buyers, agencies, and stacks collide.{" "}
+                  {identity ? (
+                    <>
+                      Written from inside{" "}
+                      <span className="font-semibold text-foreground">
+                        {identity.nickname}
+                      </span>
+                      .
+                    </>
+                  ) : (
+                    <>Written from inside {city.name}.</>
+                  )}
+                </p>
+
+                {/* edition stats — newspaper-style */}
+                <dl className="mt-8 grid grid-cols-3 gap-4 border-t pt-6 sm:grid-cols-4 sm:gap-6"
+                    style={{ borderColor: themeColor.replace(")", " / 0.2)") }}>
+                  <div>
+                    <dt className="font-mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground">
+                      In this issue
+                    </dt>
+                    <dd
+                      className="mt-1 font-display text-2xl font-semibold tracking-tight"
+                      style={{ color: themeColor }}
+                    >
+                      {String(posts.length).padStart(2, "0")}{" "}
+                      <span className="text-sm text-muted-foreground">
+                        {posts.length === 1 ? "post" : "posts"}
+                      </span>
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="font-mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground">
+                      Total read
+                    </dt>
+                    <dd
+                      className="mt-1 font-display text-2xl font-semibold tracking-tight"
+                      style={{ color: themeColor }}
+                    >
+                      {totalReadTime}
+                      <span className="text-sm text-muted-foreground"> min</span>
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="font-mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground">
+                      Beat
+                    </dt>
+                    <dd className="mt-1 line-clamp-2 text-sm font-semibold leading-tight text-foreground">
+                      Revenue systems · {city.name}
+                    </dd>
+                  </div>
+                  <div className="hidden sm:block">
+                    <dt className="font-mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground">
+                      Filed from
+                    </dt>
+                    <dd className="mt-1 line-clamp-2 text-sm font-semibold leading-tight text-foreground">
+                      {city.state}, IN
+                    </dd>
+                  </div>
+                </dl>
+
+                {/* sub-nav: city overview / about / journal (current) */}
+                <div className="mt-8 flex flex-wrap items-center gap-2">
+                  <LocalizedLink
+                    href={`/cities/${city.slug}`}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background/60 px-3 py-1.5 text-xs font-semibold text-muted-foreground transition-colors hover:border-accent/40 hover:text-foreground"
+                  >
+                    {city.name} overview
+                  </LocalizedLink>
+                  <LocalizedLink
+                    href={`/cities/${city.slug}/about`}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background/60 px-3 py-1.5 text-xs font-semibold text-muted-foreground transition-colors hover:border-accent/40 hover:text-foreground"
+                  >
+                    About {identity?.nickname ?? city.name}
+                  </LocalizedLink>
+                </div>
+              </div>
+
+              {/* RIGHT — city identity card */}
+              <div className="lg:col-span-5">
+                {Identity && (
+                  <div
+                    className="overflow-hidden rounded-3xl border bg-background/60 p-2 backdrop-blur-sm sm:p-3"
+                    style={{
+                      borderColor: themeColor.replace(")", " / 0.3)"),
+                    }}
+                  >
+                    <Identity className="rounded-2xl" />
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* ===================================================================== */}
+      {/*                            EMPTY STATE                                  */}
+      {/* ===================================================================== */}
+      {posts.length === 0 && (
+        <Section className="pt-12">
           <div className="rounded-3xl border border-dashed border-border bg-surface/30 p-10 text-center">
             <p className="text-muted-foreground">
               The {city.name} journal launches soon. Check back for posts on
@@ -228,114 +374,290 @@ export default async function CityBlogIndexPage({
               Pan-India journal <ArrowUpRight size={14} />
             </LocalizedLink>
           </div>
-        ) : (
-          <div className="grid gap-5 lg:grid-cols-12">
-            {/* Featured post — first one bigger */}
-            {posts[0] && (
-              <article className="lg:col-span-12">
-                <LocalizedLink
-                  href={`/cities/${city.slug}/blog/${posts[0].slug}`}
-                  className="group block overflow-hidden rounded-3xl border border-border bg-surface/40 transition-all hover:-translate-y-0.5 hover:border-accent/40"
+        </Section>
+      )}
+
+      {/* ===================================================================== */}
+      {/*                            FEATURED POST                                */}
+      {/* ===================================================================== */}
+      {featured && (
+        <Section className="pt-12 sm:pt-16">
+          {/* divider rule with editor's note */}
+          <div className="mb-10 flex items-center gap-4">
+            <span
+              className="font-mono text-[10px] uppercase tracking-[0.28em]"
+              style={{ color: themeColor }}
+            >
+              Featured · §01
+            </span>
+            <span
+              className="h-px flex-1"
+              style={{ background: themeColor.replace(")", " / 0.3)") }}
+            />
+            <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+              Editor&apos;s pick
+            </span>
+          </div>
+
+          <LocalizedLink
+            href={`/cities/${city.slug}/blog/${featured.slug}`}
+            className="group block"
+          >
+            <article className="grid gap-8 lg:grid-cols-12 lg:gap-12">
+              {/* LEFT — large title block */}
+              <div className="lg:col-span-7">
+                {/* meta line — author, date, read time */}
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                  <span className="flex items-center gap-1.5">
+                    <User size={11} />
+                    {featured.author}
+                  </span>
+                  <span>·</span>
+                  <span>{formatDate(featured.publishedAt)}</span>
+                  <span>·</span>
+                  <span className="flex items-center gap-1">
+                    <Clock size={11} />
+                    {featured.readTime} min read
+                  </span>
+                </div>
+
+                {/* magazine-style oversized headline */}
+                <h2 className="text-balance mt-5 font-display text-3xl font-semibold leading-[1.05] tracking-tight text-foreground transition-colors group-hover:text-accent sm:text-4xl lg:text-[3rem]">
+                  {featured.title}
+                </h2>
+
+                {/* dek / subtitle */}
+                <p className="text-pretty mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+                  {featured.subtitle}
+                </p>
+
+                {/* drop-cap excerpt */}
+                <div className="mt-7">
+                  <p className="text-pretty text-base leading-relaxed text-foreground/85 first-letter:float-left first-letter:mr-2 first-letter:font-display first-letter:text-5xl first-letter:font-semibold first-letter:leading-none sm:text-lg sm:first-letter:text-6xl">
+                    <span style={{ color: themeColor }}>
+                      {featured.excerpt.charAt(0)}
+                    </span>
+                    {featured.excerpt.slice(1)}
+                  </p>
+                </div>
+
+                {/* keywords as filed-under tags */}
+                <div className="mt-7 flex flex-wrap gap-1.5">
+                  <span className="inline-flex items-center gap-1 font-mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground">
+                    <Tag size={9} />
+                    Filed under
+                  </span>
+                  {featured.keywords.slice(0, 4).map((k) => (
+                    <span
+                      key={k}
+                      className="inline-flex items-center rounded-full border border-border bg-background/60 px-2 py-0.5 text-[10px] text-muted-foreground"
+                    >
+                      {k}
+                    </span>
+                  ))}
+                </div>
+
+                <div
+                  className="mt-8 inline-flex items-center gap-2 rounded-full border px-5 py-2.5 text-sm font-semibold transition-all group-hover:-translate-y-0.5"
                   style={{
-                    background: identity
-                      ? `linear-gradient(140deg, ${identity.themeColor.replace(")", " / 0.06)")}, transparent 60%)`
-                      : undefined,
+                    borderColor: themeColor.replace(")", " / 0.4)"),
+                    background: themeColor.replace(")", " / 0.08)"),
+                    color: themeColor,
                   }}
                 >
-                  <div className="grid gap-6 p-6 lg:grid-cols-12 lg:gap-10 lg:p-10">
-                    <div className="lg:col-span-7">
-                      <div className="flex flex-wrap items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                        <span
-                          className="rounded-full border px-2 py-0.5"
-                          style={{
-                            borderColor:
-                              identity?.themeColor.replace(")", " / 0.4)") ??
-                              "var(--border)",
-                            color: identity?.themeColor ?? "var(--accent)",
-                          }}
-                        >
-                          <Sparkles size={9} className="mr-1 inline" />
-                          Featured
-                        </span>
-                        <span>{posts[0].publishedAt}</span>
-                        <span className="flex items-center gap-1">
-                          <Clock size={11} />
-                          {posts[0].readTime} min read
-                        </span>
+                  Read the full piece
+                  <ArrowUpRight
+                    size={14}
+                    className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  />
+                </div>
+              </div>
+
+              {/* RIGHT — pull-quote card with section TOC */}
+              <div className="lg:col-span-5">
+                <div
+                  className="relative overflow-hidden rounded-3xl border p-6 sm:p-8"
+                  style={{
+                    borderColor: themeColor.replace(")", " / 0.3)"),
+                    background: `linear-gradient(160deg, ${themeColor.replace(")", " / 0.06)")}, transparent 70%)`,
+                  }}
+                >
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute -right-20 -top-20 h-44 w-44 rounded-full blur-3xl"
+                    style={{ background: themeColor.replace(")", " / 0.2)") }}
+                  />
+                  <div className="relative">
+                    {/* pull quote */}
+                    <Quote size={28} style={{ color: themeColor }} />
+                    <p className="mt-3 font-display text-lg font-semibold leading-snug text-foreground sm:text-xl">
+                      &ldquo;{featured.sections[0]?.paragraphs[0]?.slice(0, 180)}
+                      …&rdquo;
+                    </p>
+
+                    {/* section TOC */}
+                    <div
+                      className="mt-7 border-t pt-5"
+                      style={{ borderColor: themeColor.replace(")", " / 0.2)") }}
+                    >
+                      <div className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                        <Sparkles size={10} />
+                        In this piece
                       </div>
-                      <h2 className="text-balance mt-4 font-display text-2xl font-semibold leading-tight tracking-tight text-foreground transition-colors group-hover:text-accent sm:text-3xl lg:text-4xl">
-                        {posts[0].title}
-                      </h2>
-                      <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
-                        {posts[0].subtitle}
-                      </p>
-                      <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-5 py-2.5 text-sm font-semibold text-accent">
-                        Read the post
-                        <ArrowUpRight
-                          size={14}
-                          className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                        />
-                      </div>
-                    </div>
-                    <div className="lg:col-span-5">
-                      <div className="space-y-2">
-                        {posts[0].sections.slice(0, 3).map((s, i) => (
-                          <div
+                      <ol className="mt-3 space-y-2">
+                        {featured.sections.map((s, i) => (
+                          <li
                             key={i}
-                            className="rounded-xl border border-border bg-background/60 p-3"
+                            className="flex items-start gap-3 text-sm"
                           >
-                            <div
-                              className="font-mono text-[9px] uppercase tracking-[0.22em]"
+                            <span
+                              className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md font-mono text-[9px] font-bold"
                               style={{
-                                color: identity?.themeColor ?? "var(--accent)",
+                                background: themeColor.replace(")", " / 0.1)"),
+                                color: themeColor,
                               }}
                             >
-                              §{String(i + 1).padStart(2, "0")}
-                            </div>
-                            <div className="mt-1 line-clamp-1 text-sm font-semibold text-foreground">
-                              {s.heading}
-                            </div>
-                          </div>
+                              {String(i + 1).padStart(2, "0")}
+                            </span>
+                            <span className="text-foreground">{s.heading}</span>
+                          </li>
                         ))}
-                      </div>
+                      </ol>
                     </div>
                   </div>
-                </LocalizedLink>
-              </article>
-            )}
+                </div>
+              </div>
+            </article>
+          </LocalizedLink>
+        </Section>
+      )}
 
-            {/* Subsequent posts — grid */}
-            {posts.slice(1).map((p) => (
-              <article key={p.slug} className="lg:col-span-4">
-                <LocalizedLink
-                  href={`/cities/${city.slug}/blog/${p.slug}`}
-                  className="group block h-full rounded-3xl border border-border bg-surface/40 p-6 transition-all hover:-translate-y-0.5 hover:border-accent/40 sm:p-7"
+      {/* ===================================================================== */}
+      {/*                            ARCHIVE / OTHER POSTS                        */}
+      {/* ===================================================================== */}
+      {rest.length > 0 && (
+        <Section className="pt-0">
+          <div className="mb-8 flex items-center gap-4">
+            <span
+              className="font-mono text-[10px] uppercase tracking-[0.28em]"
+              style={{ color: themeColor }}
+            >
+              Archive · §02
+            </span>
+            <span
+              className="h-px flex-1"
+              style={{ background: themeColor.replace(")", " / 0.3)") }}
+            />
+            <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+              {rest.length} {rest.length === 1 ? "more piece" : "more pieces"}
+            </span>
+          </div>
+          <div className="grid gap-4 sm:gap-5 lg:grid-cols-3">
+            {rest.map((p, i) => (
+              <LocalizedLink
+                key={p.slug}
+                href={`/cities/${city.slug}/blog/${p.slug}`}
+                className="group flex h-full flex-col rounded-3xl border border-border bg-surface/40 p-6 transition-all hover:-translate-y-0.5 hover:border-accent/40 sm:p-7"
+              >
+                <span
+                  className="font-mono text-[9px] uppercase tracking-[0.22em]"
+                  style={{ color: themeColor }}
                 >
-                  <div className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground">
-                    <span>{p.publishedAt}</span>
-                    <span>·</span>
-                    <span className="flex items-center gap-1">
-                      <Clock size={10} />
-                      {p.readTime} min
-                    </span>
-                  </div>
-                  <h3 className="mt-4 font-display text-lg font-semibold leading-snug tracking-tight text-foreground transition-colors group-hover:text-accent sm:text-xl">
-                    {p.title}
-                  </h3>
-                  <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
-                    {p.excerpt}
-                  </p>
-                  <div className="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-accent">
-                    Read post <ArrowUpRight size={12} />
-                  </div>
-                </LocalizedLink>
-              </article>
+                  No. {String(i + 2).padStart(2, "0")}
+                </span>
+                <h3 className="mt-3 flex-1 font-display text-lg font-semibold leading-snug tracking-tight text-foreground transition-colors group-hover:text-accent sm:text-xl">
+                  {p.title}
+                </h3>
+                <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
+                  {p.excerpt}
+                </p>
+                <div className="mt-5 flex items-center justify-between border-t border-border/60 pt-4 font-mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground">
+                  <span>{formatDate(p.publishedAt)}</span>
+                  <span className="flex items-center gap-1">
+                    <Clock size={10} />
+                    {p.readTime} min
+                  </span>
+                </div>
+              </LocalizedLink>
             ))}
           </div>
-        )}
+        </Section>
+      )}
+
+      {/* ===================================================================== */}
+      {/*                          EDITOR'S COLOPHON                              */}
+      {/* ===================================================================== */}
+      <Section className="pt-0">
+        <div
+          className="rounded-3xl border p-6 sm:p-10"
+          style={{
+            borderColor: themeColor.replace(")", " / 0.3)"),
+            background: `linear-gradient(135deg, ${themeColor.replace(")", " / 0.05)")}, transparent 70%)`,
+          }}
+        >
+          <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
+            <div className="lg:col-span-8">
+              <div className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+                Colophon
+              </div>
+              <h3 className="mt-3 font-display text-xl font-semibold leading-snug tracking-tight text-foreground sm:text-2xl">
+                The {city.name} Journal is written by operators who have
+                shipped revenue systems inside this metro — not from a
+                content desk.
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
+                Every post tells the operational truth of the city: the buyer
+                pattern, the stack, the leak, the move. We don&apos;t write
+                roundups; we write what&apos;s working.
+              </p>
+            </div>
+            <div className="lg:col-span-4 lg:text-right">
+              <LocalizedLink
+                href="/contact"
+                className="group inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-all hover:-translate-y-0.5"
+                style={{
+                  background: themeColor,
+                  color: "var(--background)",
+                  boxShadow: `0 14px 36px -14px ${themeColor.replace(")", " / 0.65)")}`,
+                }}
+              >
+                Pitch a story
+                <ArrowRight
+                  size={14}
+                  className="transition-transform group-hover:translate-x-0.5"
+                />
+              </LocalizedLink>
+            </div>
+          </div>
+        </div>
       </Section>
 
       <Cta t={t} country={country} />
     </>
   );
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  helpers                                   */
+/* -------------------------------------------------------------------------- */
+
+function formatDate(iso: string): string {
+  // ISO-date → "MAY 06 2026" newspaper-style date stamp
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return iso;
+  const months = [
+    "JAN",
+    "FEB",
+    "MAR",
+    "APR",
+    "MAY",
+    "JUN",
+    "JUL",
+    "AUG",
+    "SEP",
+    "OCT",
+    "NOV",
+    "DEC",
+  ];
+  return `${months[d.getUTCMonth()]} ${String(d.getUTCDate()).padStart(2, "0")} ${d.getUTCFullYear()}`;
 }
