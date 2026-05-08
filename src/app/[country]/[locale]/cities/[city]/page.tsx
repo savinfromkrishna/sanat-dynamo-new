@@ -32,19 +32,24 @@ import {
 import { getCityExtras } from "@/lib/city-extras";
 import { getCityIdentity } from "@/lib/city-identity";
 import { getCityPosts } from "@/lib/city-blog";
+import { getCityOrganization } from "@/lib/city-organization";
 import { buildBreadcrumbJsonLd, buildFaqJsonLd } from "@/lib/seo";
 import { PageHero } from "@/components/sections/PageHero";
-import { Section, SectionHeader } from "@/components/primitives/section";
+import { SectionHeader, Eyebrow } from "@/components/primitives/section";
 import { Cta } from "@/components/sections/Cta";
-import { Services } from "@/components/sections/Services";
-import { CaseStudies } from "@/components/sections/CaseStudies";
-import { TechStack } from "@/components/sections/TechStack";
+import { CityStickyShell, type CityTocItem } from "@/components/sections/CityStickyShell";
 import {
-  CityLeadCTA,
   CityHiddenGem,
   CityGlobalPeersCard,
-  CityStatRadials,
 } from "@/components/illustrations/CityPageVisuals";
+import {
+  PresenceOrbit,
+  EngagementJourney,
+  StackBlueprint,
+  CadenceClock,
+  ProofGrid,
+  CommercialPosture,
+} from "@/components/illustrations/CityOrganizationVisuals";
 import { cityIdentityVisuals } from "@/components/illustrations/CityIdentityVisuals";
 import LocalizedLink from "@/components/LocalizedLink";
 
@@ -177,100 +182,416 @@ export default async function CityPage({
   const identity = getCityIdentity(city.slug);
   const Identity = cityIdentityVisuals[city.slug];
   const posts = getCityPosts(city.slug);
+  const org = getCityOrganization(city.slug);
 
-  // Lead-button contact details — fall back to the global IN translation
-  // since the city pages are India-only.
   const phoneDisplay = t.contact.details.phone;
-  // wa.me requires international format without "+" or spaces
   const whatsappE164 = phoneDisplay.replace(/[^\d]/g, "");
+
+  // Table of contents for the sticky scroll-spy. Each id matches a section
+  // in the right column. Order = scroll order. SEO: each one is an in-page
+  // anchor Google can crawl.
+  const toc: CityTocItem[] = [
+    { id: "identity", label: "City identity", eyebrow: "01" },
+    { id: "context", label: "Local context", eyebrow: "02" },
+    ...(extras
+      ? [{ id: "hidden-gem", label: "Hidden gem", eyebrow: "03" }]
+      : []),
+    ...(org
+      ? [
+          { id: "operating-model", label: `How we operate in ${city.name}`, eyebrow: "04" },
+          { id: "engagement", label: "Engagement journey", eyebrow: "05" },
+          { id: "stack", label: "Local stack signature", eyebrow: "06" },
+          { id: "cadence", label: "Weekly cadence", eyebrow: "07" },
+          { id: "proof", label: "Proof in this city", eyebrow: "08" },
+        ]
+      : []),
+    { id: "why-hire", label: "Why hire us here", eyebrow: "09" },
+    { id: "neighborhoods", label: "Neighborhoods we serve", eyebrow: "10" },
+    { id: "industries-angle", label: "Industries angle", eyebrow: "11" },
+    ...(extras
+      ? [{ id: "global-peers", label: "Global peers", eyebrow: "12" }]
+      : []),
+    { id: "case-study", label: "Case study", eyebrow: "13" },
+    { id: "testimonials", label: "Client voices", eyebrow: "14" },
+    { id: "faq", label: "Common questions", eyebrow: "15" },
+  ];
 
   return (
     <>
       <CityJsonLd city={city} country={country} locale={lc} t={t} />
       <CityHero city={city} t={t} />
 
-      {/* Sub-page nav chips — overview / about / journal */}
-      <Section className="pt-8">
-        <div className="flex flex-wrap items-center gap-2">
-          <span
-            className="inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-accent"
-          >
-            <MapPin size={11} />
-            {city.name} overview
-          </span>
-          {identity && (
-            <LocalizedLink
-              href={`/cities/${city.slug}/about`}
-              className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface/60 px-3 py-1.5 text-xs font-semibold text-muted-foreground transition-colors hover:border-accent/40 hover:text-foreground"
-            >
-              <Landmark size={11} />
-              About {identity.nickname}
-              <ArrowUpRight size={11} />
-            </LocalizedLink>
-          )}
-          {posts.length > 0 && (
-            <LocalizedLink
-              href={`/cities/${city.slug}/blog`}
-              className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface/60 px-3 py-1.5 text-xs font-semibold text-muted-foreground transition-colors hover:border-accent/40 hover:text-foreground"
-            >
-              <BookOpen size={11} />
-              {city.name} journal · {posts.length}
-              <ArrowUpRight size={11} />
-            </LocalizedLink>
-          )}
-        </div>
-      </Section>
-
-      {/* Iconic city identity visualization — landmark + cultural motif */}
-      {Identity && identity && (
-        <Section className="pt-6">
-          <CityIdentityShowcase
-            identity={identity}
-            cityName={city.name}
-            citySlug={city.slug}
-            Identity={Identity}
-          />
-        </Section>
-      )}
-
-      {/* Triple lead-button cluster — sits high on the page */}
-      <Section className="pt-0">
-        <CityLeadCTA
+      <section className="relative scroll-mt-24 py-12 sm:py-16 lg:py-20">
+        <CityStickyShell
           city={city}
+          identity={identity}
+          org={org}
+          posts={posts.length}
           whatsappNumber={whatsappE164}
           phoneNumber={phoneDisplay}
-        />
-      </Section>
+          toc={toc}
+        >
+          {/* ===== 01 — City identity visualization ===== */}
+          {Identity && identity && (
+            <article id="identity" className="scroll-mt-32">
+              <SectionEyebrow color={identity.themeColor} index="01">
+                City identity · {identity.nickname}
+              </SectionEyebrow>
+              <h2 className="mt-3 font-display text-2xl font-semibold leading-tight tracking-tight text-foreground sm:text-3xl">
+                The visual identity of {city.name}.
+              </h2>
+              <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+                {identity.tagline}
+              </p>
+              <div
+                className="mt-6 overflow-hidden rounded-3xl border bg-surface/40 p-2 sm:p-4"
+                style={{ borderColor: identity.themeColor.replace(")", " / 0.3)") }}
+              >
+                <Identity className="rounded-2xl" />
+              </div>
+            </article>
+          )}
 
-      <CityLocalContext city={city} />
+          {/* ===== 02 — Local context ===== */}
+          <article id="context" className="scroll-mt-32">
+            <SectionEyebrow color={identity?.themeColor} index="02">
+              Local context
+            </SectionEyebrow>
+            <h2 className="mt-3 font-display text-2xl font-semibold leading-tight tracking-tight text-foreground sm:text-3xl">
+              How {city.name} actually buys.
+            </h2>
+            <div className="mt-5 space-y-4">
+              {city.localContext.map((p, i) => (
+                <p
+                  key={i}
+                  className="text-base leading-relaxed text-muted-foreground sm:text-lg"
+                >
+                  {p}
+                </p>
+              ))}
+            </div>
+          </article>
 
-      {/* Hidden gem — the operational insight the agency competition misses */}
-      {extras && (
-        <Section className="pt-0">
-          <CityHiddenGem extras={extras} cityName={city.name} />
-        </Section>
-      )}
+          {/* ===== 03 — Hidden gem ===== */}
+          {extras && (
+            <article id="hidden-gem" className="scroll-mt-32">
+              <SectionEyebrow color={identity?.themeColor} index="03">
+                Hidden gem
+              </SectionEyebrow>
+              <div className="mt-3">
+                <CityHiddenGem extras={extras} cityName={city.name} />
+              </div>
+            </article>
+          )}
 
-      <CityWhyHire city={city} />
-      <CityNeighborhoods city={city} />
-      <Services t={t} country={country} />
-      <CityIndustriesAngle city={city} />
+          {/* ===== 04 — Operating model · presence orbit ===== */}
+          {org && (
+            <article id="operating-model" className="scroll-mt-32">
+              <SectionEyebrow color={identity?.themeColor} index="04">
+                How we operate in {city.name}
+              </SectionEyebrow>
+              <h2 className="mt-3 font-display text-2xl font-semibold leading-tight tracking-tight text-foreground sm:text-3xl">
+                The operating model — visualized.
+              </h2>
+              <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+                Our presence model in {city.name}, the languages we work in,
+                the cadence of our on-site visits, and the local stack we
+                deploy.
+              </p>
+              <div className="mt-6">
+                <PresenceOrbit org={org} identity={identity} cityName={city.name} />
+              </div>
+            </article>
+          )}
 
-      {/* Global peer cities — world twins where the same playbook works */}
-      {extras && (
-        <Section className="pt-0">
-          <CityGlobalPeersCard city={city} extras={extras} />
-        </Section>
-      )}
+          {/* ===== 05 — Engagement journey ===== */}
+          {org && (
+            <article id="engagement" className="scroll-mt-32">
+              <SectionEyebrow color={identity?.themeColor} index="05">
+                Engagement journey
+              </SectionEyebrow>
+              <h2 className="mt-3 font-display text-2xl font-semibold leading-tight tracking-tight text-foreground sm:text-3xl">
+                4 phases — discovery to compounding.
+              </h2>
+              <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+                Every {city.name} engagement runs the same arc: paid
+                discovery in week 1, scope locked in weeks 2–3, build in
+                weeks 4–14, then a compounding monthly retainer.
+              </p>
+              <div className="mt-8">
+                <EngagementJourney org={org} identity={identity} />
+              </div>
+            </article>
+          )}
 
-      <CaseStudies t={t} country={country} />
-      <CityCaseStudyCallout city={city} />
-      <CityTestimonials city={city} />
-      <TechStack t={t} />
-      <CityFaq city={city} />
-      <CityRelatedCities city={city} />
+          {/* ===== 06 — Local stack ===== */}
+          {org && (
+            <article id="stack" className="scroll-mt-32">
+              <SectionEyebrow color={identity?.themeColor} index="06">
+                Local stack signature
+              </SectionEyebrow>
+              <div className="mt-3">
+                <StackBlueprint org={org} identity={identity} />
+              </div>
+            </article>
+          )}
+
+          {/* ===== 07 — Weekly cadence ===== */}
+          {org && (
+            <article id="cadence" className="scroll-mt-32">
+              <SectionEyebrow color={identity?.themeColor} index="07">
+                Weekly cadence
+              </SectionEyebrow>
+              <div className="mt-3">
+                <CadenceClock org={org} identity={identity} />
+              </div>
+            </article>
+          )}
+
+          {/* ===== 08 — Proof + commercial ===== */}
+          {org && (
+            <article id="proof" className="scroll-mt-32">
+              <SectionEyebrow color={identity?.themeColor} index="08">
+                Proof in this city
+              </SectionEyebrow>
+              <h2 className="mt-3 font-display text-2xl font-semibold leading-tight tracking-tight text-foreground sm:text-3xl">
+                What we&apos;ve actually shipped here.
+              </h2>
+              <div className="mt-6">
+                <ProofGrid org={org} identity={identity} />
+              </div>
+              <div className="mt-5">
+                <CommercialPosture org={org} identity={identity} />
+              </div>
+            </article>
+          )}
+
+          {/* ===== 09 — Why hire us here ===== */}
+          <article id="why-hire" className="scroll-mt-32">
+            <SectionEyebrow color={identity?.themeColor} index="09">
+              Why hire us here
+            </SectionEyebrow>
+            <h2 className="mt-3 font-display text-2xl font-semibold leading-tight tracking-tight text-foreground sm:text-3xl">
+              Three things we do that {city.name} agencies don&apos;t.
+            </h2>
+            <div className="mt-6 grid gap-3 sm:grid-cols-3">
+              {city.whyHire.map((item, i) => (
+                <div
+                  key={item.title}
+                  className="rounded-2xl border border-border bg-surface/40 p-5 transition-colors hover:border-accent/40"
+                >
+                  <div
+                    className="font-mono text-[10px] uppercase tracking-[0.22em]"
+                    style={{ color: identity?.themeColor }}
+                  >
+                    Reason · 0{i + 1}
+                  </div>
+                  <h3 className="mt-3 font-display text-base font-semibold tracking-tight text-foreground sm:text-lg">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    {item.body}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </article>
+
+          {/* ===== 10 — Neighborhoods ===== */}
+          <article id="neighborhoods" className="scroll-mt-32">
+            <SectionEyebrow color={identity?.themeColor} index="10">
+              Areas we serve
+            </SectionEyebrow>
+            <h2 className="mt-3 font-display text-2xl font-semibold leading-tight tracking-tight text-foreground sm:text-3xl">
+              Across {city.name}&apos;s commercial belts — no zone untouched.
+            </h2>
+            <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+              Each area has its own buyer pattern. We tailor the build to the
+              neighborhood, not the city average.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-2">
+              {city.neighborhoods.map((n) => (
+                <span
+                  key={n}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1.5 text-xs text-foreground"
+                >
+                  <span
+                    className="h-1 w-1 rounded-full"
+                    style={{ background: identity?.themeColor ?? "var(--accent)" }}
+                  />
+                  {n}
+                </span>
+              ))}
+            </div>
+          </article>
+
+          {/* ===== 11 — Industries angle ===== */}
+          <article id="industries-angle" className="scroll-mt-32">
+            <SectionEyebrow color={identity?.themeColor} index="11">
+              Industries · {city.name}
+            </SectionEyebrow>
+            <div
+              className="mt-3 rounded-3xl border p-5 sm:p-7"
+              style={{
+                borderColor: identity?.themeColor.replace(")", " / 0.3)") ?? "var(--border)",
+                background: identity
+                  ? `linear-gradient(140deg, ${identity.themeColor.replace(")", " / 0.06)")}, transparent 70%)`
+                  : undefined,
+              }}
+            >
+              <p className="text-base leading-relaxed text-foreground sm:text-lg">
+                {city.industriesAngle}
+              </p>
+            </div>
+          </article>
+
+          {/* ===== 12 — Global peers ===== */}
+          {extras && (
+            <article id="global-peers" className="scroll-mt-32">
+              <SectionEyebrow color={identity?.themeColor} index="12">
+                Global peers
+              </SectionEyebrow>
+              <div className="mt-3">
+                <CityGlobalPeersCard city={city} extras={extras} />
+              </div>
+            </article>
+          )}
+
+          {/* ===== 13 — Case study ===== */}
+          <article id="case-study" className="scroll-mt-32">
+            <SectionEyebrow color={identity?.themeColor} index="13">
+              {city.name} case study
+            </SectionEyebrow>
+            <div
+              className="mt-3 rounded-3xl border p-6 sm:p-8"
+              style={{
+                borderColor: identity?.themeColor.replace(")", " / 0.3)") ?? "var(--border)",
+              }}
+            >
+              <h3 className="font-display text-xl font-semibold leading-tight tracking-tight text-foreground sm:text-2xl">
+                What a {city.name} engagement actually ships.
+              </h3>
+              <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
+                {city.caseStudyCallout}
+              </p>
+              <LocalizedLink
+                href="/case-studies"
+                className="mt-5 inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground transition-all hover:border-accent/40 hover:text-accent"
+              >
+                See more case studies
+                <ArrowUpRight size={13} />
+              </LocalizedLink>
+            </div>
+          </article>
+
+          {/* ===== 14 — Testimonials ===== */}
+          {city.testimonials.length > 0 && (
+            <article id="testimonials" className="scroll-mt-32">
+              <SectionEyebrow color={identity?.themeColor} index="14">
+                Client voices
+              </SectionEyebrow>
+              <h2 className="mt-3 font-display text-2xl font-semibold leading-tight tracking-tight text-foreground sm:text-3xl">
+                Operators in {city.name} who&apos;ve shipped with us.
+              </h2>
+              <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                {city.testimonials.map((tm, i) => (
+                  <figure
+                    key={i}
+                    className="rounded-2xl border border-border bg-surface/40 p-5"
+                  >
+                    <div
+                      className="flex items-center gap-1"
+                      style={{ color: identity?.themeColor ?? "var(--accent)" }}
+                    >
+                      {[0, 1, 2, 3, 4].map((s) => (
+                        <Star key={s} size={12} fill="currentColor" />
+                      ))}
+                    </div>
+                    <blockquote className="mt-3 text-base leading-relaxed text-foreground">
+                      &ldquo;{tm.quote}&rdquo;
+                    </blockquote>
+                    <figcaption className="mt-4 border-t border-border pt-4">
+                      <div className="text-sm font-semibold text-foreground">
+                        {tm.author}
+                      </div>
+                      <div className="mt-0.5 text-xs text-muted-foreground">
+                        {tm.role}
+                      </div>
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+            </article>
+          )}
+
+          {/* ===== 15 — FAQ ===== */}
+          <article id="faq" className="scroll-mt-32">
+            <SectionEyebrow color={identity?.themeColor} index="15">
+              Common questions
+            </SectionEyebrow>
+            <h2 className="mt-3 font-display text-2xl font-semibold leading-tight tracking-tight text-foreground sm:text-3xl">
+              Direct answers about working with us in {city.name}.
+            </h2>
+            <div className="mt-6 grid gap-3">
+              {city.faq.map((item, idx) => (
+                <details
+                  key={item.q}
+                  open={idx === 0}
+                  className="group rounded-2xl border border-border bg-surface/40 p-5 transition-colors open:border-accent/40 open:bg-surface [&_summary::-webkit-details-marker]:hidden"
+                >
+                  <summary className="flex cursor-pointer items-start justify-between gap-4 text-base font-semibold text-foreground">
+                    <span>{item.q}</span>
+                    <Plus
+                      size={18}
+                      className="mt-0.5 shrink-0 transition-transform duration-300 group-open:rotate-45"
+                      style={{ color: identity?.themeColor ?? "var(--accent)" }}
+                    />
+                  </summary>
+                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                    {item.a}
+                  </p>
+                </details>
+              ))}
+            </div>
+          </article>
+
+          {/* ===== Related cities ===== */}
+          <CityRelatedCities city={city} />
+        </CityStickyShell>
+      </section>
+
       <Cta t={t} country={country} />
     </>
+  );
+}
+
+/** Shared eyebrow for in-section labels — keeps the layout consistent. */
+function SectionEyebrow({
+  color,
+  index,
+  children,
+}: {
+  color?: string;
+  index: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div
+      className="inline-flex items-center gap-2 rounded-full border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.22em]"
+      style={{
+        borderColor: color?.replace(")", " / 0.4)") ?? "var(--border)",
+        background: color?.replace(")", " / 0.08)") ?? "var(--surface)",
+        color: color ?? "var(--accent)",
+      }}
+    >
+      <span
+        className="font-bold"
+        style={{ opacity: 0.7 }}
+      >
+        §{index}
+      </span>
+      <span>{children}</span>
+    </div>
   );
 }
 
@@ -444,321 +765,14 @@ function CityHero({
   );
 }
 
-function CityIdentityShowcase({
-  identity,
-  cityName,
-  citySlug,
-  Identity,
-}: {
-  identity: NonNullable<ReturnType<typeof getCityIdentity>>;
-  cityName: string;
-  citySlug: string;
-  Identity: React.ComponentType<{ className?: string }>;
-}) {
-  return (
-    <div
-      className="relative overflow-hidden rounded-3xl border p-3 sm:p-6"
-      style={{
-        borderColor: identity.themeColor.replace(")", " / 0.3)"),
-        background: `linear-gradient(140deg, ${identity.themeColor.replace(")", " / 0.07)")}, ${identity.themeColorAccent.replace(")", " / 0.03)")} 60%)`,
-      }}
-    >
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full blur-3xl"
-        style={{ background: identity.themeColor.replace(")", " / 0.15)") }}
-      />
-      <div className="relative grid gap-4 lg:grid-cols-12 lg:items-center lg:gap-8">
-        <div className="lg:col-span-8">
-          <Identity className="rounded-2xl" />
-        </div>
-        <div className="px-3 pb-2 lg:col-span-4 lg:px-0 lg:pb-0">
-          <div
-            className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.22em]"
-            style={{
-              borderColor: identity.themeColor.replace(")", " / 0.4)"),
-              background: identity.themeColor.replace(")", " / 0.08)"),
-              color: identity.themeColor,
-            }}
-          >
-            <Landmark size={11} />
-            {identity.nickname}
-          </div>
-          <h2 className="text-balance mt-3 font-display text-xl font-semibold leading-tight tracking-tight text-foreground sm:text-2xl">
-            The visual identity of {cityName}.
-          </h2>
-          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            {identity.tagline}
-          </p>
-          <div className="mt-4 flex flex-wrap gap-2">
-            <LocalizedLink
-              href={`/cities/${citySlug}/about`}
-              className="group inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold transition-all hover:-translate-y-0.5"
-              style={{
-                borderColor: identity.themeColor.replace(")", " / 0.4)"),
-                background: identity.themeColor.replace(")", " / 0.08)"),
-                color: identity.themeColor,
-              }}
-            >
-              Read about {identity.nickname}
-              <ArrowRight
-                size={11}
-                className="transition-transform group-hover:translate-x-0.5"
-              />
-            </LocalizedLink>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function CityLocalContext({ city }: { city: CityContent }) {
-  return (
-    <Section className="pt-8">
-      <div className="grid gap-10 lg:grid-cols-12">
-        <div className="lg:col-span-7">
-          <div className="space-y-5">
-            {city.localContext.map((p, i) => (
-              <p
-                key={i}
-                className="text-base leading-relaxed text-muted-foreground sm:text-lg"
-              >
-                {p}
-              </p>
-            ))}
-          </div>
-        </div>
-
-        <div className="lg:col-span-5">
-          <div className="rounded-3xl border border-border bg-surface/40 p-5 backdrop-blur-xl sm:p-6">
-            <div className="flex items-center justify-between gap-2">
-              <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
-                <MapPin size={11} />
-                {city.name} · {city.state}
-              </div>
-              <div className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.18em] text-muted-foreground">
-                <Users size={10} className="text-accent" />
-                {city.population}
-              </div>
-            </div>
-
-            <div className="mt-5">
-              <CityStatRadials city={city} />
-            </div>
-          </div>
-        </div>
-      </div>
-    </Section>
-  );
-}
-
-function CityWhyHire({ city }: { city: CityContent }) {
-  return (
-    <Section>
-      <SectionHeader
-        eyebrow={`Why hire us in ${city.name}`}
-        title={
-          <>
-            Three things we do that{" "}
-            <span className="text-accent">{city.name} agencies don&apos;t</span>.
-          </>
-        }
-      />
-
-      <div className="mt-10 grid gap-4 sm:gap-6 md:grid-cols-3">
-        {city.whyHire.map((item, i) => (
-          <div
-            key={item.title}
-            className="group relative overflow-hidden rounded-3xl border border-border bg-surface/40 p-6 transition-all hover:border-accent/30"
-          >
-            <div className="flex items-center gap-3">
-              <span className="flex h-9 w-9 items-center justify-center rounded-2xl border border-accent/40 bg-accent/10 font-mono text-xs text-accent">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <CheckCircle2 size={16} className="text-accent" />
-            </div>
-            <h3 className="mt-5 font-display text-xl font-semibold text-foreground">
-              {item.title}
-            </h3>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              {item.body}
-            </p>
-          </div>
-        ))}
-      </div>
-    </Section>
-  );
-}
-
-function CityNeighborhoods({ city }: { city: CityContent }) {
-  return (
-    <Section className="bg-surface/20">
-      <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
-        <div className="lg:col-span-7">
-          <SectionHeader
-            eyebrow="Areas we serve"
-            title={
-              <>
-                Across {city.name}&apos;s commercial belts —{" "}
-                <span className="text-accent">no zone untouched</span>.
-              </>
-            }
-            subtitle={`We work with founders and operators headquartered across ${city.name}'s major business hubs. Each area below has its own buyer pattern; we tailor.`}
-          />
-        </div>
-
-        <div className="lg:col-span-5">
-          <div className="flex flex-wrap gap-2">
-            {city.neighborhoods.map((n) => (
-              <span
-                key={n}
-                className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1.5 text-xs text-foreground"
-              >
-                <Building2 size={11} className="text-accent" />
-                {n}
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
-    </Section>
-  );
-}
-
-function CityIndustriesAngle({ city }: { city: CityContent }) {
-  return (
-    <Section className="pt-0">
-      <div className="rounded-3xl border border-accent/30 bg-accent/5 p-8 sm:p-12">
-        <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
-          <Sparkles size={11} />
-          {city.name} industries
-        </div>
-        <p className="mt-5 max-w-3xl text-pretty text-base leading-relaxed text-foreground sm:text-lg">
-          {city.industriesAngle}
-        </p>
-      </div>
-    </Section>
-  );
-}
-
-function CityCaseStudyCallout({ city }: { city: CityContent }) {
-  return (
-    <Section className="pt-0">
-      <div className="grid gap-8 rounded-3xl border border-border bg-surface/40 p-8 sm:gap-10 sm:p-12 lg:grid-cols-12">
-        <div className="lg:col-span-4">
-          <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
-            <Star size={11} />
-            {city.name} case study
-          </div>
-          <h3 className="mt-5 font-display text-2xl font-semibold leading-tight tracking-tight text-foreground sm:text-3xl">
-            What a {city.name} engagement actually ships.
-          </h3>
-        </div>
-        <div className="lg:col-span-8">
-          <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
-            {city.caseStudyCallout}
-          </p>
-          <LocalizedLink
-            href="/case-studies"
-            className="group mt-6 inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-2.5 text-sm font-semibold text-foreground transition-all hover:border-accent/50"
-          >
-            See more case studies
-            <ArrowUpRight
-              size={14}
-              className="text-accent transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-            />
-          </LocalizedLink>
-        </div>
-      </div>
-    </Section>
-  );
-}
-
-function CityTestimonials({ city }: { city: CityContent }) {
-  if (!city.testimonials.length) return null;
-  return (
-    <Section className="pt-0">
-      <SectionHeader
-        eyebrow="What our clients say"
-        title={
-          <>
-            Operators in {city.name} who&apos;ve{" "}
-            <span className="text-accent">shipped with us</span>.
-          </>
-        }
-      />
-
-      <div className="mt-10 grid gap-4 sm:gap-6 md:grid-cols-2">
-        {city.testimonials.map((tm, i) => (
-          <figure
-            key={i}
-            className="rounded-3xl border border-border bg-surface/40 p-7"
-          >
-            <div className="flex items-center gap-1 text-accent">
-              {[0, 1, 2, 3, 4].map((s) => (
-                <Star key={s} size={14} fill="currentColor" />
-              ))}
-            </div>
-            <blockquote className="mt-4 text-base leading-relaxed text-foreground sm:text-lg">
-              &ldquo;{tm.quote}&rdquo;
-            </blockquote>
-            <figcaption className="mt-5 border-t border-border pt-5">
-              <div className="font-semibold text-foreground">{tm.author}</div>
-              <div className="mt-1 text-xs text-muted-foreground">{tm.role}</div>
-            </figcaption>
-          </figure>
-        ))}
-      </div>
-    </Section>
-  );
-}
-
-function CityFaq({ city }: { city: CityContent }) {
-  return (
-    <Section id="city-faq">
-      <SectionHeader
-        eyebrow={`${city.name} FAQs`}
-        title={
-          <>
-            Direct answers about working with us in{" "}
-            <span className="text-accent">{city.name}</span>.
-          </>
-        }
-        subtitle="If you don't see your question, just ask us — we'll answer specifically for your business."
-      />
-
-      <div className="mt-10 grid gap-3 sm:gap-4">
-        {city.faq.map((item) => (
-          <details
-            key={item.q}
-            className="group rounded-2xl border border-border bg-surface/40 p-5 transition-colors open:border-accent/40 open:bg-surface"
-          >
-            <summary className="flex cursor-pointer list-none items-start justify-between gap-4 text-base font-semibold text-foreground">
-              <span>{item.q}</span>
-              <Plus
-                size={18}
-                className="mt-0.5 shrink-0 text-accent transition-transform duration-200 group-open:rotate-45"
-              />
-            </summary>
-            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              {item.a}
-            </p>
-          </details>
-        ))}
-      </div>
-    </Section>
-  );
-}
-
 function CityRelatedCities({ city }: { city: CityContent }) {
   const related = city.relatedCities
     .map((slug) => INDIA_CITIES.find((c) => c.slug === slug))
     .filter((c): c is CityContent => Boolean(c));
   if (!related.length) return null;
   return (
-    <Section className="pt-0">
-      <div className="rounded-3xl border border-border bg-surface/30 p-8 sm:p-12">
+    <article id="related-cities" className="scroll-mt-32">
+      <div className="rounded-3xl border border-border bg-surface/30 p-6 sm:p-8">
         <div className="flex items-center justify-between gap-4">
           <div>
             <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
@@ -777,7 +791,7 @@ function CityRelatedCities({ city }: { city: CityContent }) {
           </LocalizedLink>
         </div>
 
-        <div className="mt-6 grid gap-3 sm:grid-cols-3">
+        <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {related.map((r) => (
             <LocalizedLink
               key={r.slug}
@@ -800,6 +814,6 @@ function CityRelatedCities({ city }: { city: CityContent }) {
           ))}
         </div>
       </div>
-    </Section>
+    </article>
   );
 }
