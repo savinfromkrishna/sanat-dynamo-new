@@ -100,10 +100,17 @@ export function CityStickyShell({
 
   return (
     <div className="container-px relative mx-auto max-w-7xl">
-      <div className="grid gap-8 lg:grid-cols-12 lg:gap-10">
+      {/* `items-start` keeps each grid item anchored to its own top instead of
+          stretching, which is what `position: sticky` needs to actually stick
+          inside its grid track without the aside collapsing as the right
+          column grows. */}
+      <div className="grid gap-8 lg:grid-cols-12 lg:items-start lg:gap-10">
         {/* ============================== LEFT (sticky) ============================== */}
-        <aside className="lg:col-span-4">
-          <div className="lg:sticky lg:top-28 lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto lg:pr-3">
+        <aside className="lg:col-span-4 lg:self-start">
+          {/* `top-28` (7rem) sits below the 72px header + 9px announcement bar
+              with breathing room. `max-h` + `overflow-y-auto` only kick in when
+              the rail is taller than the viewport — otherwise no inner scroll. */}
+          <div className="lg:sticky lg:top-28 lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto lg:overscroll-contain lg:pr-3 [scrollbar-gutter:stable]">
             {/* City identity card */}
             <div
               className="relative overflow-hidden rounded-3xl border p-5"

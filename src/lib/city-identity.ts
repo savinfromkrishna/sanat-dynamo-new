@@ -47,19 +47,6 @@ export interface CityIdentity {
   history: string[];
   /** 5-7 landmarks */
   landmarks: CityLandmark[];
-  /**
-   * Optional photographic hero image for the city — full URL to a free-use
-   * (Wikimedia Commons) photo of the city's most iconic landmark. Rendered
-   * as a banner on the /cities/[slug] page hero. Plain <img>; not piped
-   * through next/image since there are too many wiki domains to whitelist
-   * and the redirect-resolved URLs are already CDN-cached.
-   */
-  heroImage?: {
-    src: string;
-    alt: string;
-    /** Short attribution shown beneath the photo — e.g. "Hawa Mahal · Wikimedia Commons" */
-    credit: string;
-  };
   /** 3-4 cultural beats */
   culture: CityCulturalBeat[];
   /** 3-4 economic anchors (clusters) */
@@ -81,11 +68,6 @@ export interface CityIdentity {
 export const CITY_IDENTITY: Record<string, CityIdentity> = {
   jaipur: {
     slug: "jaipur",
-    heroImage: {
-      src: "https://commons.wikimedia.org/wiki/Special:FilePath/Hawa_Mahal,_Jaipur,_India.jpg?width=1600",
-      alt: "Hawa Mahal — the 953-window honeycomb facade of Jaipur, the Pink City",
-      credit: "Hawa Mahal · Wikimedia Commons",
-    },
     nickname: "Pink City",
     nicknameRegional: "गुलाबी नगरी",
     nicknameOrigin:
@@ -157,11 +139,6 @@ export const CITY_IDENTITY: Record<string, CityIdentity> = {
 
   mumbai: {
     slug: "mumbai",
-    heroImage: {
-      src: "https://commons.wikimedia.org/wiki/Special:FilePath/Mumbai_03-2016_30_Gateway_of_India.jpg?width=1600",
-      alt: "Gateway of India — Mumbai's iconic basalt arch on the Apollo Bunder waterfront",
-      credit: "Gateway of India · Wikimedia Commons",
-    },
     nickname: "Maximum City",
     nicknameRegional: "मुंबई · आमची मुंबई",
     nicknameOrigin:
@@ -209,11 +186,6 @@ export const CITY_IDENTITY: Record<string, CityIdentity> = {
 
   delhi: {
     slug: "delhi",
-    heroImage: {
-      src: "https://commons.wikimedia.org/wiki/Special:FilePath/India_Gate_New_Delhi.jpg?width=1600",
-      alt: "India Gate — the 42-metre war memorial at the heart of Lutyens' Delhi",
-      credit: "India Gate · Wikimedia Commons",
-    },
     nickname: "Capital of Empires",
     nicknameRegional: "दिल्ली · NCR",
     nicknameOrigin:
@@ -261,11 +233,6 @@ export const CITY_IDENTITY: Record<string, CityIdentity> = {
 
   bengaluru: {
     slug: "bengaluru",
-    heroImage: {
-      src: "https://commons.wikimedia.org/wiki/Special:FilePath/Vidhana_Soudha_Bangalore.jpg?width=1600",
-      alt: "Vidhana Soudha — Karnataka's neo-Dravidian state legislature, Bengaluru's civic centerpiece",
-      credit: "Vidhana Soudha · Wikimedia Commons",
-    },
     nickname: "Silicon Valley of India",
     nicknameRegional: "ಬೆಂಗಳೂರು · Garden City",
     nicknameOrigin:
@@ -313,11 +280,6 @@ export const CITY_IDENTITY: Record<string, CityIdentity> = {
 
   pune: {
     slug: "pune",
-    heroImage: {
-      src: "https://commons.wikimedia.org/wiki/Special:FilePath/Shaniwar_Wada.jpg?width=1600",
-      alt: "Shaniwar Wada — the Peshwa-era stone fortress at the heart of old Pune",
-      credit: "Shaniwar Wada · Wikimedia Commons",
-    },
     nickname: "Oxford of the East",
     nicknameRegional: "पुणे · Cultural Capital of Maharashtra",
     nicknameOrigin:
@@ -365,11 +327,6 @@ export const CITY_IDENTITY: Record<string, CityIdentity> = {
 
   chennai: {
     slug: "chennai",
-    heroImage: {
-      src: "https://commons.wikimedia.org/wiki/Special:FilePath/Marina_beach.jpg?width=1600",
-      alt: "Marina Beach — the 13-kilometre Bay of Bengal stretch defining Chennai's coastline",
-      credit: "Marina Beach · Wikimedia Commons",
-    },
     nickname: "Detroit of India",
     nicknameRegional: "சென்னை · Gateway of South India",
     nicknameOrigin:
@@ -417,11 +374,6 @@ export const CITY_IDENTITY: Record<string, CityIdentity> = {
 
   hyderabad: {
     slug: "hyderabad",
-    heroImage: {
-      src: "https://commons.wikimedia.org/wiki/Special:FilePath/Charminar-Pride_of_Hyderabad.jpg?width=1600",
-      alt: "Charminar — the four-minaret mosque at the centre of old Hyderabad, built 1591",
-      credit: "Charminar · Wikimedia Commons",
-    },
     nickname: "City of Pearls",
     nicknameRegional: "హైదరాబాద్ · Cyberabad",
     nicknameOrigin:
@@ -469,11 +421,6 @@ export const CITY_IDENTITY: Record<string, CityIdentity> = {
 
   kolkata: {
     slug: "kolkata",
-    heroImage: {
-      src: "https://commons.wikimedia.org/wiki/Special:FilePath/Howrah_Bridge_Kolkata.jpg?width=1600",
-      alt: "Howrah Bridge — the cantilever truss bridge over the Hooghly, Kolkata's working spine",
-      credit: "Howrah Bridge · Wikimedia Commons",
-    },
     nickname: "City of Joy",
     nicknameRegional: "কলকাতা · Cultural Capital",
     nicknameOrigin:
@@ -521,11 +468,6 @@ export const CITY_IDENTITY: Record<string, CityIdentity> = {
 
   ahmedabad: {
     slug: "ahmedabad",
-    heroImage: {
-      src: "https://commons.wikimedia.org/wiki/Special:FilePath/Sabarmati_Riverfront.jpg?width=1600",
-      alt: "Sabarmati Riverfront — Ahmedabad's modern civic spine on the river that anchors the city",
-      credit: "Sabarmati Riverfront · Wikimedia Commons",
-    },
     nickname: "Manchester of India",
     nicknameRegional: "અમદાવાદ · Karnavati",
     nicknameOrigin:
@@ -573,11 +515,6 @@ export const CITY_IDENTITY: Record<string, CityIdentity> = {
 
   indore: {
     slug: "indore",
-    heroImage: {
-      src: "https://commons.wikimedia.org/wiki/Special:FilePath/Indore_Rajwada_at_night.jpg?width=1600",
-      alt: "Rajwada — the seven-storey Holkar palace at the centre of old Indore, lit at night",
-      credit: "Rajwada Palace · Wikimedia Commons",
-    },
     nickname: "Mini Mumbai",
     nicknameRegional: "इंदौर · Cleanest City",
     nicknameOrigin:
@@ -625,11 +562,6 @@ export const CITY_IDENTITY: Record<string, CityIdentity> = {
 
   bhopal: {
     slug: "bhopal",
-    heroImage: {
-      src: "https://commons.wikimedia.org/wiki/Special:FilePath/Taj-ul-Masjid.jpg?width=1600",
-      alt: "Taj-ul-Masjid — one of Asia's largest mosques, the architectural anchor of old Bhopal",
-      credit: "Taj-ul-Masjid · Wikimedia Commons",
-    },
     nickname: "City of Lakes",
     nicknameRegional: "भोपाल · Tāl-Tālāōn kā Shahar",
     nicknameOrigin:

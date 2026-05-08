@@ -278,43 +278,6 @@ export default async function CityAboutPage({
         breadcrumb={`${city.name} · About`}
       />
 
-      {identity.heroImage && (
-        <div className="container-px mx-auto mt-8 max-w-7xl sm:mt-10 lg:mt-12">
-          <figure
-            className="relative overflow-hidden rounded-3xl border bg-surface/30 shadow-[0_28px_72px_-32px_rgba(0,0,0,0.45)]"
-            style={{ borderColor: identity.themeColor.replace(")", " / 0.3)") }}
-          >
-            <div className="aspect-[16/8] w-full sm:aspect-[16/7] lg:aspect-[16/6]">
-              <img
-                src={identity.heroImage.src}
-                alt={identity.heroImage.alt}
-                loading="eager"
-                fetchPriority="high"
-                className="h-full w-full object-cover"
-              />
-            </div>
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-0"
-              style={{
-                background: `linear-gradient(180deg, transparent 45%, ${identity.themeColor.replace(")", " / 0.55)")} 100%)`,
-              }}
-            />
-            <figcaption className="absolute inset-x-3 bottom-3 flex items-center justify-between gap-3 sm:inset-x-5 sm:bottom-5">
-              <span
-                className="rounded-full border bg-background/85 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-foreground backdrop-blur"
-                style={{ borderColor: identity.themeColor.replace(")", " / 0.4)") }}
-              >
-                {identity.nickname}
-              </span>
-              <span className="hidden rounded-full bg-background/70 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground backdrop-blur sm:inline">
-                {identity.heroImage.credit}
-              </span>
-            </figcaption>
-          </figure>
-        </div>
-      )}
-
       {/* Sub-nav chips back to the main city page + blog */}
       <Section className="pt-8">
         <div className="flex flex-wrap items-center gap-2">

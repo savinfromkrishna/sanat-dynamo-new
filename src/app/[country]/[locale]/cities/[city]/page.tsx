@@ -191,32 +191,31 @@ export default async function CityPage({
   // in the right column. Order = scroll order. SEO: each one is an in-page
   // anchor Google can crawl.
   const toc: CityTocItem[] = [
-    { id: "identity", label: "City identity", eyebrow: "01" },
-    { id: "context", label: "Local context", eyebrow: "02" },
+    { id: "context", label: "Local context", eyebrow: "01" },
     ...(identity
-      ? [{ id: "places-heritage", label: "Places & heritage", eyebrow: "03" }]
+      ? [{ id: "places-heritage", label: "Places & heritage", eyebrow: "02" }]
       : []),
     ...(extras
-      ? [{ id: "hidden-gem", label: "Hidden gem", eyebrow: "04" }]
+      ? [{ id: "hidden-gem", label: "Hidden gem", eyebrow: "03" }]
       : []),
     ...(org
       ? [
-          { id: "operating-model", label: `How we operate in ${city.name}`, eyebrow: "05" },
-          { id: "engagement", label: "Engagement journey", eyebrow: "06" },
-          { id: "stack", label: "Local stack signature", eyebrow: "07" },
-          { id: "cadence", label: "Weekly cadence", eyebrow: "08" },
-          { id: "proof", label: "Proof in this city", eyebrow: "09" },
+          { id: "operating-model", label: `How we operate in ${city.name}`, eyebrow: "04" },
+          { id: "engagement", label: "Engagement journey", eyebrow: "05" },
+          { id: "stack", label: "Local stack signature", eyebrow: "06" },
+          { id: "cadence", label: "Weekly cadence", eyebrow: "07" },
+          { id: "proof", label: "Proof in this city", eyebrow: "08" },
         ]
       : []),
-    { id: "why-hire", label: "Why hire us here", eyebrow: "10" },
-    { id: "neighborhoods", label: "Neighborhoods we serve", eyebrow: "11" },
-    { id: "industries-angle", label: "Industries angle", eyebrow: "12" },
+    { id: "why-hire", label: "Why hire us here", eyebrow: "09" },
+    { id: "neighborhoods", label: "Neighborhoods we serve", eyebrow: "10" },
+    { id: "industries-angle", label: "Industries angle", eyebrow: "11" },
     ...(extras
-      ? [{ id: "global-peers", label: "Global peers", eyebrow: "13" }]
+      ? [{ id: "global-peers", label: "Global peers", eyebrow: "12" }]
       : []),
-    { id: "case-study", label: "Case study", eyebrow: "14" },
-    { id: "testimonials", label: "Client voices", eyebrow: "15" },
-    { id: "faq", label: "Common questions", eyebrow: "16" },
+    { id: "case-study", label: "Case study", eyebrow: "13" },
+    { id: "testimonials", label: "Client voices", eyebrow: "14" },
+    { id: "faq", label: "Common questions", eyebrow: "15" },
   ];
 
   return (
@@ -234,30 +233,9 @@ export default async function CityPage({
           phoneNumber={phoneDisplay}
           toc={toc}
         >
-          {/* ===== 01 — City identity visualization ===== */}
-          {Identity && identity && (
-            <article id="identity" className="scroll-mt-32">
-              <SectionEyebrow color={identity.themeColor} index="01">
-                City identity · {identity.nickname}
-              </SectionEyebrow>
-              <h2 className="mt-3 font-display text-2xl font-semibold leading-tight tracking-tight text-foreground sm:text-3xl">
-                The visual identity of {city.name}.
-              </h2>
-              <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-                {identity.tagline}
-              </p>
-              <div
-                className="mt-6 overflow-hidden rounded-3xl border bg-surface/40 p-2 sm:p-4"
-                style={{ borderColor: identity.themeColor.replace(")", " / 0.3)") }}
-              >
-                <Identity className="rounded-2xl" />
-              </div>
-            </article>
-          )}
-
-          {/* ===== 02 — Local context ===== */}
+          {/* ===== 01 — Local context ===== */}
           <article id="context" className="scroll-mt-32">
-            <SectionEyebrow color={identity?.themeColor} index="02">
+            <SectionEyebrow color={identity?.themeColor} index="01">
               Local context
             </SectionEyebrow>
             <h2 className="mt-3 font-display text-2xl font-semibold leading-tight tracking-tight text-foreground sm:text-3xl">
@@ -275,10 +253,10 @@ export default async function CityPage({
             </div>
           </article>
 
-          {/* ===== 03 — Places & heritage ===== */}
+          {/* ===== 02 — Places & heritage ===== */}
           {identity && (
             <article id="places-heritage" className="scroll-mt-32">
-              <SectionEyebrow color={identity.themeColor} index="03">
+              <SectionEyebrow color={identity.themeColor} index="02">
                 Places &amp; heritage · {identity.nickname}
               </SectionEyebrow>
               <h2 className="mt-3 font-display text-2xl font-semibold leading-tight tracking-tight text-foreground sm:text-3xl">
@@ -377,10 +355,10 @@ export default async function CityPage({
             </article>
           )}
 
-          {/* ===== 04 — Hidden gem ===== */}
+          {/* ===== 03 — Hidden gem ===== */}
           {extras && (
             <article id="hidden-gem" className="scroll-mt-32">
-              <SectionEyebrow color={identity?.themeColor} index="04">
+              <SectionEyebrow color={identity?.themeColor} index="03">
                 Hidden gem
               </SectionEyebrow>
               <div className="mt-3">
@@ -389,10 +367,10 @@ export default async function CityPage({
             </article>
           )}
 
-          {/* ===== 05 — Operating model · presence orbit ===== */}
+          {/* ===== 04 — Operating model · presence orbit ===== */}
           {org && (
             <article id="operating-model" className="scroll-mt-32">
-              <SectionEyebrow color={identity?.themeColor} index="05">
+              <SectionEyebrow color={identity?.themeColor} index="04">
                 How we operate in {city.name}
               </SectionEyebrow>
               <h2 className="mt-3 font-display text-2xl font-semibold leading-tight tracking-tight text-foreground sm:text-3xl">
@@ -409,10 +387,10 @@ export default async function CityPage({
             </article>
           )}
 
-          {/* ===== 06 — Engagement journey ===== */}
+          {/* ===== 05 — Engagement journey ===== */}
           {org && (
             <article id="engagement" className="scroll-mt-32">
-              <SectionEyebrow color={identity?.themeColor} index="06">
+              <SectionEyebrow color={identity?.themeColor} index="05">
                 Engagement journey
               </SectionEyebrow>
               <h2 className="mt-3 font-display text-2xl font-semibold leading-tight tracking-tight text-foreground sm:text-3xl">
@@ -429,10 +407,10 @@ export default async function CityPage({
             </article>
           )}
 
-          {/* ===== 07 — Local stack ===== */}
+          {/* ===== 06 — Local stack ===== */}
           {org && (
             <article id="stack" className="scroll-mt-32">
-              <SectionEyebrow color={identity?.themeColor} index="07">
+              <SectionEyebrow color={identity?.themeColor} index="06">
                 Local stack signature
               </SectionEyebrow>
               <div className="mt-3">
@@ -441,10 +419,10 @@ export default async function CityPage({
             </article>
           )}
 
-          {/* ===== 08 — Weekly cadence ===== */}
+          {/* ===== 07 — Weekly cadence ===== */}
           {org && (
             <article id="cadence" className="scroll-mt-32">
-              <SectionEyebrow color={identity?.themeColor} index="08">
+              <SectionEyebrow color={identity?.themeColor} index="07">
                 Weekly cadence
               </SectionEyebrow>
               <div className="mt-3">
@@ -453,10 +431,10 @@ export default async function CityPage({
             </article>
           )}
 
-          {/* ===== 09 — Proof + commercial ===== */}
+          {/* ===== 08 — Proof + commercial ===== */}
           {org && (
             <article id="proof" className="scroll-mt-32">
-              <SectionEyebrow color={identity?.themeColor} index="09">
+              <SectionEyebrow color={identity?.themeColor} index="08">
                 Proof in this city
               </SectionEyebrow>
               <h2 className="mt-3 font-display text-2xl font-semibold leading-tight tracking-tight text-foreground sm:text-3xl">
@@ -471,9 +449,9 @@ export default async function CityPage({
             </article>
           )}
 
-          {/* ===== 10 — Why hire us here ===== */}
+          {/* ===== 09 — Why hire us here ===== */}
           <article id="why-hire" className="scroll-mt-32">
-            <SectionEyebrow color={identity?.themeColor} index="10">
+            <SectionEyebrow color={identity?.themeColor} index="09">
               Why hire us here
             </SectionEyebrow>
             <h2 className="mt-3 font-display text-2xl font-semibold leading-tight tracking-tight text-foreground sm:text-3xl">
@@ -502,9 +480,9 @@ export default async function CityPage({
             </div>
           </article>
 
-          {/* ===== 11 — Neighborhoods ===== */}
+          {/* ===== 10 — Neighborhoods ===== */}
           <article id="neighborhoods" className="scroll-mt-32">
-            <SectionEyebrow color={identity?.themeColor} index="11">
+            <SectionEyebrow color={identity?.themeColor} index="10">
               Areas we serve
             </SectionEyebrow>
             <h2 className="mt-3 font-display text-2xl font-semibold leading-tight tracking-tight text-foreground sm:text-3xl">
@@ -530,9 +508,9 @@ export default async function CityPage({
             </div>
           </article>
 
-          {/* ===== 12 — Industries angle ===== */}
+          {/* ===== 11 — Industries angle ===== */}
           <article id="industries-angle" className="scroll-mt-32">
-            <SectionEyebrow color={identity?.themeColor} index="12">
+            <SectionEyebrow color={identity?.themeColor} index="11">
               Industries · {city.name}
             </SectionEyebrow>
             <div
@@ -550,10 +528,10 @@ export default async function CityPage({
             </div>
           </article>
 
-          {/* ===== 13 — Global peers ===== */}
+          {/* ===== 12 — Global peers ===== */}
           {extras && (
             <article id="global-peers" className="scroll-mt-32">
-              <SectionEyebrow color={identity?.themeColor} index="13">
+              <SectionEyebrow color={identity?.themeColor} index="12">
                 Global peers
               </SectionEyebrow>
               <div className="mt-3">
@@ -562,9 +540,9 @@ export default async function CityPage({
             </article>
           )}
 
-          {/* ===== 14 — Case study ===== */}
+          {/* ===== 13 — Case study ===== */}
           <article id="case-study" className="scroll-mt-32">
-            <SectionEyebrow color={identity?.themeColor} index="14">
+            <SectionEyebrow color={identity?.themeColor} index="13">
               {city.name} case study
             </SectionEyebrow>
             <div
@@ -589,10 +567,10 @@ export default async function CityPage({
             </div>
           </article>
 
-          {/* ===== 15 — Testimonials ===== */}
+          {/* ===== 14 — Testimonials ===== */}
           {city.testimonials.length > 0 && (
             <article id="testimonials" className="scroll-mt-32">
-              <SectionEyebrow color={identity?.themeColor} index="15">
+              <SectionEyebrow color={identity?.themeColor} index="14">
                 Client voices
               </SectionEyebrow>
               <h2 className="mt-3 font-display text-2xl font-semibold leading-tight tracking-tight text-foreground sm:text-3xl">
@@ -629,9 +607,9 @@ export default async function CityPage({
             </article>
           )}
 
-          {/* ===== 16 — FAQ ===== */}
+          {/* ===== 15 — FAQ ===== */}
           <article id="faq" className="scroll-mt-32">
-            <SectionEyebrow color={identity?.themeColor} index="16">
+            <SectionEyebrow color={identity?.themeColor} index="15">
               Common questions
             </SectionEyebrow>
             <h2 className="mt-3 font-display text-2xl font-semibold leading-tight tracking-tight text-foreground sm:text-3xl">
@@ -983,8 +961,8 @@ function CityHero({
   t: ReturnType<typeof getTranslation>;
 }) {
   const identity = getCityIdentity(city.slug);
+  const Identity = cityIdentityVisuals[city.slug];
   const accentBorder = identity?.themeColor.replace(")", " / 0.3)") ?? "var(--border)";
-  const accentOverlay = identity?.themeColor.replace(")", " / 0.55)") ?? "rgba(0,0,0,0.4)";
   return (
     <>
       <PageHero
@@ -1013,39 +991,22 @@ function CityHero({
         breadcrumb={city.name}
       />
 
-      {identity?.heroImage && (
+      {Identity && identity && (
         <div className="container-px mx-auto mt-8 max-w-7xl sm:mt-10 lg:mt-12">
           <figure
-            className="relative overflow-hidden rounded-3xl border bg-surface/30 shadow-[0_28px_72px_-32px_rgba(0,0,0,0.45)]"
+            className="relative overflow-hidden rounded-3xl border bg-surface/30 p-2 sm:p-4"
             style={{ borderColor: accentBorder }}
           >
-            <div className="aspect-[16/8] w-full sm:aspect-[16/7] lg:aspect-[16/6]">
-              {/* Plain <img> — Wikimedia URLs use a 302 -> 301 redirect chain
-                  that next/image can't follow without per-thumb whitelisting. */}
-              <img
-                src={identity.heroImage.src}
-                alt={identity.heroImage.alt}
-                loading="eager"
-                fetchPriority="high"
-                className="h-full w-full object-cover"
-              />
-            </div>
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-0"
-              style={{
-                background: `linear-gradient(180deg, transparent 45%, ${accentOverlay} 100%)`,
-              }}
-            />
-            <figcaption className="absolute inset-x-3 bottom-3 flex items-center justify-between gap-3 sm:inset-x-5 sm:bottom-5">
+            <Identity className="block h-auto w-full rounded-2xl" />
+            <figcaption className="pointer-events-none absolute inset-x-3 bottom-3 flex flex-wrap items-center gap-2 sm:inset-x-5 sm:bottom-5">
               <span
                 className="rounded-full border bg-background/85 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-foreground backdrop-blur"
-                style={{ borderColor: accentBorder }}
+                style={{ borderColor: identity.themeColor.replace(")", " / 0.4)") }}
               >
                 {identity.nickname}
               </span>
               <span className="hidden rounded-full bg-background/70 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground backdrop-blur sm:inline">
-                {identity.heroImage.credit}
+                Hand-drawn blueprint · {city.name}
               </span>
             </figcaption>
           </figure>
