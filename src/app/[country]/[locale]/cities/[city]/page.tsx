@@ -611,6 +611,7 @@ function CityJsonLd({
   t: ReturnType<typeof getTranslation>;
 }) {
   const url = `${BASE_URL}/${country}/${locale}/${CITIES_PATH}/${city.slug}`;
+  const org = getCityOrganization(city.slug);
 
   // Breadcrumb: Home → Cities → {City}
   const breadcrumbLd = buildBreadcrumbJsonLd([
@@ -620,8 +621,9 @@ function CityJsonLd({
   ]);
 
   // LocalBusiness — the single most important schema for ranking on
-  // "best [service] in [city]" intent. Anchors the page to a real place
-  // with NAP (name, address, phone) and lat/lng.
+  // "best [service] in [city]" intent. Enriched with the operational
+  // layer (languages, local stack categories, on-site cadence) so the
+  // operating-model content has structured-data parity with the UI.
   const localBusinessLd = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
@@ -648,6 +650,31 @@ function CityJsonLd({
       { "@type": "City", name: city.name },
       ...city.neighborhoods.map((n) => ({ "@type": "Place", name: n })),
     ],
+    // Languages we operate in here — surfaces in Google's localBusiness
+    // rich result + helps multi-lingual intent searches anchor correctly.
+    ...(org && {
+      availableLanguage: org.languages.map((l) => ({
+        "@type": "Language",
+        name: l,
+      })),
+    }),
+    // Hours of operation — required for many local rich-result eligibility.
+    ...(org && {
+      hoursAvailable: {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+        ],
+        opens: "10:00",
+        closes: "19:00",
+        validFrom: "2024-01-01",
+      },
+    }),
     knowsAbout: [
       "Website Development",
       "WhatsApp Automation",
@@ -656,19 +683,37 @@ function CityJsonLd({
       "ERP Integration",
       "D2C Commerce",
       "Lead Generation",
+      // Pull the city-specific stack categories into knowsAbout — these are
+      // the long-tail intents we genuinely cover in this metro.
+      ...(org?.stack.map((l) => l.category) ?? []),
     ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: `Services offered in ${city.name}`,
-      itemListElement: t.services.items.map((s, i) => ({
-        "@type": "Offer",
-        position: i + 1,
-        itemOffered: {
-          "@type": "Service",
-          name: s.name,
-          description: s.summary,
-        },
-      })),
+      itemListElement: [
+        ...t.services.items.map((s, i) => ({
+          "@type": "Offer",
+          position: i + 1,
+          itemOffered: {
+            "@type": "Service",
+            name: s.name,
+            description: s.summary,
+          },
+        })),
+        // The local-stack layers as catalog entries — extends the offer
+        // surface with city-specific service variants.
+        ...(org?.stack.map((layer, i) => ({
+          "@type": "Offer",
+          position: t.services.items.length + i + 1,
+          itemOffered: {
+            "@type": "Service",
+            name: `${layer.category} — ${city.name}`,
+            description: layer.cityNote,
+            serviceType: layer.category,
+            provider: { "@id": `${url}#business` },
+          },
+        })) ?? []),
+      ],
     },
     aggregateRating: {
       "@type": "AggregateRating",
@@ -682,6 +727,31 @@ function CityJsonLd({
       author: { "@type": "Person", name: tm.author },
       reviewBody: tm.quote,
       reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+    })),
+  };
+
+  // HowTo — the engagement journey rendered as a HowTo so Google can
+  // surface it for "how to work with {agency} in {city}" intent searches.
+  // Each step has a city-specific note so it isn't templated.
+  const howToLd = org && {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "@id": `${url}#engagement`,
+    name: `How to engage Sanat Dynamo in ${city.name}`,
+    description: `The 4-phase engagement journey for revenue-system builds in ${city.name}, from paid discovery to compounding monthly retainer.`,
+    totalTime: "PT3M",
+    inLanguage: locale,
+    step: org.engagement.map((phase, i) => ({
+      "@type": "HowToStep",
+      position: i + 1,
+      name: phase.name,
+      text: `${phase.mission} ${phase.cityNote}`.trim(),
+      url: `${url}#engagement`,
+      itemListElement: phase.artefacts.map((a, j) => ({
+        "@type": "HowToDirection",
+        position: j + 1,
+        text: a,
+      })),
     })),
   };
 
@@ -700,6 +770,9 @@ function CityJsonLd({
     isPartOf: { "@id": `${BASE_URL}/${country}/${locale}#website` },
     about: { "@id": `${url}#business` },
     breadcrumb: breadcrumbLd,
+    // Anchor the WebPage to the engagement HowTo so the relationship
+    // is explicit to Google's knowledge graph.
+    ...(howToLd && { mainEntity: { "@id": `${url}#engagement` } }),
   };
 
   return (
@@ -712,6 +785,12 @@ function CityJsonLd({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessLd) }}
       />
+      {howToLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(howToLd) }}
+        />
+      )}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
