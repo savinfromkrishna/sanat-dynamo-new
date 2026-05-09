@@ -9,6 +9,8 @@ import {
   Bot,
   Briefcase,
   Building2,
+  ChevronLeft,
+  ChevronRight,
   Database,
   Factory,
   Globe2,
@@ -78,7 +80,24 @@ const SERVICE_ICON: Record<string, LucideIcon> = {
 
 export function DesktopMegaNav({ translations: t, cities }: MegaMenuProps) {
   const [active, setActive] = useState<PanelKey | null>(null);
+  const [topPx, setTopPx] = useState(120);
+  const navRef = useRef<HTMLElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    if (!active) return;
+    const update = () => {
+      if (!navRef.current) return;
+      setTopPx(navRef.current.getBoundingClientRect().bottom + 8);
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, [active]);
 
   const items: NavItem[] = [
     { label: t.nav.services, href: "/services", panel: "services", Icon: Briefcase },
@@ -113,6 +132,7 @@ export function DesktopMegaNav({ translations: t, cities }: MegaMenuProps) {
   return (
     <div className="relative" onMouseLeave={scheduleClose}>
       <nav
+        ref={navRef}
         className="hidden items-center gap-0.5 lg:flex xl:gap-1"
         onMouseEnter={cancelClose}
       >
@@ -161,8 +181,9 @@ export function DesktopMegaNav({ translations: t, cities }: MegaMenuProps) {
             initial={{ opacity: 0, y: -6 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -4 }}
-            transition={{ duration: 0.18, ease: "easeOut" }}
-            className="absolute left-1/2 top-full z-[120] mt-3 w-[min(96vw,1100px)] -translate-x-1/2 overflow-hidden rounded-3xl border border-border bg-background/95 shadow-[0_28px_72px_-32px_rgba(0,0,0,0.55)] backdrop-blur-xl"
+            transition={{ duration: 0.22, ease: [0.22, 0.9, 0.32, 1] }}
+            className="fixed inset-x-0 z-[120] overflow-hidden border-y border-border bg-background/95 shadow-[0_28px_72px_-32px_rgba(0,0,0,0.55)] backdrop-blur-xl"
+            style={{ top: topPx }}
             onMouseEnter={cancelClose}
             onMouseLeave={scheduleClose}
             role="menu"
@@ -189,7 +210,7 @@ export function DesktopMegaNav({ translations: t, cities }: MegaMenuProps) {
 function ServicesPanel({ t }: { t: Messages }) {
   return (
     <PanelShell>
-      <TileGrid columns={3}>
+      <ScrollRow>
         {t.services.items.map((s, i) => {
           const Icon = SERVICE_ICON[s.id] ?? Briefcase;
           return (
@@ -199,10 +220,11 @@ function ServicesPanel({ t }: { t: Messages }) {
               label={s.name}
               Icon={Icon}
               index={String(i + 1).padStart(2, "0")}
+              delayIndex={i}
             />
           );
         })}
-      </TileGrid>
+      </ScrollRow>
       <Spotlight
         eyebrow={t.services.eyebrow}
         titleLead="Revenue"
@@ -224,8 +246,8 @@ function IndustriesPanel({ t }: { t: Messages }) {
 
   return (
     <PanelShell>
-      <TileGrid columns={3}>
-        {ordered.map(({ slug, item }) => {
+      <ScrollRow>
+        {ordered.map(({ slug, item }, i) => {
           const Icon = INDUSTRY_ICON[slug];
           const isPrimary = slug === "manufacturing";
           return (
@@ -236,10 +258,11 @@ function IndustriesPanel({ t }: { t: Messages }) {
               Icon={Icon}
               badge={isPrimary ? "Pivot" : undefined}
               highlight={isPrimary}
+              delayIndex={i}
             />
           );
         })}
-      </TileGrid>
+      </ScrollRow>
       <Spotlight
         eyebrow="Primary pivot · Ahmedabad"
         titleLead="Manufacturing"
@@ -253,11 +276,11 @@ function IndustriesPanel({ t }: { t: Messages }) {
 }
 
 function WorkPanel({ t }: { t: Messages }) {
-  const featured = t.caseStudies.items.slice(0, 6);
+  const featured = t.caseStudies.items.slice(0, 8);
   return (
     <PanelShell>
-      <TileGrid columns={3}>
-        {featured.map((c) => {
+      <ScrollRow>
+        {featured.map((c, i) => {
           const headline = c.metrics?.[0];
           return (
             <IconTile
@@ -266,10 +289,11 @@ function WorkPanel({ t }: { t: Messages }) {
               label={c.industry}
               Icon={LineChart}
               caption={headline?.delta}
+              delayIndex={i}
             />
           );
         })}
-      </TileGrid>
+      </ScrollRow>
       <Spotlight
         eyebrow={t.caseStudies.eyebrow}
         titleLead="₹40Cr+"
@@ -285,18 +309,19 @@ function WorkPanel({ t }: { t: Messages }) {
 
 function CitiesPanel({ cities }: { cities: CityNavItem[] }) {
   return (
-    <PanelShell asideRatio="3fr_1fr">
-      <TileGrid columns={5}>
-        {cities.map((c) => (
+    <PanelShell>
+      <ScrollRow>
+        {cities.map((c, i) => (
           <IconTile
             key={c.slug}
             href={`/cities/${c.slug}`}
             label={c.name}
             Icon={MapPinned}
             accentColor={c.themeColor}
+            delayIndex={i}
           />
         ))}
-      </TileGrid>
+      </ScrollRow>
       <Spotlight
         eyebrow="Local everywhere"
         titleLead="11 Metros"
@@ -313,32 +338,114 @@ function CitiesPanel({ cities }: { cities: CityNavItem[] }) {
 /*                       Tile + Spotlight building blocks                     */
 /* -------------------------------------------------------------------------- */
 
-function PanelShell({
-  children,
-  asideRatio = "2fr_1fr",
-}: {
-  children: React.ReactNode;
-  asideRatio?: "2fr_1fr" | "3fr_1fr";
-}) {
-  const cols = asideRatio === "3fr_1fr"
-    ? "lg:grid-cols-[3fr_1fr]"
-    : "lg:grid-cols-[2fr_1fr]";
+function PanelShell({ children }: { children: React.ReactNode }) {
   return (
-    <div className={`grid gap-3 p-4 ${cols}`}>{children}</div>
+    <div className="mx-auto grid w-full gap-6 px-6 py-6 lg:grid-cols-[minmax(0,1fr)_380px] lg:gap-10 lg:px-12 lg:py-8 2xl:px-20">
+      {children}
+    </div>
   );
 }
 
-function TileGrid({
-  columns,
-  children,
-}: {
-  columns: 3 | 5;
-  children: React.ReactNode;
-}) {
-  const cols = columns === 5
-    ? "grid-cols-3 sm:grid-cols-4 lg:grid-cols-5"
-    : "grid-cols-2 sm:grid-cols-3";
-  return <div className={`grid gap-3 ${cols}`}>{children}</div>;
+function ScrollRow({ children }: { children: React.ReactNode }) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [progress, setProgress] = useState(0);
+  const [canLeft, setCanLeft] = useState(false);
+  const [canRight, setCanRight] = useState(false);
+
+  const updateState = () => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const max = el.scrollWidth - el.clientWidth;
+    setProgress(max > 0 ? el.scrollLeft / max : 0);
+    setCanLeft(el.scrollLeft > 4);
+    setCanRight(el.scrollLeft < max - 4);
+  };
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    updateState();
+    const onWheel = (e: WheelEvent) => {
+      if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+      e.preventDefault();
+      el.scrollBy({ left: e.deltaY, behavior: "auto" });
+    };
+    const onResize = () => updateState();
+    el.addEventListener("wheel", onWheel, { passive: false });
+    el.addEventListener("scroll", updateState, { passive: true });
+    window.addEventListener("resize", onResize);
+    return () => {
+      el.removeEventListener("wheel", onWheel);
+      el.removeEventListener("scroll", updateState);
+      window.removeEventListener("resize", onResize);
+    };
+  }, []);
+
+  const scrollBy = (dx: number) => {
+    scrollRef.current?.scrollBy({ left: dx, behavior: "smooth" });
+  };
+
+  return (
+    <div className="relative flex h-full min-w-0 flex-col">
+      <div className="relative flex-1">
+        <div
+          aria-hidden
+          className={`pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-background via-background/80 to-transparent transition-opacity duration-300 ${
+            canLeft ? "opacity-100" : "opacity-0"
+          }`}
+        />
+        <div
+          aria-hidden
+          className={`pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-background via-background/80 to-transparent transition-opacity duration-300 ${
+            canRight ? "opacity-100" : "opacity-0"
+          }`}
+        />
+
+        <button
+          type="button"
+          aria-label="Scroll left"
+          onClick={() => scrollBy(-320)}
+          disabled={!canLeft}
+          className={`absolute left-1 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background/95 text-foreground shadow-[0_8px_24px_-12px_rgba(0,0,0,0.4)] backdrop-blur transition-all duration-300 hover:scale-110 hover:border-accent hover:bg-accent hover:text-accent-foreground ${
+            canLeft ? "opacity-100" : "pointer-events-none opacity-0"
+          }`}
+        >
+          <ChevronLeft size={18} />
+        </button>
+        <button
+          type="button"
+          aria-label="Scroll right"
+          onClick={() => scrollBy(320)}
+          disabled={!canRight}
+          className={`absolute right-1 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background/95 text-foreground shadow-[0_8px_24px_-12px_rgba(0,0,0,0.4)] backdrop-blur transition-all duration-300 hover:scale-110 hover:border-accent hover:bg-accent hover:text-accent-foreground ${
+            canRight ? "opacity-100" : "pointer-events-none opacity-0"
+          }`}
+        >
+          <ChevronRight size={18} />
+        </button>
+
+        <div
+          ref={scrollRef}
+          className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth py-1 pl-2 pr-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
+          {children}
+        </div>
+      </div>
+
+      <div className="mt-4 flex items-center gap-3 px-2">
+        <div className="relative h-[3px] flex-1 overflow-hidden rounded-full bg-border/40">
+          <motion.div
+            className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-accent via-accent to-accent/70"
+            animate={{ width: `${Math.max(8, progress * 100)}%` }}
+            transition={{ type: "spring", stiffness: 220, damping: 28 }}
+          />
+        </div>
+        <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+          Scroll
+        </span>
+      </div>
+    </div>
+  );
 }
 
 function IconTile({
@@ -350,6 +457,7 @@ function IconTile({
   caption,
   highlight,
   accentColor,
+  delayIndex = 0,
 }: {
   href: string;
   label: string;
@@ -359,51 +467,67 @@ function IconTile({
   caption?: string;
   highlight?: boolean;
   accentColor?: string;
+  delayIndex?: number;
 }) {
   return (
-    <LocalizedLink
-      href={href}
-      className="group relative flex flex-col items-center gap-2 text-center"
+    <motion.div
+      initial={{ opacity: 0, y: 18, scale: 0.95 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{
+        delay: 0.05 + delayIndex * 0.045,
+        duration: 0.4,
+        ease: [0.22, 0.9, 0.32, 1],
+      }}
+      className="snap-start shrink-0"
     >
-      <div
-        className={`relative flex aspect-square w-full items-center justify-center rounded-2xl border bg-surface/60 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:border-accent/40 group-hover:bg-surface group-hover:shadow-[0_12px_28px_-16px_rgba(0,0,0,0.4)] ${
-          highlight ? "border-accent/40 bg-accent-soft/60" : "border-border/60"
-        }`}
+      <LocalizedLink
+        href={href}
+        className="group relative flex w-[148px] flex-col items-center gap-2.5 text-center"
       >
-        {index && (
-          <span className="absolute left-2 top-2 font-mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground/60">
-            {index}
-          </span>
-        )}
-        {badge && (
-          <span className="absolute right-2 top-2 rounded-full bg-accent px-1.5 py-0.5 font-mono text-[8px] uppercase tracking-[0.2em] text-accent-foreground">
-            {badge}
-          </span>
-        )}
-        {accentColor && (
+        <div
+          className={`relative flex aspect-square w-full items-center justify-center rounded-2xl border bg-surface/60 transition-all duration-300 group-hover:-translate-y-1 group-hover:border-accent/50 group-hover:bg-surface group-hover:shadow-[0_18px_40px_-16px_rgba(0,0,0,0.4)] ${
+            highlight ? "border-accent/40 bg-accent-soft/60" : "border-border/60"
+          }`}
+        >
           <span
             aria-hidden
-            className="absolute right-2 top-2 h-1.5 w-1.5 rounded-full"
-            style={{ background: accentColor }}
+            className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-accent/0 via-accent/0 to-accent/0 opacity-0 transition-opacity duration-300 group-hover:from-accent/10 group-hover:to-accent/5 group-hover:opacity-100"
           />
-        )}
-        <Icon
-          size={32}
-          strokeWidth={1.5}
-          className={`transition-all duration-300 group-hover:scale-110 ${
-            highlight ? "text-accent" : "text-foreground/80 group-hover:text-accent"
-          }`}
-        />
-        {caption && (
-          <span className="absolute bottom-2 right-2 rounded-full bg-background/80 px-1.5 py-0.5 font-mono text-[9px] font-semibold text-accent">
-            {caption}
-          </span>
-        )}
-      </div>
-      <span className="line-clamp-1 text-xs font-medium tracking-tight text-foreground">
-        {label}
-      </span>
-    </LocalizedLink>
+          {index && (
+            <span className="absolute left-2.5 top-2 font-mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground/60">
+              {index}
+            </span>
+          )}
+          {badge && (
+            <span className="absolute right-2 top-2 rounded-full bg-accent px-1.5 py-0.5 font-mono text-[8px] uppercase tracking-[0.2em] text-accent-foreground">
+              {badge}
+            </span>
+          )}
+          {accentColor && (
+            <span
+              aria-hidden
+              className="absolute right-2.5 top-2.5 h-1.5 w-1.5 rounded-full"
+              style={{ background: accentColor }}
+            />
+          )}
+          <Icon
+            size={40}
+            strokeWidth={1.4}
+            className={`relative transition-all duration-300 group-hover:scale-110 ${
+              highlight ? "text-accent" : "text-foreground/80 group-hover:text-accent"
+            }`}
+          />
+          {caption && (
+            <span className="absolute bottom-2 right-2 rounded-full bg-background/85 px-1.5 py-0.5 font-mono text-[9px] font-semibold text-accent">
+              {caption}
+            </span>
+          )}
+        </div>
+        <span className="line-clamp-1 text-[13px] font-medium tracking-tight text-foreground">
+          {label}
+        </span>
+      </LocalizedLink>
+    </motion.div>
   );
 }
 
