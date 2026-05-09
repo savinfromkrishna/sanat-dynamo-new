@@ -47,12 +47,18 @@ export const RESOLVABLE_LOCALES = [
 /**
  * Locales we want Google to actually INDEX. Other locales resolve but ship
  * `noindex` so Google doesn't fold near-duplicate translation fallbacks
- * back into the canonical English/Hindi pages.
+ * back into the canonical English pages.
  *
- * Currently EN + HI. Gujarati (gu) gets promoted into this list once the
- * Ahmedabad pillar pages have hand-written GU content (Phase 2).
+ * Currently EN-only. `hi` was demoted on 2026-05-09 because blog post bodies
+ * (`sections`, `takeaways`, `faq` in [src/lib/blogs.ts](src/lib/blogs.ts))
+ * are English-only — `localizePost` only swaps title/subtitle/excerpt, so
+ * /in/hi/blogs/* shipped Hindi titles + ~2000 words of English body, which
+ * Google reads as either a near-duplicate of /in/en or a low-quality
+ * machine-translation fallback. Re-add `hi` per locale once real Hindi
+ * bodies exist (start with the manufacturing pillar). `gu` gets promoted
+ * here once the Ahmedabad pillar pages have hand-written GU content.
  */
-export const INDEXABLE_LOCALES = ["en", "hi"] as const;
+export const INDEXABLE_LOCALES = ["en"] as const;
 
 /* -------------------------------------------------------------------------- */
 /*                       Backwards-compat aliases                             */
