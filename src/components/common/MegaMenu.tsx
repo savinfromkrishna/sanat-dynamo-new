@@ -3,15 +3,23 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
+  ArrowRight,
   ArrowUpRight,
   BookOpen,
+  Bot,
   Briefcase,
   Building2,
+  Database,
   Factory,
+  Globe2,
   GraduationCap,
+  Handshake,
   LineChart,
   Mail,
   MapPin,
+  MapPinned,
+  MonitorSmartphone,
+  Search,
   ShoppingBag,
   Sparkles,
   Stethoscope,
@@ -51,12 +59,21 @@ const INDUSTRY_ORDER = [
   "edtech",
 ] as const;
 
-const INDUSTRY_ICON: Record<(typeof INDUSTRY_ORDER)[number], typeof Factory> = {
+const INDUSTRY_ICON: Record<(typeof INDUSTRY_ORDER)[number], LucideIcon> = {
   manufacturing: Factory,
   "real-estate": Building2,
   healthcare: Stethoscope,
   ecommerce: ShoppingBag,
   edtech: GraduationCap,
+};
+
+const SERVICE_ICON: Record<string, LucideIcon> = {
+  "revsite-pro": MonitorSmartphone,
+  "autosell-engine": Bot,
+  "localdom-seo": Search,
+  "globalscale-suite": Globe2,
+  "operate-os": Database,
+  "growthos-retainer": Handshake,
 };
 
 export function DesktopMegaNav({ translations: t, cities }: MegaMenuProps) {
@@ -171,42 +188,31 @@ export function DesktopMegaNav({ translations: t, cities }: MegaMenuProps) {
 
 function ServicesPanel({ t }: { t: Messages }) {
   return (
-    <div className="grid gap-2 p-3 lg:grid-cols-[2fr_1fr]">
-      <div className="grid gap-1 sm:grid-cols-2">
-        {t.services.items.map((s) => (
-          <LocalizedLink
-            key={s.id}
-            href={`/services#${s.id}`}
-            className="group relative rounded-2xl border border-transparent bg-surface/40 p-4 transition-all hover:-translate-y-0.5 hover:border-accent/30 hover:bg-surface"
-          >
-            <div className="flex items-center justify-between">
-              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
-                {s.number} · {s.kicker}
-              </span>
-              <ArrowUpRight
-                size={12}
-                className="text-muted-foreground transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent"
-              />
-            </div>
-            <div className="mt-2 font-display text-base font-semibold tracking-tight text-foreground">
-              {s.name}
-            </div>
-            <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-muted-foreground">
-              {s.summary}
-            </p>
-            <div className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-border bg-background/60 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground">
-              {s.investment}
-            </div>
-          </LocalizedLink>
-        ))}
-      </div>
-      <PanelAside
+    <PanelShell>
+      <TileGrid columns={3}>
+        {t.services.items.map((s, i) => {
+          const Icon = SERVICE_ICON[s.id] ?? Briefcase;
+          return (
+            <IconTile
+              key={s.id}
+              href={`/services#${s.id}`}
+              label={s.name}
+              Icon={Icon}
+              index={String(i + 1).padStart(2, "0")}
+            />
+          );
+        })}
+      </TileGrid>
+      <Spotlight
         eyebrow={t.services.eyebrow}
-        title="We don't sell services. We solve problems."
+        titleLead="Revenue"
+        titleAccent="Systems"
         body={t.services.subtitle}
-        cta={{ label: "All services", href: "/services" }}
+        cta={{ label: "View All", href: "/services" }}
+        WatermarkIcon={Briefcase}
+        primaryCta
       />
-    </div>
+    </PanelShell>
   );
 }
 
@@ -217,207 +223,241 @@ function IndustriesPanel({ t }: { t: Messages }) {
   });
 
   return (
-    <div className="grid gap-2 p-3 lg:grid-cols-[2fr_1fr]">
-      <div className="grid gap-1 sm:grid-cols-2">
+    <PanelShell>
+      <TileGrid columns={3}>
         {ordered.map(({ slug, item }) => {
           const Icon = INDUSTRY_ICON[slug];
           const isPrimary = slug === "manufacturing";
           return (
-            <LocalizedLink
+            <IconTile
               key={slug}
               href={`/industries/${slug}`}
-              className={`group rounded-2xl border bg-surface/40 p-4 transition-all hover:-translate-y-0.5 hover:bg-surface ${
-                isPrimary
-                  ? "border-accent/40 hover:border-accent/60"
-                  : "border-transparent hover:border-accent/30"
-              }`}
-            >
-              <div className="flex items-center gap-3">
-                <div
-                  className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border ${
-                    isPrimary
-                      ? "border-accent/40 bg-accent-soft text-accent"
-                      : "border-border bg-background text-accent"
-                  }`}
-                >
-                  <Icon size={16} strokeWidth={1.75} />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <div className="flex items-center gap-2">
-                    <div className="font-display text-sm font-semibold tracking-tight text-foreground">
-                      {item.name}
-                    </div>
-                    {isPrimary && (
-                      <span className="rounded-full bg-accent px-1.5 py-0.5 font-mono text-[8px] uppercase tracking-[0.2em] text-accent-foreground">
-                        Pivot
-                      </span>
-                    )}
-                  </div>
-                  <div className="mt-0.5 line-clamp-1 text-[11px] text-muted-foreground">
-                    {item.tag}
-                  </div>
-                </div>
-              </div>
-              <div className="mt-3 line-clamp-2 rounded-xl border border-border/50 bg-background/60 p-2 font-mono text-[10px] leading-relaxed text-muted-foreground">
-                {item.outcome}
-              </div>
-            </LocalizedLink>
+              label={item.name}
+              Icon={Icon}
+              badge={isPrimary ? "Pivot" : undefined}
+              highlight={isPrimary}
+            />
           );
         })}
-      </div>
-      <PanelAside
-        accent
+      </TileGrid>
+      <Spotlight
         eyebrow="Primary pivot · Ahmedabad"
-        title="Manufacturing first."
+        titleLead="Manufacturing"
+        titleAccent="First"
         body="Tally → cloud ERP in 6 weeks. GST e-invoicing, daily P&L on phone, 80% less manual entry."
-        cta={{ label: "Open Manufacturing", href: "/industries/manufacturing" }}
+        cta={{ label: "Explore More", href: "/industries/manufacturing" }}
+        WatermarkIcon={Factory}
       />
-    </div>
+    </PanelShell>
   );
 }
 
 function WorkPanel({ t }: { t: Messages }) {
-  const featured = t.caseStudies.items.slice(0, 4);
+  const featured = t.caseStudies.items.slice(0, 6);
   return (
-    <div className="grid gap-2 p-3 lg:grid-cols-[2fr_1fr]">
-      <div className="grid gap-1 sm:grid-cols-2">
+    <PanelShell>
+      <TileGrid columns={3}>
         {featured.map((c) => {
           const headline = c.metrics?.[0];
           return (
-            <LocalizedLink
+            <IconTile
               key={c.id}
               href={`/case-studies#${c.id}`}
-              className="group rounded-2xl border border-transparent bg-surface/40 p-4 transition-all hover:-translate-y-0.5 hover:border-accent/30 hover:bg-surface"
-            >
-              <div className="flex items-center justify-between gap-2">
-                <span className="rounded-full border border-border bg-background/60 px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground">
-                  {c.industry}
-                </span>
-                <span className="inline-flex items-center gap-1 font-mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground">
-                  <MapPin size={9} />
-                  {c.location}
-                </span>
-              </div>
-              <div className="mt-3 line-clamp-2 font-display text-sm font-semibold leading-snug tracking-tight text-foreground">
-                {c.title}
-              </div>
-              {headline && (
-                <div className="mt-3 flex items-baseline gap-2 rounded-xl border border-border/50 bg-background/60 p-2">
-                  <span className="font-display text-base font-semibold leading-none text-accent">
-                    {headline.delta}
-                  </span>
-                  <span className="text-[10px] leading-tight text-muted-foreground">
-                    {headline.label}
-                  </span>
-                </div>
-              )}
-            </LocalizedLink>
+              label={c.industry}
+              Icon={LineChart}
+              caption={headline?.delta}
+            />
           );
         })}
-      </div>
-      <PanelAside
+      </TileGrid>
+      <Spotlight
         eyebrow={t.caseStudies.eyebrow}
-        title="₹40Cr+ revenue impacted across India."
+        titleLead="₹40Cr+"
+        titleAccent="Impacted"
         body="Every case measured by one thing — did revenue go up."
-        cta={{ label: "All case studies", href: "/case-studies" }}
+        cta={{ label: "Explore More", href: "/case-studies" }}
+        WatermarkIcon={LineChart}
         sparkle
       />
-    </div>
+    </PanelShell>
   );
 }
 
 function CitiesPanel({ cities }: { cities: CityNavItem[] }) {
   return (
-    <div className="grid gap-2 p-3 lg:grid-cols-[3fr_1fr]">
-      <div className="grid grid-cols-2 gap-1 sm:grid-cols-3 lg:grid-cols-4">
+    <PanelShell asideRatio="3fr_1fr">
+      <TileGrid columns={5}>
         {cities.map((c) => (
-          <LocalizedLink
+          <IconTile
             key={c.slug}
             href={`/cities/${c.slug}`}
-            className="group relative overflow-hidden rounded-2xl border border-transparent bg-surface/40 p-4 transition-all hover:-translate-y-0.5 hover:border-accent/30 hover:bg-surface"
-          >
-            {c.themeColor && (
-              <span
-                aria-hidden
-                className="absolute inset-y-0 left-0 w-0.5 transition-all group-hover:w-1"
-                style={{
-                  background: `linear-gradient(180deg, ${c.themeColor}, transparent)`,
-                }}
-              />
-            )}
-            <div className="pl-3">
-              <div className="font-display text-sm font-semibold tracking-tight text-foreground">
-                {c.name}
-              </div>
-              {c.nickname && (
-                <div
-                  className="mt-1 line-clamp-1 font-mono text-[9px] uppercase tracking-[0.22em]"
-                  style={{ color: c.themeColor }}
-                >
-                  {c.nickname}
-                </div>
-              )}
-              <div className="mt-2 flex items-center gap-1 text-[10px] text-muted-foreground">
-                <MapPin size={9} />
-                {c.state}
-              </div>
-            </div>
-          </LocalizedLink>
+            label={c.name}
+            Icon={MapPinned}
+            accentColor={c.themeColor}
+          />
         ))}
-      </div>
-      <PanelAside
+      </TileGrid>
+      <Spotlight
         eyebrow="Local everywhere"
-        title="11 Indian metros. One opinionated playbook."
+        titleLead="11 Metros"
+        titleAccent="One Playbook"
         body="From Mumbai BFSI to Hyderabad pharma — tailored to how each city actually buys."
-        cta={{ label: "All cities", href: "/cities" }}
+        cta={{ label: "Explore More", href: "/cities" }}
+        WatermarkIcon={MapPin}
       />
-    </div>
+    </PanelShell>
   );
 }
 
 /* -------------------------------------------------------------------------- */
-/*                                  Aside                                     */
+/*                       Tile + Spotlight building blocks                     */
 /* -------------------------------------------------------------------------- */
 
-function PanelAside({
-  eyebrow,
-  title,
-  body,
-  cta,
-  accent,
-  sparkle,
+function PanelShell({
+  children,
+  asideRatio = "2fr_1fr",
 }: {
-  eyebrow: string;
-  title: string;
-  body: string;
-  cta: { label: string; href: string };
-  accent?: boolean;
-  sparkle?: boolean;
+  children: React.ReactNode;
+  asideRatio?: "2fr_1fr" | "3fr_1fr";
+}) {
+  const cols = asideRatio === "3fr_1fr"
+    ? "lg:grid-cols-[3fr_1fr]"
+    : "lg:grid-cols-[2fr_1fr]";
+  return (
+    <div className={`grid gap-3 p-4 ${cols}`}>{children}</div>
+  );
+}
+
+function TileGrid({
+  columns,
+  children,
+}: {
+  columns: 3 | 5;
+  children: React.ReactNode;
+}) {
+  const cols = columns === 5
+    ? "grid-cols-3 sm:grid-cols-4 lg:grid-cols-5"
+    : "grid-cols-2 sm:grid-cols-3";
+  return <div className={`grid gap-3 ${cols}`}>{children}</div>;
+}
+
+function IconTile({
+  href,
+  label,
+  Icon,
+  index,
+  badge,
+  caption,
+  highlight,
+  accentColor,
+}: {
+  href: string;
+  label: string;
+  Icon: LucideIcon;
+  index?: string;
+  badge?: string;
+  caption?: string;
+  highlight?: boolean;
+  accentColor?: string;
 }) {
   return (
-    <div
-      className={`flex h-full flex-col rounded-2xl border p-5 ${
-        accent
-          ? "border-accent/30 bg-accent-soft"
-          : "border-border bg-surface/30"
-      }`}
+    <LocalizedLink
+      href={href}
+      className="group relative flex flex-col items-center gap-2 text-center"
     >
-      <div className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
+      <div
+        className={`relative flex aspect-square w-full items-center justify-center rounded-2xl border bg-surface/60 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:border-accent/40 group-hover:bg-surface group-hover:shadow-[0_12px_28px_-16px_rgba(0,0,0,0.4)] ${
+          highlight ? "border-accent/40 bg-accent-soft/60" : "border-border/60"
+        }`}
+      >
+        {index && (
+          <span className="absolute left-2 top-2 font-mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground/60">
+            {index}
+          </span>
+        )}
+        {badge && (
+          <span className="absolute right-2 top-2 rounded-full bg-accent px-1.5 py-0.5 font-mono text-[8px] uppercase tracking-[0.2em] text-accent-foreground">
+            {badge}
+          </span>
+        )}
+        {accentColor && (
+          <span
+            aria-hidden
+            className="absolute right-2 top-2 h-1.5 w-1.5 rounded-full"
+            style={{ background: accentColor }}
+          />
+        )}
+        <Icon
+          size={32}
+          strokeWidth={1.5}
+          className={`transition-all duration-300 group-hover:scale-110 ${
+            highlight ? "text-accent" : "text-foreground/80 group-hover:text-accent"
+          }`}
+        />
+        {caption && (
+          <span className="absolute bottom-2 right-2 rounded-full bg-background/80 px-1.5 py-0.5 font-mono text-[9px] font-semibold text-accent">
+            {caption}
+          </span>
+        )}
+      </div>
+      <span className="line-clamp-1 text-xs font-medium tracking-tight text-foreground">
+        {label}
+      </span>
+    </LocalizedLink>
+  );
+}
+
+function Spotlight({
+  eyebrow,
+  titleLead,
+  titleAccent,
+  body,
+  cta,
+  WatermarkIcon,
+  sparkle,
+  primaryCta,
+}: {
+  eyebrow: string;
+  titleLead: string;
+  titleAccent: string;
+  body: string;
+  cta: { label: string; href: string };
+  WatermarkIcon: LucideIcon;
+  sparkle?: boolean;
+  primaryCta?: boolean;
+}) {
+  return (
+    <div className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-surface/60 via-surface/30 to-background p-6">
+      <WatermarkIcon
+        aria-hidden
+        size={220}
+        strokeWidth={0.6}
+        className="pointer-events-none absolute -bottom-12 -right-12 text-accent/10"
+      />
+      <div className="relative flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
         {sparkle && <Sparkles size={11} />}
         {eyebrow}
       </div>
-      <div className="mt-3 font-display text-lg font-semibold leading-tight tracking-tight text-foreground">
-        {title}
+      <div className="relative mt-3 font-display text-2xl font-bold leading-[1.05] tracking-tight">
+        <span className="text-foreground">{titleLead}</span>{" "}
+        <span className="text-accent">{titleAccent}</span>
       </div>
-      <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+      <p className="relative mt-3 text-xs leading-relaxed text-muted-foreground">
         {body}
       </p>
       <LocalizedLink
         href={cta.href}
-        className="mt-auto inline-flex w-fit items-center gap-1.5 rounded-full bg-accent px-3 py-1.5 text-xs font-semibold text-accent-foreground transition-transform hover:-translate-y-0.5"
+        className={`group relative mt-auto inline-flex w-fit items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold transition-all hover:-translate-y-0.5 ${
+          primaryCta
+            ? "bg-accent text-accent-foreground shadow-[0_8px_24px_-12px_oklch(0.78_0.165_70/0.6)] hover:shadow-[0_12px_28px_-10px_oklch(0.78_0.165_70/0.75)]"
+            : "border border-accent/40 bg-background/40 text-foreground hover:border-accent hover:bg-accent-soft"
+        }`}
       >
         {cta.label}
-        <ArrowUpRight size={12} />
+        <ArrowRight
+          size={13}
+          className="transition-transform group-hover:translate-x-0.5"
+        />
       </LocalizedLink>
     </div>
   );
