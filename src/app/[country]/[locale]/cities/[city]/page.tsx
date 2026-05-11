@@ -21,12 +21,13 @@ import {
 } from "@/lib/i18n";
 import {
   BASE_URL,
-  INDEXABLE_LOCALES,
-  isIndexable,
 } from "@/lib/constants";
 import {
   INDIA_CITIES,
   getCityBySlug,
+  getCityIndexableLocales,
+  isCityIndexable,
+  localizeCity,
   type CityContent,
 } from "@/lib/cities";
 import { getCityExtras } from "@/lib/city-extras";
@@ -36,12 +37,15 @@ import { getCityOrganization } from "@/lib/city-organization";
 import { buildBreadcrumbJsonLd, buildFaqJsonLd } from "@/lib/seo";
 import { PageHero } from "@/components/sections/PageHero";
 import { SectionHeader, Eyebrow } from "@/components/primitives/section";
+import { SnapRowHint } from "@/components/primitives/snap-row-hint";
 import { Cta } from "@/components/sections/Cta";
 import { CityStickyShell, type CityTocItem } from "@/components/sections/CityStickyShell";
 import {
   CityHiddenGem,
   CityGlobalPeersCard,
+  CityContextMap,
 } from "@/components/illustrations/CityPageVisuals";
+import { CityPageNav } from "@/components/sections/CityPageNav";
 import {
   PresenceOrbit,
   EngagementJourney,
@@ -83,21 +87,26 @@ export async function generateMetadata({
   params: Promise<{ country: string; locale: string; city: string }>;
 }): Promise<Metadata> {
   const { country, locale, city: citySlug } = await params;
-  const city = getCityBySlug(citySlug);
-  if (!city) return { title: "Not found" };
+  const baseCity = getCityBySlug(citySlug);
+  if (!baseCity) return { title: "Not found" };
 
   const lc = (LOCALE_CODES.includes(locale as Locale) ? locale : "en") as Locale;
+  // Apply per-locale body translation (no-op for EN; swaps body fields for
+  // HI when `translations.hi` exists on the city).
+  const city = localizeCity(baseCity, lc);
 
-  // City pages only have unique value on the India market — same content
-  // rendered under another country slug would be a duplicate. Indexable
-  // check enforces /in/* + en/hi only; everything else ships noindex.
-  const indexable = isIndexable(country, lc);
+  // Per-city indexability: /in/en is always indexable, /in/hi only when this
+  // specific city has a complete Hindi body block (overrides global
+  // INDEXABLE_LOCALES which is "en"-only since 2026-05-09).
+  const indexable = isCityIndexable(baseCity, country, lc);
 
   const canonical = `/${country}/${lc}/${CITIES_PATH}/${city.slug}`;
-  // Hreflang cluster: indexable locales pinned to /in/. City pages are
-  // intrinsically India-only, so the cluster only includes IN URLs.
+  // Hreflang cluster: only the locales this specific city has translated
+  // bodies for. Pinned to /in/. Keeps the cluster honest — a city without
+  // Hindi body never appears in a `hreflang="hi-IN"` alternate.
+  const cityLocales = getCityIndexableLocales(baseCity);
   const languages: Record<string, string> = {};
-  for (const lang of INDEXABLE_LOCALES) {
+  for (const lang of cityLocales) {
     languages[LOCALES[lang].htmlLang] =
       `${BASE_URL}/in/${lang}/${CITIES_PATH}/${city.slug}`;
   }
@@ -168,15 +177,18 @@ export default async function CityPage({
   params: Promise<{ country: string; locale: string; city: string }>;
 }) {
   const { country, locale, city: citySlug } = await params;
-  const city = getCityBySlug(citySlug);
+  const baseCity = getCityBySlug(citySlug);
 
   // Cities only exist on the India market. Other countries get a 404 so
   // Google never treats those URLs as soft-200 duplicates.
-  if (!city || country !== "in") {
+  if (!baseCity || country !== "in") {
     notFound();
   }
 
   const lc = (LOCALE_CODES.includes(locale as Locale) ? locale : "en") as Locale;
+  // Body localization (no-op for EN; swaps localContext, whyHire, faq, etc.
+  // for HI when this city has a `translations.hi` block).
+  const city = localizeCity(baseCity, lc);
   const t = getTranslation(lc);
   const extras = getCityExtras(city.slug);
   const identity = getCityIdentity(city.slug);
@@ -223,7 +235,31 @@ export default async function CityPage({
       <CityJsonLd city={city} country={country} locale={lc} t={t} />
       <CityHero city={city} t={t} />
 
-      <section className="relative scroll-mt-24 py-12 sm:py-16 lg:py-20">
+      {/* Sub-page nav — chip strip linking the 7 city sub-pages together */}
+      <div className="container-px mx-auto max-w-7xl pt-4 sm:pt-6">
+        <CityPageNav
+          citySlug={city.slug}
+          cityName={city.name}
+          themeColor={identity?.themeColor}
+          active=""
+        />
+      </div>
+
+      {/* Interactive India map — current city highlighted in the network of
+          all metros we ship into. Click any other pin to navigate to that
+          city's playbook. Renders full-width above the deep-dive sticky shell. */}
+      <section className="relative px-3 pt-6 sm:px-6 sm:pt-10 lg:px-10 lg:pt-16">
+        <div className="mx-auto max-w-7xl">
+          <CityContextMap
+            city={city}
+            themeColor={identity?.themeColor}
+            themeColorAccent={identity?.themeColorAccent}
+            prefix={`/${country.toLowerCase()}/${lc}`}
+          />
+        </div>
+      </section>
+
+      <section className="relative scroll-mt-24 py-8 sm:py-12 lg:py-20">
         <CityStickyShell
           city={city}
           identity={identity}
@@ -270,11 +306,12 @@ export default async function CityPage({
                 outperforms templates.
               </p>
 
-              <div className="mt-8 grid gap-4 lg:grid-cols-3">
+              {/* Mobile: snap-x carousel. lg+: 3-col grid. */}
+              <div className="mt-8 -mx-4 flex snap-x snap-mandatory scroll-pl-4 gap-4 overflow-x-auto px-4 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:flex-col sm:gap-4 sm:overflow-visible sm:px-0 sm:pb-0 sm:snap-none lg:grid lg:grid-cols-3">
                 {identity.history.map((para, i) => (
                   <article
                     key={i}
-                    className="rounded-2xl border border-border bg-surface/40 p-5"
+                    className="w-[82vw] max-w-[320px] flex-shrink-0 snap-start rounded-2xl border border-border bg-surface/40 p-5 sm:w-auto sm:max-w-none sm:flex-shrink"
                   >
                     <div className="flex items-center justify-between gap-2">
                       <div
@@ -301,6 +338,7 @@ export default async function CityPage({
                   </article>
                 ))}
               </div>
+              <SnapRowHint count={identity.history.length} />
 
               <div className="mt-10">
                 <div className="flex flex-wrap items-baseline justify-between gap-3">
@@ -315,11 +353,12 @@ export default async function CityPage({
                     <ArrowUpRight size={12} />
                   </LocalizedLink>
                 </div>
-                <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                {/* Mobile: snap-x carousel. sm+: 2/3-col grid */}
+                <div className="mt-5 -mx-4 flex snap-x snap-mandatory scroll-pl-4 gap-3 overflow-x-auto px-4 pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:snap-none sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-3">
                   {identity.landmarks.slice(0, 6).map((l, i) => (
                     <article
                       key={l.name}
-                      className="group relative overflow-hidden rounded-2xl border border-border bg-surface/40 p-5 transition-all hover:-translate-y-0.5 hover:border-accent/40"
+                      className="group relative w-[78vw] max-w-[280px] flex-shrink-0 snap-start overflow-hidden rounded-2xl border border-border bg-surface/40 p-5 transition-all hover:-translate-y-0.5 hover:border-accent/40 sm:w-auto sm:max-w-none sm:flex-shrink"
                     >
                       <span
                         aria-hidden
@@ -351,6 +390,7 @@ export default async function CityPage({
                     </article>
                   ))}
                 </div>
+                <SnapRowHint count={Math.min(identity.landmarks.length, 6)} />
               </div>
             </article>
           )}
@@ -457,11 +497,12 @@ export default async function CityPage({
             <h2 className="mt-3 font-display text-2xl font-semibold leading-tight tracking-tight text-foreground sm:text-3xl">
               Three things we do that {city.name} agencies don&apos;t.
             </h2>
-            <div className="mt-6 grid gap-3 sm:grid-cols-3">
+            {/* Mobile: snap-x carousel. sm+: 3-col grid */}
+            <div className="mt-6 -mx-4 flex snap-x snap-mandatory scroll-pl-4 gap-3 overflow-x-auto px-4 pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:snap-none sm:grid-cols-3 sm:overflow-visible sm:px-0 sm:pb-0">
               {city.whyHire.map((item, i) => (
                 <div
                   key={item.title}
-                  className="rounded-2xl border border-border bg-surface/40 p-5 transition-colors hover:border-accent/40"
+                  className="w-[82vw] max-w-[320px] flex-shrink-0 snap-start rounded-2xl border border-border bg-surface/40 p-5 transition-colors hover:border-accent/40 sm:w-auto sm:max-w-none sm:flex-shrink"
                 >
                   <div
                     className="font-mono text-[10px] uppercase tracking-[0.22em]"
@@ -478,6 +519,7 @@ export default async function CityPage({
                 </div>
               ))}
             </div>
+            <SnapRowHint count={city.whyHire.length} />
           </article>
 
           {/* ===== 10 — Neighborhoods ===== */}
@@ -576,11 +618,12 @@ export default async function CityPage({
               <h2 className="mt-3 font-display text-2xl font-semibold leading-tight tracking-tight text-foreground sm:text-3xl">
                 Operators in {city.name} who&apos;ve shipped with us.
               </h2>
-              <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              {/* Mobile: snap-x carousel. sm+: 2-col grid */}
+              <div className="mt-6 -mx-4 flex snap-x snap-mandatory scroll-pl-4 gap-4 overflow-x-auto px-4 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:snap-none sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0">
                 {city.testimonials.map((tm, i) => (
                   <figure
                     key={i}
-                    className="rounded-2xl border border-border bg-surface/40 p-5"
+                    className="w-[85vw] max-w-[340px] flex-shrink-0 snap-start rounded-2xl border border-border bg-surface/40 p-5 sm:w-auto sm:max-w-none sm:flex-shrink"
                   >
                     <div
                       className="flex items-center gap-1"
@@ -604,6 +647,7 @@ export default async function CityPage({
                   </figure>
                 ))}
               </div>
+              <SnapRowHint count={city.testimonials.length} />
             </article>
           )}
 
@@ -1042,12 +1086,13 @@ function CityRelatedCities({ city }: { city: CityContent }) {
           </LocalizedLink>
         </div>
 
-        <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Mobile: snap-x carousel. sm+: 2/3-col grid */}
+        <div className="mt-6 -mx-4 flex snap-x snap-mandatory scroll-pl-4 gap-3 overflow-x-auto px-4 pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:snap-none sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-3">
           {related.map((r) => (
             <LocalizedLink
               key={r.slug}
               href={`/cities/${r.slug}`}
-              className="group flex items-center justify-between rounded-2xl border border-border bg-background px-5 py-4 transition-all hover:border-accent/40 hover:bg-surface"
+              className="group flex w-[70vw] max-w-[260px] flex-shrink-0 snap-start items-center justify-between rounded-2xl border border-border bg-background px-5 py-4 transition-all hover:border-accent/40 hover:bg-surface sm:w-auto sm:max-w-none sm:flex-shrink"
             >
               <div>
                 <div className="text-sm font-semibold text-foreground">
@@ -1064,6 +1109,7 @@ function CityRelatedCities({ city }: { city: CityContent }) {
             </LocalizedLink>
           ))}
         </div>
+        <SnapRowHint count={related.length} />
       </div>
     </article>
   );

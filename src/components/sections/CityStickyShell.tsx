@@ -100,19 +100,19 @@ export function CityStickyShell({
 
   return (
     <div className="container-px relative mx-auto max-w-7xl">
-      {/* `items-start` keeps each grid item anchored to its own top instead of
-          stretching, which is what `position: sticky` needs to actually stick
-          inside its grid track without the aside collapsing as the right
-          column grows. */}
-      <div className="grid gap-8 lg:grid-cols-12 lg:items-start lg:gap-10">
-        {/* ============================== LEFT (sticky) ============================== */}
-        <aside className="lg:col-span-4 lg:self-start">
-          {/* `top-28` (7rem) sits below the 72px header + 9px announcement bar
-              with breathing room. `max-h` + `overflow-y-auto` only kick in when
-              the rail is taller than the viewport — otherwise no inner scroll. */}
-          <div className="lg:sticky lg:top-28 lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto lg:overscroll-contain lg:pr-3 [scrollbar-gutter:stable]">
-            {/* City identity card */}
-            <div
+      {/* Grid items stretch to the row height (= main column height) by
+          default. That tall aside is what gives the TOC's `position: sticky`
+          enough room to slide all the way through the page scroll instead of
+          unsticking when the identity card ends. */}
+      <div className="grid gap-8 lg:grid-cols-12 lg:gap-10">
+        {/* ============================== LEFT (TOC sticks; rest scrolls) ============================== */}
+        <aside className="lg:col-span-4">
+          {/* The identity card + CTAs scroll naturally with the page so the
+              user sees them on first paint. Once the reader scrolls past them
+              the TOC below pins at `top-28` and stays visible for the rest of
+              the page — that's what the user actually wants while reading. */}
+          {/* City identity card */}
+          <div
               className="relative overflow-hidden rounded-3xl border p-5"
               style={{
                 borderColor: themeColor.replace(")", " / 0.3)"),
@@ -270,11 +270,14 @@ export function CityStickyShell({
               </div>
             </div>
 
-            {/* Table of Contents — scroll-spy highlights active */}
+            {/* Table of Contents — pinned at `top-28` on lg+ so it stays in
+                view through the entire page scroll. Its own `max-h` +
+                `overflow-y-auto` only kick in when the TOC itself is taller
+                than the viewport (many sections) — otherwise no inner scroll. */}
             {toc.length > 0 && (
               <nav
                 aria-label="Page contents"
-                className="mt-4 rounded-3xl border border-border bg-surface/40 p-4"
+                className="mt-4 rounded-3xl border border-border bg-surface/40 p-4 lg:sticky lg:top-28 lg:z-10 lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto lg:overscroll-contain [scrollbar-gutter:stable]"
               >
                 <div className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
                   <Sparkles size={11} style={{ color: themeColor }} />
@@ -322,19 +325,18 @@ export function CityStickyShell({
               </nav>
             )}
 
-            {/* social proof footer */}
-            <div className="mt-4 flex items-center gap-2 rounded-xl border border-border bg-surface/40 px-3 py-2.5">
-              <Users size={12} className="text-accent" />
-              <span className="text-[11px] leading-tight text-muted-foreground">
-                Serving {city.population}
-              </span>
-            </div>
+          {/* social proof footer — scrolls naturally below the sticky TOC */}
+          <div className="mt-4 flex items-center gap-2 rounded-xl border border-border bg-surface/40 px-3 py-2.5">
+            <Users size={12} className="text-accent" />
+            <span className="text-[11px] leading-tight text-muted-foreground">
+              Serving {city.population}
+            </span>
           </div>
         </aside>
 
         {/* ============================== RIGHT (scrollable) ============================== */}
         <main className="lg:col-span-8">
-          <div className="space-y-12 sm:space-y-16">{children}</div>
+          <div className="space-y-8 sm:space-y-12 lg:space-y-16">{children}</div>
         </main>
       </div>
     </div>

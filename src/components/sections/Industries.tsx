@@ -12,6 +12,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { Section, SectionHeader } from "../primitives/section";
+import { SnapRowHint } from "../primitives/snap-row-hint";
 import LocalizedLink from "../LocalizedLink";
 import { industryIllustrations } from "../illustrations";
 import type { Messages } from "@/lib/i18n";
@@ -65,8 +66,9 @@ export function Industries({
         meta="5 sectors"
       />
 
-      {/* Bento layout: featured (col-span 7) + 4 small cards */}
-      <div className="mt-16 grid gap-5 lg:grid-cols-12">
+      {/* Mobile (<sm): snap-x carousel. sm/md: stacked. lg: bento (col-span 7 + 5).
+          Negative margin lets cards bleed to viewport edges on phone. */}
+      <div className="mt-10 -mx-4 flex snap-x snap-mandatory scroll-pl-4 gap-4 overflow-x-auto px-4 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:mt-16 sm:flex-col sm:gap-5 sm:overflow-visible sm:px-0 sm:pb-0 sm:snap-none lg:grid lg:grid-cols-12">
         {items.map((ind, i) => {
           const Icon = iconMap[ind.id as keyof typeof iconMap];
           const isFeatured = i === 0;
@@ -78,11 +80,11 @@ export function Industries({
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.5, delay: i * 0.05 }}
               id={ind.id}
-              className={`group relative flex flex-col overflow-hidden rounded-2xl sm:rounded-3xl border border-border bg-surface/60 p-5 sm:p-7 transition-all duration-500 hover:border-accent/40 hover:bg-surface ${
+              className={`group relative flex w-[82vw] max-w-[320px] flex-shrink-0 snap-start flex-col overflow-hidden rounded-2xl border border-border bg-surface/80 p-5 transition-all duration-500 hover:border-accent/40 hover:bg-surface sm:w-auto sm:max-w-none sm:flex-shrink sm:rounded-3xl sm:bg-surface/60 sm:p-7 ${
                 isFeatured ? "lg:col-span-7 lg:row-span-2" : "lg:col-span-5"
               }`}
             >
-              <div className="pointer-events-none absolute -right-24 -top-24 h-56 w-56 rounded-full bg-accent/5 blur-3xl transition-opacity duration-500 group-hover:bg-accent/15" />
+              <div className="pointer-events-none absolute -right-24 -top-24 hidden h-56 w-56 rounded-full bg-accent/5 blur-3xl transition-opacity duration-500 group-hover:bg-accent/15 sm:block" />
               {isFeatured && (
                 <div className="absolute right-6 top-6 z-10 rounded-full border border-accent/40 bg-accent/10 px-3 py-1 font-mono text-[9px] uppercase tracking-[0.22em] text-accent">
                   Largest segment
@@ -174,6 +176,7 @@ export function Industries({
           );
         })}
       </div>
+      <SnapRowHint count={items.length} />
     </Section>
   );
 }

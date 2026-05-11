@@ -29,6 +29,7 @@ import { getCityPosts } from "@/lib/city-blog";
 import { buildBreadcrumbJsonLd } from "@/lib/seo";
 import { PageHero } from "@/components/sections/PageHero";
 import { Section, Eyebrow } from "@/components/primitives/section";
+import { SnapRowHint } from "@/components/primitives/snap-row-hint";
 import { Cta } from "@/components/sections/Cta";
 import { cityIdentityVisuals } from "@/components/illustrations/CityIdentityVisuals";
 import {
@@ -36,6 +37,7 @@ import {
   CityHiddenGem,
 } from "@/components/illustrations/CityPageVisuals";
 import LocalizedLink from "@/components/LocalizedLink";
+import { CityPageNav } from "@/components/sections/CityPageNav";
 
 const ABOUT_PATH = "about";
 
@@ -278,38 +280,15 @@ export default async function CityAboutPage({
         breadcrumb={`${city.name} · About`}
       />
 
-      {/* Sub-nav chips back to the main city page + blog */}
-      <Section className="pt-8">
-        <div className="flex flex-wrap items-center gap-2">
-          <LocalizedLink
-            href={`/cities/${city.slug}`}
-            className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface/60 px-3 py-1.5 text-xs font-semibold text-muted-foreground transition-colors hover:border-accent/40 hover:text-foreground"
-          >
-            <MapPin size={11} />
-            {city.name} overview
-          </LocalizedLink>
-          <span
-            className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.22em]"
-            style={{
-              borderColor: identity.themeColor.replace(")", " / 0.4)"),
-              color: identity.themeColor,
-              background: identity.themeColor.replace(")", " / 0.08)"),
-            }}
-          >
-            <Sparkles size={11} />
-            About {identity.nickname}
-          </span>
-          {posts.length > 0 && (
-            <LocalizedLink
-              href={`/cities/${city.slug}/blog`}
-              className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface/60 px-3 py-1.5 text-xs font-semibold text-muted-foreground transition-colors hover:border-accent/40 hover:text-foreground"
-            >
-              {city.name} journal
-              <ArrowUpRight size={11} />
-            </LocalizedLink>
-          )}
-        </div>
-      </Section>
+      {/* Unified sub-page nav — links all 7 city sub-pages, current highlighted */}
+      <div className="container-px mx-auto max-w-7xl pt-4 sm:pt-6">
+        <CityPageNav
+          citySlug={city.slug}
+          cityName={city.name}
+          themeColor={identity.themeColor}
+          active="about"
+        />
+      </div>
 
       {/* Identity hero visual */}
       <Section className="pt-6">
@@ -510,11 +489,12 @@ function HistoryBlock({
           A short history of {cityName}.
         </h2>
       </div>
-      <div className="mt-8 grid gap-5 lg:grid-cols-3">
+      {/* Mobile: snap-x carousel. lg+: 3-col grid */}
+      <div className="mt-8 -mx-4 flex snap-x snap-mandatory scroll-pl-4 gap-5 overflow-x-auto px-4 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:flex-col sm:gap-5 sm:overflow-visible sm:px-0 sm:pb-0 sm:snap-none lg:grid lg:grid-cols-3">
         {identity.history.map((para, i) => (
           <article
             key={i}
-            className="rounded-2xl border border-border bg-surface/40 p-5 sm:p-6"
+            className="w-[82vw] max-w-[320px] flex-shrink-0 snap-start rounded-2xl border border-border bg-surface/40 p-5 sm:w-auto sm:max-w-none sm:flex-shrink sm:p-6"
           >
             <div
               className="font-mono text-[10px] uppercase tracking-[0.22em]"
@@ -528,6 +508,7 @@ function HistoryBlock({
           </article>
         ))}
       </div>
+      <SnapRowHint count={identity.history.length} />
     </div>
   );
 }
@@ -737,11 +718,12 @@ function DidYouKnowBlock({
   return (
     <div className="rounded-3xl border border-border bg-surface/40 p-6 sm:p-10">
       <Eyebrow>Did you know</Eyebrow>
-      <div className="mt-6 grid gap-4 sm:grid-cols-3">
+      {/* Mobile: snap-x carousel. sm+: 3-col grid */}
+      <div className="mt-6 -mx-4 flex snap-x snap-mandatory scroll-pl-4 gap-4 overflow-x-auto px-4 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:snap-none sm:grid-cols-3 sm:overflow-visible sm:px-0 sm:pb-0">
         {identity.didYouKnow.map((fact, i) => (
           <article
             key={i}
-            className="rounded-2xl border border-border bg-background/60 p-5"
+            className="w-[78vw] max-w-[300px] flex-shrink-0 snap-start rounded-2xl border border-border bg-background/60 p-5 sm:w-auto sm:max-w-none sm:flex-shrink"
           >
             <div
               className="font-mono text-[10px] uppercase tracking-[0.22em]"
@@ -755,6 +737,7 @@ function DidYouKnowBlock({
           </article>
         ))}
       </div>
+      <SnapRowHint count={identity.didYouKnow.length} />
     </div>
   );
 }
@@ -786,12 +769,13 @@ function RecentPostsBlock({
         </LocalizedLink>
       </div>
       <div className="lg:col-span-12">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Mobile: snap-x carousel. sm+: 2/3-col grid */}
+        <div className="-mx-4 flex snap-x snap-mandatory scroll-pl-4 gap-4 overflow-x-auto px-4 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:snap-none sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-3">
           {posts.slice(0, 3).map((p) => (
             <LocalizedLink
               key={p.slug}
               href={`/cities/${citySlug}/blog/${p.slug}`}
-              className="group rounded-3xl border border-border bg-surface/40 p-6 transition-all hover:-translate-y-0.5 hover:border-accent/40"
+              className="group w-[82vw] max-w-[320px] flex-shrink-0 snap-start rounded-3xl border border-border bg-surface/40 p-6 transition-all hover:-translate-y-0.5 hover:border-accent/40 sm:w-auto sm:max-w-none sm:flex-shrink"
             >
               <div className="flex items-center justify-between gap-2 font-mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground">
                 <span>{p.publishedAt}</span>
@@ -809,6 +793,7 @@ function RecentPostsBlock({
             </LocalizedLink>
           ))}
         </div>
+        <SnapRowHint count={Math.min(posts.length, 3)} />
       </div>
     </div>
   );

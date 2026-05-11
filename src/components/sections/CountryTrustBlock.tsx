@@ -77,8 +77,9 @@ export function CountryTrustBlock({
             ))}
           </div>
 
-          {/* Market facts row — currency, timezone, compliance, cities */}
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {/* Market facts row — currency, timezone, compliance, cities.
+              Mobile: 2-col grid (cards are small enough to fit two-up). */}
+          <div className="mt-10 grid grid-cols-2 gap-3 sm:mt-12 sm:gap-4 lg:grid-cols-4">
             <div className="rounded-2xl border border-border bg-surface/60 p-5">
               <Wallet size={16} className="text-accent" strokeWidth={1.75} />
               <div className="mt-3 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">

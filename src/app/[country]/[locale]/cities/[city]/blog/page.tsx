@@ -27,9 +27,11 @@ import { getCityIdentity } from "@/lib/city-identity";
 import { getCityPosts } from "@/lib/city-blog";
 import { buildBreadcrumbJsonLd } from "@/lib/seo";
 import { Section } from "@/components/primitives/section";
+import { SnapRowHint } from "@/components/primitives/snap-row-hint";
 import { Cta } from "@/components/sections/Cta";
 import { cityIdentityVisuals } from "@/components/illustrations/CityIdentityVisuals";
 import LocalizedLink from "@/components/LocalizedLink";
+import { CityPageNav } from "@/components/sections/CityPageNav";
 
 const BLOG_PATH = "blog";
 
@@ -170,10 +172,20 @@ export default async function CityBlogIndexPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListLd) }}
       />
 
+      {/* Sub-page nav strip linking the 7 city sub-pages */}
+      <div className="container-px mx-auto max-w-7xl pt-20 sm:pt-24 lg:pt-28">
+        <CityPageNav
+          citySlug={city.slug}
+          cityName={city.name}
+          themeColor={identity?.themeColor}
+          active="blog"
+        />
+      </div>
+
       {/* ===================================================================== */}
       {/*                       EDITORIAL MASTHEAD HERO                          */}
       {/* ===================================================================== */}
-      <header className="relative isolate mt-20 overflow-hidden sm:mt-32 lg:mt-40">
+      <header className="relative isolate mt-6 overflow-hidden sm:mt-10 lg:mt-14">
         {/* breadcrumb above the masthead */}
         <div className="container-px relative z-10 mx-auto max-w-7xl">
           <nav
@@ -552,12 +564,13 @@ export default async function CityBlogIndexPage({
               {rest.length} {rest.length === 1 ? "more piece" : "more pieces"}
             </span>
           </div>
-          <div className="grid gap-4 sm:gap-5 lg:grid-cols-3">
+          {/* Mobile: snap-x carousel. lg+: 3-col grid */}
+          <div className="-mx-4 flex snap-x snap-mandatory scroll-pl-4 gap-4 overflow-x-auto px-4 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:flex-col sm:gap-5 sm:overflow-visible sm:px-0 sm:pb-0 sm:snap-none lg:grid lg:grid-cols-3">
             {rest.map((p, i) => (
               <LocalizedLink
                 key={p.slug}
                 href={`/cities/${city.slug}/blog/${p.slug}`}
-                className="group flex h-full flex-col rounded-3xl border border-border bg-surface/40 p-6 transition-all hover:-translate-y-0.5 hover:border-accent/40 sm:p-7"
+                className="group flex w-[82vw] max-w-[320px] flex-shrink-0 snap-start flex-col rounded-3xl border border-border bg-surface/40 p-6 transition-all hover:-translate-y-0.5 hover:border-accent/40 sm:h-full sm:w-auto sm:max-w-none sm:flex-shrink sm:p-7"
               >
                 <span
                   className="font-mono text-[9px] uppercase tracking-[0.22em]"
@@ -581,6 +594,7 @@ export default async function CityBlogIndexPage({
               </LocalizedLink>
             ))}
           </div>
+          <SnapRowHint count={rest.length} />
         </Section>
       )}
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState } from "react";
 import {
   Lightbulb,
   Globe2,
@@ -10,10 +11,11 @@ import {
   Phone,
   Calendar,
   Sparkles,
+  MapPin,
 } from "lucide-react";
 import LocalizedLink from "../LocalizedLink";
 import type { CityExtras } from "@/lib/city-extras";
-import type { CityContent } from "@/lib/cities";
+import { INDIA_CITIES, type CityContent } from "@/lib/cities";
 
 /**
  * Visualizations for an individual /cities/[slug] page.
@@ -800,5 +802,460 @@ function StatRadial({
         {label}
       </div>
     </motion.div>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/*                              CityContextMap                                */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * Interactive India map for city detail pages.
+ *
+ *   - Active city shown large with pulsing accent halo + always-visible label
+ *   - Other 9 cities shown as clickable smaller pins, dimmed by default,
+ *     full-color on hover with a tooltip showing the city's hero stat
+ *   - Network lines from active city to every other city (drawn-on entrance)
+ *   - SVG silhouette of India outline + dotted lat/lng grid background
+ *   - Each pin is a LocalizedLink → /cities/{slug}
+ *
+ * Lat/lng projection uses the same India bbox as IndiaMetroMap on the hub.
+ */
+const CCM_BBOX = { minLat: 8, maxLat: 36, minLng: 68, maxLng: 97 };
+const CCM_W = 460;
+const CCM_H = 520;
+
+function projectCcm(lat: number, lng: number) {
+  const x =
+    ((lng - CCM_BBOX.minLng) / (CCM_BBOX.maxLng - CCM_BBOX.minLng)) * CCM_W;
+  const y =
+    CCM_H -
+    ((lat - CCM_BBOX.minLat) / (CCM_BBOX.maxLat - CCM_BBOX.minLat)) * CCM_H;
+  return { x, y };
+}
+
+export function CityContextMap({
+  city,
+  themeColor,
+  themeColorAccent,
+  prefix,
+}: {
+  /** The active city being viewed */
+  city: CityContent;
+  /** OKLCH color for the active city accent (from CityIdentity) */
+  themeColor?: string;
+  /** Secondary accent for active-city aura */
+  themeColorAccent?: string;
+  /** Locale-aware route prefix (e.g. "/in/en") used to build pin links */
+  prefix: string;
+}) {
+  const [hovered, setHovered] = useState<string | null>(null);
+
+  const accent = themeColor ?? "oklch(0.78 0.165 70)";
+  const accentSecondary =
+    themeColorAccent ?? "oklch(0.66 0.18 295)";
+
+  const activeLat = parseFloat(city.geo.lat);
+  const activeLng = parseFloat(city.geo.lng);
+  const activePos = projectCcm(activeLat, activeLng);
+
+  const others = INDIA_CITIES.filter((c) => c.slug !== city.slug);
+
+  return (
+    <div
+      className="relative isolate overflow-hidden rounded-3xl border bg-surface/40"
+      style={{
+        borderColor: accent.replace(")", " / 0.3)"),
+      }}
+    >
+      <div className="bg-grid bg-grid-fade absolute inset-0 opacity-40" />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-32 -top-32 h-[24rem] w-[24rem] rounded-full blur-3xl"
+        style={{ background: accent.replace(")", " / 0.12)") }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -bottom-32 -left-32 h-[22rem] w-[22rem] rounded-full blur-3xl"
+        style={{ background: accentSecondary.replace(")", " / 0.10)") }}
+      />
+
+      <div className="relative grid gap-5 p-4 sm:gap-6 sm:p-6 lg:grid-cols-12 lg:gap-10 lg:p-10">
+        {/* Left: copy column — compact on mobile, full on lg */}
+        <div className="lg:col-span-5">
+          <div
+            className="inline-flex items-center gap-2 rounded-full border px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.22em] sm:px-3 sm:py-1.5 sm:text-[10px]"
+            style={{
+              borderColor: accent.replace(")", " / 0.4)"),
+              background: accent.replace(")", " / 0.06)"),
+              color: accent,
+            }}
+          >
+            <span className="relative flex h-1.5 w-1.5">
+              <span
+                className="absolute inline-flex h-full w-full animate-ping rounded-full opacity-60"
+                style={{ background: accent }}
+              />
+              <span
+                className="relative inline-flex h-1.5 w-1.5 rounded-full"
+                style={{ background: accent }}
+              />
+            </span>
+            {city.name} · in the network
+          </div>
+          <h2 className="text-balance mt-3 font-display text-xl font-semibold leading-[1.1] tracking-tight text-foreground sm:mt-5 sm:text-[26px] sm:leading-[1.05] lg:text-[2.4rem]">
+            {city.name} doesn&apos;t work alone.
+            <span className="lg:block">
+              {" "}
+              <span
+                className="bg-clip-text text-transparent"
+                style={{
+                  backgroundImage: `linear-gradient(135deg, var(--foreground), ${accent}, ${accentSecondary})`,
+                }}
+              >
+                Wired into 9 other metros.
+              </span>
+            </span>
+          </h2>
+          <p className="mt-2.5 hidden text-sm leading-relaxed text-muted-foreground sm:mt-5 sm:block sm:text-base">
+            Every dot is a metro we ship into. Click any pin to jump to that
+            city&apos;s playbook — same delivery rhythm, locally tuned stack.
+          </p>
+
+          <div className="mt-4 grid grid-cols-2 gap-2 sm:mt-6 sm:gap-3">
+            <div
+              className="rounded-xl border p-2.5 sm:rounded-2xl sm:p-4"
+              style={{
+                borderColor: accent.replace(")", " / 0.3)"),
+                background: accent.replace(")", " / 0.04)"),
+              }}
+            >
+              <div
+                className="font-mono text-[8px] uppercase tracking-[0.22em] sm:text-[9px]"
+                style={{ color: accent }}
+              >
+                Active metro
+              </div>
+              <div className="mt-1 font-display text-sm font-semibold leading-tight text-foreground sm:mt-1.5 sm:text-lg">
+                {city.name}
+              </div>
+              <div className="mt-0.5 font-mono text-[9px] text-muted-foreground sm:mt-1 sm:text-[10px]">
+                {city.state}
+              </div>
+            </div>
+            <div className="rounded-xl border border-border bg-background/40 p-2.5 sm:rounded-2xl sm:p-4">
+              <div className="font-mono text-[8px] uppercase tracking-[0.22em] text-muted-foreground sm:text-[9px]">
+                Connected
+              </div>
+              <div className="mt-1 font-display text-sm font-semibold leading-tight text-foreground sm:mt-1.5 sm:text-lg">
+                {others.length} cities
+              </div>
+              <div className="mt-0.5 font-mono text-[9px] text-muted-foreground sm:mt-1 sm:text-[10px]">
+                <span className="hidden sm:inline">Hover any pin</span>
+                <span className="sm:hidden">Tap any pin</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Right: SVG map — natural aspect on mobile (no min-h), capped on lg */}
+        <div className="relative flex items-center justify-center lg:col-span-7 lg:min-h-[460px]">
+          <motion.svg
+            viewBox={`0 0 ${CCM_W} ${CCM_H}`}
+            className="h-auto w-full max-w-[320px] sm:max-w-[440px] lg:h-full lg:max-w-[560px]"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.7 }}
+          >
+            <defs>
+              <radialGradient id={`ccm-glow-${city.slug}`} cx="50%" cy="50%">
+                <stop offset="0%" stopColor={accent.replace(")", " / 0.18)")} />
+                <stop offset="100%" stopColor={accent.replace(")", " / 0)")} />
+              </radialGradient>
+              <linearGradient
+                id={`ccm-line-${city.slug}`}
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="0%"
+              >
+                <stop offset="0%" stopColor={accent.replace(")", " / 0.5)")} />
+                <stop
+                  offset="100%"
+                  stopColor={accentSecondary.replace(")", " / 0.15)")}
+                />
+              </linearGradient>
+            </defs>
+
+            {/* Dotted lat/lng grid */}
+            {Array.from({ length: 7 }).map((_, i) => (
+              <line
+                key={`ccm-vline-${i}`}
+                x1={(i / 6) * CCM_W}
+                y1={0}
+                x2={(i / 6) * CCM_W}
+                y2={CCM_H}
+                stroke="var(--svg-grid-line)"
+                strokeWidth="0.6"
+                strokeDasharray="2 6"
+              />
+            ))}
+            {Array.from({ length: 8 }).map((_, i) => (
+              <line
+                key={`ccm-hline-${i}`}
+                x1={0}
+                y1={(i / 7) * CCM_H}
+                x2={CCM_W}
+                y2={(i / 7) * CCM_H}
+                stroke="var(--svg-grid-line)"
+                strokeWidth="0.6"
+                strokeDasharray="2 6"
+              />
+            ))}
+
+            {/* India silhouette */}
+            <motion.path
+              d="M 100 80 L 145 60 L 195 65 L 240 55 L 295 60 L 350 100 L 372 145 L 360 195 L 340 240 L 320 290 L 295 340 L 255 405 L 220 460 L 195 480 L 170 460 L 155 425 L 140 380 L 120 330 L 100 275 L 90 225 L 85 175 L 90 125 Z"
+              fill={`url(#ccm-glow-${city.slug})`}
+              stroke={accent.replace(")", " / 0.35)")}
+              strokeWidth="1.2"
+              strokeDasharray="4 3"
+              initial={{ pathLength: 0, opacity: 0 }}
+              whileInView={{ pathLength: 1, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 2, ease: "easeInOut" }}
+            />
+
+            {/* Network lines from active city to every other city */}
+            {others.map((c, i) => {
+              const lat = parseFloat(c.geo.lat);
+              const lng = parseFloat(c.geo.lng);
+              const { x, y } = projectCcm(lat, lng);
+              return (
+                <motion.line
+                  key={`ccm-line-${c.slug}`}
+                  x1={activePos.x}
+                  y1={activePos.y}
+                  x2={x}
+                  y2={y}
+                  stroke={`url(#ccm-line-${city.slug})`}
+                  strokeWidth={hovered === c.slug ? 1.5 : 0.6}
+                  strokeDasharray={hovered === c.slug ? "0" : "3 4"}
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  whileInView={{ pathLength: 1, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    pathLength: { duration: 1.2, delay: 0.6 + i * 0.05 },
+                    opacity: { duration: 0.4, delay: 0.6 + i * 0.05 },
+                  }}
+                  style={{
+                    transition: "stroke-width 0.2s, stroke-dasharray 0.2s",
+                  }}
+                />
+              );
+            })}
+
+            {/* Other-city pins */}
+            {others.map((c, i) => {
+              const lat = parseFloat(c.geo.lat);
+              const lng = parseFloat(c.geo.lng);
+              const { x, y } = projectCcm(lat, lng);
+              const isHovered = hovered === c.slug;
+              return (
+                <motion.g
+                  key={c.slug}
+                  initial={{ scale: 0, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    delay: 1 + i * 0.05,
+                    type: "spring",
+                    stiffness: 180,
+                    damping: 14,
+                  }}
+                  onMouseEnter={() => setHovered(c.slug)}
+                  onMouseLeave={() => setHovered(null)}
+                  className="cursor-pointer"
+                >
+                  <a href={`${prefix}/cities/${c.slug}`}>
+                    {/* Hit area */}
+                    <circle
+                      cx={x}
+                      cy={y}
+                      r="14"
+                      fill="transparent"
+                    />
+                    {/* Halo on hover */}
+                    {isHovered && (
+                      <motion.circle
+                        cx={x}
+                        cy={y}
+                        r="10"
+                        fill="none"
+                        stroke={accent}
+                        strokeWidth="0.8"
+                        initial={{ r: 4, opacity: 0 }}
+                        animate={{ r: 12, opacity: 0.6 }}
+                        transition={{ duration: 0.3 }}
+                      />
+                    )}
+                    <circle
+                      cx={x}
+                      cy={y}
+                      r={isHovered ? "5" : "3.5"}
+                      fill={
+                        isHovered
+                          ? accent
+                          : "var(--muted-foreground)"
+                      }
+                      stroke="var(--background)"
+                      strokeWidth="1.2"
+                      style={{
+                        transition: "r 0.2s, fill 0.2s",
+                        opacity: isHovered ? 1 : 0.55,
+                      }}
+                    />
+                    <text
+                      x={x + 9}
+                      y={y + 3.5}
+                      fontFamily="var(--font-mono)"
+                      fontSize="9"
+                      fontWeight="600"
+                      fill={
+                        isHovered
+                          ? "var(--foreground)"
+                          : "var(--muted-foreground)"
+                      }
+                      style={{
+                        transition: "fill 0.2s, opacity 0.2s",
+                        opacity: isHovered ? 1 : 0.7,
+                      }}
+                    >
+                      {c.name.split(" ")[0]}
+                    </text>
+                  </a>
+                </motion.g>
+              );
+            })}
+
+            {/* Active city pin — large, glowing, always labeled */}
+            <motion.g
+              initial={{ scale: 0, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{
+                delay: 0.4,
+                type: "spring",
+                stiffness: 180,
+                damping: 14,
+              }}
+            >
+              {/* Outer pulse */}
+              <motion.circle
+                cx={activePos.x}
+                cy={activePos.y}
+                r="16"
+                fill="none"
+                stroke={accent}
+                strokeWidth="0.8"
+                animate={{
+                  r: [12, 26, 12],
+                  opacity: [0.6, 0, 0.6],
+                }}
+                transition={{
+                  duration: 2.6,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+              {/* Inner halo */}
+              <circle
+                cx={activePos.x}
+                cy={activePos.y}
+                r="10"
+                fill={accent.replace(")", " / 0.18)")}
+                stroke={accent}
+                strokeWidth="0.8"
+              />
+              {/* Center dot */}
+              <circle
+                cx={activePos.x}
+                cy={activePos.y}
+                r="5"
+                fill={accent}
+                stroke="var(--background)"
+                strokeWidth="1.5"
+              />
+              {/* Label badge */}
+              <g>
+                <rect
+                  x={activePos.x + 12}
+                  y={activePos.y - 9}
+                  width={city.name.length * 6.2 + 14}
+                  height="18"
+                  rx="9"
+                  fill="var(--background)"
+                  stroke={accent.replace(")", " / 0.45)")}
+                  strokeWidth="1"
+                />
+                <text
+                  x={activePos.x + 19}
+                  y={activePos.y + 3.5}
+                  fontFamily="var(--font-mono)"
+                  fontSize="10"
+                  fontWeight="700"
+                  fill={accent}
+                >
+                  {city.name}
+                </text>
+              </g>
+            </motion.g>
+          </motion.svg>
+
+          {/* Hover tooltip — HTML overlay positioned over SVG hover target */}
+          {hovered &&
+            (() => {
+              const c = others.find((x) => x.slug === hovered);
+              if (!c) return null;
+              const lat = parseFloat(c.geo.lat);
+              const lng = parseFloat(c.geo.lng);
+              const { x, y } = projectCcm(lat, lng);
+              const stat = c.heroStats[0];
+              return (
+                <div
+                  className="pointer-events-none absolute z-10 -translate-x-1/2 -translate-y-full rounded-xl border border-border bg-background/95 px-3 py-2 shadow-[0_18px_40px_-16px_rgba(0,0,0,0.5)] backdrop-blur-md"
+                  style={{
+                    left: `${(x / CCM_W) * 100}%`,
+                    top: `${(y / CCM_H) * 100}%`,
+                    marginTop: "-12px",
+                  }}
+                >
+                  <div className="flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.22em] text-accent">
+                    <MapPin size={9} /> {c.state}
+                  </div>
+                  <div className="mt-0.5 font-display text-sm font-semibold tracking-tight text-foreground">
+                    {c.name}
+                  </div>
+                  {stat && (
+                    <div className="mt-1 flex items-baseline gap-1.5">
+                      <span className="font-display text-base font-semibold leading-none text-accent">
+                        {stat.value}
+                      </span>
+                      <span className="text-[10px] leading-tight text-muted-foreground">
+                        {stat.label}
+                      </span>
+                    </div>
+                  )}
+                  <div className="mt-1.5 inline-flex items-center gap-1 font-mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground">
+                    Click to open
+                    <ArrowUpRight size={9} />
+                  </div>
+                </div>
+              );
+            })()}
+        </div>
+      </div>
+    </div>
   );
 }

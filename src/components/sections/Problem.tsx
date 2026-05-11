@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { TrendingDown, AlertTriangle } from "lucide-react";
 import { Section, SectionHeader } from "../primitives/section";
 import { ButtonLink } from "../primitives/button";
+import { SnapRowHint } from "../primitives/snap-row-hint";
 import { LeakFunnel } from "../illustrations";
 import type { Messages } from "@/lib/i18n";
 
@@ -28,7 +29,8 @@ export function Problem({ t }: { t: Messages }) {
         </div>
       </div>
 
-      <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {/* Mobile: snap-x carousel (4 stat-rich cards). sm+: grid. */}
+      <div className="mt-10 -mx-4 flex snap-x snap-mandatory scroll-pl-4 gap-4 overflow-x-auto px-4 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:mt-16 sm:grid sm:snap-none sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4">
         {t.problem.points.map((p, i) => (
           <motion.div
             key={p.label}
@@ -36,9 +38,9 @@ export function Problem({ t }: { t: Messages }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.5, delay: i * 0.06 }}
-            className="group relative flex flex-col overflow-hidden rounded-2xl sm:rounded-3xl border border-border bg-surface/60 p-5 sm:p-7 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:border-danger/40 hover:bg-surface"
+            className="group relative flex w-[82vw] max-w-[320px] flex-shrink-0 snap-start flex-col overflow-hidden rounded-2xl border border-border bg-surface/80 p-5 transition-all duration-500 hover:-translate-y-1 hover:border-danger/40 hover:bg-surface sm:w-auto sm:max-w-none sm:flex-shrink sm:rounded-3xl sm:bg-surface/60 sm:p-7 sm:backdrop-blur-sm"
           >
-            <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-danger/5 blur-2xl transition-opacity duration-500 group-hover:bg-danger/15" />
+            <div className="pointer-events-none absolute -right-16 -top-16 hidden h-40 w-40 rounded-full bg-danger/5 blur-2xl transition-opacity duration-500 group-hover:bg-danger/15 sm:block" />
 
             <div className="flex items-center justify-between">
               <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
@@ -76,6 +78,7 @@ export function Problem({ t }: { t: Messages }) {
           </motion.div>
         ))}
       </div>
+      <SnapRowHint count={t.problem.points.length} />
 
       {/* Bottom CTA strip */}
       <div className="mt-10 sm:mt-14 flex flex-col items-center justify-between gap-6 rounded-2xl sm:rounded-3xl border border-border bg-surface/40 p-5 sm:p-8 backdrop-blur-sm sm:flex-row lg:p-10">

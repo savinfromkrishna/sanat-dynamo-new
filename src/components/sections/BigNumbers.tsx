@@ -16,7 +16,8 @@ export function BigNumbers({ t }: { t: Messages }) {
         align="center"
       />
 
-      <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {/* Mobile: 2-col grid (4 stat cards in a 2x2 instead of stacked). */}
+      <div className="mt-10 grid grid-cols-2 gap-3 sm:mt-16 sm:gap-4 lg:grid-cols-4">
         {bn.items.map((item, i) => (
           <motion.div
             key={item.label}

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Quote, Star } from "lucide-react";
 import { Section, SectionHeader } from "../primitives/section";
+import { SnapRowHint } from "../primitives/snap-row-hint";
 import type { Messages } from "@/lib/i18n";
 import { getCountryContent } from "@/lib/country-content";
 import { isResolvableCountry } from "@/lib/constants";
@@ -61,7 +62,8 @@ export function Testimonials({
         </span>
       </div>
 
-      <div className="mt-12 grid gap-5 sm:grid-cols-2">
+      {/* Mobile: snap-x carousel. sm+: 2-col grid. */}
+      <div className="mt-8 -mx-4 flex snap-x snap-mandatory scroll-pl-4 gap-4 overflow-x-auto px-4 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:mt-12 sm:grid sm:snap-none sm:grid-cols-2 sm:gap-5 sm:overflow-visible sm:px-0 sm:pb-0">
         {items.map((tm, i) => (
           <motion.figure
             key={i}
@@ -69,11 +71,11 @@ export function Testimonials({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.5, delay: (i % 2) * 0.08 }}
-            className="group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-border bg-surface/60 p-5 sm:p-8 transition-all hover:border-accent/30 hover:bg-surface"
+            className="group relative w-[84vw] max-w-[340px] flex-shrink-0 snap-start overflow-hidden rounded-2xl border border-border bg-surface/80 p-5 transition-all hover:border-accent/30 hover:bg-surface sm:w-auto sm:max-w-none sm:flex-shrink sm:rounded-3xl sm:bg-surface/60 sm:p-8"
           >
             <div
               aria-hidden
-              className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-accent/5 blur-3xl transition-opacity duration-500 group-hover:bg-accent/15"
+              className="pointer-events-none absolute -right-16 -top-16 hidden h-40 w-40 rounded-full bg-accent/5 blur-3xl transition-opacity duration-500 group-hover:bg-accent/15 sm:block"
             />
             <div className="flex items-center justify-between">
               <Quote
@@ -112,6 +114,7 @@ export function Testimonials({
           </motion.figure>
         ))}
       </div>
+      <SnapRowHint count={items.length} />
     </Section>
   );
 }

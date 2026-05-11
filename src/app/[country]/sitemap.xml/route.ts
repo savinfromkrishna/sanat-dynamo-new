@@ -7,7 +7,7 @@ import {
 import { LOCALES, type Locale } from "@/lib/i18n";
 import { NextResponse } from "next/server";
 import { BLOG_POSTS, BLOG_CATEGORIES } from "@/lib/blogs";
-import { INDIA_CITIES } from "@/lib/cities";
+import { INDIA_CITIES, getCityIndexableLocales } from "@/lib/cities";
 import { INDUSTRY_SLUGS } from "@/lib/industry-data";
 
 // Revalidate at most once per day — Googlebot doesn't need minute-fresh sitemaps,
@@ -32,23 +32,30 @@ const STATIC_PAGE_LASTMOD: Record<string, string> = {
   privacy: "2026-01-15",
   terms: "2026-01-15",
   blogs: "2026-04-18",         // index bumped when new posts land
-  cities: "2026-05-03",        // city hub — bumped on each new metro added
+  cities: "2026-05-11",        // city hub — bumped on each new metro added or city template shift
 };
 
-/** Per-city `lastmod`. Bump when the city's content meaningfully changes. */
-const CITY_LASTMOD_DEFAULT = "2026-05-03";
+/**
+ * Per-city `lastmod`. Bump when the city's content meaningfully changes.
+ * Bumped 2026-05-11 with the introduction of the city sub-page cluster
+ * (services / process / case-studies / contact / about / blog) and refreshed
+ * mobile carousels across all city templates.
+ */
+const CITY_LASTMOD_DEFAULT = "2026-05-11";
 
 /** Per-industry-slug `lastmod`. Bump when content of that industry page changes. */
 const INDUSTRY_LASTMOD_DEFAULT = "2026-05-07";
 const INDUSTRY_PAGE_PRIORITY = 0.85;
-/** Industry pages are sitemap-included only for indexable locales (en + hi),
- * matching the city-page rule. */
-const INDUSTRY_SITEMAP_LOCALES: readonly string[] = ["en", "hi"];
+/** Industry pages are sitemap-included only for indexable locales. After the
+ * 2026-05-09 hi demotion this is en-only — industries don't have Hindi bodies
+ * yet, and including /in/hi/industries/* in the sitemap would re-create the
+ * fake-Hindi duplicate problem we just fixed. Re-add "hi" only when each
+ * industry page has a real Hindi body (mirror the per-city pattern). */
+const INDUSTRY_SITEMAP_LOCALES: readonly string[] = LANGUAGES;
 
-/** City-page sitemap is restricted to en+hi: those are the locales Indian
- * search traffic actually uses. Other locales render via fallback but stay
- * out of the sitemap so Google doesn't see 7 near-duplicate URLs per city. */
-const CITY_SITEMAP_LOCALES: readonly string[] = ["en", "hi"];
+/** City-page sitemap locales are now decided per-city via
+ * `getCityIndexableLocales(city)` so Ahmedabad (which has a real Hindi body)
+ * can include /in/hi/cities/ahmedabad while the other 9 cities stay en-only. */
 
 /**
  * Resolve the public base URL from the incoming request.
@@ -242,32 +249,69 @@ export async function GET(
     })
   );
 
-  // Per-city URLs — India only, en + hi only. We deliberately keep these
-  // out of the sitemap for non-IN markets and other locales so Google
-  // doesn't see them as duplicates of the canonical /in/{en|hi} versions.
+  // Per-city URLs — India only. Sitemap locales are now decided per-city via
+  // `getCityIndexableLocales(city)`. So Ahmedabad (which has Hindi body) emits
+  // BOTH /in/en/cities/ahmedabad AND /in/hi/cities/ahmedabad, while the other
+  // 9 cities only emit /in/en/. Hreflang alternates mirror the same per-city
+  // set so the cluster declared in the sitemap matches what each page
+  // actually advertises in its <link rel="alternate"> tags.
+  //
+  // Each city now has 7 indexable URL types per indexable locale:
+  //   - /cities/{slug}                 (overview — priority 0.85)
+  //   - /cities/{slug}/services        (priority 0.80)
+  //   - /cities/{slug}/process         (priority 0.75)
+  //   - /cities/{slug}/case-studies    (priority 0.80)
+  //   - /cities/{slug}/contact         (priority 0.70)
+  //   - /cities/{slug}/about           (priority 0.70)
+  //   - /cities/{slug}/blog            (priority 0.65)
+  // Each path emits hreflang alternates for the same per-city locale set.
+  // Each sub-path declares which locales it's indexable for. Only the main
+  // page ("") follows per-city Hindi via getCityIndexableLocales — sub-pages
+  // stay EN-only until their templates have real Hindi bodies (the new
+  // services/process/case-studies/contact pages introduce fresh English
+  // copy that localizeCity doesn't yet translate).
+  const CITY_SUB_PAGES: {
+    path: string;
+    priority: number;
+    /** Sitemap locales for this sub-path. "city-aware" defers to getCityIndexableLocales(city). */
+    locales: ReadonlyArray<"en" | "hi"> | "city-aware";
+  }[] = [
+    { path: "", priority: CITY_PAGE_PRIORITY, locales: "city-aware" },
+    { path: "services", priority: 0.8, locales: ["en"] },
+    { path: "process", priority: 0.75, locales: ["en"] },
+    { path: "case-studies", priority: 0.8, locales: ["en"] },
+    { path: "contact", priority: 0.7, locales: ["en"] },
+    { path: "about", priority: 0.7, locales: ["en"] },
+    { path: "blog", priority: 0.65, locales: ["en"] },
+  ];
+
   const cityUrls = isIndia
-    ? INDIA_CITIES.flatMap((city) =>
-        CITY_SITEMAP_LOCALES.map((sitemapLocale) => {
-          const loc = `${base}/${country}/${sitemapLocale}/cities/${city.slug}`;
-          // hreflang alternates: include every locale + x-default so Google
-          // understands the localized variants exist via fallback rendering.
-          const alternates = LANGUAGES.map((altLocale) => {
-            const altLoc = `${base}/${country}/${altLocale}/cities/${city.slug}`;
-            const htmlLang = LOCALES[altLocale as Locale]?.htmlLang ?? altLocale;
-            return `      <xhtml:link rel="alternate" hreflang="${htmlLang}" href="${altLoc}" />`;
+    ? INDIA_CITIES.flatMap((city) => {
+        const cityLocales = getCityIndexableLocales(city);
+        return CITY_SUB_PAGES.flatMap(({ path, priority, locales }) => {
+          const pageLocales =
+            locales === "city-aware" ? cityLocales : locales;
+          return pageLocales.map((sitemapLocale) => {
+            const segment = path === "" ? "" : `/${path}`;
+            const loc = `${base}/${country}/${sitemapLocale}/cities/${city.slug}${segment}`;
+            const alternates = pageLocales.map((altLocale) => {
+              const altLoc = `${base}/${country}/${altLocale}/cities/${city.slug}${segment}`;
+              const htmlLang = LOCALES[altLocale as Locale]?.htmlLang ?? altLocale;
+              return `      <xhtml:link rel="alternate" hreflang="${htmlLang}" href="${altLoc}" />`;
+            });
+            alternates.push(
+              `      <xhtml:link rel="alternate" hreflang="x-default" href="${base}/in/en/cities/${city.slug}${segment}" />`
+            );
+            return {
+              loc,
+              lastmod: CITY_LASTMOD_DEFAULT,
+              priority,
+              changefreq: "monthly",
+              alternates: alternates.join("\n"),
+            };
           });
-          alternates.push(
-            `      <xhtml:link rel="alternate" hreflang="x-default" href="${base}/in/en/cities/${city.slug}" />`
-          );
-          return {
-            loc,
-            lastmod: CITY_LASTMOD_DEFAULT,
-            priority: CITY_PAGE_PRIORITY,
-            changefreq: "monthly",
-            alternates: alternates.join("\n"),
-          };
-        })
-      )
+        });
+      })
     : [];
 
   const urls = [

@@ -84,37 +84,36 @@ export function IndiaMetroMap() {
         className="pointer-events-none absolute -right-40 -top-40 h-[28rem] w-[28rem] rounded-full bg-accent/10 blur-3xl"
       />
 
-      <div className="relative grid gap-6 p-6 sm:p-10 lg:grid-cols-12 lg:gap-10 lg:p-12">
+      <div className="relative grid gap-5 p-4 sm:gap-6 sm:p-8 lg:grid-cols-12 lg:gap-10 lg:p-12">
         <div className="lg:col-span-5">
-          <div className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/5 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
+          <div className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/5 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.22em] text-accent sm:px-3 sm:py-1.5 sm:text-[10px]">
             <span className="relative flex h-1.5 w-1.5">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
             </span>
             11 metros · live build map
           </div>
-          <h2 className="text-balance mt-5 font-display text-3xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-4xl lg:text-[3rem]">
-            We build city-aware,
-            <br />
+          <h2 className="text-balance mt-3 font-display text-2xl font-semibold leading-[1.1] tracking-tight text-foreground sm:mt-5 sm:text-3xl md:text-4xl lg:text-[3rem] lg:leading-[1.05]">
+            We build city-aware,{" "}
             <span className="bg-gradient-to-br from-foreground via-accent to-[oklch(0.66_0.18_295)] bg-clip-text text-transparent">
               not city-templated.
             </span>
           </h2>
-          <p className="text-pretty mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
+          <p className="text-pretty mt-3 hidden text-sm leading-relaxed text-muted-foreground sm:mt-5 sm:block sm:text-base lg:text-lg">
             Every dot is a metro we&apos;ve shipped revenue systems into — with
             local stack, local language, and local SEO. The colours encode the
             primary industry mix; the pulses are live engagements.
           </p>
 
-          <div className="mt-7 flex flex-wrap gap-2">
+          <div className="mt-4 flex flex-wrap gap-1.5 sm:mt-7 sm:gap-2">
             {(["D2C", "BFSI", "Real Estate", "SaaS", "Manufacturing", "EdTech"] as CityIntentTag[]).map(
               (tag) => (
                 <span
                   key={tag}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background/60 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.18em] text-muted-foreground"
+                  className="inline-flex items-center gap-1 rounded-full border border-border bg-background/60 px-2 py-0.5 font-mono text-[8px] uppercase tracking-[0.18em] text-muted-foreground sm:gap-1.5 sm:px-2.5 sm:py-1 sm:text-[9px]"
                 >
                   <span
-                    className="h-1.5 w-1.5 rounded-full"
+                    className="h-1 w-1 rounded-full sm:h-1.5 sm:w-1.5"
                     style={{ background: INTENT_COLORS[tag] }}
                   />
                   {tag}
@@ -124,7 +123,7 @@ export function IndiaMetroMap() {
           </div>
         </div>
 
-        <div className="relative flex min-h-[420px] items-center justify-center lg:col-span-7">
+        <div className="relative flex items-center justify-center lg:col-span-7 lg:min-h-[420px]">
           <IndiaSVG />
         </div>
       </div>
@@ -136,7 +135,7 @@ function IndiaSVG() {
   return (
     <motion.svg
       viewBox={`0 0 ${MAP_W} ${MAP_H}`}
-      className="h-full w-full max-w-[520px]"
+      className="h-auto w-full max-w-[300px] sm:max-w-[420px] lg:h-full lg:max-w-[520px]"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, margin: "-40px" }}
@@ -322,7 +321,7 @@ export function CitiesScrollTimeline() {
         className="absolute left-5 top-0 hidden w-px bg-gradient-to-b from-accent via-[oklch(0.66_0.18_295)] to-accent lg:block"
       />
 
-      <div className="space-y-12 sm:space-y-16 lg:pl-16">
+      <div className="space-y-6 sm:space-y-10 lg:space-y-16 lg:pl-16">
         {INDIA_CITIES.map((city, i) => (
           <CityTimelineRow key={city.slug} city={city} index={i} />
         ))}
@@ -373,7 +372,7 @@ function CityTimelineRow({ city, index }: { city: CityContent; index: number }) 
           background: `linear-gradient(140deg, ${color.replace(")", " / 0.05)")}, transparent 60%)`,
         }}
       >
-        <div className="grid gap-6 p-6 sm:p-8 lg:grid-cols-12 lg:gap-10">
+        <div className="grid gap-4 p-4 sm:gap-6 sm:p-6 md:p-7 lg:grid-cols-12 lg:gap-10 lg:p-8">
           {/* Identity */}
           <div className="lg:col-span-4">
             <div className="flex items-center justify-between gap-3">

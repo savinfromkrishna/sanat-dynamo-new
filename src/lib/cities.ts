@@ -13,7 +13,17 @@
  *   2. Make sure `slug` is lowercase, ascii, hyphenated
  *   3. Write at least 4 hand-written FAQs and 2 paragraphs of local context
  *   4. Push the deploy and submit the URL in Search Console for indexing
+ *
+ * **Hindi indexability** — pages render in Hindi via `localizeCity()` only
+ * when a `translations.hi` block exists AND `bodyLocales` includes "hi".
+ * The global INDEXABLE_LOCALES gate in [src/lib/constants.ts](src/lib/constants.ts)
+ * is "en"-only, but `isCityIndexable(city, locale)` overrides per-city, so a
+ * single city with real Hindi body re-enters the /in/hi index without
+ * flipping the global lever and re-exposing all the fake-Hindi pages we
+ * demoted on 2026-05-09.
  */
+
+import type { Locale } from "@/lib/i18n";
 
 export interface CityFaq {
   q: string;
@@ -87,6 +97,35 @@ export interface CityContent {
 
   /** Slugs of 3 related cities to cross-link at bottom of page */
   relatedCities: string[];
+
+  /**
+   * Per-locale body translations. Only included when a complete Hindi body
+   * actually exists — partial translations make the page look like locale-
+   * spoofed near-duplicates of the EN version.
+   */
+  translations?: { hi?: CityContentTranslation };
+
+  /**
+   * Locales with COMPLETE body translations. Defaults to ["en"]. Add "hi"
+   * only when `translations.hi` exists and contains real localContext, whyHire,
+   * faq, etc. (not just title swaps). Used by `isCityIndexable` to gate
+   * indexing per-city, overriding the global INDEXABLE_LOCALES.
+   */
+  bodyLocales?: ReadonlyArray<"en" | "hi">;
+}
+
+/** Per-city Hindi translation block. All fields optional — missing fields fall back to English. */
+export interface CityContentTranslation {
+  metaTitle?: string;
+  metaDescription?: string;
+  heroSubheadline?: string;
+  heroStats?: CityStat[];
+  localContext?: string[];
+  whyHire?: CityWhyHire[];
+  industriesAngle?: string;
+  caseStudyCallout?: string;
+  faq?: CityFaq[];
+  testimonials?: CityTestimonial[];
 }
 
 const MUMBAI: CityContent = {
@@ -771,6 +810,75 @@ const AHMEDABAD: CityContent = {
     },
   ],
   relatedCities: ["pune", "jaipur", "indore"],
+
+  // ---------- Hindi indexability ----------
+  // Ahmedabad is the manufacturing-pivot pillar (per 2026-05-07 strategy),
+  // so it gets a complete hand-written Hindi body and re-enters the /in/hi
+  // index ahead of the other 9 cities.
+  bodyLocales: ["en", "hi"],
+  translations: {
+    hi: {
+      metaTitle: "अहमदाबाद की सर्वश्रेष्ठ वेबसाइट डेवलपमेंट कंपनी · सनत डायनमो",
+      metaDescription:
+        "अहमदाबाद की शीर्ष वेब डेवलपमेंट और D2C एजेंसी। हम SG हाईवे, बोपल, वस्त्रापुर और प्रह्लाद नगर के SMEs के लिए टेक्सटाइल पोर्टल, फार्मा साइटें और रेवेन्यू फनल बनाते हैं। गुजराती भाषा में मूल।",
+      heroSubheadline:
+        "अहमदाबाद टेक्सटाइल, फार्मा, सिरेमिक्स और IIM-A नेटवर्क से निकले आक्रामक D2C बेंच पर चलता है। यहाँ का प्रमोटर तेज़ नेगोशिएटर और तेज़ निर्णय-कर्ता होता है। हम ऐसे रेवेन्यू सिस्टम बनाते हैं जो दोनों का सम्मान करें।",
+      heroStats: [
+        { value: "₹4Cr+", label: "अहमदाबाद क्लाइंट्स पर रेवेन्यू प्रभाव" },
+        { value: "7+", label: "अहमदाबाद में टेक्सटाइल / फार्मा / D2C रिबिल्ड" },
+        { value: "गुजराती", label: "उपभोक्ता ब्रांड्स के लिए द्विभाषी लेयर" },
+      ],
+      localContext: [
+        "अहमदाबाद का कारोबार SG हाईवे (कॉर्पोरेट ऑफ़िस, IT सेवाएँ, IIM-A से सटे स्टार्टअप बेल्ट), बोपल-शेला (रेज़िडेंशियल और नई-पीढ़ी के D2C तथा क्लिनिक चेन), वस्त्रापुर और प्रह्लाद नगर (मध्यम स्तर की सेवाएँ और B2B), नरोडा और वटवा (इंडस्ट्रियल / फार्मा), और मणिनगर तथा गोमतीपुर के पुराने शहर (पारंपरिक टेक्सटाइल और ट्रेडिंग) में फैला है। हमने इन पाँचों क्षेत्रों में डिलीवर किया है — बोपल में D2C लॉन्च, वटवा में फार्मा एक्सपोर्ट साइटें, पुराने शहर में टेक्सटाइल B2B पोर्टल, और SG हाईवे पर IIM-A अल्युमनाई SaaS के मार्केटिंग रिबिल्ड।",
+        "अहमदाबाद की ख़ासियत: यहाँ का प्रमोटर वैल्यू-ड्रिवन और संदेहशील होता है। वह प्रपोज़ल पर नेगोशिएट करेगा, फ़िक्स्ड-प्राइस स्पष्टता माँगेगा, टाइमलाइन गारंटी चाहेगा और साइन करने से पहले तीन रेफ़रेंस चेक करेगा। साइन करने के बाद वह पूरा भुगतान समय पर करेगा — और रेफ़रल भी देगा। गुजरात का MSME परिवार-केन्द्रित होकर चलता है; किकऑफ़ मीटिंग में बायर का बेटा या पत्नी भी बैठेंगे। हम इसे स्वीकार करते हैं और स्वागत करते हैं। काम 6-12 हफ़्तों में, जहाँ संभव हो फ़िक्स्ड-प्राइस पर, और साप्ताहिक डेमो के साथ डिलीवर होता है।",
+        "हम INR में GST के साथ बिल करते हैं और उपभोक्ता ब्रांड्स के लिए गुजराती-भाषी साइटें तथा WhatsApp फ़्लो सपोर्ट करते हैं। ज़्यादातर अहमदाबाद के फार्मा और टेक्सटाइल एक्सपोर्टर्स को हमारी इंटरनेशनल एंटिटी के माध्यम से USD-फ्रेंडली इन्वॉइसिंग मिलती है।",
+      ],
+      whyHire: [
+        {
+          title: "फ़िक्स्ड-प्राइस स्पष्टता",
+          body: "ज़्यादातर अहमदाबाद एंगेजमेंट फ़िक्स्ड-प्राइस पर मील-स्टोन पेमेंट्स के साथ चलते हैं, घंटे-आधारित रिटेनर पर नहीं। प्रमोटर जानना चाहते हैं कि वे क्या ख़र्च कर रहे हैं और कब परिणाम देखेंगे। हम वही देते हैं।",
+        },
+        {
+          title: "गुजराती + अंग्रेज़ी द्विभाषी",
+          body: "उपभोक्ता ब्रांड्स के लिए गुजराती-भाषी लैंडिंग पेज और गुजराती WATI टेम्प्लेट। जहाँ उपभोक्ता माँग न्यायसंगत हो, वहाँ गुजराती-लिपि सर्च के लिए SEO टार्गेटिंग।",
+        },
+        {
+          title: "फार्मा + टेक्सटाइल एक्सपोर्ट-सजग",
+          body: "नरोडा / वटवा फार्मा को USFDA / EU GMP-सजग भाषा, क्षेत्रीय प्रोडक्ट गेटिंग और डिस्ट्रिब्यूटर KYC मिलते हैं। मणिनगर टेक्सटाइल को मल्टी-करेंसी प्राइसिंग, ISO / OEKO-TEX ट्रस्ट सिग्नल और US/EU बायर SEO मिलते हैं।",
+        },
+      ],
+      industriesAngle:
+        "अहमदाबाद का रेवेन्यू मिश्रण है टेक्सटाइल (मणिनगर और पुराने शहर का मैन्युफ़ैक्चरर बेल्ट), फार्मा (वटवा, नरोडा), सिरेमिक्स (मोरबी से सटा हुआ), और IIM-A तथा SG हाईवे के आसपास तेज़ी से बढ़ता D2C / SaaS बेंच। हमने टेक्सटाइल, फार्मा और D2C — तीनों में बनाया है, और अहमदाबाद-स्टाइल में पार्टनर करते हैं: फ़िक्स्ड स्कोप, तेज़ निर्णय, साप्ताहिक डेमो।",
+      caseStudyCallout:
+        "हमने मणिनगर के एक टेक्सटाइल एक्सपोर्टर के लिए एक्सपोर्ट-बायर-फ़ेसिंग साइट को रिबिल्ड किया, जो यूरोप और मध्य-पूर्व को ₹65 करोड़/साल का कारोबार करता है। पुरानी साइट: PDF कैटलॉग, बिना क्षेत्रीय प्राइसिंग, बिना बायर-पोर्टल। नई साइट: बायर-लॉगिन से गेटेड लाइव मल्टी-करेंसी कैटलॉग, OEKO-TEX और ISO 9001 ट्रस्ट सिग्नल, WhatsApp कन्फ़र्मेशन के साथ स्वैच-रिक्वेस्ट वर्कफ़्लो, इंटरनेशनल सैम्पल्स के लिए Stripe + Razorpay डुअल चेकआउट। दो तिमाहियों में परिणाम: ऑर्गेनिक से सीधे 18 नई EU बायर इन्क्वायरी, ₹2.4 करोड़ के 4 क्लोज़्ड ऑर्डर, सैम्पल डिस्पैच टाइम 11 दिन से घटकर 4 दिन।",
+      faq: [
+        {
+          q: "क्या आप अहमदाबाद क्लाइंट्स के लिए फ़िक्स्ड-प्राइस बिल्ड करते हैं?",
+          a: "हाँ — अहमदाबाद के लिए हमारा डिफ़ॉल्ट फ़िक्स्ड-प्राइस है, मील-स्टोन पेमेंट्स के साथ। स्कोप किकऑफ़ पर लिखित डिलिवरेबल्स लिस्ट के साथ लॉक होता है, चेंज रिक्वेस्ट अलग से क्वोट होते हैं। ज़्यादातर बिल्ड 6-12 हफ़्तों में डिलीवर होते हैं।",
+        },
+        {
+          q: "क्या आप गुजराती-भाषी लैंडिंग पेज और WhatsApp टेम्प्लेट डिलीवर कर सकते हैं?",
+          a: "हाँ — गुजराती हमारे अहमदाबाद बिल्ड्स में फ़र्स्ट-क्लास भाषा है, साइट पर भी और WATI / Gupshup टेम्प्लेट्स में भी। जहाँ सर्च वॉल्यूम न्यायसंगत हो, वहाँ उपभोक्ता ब्रांड्स के लिए गुजराती-लिपि SEO सपोर्टेड है।",
+        },
+        {
+          q: "क्या आप नरोडा / वटवा फार्मा के लिए एक्सपोर्ट-बायर-फ़ेसिंग साइटें संभालते हैं?",
+          a: "हाँ — USFDA / WHO-GMP / EU GMP-सजग भाषा, क्षेत्रीय प्रोडक्ट विज़िबिलिटी गेटिंग, डिस्ट्रिब्यूटर KYC पोर्टल और DSCSA-सजग ट्रेसेबिलिटी स्टोरी पेज। हमारे अहमदाबाद फार्मा एंगेजमेंट के लिए स्टैंडर्ड है।",
+        },
+        {
+          q: "क्या आप टेक्सटाइल एक्सपोर्टर्स के लिए मल्टी-करेंसी, मल्टी-लैंग्वेज साइट डिलीवर करते हैं?",
+          a: "हाँ। मणिनगर और पुराने शहर के टेक्सटाइल एक्सपोर्टर्स को मल्टी-करेंसी प्राइसिंग डिस्प्ले (USD/EUR/GBP/INR), बायर-लॉगिन-गेटेड कैटलॉग, ISO / OEKO-TEX / BSCI ट्रस्ट सिग्नल और Stripe-फ्रेंडली इंटरनेशनल सैम्पल पेमेंट मिलता है।",
+        },
+      ],
+      testimonials: [
+        {
+          quote:
+            "उन्होंने फ़िक्स्ड प्राइस क्वोट किया, 9 हफ़्तों में डिलीवर किया, और हमारा पहला EU बायर हफ़्ते 14 में Google से आया। हमने दो दोस्तों को रेफ़र किया है।",
+          author: "प्रमोटर",
+          role: "टेक्सटाइल एक्सपोर्टर · मणिनगर, अहमदाबाद",
+        },
+      ],
+    },
+  },
 };
 
 const JAIPUR: CityContent = {
@@ -1057,4 +1165,70 @@ export function getCityBySlug(slug: string): CityContent | null {
 
 export function isValidCitySlug(slug: string): boolean {
   return INDIA_CITY_SLUGS.includes(slug.toLowerCase());
+}
+
+/**
+ * Returns the city with body fields swapped for the locale translation if
+ * one exists. EN is always identity (no swap). HI swaps any field present
+ * in `translations.hi`; missing fields fall back to English.
+ */
+export function localizeCity(city: CityContent, locale: Locale): CityContent {
+  if (locale !== "hi") return city;
+  const tr = city.translations?.hi;
+  if (!tr) return city;
+  return {
+    ...city,
+    metaTitle: tr.metaTitle ?? city.metaTitle,
+    metaDescription: tr.metaDescription ?? city.metaDescription,
+    heroSubheadline: tr.heroSubheadline ?? city.heroSubheadline,
+    heroStats: tr.heroStats ?? city.heroStats,
+    localContext: tr.localContext ?? city.localContext,
+    whyHire: tr.whyHire ?? city.whyHire,
+    industriesAngle: tr.industriesAngle ?? city.industriesAngle,
+    caseStudyCallout: tr.caseStudyCallout ?? city.caseStudyCallout,
+    faq: tr.faq ?? city.faq,
+    testimonials: tr.testimonials ?? city.testimonials,
+  };
+}
+
+/**
+ * Per-city indexability gate. Overrides the global INDEXABLE_LOCALES
+ * (which is currently "en"-only after the 2026-05-09 hi demotion) so a
+ * single city with a complete Hindi body block can re-enter the index for
+ * /in/hi/cities/{slug} without exposing the other 9 fake-Hindi cities.
+ *
+ * - en  → always indexable (assuming country === "in")
+ * - hi  → indexable ONLY if `bodyLocales` includes "hi" AND `translations.hi`
+ *         exists. Both checks together prevent accidentally indexing a city
+ *         that opted into hi without having actually written the Hindi body.
+ * - other locales → never indexable for cities (city pages are India-only).
+ */
+export function isCityIndexable(
+  city: CityContent,
+  country: string,
+  locale: string
+): boolean {
+  if (country.toLowerCase() !== "in") return false;
+  if (locale === "en") return true;
+  if (locale === "hi") {
+    return (
+      (city.bodyLocales ?? []).includes("hi") && !!city.translations?.hi
+    );
+  }
+  return false;
+}
+
+/**
+ * The set of indexable locales for a given city. Used to build the
+ * hreflang cluster on the city page metadata so the cluster stays
+ * consistent with the actual indexability decisions.
+ */
+export function getCityIndexableLocales(
+  city: CityContent
+): ReadonlyArray<"en" | "hi"> {
+  const out: ("en" | "hi")[] = ["en"];
+  if ((city.bodyLocales ?? []).includes("hi") && city.translations?.hi) {
+    out.push("hi");
+  }
+  return out;
 }

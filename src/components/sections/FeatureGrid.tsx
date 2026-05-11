@@ -13,6 +13,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { Section, SectionHeader } from "../primitives/section";
+import { SnapRowHint } from "../primitives/snap-row-hint";
 import { featureIllustrationMap } from "../illustrations";
 import type { Messages } from "@/lib/i18n";
 
@@ -38,7 +39,8 @@ export function FeatureGrid({ t }: { t: Messages }) {
         meta={`${fg.items.length} capabilities`}
       />
 
-      <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {/* Mobile: snap-x carousel. sm+: original grid. */}
+      <div className="mt-10 -mx-4 flex snap-x snap-mandatory scroll-pl-4 gap-4 overflow-x-auto px-4 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:mt-16 sm:grid sm:snap-none sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4">
         {fg.items.map((item, i) => {
           const Icon = iconMap[item.icon] ?? Zap;
           return (
@@ -48,9 +50,9 @@ export function FeatureGrid({ t }: { t: Messages }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.45, delay: (i % 4) * 0.06 }}
-              className="group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-border bg-surface/60 p-4 sm:p-6 transition-all hover:-translate-y-1 hover:border-accent/40 hover:bg-surface"
+              className="group relative w-[78vw] max-w-[300px] flex-shrink-0 snap-start overflow-hidden rounded-2xl border border-border bg-surface/80 p-5 transition-all hover:-translate-y-1 hover:border-accent/40 hover:bg-surface sm:w-auto sm:max-w-none sm:flex-shrink sm:rounded-3xl sm:bg-surface/60 sm:p-6"
             >
-              <div className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-accent/5 blur-2xl transition-opacity group-hover:bg-accent/15" />
+              <div className="pointer-events-none absolute -right-12 -top-12 hidden h-32 w-32 rounded-full bg-accent/5 blur-2xl transition-opacity group-hover:bg-accent/15 sm:block" />
               <div
                 aria-hidden
                 className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
@@ -82,6 +84,7 @@ export function FeatureGrid({ t }: { t: Messages }) {
           );
         })}
       </div>
+      <SnapRowHint count={fg.items.length} />
     </Section>
   );
 }
