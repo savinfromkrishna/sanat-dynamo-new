@@ -13,17 +13,19 @@ import {
   getTranslation,
   type Locale,
   LOCALE_CODES,
-  LOCALES,
 } from "@/lib/i18n";
 import {
   BASE_URL,
-  INDEXABLE_LOCALES,
   isIndexable,
 } from "@/lib/constants";
 import { INDIA_CITIES, getCityBySlug } from "@/lib/cities";
 import { getCityIdentity } from "@/lib/city-identity";
 import { getCityPosts, getCityPost } from "@/lib/city-blog";
-import { buildBreadcrumbJsonLd, buildFaqJsonLd } from "@/lib/seo";
+import {
+  buildBreadcrumbJsonLd,
+  buildCityAlternates,
+  buildFaqJsonLd,
+} from "@/lib/seo";
 import { PageHero } from "@/components/sections/PageHero";
 import { Section, Eyebrow } from "@/components/primitives/section";
 import { Cta } from "@/components/sections/Cta";
@@ -68,25 +70,24 @@ export async function generateMetadata({
 
   const lc = (LOCALE_CODES.includes(locale as Locale) ? locale : "en") as Locale;
 
-  const canonical = `/${country}/${lc}/cities/${city.slug}/${BLOG_PATH}/${post.slug}`;
-  const languages: Record<string, string> = {};
-  for (const lang of INDEXABLE_LOCALES) {
-    languages[LOCALES[lang].htmlLang] =
-      `${BASE_URL}/in/${lang}/cities/${city.slug}/${BLOG_PATH}/${post.slug}`;
-  }
-  languages["x-default"] = `${BASE_URL}/in/en/cities/${city.slug}/${BLOG_PATH}/${post.slug}`;
+  const alternates = buildCityAlternates({
+    country,
+    locale: lc,
+    city,
+    cityPath: `${city.slug}/${BLOG_PATH}/${post.slug}`,
+  });
 
   return {
     title: `${post.title} · ${city.name} Journal · Sanat Dynamo`,
     description: post.excerpt,
     keywords: post.keywords.join(", "),
     metadataBase: new URL(BASE_URL),
-    alternates: { canonical, languages },
+    alternates,
     authors: [{ name: post.author }],
     openGraph: {
       title: post.title,
       description: post.excerpt,
-      url: `${BASE_URL}${canonical}`,
+      url: `${BASE_URL}${alternates.canonical}`,
       siteName: "Sanat Dynamo",
       locale: `${lc}_${country.toUpperCase()}`,
       type: "article",

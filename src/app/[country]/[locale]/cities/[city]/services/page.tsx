@@ -13,18 +13,16 @@ import {
   getTranslation,
   type Locale,
   LOCALE_CODES,
-  LOCALES,
 } from "@/lib/i18n";
 import { BASE_URL } from "@/lib/constants";
 import {
   INDIA_CITIES,
   getCityBySlug,
-  getCityIndexableLocales,
   localizeCity,
 } from "@/lib/cities";
 import { getCityIdentity } from "@/lib/city-identity";
 import { getCityExtras } from "@/lib/city-extras";
-import { buildBreadcrumbJsonLd } from "@/lib/seo";
+import { buildBreadcrumbJsonLd, buildCityAlternates } from "@/lib/seo";
 import { PageHero } from "@/components/sections/PageHero";
 import { Section, Eyebrow } from "@/components/primitives/section";
 import { SnapRowHint } from "@/components/primitives/snap-row-hint";
@@ -67,24 +65,23 @@ export async function generateMetadata({
   const title = `Web Development, SEO & Automation Services in ${city.name} · Sanat Dynamo`;
   const description = `6 productized revenue systems built for ${city.name} businesses — high-conversion websites, WhatsApp & CRM automation, local SEO, multi-language sites, custom ERPs, and growth retainers. Fixed scope, fixed price.`;
 
-  const canonical = `/${country}/${lc}/cities/${city.slug}/${SUB_PATH}`;
-  const cityLocales = getCityIndexableLocales(baseCity);
-  const languages: Record<string, string> = {};
-  for (const lang of cityLocales) {
-    languages[LOCALES[lang].htmlLang] = `${BASE_URL}/in/${lang}/cities/${city.slug}/${SUB_PATH}`;
-  }
-  languages["x-default"] = `${BASE_URL}/in/en/cities/${city.slug}/${SUB_PATH}`;
+  const alternates = buildCityAlternates({
+    country,
+    locale: lc,
+    city: baseCity,
+    cityPath: `${city.slug}/${SUB_PATH}`,
+  });
 
   return {
     title,
     description,
     keywords: `${city.name} web development, ${city.name} website services, ${city.name} SEO agency, ${city.name} WhatsApp automation, ${city.name} ERP development, ${city.name} digital agency, custom software ${city.name}`,
     metadataBase: new URL(BASE_URL),
-    alternates: { canonical, languages },
+    alternates,
     openGraph: {
       title,
       description,
-      url: `${BASE_URL}${canonical}`,
+      url: `${BASE_URL}${alternates.canonical}`,
       siteName: "Sanat Dynamo",
       locale: `${lc}_${country.toUpperCase()}`,
       type: "website",

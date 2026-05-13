@@ -19,18 +19,16 @@ import {
   getTranslation,
   type Locale,
   LOCALE_CODES,
-  LOCALES,
 } from "@/lib/i18n";
 import { BASE_URL } from "@/lib/constants";
 import {
   INDIA_CITIES,
   getCityBySlug,
-  getCityIndexableLocales,
   localizeCity,
 } from "@/lib/cities";
 import { getCityIdentity } from "@/lib/city-identity";
 import { getCityOrganization } from "@/lib/city-organization";
-import { buildBreadcrumbJsonLd } from "@/lib/seo";
+import { buildBreadcrumbJsonLd, buildCityAlternates } from "@/lib/seo";
 import { PageHero } from "@/components/sections/PageHero";
 import { Section, Eyebrow } from "@/components/primitives/section";
 import { ContactForm } from "@/components/sections/ContactForm";
@@ -72,24 +70,23 @@ export async function generateMetadata({
   const title = `Contact Sanat Dynamo in ${city.name} — Book a Revenue Audit`;
   const description = `Book a 45-minute revenue audit for your ${city.name} business. WhatsApp, phone, or written request — IST hours, INR + GST invoicing, response within one business day.`;
 
-  const canonical = `/${country}/${lc}/cities/${city.slug}/${SUB_PATH}`;
-  const cityLocales = getCityIndexableLocales(baseCity);
-  const languages: Record<string, string> = {};
-  for (const lang of cityLocales) {
-    languages[LOCALES[lang].htmlLang] = `${BASE_URL}/in/${lang}/cities/${city.slug}/${SUB_PATH}`;
-  }
-  languages["x-default"] = `${BASE_URL}/in/en/cities/${city.slug}/${SUB_PATH}`;
+  const alternates = buildCityAlternates({
+    country,
+    locale: lc,
+    city: baseCity,
+    cityPath: `${city.slug}/${SUB_PATH}`,
+  });
 
   return {
     title,
     description,
     keywords: `${city.name} contact, ${city.name} revenue audit, ${city.name} agency contact, book audit ${city.name}, ${city.name} consultation, ${city.name} WhatsApp agency`,
     metadataBase: new URL(BASE_URL),
-    alternates: { canonical, languages },
+    alternates,
     openGraph: {
       title,
       description,
-      url: `${BASE_URL}${canonical}`,
+      url: `${BASE_URL}${alternates.canonical}`,
       siteName: "Sanat Dynamo",
       locale: `${lc}_${country.toUpperCase()}`,
       type: "website",

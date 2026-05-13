@@ -15,17 +15,15 @@ import {
   getTranslation,
   type Locale,
   LOCALE_CODES,
-  LOCALES,
 } from "@/lib/i18n";
 import {
   BASE_URL,
-  INDEXABLE_LOCALES,
   isIndexable,
 } from "@/lib/constants";
 import { INDIA_CITIES, getCityBySlug } from "@/lib/cities";
 import { getCityIdentity } from "@/lib/city-identity";
 import { getCityPosts } from "@/lib/city-blog";
-import { buildBreadcrumbJsonLd } from "@/lib/seo";
+import { buildBreadcrumbJsonLd, buildCityAlternates } from "@/lib/seo";
 import { Section } from "@/components/primitives/section";
 import { SnapRowHint } from "@/components/primitives/snap-row-hint";
 import { Cta } from "@/components/sections/Cta";
@@ -62,24 +60,23 @@ export async function generateMetadata({
   const title = `${city.name} Journal — Field Notes on Building Revenue Systems in ${city.name}${identity ? ` (${identity.nickname})` : ""} · Sanat Dynamo`;
   const description = `Long-form posts on what we ship in ${city.name}: local SEO, lead routing, dealer portals, and the moves agencies serving ${city.name} consistently miss.`;
 
-  const canonical = `/${country}/${lc}/cities/${city.slug}/${BLOG_PATH}`;
-  const languages: Record<string, string> = {};
-  for (const lang of INDEXABLE_LOCALES) {
-    languages[LOCALES[lang].htmlLang] =
-      `${BASE_URL}/in/${lang}/cities/${city.slug}/${BLOG_PATH}`;
-  }
-  languages["x-default"] = `${BASE_URL}/in/en/cities/${city.slug}/${BLOG_PATH}`;
+  const alternates = buildCityAlternates({
+    country,
+    locale: lc,
+    city,
+    cityPath: `${city.slug}/${BLOG_PATH}`,
+  });
 
   return {
     title,
     description,
     keywords: `${city.name} blog, ${city.name} insights, ${city.name} marketing, ${city.name} digital strategy, ${city.name} agency notes, ${city.name} case studies`,
     metadataBase: new URL(BASE_URL),
-    alternates: { canonical, languages },
+    alternates,
     openGraph: {
       title,
       description,
-      url: `${BASE_URL}${canonical}`,
+      url: `${BASE_URL}${alternates.canonical}`,
       siteName: "Sanat Dynamo",
       locale: `${lc}_${country.toUpperCase()}`,
       type: "website",
