@@ -17,6 +17,7 @@ import { Section, SectionHeader } from "@/components/primitives/section";
 import LocalizedLink from "@/components/LocalizedLink";
 import { KnowMore } from "@/components/sections/KnowMore";
 import { Cta } from "@/components/sections/Cta";
+import { IndiaGeoFooter } from "@/components/sections/IndiaGeoFooter";
 import { getTranslation, LOCALES, type Locale } from "@/lib/i18n";
 import {
   BASE_URL,
@@ -838,6 +839,7 @@ export default async function BlogsIndexPage({
       </Section>
 
       <KnowMore t={t} pageKey="home" pageLabel={ui.breadcrumb} />
+      <IndiaGeoFooter country={country} locale={locale} pageKey="blogs" />
       <Cta t={t} />
     </>
   );

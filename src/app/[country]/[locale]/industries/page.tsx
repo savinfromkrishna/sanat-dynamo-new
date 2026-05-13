@@ -24,6 +24,7 @@ import { CityBanner } from "@/components/sections/CityBanner";
 import { CountryMarketContext } from "@/components/sections/CountryMarketContext";
 import { BigNumbers } from "@/components/sections/BigNumbers";
 import { KnowMore } from "@/components/sections/KnowMore";
+import { IndiaGeoFooter } from "@/components/sections/IndiaGeoFooter";
 import { Section } from "@/components/primitives/section";
 import {
   IndustryConstellation,
@@ -201,6 +202,7 @@ export default async function IndustriesHubPage({
       <BigNumbers t={t} />
       <Faq t={t} country={country} />
       <KnowMore t={t} pageKey="industries" pageLabel="Industries" />
+      <IndiaGeoFooter country={country} locale={locale} pageKey="industries" />
       <Cta t={t} country={country} />
     </>
   );

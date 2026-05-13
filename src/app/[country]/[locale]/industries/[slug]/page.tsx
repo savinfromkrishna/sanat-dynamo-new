@@ -30,6 +30,7 @@ import { PageHero } from "@/components/sections/PageHero";
 import { Cta } from "@/components/sections/Cta";
 import { CountryMarketContext } from "@/components/sections/CountryMarketContext";
 import { CityBanner } from "@/components/sections/CityBanner";
+import { IndiaGeoFooter } from "@/components/sections/IndiaGeoFooter";
 import { industryIllustrations } from "@/components/illustrations";
 import {
   StuckStateFlow,
@@ -453,6 +454,7 @@ export default async function IndustrySlugPage({
         </div>
       </Section>
 
+      <IndiaGeoFooter country={country} locale={locale} pageKey="industries" />
       <Cta t={t} country={country} />
     </>
   );

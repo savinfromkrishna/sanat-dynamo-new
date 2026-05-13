@@ -9,6 +9,7 @@ import { CountryMarketContext } from "@/components/sections/CountryMarketContext
 import { FeatureGrid } from "@/components/sections/FeatureGrid";
 import { TechStack } from "@/components/sections/TechStack";
 import { KnowMore } from "@/components/sections/KnowMore";
+import { IndiaGeoFooter } from "@/components/sections/IndiaGeoFooter";
 import { Section, SectionHeader } from "@/components/primitives/section";
 import { Check, Sparkles, ArrowUpRight, Target } from "lucide-react";
 import LocalizedLink from "@/components/LocalizedLink";
@@ -227,6 +228,7 @@ export default async function ServicesPage({
       <TechStack t={t} />
       <Faq t={t} />
       <KnowMore t={t} pageKey="services" pageLabel="Services" />
+      <IndiaGeoFooter country={country} locale={locale} pageKey="services" />
       <Cta t={t} />
     </>
   );

@@ -20,6 +20,7 @@ import { TechStack } from "@/components/sections/TechStack";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Faq } from "@/components/sections/Faq";
 import { KnowMore } from "@/components/sections/KnowMore";
+import { IndiaGeoFooter } from "@/components/sections/IndiaGeoFooter";
 import { Cta } from "@/components/sections/Cta";
 
 export async function generateMetadata({
@@ -77,6 +78,7 @@ export default async function HomePage({
       <Testimonials t={t} country={country} />
       <Faq t={t} country={country} />
       <KnowMore t={t} pageKey="home" pageLabel="home" />
+      <IndiaGeoFooter country={country} locale={locale} pageKey="home" />
       <Cta t={t} country={country} />
     </>
   );

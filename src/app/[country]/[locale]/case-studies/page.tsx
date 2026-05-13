@@ -8,6 +8,7 @@ import { CityBanner } from "@/components/sections/CityBanner";
 import { CountryMarketContext } from "@/components/sections/CountryMarketContext";
 import { BigNumbers } from "@/components/sections/BigNumbers";
 import { KnowMore } from "@/components/sections/KnowMore";
+import { IndiaGeoFooter } from "@/components/sections/IndiaGeoFooter";
 import { Cta } from "@/components/sections/Cta";
 import { Section } from "@/components/primitives/section";
 import { RevenueGrowthChart, ProofStripVisual } from "@/components/illustrations";
@@ -68,6 +69,7 @@ export default async function CaseStudiesPage({
       <BigNumbers t={t} />
       <Testimonials t={t} />
       <KnowMore t={t} pageKey="caseStudies" pageLabel="Case Studies" />
+      <IndiaGeoFooter country={country} locale={locale} pageKey="case-studies" />
       <Cta t={t} />
     </>
   );

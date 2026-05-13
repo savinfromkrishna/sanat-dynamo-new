@@ -9,6 +9,7 @@ import { CityBanner } from "@/components/sections/CityBanner";
 import { CountryMarketContext } from "@/components/sections/CountryMarketContext";
 import { BigNumbers } from "@/components/sections/BigNumbers";
 import { KnowMore } from "@/components/sections/KnowMore";
+import { IndiaGeoFooter } from "@/components/sections/IndiaGeoFooter";
 import {
   Compass,
   Layers,
@@ -235,6 +236,7 @@ export default async function AboutPage({
       <BigNumbers t={t} />
       <Testimonials t={t} />
       <KnowMore t={t} pageKey="about" pageLabel="About" />
+      <IndiaGeoFooter country={country} locale={locale} pageKey="about" />
       <Cta t={t} />
     </>
   );

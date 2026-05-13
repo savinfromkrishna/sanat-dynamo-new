@@ -6,6 +6,7 @@ import { PageHero } from "@/components/sections/PageHero";
 import { Section } from "@/components/primitives/section";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { KnowMore } from "@/components/sections/KnowMore";
+import { IndiaGeoFooter } from "@/components/sections/IndiaGeoFooter";
 import { GlobalReachMap } from "@/components/illustrations";
 import {
   Mail,
@@ -207,6 +208,7 @@ export default async function ContactPage({
       </Section>
 
       <KnowMore t={t} pageKey="contact" pageLabel="Contact" />
+      <IndiaGeoFooter country={country} locale={locale} pageKey="contact" />
     </>
   );
 }

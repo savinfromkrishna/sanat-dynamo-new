@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -nB1 -A6 \"languages\\\\|alternates\\\\b\" \"src/app/[country]/[locale]/cities/[city]/about/page.tsx\" \"src/app/[country]/[locale]/cities/[city]/blog/page.tsx\" \"src/app/[country]/[locale]/cities/[city]/case-studies/page.tsx\" \"src/app/[country]/[locale]/cities/[city]/contact/page.tsx\" \"src/app/[country]/[locale]/cities/[city]/process/page.tsx\" \"src/app/[country]/[locale]/cities/[city]/services/page.tsx\" \"src/app/[country]/[locale]/cities/[city]/blog/[slug]/page.tsx\")"
+    ]
+  }
+}

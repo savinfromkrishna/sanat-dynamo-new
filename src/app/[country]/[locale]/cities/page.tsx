@@ -11,6 +11,7 @@ import { buildBreadcrumbJsonLd } from "@/lib/seo";
 import { PageHero } from "@/components/sections/PageHero";
 import { Section, Eyebrow } from "@/components/primitives/section";
 import { Cta } from "@/components/sections/Cta";
+import { IndiaGeoFooter } from "@/components/sections/IndiaGeoFooter";
 import {
   IndiaMetroMap,
   CitiesScrollTimeline,
@@ -182,6 +183,7 @@ export default async function CitiesIndexPage({
         <GlobalPeersConstellation />
       </Section>
 
+      <IndiaGeoFooter country={country} locale={locale} pageKey="cities" />
       <Cta t={t} country={country} />
     </>
   );
