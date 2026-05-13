@@ -10,10 +10,13 @@ import {
 } from "@/lib/i18n";
 import {
   BASE_URL,
-  INDEXABLE_LOCALES,
   isIndexable,
 } from "@/lib/constants";
-import { buildOrganizationJsonLd, buildWebsiteJsonLd } from "@/lib/seo";
+import {
+  buildAlternates,
+  buildOrganizationJsonLd,
+  buildWebsiteJsonLd,
+} from "@/lib/seo";
 import Header from "@/components/common/header";
 import type { CityNavItem } from "@/components/common/MegaMenu";
 import Footer from "@/components/common/footer";
@@ -58,16 +61,12 @@ export async function generateMetadata({
     : "en") as Locale;
   const t = getTranslation(locale);
 
-  // Hreflang for the homepage only — child pages override via their own
-  // `generateMetadata`. Cluster includes only the locales we want indexed
-  // (INDEXABLE_LOCALES); other locales resolve but ship `noindex` and stay
-  // out of the cluster so Google doesn't fold near-duplicate translation
-  // fallbacks back into the canonical EN/HI versions.
-  const langMap: Record<string, string> = {};
-  for (const lang of INDEXABLE_LOCALES) {
-    langMap[LOCALES[lang].htmlLang] = `${BASE_URL}/in/${lang}`;
-  }
-  langMap["x-default"] = `${BASE_URL}/in/en`;
+  // Hreflang + canonical fallback for the locale layout. Child pages
+  // override this via their own `generateMetadata`; this serves as the
+  // baseline for any route that doesn't set its own alternates. Region
+  // tagging (en-IN, hi-IN) and the noindex-page-emits-no-hreflang policy
+  // are both centralized in `buildAlternates`.
+  const alternates = buildAlternates({ country, locale, subPath: "" });
 
   return {
     title: {
@@ -77,10 +76,7 @@ export async function generateMetadata({
     description: t.seo.description,
     keywords: t.seo.keywords,
     metadataBase: new URL(BASE_URL),
-    alternates: {
-      canonical: `/${country}/${locale}`,
-      languages: langMap,
-    },
+    alternates,
     openGraph: {
       title: t.seo.title,
       description: t.seo.description,

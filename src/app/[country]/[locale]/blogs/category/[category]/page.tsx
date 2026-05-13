@@ -12,12 +12,12 @@ import { PageHero } from "@/components/sections/PageHero";
 import { Section, SectionHeader } from "@/components/primitives/section";
 import LocalizedLink from "@/components/LocalizedLink";
 import { Cta } from "@/components/sections/Cta";
-import { getTranslation, LOCALES, type Locale } from "@/lib/i18n";
+import { getTranslation, type Locale } from "@/lib/i18n";
 import {
   BASE_URL,
-  INDEXABLE_LOCALES,
   isIndexable,
 } from "@/lib/constants";
+import { buildAlternates } from "@/lib/seo";
 import {
   BLOG_CATEGORIES,
   BLOG_POSTS,
@@ -153,20 +153,18 @@ export async function generateMetadata({
     return { title: "Category not found" };
   }
   const copy = CATEGORY_COPY[category as BlogCategory];
-  const canonical = `${BASE_URL}/${country}/${locale}/blogs/category/${category}`;
-
-  const languages: Record<string, string> = {};
-  for (const lang of INDEXABLE_LOCALES) {
-    languages[LOCALES[lang].htmlLang] =
-      `${BASE_URL}/in/${lang}/blogs/category/${category}`;
-  }
-  languages["x-default"] = `${BASE_URL}/in/en/blogs/category/${category}`;
+  const alternates = buildAlternates({
+    country,
+    locale,
+    subPath: `blogs/category/${category}`,
+  });
+  const canonical = `${BASE_URL}${alternates.canonical}`;
 
   return {
     title: copy.metaTitle,
     description: copy.metaDescription,
     keywords: copy.keywords,
-    alternates: { canonical, languages },
+    alternates,
     openGraph: {
       title: copy.metaTitle,
       description: copy.metaDescription,

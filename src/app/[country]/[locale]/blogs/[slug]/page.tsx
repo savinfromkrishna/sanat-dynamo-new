@@ -23,12 +23,12 @@ import { PageHero } from "@/components/sections/PageHero";
 import { Section } from "@/components/primitives/section";
 import LocalizedLink from "@/components/LocalizedLink";
 import { Cta } from "@/components/sections/Cta";
-import { getTranslation, LOCALES, type Locale } from "@/lib/i18n";
+import { getTranslation, type Locale } from "@/lib/i18n";
 import {
   BASE_URL,
-  INDEXABLE_LOCALES,
   isIndexable,
 } from "@/lib/constants";
+import { buildAlternates } from "@/lib/seo";
 import {
   BLOG_CATEGORIES,
   BLOG_POSTS,
@@ -61,24 +61,20 @@ export async function generateMetadata({
   if (!base) return { title: "Post not found" };
   const post = localizePost(base, locale as Locale);
 
-  const canonical = `${BASE_URL}/${country}/${locale}/blogs/${slug}`;
+  const alternates = buildAlternates({
+    country,
+    locale,
+    subPath: `blogs/${slug}`,
+  });
+  const canonical = `${BASE_URL}${alternates.canonical}`;
   const description = post.excerpt;
-
-  // Hreflang cluster: indexable locales pinned to /in/. Pages outside the
-  // cluster ship noindex and stay out so Google doesn't fold fallback
-  // translations back into the canonical EN/HI versions.
-  const languages: Record<string, string> = {};
-  for (const lang of INDEXABLE_LOCALES) {
-    languages[LOCALES[lang].htmlLang] = `${BASE_URL}/in/${lang}/blogs/${slug}`;
-  }
-  languages["x-default"] = `${BASE_URL}/in/en/blogs/${slug}`;
 
   return {
     title: `${post.title}`,
     description,
     keywords: [post.keywords.primary, ...post.keywords.secondary, ...post.tags],
     authors: [{ name: post.author.name, url: `${BASE_URL}/${country}/${locale}/about` }],
-    alternates: { canonical, languages },
+    alternates,
     openGraph: {
       title: post.title,
       description,

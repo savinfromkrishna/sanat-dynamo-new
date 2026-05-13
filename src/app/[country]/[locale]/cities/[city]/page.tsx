@@ -17,7 +17,6 @@ import {
   getTranslation,
   type Locale,
   LOCALE_CODES,
-  LOCALES,
 } from "@/lib/i18n";
 import {
   BASE_URL,
@@ -25,7 +24,6 @@ import {
 import {
   INDIA_CITIES,
   getCityBySlug,
-  getCityIndexableLocales,
   isCityIndexable,
   localizeCity,
   type CityContent,
@@ -34,7 +32,11 @@ import { getCityExtras } from "@/lib/city-extras";
 import { getCityIdentity } from "@/lib/city-identity";
 import { getCityPosts } from "@/lib/city-blog";
 import { getCityOrganization } from "@/lib/city-organization";
-import { buildBreadcrumbJsonLd, buildFaqJsonLd } from "@/lib/seo";
+import {
+  buildBreadcrumbJsonLd,
+  buildCityAlternates,
+  buildFaqJsonLd,
+} from "@/lib/seo";
 import { PageHero } from "@/components/sections/PageHero";
 import { SectionHeader, Eyebrow } from "@/components/primitives/section";
 import { SnapRowHint } from "@/components/primitives/snap-row-hint";
@@ -100,28 +102,28 @@ export async function generateMetadata({
   // INDEXABLE_LOCALES which is "en"-only since 2026-05-09).
   const indexable = isCityIndexable(baseCity, country, lc);
 
-  const canonical = `/${country}/${lc}/${CITIES_PATH}/${city.slug}`;
-  // Hreflang cluster: only the locales this specific city has translated
-  // bodies for. Pinned to /in/. Keeps the cluster honest — a city without
-  // Hindi body never appears in a `hreflang="hi-IN"` alternate.
-  const cityLocales = getCityIndexableLocales(baseCity);
-  const languages: Record<string, string> = {};
-  for (const lang of cityLocales) {
-    languages[LOCALES[lang].htmlLang] =
-      `${BASE_URL}/in/${lang}/${CITIES_PATH}/${city.slug}`;
-  }
-  languages["x-default"] = `${BASE_URL}/in/en/${CITIES_PATH}/${city.slug}`;
+  // Hreflang cluster is built in `buildCityAlternates` using
+  // `getCityIndexableLocales(baseCity)`. The cluster only includes locales
+  // this specific city has body translations for, and the languages map is
+  // omitted entirely on noindex locale variants (so a /in/zh/cities/mumbai
+  // doesn't try to fake-cluster with the EN/HI pages).
+  const alternates = buildCityAlternates({
+    country,
+    locale: lc,
+    city: baseCity,
+    cityPath: city.slug,
+  });
 
   return {
     title: city.metaTitle,
     description: city.metaDescription,
     keywords: city.metaKeywords,
     metadataBase: new URL(BASE_URL),
-    alternates: { canonical, languages },
+    alternates,
     openGraph: {
       title: city.metaTitle,
       description: city.metaDescription,
-      url: `${BASE_URL}${canonical}`,
+      url: `${BASE_URL}${alternates.canonical}`,
       siteName: "Sanat Dynamo",
       locale: `${lc}_${country.toUpperCase()}`,
       type: "website",

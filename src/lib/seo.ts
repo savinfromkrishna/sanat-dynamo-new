@@ -13,6 +13,115 @@ import {
 } from "@/lib/constants";
 import { validCountryISOs } from "@/middleware";
 import { getGeo, formatLocation, formatLocationShort, type GeoInfo } from "@/lib/geo";
+import {
+  getCityIndexableLocales,
+  isCityIndexable,
+  type CityContent,
+} from "@/lib/cities";
+
+/* -------------------------------------------------------------------------- */
+/*                Hreflang / canonical helpers                                */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * The shape Next.js wants under `metadata.alternates`. We always ship
+ * `canonical` (self-referencing for indexable pages, self-referencing for
+ * noindex pages too — the noindex header tells Google not to index, but the
+ * canonical still tells Google "this URL is the URL for this content").
+ *
+ * `languages` is omitted entirely for noindex pages. Per Google's i18n docs,
+ * pages marked `noindex` cannot be members of an hreflang cluster, so emitting
+ * cluster info from them is wasted bytes and creates the appearance of a
+ * one-page cluster from every locale variant — which Google then discards.
+ */
+type AlternatesShape = {
+  canonical: string;
+  languages?: Record<string, string>;
+};
+
+/**
+ * Standard hreflang + canonical for pages whose indexable surface is the
+ * site-wide one (INDEXABLE_COUNTRIES × INDEXABLE_LOCALES).
+ *
+ * - When the requested URL is INDEXABLE: emit a self-canonical and a
+ *   languages map listing each indexable locale variant of THIS page,
+ *   keyed by the locale's `hreflang` (region-tagged where applicable),
+ *   plus an `x-default` pointing at the EN variant.
+ * - When the requested URL is NOINDEX (e.g. /us/en/services or /in/zh/...):
+ *   emit a self-canonical and OMIT the languages map. The page is not a
+ *   cluster member — including hreflangs from it would have Google try to
+ *   form a cluster keyed off a noindex page, which it then discards.
+ *
+ * `subPath` is the part AFTER `/in/{locale}/` — pass `""` for the homepage,
+ * `"services"` for the services page, `"industries/manufacturing"` for an
+ * industry slug, etc. Leading/trailing slashes are stripped.
+ */
+export function buildAlternates({
+  country,
+  locale,
+  subPath,
+}: {
+  country: string;
+  locale: string;
+  subPath: string;
+}): AlternatesShape {
+  const cleanSub = subPath.replace(/^\/+|\/+$/g, "");
+  const subSegment = cleanSub ? `/${cleanSub}` : "";
+  const canonical = `/${country}/${locale}${subSegment}`;
+
+  if (!isIndexable(country, locale)) {
+    return { canonical };
+  }
+
+  const languages: Record<string, string> = {};
+  for (const lang of INDEXABLE_LOCALES) {
+    languages[LOCALES[lang].hreflang] =
+      `${BASE_URL}/in/${lang}${subSegment}`;
+  }
+  languages["x-default"] = `${BASE_URL}/in/en${subSegment}`;
+
+  return { canonical, languages };
+}
+
+/**
+ * Hreflang + canonical for city-anchored pages (`/in/{locale}/cities/{slug}`
+ * and its sub-routes). Indexability is per-CITY here — a city with a
+ * complete Hindi body emits `hi-IN` alongside `en-IN`, while every other
+ * city only emits `en-IN`. See `getCityIndexableLocales` in lib/cities.ts.
+ *
+ * `cityPath` is everything after `cities/` — e.g. `mumbai`, `mumbai/about`,
+ * `mumbai/blog/some-post`. Leading/trailing slashes are stripped.
+ */
+export function buildCityAlternates({
+  country,
+  locale,
+  city,
+  cityPath,
+}: {
+  country: string;
+  locale: string;
+  city: CityContent;
+  cityPath: string;
+}): AlternatesShape {
+  const cleanCityPath = cityPath.replace(/^\/+|\/+$/g, "");
+  const fullSub = `cities/${cleanCityPath}`;
+  const canonical = `/${country}/${locale}/${fullSub}`;
+
+  if (!isCityIndexable(city, country, locale)) {
+    return { canonical };
+  }
+
+  const cityLocales = getCityIndexableLocales(city);
+  const languages: Record<string, string> = {};
+  for (const lang of cityLocales) {
+    languages[LOCALES[lang].hreflang] =
+      `${BASE_URL}/in/${lang}/${fullSub}`;
+  }
+  languages["x-default"] = `${BASE_URL}/in/en/${fullSub}`;
+
+  return { canonical, languages };
+}
+
 
 export type PageKey =
   | "home"
@@ -182,8 +291,8 @@ export async function buildPageMetadata({
   const t = getTranslation(locale);
   const meta = t.pages[page];
   const subPath = PAGE_PATHS[page];
-  const canonical = `/${country}/${locale}${subPath ? `/${subPath}` : ""}`;
-  const fullUrl = `${BASE_URL}${canonical}`;
+  const alternates = buildAlternates({ country, locale, subPath });
+  const fullUrl = `${BASE_URL}${alternates.canonical}`;
 
   // Personalize with geo. `getGeo` always returns a country name derived from
   // the URL slug (not the visitor IP), so the page is deterministic per URL —
@@ -198,18 +307,6 @@ export async function buildPageMetadata({
   const keywords = geoize
     ? geoifyKeywords(meta.metaKeywords, geo)
     : meta.metaKeywords;
-
-  // hreflang cluster: only locales we want indexed. Pinning the cluster to
-  // /in/* (the indexable country) keeps the cluster tight and prevents
-  // Google from folding fallback-English locales back into the EN canonical.
-  // Other locales still resolve but are noindex and stay out of the cluster.
-  const languages: Record<string, string> = {};
-  for (const lang of INDEXABLE_LOCALES) {
-    languages[LOCALES[lang].htmlLang] =
-      `${BASE_URL}/in/${lang}${subPath ? `/${subPath}` : ""}`;
-  }
-  languages["x-default"] =
-    `${BASE_URL}/in/en${subPath ? `/${subPath}` : ""}`;
 
   const ogTitleBase =
     (meta as { ogTitle?: string }).ogTitle ?? meta.metaTitle;
@@ -252,7 +349,7 @@ export async function buildPageMetadata({
     description,
     keywords,
     metadataBase: new URL(BASE_URL),
-    alternates: { canonical, languages },
+    alternates,
     openGraph: {
       title: ogTitle,
       description: ogDescription,
@@ -464,20 +561,14 @@ export async function buildIndustryPageMetadata({
   locale: Locale;
 }): Promise<Metadata> {
   const subPath = `industries/${industry.slug}`;
-  const canonical = `/${country}/${locale}/${subPath}`;
-  const fullUrl = `${BASE_URL}${canonical}`;
+  const alternates = buildAlternates({ country, locale, subPath });
+  const fullUrl = `${BASE_URL}${alternates.canonical}`;
 
   const geo = await getGeo(country, locale);
 
   const title = geoifyTitle(industry.metaTitle, geo);
   const description = geoifyDescription(industry.metaDescription, geo);
   const keywords = geoifyKeywords(industry.metaKeywords, geo);
-
-  const languages: Record<string, string> = {};
-  for (const lang of INDEXABLE_LOCALES) {
-    languages[LOCALES[lang].htmlLang] = `${BASE_URL}/in/${lang}/${subPath}`;
-  }
-  languages["x-default"] = `${BASE_URL}/in/en/${subPath}`;
 
   const ogTitle = geoifyTitle(industry.ogTitle, geo);
   const ogDescription = geoifyDescription(industry.ogDescription, geo);
@@ -501,7 +592,7 @@ export async function buildIndustryPageMetadata({
     description,
     keywords,
     metadataBase: new URL(BASE_URL),
-    alternates: { canonical, languages },
+    alternates,
     openGraph: {
       title: ogTitle,
       description: ogDescription,

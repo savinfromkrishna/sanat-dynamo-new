@@ -10,7 +10,21 @@ import guMessages from "@/locales/gu.json";
 export type Locale = "en" | "es" | "fr" | "de" | "ar" | "hi" | "zh" | "gu";
 export type Messages = typeof enMessages;
 
-/** Metadata for each supported locale */
+/**
+ * Metadata for each supported locale.
+ *
+ * `htmlLang` — the value emitted on `<html lang="…">`. Reflects the LANGUAGE
+ * the page renders in. No region tag here because the same page (e.g. an
+ * English blog post) is the same language regardless of who reads it.
+ *
+ * `hreflang` — the value emitted in `<link rel="alternate" hreflang="…">`
+ * and `metadata.alternates.languages` keys. Reflects the GEO targeting
+ * we want Google to use for this URL. For locales whose indexed surface
+ * is India-only (en, hi, gu), we use the region-tagged form (en-IN,
+ * hi-IN, gu-IN) so Google can prefer this site for India-targeted
+ * searches over generic English/Hindi alternatives. The .in TLD already
+ * pins us to India; the region tag reinforces it.
+ */
 export const LOCALES: Record<
   Locale,
   {
@@ -20,6 +34,7 @@ export const LOCALES: Record<
     flag: string;
     dir: "ltr" | "rtl";
     htmlLang: string;
+    hreflang: string;
   }
 > = {
   en: {
@@ -29,6 +44,7 @@ export const LOCALES: Record<
     flag: "🇬🇧",
     dir: "ltr",
     htmlLang: "en",
+    hreflang: "en-IN",
   },
   es: {
     code: "es",
@@ -37,6 +53,7 @@ export const LOCALES: Record<
     flag: "🇪🇸",
     dir: "ltr",
     htmlLang: "es",
+    hreflang: "es",
   },
   fr: {
     code: "fr",
@@ -45,6 +62,7 @@ export const LOCALES: Record<
     flag: "🇫🇷",
     dir: "ltr",
     htmlLang: "fr",
+    hreflang: "fr",
   },
   de: {
     code: "de",
@@ -53,6 +71,7 @@ export const LOCALES: Record<
     flag: "🇩🇪",
     dir: "ltr",
     htmlLang: "de",
+    hreflang: "de",
   },
   ar: {
     code: "ar",
@@ -61,6 +80,7 @@ export const LOCALES: Record<
     flag: "🇸🇦",
     dir: "rtl",
     htmlLang: "ar",
+    hreflang: "ar",
   },
   hi: {
     code: "hi",
@@ -69,6 +89,7 @@ export const LOCALES: Record<
     flag: "🇮🇳",
     dir: "ltr",
     htmlLang: "hi",
+    hreflang: "hi-IN",
   },
   zh: {
     code: "zh",
@@ -77,6 +98,7 @@ export const LOCALES: Record<
     flag: "🇨🇳",
     dir: "ltr",
     htmlLang: "zh-Hans",
+    hreflang: "zh-Hans",
   },
   gu: {
     code: "gu",
@@ -85,6 +107,7 @@ export const LOCALES: Record<
     flag: "🇮🇳",
     dir: "ltr",
     htmlLang: "gu-IN",
+    hreflang: "gu-IN",
   },
 };
 

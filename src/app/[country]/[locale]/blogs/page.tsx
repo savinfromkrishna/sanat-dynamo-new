@@ -18,12 +18,12 @@ import LocalizedLink from "@/components/LocalizedLink";
 import { KnowMore } from "@/components/sections/KnowMore";
 import { Cta } from "@/components/sections/Cta";
 import { IndiaGeoFooter } from "@/components/sections/IndiaGeoFooter";
-import { getTranslation, LOCALES, type Locale } from "@/lib/i18n";
+import { getTranslation, type Locale } from "@/lib/i18n";
 import {
   BASE_URL,
-  INDEXABLE_LOCALES,
   isIndexable,
 } from "@/lib/constants";
+import { buildAlternates } from "@/lib/seo";
 import {
   BLOG_CATEGORIES,
   BLOG_POSTS,
@@ -66,15 +66,8 @@ export async function generateMetadata({
   params: Promise<{ country: string; locale: string }>;
 }): Promise<Metadata> {
   const { country, locale } = await params;
-  const canonical = `${BASE_URL}/${country}/${locale}/blogs`;
-
-  // Hreflang cluster: only indexable locales, all pinned to /in/. Other
-  // country/locale combos resolve but ship noindex via the robots block below.
-  const languages: Record<string, string> = {};
-  for (const lang of INDEXABLE_LOCALES) {
-    languages[LOCALES[lang].htmlLang] = `${BASE_URL}/in/${lang}/blogs`;
-  }
-  languages["x-default"] = `${BASE_URL}/in/en/blogs`;
+  const alternates = buildAlternates({ country, locale, subPath: "blogs" });
+  const canonical = `${BASE_URL}${alternates.canonical}`;
 
   return {
     title:
@@ -85,7 +78,7 @@ export async function generateMetadata({
     authors: [
       { name: "Kanha Singh", url: `${BASE_URL}/${country}/${locale}/about` },
     ],
-    alternates: { canonical, languages },
+    alternates,
     openGraph: {
       title: "Sanat Dynamo · Blog",
       description:

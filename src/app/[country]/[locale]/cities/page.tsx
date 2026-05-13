@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getTranslation, type Locale, LOCALE_CODES, LOCALES } from "@/lib/i18n";
+import { getTranslation, type Locale, LOCALE_CODES } from "@/lib/i18n";
 import {
   BASE_URL,
-  INDEXABLE_LOCALES,
   isIndexable,
 } from "@/lib/constants";
 import { INDIA_CITIES } from "@/lib/cities";
-import { buildBreadcrumbJsonLd } from "@/lib/seo";
+import { buildAlternates, buildBreadcrumbJsonLd } from "@/lib/seo";
 import { PageHero } from "@/components/sections/PageHero";
 import { Section, Eyebrow } from "@/components/primitives/section";
 import { Cta } from "@/components/sections/Cta";
@@ -38,14 +37,7 @@ export async function generateMetadata({
       ? "Hand-built revenue systems and websites for India's 11 largest metros — Mumbai, Delhi NCR, Bengaluru, Pune, Chennai, Hyderabad, Kolkata, Ahmedabad, Jaipur, Indore, and Bhopal. Locally relevant SEO, INR pricing, GST-compliant invoicing."
       : "Cities and regions we serve.";
 
-  const canonical = `/${country}/${lc}/${PAGE_PATH}`;
-  // Hreflang cluster: indexable locales pinned to /in/. The cities hub is
-  // intrinsically India-only, so the cluster only includes IN URLs.
-  const languages: Record<string, string> = {};
-  for (const lang of INDEXABLE_LOCALES) {
-    languages[LOCALES[lang].htmlLang] = `${BASE_URL}/in/${lang}/${PAGE_PATH}`;
-  }
-  languages["x-default"] = `${BASE_URL}/in/en/${PAGE_PATH}`;
+  const alternates = buildAlternates({ country, locale: lc, subPath: PAGE_PATH });
 
   return {
     title,
@@ -53,11 +45,11 @@ export async function generateMetadata({
     keywords:
       "website development company India, cities we serve, web design Mumbai, Delhi NCR, Bengaluru, Pune, Chennai, Hyderabad, Kolkata, Ahmedabad, Jaipur, Indore, Bhopal",
     metadataBase: new URL(BASE_URL),
-    alternates: { canonical, languages },
+    alternates,
     openGraph: {
       title,
       description,
-      url: `${BASE_URL}${canonical}`,
+      url: `${BASE_URL}${alternates.canonical}`,
       siteName: "Sanat Dynamo",
       locale: `${lc}_${country.toUpperCase()}`,
       type: "website",
